@@ -1532,7 +1532,7 @@ Create sample content for AI Solutions > RAG Frameworks service."
    - Newsletter CTA
 3. Article schema markup
 4. Category pages
-Connect to Sanity CMS (or use MDX for initial setup)."
+Connect to Sanity CMS."
 
 ## Prompt 7: Contact & Booking
 "Create the contact and booking pages:

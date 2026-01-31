@@ -15,7 +15,15 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 | `src/software-consulting-website-architecture.md` | **Master blueprint** — SEO/GEO/AEO strategy, tech stack, site map, schema markup, folder structure, and implementation prompts. **Reference this first** for any website work. |
 | `src/company details/markup/*.md` | Company formation content (services, pricing, positioning, team, etc.) |
 
-**Company Name**: AIvanceWorks — Replace `<COMPANY NAME>` placeholders in documentation with "AIvanceWorks" when generating code or copy.
+
+## Available Agents
+Specialized agents are defined in `.claude\agents\*.md`.
+
+**Use agents for:**
+- SEO/GEO/AEO content optimization
+- Frontend/component development
+
+Consult `.claude\AGENTS.md`. to identify and delegate to the appropriate agent.
 
 ## Planned Tech Stack
 
@@ -112,6 +120,8 @@ See **Part 10** of the architecture doc for detailed prompts for each implementa
 | Quality checklist | Architecture doc Part 10.3 |
 | Pre-launch checklist | Architecture doc Part 11.1 |
 | Company content (services, pricing) | `src/company details/markup/*.md` |
+| Frontend engineering standards | `agents/frontend-engineer.md` |
+| Agent collaboration protocols | `agents/README.md` |
 
 ## CMS Abstraction Layer
 

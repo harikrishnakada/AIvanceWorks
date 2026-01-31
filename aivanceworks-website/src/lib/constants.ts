@@ -35,11 +35,12 @@ export const NAVIGATION = {
     { label: 'Contact', href: '/contact' },
   ],
   services: [
-    { label: 'AI Solutions', href: '/services/ai-solutions' },
-    { label: 'Cloud Solutions', href: '/services/cloud-solutions' },
-    { label: 'Custom Development', href: '/services/custom-software-development' },
-    { label: 'Data Analytics', href: '/services/data-analytics' },
-    { label: 'Web Development', href: '/services/web-development' },
-    { label: 'DevOps', href: '/services/devops' },
+    { label: 'AI & Machine Learning', href: '/services/ai-machine-learning' },
+    { label: 'Cloud Engineering', href: '/services/cloud-engineering' },
+    { label: 'Full-Stack Development', href: '/services/full-stack-development' },
+    { label: 'Data Engineering', href: '/services/data-engineering' },
+    { label: 'DevOps & CI/CD', href: '/services/devops-automation' },
+    { label: 'Enterprise Integration', href: '/services/enterprise-integration' },
+    { label: 'Security & Compliance', href: '/services/security-compliance' },
   ],
 } as const;
