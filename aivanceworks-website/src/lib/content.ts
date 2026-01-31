@@ -715,13 +715,177 @@ export function getServicesByCategorySlug(categorySlug: string): Service[] {
   return category?.services || [];
 }
 
-// Blog Posts (placeholder for future implementation)
-export function getAllPosts(): BlogPost[] {
-  return [];
+// ============================================================================
+// BLOG POSTS - SANITY CMS
+// ============================================================================
+// NOTE: All blog data is fetched from Sanity CMS.
+// This is the ONLY file that imports the Sanity client (abstraction layer).
+
+import { client } from './sanity';
+
+// Helper function to calculate reading time
+function calculateReadingTime(content: any[]): number {
+  if (!content || !Array.isArray(content)) return 0;
+
+  const text = content
+    .filter((block) => block._type === 'block')
+    .map((block) =>
+      block.children
+        ?.filter((child: any) => child._type === 'span')
+        .map((child: any) => child.text)
+        .join(' ') || ''
+    )
+    .join(' ');
+
+  const words = text.split(/\s+/).length;
+  return Math.ceil(words / 200); // 200 words per minute average reading speed
 }
 
-export function getPostBySlug(slug: string): BlogPost | undefined {
-  return undefined;
+// GROQ query for fetching posts with author details
+const POSTS_QUERY = `*[_type == "post"] | order(publishedAt desc) {
+  "id": _id,
+  title,
+  "slug": slug.current,
+  excerpt,
+  content,
+  "image": image.asset->url,
+  "author": author->{
+    "id": _id,
+    name,
+    "slug": slug.current,
+    bio,
+    "image": image.asset->url,
+    role,
+    linkedin,
+    twitter
+  },
+  publishedAt,
+  updatedAt,
+  category,
+  tags
+}`;
+
+export async function getAllPosts(): Promise<BlogPost[]> {
+  const posts = await client.fetch(POSTS_QUERY);
+
+  // Add reading time calculation and handle null values
+  return posts.map((post: any) => ({
+    ...post,
+    tags: post.tags || [],
+    updatedAt: post.updatedAt || post.publishedAt,
+    readingTime: calculateReadingTime(post.content),
+  }));
+}
+
+export async function getPostBySlug(slug: string): Promise<BlogPost | undefined> {
+  const post = await client.fetch(
+    `*[_type == "post" && slug.current == $slug][0] {
+      "id": _id,
+      title,
+      "slug": slug.current,
+      excerpt,
+      content,
+      "image": image.asset->url,
+      "author": author->{
+        "id": _id,
+        name,
+        "slug": slug.current,
+        bio,
+        "image": image.asset->url,
+        role,
+        linkedin,
+        twitter
+      },
+      publishedAt,
+      updatedAt,
+      category,
+      tags
+    }`,
+    { slug }
+  );
+
+  if (!post) return undefined;
+
+  return {
+    ...post,
+    tags: post.tags || [],
+    updatedAt: post.updatedAt || post.publishedAt,
+    readingTime: calculateReadingTime(post.content),
+  };
+}
+
+export async function getPostsByCategory(category: string): Promise<BlogPost[]> {
+  const posts = await client.fetch(
+    `*[_type == "post" && category == $category] | order(publishedAt desc) {
+      "id": _id,
+      title,
+      "slug": slug.current,
+      excerpt,
+      content,
+      "image": image.asset->url,
+      "author": author->{
+        "id": _id,
+        name,
+        "slug": slug.current,
+        bio,
+        "image": image.asset->url,
+        role,
+        linkedin,
+        twitter
+      },
+      publishedAt,
+      updatedAt,
+      category,
+      tags
+    }`,
+    { category }
+  );
+
+  return posts.map((post: any) => ({
+    ...post,
+    tags: post.tags || [],
+    updatedAt: post.updatedAt || post.publishedAt,
+    readingTime: calculateReadingTime(post.content),
+  }));
+}
+
+export async function getRelatedPosts(
+  postId: string,
+  category: string,
+  limit = 3
+): Promise<BlogPost[]> {
+  const posts = await client.fetch(
+    `*[_type == "post" && category == $category && _id != $postId] | order(publishedAt desc) [0...$limit] {
+      "id": _id,
+      title,
+      "slug": slug.current,
+      excerpt,
+      content,
+      "image": image.asset->url,
+      "author": author->{
+        "id": _id,
+        name,
+        "slug": slug.current,
+        bio,
+        "image": image.asset->url,
+        role,
+        linkedin,
+        twitter
+      },
+      publishedAt,
+      updatedAt,
+      category,
+      tags
+    }`,
+    { category, postId, limit }
+  );
+
+  return posts.map((post: any) => ({
+    ...post,
+    tags: post.tags || [],
+    updatedAt: post.updatedAt || post.publishedAt,
+    readingTime: calculateReadingTime(post.content),
+  }));
 }
 
 // Case Studies (placeholder for future implementation)
@@ -733,13 +897,36 @@ export function getCaseStudyBySlug(slug: string): CaseStudy | undefined {
   return undefined;
 }
 
-// Authors (placeholder for future implementation)
-export function getAllAuthors(): Author[] {
-  return [];
+// Authors
+export async function getAllAuthors(): Promise<Author[]> {
+  return client.fetch(
+    `*[_type == "author"] {
+      "id": _id,
+      name,
+      "slug": slug.current,
+      bio,
+      "image": image.asset->url,
+      role,
+      linkedin,
+      twitter
+    }`
+  );
 }
 
-export function getAuthorBySlug(slug: string): Author | undefined {
-  return undefined;
+export async function getAuthorBySlug(slug: string): Promise<Author | undefined> {
+  return client.fetch(
+    `*[_type == "author" && slug.current == $slug][0] {
+      "id": _id,
+      name,
+      "slug": slug.current,
+      bio,
+      "image": image.asset->url,
+      role,
+      linkedin,
+      twitter
+    }`,
+    { slug }
+  );
 }
 
 // FAQ helpers

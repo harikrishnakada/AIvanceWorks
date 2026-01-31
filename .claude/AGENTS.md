@@ -15,6 +15,7 @@ This directory contains **extended documentation** for specialized agents. The a
 | Agent | Official | Documentation | Status |
 |-------|----------|---------------|--------|
 | **Frontend Engineer** | `.claude/agents/frontend-engineer.md` | `agents/frontend-engineer.md` | Active |
+| **Content Generator** | `.claude/agents/content-generator.md` | `agents/content-generator.md` | Active |
 | **SEO Optimizer** | `.claude/agents/seo-geo-aeo-content-optimizer.md` | - | Active |
 
 ## Agent Collaboration
@@ -26,18 +27,30 @@ Agents work together following a defined handoff protocol:
                       │    Frontend     │
                       │    Engineer     │
                       └─────────────────┘
-                                │                       
-                                ┼
-                                ▼
-                    ┌─────────────────────┐
-                    │   SEO Specialist    │
-                    │   Content Writer    │
-                    └─────────────────────┘
+                                │
+                    ┌───────────┼───────────┐
+                    ▼           ▼           ▼
+        ┌──────────────────┐   ┌──────────────────┐   ┌──────────────────┐
+        │ Content Generator│   │  SEO Optimizer   │   │                  │
+        │ (Blog, Services, │──→│ (Keyword Strategy│   │                  │
+        │  Case Studies)   │   │  GEO/AEO Opt.)   │   │                  │
+        └──────────────────┘   └──────────────────┘   └──────────────────┘
 ```
 
 ### When Agents Request Help
 
-**Frontend → SEO/GEO/AEOContent**
+**Frontend → Content Generator**
+- Copy and messaging for UI elements
+- Service descriptions for component display
+- Testimonial and case study text
+
+**Content Generator → SEO Optimizer**
+- Keyword strategy for new content
+- Meta descriptions
+- GEO/AEO optimization
+- Content audit and refinement
+
+**Frontend → SEO/GEO/AEO Content**
 - Copy and messaging
 - Meta descriptions
 - Keyword optimization
