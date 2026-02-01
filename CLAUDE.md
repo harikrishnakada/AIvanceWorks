@@ -36,6 +36,36 @@ For significant content pieces (blog posts, service pages, case studies), use th
 
 See `.claude\AGENTS.md` → "Content Collaboration Workflow" for detailed handoff protocol.
 
+## Planning
+
+When entering plan mode for non-trivial implementation tasks, **always save the plan to `genissis/.agents/plans/`** for future reference. This ensures plans are preserved even if the conversation context is lost.
+
+**Naming convention**: `<feature-or-task-name>.md` (e.g., `blog-system.md`, `contact-form.md`, `services-pages.md`)
+
+**Plan file structure**:
+```markdown
+# Plan: <Feature Name>
+Created: <date>
+
+## Overview
+Brief description of what will be implemented.
+
+## Implementation Steps
+1. Step one...
+2. Step two...
+
+## Files to Create/Modify
+- `path/to/file.ts` — description
+
+## Dependencies
+Any packages or prerequisites needed.
+
+## Notes
+Additional context or decisions made.
+```
+
+**To implement a saved plan**: Ask "Implement the plan in `.claude/plans/<plan-name>.md`"
+
 ## Planned Tech Stack
 
 When implementing the website, follow the architecture doc. Summary:

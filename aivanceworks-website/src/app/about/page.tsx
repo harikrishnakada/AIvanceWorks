@@ -1,0 +1,561 @@
+import { Metadata } from 'next';
+import Link from 'next/link';
+import { constructMetadata } from '@/lib/seo';
+import { JsonLd } from '@/components/seo/JsonLd';
+import {
+  generateWebPageSchema,
+  generateOrganizationSchema,
+  generateFAQSchema,
+} from '@/lib/schema';
+import { SITE_CONFIG } from '@/lib/constants';
+import { Button } from '@/components/ui/button';
+import { Card } from '@/components/ui/card';
+import {
+  CheckCircle2,
+  Target,
+  Eye,
+  Shield,
+  Lightbulb,
+  Users,
+  TrendingUp,
+  Award,
+} from 'lucide-react';
+
+export const metadata: Metadata = constructMetadata({
+  title: 'About AIvanceWorks - AI Consulting & Software Engineering',
+  description:
+    'AIvanceWorks is a premier AI consulting and software engineering consultancy with 8+ years of experience, Microsoft-certified architects, and proven 50% performance improvements.',
+  canonical: `${SITE_CONFIG.url}/about`,
+  keywords: [
+    'AI consulting company',
+    'software engineering consultancy',
+    'Azure cloud consulting',
+    'AI implementation services',
+    'enterprise software development',
+    'Microsoft certified consultants',
+  ],
+});
+
+const faqs = [
+  {
+    question: 'What makes AIvanceWorks different from other software consultancies?',
+    answer:
+      'AIvanceWorks specializes in AI-augmented software development workflows with real-world Azure AI Foundry and RAG framework experience. We deliver documented 50% performance improvements while maintaining transparent communication and measurable business outcomes. Unlike Big 4 firms, we offer agility without bureaucracy, and unlike offshore providers, we deliver consistent enterprise-grade quality.',
+  },
+  {
+    question: 'What industries does AIvanceWorks serve?',
+    answer:
+      'We serve mid-market enterprises (50-5,000 employees) across North America, with particular expertise in technology, healthcare, financial services, manufacturing, and professional services. Our cloud-native and AI solutions are industry-agnostic but leverage domain-specific compliance expertise.',
+  },
+  {
+    question: 'Does AIvanceWorks only work with Microsoft technologies?',
+    answer:
+      'While we have deep Microsoft Azure expertise with AI-102, AZ-204, and DP-420 certifications, we work across the modern tech ecosystem including AWS, .NET 10, React 21, Angular 21, Next.js, and advanced AI technologies. We recommend the best technology for your specific business needs.',
+  },
+  {
+    question: 'How does AIvanceWorks ensure project success?',
+    answer:
+      'We combine technical excellence with transparent communication, working as an extension of your team. Every project includes knowledge transfer, security-first architecture, comprehensive QA processes, and quantifiable success metrics. Our 8+ years of enterprise delivery experience ensures predictable outcomes.',
+  },
+  {
+    question: 'What is the typical engagement model with AIvanceWorks?',
+    answer:
+      'We offer flexible engagement models including dedicated teams, time and materials, and fixed-bid projects. Rates range from $135-225/hour depending on expertise level and engagement scope. All engagements begin with a free discovery consultation to assess fit and define clear success metrics.',
+  },
+];
+
+export default function AboutPage() {
+  const pageUrl = `${SITE_CONFIG.url}/about`;
+
+  return (
+    <>
+      {/* Schema Markup */}
+      <JsonLd
+        data={generateWebPageSchema(
+          'About AIvanceWorks - AI Consulting & Software Engineering',
+          pageUrl
+        )}
+      />
+      <JsonLd data={generateOrganizationSchema()} />
+      <JsonLd data={generateFAQSchema(faqs)} />
+
+      {/* Hero Section */}
+      <section className="bg-gradient-to-br from-blue-50 via-white to-purple-50 py-20 lg:py-28">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+              Transforming Enterprise Technology Through AI and Expert Engineering
+            </h1>
+            <p className="text-xl md:text-2xl text-gray-700 mb-8 leading-relaxed">
+              AIvanceWorks is a premier software engineering consultancy
+              specializing in cloud-native application development, artificial
+              intelligence implementation, and enterprise digital transformation.
+              With 8+ years of experience and Microsoft-certified architects, we
+              deliver measurable business impact through cutting-edge technology
+              solutions.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button size="lg" asChild>
+                <Link href="/book-consultation">Schedule Free Consultation</Link>
+              </Button>
+              <Button size="lg" variant="outline" asChild>
+                <Link href="/services">Explore Our Services</Link>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Statistics Banner */}
+      <section className="bg-blue-600 text-white py-12">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div>
+              <div className="text-4xl md:text-5xl font-bold mb-2">8+</div>
+              <div className="text-blue-100">Years Enterprise Experience</div>
+            </div>
+            <div>
+              <div className="text-4xl md:text-5xl font-bold mb-2">50%</div>
+              <div className="text-blue-100">
+                Average Performance Improvement
+              </div>
+            </div>
+            <div>
+              <div className="text-4xl md:text-5xl font-bold mb-2">100%</div>
+              <div className="text-blue-100">Microsoft Certified Team</div>
+            </div>
+            <div>
+              <div className="text-4xl md:text-5xl font-bold mb-2">5,000+</div>
+              <div className="text-blue-100">Employees Served</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Mission & Vision Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">
+              What Drives AIvanceWorks?
+            </h2>
+
+            <div className="grid md:grid-cols-2 gap-12 mb-16">
+              <Card className="p-8 border-2 border-blue-100 hover:border-blue-300 transition-colors">
+                <div className="flex items-start gap-4 mb-4">
+                  <Target className="w-10 h-10 text-blue-600 flex-shrink-0" />
+                  <div>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                      Our Mission
+                    </h3>
+                    <p className="text-lg text-gray-700 leading-relaxed">
+                      To empower organizations with transformative technology
+                      solutions that drive innovation, operational excellence,
+                      and sustainable competitive advantage through expert
+                      software engineering, cloud architecture, and artificial
+                      intelligence.
+                    </p>
+                  </div>
+                </div>
+              </Card>
+
+              <Card className="p-8 border-2 border-purple-100 hover:border-purple-300 transition-colors">
+                <div className="flex items-start gap-4 mb-4">
+                  <Eye className="w-10 h-10 text-purple-600 flex-shrink-0" />
+                  <div>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                      Our Vision
+                    </h3>
+                    <p className="text-lg text-gray-700 leading-relaxed">
+                      To be the trusted technology partner for enterprises
+                      navigating digital transformation, recognized for technical
+                      excellence, innovative AI integration, and measurable
+                      business impact.
+                    </p>
+                  </div>
+                </div>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Core Values Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 text-center">
+              What We Stand For
+            </h2>
+            <p className="text-xl text-gray-600 text-center mb-12 max-w-3xl mx-auto">
+              Our core values guide every engagement, ensuring consistent
+              excellence and client success.
+            </p>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <Card className="p-6 hover:shadow-lg transition-shadow">
+                <Award className="w-12 h-12 text-blue-600 mb-4" />
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                  Technical Excellence
+                </h3>
+                <p className="text-gray-700">
+                  Mastery in our craft with production-grade solutions built on
+                  modern tech stacks including .NET 10, React 21, Angular 21,
+                  Next.js, and Azure AI Foundry.
+                </p>
+              </Card>
+
+              <Card className="p-6 hover:shadow-lg transition-shadow">
+                <CheckCircle2 className="w-12 h-12 text-green-600 mb-4" />
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                  Transparency
+                </h3>
+                <p className="text-gray-700">
+                  Clear communication, honest timelines, and value-driven
+                  pricing. No hidden costs, no surprises, just straightforward
+                  partnership.
+                </p>
+              </Card>
+
+              <Card className="p-6 hover:shadow-lg transition-shadow">
+                <Lightbulb className="w-12 h-12 text-yellow-600 mb-4" />
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                  Innovation
+                </h3>
+                <p className="text-gray-700">
+                  Pioneers in AI-augmented workflows, RAG frameworks, and
+                  agentic AI with cutting-edge cloud-native architectures that
+                  future-proof your business.
+                </p>
+              </Card>
+
+              <Card className="p-6 hover:shadow-lg transition-shadow">
+                <Users className="w-12 h-12 text-purple-600 mb-4" />
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                  Partnership
+                </h3>
+                <p className="text-gray-700">
+                  We work as an extension of your team with comprehensive
+                  knowledge transfer, ensuring your team can maintain and evolve
+                  solutions long-term.
+                </p>
+              </Card>
+
+              <Card className="p-6 hover:shadow-lg transition-shadow">
+                <Shield className="w-12 h-12 text-red-600 mb-4" />
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                  Security First
+                </h3>
+                <p className="text-gray-700">
+                  Enterprise-grade security embedded from day one, not bolted on
+                  later. Compliance-ready solutions for regulated industries.
+                </p>
+              </Card>
+
+              <Card className="p-6 hover:shadow-lg transition-shadow">
+                <TrendingUp className="w-12 h-12 text-indigo-600 mb-4" />
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                  Measurable Impact
+                </h3>
+                <p className="text-gray-700">
+                  Every project tied to quantifiable business outcomes with
+                  documented performance improvements averaging 50% or more.
+                </p>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose AIvanceWorks Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 text-center">
+              Why Choose AIvanceWorks?
+            </h2>
+            <p className="text-xl text-gray-600 text-center mb-12 max-w-3xl mx-auto">
+              We combine boutique consultancy agility with enterprise-grade
+              expertise, delivering exceptional value between Big 4 bureaucracy
+              and offshore uncertainty.
+            </p>
+
+            <div className="space-y-8">
+              <Card className="p-8 border-l-4 border-blue-600">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                  Pioneers in AI-Augmented Development
+                </h3>
+                <p className="text-lg text-gray-700 mb-4">
+                  Real-world experience with Azure AI Foundry, RAG frameworks,
+                  and agentic AI systems. We don't just talk about AI — we
+                  implement production-ready solutions with documented 50%
+                  performance improvements.
+                </p>
+                <ul className="space-y-2 text-gray-700">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
+                    <span>
+                      Azure AI Foundry integration for enterprise AI platforms
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
+                    <span>
+                      RAG (Retrieval-Augmented Generation) framework
+                      implementation
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
+                    <span>
+                      Agentic AI systems with autonomous decision-making
+                    </span>
+                  </li>
+                </ul>
+              </Card>
+
+              <Card className="p-8 border-l-4 border-purple-600">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                  Microsoft-Certified Cloud Expertise
+                </h3>
+                <p className="text-lg text-gray-700 mb-4">
+                  Our team holds AI-102, AZ-204, and DP-420 certifications with
+                  deep expertise in Microsoft Azure, AWS, and modern cloud-native
+                  architectures.
+                </p>
+                <ul className="space-y-2 text-gray-700">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
+                    <span>
+                      AI-102: Azure AI Engineer Associate certification
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
+                    <span>
+                      AZ-204: Azure Developer Associate certification
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
+                    <span>
+                      DP-420: Azure Cosmos DB Developer Specialty
+                    </span>
+                  </li>
+                </ul>
+              </Card>
+
+              <Card className="p-8 border-l-4 border-green-600">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                  Modern Technology Stack
+                </h3>
+                <p className="text-lg text-gray-700 mb-4">
+                  We build with the latest enterprise-grade technologies: .NET
+                  10, React 21, Angular 21, Next.js, and cutting-edge AI
+                  frameworks. Your solutions are future-ready from day one.
+                </p>
+              </Card>
+
+              <Card className="p-8 border-l-4 border-yellow-600">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                  Premium Value, Transparent Pricing
+                </h3>
+                <p className="text-lg text-gray-700 mb-4">
+                  Positioned between expensive Big 4 firms and inconsistent
+                  offshore providers, we deliver high ROI at $135-225/hour with
+                  transparent pricing, no hidden costs, and measurable outcomes.
+                </p>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Approach Section */}
+      <section className="py-20 bg-gradient-to-br from-blue-50 to-purple-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 text-center">
+              How We Work With You
+            </h2>
+            <p className="text-xl text-gray-600 text-center mb-12 max-w-3xl mx-auto">
+              Our proven delivery methodology ensures successful outcomes through
+              transparent collaboration and technical excellence.
+            </p>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="space-y-6">
+                <div className="bg-white rounded-lg p-6 shadow-sm">
+                  <div className="text-blue-600 font-bold text-lg mb-2">
+                    Step 1: Discovery
+                  </div>
+                  <p className="text-gray-700">
+                    Free 30-minute consultation to understand your challenges,
+                    technical landscape, and business objectives. We assess fit
+                    and provide honest recommendations.
+                  </p>
+                </div>
+
+                <div className="bg-white rounded-lg p-6 shadow-sm">
+                  <div className="text-blue-600 font-bold text-lg mb-2">
+                    Step 2: Strategy & Planning
+                  </div>
+                  <p className="text-gray-700">
+                    Detailed technical assessment, architecture design, timeline
+                    estimation, and success metrics definition. You'll have
+                    complete clarity before we write a single line of code.
+                  </p>
+                </div>
+
+                <div className="bg-white rounded-lg p-6 shadow-sm">
+                  <div className="text-blue-600 font-bold text-lg mb-2">
+                    Step 3: Iterative Development
+                  </div>
+                  <p className="text-gray-700">
+                    Agile sprints with continuous delivery, regular demos, and
+                    feedback integration. You see progress every week, not just
+                    at project end.
+                  </p>
+                </div>
+              </div>
+
+              <div className="space-y-6">
+                <div className="bg-white rounded-lg p-6 shadow-sm">
+                  <div className="text-blue-600 font-bold text-lg mb-2">
+                    Step 4: Quality Assurance
+                  </div>
+                  <p className="text-gray-700">
+                    Comprehensive testing, security audits, performance
+                    optimization, and compliance validation. We deliver
+                    production-ready solutions, not prototypes.
+                  </p>
+                </div>
+
+                <div className="bg-white rounded-lg p-6 shadow-sm">
+                  <div className="text-blue-600 font-bold text-lg mb-2">
+                    Step 5: Deployment & Training
+                  </div>
+                  <p className="text-gray-700">
+                    Seamless production deployment with zero-downtime strategies,
+                    comprehensive documentation, and hands-on team training for
+                    long-term self-sufficiency.
+                  </p>
+                </div>
+
+                <div className="bg-white rounded-lg p-6 shadow-sm">
+                  <div className="text-blue-600 font-bold text-lg mb-2">
+                    Step 6: Ongoing Partnership
+                  </div>
+                  <p className="text-gray-700">
+                    Post-launch support, performance monitoring, optimization
+                    recommendations, and strategic consulting to evolve your
+                    solutions as your business grows.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 text-center">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-xl text-gray-600 text-center mb-12">
+              Everything you need to know about working with AIvanceWorks.
+            </p>
+
+            <div className="space-y-6">
+              {faqs.map((faq, index) => (
+                <Card key={index} className="p-6 hover:shadow-md transition-shadow">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
+                    {faq.question}
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed">{faq.answer}</p>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Ready to Transform Your Enterprise Technology?
+            </h2>
+            <p className="text-xl mb-8 text-blue-50">
+              Join the enterprises achieving 50% performance improvements with
+              AI-augmented development. Schedule a free 30-minute discovery
+              consultation to discuss your challenges and explore how AIvanceWorks
+              can drive measurable business impact.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button
+                size="lg"
+                className="bg-white text-blue-600 hover:bg-gray-100"
+                asChild
+              >
+                <Link href="/book-consultation">Book Free Consultation</Link>
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-white text-white hover:bg-white/10"
+                asChild
+              >
+                <Link href="/contact">Contact Our Team</Link>
+              </Button>
+            </div>
+
+            <div className="mt-12 pt-8 border-t border-white/20">
+              <p className="text-blue-100 mb-4">What to expect:</p>
+              <div className="grid md:grid-cols-3 gap-6 text-left">
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="w-6 h-6 flex-shrink-0 mt-1" />
+                  <div>
+                    <div className="font-semibold mb-1">
+                      Initial Assessment
+                    </div>
+                    <div className="text-sm text-blue-100">
+                      Evaluation of your technical landscape and business
+                      objectives
+                    </div>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="w-6 h-6 flex-shrink-0 mt-1" />
+                  <div>
+                    <div className="font-semibold mb-1">
+                      Custom Recommendations
+                    </div>
+                    <div className="text-sm text-blue-100">
+                      Tailored technology strategy and architecture proposal
+                    </div>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="w-6 h-6 flex-shrink-0 mt-1" />
+                  <div>
+                    <div className="font-semibold mb-1">
+                      Timeline & Investment
+                    </div>
+                    <div className="text-sm text-blue-100">
+                      Clear project scope, timeline, and transparent pricing
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
