@@ -15,16 +15,16 @@ import {
   Shield,
 } from 'lucide-react';
 import { constructMetadata } from '@/lib/seo';
-import { generateWebPageSchema, generateFAQSchema } from '@/lib/schema';
+import { generateWebPageSchema, generateFAQSchema, generateTeamOrganizationSchema } from '@/lib/schema';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { SITE_CONFIG } from '@/lib/constants';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 
 export const metadata: Metadata = constructMetadata({
-  title: 'Expert AI Consulting Team - Azure Certified Developers',
+  title: 'AIvanceWorks Team | Azure-Certified AI & Software Engineers',
   description:
-    'Meet AIvanceWorks\' Azure-certified software development team. 10+ years experience in AI/ML, cloud engineering & full-stack development. US-based senior engineers ready to deliver.',
+    'AIvanceWorks employs US-based, Azure-certified engineers with 10+ years experience. Team includes AI-102 certified AI specialists, AZ-204 developers, and AZ-305 Solutions Architects. Senior-only policy—no junior developers on client projects.',
   canonical: `${SITE_CONFIG.url}/team`,
   keywords: [
     'AI consulting team',
@@ -33,6 +33,10 @@ export const metadata: Metadata = constructMetadata({
     'AI ML specialists',
     'cloud engineering team',
     'senior software engineers',
+    'US-based developers',
+    'Microsoft certified engineers',
+    'AI-102 certified',
+    'enterprise software team',
   ],
 });
 
@@ -203,39 +207,53 @@ const teamConfigurations = [
   },
 ];
 
-// FAQ data for schema markup
+// AEO-optimized FAQ data with direct answers in first sentence
 const faqs = [
   {
     question: 'What certifications do AIvanceWorks team members hold?',
     answer:
-      'All AIvanceWorks engineers hold relevant Microsoft Azure certifications including AI-102 (Azure AI Engineer), AZ-204 (Azure Developer), AZ-400 (DevOps Engineer), DP-203 (Azure Data Engineer), and DP-420 (Cosmos DB Developer). Our architects hold AZ-305 (Azure Solutions Architect) certifications. We maintain continuous learning through regular recertification and advanced training programs.',
+      'AIvanceWorks engineers hold 8+ Microsoft Azure certifications including AI-102 (Azure AI Engineer Associate), AZ-204 (Azure Developer Associate), AZ-305 (Azure Solutions Architect Expert), AZ-400 (DevOps Engineer Expert), DP-203 (Azure Data Engineer Associate), DP-420 (Azure Cosmos DB Developer Specialty), AZ-104 (Azure Administrator Associate), and AZ-900 (Azure Fundamentals). We maintain 100% certification compliance through quarterly recertification programs and continuous upskilling.',
   },
   {
     question: 'How experienced are the team members at AIvanceWorks?',
     answer:
-      'All team members have 10+ years of experience in their respective domains. Our Solutions Architects average 15+ years in enterprise architecture, while engineers bring deep expertise in modern frameworks (React, Next.js, .NET), cloud platforms (Azure, AWS), and AI/ML technologies. We do not staff junior developers on client projects.',
+      'All AIvanceWorks team members have 10+ years of experience in their respective domains, with Solutions Architects averaging 15+ years in enterprise architecture. We maintain a strict senior-only hiring policy—no junior developers are staffed on client projects. Engineers bring deep expertise in modern frameworks (React 21, Next.js, .NET 10), cloud platforms (Azure, AWS), and AI/ML technologies (Azure OpenAI, LangChain, RAG frameworks).',
+  },
+  {
+    question: 'What roles are available on AIvanceWorks teams?',
+    answer:
+      'AIvanceWorks provides 8 core team roles: Solutions Architect (system design, cloud strategy), Senior Full-Stack Engineer (end-to-end development), AI/ML Specialist (RAG, agentic AI, LLM orchestration), DevOps Engineer (CI/CD, infrastructure automation), Product Owner/Business Analyst (requirements, backlog management), QA Lead/Engineer (test automation, performance testing), UI/UX Designer (design systems, accessibility), and Data Engineer/Analyst (data pipelines, BI analytics).',
   },
   {
     question: 'Can I scale my team up or down during the project?',
     answer:
-      'Yes, AIvanceWorks provides flexible team scaling. You can increase team capacity during peak development periods or reduce allocation after launch. We offer staff augmentation (individual roles) or full delivery teams. Team changes are coordinated with 2-week notice to ensure smooth knowledge transfer and minimal disruption.',
+      'Yes, AIvanceWorks provides flexible team scaling with 2-week notice for changes. You can increase team capacity during peak development periods or reduce allocation after launch. We offer both staff augmentation (individual specialist roles) and full delivery teams (complete end-to-end capability). Team changes include structured knowledge transfer to ensure minimal disruption to project momentum.',
   },
   {
     question: 'Are AIvanceWorks teams based in the United States?',
     answer:
-      'Yes, all AIvanceWorks team members are US-based, ensuring timezone alignment, cultural compatibility, and seamless communication. This enables real-time collaboration during business hours (9 AM - 6 PM EST), immediate responses to urgent issues, and direct stakeholder engagement without language or timezone barriers.',
+      'Yes, 100% of AIvanceWorks team members are US-based. This ensures timezone alignment for real-time collaboration during business hours (9 AM - 6 PM EST), cultural compatibility for seamless stakeholder engagement, immediate response capability for urgent production issues, and enterprise-grade security compliance without international data transfer concerns.',
+  },
+  {
+    question: 'How much does an AIvanceWorks team cost?',
+    answer:
+      'AIvanceWorks team costs vary by configuration: Small Project teams (4-5 people, 8-12 weeks) cost $10,300-12,800/week, Medium Project teams (5-7 people, 12-24 weeks) cost $24,200-30,200/week, and Large Enterprise teams (10-15+ people, 6-12+ months) cost $73,600-92,600/week. Individual hourly rates range from $135-225 based on role and expertise level. All pricing is transparent with no hidden costs.',
   },
 ];
 
 export default function TeamPage() {
+  const pageUrl = `${SITE_CONFIG.url}/team`;
+  
+  // Enhanced schema graph for better SEO/GEO/AEO
   const pageSchema = {
     '@context': 'https://schema.org',
     '@graph': [
       generateWebPageSchema(
-        'Expert AI Consulting Team - Azure Certified Developers',
-        `${SITE_CONFIG.url}/team`
+        'AIvanceWorks Team - Azure-Certified AI & Software Engineers',
+        pageUrl
       ),
       generateFAQSchema(faqs),
+      generateTeamOrganizationSchema(),
     ],
   };
 
@@ -243,7 +261,7 @@ export default function TeamPage() {
     <>
       <JsonLd data={pageSchema} />
 
-      {/* Hero Section */}
+      {/* Hero Section - AEO optimized with direct answer in first 40-60 words */}
       <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl">
@@ -251,15 +269,17 @@ export default function TeamPage() {
               <Users className="h-8 w-8 text-blue-400" />
               <span className="text-blue-400 font-semibold">Our Expert Team</span>
             </div>
+            {/* Primary H1 with target keyword */}
             <h1 className="text-4xl sm:text-5xl font-bold mb-6">
-              Azure-Certified AI Consulting Team Built for Enterprise Delivery
+              AIvanceWorks Team: Azure-Certified AI & Software Engineers
             </h1>
+            {/* AEO-optimized paragraph - direct answer format */}
+            <p className="text-xl text-gray-200 mb-4 leading-relaxed">
+              <strong>The AIvanceWorks team consists of US-based, Azure-certified senior engineers</strong> with 10+ years of experience in AI/ML, cloud architecture, full-stack development, and DevOps automation.
+            </p>
+            {/* GEO-optimized stats paragraph */}
             <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-              AIvanceWorks assembles senior-only engineering teams with 10+ years of experience and
-              Microsoft Azure certifications. Every team member brings deep expertise in AI/ML, cloud
-              architecture, full-stack development, and DevOps automation. We deliver end-to-end
-              capabilities from strategy to production deployment with US-based professionals who
-              understand your business context.
+              Every team member holds Microsoft certifications (<strong>AI-102, AZ-204, AZ-305, AZ-400</strong>) and follows our strict senior-only policy—no junior developers on client projects. We assemble cohesive teams of <strong>4-15+ specialists</strong> tailored to your project scope, delivering end-to-end capabilities from strategy to production deployment.
             </p>
             <div className="grid sm:grid-cols-3 gap-6 mb-8">
               <div className="flex items-start gap-3">
@@ -301,6 +321,36 @@ export default function TeamPage() {
         </div>
       </section>
 
+      {/* Team Summary Stats - GEO optimized with specific, quotable data */}
+      <section className="py-12 bg-gray-50 border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div>
+              <div className="text-3xl md:text-4xl font-bold text-blue-600 mb-2">8+</div>
+              <div className="text-gray-600 text-sm">Microsoft Azure Certifications</div>
+            </div>
+            <div>
+              <div className="text-3xl md:text-4xl font-bold text-blue-600 mb-2">10+</div>
+              <div className="text-gray-600 text-sm">Years Minimum Experience</div>
+            </div>
+            <div>
+              <div className="text-3xl md:text-4xl font-bold text-blue-600 mb-2">100%</div>
+              <div className="text-gray-600 text-sm">US-Based Team Members</div>
+            </div>
+            <div>
+              <div className="text-3xl md:text-4xl font-bold text-blue-600 mb-2">8</div>
+              <div className="text-gray-600 text-sm">Core Specialist Roles</div>
+            </div>
+          </div>
+          {/* GEO-optimized quotable statement */}
+          <blockquote className="mt-8 max-w-3xl mx-auto p-6 bg-white border-l-4 border-blue-600 rounded-r-lg shadow-sm">
+            <p className="text-lg text-gray-700 italic">
+              &ldquo;AIvanceWorks maintains a strict senior-only policy: every team member has 10+ years of domain experience and current Microsoft Azure certifications. No junior developers are staffed on client projects—you get enterprise-grade expertise from day one.&rdquo;
+            </p>
+          </blockquote>
+        </div>
+      </section>
+
       {/* Team Philosophy Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -310,7 +360,7 @@ export default function TeamPage() {
             </h2>
             <p className="text-lg text-gray-600 leading-relaxed">
               AIvanceWorks follows a rigorous talent acquisition and team composition model designed
-              to deliver enterprise-grade outcomes. We don't just staff projects—we assemble
+              to deliver enterprise-grade outcomes. We don&apos;t just staff projects—we assemble
               cohesive teams aligned to your technical requirements and business objectives.
             </p>
           </div>

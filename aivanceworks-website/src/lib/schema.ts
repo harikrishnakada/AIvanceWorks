@@ -209,6 +209,111 @@ export function generateContactPointSchema(): JsonLd {
   };
 }
 
+// Enhanced Organization schema for Team page with employee/expertise details
+export function generateTeamOrganizationSchema(): JsonLd {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': `${SITE_CONFIG.url}/#organization`,
+    name: SITE_CONFIG.company.name,
+    url: SITE_CONFIG.url,
+    description: 'US-based AI consulting and software engineering company with Azure-certified senior engineers.',
+    foundingDate: '2025',
+    areaServed: {
+      '@type': 'Country',
+      name: 'United States',
+    },
+    // Employee/Team details for E-E-A-T
+    employee: {
+      '@type': 'QuantitativeValue',
+      value: '10-50',
+      unitText: 'employees',
+    },
+    // Expertise areas
+    knowsAbout: [
+      'Artificial Intelligence',
+      'Machine Learning',
+      'Azure AI Foundry',
+      'RAG Frameworks',
+      'Agentic AI Systems',
+      'Microsoft Azure',
+      'Cloud Architecture',
+      'Full-Stack Development',
+      'DevOps Automation',
+      '.NET Development',
+      'React Development',
+      'Next.js',
+    ],
+    // Credentials for E-E-A-T
+    hasCredential: [
+      {
+        '@type': 'EducationalOccupationalCredential',
+        credentialCategory: 'certificate',
+        name: 'AI-102: Azure AI Engineer Associate',
+        recognizedBy: {
+          '@type': 'Organization',
+          name: 'Microsoft',
+        },
+      },
+      {
+        '@type': 'EducationalOccupationalCredential',
+        credentialCategory: 'certificate',
+        name: 'AZ-204: Azure Developer Associate',
+        recognizedBy: {
+          '@type': 'Organization',
+          name: 'Microsoft',
+        },
+      },
+      {
+        '@type': 'EducationalOccupationalCredential',
+        credentialCategory: 'certificate',
+        name: 'AZ-305: Azure Solutions Architect Expert',
+        recognizedBy: {
+          '@type': 'Organization',
+          name: 'Microsoft',
+        },
+      },
+      {
+        '@type': 'EducationalOccupationalCredential',
+        credentialCategory: 'certificate',
+        name: 'AZ-400: DevOps Engineer Expert',
+        recognizedBy: {
+          '@type': 'Organization',
+          name: 'Microsoft',
+        },
+      },
+      {
+        '@type': 'EducationalOccupationalCredential',
+        credentialCategory: 'certificate',
+        name: 'DP-420: Azure Cosmos DB Developer Specialty',
+        recognizedBy: {
+          '@type': 'Organization',
+          name: 'Microsoft',
+        },
+      },
+    ],
+    // Service offerings
+    makesOffer: [
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Staff Augmentation',
+          description: 'Individual senior engineers integrated with your team',
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Dedicated Teams',
+          description: 'Full delivery teams from 4-15+ specialists',
+        },
+      },
+    ],
+  };
+}
+
 export function generateFreeConsultationSchema(): JsonLd {
   return {
     '@context': 'https://schema.org',

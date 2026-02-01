@@ -1,3 +1,7 @@
+export const CONTACT_EMAIL = 'aivanceworks@gmail.com';
+export const SUPPORT_EMAIL = 'aivanceworks@gmail.com';
+export const FROM_EMAIL = 'notifications@aivanceworks.com';
+
 export const SITE_CONFIG = {
   name: 'AIvanceWorks',
   description:
@@ -14,7 +18,7 @@ export const SITE_CONFIG = {
     name: 'AIvanceWorks',
     legalName: 'AIvanceWorks LLC',
     slogan: 'Transform Your Ideas Into Intelligent Solutions',
-    email: 'contact@aivanceworks.com',
+    email: CONTACT_EMAIL,
     phone: '+1 (555) 123-4567',
     address: {
       street: '123 Tech Street',
@@ -47,9 +51,9 @@ export const NAVIGATION = {
 
 export const CONTACT_CONFIG = {
   email: {
-    contact: 'contact@aivanceworks.com',
-    support: 'support@aivanceworks.com',
-    from: process.env.EMAIL_FROM_ADDRESS || 'notifications@aivanceworks.com',
+    contact: CONTACT_EMAIL,
+    support: SUPPORT_EMAIL,
+    from: process.env.EMAIL_FROM_ADDRESS || FROM_EMAIL,
   },
   phone: '+1 (555) 123-4567',
   responseTime: '24 hours',

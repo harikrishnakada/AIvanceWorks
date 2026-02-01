@@ -81,17 +81,28 @@ export interface CaseStudy {
   id: string;
   title: string;
   slug: string;
-  client: string;
+  excerpt: string;
   industry: string;
-  description: string;
-  challenge: string;
-  solution: string;
-  results: string[];
-  technologies: string[];
+  services: string[];
   image: string;
+  client?: {
+    name: string;
+    size: string;
+    location: string;
+  };
+  challenge?: string;
+  solution?: any[]; // Portable Text blocks
+  metrics: Array<{
+    label: string;
+    value: string;
+    suffix: string;
+  }>;
+  technologies?: string[];
   testimonial?: {
     quote: string;
     author: string;
     role: string;
   };
+  publishedAt: string;
+  featured?: boolean;
 }

@@ -888,13 +888,64 @@ export async function getRelatedPosts(
   }));
 }
 
-// Case Studies (placeholder for future implementation)
-export function getAllCaseStudies(): CaseStudy[] {
-  return [];
+// Case Studies
+export async function getAllCaseStudies(): Promise<CaseStudy[]> {
+  return client.fetch(
+    `*[_type == "caseStudy"] | order(publishedAt desc) {
+      "id": _id,
+      title,
+      "slug": slug.current,
+      excerpt,
+      industry,
+      services,
+      "image": image.asset->url,
+      client,
+      metrics,
+      technologies,
+      publishedAt,
+      featured
+    }`
+  );
 }
 
-export function getCaseStudyBySlug(slug: string): CaseStudy | undefined {
-  return undefined;
+export async function getCaseStudyBySlug(slug: string): Promise<CaseStudy | undefined> {
+  return client.fetch(
+    `*[_type == "caseStudy" && slug.current == $slug][0] {
+      "id": _id,
+      title,
+      "slug": slug.current,
+      excerpt,
+      industry,
+      services,
+      "image": image.asset->url,
+      client,
+      challenge,
+      solution,
+      metrics,
+      technologies,
+      testimonial,
+      publishedAt,
+      featured
+    }`,
+    { slug }
+  );
+}
+
+export async function getFeaturedCaseStudies(limit: number = 3): Promise<CaseStudy[]> {
+  return client.fetch(
+    `*[_type == "caseStudy" && featured == true] | order(publishedAt desc) [0...$limit] {
+      "id": _id,
+      title,
+      "slug": slug.current,
+      excerpt,
+      industry,
+      services,
+      "image": image.asset->url,
+      metrics,
+      publishedAt
+    }`,
+    { limit }
+  );
 }
 
 // Authors

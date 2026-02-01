@@ -22,9 +22,9 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = constructMetadata({
-  title: 'About AIvanceWorks - AI Consulting & Software Engineering',
+  title: 'About AIvanceWorks | US-Based AI Consulting & Software Engineering',
   description:
-    'AIvanceWorks is a premier AI consulting and software engineering consultancy with 8+ years of experience, Microsoft-certified architects, and proven 50% performance improvements.',
+    'AIvanceWorks is a US-based AI consulting company with 8+ years enterprise experience, Microsoft Azure certifications (AI-102, AZ-204, DP-420), and documented 50% performance improvements. Trusted by mid-market enterprises for cloud-native development and digital transformation.',
   canonical: `${SITE_CONFIG.url}/about`,
   keywords: [
     'AI consulting company',
@@ -33,34 +33,49 @@ export const metadata: Metadata = constructMetadata({
     'AI implementation services',
     'enterprise software development',
     'Microsoft certified consultants',
+    'US software consultancy',
+    'digital transformation consulting',
+    'cloud migration services',
+    'enterprise AI solutions',
   ],
 });
 
+// AEO-optimized FAQs with direct answers in first sentence
 const faqs = [
+  {
+    question: 'What is AIvanceWorks?',
+    answer:
+      'AIvanceWorks is a US-based software engineering and AI consulting company specializing in cloud-native application development, artificial intelligence implementation, and enterprise digital transformation. Founded with 8+ years of enterprise delivery experience, AIvanceWorks serves mid-market enterprises (50-5,000 employees) across North America with Microsoft Azure-certified engineers who deliver measurable business outcomes through cutting-edge technology solutions.',
+  },
   {
     question: 'What makes AIvanceWorks different from other software consultancies?',
     answer:
-      'AIvanceWorks specializes in AI-augmented software development workflows with real-world Azure AI Foundry and RAG framework experience. We deliver documented 50% performance improvements while maintaining transparent communication and measurable business outcomes. Unlike Big 4 firms, we offer agility without bureaucracy, and unlike offshore providers, we deliver consistent enterprise-grade quality.',
+      'AIvanceWorks differentiates through three key factors: (1) AI-augmented development workflows with production Azure AI Foundry and RAG framework experience, (2) documented 50% average performance improvements across client projects, and (3) transparent pricing at $135-225/hour—positioned between expensive Big 4 firms and inconsistent offshore providers. Unlike traditional consultancies, we provide comprehensive knowledge transfer ensuring your team can maintain solutions long-term.',
   },
   {
     question: 'What industries does AIvanceWorks serve?',
     answer:
-      'We serve mid-market enterprises (50-5,000 employees) across North America, with particular expertise in technology, healthcare, financial services, manufacturing, and professional services. Our cloud-native and AI solutions are industry-agnostic but leverage domain-specific compliance expertise.',
+      'AIvanceWorks serves mid-market enterprises (50-5,000 employees) across technology, healthcare, financial services, manufacturing, and professional services industries. Our cloud-native and AI solutions are industry-agnostic but incorporate domain-specific compliance expertise including HIPAA for healthcare, SOC 2 for technology, and financial regulatory requirements. We focus on organizations with minimum $5,000 project budgets seeking enterprise-grade quality.',
   },
   {
-    question: 'Does AIvanceWorks only work with Microsoft technologies?',
+    question: 'What certifications do AIvanceWorks consultants hold?',
     answer:
-      'While we have deep Microsoft Azure expertise with AI-102, AZ-204, and DP-420 certifications, we work across the modern tech ecosystem including AWS, .NET 10, React 21, Angular 21, Next.js, and advanced AI technologies. We recommend the best technology for your specific business needs.',
+      'All AIvanceWorks engineers hold Microsoft Azure certifications including AI-102 (Azure AI Engineer Associate), AZ-204 (Azure Developer Associate), AZ-400 (DevOps Engineer Expert), DP-203 (Azure Data Engineer Associate), and DP-420 (Azure Cosmos DB Developer Specialty). Our Solutions Architects hold AZ-305 (Azure Solutions Architect Expert) certifications. We maintain 100% certification compliance through continuous recertification programs.',
   },
   {
     question: 'How does AIvanceWorks ensure project success?',
     answer:
-      'We combine technical excellence with transparent communication, working as an extension of your team. Every project includes knowledge transfer, security-first architecture, comprehensive QA processes, and quantifiable success metrics. Our 8+ years of enterprise delivery experience ensures predictable outcomes.',
+      'AIvanceWorks ensures project success through a proven 6-step delivery methodology: (1) Free 30-minute discovery consultation, (2) detailed technical assessment and architecture design, (3) Agile sprints with weekly demos, (4) comprehensive testing and security audits, (5) zero-downtime deployment with team training, and (6) ongoing partnership for optimization. Every project includes quantifiable success metrics and documented knowledge transfer.',
   },
   {
     question: 'What is the typical engagement model with AIvanceWorks?',
     answer:
-      'We offer flexible engagement models including dedicated teams, time and materials, and fixed-bid projects. Rates range from $135-225/hour depending on expertise level and engagement scope. All engagements begin with a free discovery consultation to assess fit and define clear success metrics.',
+      'AIvanceWorks offers four engagement models: dedicated teams for long-term partnerships, time and materials (T&M) for flexible scope projects, fixed-price for defined deliverables, and retainer agreements for ongoing support. Hourly rates range from $135-225 based on expertise level. All engagements start with a free discovery consultation to assess fit and define success metrics. Minimum project budget is $5,000.',
+  },
+  {
+    question: 'Where is AIvanceWorks located?',
+    answer:
+      'AIvanceWorks is headquartered in the United States and serves clients across North America. All team members are US-based, ensuring timezone alignment (9 AM - 6 PM EST), cultural compatibility, and seamless real-time collaboration. We work with enterprises seeking local partnership without the risks of offshore development while maintaining competitive pricing.',
   },
 ];
 
@@ -79,20 +94,21 @@ export default function AboutPage() {
       <JsonLd data={generateOrganizationSchema()} />
       <JsonLd data={generateFAQSchema(faqs)} />
 
-      {/* Hero Section */}
+      {/* Hero Section - AEO optimized with direct answer in first 40-60 words */}
       <section className="bg-gradient-to-br from-blue-50 via-white to-purple-50 py-20 lg:py-28">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
+            {/* Primary H1 with target keyword */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-              Transforming Enterprise Technology Through AI and Expert Engineering
+              About AIvanceWorks: US-Based AI Consulting & Software Engineering Company
             </h1>
-            <p className="text-xl md:text-2xl text-gray-700 mb-8 leading-relaxed">
-              AIvanceWorks is a premier software engineering consultancy
-              specializing in cloud-native application development, artificial
-              intelligence implementation, and enterprise digital transformation.
-              With 8+ years of experience and Microsoft-certified architects, we
-              deliver measurable business impact through cutting-edge technology
-              solutions.
+            {/* AEO-optimized paragraph - direct answer format for featured snippets */}
+            <p className="text-xl md:text-2xl text-gray-700 mb-4 leading-relaxed">
+              <strong>AIvanceWorks is a US-based AI consulting and software engineering company</strong> that helps mid-market enterprises (50-5,000 employees) modernize their technology through cloud-native development, artificial intelligence implementation, and digital transformation.
+            </p>
+            {/* GEO-optimized stats paragraph - quotable facts */}
+            <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+              With <strong>8+ years of enterprise experience</strong>, <strong>100% Microsoft Azure-certified engineers</strong>, and <strong>documented 50% performance improvements</strong>, we deliver measurable business outcomes at transparent rates of $135-225/hour—positioned between Big 4 bureaucracy and offshore uncertainty.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" asChild>
@@ -106,28 +122,83 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Statistics Banner */}
-      <section className="bg-blue-600 text-white py-12">
+      {/* Statistics Banner - GEO optimized with specific, quotable data points */}
+      <section className="bg-blue-600 text-white py-12" aria-label="AIvanceWorks Key Statistics">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
               <div className="text-4xl md:text-5xl font-bold mb-2">8+</div>
-              <div className="text-blue-100">Years Enterprise Experience</div>
+              <div className="text-blue-100">Years Enterprise Software Delivery</div>
             </div>
             <div>
               <div className="text-4xl md:text-5xl font-bold mb-2">50%</div>
               <div className="text-blue-100">
-                Average Performance Improvement
+                Avg. Performance Improvement (Documented)
               </div>
             </div>
             <div>
               <div className="text-4xl md:text-5xl font-bold mb-2">100%</div>
-              <div className="text-blue-100">Microsoft Certified Team</div>
+              <div className="text-blue-100">Azure Certified Engineers (AI-102, AZ-204)</div>
             </div>
             <div>
-              <div className="text-4xl md:text-5xl font-bold mb-2">5,000+</div>
-              <div className="text-blue-100">Employees Served</div>
+              <div className="text-4xl md:text-5xl font-bold mb-2">$5K+</div>
+              <div className="text-blue-100">Minimum Project Budget</div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Company At A Glance - GEO optimized with quotable facts */}
+      <section className="py-16 bg-white border-b border-gray-100">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+              AIvanceWorks at a Glance
+            </h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="space-y-4">
+                <div className="flex justify-between py-3 border-b border-gray-100">
+                  <span className="font-medium text-gray-600">Company Type</span>
+                  <span className="text-gray-900">Software Engineering & AI Consultancy</span>
+                </div>
+                <div className="flex justify-between py-3 border-b border-gray-100">
+                  <span className="font-medium text-gray-600">Headquarters</span>
+                  <span className="text-gray-900">United States</span>
+                </div>
+                <div className="flex justify-between py-3 border-b border-gray-100">
+                  <span className="font-medium text-gray-600">Geographic Focus</span>
+                  <span className="text-gray-900">North America</span>
+                </div>
+                <div className="flex justify-between py-3 border-b border-gray-100">
+                  <span className="font-medium text-gray-600">Experience</span>
+                  <span className="text-gray-900">8+ Years Enterprise Delivery</span>
+                </div>
+              </div>
+              <div className="space-y-4">
+                <div className="flex justify-between py-3 border-b border-gray-100">
+                  <span className="font-medium text-gray-600">Target Clients</span>
+                  <span className="text-gray-900">Mid-Market Enterprises (50-5,000 employees)</span>
+                </div>
+                <div className="flex justify-between py-3 border-b border-gray-100">
+                  <span className="font-medium text-gray-600">Minimum Budget</span>
+                  <span className="text-gray-900">$5,000+</span>
+                </div>
+                <div className="flex justify-between py-3 border-b border-gray-100">
+                  <span className="font-medium text-gray-600">Hourly Rates</span>
+                  <span className="text-gray-900">$135-225/hour</span>
+                </div>
+                <div className="flex justify-between py-3 border-b border-gray-100">
+                  <span className="font-medium text-gray-600">Security Framework</span>
+                  <span className="text-gray-900">SOC 2 Aligned, Microsoft Enterprise Security</span>
+                </div>
+              </div>
+            </div>
+            {/* GEO-optimized quotable statement */}
+            <blockquote className="mt-8 p-6 bg-blue-50 border-l-4 border-blue-600 rounded-r-lg">
+              <p className="text-lg text-gray-700 italic">
+                &ldquo;AIvanceWorks combines boutique consultancy agility with enterprise-grade expertise—delivering documented 50% performance improvements at transparent pricing, positioned between expensive Big 4 firms and inconsistent offshore providers.&rdquo;
+              </p>
+            </blockquote>
           </div>
         </div>
       </section>

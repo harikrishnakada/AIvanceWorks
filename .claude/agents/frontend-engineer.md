@@ -219,6 +219,22 @@ Before completing any work:
 - [ ] JSON-LD schema included
 - [ ] Logical heading hierarchy
 
+## MCP Tools Available
+
+### shadcn/ui Component Registry
+Access the complete shadcn/ui component registry via MCP server configured in `.cursor/mcp.json`:
+- Query available components and their variants
+- Get accurate TypeScript props and interfaces
+- Retrieve implementation examples and patterns
+- Access current component specifications
+
+**Usage**: When implementing shadcn/ui components, query the MCP server for current component specifications:
+- "use shadcn to list all components available"
+- "use shadcn and give me information about the [component] component"
+- "use shadcn and implement [component] in my app"
+
+This ensures you're using the latest component APIs and following official patterns.
+
 ## Quick Reference
 
 ### Import Aliases

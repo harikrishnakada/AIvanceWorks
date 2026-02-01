@@ -18,6 +18,7 @@ import { headers } from 'next/headers';
 import { contactFormSchema } from '@/lib/validation';
 import { emailProvider } from '@/lib/email';
 import { contactFormLimiter, getClientIp } from '@/lib/rate-limit';
+import { CONTACT_CONFIG } from '@/lib/constants';
 
 /**
  * Server Action Result
@@ -50,7 +51,7 @@ export async function submitContactForm(formData: FormData): Promise<ActionResul
 
       return {
         success: false,
-        error: `Too many requests. Please try again after ${resetTime} or email us directly at contact@aivanceworks.com.`,
+        error: `Too many requests. Please try again after ${resetTime} or email us directly at ${CONTACT_CONFIG.email.contact}.`,
       };
     }
 
@@ -79,7 +80,7 @@ export async function submitContactForm(formData: FormData): Promise<ActionResul
       return {
         success: false,
         error:
-          'We encountered an issue sending your message. Please email us directly at contact@aivanceworks.com or try again later.',
+          `We encountered an issue sending your message. Please email us directly at ${CONTACT_CONFIG.email.contact} or try again later.`,
       };
     }
 
@@ -115,7 +116,7 @@ export async function submitContactForm(formData: FormData): Promise<ActionResul
 
     return {
       success: false,
-      error: 'An unexpected error occurred. Please try again or email us at contact@aivanceworks.com.',
+      error: `An unexpected error occurred. Please try again or email us at ${CONTACT_CONFIG.email.contact}.`,
     };
   }
 }
