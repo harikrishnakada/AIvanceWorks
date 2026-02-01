@@ -18,7 +18,8 @@ export function constructMetadata({
 } = {}): Metadata {
   const metaTitle = title ? `${title} | ${SITE_CONFIG.name}` : SITE_CONFIG.name;
   const metaDescription = description || SITE_CONFIG.description;
-  const metaImage = image.startsWith('http') ? image : `${SITE_CONFIG.url}${image}`;
+  const safeImage = typeof image === 'string' && image.length > 0 ? image : SITE_CONFIG.ogImage;
+  const metaImage = safeImage.startsWith('http') ? safeImage : `${SITE_CONFIG.url}${safeImage}`;
 
   return {
     title: metaTitle,
