@@ -103,8 +103,24 @@ NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
 ### Vercel (Recommended)
 
 ```bash
-vercel
+# Link the local app to the existing Vercel project
+npm run vercel:link
+
+# Pull env vars into .env.local for local runs
+npm run vercel:pull
+
+# Preview deploy (generates a preview URL)
+npm run vercel:deploy
+
+# Production deploy
+npm run vercel:deploy:prod
 ```
+
+### Vercel Git Integration
+
+1. Connect the `aivanceworks-website` folder in Vercel.
+2. Set environment variables in the Vercel dashboard.
+3. Push to the default branch for production, open PRs for preview deployments.
 
 ### Manual Build
 
