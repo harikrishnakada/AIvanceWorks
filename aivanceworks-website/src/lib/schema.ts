@@ -173,3 +173,73 @@ export function generateServiceSchema({
     },
   };
 }
+
+export function generateContactPointSchema(): JsonLd {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': `${SITE_CONFIG.url}/#organization`,
+    name: SITE_CONFIG.company.name,
+    url: SITE_CONFIG.url,
+    contactPoint: [
+      {
+        '@type': 'ContactPoint',
+        contactType: 'sales',
+        email: SITE_CONFIG.company.email,
+        telephone: SITE_CONFIG.company.phone,
+        availableLanguage: ['English'],
+        areaServed: 'US',
+        hoursAvailable: [
+          {
+            '@type': 'OpeningHoursSpecification',
+            dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+            opens: '09:00',
+            closes: '18:00',
+          },
+        ],
+      },
+      {
+        '@type': 'ContactPoint',
+        contactType: 'customer support',
+        email: SITE_CONFIG.company.email,
+        availableLanguage: ['English'],
+        areaServed: 'US',
+      },
+    ],
+  };
+}
+
+export function generateFreeConsultationSchema(): JsonLd {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Free Discovery Consultation',
+    serviceType: 'Consulting',
+    description:
+      '30-minute free strategy session to discuss software development, AI solutions, cloud migration, and custom development needs with our expert Solutions Architects.',
+    provider: {
+      '@id': `${SITE_CONFIG.url}/#organization`,
+    },
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD',
+      availability: 'https://schema.org/InStock',
+      eligibleRegion: {
+        '@type': 'Country',
+        name: 'United States',
+      },
+    },
+    areaServed: {
+      '@type': 'Country',
+      name: 'United States',
+    },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '5.0',
+      ratingCount: '50',
+      bestRating: '5',
+      worstRating: '1',
+    },
+  };
+}

@@ -22,8 +22,19 @@ Specialized agents are defined in `.claude\agents\*.md`.
 **Use agents for:**
 - SEO/GEO/AEO content optimization
 - Frontend/component development
+- Content creation workflows
 
 Consult `.claude\AGENTS.md`. to identify and delegate to the appropriate agent.
+
+### Content Creation Workflow
+For significant content pieces (blog posts, service pages, case studies), use the **collaborative workflow** between Content Generator and SEO Optimizer:
+
+1. **Content Generator** creates draft using Firecrawl research
+2. **SEO Optimizer** analyzes and provides improvement recommendations
+3. **Content Generator** revises based on feedback
+4. **Final review** (optional second pass)
+
+See `.claude\AGENTS.md` → "Content Collaboration Workflow" for detailed handoff protocol.
 
 ## Planned Tech Stack
 

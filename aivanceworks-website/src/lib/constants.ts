@@ -44,3 +44,22 @@ export const NAVIGATION = {
     { label: 'Security & Compliance', href: '/services/security-compliance' },
   ],
 } as const;
+
+export const CONTACT_CONFIG = {
+  email: {
+    contact: 'contact@aivanceworks.com',
+    support: 'support@aivanceworks.com',
+    from: process.env.EMAIL_FROM_ADDRESS || 'notifications@aivanceworks.com',
+  },
+  phone: '+1 (555) 123-4567',
+  responseTime: '24 hours',
+  availability: {
+    days: 'Monday - Friday',
+    hours: '9:00 AM - 6:00 PM EST',
+  },
+  booking: {
+    consultationDuration: 30,
+    consultationType: 'Free Discovery Call',
+    platforms: ['Zoom', 'Microsoft Teams', 'Google Meet'],
+  },
+} as const;

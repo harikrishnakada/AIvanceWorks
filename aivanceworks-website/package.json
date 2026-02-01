@@ -14,6 +14,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@calcom/embed-react": "^1.5.3",
+    "@hookform/resolvers": "^5.2.2",
     "@portabletext/react": "^6.0.2",
     "@radix-ui/react-slot": "^1.2.4",
     "@sanity/image-url": "^2.0.3",
@@ -33,11 +35,14 @@
     "postcss": "^8.5.6",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
+    "react-hook-form": "^7.71.1",
     "react-markdown": "^10.1.0",
     "react-syntax-highlighter": "^16.1.0",
+    "resend": "^6.9.1",
     "tailwind-merge": "^3.4.0",
     "tailwindcss": "^4.1.18",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "zod": "^4.3.6"
   },
   "devDependencies": {
     "eslint-config-prettier": "^10.1.8",

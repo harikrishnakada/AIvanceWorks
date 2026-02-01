@@ -1,0 +1,263 @@
+/**
+ * Booking Provider Abstraction Layer
+ *
+ * This module provides a unified interface for booking/scheduling integrations.
+ * Currently uses Cal.com; can be easily migrated to Calendly, SavvyCal, etc.
+ *
+ * IMPORTANT: Never import Cal.com or other booking SDKs directly in components.
+ * Always use bookingProvider from this module.
+ *
+ * Pattern follows content.ts (CMS abstraction) and email.ts (email abstraction) -
+ * enables provider swapping without touching business logic.
+ */
+
+/**
+ * Booking Provider Configuration
+ */
+export interface BookingConfig {
+  username: string;
+  defaultEventType: string;
+  theme: 'light' | 'dark' | 'auto';
+  brandColor: string;
+  embedType: 'inline' | 'popup' | 'floating-popup';
+}
+
+/**
+ * Booking Event Data (for analytics tracking)
+ */
+export interface BookingEventData {
+  eventType: string;
+  date?: string;
+  time?: string;
+  attendeeEmail?: string;
+}
+
+/**
+ * Booking Provider Interface
+ * All booking providers must implement this interface
+ */
+export interface BookingProvider {
+  /**
+   * Get booking configuration
+   */
+  getConfig(): BookingConfig;
+
+  /**
+   * Get embed URL for the booking widget
+   */
+  getEmbedUrl(eventType?: string): string;
+
+  /**
+   * Get embed script for initializing the booking widget
+   */
+  getEmbedScript(): string;
+
+  /**
+   * Get inline embed configuration
+   */
+  getInlineEmbedConfig(): Record<string, any>;
+
+  /**
+   * Track booking event (for analytics)
+   */
+  trackBooking?(eventData: BookingEventData): Promise<void>;
+}
+
+/**
+ * Cal.com Booking Provider Implementation
+ * https://cal.com/docs/integrations/embed
+ */
+class CalComBookingProvider implements BookingProvider {
+  private config: BookingConfig;
+
+  constructor(config: Partial<BookingConfig> = {}) {
+    this.config = {
+      username: config.username || process.env.NEXT_PUBLIC_CALCOM_USERNAME || 'aivanceworks',
+      defaultEventType: config.defaultEventType || process.env.CALCOM_EVENT_TYPE || 'discovery-call',
+      theme: config.theme || 'light',
+      brandColor: config.brandColor || '#2563eb',
+      embedType: config.embedType || 'inline',
+    };
+  }
+
+  getConfig(): BookingConfig {
+    return { ...this.config };
+  }
+
+  getEmbedUrl(eventType?: string): string {
+    const event = eventType || this.config.defaultEventType;
+    return `${this.config.username}/${event}`;
+  }
+
+  getEmbedScript(): string {
+    // Cal.com embed initialization script
+    // This is the standard Cal.com embed snippet
+    return `
+(function (C, A, L) {
+  let p = function (a, ar) { a.q.push(ar); };
+  let d = C.document;
+  C.Cal = C.Cal || function () {
+    let cal = C.Cal;
+    let ar = arguments;
+    if (!cal.loaded) {
+      cal.q = cal.q || [];
+      return p(cal, ar);
+    }
+  };
+  C.Cal.ns = {};
+  C.Cal.q = C.Cal.q || [];
+  d.head.appendChild(d.createElement("script")).src = A;
+  C.Cal.loaded = true;
+})(window, "https://app.cal.com/embed/embed.js", "");
+    `.trim();
+  }
+
+  getInlineEmbedConfig(): Record<string, any> {
+    return {
+      layout: 'month_view',
+      theme: this.config.theme,
+      styles: {
+        branding: {
+          brandColor: this.config.brandColor,
+        },
+      },
+      hideEventTypeDetails: false,
+      hideLandingPageDetails: false,
+    };
+  }
+
+  async trackBooking(eventData: BookingEventData): Promise<void> {
+    // Track booking in analytics
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+      (window as any).gtag('event', 'consultation_booking', {
+        event_category: 'Conversion',
+        event_label: eventData.eventType,
+        value: 1,
+      });
+    }
+
+    console.log('[Booking] Cal.com booking tracked:', eventData);
+  }
+}
+
+/**
+ * Calendly Booking Provider Implementation (Example)
+ * Uncomment and implement when switching to Calendly
+ */
+// class CalendlyBookingProvider implements BookingProvider {
+//   private config: BookingConfig;
+
+//   constructor(config: Partial<BookingConfig> = {}) {
+//     this.config = {
+//       username: config.username || process.env.NEXT_PUBLIC_CALENDLY_USERNAME || 'aivanceworks',
+//       defaultEventType: config.defaultEventType || 'discovery-call',
+//       theme: config.theme || 'light',
+//       brandColor: config.brandColor || '#2563eb',
+//       embedType: config.embedType || 'inline',
+//     };
+//   }
+
+//   getConfig(): BookingConfig {
+//     return { ...this.config };
+//   }
+
+//   getEmbedUrl(eventType?: string): string {
+//     return `https://calendly.com/${this.config.username}/${eventType || this.config.defaultEventType}`;
+//   }
+
+//   getEmbedScript(): string {
+//     return `https://assets.calendly.com/assets/external/widget.js`;
+//   }
+
+//   getInlineEmbedConfig(): Record<string, any> {
+//     return {
+//       url: this.getEmbedUrl(),
+//       text_color: '#ffffff',
+//       color: this.config.brandColor,
+//     };
+//   }
+
+//   async trackBooking(eventData: BookingEventData): Promise<void> {
+//     console.log('[Booking] Calendly booking tracked:', eventData);
+//   }
+// }
+
+/**
+ * Factory function to get the configured booking provider
+ * Switch providers by changing BOOKING_PROVIDER environment variable
+ */
+function getBookingProvider(): BookingProvider {
+  const provider = process.env.BOOKING_PROVIDER || 'calcom';
+
+  switch (provider.toLowerCase()) {
+    case 'calcom':
+    case 'cal.com':
+    case 'cal':
+      return new CalComBookingProvider();
+
+    // case 'calendly':
+    //   return new CalendlyBookingProvider();
+
+    // case 'savvycal':
+    //   return new SavvyCalBookingProvider();
+
+    default:
+      console.warn(`[Booking] Unknown provider "${provider}", defaulting to Cal.com`);
+      return new CalComBookingProvider();
+  }
+}
+
+/**
+ * Singleton booking provider instance
+ * Import and use this in components that need booking functionality
+ *
+ * Example usage:
+ * ```
+ * import { bookingProvider } from '@/lib/booking';
+ * const config = bookingProvider.getConfig();
+ * const embedUrl = bookingProvider.getEmbedUrl();
+ * ```
+ */
+export const bookingProvider = getBookingProvider();
+
+/**
+ * Client-side Cal.com initialization helper
+ * Use this in useEffect to initialize Cal.com embed
+ *
+ * IMPORTANT: Only call this after confirming Cal is defined
+ */
+export function initializeCalCom(config: BookingConfig): void {
+  if (typeof window === 'undefined') return;
+
+  const Cal = (window as any).Cal;
+  if (!Cal) {
+    console.error('[Booking] Cal not defined - should not happen');
+    return;
+  }
+
+  try {
+    // Set UI preferences
+    Cal('ui', {
+      theme: config.theme,
+      styles: {
+        branding: {
+          brandColor: config.brandColor,
+        },
+      },
+      hideEventTypeDetails: false,
+    });
+
+    // Render the calendar inline in the specified element
+    const embedUrl = `${config.username}/${config.defaultEventType}`;
+
+    Cal('inline', {
+      elementOrSelector: '#cal-booking-embed',
+      calLink: embedUrl,
+      layout: 'month_view',
+    });
+
+    console.log('[Booking] ✅ Cal.com calendar rendered for:', embedUrl);
+  } catch (error) {
+    console.error('[Booking] ❌ Failed to initialize Cal.com:', error);
+  }
+}

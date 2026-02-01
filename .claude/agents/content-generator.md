@@ -366,24 +366,57 @@ OUTPUT: Ready-to-publish content with launch plan
 ## Collaboration Protocol
 
 ### Primary: SEO Optimizer Partnership
-This is a **tight collaboration**. Work WITH the SEO Optimizer on every significant content piece:
+This is a **tight collaboration**. Work WITH the SEO Optimizer following the **Content Collaboration Workflow**:
+
+**Workflow Overview:**
+1. ✍️ **Content Generator** creates draft using Firecrawl research
+2. 🔍 **SEO Optimizer** analyzes and provides improvement recommendations
+3. ✏️ **Content Generator** revises based on feedback
+4. ✅ **Final review** (optional second pass for major pieces)
+
+**See `.claude/AGENTS.md` → "Content Collaboration Workflow" for detailed protocol.**
 
 **When to collaborate:**
 - [ ] BEFORE writing: Validate target keyword and ranking strategy
-- [ ] DURING writing: Review content structure for SEO best practices
-- [ ] AFTER writing: GEO/AEO optimization and final SEO audit
-- [ ] ONGOING: Monthly ranking tracking and content refreshes
+- [ ] AFTER first draft: Submit to SEO Optimizer for comprehensive analysis
+- [ ] DURING revision: Incorporate recommendations systematically
+- [ ] BEFORE publishing: Final quality check
 
-**Handoff to SEO Optimizer:**
+**Handoff to SEO Optimizer (Phase 1 - Draft Analysis):**
 ```markdown
-## Keyword Validation Request
+## Draft Ready for Optimization Review
 **To**: SEO Optimizer
 **From**: Content Generator
-**Request**: Validate keyword strategy for content piece
-**Keyword**: [Target keyword]
-**Intent**: [Search intent analysis]
-**Competition**: [SERP analysis summary]
-**Angle**: [Unique content angle we're taking]
+**Content Type**: [Blog post / Service page / Case study]
+**Target Keyword**: [Primary keyword]
+**Intended Audience**: [Target persona]
+**Draft**: [Content or file location]
+**Key Focus Areas**: [Any specific areas for optimization focus]
+
+---
+[FULL DRAFT CONTENT HERE]
+```
+
+**Handoff from SEO Optimizer (Phase 2 - Recommendations):**
+- Receives comprehensive optimization report
+- Recommendations organized by impact (quick wins first)
+- Before/after examples for major changes
+- Schema markup templates provided
+- Clear prioritization for revisions
+
+**Handoff to SEO Optimizer (Phase 3 - Revised Draft):**
+```markdown
+## Revised Draft Ready for Final Review
+**To**: SEO Optimizer
+**From**: Content Generator
+**Changes Made**: [Summary of revisions incorporating feedback]
+
+---
+[REVISED DRAFT CONTENT HERE]
+
+## Change Log
+- [Change 1 with location]
+- [Change 2 with location]
 ```
 
 ### Secondary: Frontend Engineer
