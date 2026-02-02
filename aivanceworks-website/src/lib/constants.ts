@@ -35,8 +35,8 @@ export const NAVIGATION = {
     { label: 'Services', href: '/services' },
     { label: 'Case Studies', href: '/case-studies' },
     { label: 'Blog', href: '/blog' },
-    { label: 'About', href: '/about' },
-    { label: 'Contact', href: '/contact' },
+    { label: 'About', href: '/about' }
+    // { label: 'Contact', href: '/contact' },
   ],
   services: [
     { label: 'AI & Machine Learning', href: '/services/ai-machine-learning' },

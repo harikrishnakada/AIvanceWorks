@@ -35,8 +35,8 @@ export function Footer() {
       title: 'Company',
       links: [
         { label: 'About', href: '/about' },
-        { label: 'Team', href: '/about/team' },
-        { label: 'Careers', href: '/about/careers' },
+        { label: 'Team', href: '/team' },
+        { label: 'Careers', href: '/careers' },
         { label: 'Case Studies', href: '/case-studies' },
         { label: 'Contact', href: '/contact' },
       ],

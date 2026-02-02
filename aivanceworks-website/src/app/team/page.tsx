@@ -22,20 +22,25 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { Button } from '@/components/ui/button';
 
 export const metadata: Metadata = constructMetadata({
-  title: 'AIvanceWorks Team | Azure-Certified AI & Software Engineers',
+  title: 'AIvanceWorks Team | Azure, AWS & Certified AI & Software Engineers',
   description:
-    'AIvanceWorks employs US-based, Azure-certified engineers with 10+ years experience. Team includes AI-102 certified AI specialists, AZ-204 developers, and AZ-305 Solutions Architects. Senior-only policy—no junior developers on client projects.',
+    'AIvanceWorks employs US-based, Azure- and AWS-certified engineers with 10+ years experience. Team includes AI-102 certified AI specialists, AZ-204 developers, AZ-305 and AWS Solutions Architect Associates, CCNA, CSPO (Scrum Alliance), and CAPM (PMI). Senior-only policy—no junior developers on client projects.',
   canonical: `${SITE_CONFIG.url}/team`,
   keywords: [
     'AI consulting team',
     'Azure certified developers',
+    'AWS certified',
     'software development team',
     'AI ML specialists',
     'cloud engineering team',
     'senior software engineers',
     'US-based developers',
     'Microsoft certified engineers',
-    'AI-102 certified',
+    'CCNA',
+    'CSPO',
+    'CAPM',
+    'Scrum Alliance',
+    'PMI',
     'enterprise software team',
   ],
 });
@@ -53,7 +58,12 @@ const teamRoles = [
       'Architecture patterns and best practices',
     ],
     expertise: 'Enterprise architecture, microservices, cloud-native design',
-    certifications: ['AZ-305 (Azure Solutions Architect)', 'AZ-204 (Azure Developer)'],
+    certifications: [
+      'AZ-305 (Azure Solutions Architect)',
+      'AWS Solutions Architect Associate',
+      'CCNA (Cisco Certified Network Associate)',
+      'AZ-204 (Azure Developer)',
+    ],
   },
   {
     role: 'Senior Full-Stack Engineer',
@@ -105,7 +115,7 @@ const teamRoles = [
       'User acceptance testing coordination',
     ],
     expertise: 'Agile methodologies, user story mapping, stakeholder management',
-    certifications: ['Certified Scrum Product Owner (CSPO)', 'PMI-ACP'],
+    certifications: ['CSPO (Scrum Alliance)', 'CAPM (PMI)'],
   },
   {
     role: 'QA Lead / Engineer',
@@ -212,7 +222,7 @@ const faqs = [
   {
     question: 'What certifications do AIvanceWorks team members hold?',
     answer:
-      'AIvanceWorks engineers hold 8+ Microsoft Azure certifications including AI-102 (Azure AI Engineer Associate), AZ-204 (Azure Developer Associate), AZ-305 (Azure Solutions Architect Expert), AZ-400 (DevOps Engineer Expert), DP-203 (Azure Data Engineer Associate), DP-420 (Azure Cosmos DB Developer Specialty), AZ-104 (Azure Administrator Associate), and AZ-900 (Azure Fundamentals). We maintain 100% certification compliance through quarterly recertification programs and continuous upskilling.',
+      'AIvanceWorks engineers hold 12+ professional certifications across Microsoft Azure, AWS, Cisco, Scrum Alliance, and PMI. Azure certifications include AI-102 (Azure AI Engineer Associate), AZ-204 (Azure Developer Associate), AZ-305 (Azure Solutions Architect Expert), AZ-400 (DevOps Engineer Expert), DP-203 (Azure Data Engineer Associate), DP-420 (Azure Cosmos DB Developer Specialty), AZ-104 (Azure Administrator Associate), and AZ-900 (Azure Fundamentals). We also hold AWS Solutions Architect Associate, CCNA (Cisco Certified Network Associate), Certified Scrum Product Owner (CSPO) from Scrum Alliance, and Certified Associate in Project Management (CAPM) from Project Management Institute. We maintain 100% certification compliance through quarterly recertification programs and continuous upskilling.',
   },
   {
     question: 'How experienced are the team members at AIvanceWorks?',
@@ -249,7 +259,7 @@ export default function TeamPage() {
     '@context': 'https://schema.org',
     '@graph': [
       generateWebPageSchema(
-        'AIvanceWorks Team - Azure-Certified AI & Software Engineers',
+        'AIvanceWorks Team - Azure, AWS & Certified AI & Software Engineers',
         pageUrl
       ),
       generateFAQSchema(faqs),
@@ -271,15 +281,15 @@ export default function TeamPage() {
             </div>
             {/* Primary H1 with target keyword */}
             <h1 className="text-4xl sm:text-5xl font-bold mb-6">
-              AIvanceWorks Team: Azure-Certified AI & Software Engineers
+              AIvanceWorks Team: Azure, AWS & Certified AI & Software Engineers
             </h1>
             {/* AEO-optimized paragraph - direct answer format */}
             <p className="text-xl text-gray-200 mb-4 leading-relaxed">
-              <strong>The AIvanceWorks team consists of US-based, Azure-certified senior engineers</strong> with 10+ years of experience in AI/ML, cloud architecture, full-stack development, and DevOps automation.
+              <strong>The AIvanceWorks team consists of US-based, Azure- and AWS-certified senior engineers</strong> with 10+ years of experience in AI/ML, cloud architecture, full-stack development, and DevOps automation.
             </p>
             {/* GEO-optimized stats paragraph */}
             <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-              Every team member holds Microsoft certifications (<strong>AI-102, AZ-204, AZ-305, AZ-400</strong>) and follows our strict senior-only policy—no junior developers on client projects. We assemble cohesive teams of <strong>4-15+ specialists</strong> tailored to your project scope, delivering end-to-end capabilities from strategy to production deployment.
+              Every team member holds multi-vendor certifications—Microsoft (<strong>AI-102, AZ-204, AZ-305, AZ-400</strong>), AWS Solutions Architect Associate, CCNA, CSPO (Scrum Alliance), and CAPM (PMI)—and follows our strict senior-only policy. We assemble cohesive teams of <strong>4-15+ specialists</strong> tailored to your project scope, delivering end-to-end capabilities from strategy to production deployment.
             </p>
             <div className="grid sm:grid-cols-3 gap-6 mb-8">
               <div className="flex items-start gap-3">
@@ -292,8 +302,8 @@ export default function TeamPage() {
               <div className="flex items-start gap-3">
                 <CheckCircle2 className="h-6 w-6 text-green-400 mt-1 flex-shrink-0" />
                 <div>
-                  <div className="font-semibold">Azure Certified</div>
-                  <div className="text-sm text-gray-400">AI-102, AZ-204, AZ-400+</div>
+                  <div className="font-semibold">Multi-Vendor Certified</div>
+                  <div className="text-sm text-gray-400">Azure, AWS, CCNA, CSPO, CAPM</div>
                 </div>
               </div>
               <div className="flex items-start gap-3">
@@ -326,8 +336,8 @@ export default function TeamPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-3xl md:text-4xl font-bold text-blue-600 mb-2">8+</div>
-              <div className="text-gray-600 text-sm">Microsoft Azure Certifications</div>
+              <div className="text-3xl md:text-4xl font-bold text-blue-600 mb-2">12+</div>
+              <div className="text-gray-600 text-sm">Professional Certifications (Azure, AWS, Cisco, PMI, Scrum Alliance)</div>
             </div>
             <div>
               <div className="text-3xl md:text-4xl font-bold text-blue-600 mb-2">10+</div>
@@ -345,7 +355,7 @@ export default function TeamPage() {
           {/* GEO-optimized quotable statement */}
           <blockquote className="mt-8 max-w-3xl mx-auto p-6 bg-white border-l-4 border-blue-600 rounded-r-lg shadow-sm">
             <p className="text-lg text-gray-700 italic">
-              &ldquo;AIvanceWorks maintains a strict senior-only policy: every team member has 10+ years of domain experience and current Microsoft Azure certifications. No junior developers are staffed on client projects—you get enterprise-grade expertise from day one.&rdquo;
+              &ldquo;AIvanceWorks maintains a strict senior-only policy: every team member has 10+ years of domain experience and current certifications from Microsoft Azure, AWS, Cisco (CCNA), Scrum Alliance (CSPO), and PMI (CAPM). No junior developers are staffed on client projects—you get enterprise-grade expertise from day one.&rdquo;
             </p>
           </blockquote>
         </div>
@@ -372,8 +382,7 @@ export default function TeamPage() {
               </div>
               <h3 className="font-semibold text-gray-900 mb-2">Certified Expertise</h3>
               <p className="text-gray-600 text-sm">
-                All engineers hold Microsoft certifications (AI-102, AZ-204, AZ-400, DP-203) with
-                continuous recertification and upskilling.
+                All engineers hold multi-vendor certifications (Microsoft Azure, AWS Solutions Architect Associate, CCNA, CSPO, CAPM) with continuous recertification and upskilling.
               </p>
             </div>
             <div className="text-center">
@@ -502,16 +511,16 @@ export default function TeamPage() {
                     </div>
                   )}
                   <CardTitle className="text-xl">{config.size}</CardTitle>
-                  <CardDescription>
-                    <div className="text-sm text-gray-600 mb-1">
+                  <CardDescription className="space-y-1">
+                    <span className="block text-sm text-gray-600">
                       <strong>Team Size:</strong> {config.teamSize}
-                    </div>
-                    <div className="text-sm text-gray-600 mb-1">
+                    </span>
+                    <span className="block text-sm text-gray-600">
                       <strong>Duration:</strong> {config.duration}
-                    </div>
-                    <div className="text-sm text-gray-600">
+                    </span>
+                    <span className="block text-sm text-gray-600">
                       <strong>Ideal For:</strong> {config.ideal}
-                    </div>
+                    </span>
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -559,37 +568,69 @@ export default function TeamPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Microsoft-Certified Professionals
+              Multi-Vendor Certified Team
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Every AIvanceWorks team member holds current Microsoft Azure certifications, ensuring
-              best practices, security compliance, and platform expertise.
+              Every AIvanceWorks team member holds current certifications from Microsoft Azure, AWS,
+              Cisco, Scrum Alliance, and PMI—ensuring best practices, security compliance, and
+              platform expertise across cloud, networking, agile, and project management.
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { cert: 'AI-102', name: 'Azure AI Engineer Associate', icon: Bot },
-              { cert: 'AZ-204', name: 'Azure Developer Associate', icon: Code2 },
-              { cert: 'AZ-400', name: 'DevOps Engineer Expert', icon: Settings },
-              { cert: 'DP-203', name: 'Azure Data Engineer Associate', icon: Database },
-              { cert: 'AZ-305', name: 'Azure Solutions Architect Expert', icon: Cloud },
-              { cert: 'DP-420', name: 'Cosmos DB Developer Specialty', icon: Database },
-              { cert: 'AZ-104', name: 'Azure Administrator Associate', icon: Shield },
-              { cert: 'AZ-900', name: 'Azure Fundamentals', icon: Award },
-            ].map((item, idx) => {
-              const Icon = item.icon;
-              return (
-                <div
-                  key={idx}
-                  className="bg-white rounded-lg p-6 border border-gray-200 hover:shadow-lg transition-shadow"
-                >
-                  <Icon className="h-8 w-8 text-blue-600 mb-3" />
-                  <div className="font-bold text-gray-900 mb-1">{item.cert}</div>
-                  <div className="text-sm text-gray-600">{item.name}</div>
-                </div>
-              );
-            })}
+          <div className="mb-6">
+            <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-4">
+              Microsoft Azure
+            </h3>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[
+                { cert: 'AI-102', name: 'Azure AI Engineer Associate', icon: Bot },
+                { cert: 'AZ-204', name: 'Azure Developer Associate', icon: Code2 },
+                { cert: 'AZ-400', name: 'DevOps Engineer Expert', icon: Settings },
+                { cert: 'DP-203', name: 'Azure Data Engineer Associate', icon: Database },
+                { cert: 'AZ-305', name: 'Azure Solutions Architect Expert', icon: Cloud },
+                { cert: 'DP-420', name: 'Cosmos DB Developer Specialty', icon: Database },
+                { cert: 'AZ-104', name: 'Azure Administrator Associate', icon: Shield },
+                { cert: 'AZ-900', name: 'Azure Fundamentals', icon: Award },
+              ].map((item, idx) => {
+                const Icon = item.icon;
+                return (
+                  <div
+                    key={idx}
+                    className="bg-white rounded-lg p-6 border border-gray-200 hover:shadow-lg transition-shadow"
+                  >
+                    <Icon className="h-8 w-8 text-blue-600 mb-3" />
+                    <div className="font-bold text-gray-900 mb-1">{item.cert}</div>
+                    <div className="text-sm text-gray-600">{item.name}</div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          <div className="mb-12">
+            <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-4">
+              AWS, Cisco, Scrum Alliance & PMI
+            </h3>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[
+                { cert: 'AWS SAA', name: 'AWS Solutions Architect Associate', icon: Cloud },
+                { cert: 'CCNA', name: 'Cisco Certified Network Associate', icon: Shield },
+                { cert: 'CSPO', name: 'Certified Scrum Product Owner (Scrum Alliance)', icon: TrendingUp },
+                { cert: 'CAPM', name: 'Certified Associate in Project Management (PMI)', icon: Award },
+              ].map((item, idx) => {
+                const Icon = item.icon;
+                return (
+                  <div
+                    key={idx}
+                    className="bg-white rounded-lg p-6 border border-gray-200 hover:shadow-lg transition-shadow"
+                  >
+                    <Icon className="h-8 w-8 text-blue-600 mb-3" />
+                    <div className="font-bold text-gray-900 mb-1">{item.cert}</div>
+                    <div className="text-sm text-gray-600">{item.name}</div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
 
           <div className="mt-12 bg-white rounded-xl p-8 border border-gray-200 shadow-md">
@@ -605,9 +646,9 @@ export default function TeamPage() {
                 </h3>
                 <p className="text-gray-600">
                   We invest in ongoing training and recertification to keep our team current with
-                  Azure platform updates, new AI/ML capabilities, and emerging best practices. Team
-                  members participate in quarterly internal hackathons and knowledge-sharing sessions
-                  to maintain technical excellence.
+                  Azure and AWS platform updates, new AI/ML capabilities, and emerging best practices.
+                  Team members participate in quarterly internal hackathons and knowledge-sharing
+                  sessions to maintain technical excellence.
                 </p>
               </div>
             </div>

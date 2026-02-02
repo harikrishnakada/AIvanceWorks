@@ -60,7 +60,7 @@ const faqs = [
   {
     question: 'What certifications do AIvanceWorks consultants hold?',
     answer:
-      'All AIvanceWorks engineers hold Microsoft Azure certifications including AI-102 (Azure AI Engineer Associate), AZ-204 (Azure Developer Associate), AZ-400 (DevOps Engineer Expert), DP-203 (Azure Data Engineer Associate), and DP-420 (Azure Cosmos DB Developer Specialty). Our Solutions Architects hold AZ-305 (Azure Solutions Architect Expert) certifications. We maintain 100% certification compliance through continuous recertification programs.',
+      'All AIvanceWorks engineers hold 12+ professional certifications across Microsoft Azure, AWS, Cisco, Scrum Alliance, and PMI. Azure certifications include AI-102 (Azure AI Engineer Associate), AZ-204 (Azure Developer Associate), AZ-400 (DevOps Engineer Expert), DP-203 (Azure Data Engineer Associate), DP-420 (Azure Cosmos DB Developer Specialty), and AZ-305 (Azure Solutions Architect Expert). We also hold AWS Solutions Architect Associate, CCNA (Cisco Certified Network Associate), Certified Scrum Product Owner (CSPO) from Scrum Alliance, and Certified Associate in Project Management (CAPM) from Project Management Institute. We maintain 100% certification compliance through continuous recertification programs.',
   },
   {
     question: 'How does AIvanceWorks ensure project success?',
@@ -387,12 +387,13 @@ export default function AboutPage() {
 
               <Card className="p-8 border-l-4 border-purple-600">
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                  Microsoft-Certified Cloud Expertise
+                  Certified Cloud & Delivery Expertise
                 </h3>
                 <p className="text-lg text-gray-700 mb-4">
-                  Our team holds AI-102, AZ-204, and DP-420 certifications with
-                  deep expertise in Microsoft Azure, AWS, and modern cloud-native
-                  architectures.
+                  Our team holds multi-vendor certifications with deep expertise
+                  in Microsoft Azure, AWS, and modern cloud-native architectures.
+                  We also hold AWS Solutions Architect Associate, CCNA, CSPO
+                  (Scrum Alliance), and CAPM (PMI).
                 </p>
                 <ul className="space-y-2 text-gray-700">
                   <li className="flex items-start gap-2">

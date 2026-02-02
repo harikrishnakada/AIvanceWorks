@@ -217,7 +217,7 @@ export function generateTeamOrganizationSchema(): JsonLd {
     '@id': `${SITE_CONFIG.url}/#organization`,
     name: SITE_CONFIG.company.name,
     url: SITE_CONFIG.url,
-    description: 'US-based AI consulting and software engineering company with Azure-certified senior engineers.',
+    description: 'US-based AI consulting and software engineering company with Azure-, AWS-, and multi-vendor certified senior engineers.',
     foundingDate: '2025',
     areaServed: {
       '@type': 'Country',
@@ -237,12 +237,16 @@ export function generateTeamOrganizationSchema(): JsonLd {
       'RAG Frameworks',
       'Agentic AI Systems',
       'Microsoft Azure',
+      'AWS',
+      'Cisco networking',
       'Cloud Architecture',
       'Full-Stack Development',
       'DevOps Automation',
       '.NET Development',
       'React Development',
       'Next.js',
+      'Agile/Scrum',
+      'Project management',
     ],
     // Credentials for E-E-A-T
     hasCredential: [
@@ -289,6 +293,42 @@ export function generateTeamOrganizationSchema(): JsonLd {
         recognizedBy: {
           '@type': 'Organization',
           name: 'Microsoft',
+        },
+      },
+      {
+        '@type': 'EducationalOccupationalCredential',
+        credentialCategory: 'certificate',
+        name: 'AWS Solutions Architect Associate',
+        recognizedBy: {
+          '@type': 'Organization',
+          name: 'Amazon Web Services',
+        },
+      },
+      {
+        '@type': 'EducationalOccupationalCredential',
+        credentialCategory: 'certificate',
+        name: 'CCNA: Cisco Certified Network Associate',
+        recognizedBy: {
+          '@type': 'Organization',
+          name: 'Cisco',
+        },
+      },
+      {
+        '@type': 'EducationalOccupationalCredential',
+        credentialCategory: 'certificate',
+        name: 'Certified Scrum Product Owner (CSPO)',
+        recognizedBy: {
+          '@type': 'Organization',
+          name: 'Scrum Alliance',
+        },
+      },
+      {
+        '@type': 'EducationalOccupationalCredential',
+        credentialCategory: 'certificate',
+        name: 'Certified Associate in Project Management (CAPM)',
+        recognizedBy: {
+          '@type': 'Organization',
+          name: 'Project Management Institute',
         },
       },
     ],
