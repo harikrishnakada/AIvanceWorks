@@ -623,7 +623,7 @@ Failure to enforce any provision does not waive our right to enforce it later. W
 Notices must be in writing and sent to:
 
 **To AIvance Works:**  
-Email: legal@nexusdigitalsolutions.com  
+Email: legal@aivanceworks.com  
 Address: [Your Business Address]
 
 **To You:**  
@@ -728,10 +728,10 @@ For questions about these Terms or our services:
 
 **AIvance Works**
 
-**General Inquiries**: contact@nexusdigitalsolutions.com  
-**Legal Matters**: legal@nexusdigitalsolutions.com  
-**Billing**: billing@nexusdigitalsolutions.com  
-**Website**: [www.nexusdigitalsolutions.com]  
+**General Inquiries**: contact@aivanceworks.com  
+**Legal Matters**: legal@aivanceworks.com  
+**Billing**: billing@aivanceworks.com  
+**Website**: [www.aivanceworks.com]  
 **Address**: [Your Business Address]  
 **Phone**: [Phone Number]
 
