@@ -5,7 +5,8 @@
       "WebFetch(domain:cal.com)",
       "WebFetch(domain:github.com)",
       "WebFetch(domain:www.npmjs.com)",
-      "WebFetch(domain:codesandbox.io)"
+      "WebFetch(domain:codesandbox.io)",
+      "Bash(npm install:*)"
     ]
   },
   "enabledPlugins": {
