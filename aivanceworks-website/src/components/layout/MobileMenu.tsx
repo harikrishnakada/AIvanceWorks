@@ -12,13 +12,18 @@ interface MobileMenuProps {
 }
 
 export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
-  const [isServicesExpanded, setIsServicesExpanded] = useState(false);
+  const [isWhatWeDoOpen, setIsWhatWeDoOpen] = useState(false);
+  const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
 
   if (!isOpen) return null;
 
+  const toggleCategory = (title: string) => {
+    setExpandedCategory(expandedCategory === title ? null : title);
+  };
+
   return (
     <div
-      className="fixed inset-0 z-40 lg:hidden"
+      className="fixed inset-0 z-40 md:hidden"
       role="dialog"
       aria-modal="true"
       aria-label="Mobile menu"
@@ -31,45 +36,76 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
       />
 
       {/* Menu Panel */}
-      <div className="fixed inset-y-0 right-0 w-full max-w-sm bg-white shadow-xl animate-in slide-in-from-right duration-300">
+      <div className="fixed inset-y-0 right-0 w-full max-w-sm bg-white shadow-[−8px_0_30px_rgba(0,0,0,0.1)] border-l border-gray-200 animate-in slide-in-from-right duration-300">
         <div className="flex flex-col h-full">
           {/* Menu Content */}
           <div className="flex-1 overflow-y-auto px-6 py-6 mt-16">
             <nav className="space-y-1" aria-label="Mobile navigation">
-              {/* Services Accordion */}
-              <div className="border-b border-gray-100 pb-1">
+              {/* What We Do Accordion */}
+              <div className="border-b border-gray-200 pb-1">
                 <button
-                  onClick={() => setIsServicesExpanded(!isServicesExpanded)}
+                  onClick={() => setIsWhatWeDoOpen(!isWhatWeDoOpen)}
                   className="flex items-center justify-between w-full px-4 py-3 text-base font-medium text-gray-900 hover:bg-gray-50 rounded-lg transition-colors"
-                  aria-expanded={isServicesExpanded}
+                  aria-expanded={isWhatWeDoOpen}
                 >
-                  Services
+                  What We Do
                   <ChevronDown
-                    className={`h-5 w-5 transition-transform ${
-                      isServicesExpanded ? 'rotate-180' : ''
+                    className={`h-5 w-5 text-gray-500 transition-transform duration-200 ${
+                      isWhatWeDoOpen ? 'rotate-180' : ''
                     }`}
                   />
                 </button>
 
-                {/* Services Submenu */}
-                {isServicesExpanded && (
-                  <div className="mt-1 space-y-1 pl-4 animate-in slide-in-from-top-2 duration-200">
-                    {NAVIGATION.services.map((service) => (
-                      <Link
-                        key={service.href}
-                        href={service.href}
-                        onClick={onClose}
-                        className="block px-4 py-2.5 text-sm text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
-                      >
-                        {service.label}
-                      </Link>
+                {/* What We Do — 3 Category Sections */}
+                {isWhatWeDoOpen && (
+                  <div className="mt-1 space-y-1 animate-in slide-in-from-top-2 duration-200">
+                    {NAVIGATION.whatWeDo.map((category) => (
+                      <div key={category.title}>
+                        {/* Category Header */}
+                        <button
+                          onClick={() => toggleCategory(category.title)}
+                          className="flex items-center justify-between w-full px-4 py-2.5 text-sm font-semibold text-gray-700 hover:bg-gray-50 rounded-lg transition-colors"
+                        >
+                          {category.title}
+                          <ChevronDown
+                            className={`h-4 w-4 text-gray-400 transition-transform duration-200 ${
+                              expandedCategory === category.title ? 'rotate-180' : ''
+                            }`}
+                          />
+                        </button>
+
+                        {/* Category Links */}
+                        {expandedCategory === category.title && (
+                          <div className="pl-4 space-y-0.5 animate-in slide-in-from-top-1 duration-150">
+                            {category.links.map((link) => (
+                              <Link
+                                key={link.href + link.label}
+                                href={link.href}
+                                onClick={onClose}
+                                className="block px-4 py-2 text-sm text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-lg transition-colors"
+                              >
+                                {link.label}
+                              </Link>
+                            ))}
+                          </div>
+                        )}
+                      </div>
                     ))}
                   </div>
                 )}
               </div>
 
+              {/* How We Work */}
+              <Link
+                href="/how-we-work"
+                onClick={onClose}
+                className="block px-4 py-3 text-base font-medium text-gray-900 hover:bg-gray-50 rounded-lg transition-colors"
+              >
+                How We Work
+              </Link>
+
               {/* Main Navigation Links */}
-              {NAVIGATION.main.filter((item) => item.label !== 'Services').map((item) => (
+              {NAVIGATION.main.filter((item) => item.label !== 'What We Do' && item.label !== 'How We Work').map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
@@ -83,10 +119,10 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           </div>
 
           {/* CTA Buttons */}
-          <div className="border-t border-gray-100 p-6 space-y-3 bg-gray-50">
+          <div className="border-t border-gray-200 p-6 space-y-3 bg-gray-50">
             <Button
               variant="outline"
-              className="w-full border-gray-300 hover:border-blue-600 hover:text-blue-600"
+              className="w-full border-gray-300 text-gray-700 hover:border-blue-300 hover:bg-white"
               asChild
             >
               <Link href="/contact" onClick={onClose}>
@@ -94,7 +130,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               </Link>
             </Button>
             <Button
-              className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 shadow-sm"
+              className="w-full bg-blue-600 text-white hover:bg-blue-700 shadow-sm font-semibold"
               asChild
             >
               <Link href="/book-consultation" onClick={onClose}>

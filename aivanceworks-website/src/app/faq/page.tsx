@@ -16,7 +16,7 @@ export const metadata: Metadata = constructMetadata({
 export default function FAQPlaceholderPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50/30">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-14">
         <div className="text-center">
           {/* Icon */}
           <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-blue-100 mb-6">

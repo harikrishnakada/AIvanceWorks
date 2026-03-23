@@ -253,7 +253,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
       </section>
 
       {/* Key Capabilities Section */}
-      <section className="py-20 bg-white">
+      <section className="py-8 lg:py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12">
             <div>
@@ -314,9 +314,9 @@ export default async function ServiceDetailPage({ params }: PageProps) {
 
       {/* Process Section */}
       {service.processSteps.length > 0 && (
-        <section className="py-20 bg-gray-50">
+        <section className="py-8 lg:py-12 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
+            <div className="text-center mb-8">
               <h2 className="text-3xl font-bold text-gray-900 mb-4">
                 Our Implementation Process
               </h2>
@@ -378,7 +378,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
 
       {/* FAQ Section */}
       {service.faqs.length > 0 && (
-        <section className="py-20 bg-white">
+        <section className="py-8 lg:py-12 bg-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -413,7 +413,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
 
       {/* Related Services */}
       {relatedServices.length > 0 && (
-        <section className="py-20 bg-gray-50">
+        <section className="py-8 lg:py-12 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -453,7 +453,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
       )}
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
+      <section className="py-8 lg:py-12 bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold mb-4">
             Get Your Custom {service.name} Assessment

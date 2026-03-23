@@ -37,52 +37,56 @@ const differentiators = [
 
 export function WhyChooseUsSection() {
   return (
-    <section className="py-20 lg:py-28 bg-gradient-to-b from-gray-50 to-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-6 sm:py-8 lg:py-12 relative overflow-hidden">
+      {/* Subtle blue gradient wash background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white via-blue-50/30 to-white" />
+      <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-100/30 rounded-full blur-[150px]" />
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-            Why Companies Choose AIvanceWorks
+        <div className="text-center max-w-2xl mx-auto mb-5 sm:mb-6 lg:mb-8">
+          <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-black text-gray-900 mb-2 leading-tight">
+            Why Companies Choose Serpent Software
           </h2>
-          <p className="text-lg text-gray-600">
+          <p className="text-xs sm:text-sm md:text-base text-gray-500 leading-relaxed">
             We combine deep technical expertise with a partnership mindset to deliver measurable business outcomes.
           </p>
         </div>
 
         {/* Differentiators Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 lg:gap-5">
           {differentiators.map((item, index) => (
             <div
               key={item.title}
-              className="relative flex gap-6 p-6 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
+              className="relative flex gap-3 sm:gap-4 p-4 sm:p-5 bg-white rounded-xl sm:rounded-2xl border border-gray-100 shadow-sm hover:shadow-[0_12px_40px_rgba(37,99,235,0.1)] hover:border-blue-100 transition-all duration-300"
             >
               {/* Icon */}
               <div className="flex-shrink-0">
-                <div className="w-14 h-14 rounded-xl bg-blue-100 flex items-center justify-center">
-                  <item.icon className="h-7 w-7 text-blue-600" />
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-blue-50 flex items-center justify-center">
+                  <item.icon className="h-4 w-4 sm:h-5 sm:w-5 text-blue-600" />
                 </div>
               </div>
 
               {/* Content */}
-              <div className="flex-1">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+              <div className="flex-1 min-w-0">
+                <h3 className="text-sm sm:text-base font-bold text-gray-900 mb-1">
                   {item.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed mb-4">
+                <p className="text-gray-500 leading-relaxed mb-2.5 text-xs sm:text-sm line-clamp-3 sm:line-clamp-none">
                   {item.description}
                 </p>
 
                 {/* Stat */}
-                <div className="flex items-baseline gap-2">
-                  <span className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+                <div className="flex items-baseline gap-1.5">
+                  <span className="text-xl sm:text-2xl font-black text-blue-600">
                     {item.stat}
                   </span>
-                  <span className="text-sm text-gray-500">{item.statLabel}</span>
+                  <span className="text-[11px] sm:text-xs text-gray-400 font-medium">{item.statLabel}</span>
                 </div>
               </div>
 
-              {/* Decorative Number */}
-              <div className="absolute top-4 right-4 text-6xl font-bold text-gray-100 select-none">
+              {/* Decorative Number — hidden on mobile */}
+              <div className="hidden sm:block absolute top-4 right-5 text-5xl lg:text-6xl font-black text-gray-50 select-none">
                 {String(index + 1).padStart(2, '0')}
               </div>
             </div>

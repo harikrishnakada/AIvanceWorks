@@ -210,9 +210,9 @@ export default async function ServiceCategoryPage({ params }: PageProps) {
 
       {/* Sub-services Section (if available) */}
       {category.services.length > 0 && (
-        <section className="py-20 bg-white">
+        <section className="py-8 lg:py-12 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
+            <div className="text-center mb-8">
               <h2 className="text-3xl font-bold text-gray-900 mb-4">
                 Our {category.name} Services
               </h2>
@@ -257,7 +257,7 @@ export default async function ServiceCategoryPage({ params }: PageProps) {
       )}
 
       {/* Capabilities Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-8 lg:py-12 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12">
             <div>
@@ -299,7 +299,7 @@ export default async function ServiceCategoryPage({ params }: PageProps) {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
+      <section className="py-8 lg:py-12 bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold mb-4">
             Ready to Get Started with {category.name}?

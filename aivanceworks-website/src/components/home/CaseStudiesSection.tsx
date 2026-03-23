@@ -53,23 +53,23 @@ const placeholderCaseStudies = [
 export async function CaseStudiesSection() {
   // Try to fetch featured case studies from Sanity
   const featuredCaseStudies = await getFeaturedCaseStudies(3);
-  
+
   // Use Sanity data if available, otherwise use placeholder data
   const caseStudies = featuredCaseStudies.length > 0 ? featuredCaseStudies : placeholderCaseStudies;
   return (
-    <section className="py-20 lg:py-28 bg-white">
+    <section className="py-6 sm:py-8 lg:py-12 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-2 sm:gap-3 mb-4 sm:mb-5 lg:mb-7">
           <div className="max-w-2xl">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-black text-gray-900 mb-1.5 sm:mb-2 leading-tight">
               Real Results for Real Companies
             </h2>
-            <p className="text-lg text-gray-600">
-              See how we've helped startups and enterprises achieve measurable business outcomes with AI and cloud solutions.
+            <p className="text-xs sm:text-sm md:text-base text-gray-500 leading-relaxed">
+              See how we&apos;ve helped startups and enterprises achieve measurable business outcomes with AI and cloud solutions.
             </p>
           </div>
-          <Button variant="outline" asChild className="shrink-0">
+          <Button variant="outline" asChild className="shrink-0 rounded-xl border-gray-200 hover:border-blue-300 hover:bg-blue-50 hover:text-blue-600 font-semibold transition-all duration-200">
             <Link href="/case-studies">
               View All Case Studies
               <ArrowRight className="ml-2 h-4 w-4" />
@@ -78,15 +78,15 @@ export async function CaseStudiesSection() {
         </div>
 
         {/* Case Studies Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-5">
           {caseStudies.map((study, index) => (
             <Link
               key={study.slug || index}
               href={`/case-studies/${study.slug}`}
-              className="group flex flex-col bg-gray-50 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow"
+              className="group flex flex-col bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-[0_12px_40px_rgba(37,99,235,0.1)] hover:border-blue-100 transition-all duration-300"
             >
               {/* Image */}
-              <div className="aspect-video bg-gradient-to-br from-blue-100 to-indigo-100 relative">
+              <div className="aspect-video bg-gradient-to-br from-blue-50 to-indigo-50 relative">
                 {study.image ? (
                   <Image
                     src={study.image}
@@ -96,7 +96,7 @@ export async function CaseStudiesSection() {
                   />
                 ) : (
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="text-sm font-medium text-blue-600 bg-white/80 px-3 py-1 rounded-full">
+                    <span className="text-sm font-semibold text-blue-600 bg-white/90 px-4 py-1.5 rounded-full shadow-sm">
                       {study.industry}
                     </span>
                   </div>
@@ -104,13 +104,13 @@ export async function CaseStudiesSection() {
               </div>
 
               {/* Content */}
-              <div className="flex-1 p-6">
+              <div className="flex-1 p-4 sm:p-5">
                 {/* Tags */}
                 <div className="flex flex-wrap gap-2 mb-3">
                   {study.services.map((service) => (
                     <span
                       key={service}
-                      className="text-xs font-medium text-gray-500 bg-gray-200 px-2 py-1 rounded"
+                      className="text-xs font-semibold text-blue-600 bg-blue-50 px-2.5 py-1 rounded-lg"
                     >
                       {service}
                     </span>
@@ -118,23 +118,23 @@ export async function CaseStudiesSection() {
                 </div>
 
                 {/* Title */}
-                <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors line-clamp-2">
+                <h3 className="text-sm sm:text-base font-bold text-gray-900 mb-1.5 sm:mb-2 group-hover:text-blue-600 transition-colors line-clamp-2">
                   {study.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-gray-600 text-sm mb-4 line-clamp-2">
+                <p className="text-gray-500 text-xs sm:text-sm mb-3 sm:mb-4 line-clamp-2 leading-relaxed">
                   {study.excerpt}
                 </p>
 
                 {/* Metrics */}
-                <div className="grid grid-cols-3 gap-3 pt-4 border-t border-gray-200">
+                <div className="grid grid-cols-3 gap-2 sm:gap-3 pt-3 sm:pt-4 border-t border-gray-100">
                   {study.metrics.map((metric, idx) => (
                     <div key={idx} className="text-center">
-                      <div className="text-lg font-bold text-blue-600">
+                      <div className="text-sm sm:text-base font-black text-blue-600">
                         {metric.value}
                       </div>
-                      <div className="text-xs text-gray-500">{metric.suffix}</div>
+                      <div className="text-xs text-gray-400 font-medium">{metric.suffix}</div>
                     </div>
                   ))}
                 </div>

@@ -95,7 +95,7 @@ export default function AboutPage() {
       <JsonLd data={generateFAQSchema(faqs)} />
 
       {/* Hero Section - AEO optimized with direct answer in first 40-60 words */}
-      <section className="bg-gradient-to-br from-blue-50 via-white to-purple-50 py-20 lg:py-28">
+      <section className="bg-gradient-to-br from-blue-50 via-white to-purple-50 py-8 lg:py-12">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             {/* Primary H1 with target keyword */}
@@ -204,14 +204,14 @@ export default function AboutPage() {
       </section>
 
       {/* Mission & Vision Section */}
-      <section className="py-20 bg-white">
+      <section className="py-8 lg:py-12 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">
               What Drives AIvanceWorks?
             </h2>
 
-            <div className="grid md:grid-cols-2 gap-12 mb-16">
+            <div className="grid md:grid-cols-2 gap-12 mb-8">
               <Card className="p-8 border-2 border-blue-100 hover:border-blue-300 transition-colors">
                 <div className="flex items-start gap-4 mb-4">
                   <Target className="w-10 h-10 text-blue-600 flex-shrink-0" />
@@ -252,7 +252,7 @@ export default function AboutPage() {
       </section>
 
       {/* Core Values Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-8 lg:py-12 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 text-center">
@@ -339,7 +339,7 @@ export default function AboutPage() {
       </section>
 
       {/* Why Choose AIvanceWorks Section */}
-      <section className="py-20 bg-white">
+      <section className="py-8 lg:py-12 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 text-center">
@@ -444,7 +444,7 @@ export default function AboutPage() {
       </section>
 
       {/* Our Approach Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-50 to-purple-50">
+      <section className="py-8 lg:py-12 bg-gradient-to-br from-blue-50 to-purple-50">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 text-center">
@@ -531,7 +531,7 @@ export default function AboutPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-white">
+      <section className="py-8 lg:py-12 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 text-center">
@@ -556,7 +556,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+      <section className="py-8 lg:py-12 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">

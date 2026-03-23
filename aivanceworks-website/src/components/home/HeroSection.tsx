@@ -2,76 +2,108 @@
 
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Play } from 'lucide-react';
+import { ArrowRight, Play, Zap, Clock, TrendingUp } from 'lucide-react';
+
+const stats = [
+  { value: '3x', label: 'Faster Development', icon: Zap },
+  { value: '50%', label: 'Cost Reduction', icon: TrendingUp },
+  { value: '99.9%', label: 'Uptime SLA', icon: Clock },
+];
 
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/50">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:24px_24px]" />
+    <section className="relative overflow-hidden bg-gradient-to-b from-gray-50 via-blue-50/30 to-white">
+      {/* Subtle background pattern */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#2563eb05_1px,transparent_1px),linear-gradient(to_bottom,#2563eb05_1px,transparent_1px)] bg-[size:32px_32px]" />
 
-      {/* Gradient Orbs */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-blue-400/20 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-indigo-400/20 rounded-full blur-3xl" />
+      {/* Soft gradient orbs — hidden on small screens for performance */}
+      <div className="hidden md:block absolute top-0 right-1/4 w-[400px] h-[400px] bg-blue-100/30 rounded-full blur-[120px]" />
+      <div className="hidden md:block absolute bottom-0 left-1/4 w-[300px] h-[300px] bg-blue-50/30 rounded-full blur-[100px]" />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
-        <div className="max-w-4xl mx-auto text-center">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-100 text-blue-700 text-sm font-medium mb-8">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-500 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-600"></span>
-            </span>
-            AI-First Software Consulting
-          </div>
+      {/* On mobile/tablet: natural flow with tight padding. On lg+: fill viewport minus header */}
+      <div className="relative max-w-[1440px] mx-auto px-3 sm:px-4 md:px-5 lg:px-6 py-2 sm:py-2 md:py-3 lg:py-4">
+        {/* Main Hero Card */}
+        <div className="relative w-full bg-gradient-to-br from-[#1a1f36] via-[#1e2744] to-[#1a2038] rounded-2xl md:rounded-2xl lg:rounded-3xl overflow-hidden border border-white/[0.06] shadow-[0_20px_60px_rgba(37,99,235,0.15)]">
+          {/* Card internal glow effects */}
+          <div className="absolute top-0 left-1/3 w-[500px] h-56 bg-blue-500/[0.07] rounded-full blur-[100px]" />
+          <div className="absolute bottom-0 right-1/3 w-[400px] h-48 bg-indigo-500/[0.06] rounded-full blur-[80px]" />
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:40px_40px]" />
 
-          {/* Headline */}
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 mb-6">
-            Build Intelligent Software{' '}
-            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-              That Scales
-            </span>
-          </h1>
+          <div className="relative px-5 py-6 sm:px-6 sm:py-7 md:px-10 md:py-8 lg:px-16 lg:py-11">
+            {/* Content */}
+            <div className="max-w-3xl mx-auto text-center">
+              {/* Badge */}
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/[0.12] border border-blue-400/[0.15] text-blue-300 text-[11px] sm:text-xs font-semibold mb-3 sm:mb-4 tracking-wide">
+                <span className="relative flex h-1.5 w-1.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-blue-400"></span>
+                </span>
+                AI-Powered Cloud Computing
+              </div>
 
-          {/* Subheadline */}
-          <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed">
-            AIvanceWorks delivers AI agents, RAG frameworks, and cloud solutions that reduce costs by 50% and accelerate your time-to-market. Microsoft-certified experts, startup-friendly pricing.
-          </p>
+              <h1 className="text-[22px] leading-[1.15] sm:text-[26px] md:text-3xl lg:text-5xl font-black tracking-tight text-white mb-2.5 sm:mb-3 md:mb-4">
+                Build Smarter Software,{' '}
+                <span className="bg-gradient-to-r from-blue-400 via-blue-300 to-indigo-400 bg-clip-text text-transparent">
+                  Ship Faster
+                </span>
+              </h1>
 
-          {/* CTAs */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button
-              size="lg"
-              asChild
-              className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 shadow-lg shadow-blue-500/25 text-base px-8 h-12"
-            >
-              <Link href="/book-consultation">
-                Book Free Consultation
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              asChild
-              className="border-gray-300 hover:border-blue-600 hover:text-blue-600 text-base px-8 h-12"
-            >
-              <Link href="/services">
-                <Play className="mr-2 h-4 w-4" />
-                View Services
-              </Link>
-            </Button>
-          </div>
+              <p className="text-[13px] leading-relaxed sm:text-sm md:text-[15px] lg:text-lg text-white/60 max-w-2xl mx-auto mb-4 sm:mb-5">
+                Serpent Software is an AI integrated cloud computing software development company including services such as MVP Development, SaaS Development and several other development services.
+              </p>
 
-          {/* Trust Indicators */}
-          <div className="mt-16 pt-10 border-t border-gray-200/60">
-            <p className="text-sm text-gray-500 mb-6">Trusted by innovative companies</p>
-            <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6 opacity-60">
-              {/* Placeholder logos - replace with actual client logos */}
-              <div className="text-xl font-bold text-gray-400">TechStartup</div>
-              <div className="text-xl font-bold text-gray-400">FinanceAI</div>
-              <div className="text-xl font-bold text-gray-400">CloudFirst</div>
-              <div className="text-xl font-bold text-gray-400">DataFlow</div>
+              {/* CTAs */}
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 mb-5 sm:mb-6">
+                <Button
+                  size="lg"
+                  asChild
+                  className="w-full sm:w-auto bg-blue-600 text-white hover:bg-blue-500 shadow-[0_8px_30px_rgba(37,99,235,0.4)] text-[13px] sm:text-sm md:text-sm px-5 sm:px-6 md:px-7 h-10 sm:h-10 md:h-11 font-bold rounded-xl transition-all duration-300"
+                >
+                  <Link href="/book-consultation">
+                    Book Consultation Call
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  asChild
+                  className="w-full sm:w-auto border-white/15 text-white hover:border-white/30 hover:bg-white/[0.06] text-[13px] sm:text-sm md:text-sm px-5 sm:px-6 md:px-7 h-10 sm:h-10 md:h-11 rounded-xl transition-all duration-300"
+                >
+                  <Link href="/services">
+                    <Play className="mr-2 h-3.5 w-3.5" />
+                    View Our Services
+                  </Link>
+                </Button>
+              </div>
+
+              {/* Stat Cards Row */}
+              <div className="grid grid-cols-3 gap-2 sm:gap-3 lg:gap-4 max-w-sm sm:max-w-lg md:max-w-xl lg:max-w-2xl mx-auto">
+                {stats.map((stat) => (
+                  <div
+                    key={stat.label}
+                    className="bg-white/[0.05] backdrop-blur-sm border border-white/[0.07] rounded-lg sm:rounded-xl px-2 py-2 sm:px-3 sm:py-2.5 md:px-3.5 md:py-2.5 lg:px-4 lg:py-3 hover:bg-white/[0.08] hover:border-blue-400/20 transition-all duration-300"
+                  >
+                    <stat.icon className="h-3 w-3 sm:h-3.5 sm:w-3.5 md:h-3.5 md:w-3.5 lg:h-4 lg:w-4 text-blue-400 mb-1 sm:mb-1.5 mx-auto" />
+                    <div className="text-sm sm:text-lg md:text-lg lg:text-2xl font-black text-white">
+                      {stat.value}
+                    </div>
+                    <div className="text-[8px] sm:text-[10px] md:text-[10px] lg:text-[11px] text-white/40 font-medium">{stat.label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Trust Bar */}
+            <div className="mt-4 sm:mt-5 pt-3 sm:pt-4 border-t border-white/[0.06]">
+              <p className="text-[8px] sm:text-[10px] md:text-[11px] text-white/30 text-center mb-1.5 sm:mb-2 uppercase tracking-[0.2em] font-semibold">
+                Trusted by innovative companies
+              </p>
+              <div className="flex flex-wrap items-center justify-center gap-x-4 sm:gap-x-8 md:gap-x-10 gap-y-1">
+                {['TechStartup', 'FinanceAI', 'CloudFirst', 'DataFlow'].map((name) => (
+                  <div key={name} className="text-[10px] sm:text-xs md:text-sm font-bold text-white/20 hover:text-white/40 transition-colors">{name}</div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

@@ -6,7 +6,9 @@
       "WebFetch(domain:github.com)",
       "WebFetch(domain:www.npmjs.com)",
       "WebFetch(domain:codesandbox.io)",
-      "Bash(npm install:*)"
+      "Bash(npm install:*)",
+      "Bash(python3 .claude/skills/ui-ux-pro-max/scripts/search.py \"dark navbar navigation professional SaaS\" --domain style -n 5)",
+      "Bash(python .claude/skills/ui-ux-pro-max/scripts/search.py \"dark navbar navigation professional SaaS\" --domain style -n 5)"
     ]
   },
   "enabledPlugins": {

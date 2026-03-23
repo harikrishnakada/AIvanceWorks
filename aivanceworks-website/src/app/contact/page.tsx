@@ -34,7 +34,7 @@ export default function ContactPage() {
 
       <div className="container mx-auto px-4 max-w-6xl">
         {/* Hero Section - Direct Answer (AEO Optimization) */}
-        <div className="mx-auto mb-16 max-w-3xl text-center">
+        <div className="mx-auto mb-8 max-w-3xl text-center">
           <h1 className="mb-6 text-4xl font-bold tracking-tight md:text-5xl">Get in Touch</h1>
           <p className="text-xl text-muted-foreground">
             Contact AIvanceWorks to discuss your AI, cloud, or custom development needs. We respond

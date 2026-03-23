@@ -85,14 +85,14 @@ export function Footer() {
     <footer className="bg-gradient-to-b from-gray-50 to-white border-t border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Footer Content */}
-        <div className="py-12 lg:py-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 lg:gap-12">
+        <div className="py-8 lg:py-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 lg:gap-8">
             {/* Brand & Newsletter */}
             <div className="lg:col-span-2">
               {/* Logo */}
               <Link href="/" className="inline-flex items-center space-x-2 group">
                 <div className="w-9 h-9 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-lg flex items-center justify-center transform transition-transform group-hover:scale-105">
-                  <span className="text-white font-bold text-lg">A</span>
+                  <span className="text-white font-bold text-lg">SS</span>
                 </div>
                 <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
                   {SITE_CONFIG.name}

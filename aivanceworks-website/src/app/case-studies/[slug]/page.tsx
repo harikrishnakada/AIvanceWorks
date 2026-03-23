@@ -66,7 +66,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
 
       <article className="min-h-screen bg-white">
         {/* Hero Section */}
-        <header className="bg-gradient-to-br from-slate-50 to-blue-50/30 py-12 lg:py-16 border-b border-gray-100">
+        <header className="bg-gradient-to-br from-slate-50 to-blue-50/30 py-8 lg:py-12 border-b border-gray-100">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <Link
               href="/case-studies"
@@ -121,7 +121,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
         )}
 
         {/* Content */}
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
           {/* Client Info */}
           {caseStudy.client && (
             <Card className="p-6 mb-12 bg-gray-50">

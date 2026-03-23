@@ -84,7 +84,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
       <article className="min-h-screen bg-white">
         {/* Hero Section */}
-        <header className="bg-gradient-to-br from-slate-50 to-blue-50/30 py-12 lg:py-16 border-b border-gray-100">
+        <header className="bg-gradient-to-br from-slate-50 to-blue-50/30 py-8 lg:py-12 border-b border-gray-100">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Back to Blog Link */}
             <Link
@@ -167,7 +167,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         </div>
 
         {/* Content Grid */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-12">
             {/* Main Content */}
             <div className="max-w-3xl">
