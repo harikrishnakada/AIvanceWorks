@@ -59,7 +59,7 @@ export function PostContent({ content }: PostContentProps) {
 
       // Blockquote
       blockquote: ({ children }: any) => (
-        <blockquote className="border-l-4 border-blue-500 pl-6 italic my-6 text-gray-700">
+        <blockquote className="border-l-4 border-accent pl-6 italic my-6 text-gray-700">
           {children}
         </blockquote>
       ),
@@ -100,7 +100,7 @@ export function PostContent({ content }: PostContentProps) {
       link: ({ children, value }: any) => (
         <a
           href={value.href}
-          className="text-blue-600 hover:text-blue-800 underline"
+          className="text-accent-hover hover:text-accent underline"
           target={value.href?.startsWith('http') ? '_blank' : undefined}
           rel={value.href?.startsWith('http') ? 'noopener noreferrer' : undefined}
         >

@@ -50,7 +50,7 @@ export function NewsletterCTA({ variant = 'inline' }: NewsletterCTAProps) {
 
   if (variant === 'sidebar') {
     return (
-      <div className="bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg p-6 text-white">
+      <div className="bg-gradient-to-br from-accent-hover to-accent rounded-lg p-6 text-text-heading">
         <div className="flex items-center gap-3 mb-4">
           <div className="p-2 bg-white/20 rounded-lg">
             <Mail className="w-5 h-5" />
@@ -58,7 +58,7 @@ export function NewsletterCTA({ variant = 'inline' }: NewsletterCTAProps) {
           <h4 className="font-bold">Newsletter</h4>
         </div>
 
-        <p className="text-sm text-blue-100 mb-4">
+        <p className="text-sm text-text-heading/70 mb-4">
           Get the latest insights on AI and cloud development delivered to your inbox.
         </p>
 
@@ -74,7 +74,7 @@ export function NewsletterCTA({ variant = 'inline' }: NewsletterCTAProps) {
           <Button
             type="submit"
             disabled={status === 'loading' || status === 'success'}
-            className="w-full bg-white text-blue-600 hover:bg-gray-100"
+            className="w-full bg-white text-accent-hover hover:bg-gray-100"
           >
             {status === 'loading' ? 'Subscribing...' : status === 'success' ? 'Subscribed!' : 'Subscribe'}
           </Button>
@@ -94,7 +94,7 @@ export function NewsletterCTA({ variant = 'inline' }: NewsletterCTAProps) {
           </div>
         )}
 
-        <p className="text-xs text-blue-200 mt-4">
+        <p className="text-xs text-text-heading/50 mt-4">
           We respect your privacy. Unsubscribe at any time.
         </p>
       </div>
@@ -105,7 +105,7 @@ export function NewsletterCTA({ variant = 'inline' }: NewsletterCTAProps) {
     return (
       <div className="bg-gray-50 rounded-lg p-8">
         <div className="max-w-2xl mx-auto text-center">
-          <Mail className="w-12 h-12 text-blue-600 mx-auto mb-4" />
+          <Mail className="w-12 h-12 text-accent-hover mx-auto mb-4" />
           <h3 className="text-2xl font-bold text-gray-900 mb-2">
             Stay Updated
           </h3>
@@ -155,10 +155,10 @@ export function NewsletterCTA({ variant = 'inline' }: NewsletterCTAProps) {
 
   // Inline variant (default)
   return (
-    <div className="bg-gradient-to-br from-gray-50 to-blue-50/30 rounded-xl p-8 border border-gray-200">
+    <div className="bg-gradient-to-br from-gray-50 to-accent/8 rounded-xl p-8 border border-gray-200">
       <div className="flex flex-col md:flex-row md:items-center gap-6">
         <div className="flex-shrink-0">
-          <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center">
+          <div className="w-16 h-16 bg-accent rounded-full flex items-center justify-center">
             <Mail className="w-8 h-8 text-white" />
           </div>
         </div>

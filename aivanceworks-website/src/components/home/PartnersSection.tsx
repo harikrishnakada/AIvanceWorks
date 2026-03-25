@@ -12,21 +12,22 @@ export function PartnersSection() {
   return (
     <section className="py-4 sm:py-6 lg:py-8">
       <div className="max-w-[1440px] mx-auto px-3 sm:px-4 md:px-5 lg:px-6">
-        <div className="relative bg-gradient-to-br from-[#1a1f36] via-[#1e2744] to-[#1a2038] rounded-2xl md:rounded-2xl lg:rounded-3xl overflow-hidden border border-white/[0.06] shadow-[0_20px_60px_rgba(37,99,235,0.12)]">
+        <div className="relative bg-surface-dark rounded-2xl md:rounded-2xl lg:rounded-3xl overflow-hidden border border-border-subtle shadow-panel">
           {/* Background effects */}
-          <div className="absolute top-0 left-1/4 w-[400px] h-40 bg-blue-500/[0.06] rounded-full blur-[80px]" />
-          <div className="absolute bottom-0 right-1/4 w-[300px] h-32 bg-indigo-500/[0.05] rounded-full blur-[60px]" />
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:40px_40px]" />
+          <div className="absolute top-0 left-1/4 w-[400px] h-40 bg-accent/5 rounded-full blur-[80px]" />
+          <div className="absolute bottom-0 right-1/4 w-[300px] h-32 bg-accent/5 rounded-full blur-[60px]" />
+          {/* Grid pattern — hex color intentionally kept; cannot be expressed as Tailwind opacity token */}
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#84CC1603_1px,transparent_1px),linear-gradient(to_bottom,#84CC1603_1px,transparent_1px)] bg-[size:40px_40px]" />
 
           <div className="relative px-5 py-6 sm:px-8 sm:py-8 md:px-10 md:py-8 lg:px-16 lg:py-10">
             {/* Heading */}
             <div className="text-center mb-5 sm:mb-6 lg:mb-8">
-              <p className="text-[10px] sm:text-xs text-blue-400/60 uppercase tracking-[0.2em] font-semibold mb-1.5 sm:mb-2">
+              <p className="text-[10px] sm:text-xs text-accent uppercase tracking-[0.2em] font-semibold mb-1.5 sm:mb-2">
                 Trusted Technology
               </p>
-              <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-black text-white">
+              <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-black text-text-light">
                 Our Partners &{' '}
-                <span className="bg-gradient-to-r from-blue-400 via-blue-300 to-indigo-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-accent to-accent-bright bg-clip-text text-transparent">
                   Technologies
                 </span>
               </h2>
@@ -50,7 +51,7 @@ export function PartnersSection() {
             </div>
 
             {/* Bottom tagline */}
-            <p className="text-center text-[10px] sm:text-xs text-white/25 mt-4 sm:mt-5 lg:mt-6 font-medium">
+            <p className="text-center text-[10px] sm:text-xs text-text-light/25 mt-4 sm:mt-5 lg:mt-6 font-medium">
               Building with the world&apos;s leading platforms
             </p>
           </div>

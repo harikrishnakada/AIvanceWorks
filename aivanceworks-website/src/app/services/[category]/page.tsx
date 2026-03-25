@@ -47,8 +47,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   return constructMetadata({
-    title: `${category.name} Services`,
-    description: `${category.shortDescription}. Expert consulting with projects starting at ${category.startingPrice}. Book a free consultation today.`,
+    title: `${category.name} Services | Serpent Software`,
+    description: `${category.shortDescription}. Expert solutions with projects starting at ${category.startingPrice}. Book a free consultation today.`,
     canonical: `${SITE_CONFIG.url}/services/${category.slug}`,
     keywords: [
       category.name.toLowerCase(),
@@ -133,23 +133,23 @@ export default async function ServiceCategoryPage({ params }: PageProps) {
       <JsonLd data={categorySchema} />
 
       {/* Breadcrumb */}
-      <nav className="bg-gray-50 border-b border-gray-200">
+      <nav className="bg-surface-light border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
           <ol className="flex items-center space-x-2 text-sm">
             <li>
-              <Link href="/" className="text-gray-500 hover:text-gray-700">
+              <Link href="/" className="text-muted-foreground hover:text-text-heading">
                 Home
               </Link>
             </li>
-            <ChevronRight className="h-4 w-4 text-gray-400" />
+            <ChevronRight className="h-4 w-4 text-muted-foreground" />
             <li>
-              <Link href="/services" className="text-gray-500 hover:text-gray-700">
+              <Link href="/services" className="text-muted-foreground hover:text-text-heading">
                 Services
               </Link>
             </li>
-            <ChevronRight className="h-4 w-4 text-gray-400" />
+            <ChevronRight className="h-4 w-4 text-muted-foreground" />
             <li>
-              <span className="text-gray-900 font-medium">{category.name}</span>
+              <span className="text-text-heading font-medium">{category.name}</span>
             </li>
           </ol>
         </div>
@@ -165,7 +165,7 @@ export default async function ServiceCategoryPage({ params }: PageProps) {
                   <Icon className="h-8 w-8 text-white" />
                 </div>
               </div>
-              <h1 className="text-4xl sm:text-5xl font-bold mb-6">
+              <h1 className="text-4xl sm:text-5xl font-bold mb-6 text-text-light">
                 {category.name}
               </h1>
               <p className="text-lg text-white/90 mb-8 leading-relaxed">
@@ -175,7 +175,7 @@ export default async function ServiceCategoryPage({ params }: PageProps) {
                 <Button
                   asChild
                   size="lg"
-                  className="bg-white text-gray-900 hover:bg-gray-100"
+                  className="bg-accent text-accent-foreground hover:bg-accent-hover"
                 >
                   <Link href="/contact">Get Free Consultation</Link>
                 </Button>
@@ -190,7 +190,7 @@ export default async function ServiceCategoryPage({ params }: PageProps) {
               </div>
             </div>
             <div className="bg-white/10 rounded-2xl p-8 backdrop-blur-sm">
-              <h3 className="text-xl font-semibold mb-6">Typical Results</h3>
+              <h3 className="text-xl font-semibold mb-6 text-text-light">Typical Results</h3>
               <ul className="space-y-4">
                 {category.typicalRoi.map((roi, idx) => (
                   <li key={idx} className="flex items-start gap-3">
@@ -201,7 +201,7 @@ export default async function ServiceCategoryPage({ params }: PageProps) {
               </ul>
               <div className="mt-8 pt-6 border-t border-white/20">
                 <div className="text-sm text-white/70">Projects starting at</div>
-                <div className="text-3xl font-bold">{category.startingPrice}</div>
+                <div className="text-3xl font-bold text-text-light">{category.startingPrice}</div>
               </div>
             </div>
           </div>
@@ -210,13 +210,13 @@ export default async function ServiceCategoryPage({ params }: PageProps) {
 
       {/* Sub-services Section (if available) */}
       {category.services.length > 0 && (
-        <section className="py-8 lg:py-12 bg-white">
+        <section className="py-8 lg:py-12 bg-surface-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-8">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              <h2 className="text-3xl font-bold text-text-heading mb-4">
                 Our {category.name} Services
               </h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              <p className="text-lg text-text-body max-w-2xl mx-auto">
                 Specialized solutions tailored to your specific needs
               </p>
             </div>
@@ -228,21 +228,21 @@ export default async function ServiceCategoryPage({ params }: PageProps) {
                   href={`/services/${category.slug}/${service.slug}`}
                   className="group"
                 >
-                  <Card className="h-full border-gray-200 hover:border-blue-300 hover:shadow-lg transition-all duration-300">
+                  <Card className="h-full border-border hover:border-accent/15 hover:shadow-card transition-all duration-300">
                     <CardHeader>
-                      <CardTitle className="text-xl group-hover:text-blue-600 transition-colors">
+                      <CardTitle className="text-xl text-text-heading group-hover:text-accent transition-colors">
                         {service.name}
                       </CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <CardDescription className="text-gray-600 text-base leading-relaxed mb-4">
+                      <CardDescription className="text-text-body text-base leading-relaxed mb-4">
                         {service.shortDescription}
                       </CardDescription>
-                      <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                        <span className="text-sm text-gray-500">
+                      <div className="flex items-center justify-between pt-4 border-t border-border">
+                        <span className="text-sm text-muted-foreground">
                           From {service.startingPrice}
                         </span>
-                        <span className="flex items-center text-blue-600 font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity">
+                        <span className="flex items-center text-accent font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity">
                           Learn more
                           <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                         </span>
@@ -257,37 +257,37 @@ export default async function ServiceCategoryPage({ params }: PageProps) {
       )}
 
       {/* Capabilities Section */}
-      <section className="py-8 lg:py-12 bg-gray-50">
+      <section className="py-8 lg:py-12 bg-surface-light">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12">
             <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">
+              <h2 className="text-3xl font-bold text-text-heading mb-6">
                 Key Capabilities
               </h2>
-              <p className="text-lg text-gray-600 mb-8">
+              <p className="text-lg text-text-body mb-8">
                 Our team brings deep expertise across the full spectrum of {category.name.toLowerCase()} services.
               </p>
               <ul className="space-y-4">
                 {category.capabilities.map((capability, idx) => (
                   <li key={idx} className="flex items-start gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-700">{capability}</span>
+                    <CheckCircle2 className="h-5 w-5 text-accent mt-0.5 flex-shrink-0" />
+                    <span className="text-text-body">{capability}</span>
                   </li>
                 ))}
               </ul>
             </div>
             <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">
+              <h2 className="text-3xl font-bold text-text-heading mb-6">
                 Technologies We Use
               </h2>
-              <p className="text-lg text-gray-600 mb-8">
+              <p className="text-lg text-text-body mb-8">
                 We leverage industry-leading tools and platforms to deliver exceptional results.
               </p>
               <div className="flex flex-wrap gap-3">
                 {category.technologies.map((tech, idx) => (
                   <span
                     key={idx}
-                    className="px-4 py-2 bg-white rounded-lg border border-gray-200 text-sm text-gray-700 hover:border-blue-300 transition-colors"
+                    className="px-4 py-2 bg-surface-white rounded-lg border border-border text-sm text-text-body hover:border-accent/15 transition-colors"
                   >
                     {tech}
                   </span>
@@ -299,12 +299,12 @@ export default async function ServiceCategoryPage({ params }: PageProps) {
       </section>
 
       {/* CTA Section */}
-      <section className="py-8 lg:py-12 bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
+      <section className="py-8 lg:py-12 bg-surface-dark text-text-light">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-4">
+          <h2 className="text-3xl font-bold mb-4 text-text-light">
             Ready to Get Started with {category.name}?
           </h2>
-          <p className="text-lg text-blue-100 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
             Schedule a free consultation to discuss your requirements.
             We'll provide a detailed proposal within 48 hours.
           </p>
@@ -312,8 +312,7 @@ export default async function ServiceCategoryPage({ params }: PageProps) {
             <Button
               asChild
               size="lg"
-              variant="secondary"
-              className="bg-white text-blue-700 hover:bg-gray-100"
+              className="bg-accent text-accent-foreground hover:bg-accent-hover"
             >
               <Link href="/contact">Schedule Consultation</Link>
             </Button>
@@ -321,7 +320,7 @@ export default async function ServiceCategoryPage({ params }: PageProps) {
               asChild
               size="lg"
               variant="outline"
-              className="border-white text-white hover:bg-white/10"
+              className="border-border text-text-light hover:bg-white/10"
             >
               <Link href="/services">View All Services</Link>
             </Button>

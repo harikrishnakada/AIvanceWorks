@@ -37,18 +37,14 @@ const differentiators = [
 
 export function WhyChooseUsSection() {
   return (
-    <section className="py-6 sm:py-8 lg:py-12 relative overflow-hidden">
-      {/* Subtle blue gradient wash background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white via-blue-50/30 to-white" />
-      <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-100/30 rounded-full blur-[150px]" />
-
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-6 sm:py-8 lg:py-12 bg-surface-light">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-5 sm:mb-6 lg:mb-8">
-          <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-black text-gray-900 mb-2 leading-tight">
+          <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-black text-text-heading mb-2 leading-tight">
             Why Companies Choose Serpent Software
           </h2>
-          <p className="text-xs sm:text-sm md:text-base text-gray-500 leading-relaxed">
+          <p className="text-xs sm:text-sm md:text-base text-text-body leading-relaxed">
             We combine deep technical expertise with a partnership mindset to deliver measurable business outcomes.
           </p>
         </div>
@@ -58,35 +54,35 @@ export function WhyChooseUsSection() {
           {differentiators.map((item, index) => (
             <div
               key={item.title}
-              className="relative flex gap-3 sm:gap-4 p-4 sm:p-5 bg-white rounded-xl sm:rounded-2xl border border-gray-100 shadow-sm hover:shadow-[0_12px_40px_rgba(37,99,235,0.1)] hover:border-blue-100 transition-all duration-300"
+              className="relative flex gap-3 sm:gap-4 p-4 sm:p-5 bg-surface-white rounded-xl sm:rounded-2xl border border-border shadow-sm hover:shadow-card hover:border-border-hover hover:translate-y-[-4px] transition-all duration-[400ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
             >
               {/* Icon */}
               <div className="flex-shrink-0">
-                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-blue-50 flex items-center justify-center">
-                  <item.icon className="h-4 w-4 sm:h-5 sm:w-5 text-blue-600" />
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-accent/8 flex items-center justify-center">
+                  <item.icon className="h-4 w-4 sm:h-5 sm:w-5 text-accent" />
                 </div>
               </div>
 
               {/* Content */}
               <div className="flex-1 min-w-0">
-                <h3 className="text-sm sm:text-base font-bold text-gray-900 mb-1">
+                <h3 className="text-sm sm:text-base font-bold text-text-heading mb-1">
                   {item.title}
                 </h3>
-                <p className="text-gray-500 leading-relaxed mb-2.5 text-xs sm:text-sm line-clamp-3 sm:line-clamp-none">
+                <p className="text-text-body leading-relaxed mb-2.5 text-xs sm:text-sm line-clamp-3 sm:line-clamp-none">
                   {item.description}
                 </p>
 
                 {/* Stat */}
                 <div className="flex items-baseline gap-1.5">
-                  <span className="text-xl sm:text-2xl font-black text-blue-600">
+                  <span className="text-xl sm:text-2xl font-black text-accent-hover">
                     {item.stat}
                   </span>
-                  <span className="text-[11px] sm:text-xs text-gray-400 font-medium">{item.statLabel}</span>
+                  <span className="text-[11px] sm:text-xs text-muted-foreground font-medium">{item.statLabel}</span>
                 </div>
               </div>
 
               {/* Decorative Number — hidden on mobile */}
-              <div className="hidden sm:block absolute top-4 right-5 text-5xl lg:text-6xl font-black text-gray-50 select-none">
+              <div className="hidden sm:block absolute top-4 right-5 text-5xl lg:text-6xl font-black text-surface-warm select-none">
                 {String(index + 1).padStart(2, '0')}
               </div>
             </div>

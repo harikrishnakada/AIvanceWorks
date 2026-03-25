@@ -44,8 +44,8 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
   }
 
   return constructMetadata({
-    title: `${categoryName} - Blog | AIvanceWorks`,
-    description: `Expert articles and insights on ${categoryName.toLowerCase()} from the AIvanceWorks team.`,
+    title: `${categoryName} - Blog | Serpent Software`,
+    description: `Expert articles and insights on ${categoryName.toLowerCase()} from the Serpent Software team.`,
     canonical: `${SITE_CONFIG.url}/blog/category/${category}`,
     keywords: [categoryName, 'blog', 'technical articles', 'software development'],
   });
@@ -74,14 +74,14 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 mb-8 transition-colors"
+            className="inline-flex items-center gap-2 text-sm text-text-body hover:text-text-heading mb-8 transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
             Back to Blog
           </Link>
 
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">{categoryName}</h1>
-          <p className="text-xl text-gray-600">No articles found in this category yet.</p>
+          <h1 className="text-4xl font-bold text-text-heading mb-4">{categoryName}</h1>
+          <p className="text-xl text-text-body">No articles found in this category yet.</p>
         </div>
       </main>
     );
@@ -114,12 +114,12 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
 
       <main className="min-h-screen bg-white">
         {/* Header Section */}
-        <section className="bg-gradient-to-br from-slate-50 to-blue-50/30 py-16 border-b border-gray-100">
+        <section className="bg-surface-dark py-16 border-b border-border-subtle">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Back to Blog Link */}
             <Link
               href="/blog"
-              className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 mb-6 transition-colors"
+              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-text-light mb-6 transition-colors"
             >
               <ArrowLeft className="w-4 h-4" />
               Back to Blog
@@ -127,17 +127,17 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
 
             {/* Category Title */}
             <div className="max-w-3xl">
-              <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+              <h1 className="text-4xl lg:text-5xl font-bold text-text-light mb-4">
                 {categoryName}
               </h1>
-              <p className="text-xl text-gray-600 mb-6">
+              <p className="text-xl text-muted-foreground mb-6">
                 {categoryDescriptions[categoryName]}
               </p>
 
               {/* Stats */}
-              <div className="flex items-center gap-6 text-sm text-gray-600">
+              <div className="flex items-center gap-6 text-sm text-muted-foreground">
                 <div>
-                  <span className="font-bold text-2xl text-gray-900">{categoryPosts.length}</span>
+                  <span className="font-bold text-2xl text-text-light">{categoryPosts.length}</span>
                   <span className="ml-2">Articles</span>
                 </div>
               </div>
@@ -156,7 +156,7 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
 
         {/* Other Categories */}
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Explore Other Categories</h2>
+          <h2 className="text-2xl font-bold text-text-heading mb-6">Explore Other Categories</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {Object.entries(categoryMap)
               .filter(([slug]) => slug !== category)
@@ -175,13 +175,10 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
                   <Link
                     key={slug}
                     href={`/blog/category/${slug}`}
-                    className={`
-                      block p-4 rounded-lg border border-gray-200 hover:shadow-md transition-shadow
-                      bg-gradient-to-br from-${color}-50 to-white
-                    `}
+                    className="block p-4 rounded-lg border border-border hover:border-accent hover:shadow-md transition-shadow bg-surface-light"
                   >
-                    <div className="font-semibold text-gray-900">{name}</div>
-                    <div className="text-sm text-gray-600 mt-1">{count} articles</div>
+                    <div className="font-semibold text-text-heading">{name}</div>
+                    <div className="text-sm text-text-body mt-1">{count} articles</div>
                   </Link>
                 );
               })}

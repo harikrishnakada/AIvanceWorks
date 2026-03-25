@@ -57,19 +57,19 @@ export async function CaseStudiesSection() {
   // Use Sanity data if available, otherwise use placeholder data
   const caseStudies = featuredCaseStudies.length > 0 ? featuredCaseStudies : placeholderCaseStudies;
   return (
-    <section className="py-6 sm:py-8 lg:py-12 bg-white">
+    <section className="py-6 sm:py-8 lg:py-12 bg-surface-light">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-2 sm:gap-3 mb-4 sm:mb-5 lg:mb-7">
           <div className="max-w-2xl">
-            <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-black text-gray-900 mb-1.5 sm:mb-2 leading-tight">
+            <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-black text-text-heading mb-1.5 sm:mb-2 leading-tight">
               Real Results for Real Companies
             </h2>
-            <p className="text-xs sm:text-sm md:text-base text-gray-500 leading-relaxed">
+            <p className="text-xs sm:text-sm md:text-base text-text-body leading-relaxed">
               See how we&apos;ve helped startups and enterprises achieve measurable business outcomes with AI and cloud solutions.
             </p>
           </div>
-          <Button variant="outline" asChild className="shrink-0 rounded-xl border-gray-200 hover:border-blue-300 hover:bg-blue-50 hover:text-blue-600 font-semibold transition-all duration-200">
+          <Button variant="outline" asChild className="shrink-0 rounded-xl border-border hover:border-accent/30 hover:bg-accent/5 hover:text-accent-hover font-semibold transition-all duration-200">
             <Link href="/case-studies">
               View All Case Studies
               <ArrowRight className="ml-2 h-4 w-4" />
@@ -83,10 +83,10 @@ export async function CaseStudiesSection() {
             <Link
               key={study.slug || index}
               href={`/case-studies/${study.slug}`}
-              className="group flex flex-col bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-[0_12px_40px_rgba(37,99,235,0.1)] hover:border-blue-100 transition-all duration-300"
+              className="group flex flex-col bg-surface-white rounded-2xl overflow-hidden border border-border hover:shadow-card hover:border-border-hover transition-all duration-[400ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
             >
               {/* Image */}
-              <div className="aspect-video bg-gradient-to-br from-blue-50 to-indigo-50 relative">
+              <div className="aspect-video bg-gradient-to-br from-surface-warm to-border relative">
                 {study.image ? (
                   <Image
                     src={study.image}
@@ -96,7 +96,7 @@ export async function CaseStudiesSection() {
                   />
                 ) : (
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="text-sm font-semibold text-blue-600 bg-white/90 px-4 py-1.5 rounded-full shadow-sm">
+                    <span className="text-sm font-semibold text-accent-hover bg-surface-white/90 px-4 py-1.5 rounded-full shadow-sm">
                       {study.industry}
                     </span>
                   </div>
@@ -110,7 +110,7 @@ export async function CaseStudiesSection() {
                   {study.services.map((service) => (
                     <span
                       key={service}
-                      className="text-xs font-semibold text-blue-600 bg-blue-50 px-2.5 py-1 rounded-lg"
+                      className="text-xs font-semibold text-accent-hover bg-accent/8 px-2.5 py-1 rounded-lg"
                     >
                       {service}
                     </span>
@@ -118,23 +118,23 @@ export async function CaseStudiesSection() {
                 </div>
 
                 {/* Title */}
-                <h3 className="text-sm sm:text-base font-bold text-gray-900 mb-1.5 sm:mb-2 group-hover:text-blue-600 transition-colors line-clamp-2">
+                <h3 className="text-sm sm:text-base font-bold text-text-heading mb-1.5 sm:mb-2 group-hover:text-accent-hover transition-colors line-clamp-2">
                   {study.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-gray-500 text-xs sm:text-sm mb-3 sm:mb-4 line-clamp-2 leading-relaxed">
+                <p className="text-text-body text-xs sm:text-sm mb-3 sm:mb-4 line-clamp-2 leading-relaxed">
                   {study.excerpt}
                 </p>
 
                 {/* Metrics */}
-                <div className="grid grid-cols-3 gap-2 sm:gap-3 pt-3 sm:pt-4 border-t border-gray-100">
+                <div className="grid grid-cols-3 gap-2 sm:gap-3 pt-3 sm:pt-4 border-t border-border">
                   {study.metrics.map((metric, idx) => (
                     <div key={idx} className="text-center">
-                      <div className="text-sm sm:text-base font-black text-blue-600">
+                      <div className="text-sm sm:text-base font-black text-accent-hover">
                         {metric.value}
                       </div>
-                      <div className="text-xs text-gray-400 font-medium">{metric.suffix}</div>
+                      <div className="text-xs text-muted-foreground font-medium">{metric.suffix}</div>
                     </div>
                   ))}
                 </div>

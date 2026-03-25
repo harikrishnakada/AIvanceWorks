@@ -25,7 +25,7 @@ export function MarkdownPage({
   return (
     <article className="min-h-screen bg-white">
       {/* Header with breadcrumb */}
-      <div className="bg-gradient-to-br from-slate-50 to-blue-50/30 py-8 border-b border-gray-100">
+      <div className="bg-gradient-to-br from-slate-50 to-accent/5 py-8 border-b border-gray-100">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           {showBackButton && (
             <Link
@@ -111,7 +111,7 @@ export function MarkdownPage({
               a: ({ href, children }) => (
                 <a
                   href={href}
-                  className="text-blue-600 hover:text-blue-800 underline"
+                  className="text-accent-hover hover:text-accent underline"
                   target={href?.startsWith('http') ? '_blank' : undefined}
                   rel={href?.startsWith('http') ? 'noopener noreferrer' : undefined}
                 >
@@ -131,7 +131,7 @@ export function MarkdownPage({
 
               // Blockquotes
               blockquote: ({ children }) => (
-                <blockquote className="border-l-4 border-blue-500 pl-4 py-2 my-4 italic text-gray-700 bg-blue-50/50">
+                <blockquote className="border-l-4 border-accent pl-4 py-2 my-4 italic text-gray-700 bg-accent/5">
                   {children}
                 </blockquote>
               ),

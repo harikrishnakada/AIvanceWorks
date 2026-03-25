@@ -1,0 +1,42 @@
+/* ==============================================
+   Mamba Theme — Serpent Software
+   Lime green accent on dark/light surfaces.
+   ============================================== */
+
+[data-theme="mamba"] {
+  /* Accent */
+  --theme-accent: #84CC16;
+  --theme-accent-hover: #65A30D;
+  --theme-accent-bright: #A3E635;
+
+  /* Surfaces */
+  --theme-surface-dark: #09090B;
+  --theme-surface: #18181B;
+  --theme-surface-elevated: #1F1F23;
+  --theme-surface-light: #FAFAFA;
+  --theme-surface-warm: #F4F4F5;
+  --theme-surface-white: #FFFFFF;
+
+  /* Text */
+  --theme-text-light: #FAFAFA;
+  --theme-text-heading: #09090B;
+  --theme-text-body: #52525B;
+  --theme-text-muted: #71717A;
+  --theme-text-subtle: #A1A1AA;
+  --theme-text-secondary: #3F3F46;
+
+  /* Borders */
+  --theme-border-dark: #27272A;
+  --theme-border-light: #E4E4E7;
+  --theme-border-hover: #D4D4D8;
+
+  /* Glass */
+  --theme-glass-bg: rgba(255, 255, 255, 0.03);
+  --theme-glass-border: rgba(255, 255, 255, 0.06);
+  --theme-glass-hover: rgba(255, 255, 255, 0.05);
+  --theme-glass-nav: rgba(9, 9, 11, 0.85);
+
+  /* Destructive */
+  --theme-destructive: #EF4444;
+  --theme-destructive-foreground: #FAFAFA;
+}

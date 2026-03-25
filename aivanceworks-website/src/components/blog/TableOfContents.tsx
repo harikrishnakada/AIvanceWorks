@@ -84,7 +84,7 @@ export function TableOfContents({ content }: TableOfContentsProps) {
               className={cn(
                 'block text-sm py-1.5 border-l-2 pl-3 transition-colors',
                 activeId === heading.id
-                  ? 'border-blue-600 text-blue-600 font-medium'
+                  ? 'border-accent text-accent-hover font-medium'
                   : 'border-gray-200 text-gray-600 hover:border-gray-400 hover:text-gray-900'
               )}
             >

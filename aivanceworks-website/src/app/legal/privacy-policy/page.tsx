@@ -12,9 +12,9 @@ export async function generateMetadata(): Promise<Metadata> {
   const metadata = extractMarkdownMetadata(content);
 
   return constructMetadata({
-    title: 'Privacy Policy | AIvanceWorks',
+    title: 'Privacy Policy | Serpent Software',
     description:
-      'AIvanceWorks Privacy Policy: Learn how we collect, use, and protect your personal information. GDPR, CCPA, and DPDP Act compliant. Last updated February 2, 2026.',
+      'Serpent Software Privacy Policy: Learn how we collect, use, and protect your personal information. GDPR, CCPA, and DPDP Act compliant. Last updated February 2, 2026.',
     canonical: `${SITE_CONFIG.url}/legal/privacy-policy`,
     keywords: [
       'privacy policy',
@@ -23,7 +23,7 @@ export async function generateMetadata(): Promise<Metadata> {
       'CCPA compliance',
       'personal information',
       'data privacy',
-      'AIvanceWorks privacy',
+      'Serpent Software privacy',
     ],
   });
 }
@@ -35,7 +35,7 @@ export default async function PrivacyPolicyPage() {
 
   // Generate schema markup
   const pageSchema = generateWebPageSchema(
-    'Privacy Policy - AIvanceWorks',
+    'Privacy Policy - Serpent Software',
     `${SITE_CONFIG.url}/legal/privacy-policy`
   );
 

@@ -1,57 +1,147 @@
+@import "./themes/mamba.css";
 @import "tailwindcss";
 
+/* ==============================================
+   Tailwind v4 @theme — semantic design tokens.
+   These reference --theme-* variables from the
+   active theme file. Components use these names
+   (e.g. bg-accent, bg-surface-dark, text-heading).
+   ============================================== */
+
+@theme {
+  /* shadcn-compatible tokens (ui/button, ui/card, ui/input) */
+  --color-background: var(--theme-surface-light);
+  --color-foreground: var(--theme-text-heading);
+  --color-primary: var(--theme-accent);
+  --color-primary-foreground: var(--theme-surface-dark);
+  --color-secondary: var(--theme-surface-warm);
+  --color-secondary-foreground: var(--theme-text-heading);
+  --color-muted: var(--theme-surface-warm);
+  --color-muted-foreground: var(--theme-text-muted);
+  --color-accent: var(--theme-accent);
+  --color-accent-foreground: var(--theme-surface-dark);
+  --color-card: var(--theme-surface-white);
+  --color-card-foreground: var(--theme-text-heading);
+  --color-popover: var(--theme-surface-white);
+  --color-popover-foreground: var(--theme-text-heading);
+  --color-border: var(--theme-border-light);
+  --color-input: var(--theme-border-light);
+  --color-ring: var(--theme-accent);
+  --color-destructive: var(--theme-destructive);
+  --color-destructive-foreground: var(--theme-destructive-foreground);
+
+  /* Accent variants */
+  --color-accent-hover: var(--theme-accent-hover);
+  --color-accent-bright: var(--theme-accent-bright);
+
+  /* Surfaces (for alternating dark/light section pattern) */
+  --color-surface-dark: var(--theme-surface-dark);
+  --color-surface: var(--theme-surface);
+  --color-surface-elevated: var(--theme-surface-elevated);
+  --color-surface-light: var(--theme-surface-light);
+  --color-surface-warm: var(--theme-surface-warm);
+  --color-surface-white: var(--theme-surface-white);
+
+  /* Text roles */
+  --color-text-light: var(--theme-text-light);
+  --color-text-heading: var(--theme-text-heading);
+  --color-text-body: var(--theme-text-body);
+  --color-text-subtle: var(--theme-text-subtle);
+  --color-text-secondary: var(--theme-text-secondary);
+
+  /* Borders */
+  --color-border-subtle: var(--theme-border-dark);
+  --color-border-hover: var(--theme-border-hover);
+
+  /* Glass */
+  --color-glass-bg: var(--theme-glass-bg);
+  --color-glass-border: var(--theme-glass-border);
+  --color-glass-hover: var(--theme-glass-hover);
+  --color-glass-nav: var(--theme-glass-nav);
+
+  /* Shadows */
+  --shadow-card: 0 20px 40px rgba(0, 0, 0, 0.08);
+  --shadow-card-sm: 0 8px 20px rgba(0, 0, 0, 0.06);
+  --shadow-glow: 0 8px 30px rgba(132, 204, 22, 0.25);
+  --shadow-glow-sm: 0 0 12px rgba(132, 204, 22, 0.4);
+  --shadow-glow-faint: 0 8px 30px rgba(132, 204, 22, 0.06);
+  --shadow-dropdown: 0 20px 60px rgba(0, 0, 0, 0.5);
+  --shadow-panel: 0 20px 60px rgba(0, 0, 0, 0.3);
+  --shadow-nav: 0 2px 15px rgba(0, 0, 0, 0.3);
+  --shadow-slide: -8px 0 30px rgba(0, 0, 0, 0.3);
+  --shadow-lime-badge: 0 4px 12px rgba(132, 204, 22, 0.3);
+  --shadow-lime-card: 0 12px 40px rgba(132, 204, 22, 0.08);
+
+  /* Border radius */
+  --radius-lg: 0.625rem;
+  --radius-md: calc(0.625rem - 2px);
+  --radius-sm: calc(0.625rem - 4px);
+}
+
+/* Global defaults */
 * {
-  border-color: hsl(var(--border));
+  border-color: var(--color-border);
 }
 
 body {
-  font-family: var(--font-geist-sans), system-ui, sans-serif;
-  background-color: hsl(var(--background));
-  color: hsl(var(--foreground));
+  font-family: var(--font-jakarta), system-ui, sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-foreground);
   font-feature-settings: 'rlig' 1, 'calt' 1;
 }
 
-:root {
-  --background: 0 0% 100%;
-  --foreground: 222.2 84% 4.9%;
-  --card: 0 0% 100%;
-  --card-foreground: 222.2 84% 4.9%;
-  --popover: 0 0% 100%;
-  --popover-foreground: 222.2 84% 4.9%;
-  --primary: 221.2 83.2% 53.3%;
-  --primary-foreground: 210 40% 98%;
-  --secondary: 210 40% 96.1%;
-  --secondary-foreground: 222.2 47.4% 11.2%;
-  --muted: 210 40% 96.1%;
-  --muted-foreground: 215.4 16.3% 46.9%;
-  --accent: 210 40% 96.1%;
-  --accent-foreground: 222.2 47.4% 11.2%;
-  --destructive: 0 84.2% 60.2%;
-  --destructive-foreground: 210 40% 98%;
-  --border: 214.3 31.8% 91.4%;
-  --input: 214.3 31.8% 91.4%;
-  --ring: 221.2 83.2% 53.3%;
-  --radius: 0.5rem;
+/* Glassmorphism utilities */
+.glass-dark {
+  background: var(--color-glass-bg);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid var(--color-glass-border);
+  border-radius: 16px;
 }
 
-.dark {
-  --background: 222.2 84% 4.9%;
-  --foreground: 210 40% 98%;
-  --card: 222.2 84% 4.9%;
-  --card-foreground: 210 40% 98%;
-  --popover: 222.2 84% 4.9%;
-  --popover-foreground: 210 40% 98%;
-  --primary: 217.2 91.2% 59.8%;
-  --primary-foreground: 222.2 47.4% 11.2%;
-  --secondary: 217.2 32.6% 17.5%;
-  --secondary-foreground: 210 40% 98%;
-  --muted: 217.2 32.6% 17.5%;
-  --muted-foreground: 215 20.2% 65.1%;
-  --accent: 217.2 32.6% 17.5%;
-  --accent-foreground: 210 40% 98%;
-  --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 210 40% 98%;
-  --border: 217.2 32.6% 17.5%;
-  --input: 217.2 32.6% 17.5%;
-  --ring: 224.3 76.3% 48%;
+.glass-nav {
+  background: var(--color-glass-nav);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+/* Scroll reveal animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Button glow */
+.btn-glow:hover {
+  box-shadow: var(--shadow-glow);
+}
+
+/* Card hover */
+.card-hover {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card);
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .card-hover:hover {
+    transform: none;
+  }
+  .btn-glow:hover {
+    box-shadow: none;
+  }
 }

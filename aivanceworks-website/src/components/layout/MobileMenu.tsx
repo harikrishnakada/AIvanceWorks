@@ -36,21 +36,21 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
       />
 
       {/* Menu Panel */}
-      <div className="fixed inset-y-0 right-0 w-full max-w-sm bg-white shadow-[−8px_0_30px_rgba(0,0,0,0.1)] border-l border-gray-200 animate-in slide-in-from-right duration-300">
+      <div className="fixed inset-y-0 right-0 w-full max-w-sm bg-surface-dark border-l border-border-subtle shadow-slide animate-in slide-in-from-right duration-300">
         <div className="flex flex-col h-full">
           {/* Menu Content */}
           <div className="flex-1 overflow-y-auto px-6 py-6 mt-16">
             <nav className="space-y-1" aria-label="Mobile navigation">
               {/* What We Do Accordion */}
-              <div className="border-b border-gray-200 pb-1">
+              <div className="border-b border-border-subtle pb-1">
                 <button
                   onClick={() => setIsWhatWeDoOpen(!isWhatWeDoOpen)}
-                  className="flex items-center justify-between w-full px-4 py-3 text-base font-medium text-gray-900 hover:bg-gray-50 rounded-lg transition-colors"
+                  className="flex items-center justify-between w-full px-4 py-3 text-base font-medium text-text-light hover:bg-glass-bg rounded-lg transition-colors"
                   aria-expanded={isWhatWeDoOpen}
                 >
                   What We Do
                   <ChevronDown
-                    className={`h-5 w-5 text-gray-500 transition-transform duration-200 ${
+                    className={`h-5 w-5 text-muted-foreground transition-transform duration-200 ${
                       isWhatWeDoOpen ? 'rotate-180' : ''
                     }`}
                   />
@@ -64,11 +64,11 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                         {/* Category Header */}
                         <button
                           onClick={() => toggleCategory(category.title)}
-                          className="flex items-center justify-between w-full px-4 py-2.5 text-sm font-semibold text-gray-700 hover:bg-gray-50 rounded-lg transition-colors"
+                          className="flex items-center justify-between w-full px-4 py-2.5 text-sm font-semibold text-text-subtle hover:bg-glass-bg rounded-lg transition-colors"
                         >
                           {category.title}
                           <ChevronDown
-                            className={`h-4 w-4 text-gray-400 transition-transform duration-200 ${
+                            className={`h-4 w-4 text-muted-foreground transition-transform duration-200 ${
                               expandedCategory === category.title ? 'rotate-180' : ''
                             }`}
                           />
@@ -82,7 +82,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                                 key={link.href + link.label}
                                 href={link.href}
                                 onClick={onClose}
-                                className="block px-4 py-2 text-sm text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-lg transition-colors"
+                                className="block px-4 py-2 text-sm text-muted-foreground hover:text-accent hover:bg-glass-bg rounded-lg transition-colors"
                               >
                                 {link.label}
                               </Link>
@@ -99,7 +99,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               <Link
                 href="/how-we-work"
                 onClick={onClose}
-                className="block px-4 py-3 text-base font-medium text-gray-900 hover:bg-gray-50 rounded-lg transition-colors"
+                className="block px-4 py-3 text-base font-medium text-text-light hover:bg-glass-bg rounded-lg transition-colors"
               >
                 How We Work
               </Link>
@@ -110,7 +110,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                   key={item.href}
                   href={item.href}
                   onClick={onClose}
-                  className="block px-4 py-3 text-base font-medium text-gray-900 hover:bg-gray-50 rounded-lg transition-colors"
+                  className="block px-4 py-3 text-base font-medium text-text-light hover:bg-glass-bg rounded-lg transition-colors"
                 >
                   {item.label}
                 </Link>
@@ -119,10 +119,10 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           </div>
 
           {/* CTA Buttons */}
-          <div className="border-t border-gray-200 p-6 space-y-3 bg-gray-50">
+          <div className="border-t border-border-subtle p-6 space-y-3 bg-surface">
             <Button
               variant="outline"
-              className="w-full border-gray-300 text-gray-700 hover:border-blue-300 hover:bg-white"
+              className="w-full border-border-subtle text-text-light hover:border-muted-foreground hover:bg-glass-bg"
               asChild
             >
               <Link href="/contact" onClick={onClose}>
@@ -130,11 +130,11 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               </Link>
             </Button>
             <Button
-              className="w-full bg-blue-600 text-white hover:bg-blue-700 shadow-sm font-semibold"
+              className="w-full bg-accent text-text-heading hover:bg-accent-hover shadow-sm font-semibold"
               asChild
             >
-              <Link href="/book-consultation" onClick={onClose}>
-                Book Consultation
+              <Link href="/contact" onClick={onClose}>
+                Start a project
               </Link>
             </Button>
           </div>

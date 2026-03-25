@@ -82,14 +82,14 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       <JsonLd data={articleSchema} />
       <ReadingProgress />
 
-      <article className="min-h-screen bg-white">
+      <article className="min-h-screen bg-surface-white">
         {/* Hero Section */}
-        <header className="bg-gradient-to-br from-slate-50 to-blue-50/30 py-8 lg:py-12 border-b border-gray-100">
+        <header className="bg-surface-light py-8 lg:py-12 border-b border-border">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Back to Blog Link */}
             <Link
               href="/blog"
-              className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 mb-6 transition-colors"
+              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-text-heading mb-6 transition-colors"
             >
               <ArrowLeft className="w-4 h-4" />
               Back to Blog
@@ -99,12 +99,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             <CategoryBadge category={category} size="md" className="mb-4" />
 
             {/* Title */}
-            <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+            <h1 className="text-4xl lg:text-5xl font-bold text-text-heading mb-6 leading-tight">
               {title}
             </h1>
 
             {/* Excerpt */}
-            <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+            <p className="text-xl text-text-body mb-8 leading-relaxed">
               {excerpt}
             </p>
 
@@ -120,13 +120,13 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                   className="rounded-full"
                 />
                 <div>
-                  <div className="font-medium text-gray-900">{author.name}</div>
-                  <div className="text-sm text-gray-600">{author.role}</div>
+                  <div className="font-medium text-text-heading">{author.name}</div>
+                  <div className="text-sm text-muted-foreground">{author.role}</div>
                 </div>
               </div>
 
               {/* Date & Reading Time */}
-              <div className="flex items-center gap-4 text-sm text-gray-600">
+              <div className="flex items-center gap-4 text-sm text-muted-foreground">
                 <div className="flex items-center gap-1">
                   <Calendar className="w-4 h-4" />
                   {formattedDate}
@@ -144,7 +144,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 {tags.map((tag) => (
                   <span
                     key={tag}
-                    className="px-3 py-1 bg-white border border-gray-200 rounded-full text-sm text-gray-700"
+                    className="px-3 py-1 bg-surface-white border border-border rounded-full text-sm text-text-body"
                   >
                     {tag}
                   </span>
@@ -155,7 +155,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         </header>
 
         {/* Featured Image */}
-        <div className="relative w-full h-[400px] lg:h-[500px] bg-gray-100">
+        <div className="relative w-full h-[400px] lg:h-[500px] bg-surface-warm">
           <Image
             src={image}
             alt={title}
@@ -174,8 +174,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               <PostContent content={content} />
 
               {/* Author Bio */}
-              <div className="mt-16 pt-8 border-t border-gray-200">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">About the Author</h3>
+              <div className="mt-16 pt-8 border-t border-border">
+                <h3 className="text-2xl font-bold text-text-heading mb-6">About the Author</h3>
                 <AuthorBio author={author} showFull />
               </div>
 

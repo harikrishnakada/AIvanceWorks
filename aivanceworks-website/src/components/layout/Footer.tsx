@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState } from 'react';
 import { SITE_CONFIG, NAVIGATION } from '@/lib/constants';
 import { Button } from '@/components/ui/button';
@@ -82,7 +83,7 @@ export function Footer() {
   ];
 
   return (
-    <footer className="bg-gradient-to-b from-gray-50 to-white border-t border-gray-100">
+    <footer className="bg-surface-dark border-t border-border-subtle">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Footer Content */}
         <div className="py-8 lg:py-10">
@@ -90,22 +91,23 @@ export function Footer() {
             {/* Brand & Newsletter */}
             <div className="lg:col-span-2">
               {/* Logo */}
-              <Link href="/" className="inline-flex items-center space-x-2 group">
-                <div className="w-9 h-9 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-lg flex items-center justify-center transform transition-transform group-hover:scale-105">
-                  <span className="text-white font-bold text-lg">SS</span>
-                </div>
-                <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                  {SITE_CONFIG.name}
-                </span>
+              <Link href="/" className="inline-flex items-center group">
+                <Image
+                  src="/logo-mamba.svg"
+                  alt={SITE_CONFIG.name}
+                  width={180}
+                  height={32}
+                  className="h-7 w-auto"
+                />
               </Link>
 
-              <p className="mt-4 text-sm text-gray-600 leading-relaxed max-w-sm">
+              <p className="mt-4 text-sm text-muted-foreground leading-relaxed max-w-sm">
                 {SITE_CONFIG.description}
               </p>
 
               {/* Newsletter Signup */}
               <div className="mt-6">
-                <h3 className="text-sm font-semibold text-gray-900 mb-3">Stay Updated</h3>
+                <h3 className="text-sm font-semibold text-text-light mb-3">Stay Updated</h3>
                 <form onSubmit={handleNewsletterSubmit} className="space-y-3">
                   <div className="flex flex-col sm:flex-row gap-2">
                     <Input
@@ -115,13 +117,13 @@ export function Footer() {
                       onChange={(e) => setEmail(e.target.value)}
                       required
                       disabled={status === 'loading' || status === 'success'}
-                      className="flex-1"
+                      className="flex-1 bg-surface border-border-subtle text-text-light placeholder:text-muted-foreground"
                       aria-label="Email address for newsletter"
                     />
                     <Button
                       type="submit"
                       disabled={status === 'loading' || status === 'success'}
-                      className="bg-blue-600 hover:bg-blue-700 whitespace-nowrap"
+                      className="bg-accent hover:bg-accent-hover text-text-heading whitespace-nowrap"
                       size="default"
                     >
                       {status === 'loading' ? (
@@ -137,7 +139,7 @@ export function Footer() {
                     </Button>
                   </div>
                   {status === 'success' && (
-                    <p className="text-sm text-green-600">
+                    <p className="text-sm text-accent">
                       Thanks for subscribing! Check your inbox.
                     </p>
                   )}
@@ -151,7 +153,7 @@ export function Footer() {
 
               {/* Social Links */}
               <div className="mt-6">
-                <h3 className="text-sm font-semibold text-gray-900 mb-3">Follow Us</h3>
+                <h3 className="text-sm font-semibold text-text-light mb-3">Follow Us</h3>
                 <div className="flex space-x-3">
                   {socialLinks.map((social) => (
                     <a
@@ -160,7 +162,7 @@ export function Footer() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={social.ariaLabel}
-                      className="p-2 rounded-lg bg-white border border-gray-200 text-gray-600 hover:text-blue-600 hover:border-blue-300 transition-colors"
+                      className="p-2 rounded-lg bg-surface border border-border-subtle text-muted-foreground hover:text-accent hover:border-accent/15 transition-colors"
                     >
                       <social.icon className="h-5 w-5" />
                     </a>
@@ -171,7 +173,7 @@ export function Footer() {
 
             {/* Services Links */}
             <div>
-              <h3 className="text-sm font-semibold text-gray-900 mb-4">
+              <h3 className="text-sm font-semibold text-text-light mb-4">
                 {footerLinks.services.title}
               </h3>
               <ul className="space-y-3">
@@ -179,7 +181,7 @@ export function Footer() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm text-gray-600 hover:text-blue-600 transition-colors"
+                      className="text-sm text-muted-foreground hover:text-accent transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -190,7 +192,7 @@ export function Footer() {
 
             {/* Company Links */}
             <div>
-              <h3 className="text-sm font-semibold text-gray-900 mb-4">
+              <h3 className="text-sm font-semibold text-text-light mb-4">
                 {footerLinks.company.title}
               </h3>
               <ul className="space-y-3">
@@ -198,7 +200,7 @@ export function Footer() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm text-gray-600 hover:text-blue-600 transition-colors"
+                      className="text-sm text-muted-foreground hover:text-accent transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -209,7 +211,7 @@ export function Footer() {
 
             {/* Resources Links */}
             <div>
-              <h3 className="text-sm font-semibold text-gray-900 mb-4">
+              <h3 className="text-sm font-semibold text-text-light mb-4">
                 {footerLinks.resources.title}
               </h3>
               <ul className="space-y-3">
@@ -217,7 +219,7 @@ export function Footer() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm text-gray-600 hover:text-blue-600 transition-colors"
+                      className="text-sm text-muted-foreground hover:text-accent transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -228,7 +230,7 @@ export function Footer() {
 
             {/* Legal & Contact */}
             <div>
-              <h3 className="text-sm font-semibold text-gray-900 mb-4">
+              <h3 className="text-sm font-semibold text-text-light mb-4">
                 {footerLinks.legal.title}
               </h3>
               <ul className="space-y-3 mb-6">
@@ -236,7 +238,7 @@ export function Footer() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm text-gray-600 hover:text-blue-600 transition-colors"
+                      className="text-sm text-muted-foreground hover:text-accent transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -244,11 +246,11 @@ export function Footer() {
                 ))}
               </ul>
 
-              <h3 className="text-sm font-semibold text-gray-900 mb-3">Contact</h3>
-              <div className="space-y-2 text-sm text-gray-600">
+              <h3 className="text-sm font-semibold text-text-light mb-3">Contact</h3>
+              <div className="space-y-2 text-sm text-muted-foreground">
                 <a
                   href={`mailto:${SITE_CONFIG.company.email}`}
-                  className="flex items-center hover:text-blue-600 transition-colors"
+                  className="flex items-center text-muted-foreground hover:text-accent transition-colors"
                 >
                   <Mail className="h-4 w-4 mr-2" />
                   {SITE_CONFIG.company.email}
@@ -259,12 +261,12 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-200 py-6">
+        <div className="border-t border-border-subtle py-6">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-muted-foreground">
               © {currentYear} {SITE_CONFIG.company.legalName}. All rights reserved.
             </p>
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-muted-foreground">
               Built with precision. Powered by AI.
             </p>
           </div>

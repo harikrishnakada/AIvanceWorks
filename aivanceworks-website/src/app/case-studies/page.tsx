@@ -13,7 +13,7 @@ import { ArrowRight } from 'lucide-react';
 export const metadata: Metadata = constructMetadata({
   title: 'Case Studies - Real Results from Real Projects',
   description:
-    'Explore AIvanceWorks case studies showcasing AI implementations, cloud migrations, and custom software development projects with measurable business outcomes.',
+    'Explore Serpent Software case studies showcasing AI implementations, cloud migrations, and custom software development projects with measurable business outcomes.',
   canonical: `${SITE_CONFIG.url}/case-studies`,
   keywords: [
     'software development case studies',
@@ -36,17 +36,21 @@ export default async function CaseStudiesPage() {
       />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white py-8 lg:py-12">
+      <section className="bg-surface-dark text-text-light py-8 lg:py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <h1 className="text-4xl sm:text-5xl font-bold mb-6">
+            <h1 className="text-4xl sm:text-5xl font-bold mb-6 text-text-light">
               Real Results from Real Projects
             </h1>
-            <p className="text-lg text-gray-300 mb-8 leading-relaxed">
+            <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
               Explore how we've helped companies transform their businesses through
               AI solutions, cloud migrations, and custom software development.
             </p>
-            <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700">
+            <Button
+              asChild
+              size="lg"
+              className="bg-accent text-accent-foreground hover:bg-accent-hover"
+            >
               <Link href="/contact">Start Your Project</Link>
             </Button>
           </div>
@@ -54,21 +58,28 @@ export default async function CaseStudiesPage() {
       </section>
 
       {/* Case Studies Grid */}
-      <section className="py-8 lg:py-12 bg-white">
+      <section className="py-8 lg:py-12 bg-surface-light">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {caseStudies.length === 0 ? (
             <div className="text-center py-12">
-              <p className="text-gray-600 text-lg mb-4">
+              <p className="text-text-body text-lg mb-4">
                 Case studies coming soon. Check back later!
               </p>
-              <p className="text-gray-500 text-sm">
+              <p className="text-text-body text-sm">
                 In the meantime, explore our services or get in touch to discuss your project.
               </p>
               <div className="flex gap-4 justify-center mt-8">
-                <Button asChild variant="outline">
+                <Button
+                  asChild
+                  variant="outline"
+                  className="border-border-subtle text-text-heading"
+                >
                   <Link href="/services">View Services</Link>
                 </Button>
-                <Button asChild>
+                <Button
+                  asChild
+                  className="bg-accent text-accent-foreground hover:bg-accent-hover"
+                >
                   <Link href="/contact">Contact Us</Link>
                 </Button>
               </div>
@@ -92,8 +103,8 @@ export default async function CaseStudiesPage() {
                           className="object-cover"
                         />
                       ) : (
-                        <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-blue-100 to-indigo-100">
-                          <span className="text-sm font-medium text-blue-600 bg-white/80 px-3 py-1 rounded-full">
+                        <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-surface-warm to-border">
+                          <span className="text-sm font-medium text-accent-hover bg-surface-white/80 px-3 py-1 rounded-full">
                             {study.industry}
                           </span>
                         </div>
@@ -106,14 +117,14 @@ export default async function CaseStudiesPage() {
                         {study.services.slice(0, 2).map((service) => (
                           <span
                             key={service}
-                            className="text-xs font-medium text-gray-500 bg-gray-100 px-2 py-1 rounded"
+                            className="text-xs font-medium text-text-body bg-surface-warm px-2 py-1 rounded"
                           >
                             {service}
                           </span>
                         ))}
                       </div>
 
-                      <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors line-clamp-2">
+                      <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-accent-hover transition-colors line-clamp-2">
                         {study.title}
                       </h3>
 
@@ -123,13 +134,13 @@ export default async function CaseStudiesPage() {
 
                       {/* Metrics */}
                       {study.metrics && study.metrics.length > 0 && (
-                        <div className="grid grid-cols-3 gap-3 pt-4 border-t border-gray-200">
+                        <div className="grid grid-cols-3 gap-3 pt-4 border-t border-border">
                           {study.metrics.slice(0, 3).map((metric, idx) => (
                             <div key={idx} className="text-center">
-                              <div className="text-lg font-bold text-blue-600">
+                              <div className="text-lg font-bold text-accent-hover">
                                 {metric.value}
                               </div>
-                              <div className="text-xs text-gray-500">
+                              <div className="text-xs text-muted-foreground">
                                 {metric.suffix}
                               </div>
                             </div>
@@ -137,7 +148,7 @@ export default async function CaseStudiesPage() {
                         </div>
                       )}
 
-                      <div className="mt-4 flex items-center text-blue-600 text-sm font-medium">
+                      <div className="mt-4 flex items-center text-accent-hover text-sm font-medium">
                         Read case study
                         <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                       </div>
@@ -151,19 +162,18 @@ export default async function CaseStudiesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-8 lg:py-12 bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
+      <section className="py-8 lg:py-12 bg-surface-dark text-text-light">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-4">Ready to Create Your Success Story?</h2>
-          <p className="text-lg text-blue-100 mb-8">
+          <h2 className="text-3xl font-bold mb-4 text-text-light">Ready to Create Your Success Story?</h2>
+          <p className="text-lg text-muted-foreground mb-8">
             Let's discuss how we can help you achieve similar results.
           </p>
           <Button
             asChild
             size="lg"
-            variant="secondary"
-            className="bg-white text-blue-700 hover:bg-gray-100"
+            className="bg-accent text-accent-foreground hover:bg-accent-hover"
           >
-            <Link href="/contact">Schedule Consultation</Link>
+            <Link href="/contact">Start a project</Link>
           </Button>
         </div>
       </section>

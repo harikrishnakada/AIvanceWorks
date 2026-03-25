@@ -57,7 +57,7 @@ export function SocialShare({ url, title }: SocialShareProps) {
         {/* Twitter */}
         <Button
           variant="outline"
-          className="w-full justify-start gap-3 hover:bg-blue-50 hover:text-blue-600 hover:border-blue-600"
+          className="w-full justify-start gap-3 hover:bg-accent/8 hover:text-accent-hover hover:border-accent-hover"
           onClick={() => handleShare('twitter')}
         >
           <Twitter className="w-5 h-5" />
@@ -67,7 +67,7 @@ export function SocialShare({ url, title }: SocialShareProps) {
         {/* LinkedIn */}
         <Button
           variant="outline"
-          className="w-full justify-start gap-3 hover:bg-blue-50 hover:text-blue-700 hover:border-blue-700"
+          className="w-full justify-start gap-3 hover:bg-accent/8 hover:text-accent-hover hover:border-accent-hover"
           onClick={() => handleShare('linkedin')}
         >
           <Linkedin className="w-5 h-5" />
@@ -77,7 +77,7 @@ export function SocialShare({ url, title }: SocialShareProps) {
         {/* Facebook */}
         <Button
           variant="outline"
-          className="w-full justify-start gap-3 hover:bg-blue-50 hover:text-blue-800 hover:border-blue-800"
+          className="w-full justify-start gap-3 hover:bg-accent/8 hover:text-accent-hover hover:border-accent-hover"
           onClick={() => handleShare('facebook')}
         >
           <Facebook className="w-5 h-5" />

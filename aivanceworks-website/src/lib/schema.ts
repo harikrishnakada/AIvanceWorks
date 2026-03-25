@@ -217,7 +217,7 @@ export function generateTeamOrganizationSchema(): JsonLd {
     '@id': `${SITE_CONFIG.url}/#organization`,
     name: SITE_CONFIG.company.name,
     url: SITE_CONFIG.url,
-    description: 'US-based AI consulting and software engineering company with Azure-, AWS-, and multi-vendor certified senior engineers.',
+    description: 'US-based AI software development company with Azure-, AWS-, and multi-vendor certified senior engineers.',
     foundingDate: '2025',
     areaServed: {
       '@type': 'Country',
@@ -359,7 +359,7 @@ export function generateFreeConsultationSchema(): JsonLd {
     '@context': 'https://schema.org',
     '@type': 'Service',
     name: 'Free Discovery Consultation',
-    serviceType: 'Consulting',
+    serviceType: 'Software Development',
     description:
       '30-minute free strategy session to discuss software development, AI solutions, cloud migration, and custom development needs with our expert Solutions Architects.',
     provider: {

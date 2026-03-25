@@ -57,7 +57,7 @@ export function PostCard({ post, featured = false }: PostCardProps) {
           <h3
             className={`
               font-bold text-gray-900 line-clamp-2 mb-3
-              group-hover/title:text-blue-600 transition-colors
+              group-hover/title:text-accent-hover transition-colors
               ${featured ? 'text-2xl lg:text-3xl' : 'text-xl'}
             `}
           >

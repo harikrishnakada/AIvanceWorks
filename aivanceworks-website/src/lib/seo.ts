@@ -48,7 +48,7 @@ export function constructMetadata({
       title: metaTitle,
       description: metaDescription,
       images: [metaImage],
-      creator: '@aivanceworks',
+      creator: '@serpentsoftware',
     },
     robots: {
       index: !noIndex,

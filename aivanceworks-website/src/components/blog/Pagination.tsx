@@ -58,7 +58,7 @@ export function Pagination({ currentPage, totalPages, baseUrl }: PaginationProps
               className={cn(
                 'px-3 py-2 rounded-lg border transition-colors',
                 isActive
-                  ? 'bg-blue-600 text-white border-blue-600'
+                  ? 'bg-accent text-text-heading border-accent'
                   : 'border-gray-300 text-gray-700 hover:bg-gray-50'
               )}
               aria-label={`Page ${pageNum}`}

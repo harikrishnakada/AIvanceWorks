@@ -64,18 +64,18 @@ export function TestimonialsSection() {
 
   return (
     <section className="py-6 sm:py-8 lg:py-12 relative overflow-hidden">
-      {/* Clean white bg with subtle blue wash */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-white to-indigo-50/30" />
-      <div className="hidden md:block absolute top-0 right-0 w-[600px] h-[600px] bg-blue-100/30 rounded-full blur-[150px]" />
-      <div className="hidden md:block absolute bottom-0 left-0 w-[400px] h-[400px] bg-indigo-100/20 rounded-full blur-[120px]" />
+      {/* Clean white bg with subtle accent wash */}
+      <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-surface-white to-accent/3" />
+      <div className="hidden md:block absolute top-0 right-0 w-[600px] h-[600px] bg-accent/6 rounded-full blur-[150px]" />
+      <div className="hidden md:block absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent/4 rounded-full blur-[120px]" />
 
       <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-4 sm:mb-6 lg:mb-8">
-          <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-black text-gray-900 mb-1.5 sm:mb-2 leading-tight">
+          <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-black text-text-heading mb-1.5 sm:mb-2 leading-tight">
             What Our Clients Say
           </h2>
-          <p className="text-xs sm:text-sm md:text-base text-gray-500">
+          <p className="text-xs sm:text-sm md:text-base text-text-body">
             Don't just take our word for it. Here&apos;s what teams are saying about working with us.
           </p>
         </div>
@@ -84,27 +84,27 @@ export function TestimonialsSection() {
         <div className="relative">
           {/* Quote Icon */}
           <div className="absolute -top-1 left-2 sm:left-4 lg:left-8 z-10">
-            <Quote className="h-7 w-7 sm:h-9 sm:w-9 lg:h-10 lg:w-10 text-blue-200/60" />
+            <Quote className="h-7 w-7 sm:h-9 sm:w-9 lg:h-10 lg:w-10 text-accent/40" />
           </div>
 
           {/* Main Content */}
-          <div className="bg-white rounded-xl sm:rounded-2xl lg:rounded-3xl p-4 sm:p-6 lg:p-9 border border-gray-100 shadow-[0_12px_40px_rgba(37,99,235,0.08)]">
+          <div className="bg-surface-white rounded-xl sm:rounded-2xl lg:rounded-3xl p-4 sm:p-6 lg:p-9 border border-border shadow-lime-card">
             <div className="min-h-[120px] sm:min-h-[140px] md:min-h-[160px] flex flex-col justify-center">
               {/* Quote */}
-              <blockquote className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-800 leading-relaxed mb-4 sm:mb-5 lg:mb-6 font-medium">
+              <blockquote className="text-sm sm:text-base md:text-lg lg:text-xl text-text-secondary leading-relaxed mb-4 sm:mb-5 lg:mb-6 font-medium">
                 &ldquo;{testimonials[currentIndex].quote}&rdquo;
               </blockquote>
 
               {/* Author */}
               <div className="flex items-center gap-3">
-                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-white text-xs sm:text-sm font-bold shadow-[0_4px_12px_rgba(37,99,235,0.3)]">
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-accent to-accent-hover flex items-center justify-center text-text-heading text-xs sm:text-sm font-bold shadow-lime-badge">
                   {testimonials[currentIndex].avatar}
                 </div>
                 <div>
-                  <div className="font-bold text-gray-900 text-sm sm:text-base">
+                  <div className="font-bold text-text-heading text-sm sm:text-base">
                     {testimonials[currentIndex].author}
                   </div>
-                  <div className="text-gray-500 text-[11px] sm:text-xs md:text-sm">
+                  <div className="text-text-body text-[11px] sm:text-xs md:text-sm">
                     {testimonials[currentIndex].title}, {testimonials[currentIndex].company}
                   </div>
                 </div>
@@ -122,8 +122,8 @@ export function TestimonialsSection() {
                   onClick={() => goToSlide(index)}
                   className={`h-1.5 sm:h-2 rounded-full transition-all duration-300 ${
                     index === currentIndex
-                      ? 'bg-blue-600 w-5 sm:w-7'
-                      : 'bg-gray-200 w-1.5 sm:w-2 hover:bg-gray-300'
+                      ? 'bg-accent w-5 sm:w-7'
+                      : 'bg-border w-1.5 sm:w-2 hover:bg-border-hover'
                   }`}
                   aria-label={`Go to testimonial ${index + 1}`}
                 />
@@ -134,7 +134,7 @@ export function TestimonialsSection() {
             <div className="flex gap-1.5 sm:gap-2">
               <button
                 onClick={prevSlide}
-                className="p-1.5 sm:p-2 rounded-lg sm:rounded-xl border border-gray-200 bg-white hover:border-blue-300 hover:bg-blue-50 text-gray-400 hover:text-blue-600 transition-all duration-200"
+                className="p-1.5 sm:p-2 rounded-lg sm:rounded-xl border border-border bg-surface-white hover:border-accent hover:bg-accent/8 text-text-body hover:text-accent-hover transition-all duration-200"
                 aria-label="Previous testimonial"
               >
                 <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5" />
@@ -144,7 +144,7 @@ export function TestimonialsSection() {
                   nextSlide();
                   setIsAutoPlaying(false);
                 }}
-                className="p-1.5 sm:p-2 rounded-lg sm:rounded-xl border border-gray-200 bg-white hover:border-blue-300 hover:bg-blue-50 text-gray-400 hover:text-blue-600 transition-all duration-200"
+                className="p-1.5 sm:p-2 rounded-lg sm:rounded-xl border border-border bg-surface-white hover:border-accent hover:bg-accent/8 text-text-body hover:text-accent-hover transition-all duration-200"
                 aria-label="Next testimonial"
               >
                 <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5" />

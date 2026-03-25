@@ -72,7 +72,7 @@ class CalComBookingProvider implements BookingProvider {
 
   constructor(config: Partial<BookingConfig> = {}) {
     this.config = {
-      username: config.username || process.env.NEXT_PUBLIC_CALCOM_USERNAME || 'aivanceworks',
+      username: config.username || process.env.NEXT_PUBLIC_CALCOM_USERNAME || 'serpentsoftware',
       defaultEventType: config.defaultEventType || process.env.CALCOM_EVENT_TYPE || 'discovery-call',
       theme: config.theme || 'light',
       brandColor: config.brandColor || '#2563eb',
@@ -149,7 +149,7 @@ class CalComBookingProvider implements BookingProvider {
 
 //   constructor(config: Partial<BookingConfig> = {}) {
 //     this.config = {
-//       username: config.username || process.env.NEXT_PUBLIC_CALENDLY_USERNAME || 'aivanceworks',
+//       username: config.username || process.env.NEXT_PUBLIC_CALENDLY_USERNAME || 'serpentsoftware',
 //       defaultEventType: config.defaultEventType || 'discovery-call',
 //       theme: config.theme || 'light',
 //       brandColor: config.brandColor || '#2563eb',

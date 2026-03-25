@@ -23,7 +23,7 @@ export async function RelatedPosts({ currentPostId, category, limit = 3 }: Relat
         <h2 className="text-3xl font-bold text-gray-900">Related Articles</h2>
         <Link
           href={`/blog/category/${category.toLowerCase().replace(/\s+/g, '-')}`}
-          className="flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium"
+          className="flex items-center gap-2 text-accent-hover hover:text-accent font-medium"
         >
           View all {category}
           <ArrowRight className="w-4 h-4" />
@@ -52,7 +52,7 @@ export async function RelatedPosts({ currentPostId, category, limit = 3 }: Relat
               <CategoryBadge category={post.category} size="sm" className="mb-3" />
 
               <Link href={`/blog/${post.slug}`} className="group/title">
-                <h3 className="text-lg font-bold text-gray-900 line-clamp-2 mb-2 group-hover/title:text-blue-600 transition-colors">
+                <h3 className="text-lg font-bold text-gray-900 line-clamp-2 mb-2 group-hover/title:text-accent-hover transition-colors">
                   {post.title}
                 </h3>
               </Link>

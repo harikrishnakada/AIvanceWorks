@@ -8,11 +8,11 @@ interface CategoryBadgeProps {
 }
 
 const categoryStyles: Record<string, string> = {
-  'AI Development': 'bg-purple-100 text-purple-700 hover:bg-purple-200',
-  'Cloud Architecture': 'bg-blue-100 text-blue-700 hover:bg-blue-200',
-  'Software Engineering': 'bg-green-100 text-green-700 hover:bg-green-200',
+  'AI Development': 'bg-accent/10 text-accent-hover hover:bg-accent/20',
+  'Cloud Architecture': 'bg-accent/8 text-accent-hover hover:bg-accent/15',
+  'Software Engineering': 'bg-accent/10 text-accent-hover hover:bg-accent/20',
   'Case Studies': 'bg-orange-100 text-orange-700 hover:bg-orange-200',
-  'Industry Insights': 'bg-indigo-100 text-indigo-700 hover:bg-indigo-200',
+  'Industry Insights': 'bg-accent/8 text-accent-hover hover:bg-accent/15',
 };
 
 const sizeStyles = {

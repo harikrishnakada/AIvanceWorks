@@ -135,7 +135,7 @@ class ResendEmailProvider implements EmailProvider {
       const confirmationResult = await this.send({
         to: data.email,
         from: fromAddress,
-        subject: 'Thank you for contacting AIvanceWorks',
+        subject: 'Thank you for contacting Serpent Software',
         html: contactFormConfirmationTemplate(data),
         replyTo: SITE_CONFIG.company.email,
       });
@@ -171,7 +171,7 @@ class ResendEmailProvider implements EmailProvider {
     return this.send({
       to: data.email,
       from: fromAddress,
-      subject: 'Welcome to AIvanceWorks Insights!',
+      subject: 'Welcome to Serpent Software Insights!',
       html: newsletterWelcomeTemplate(data.email),
       replyTo: SITE_CONFIG.company.email,
     });

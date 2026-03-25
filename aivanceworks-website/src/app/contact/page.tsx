@@ -7,16 +7,16 @@ import { ContactForm } from '@/components/forms/ContactForm';
 import { SITE_CONFIG, CONTACT_CONFIG } from '@/lib/constants';
 
 export const metadata: Metadata = constructMetadata({
-  title: 'Contact Us - Get a Free Consultation',
+  title: 'Contact Us - Start a Project',
   description:
-    'Contact AIvanceWorks for AI solutions, cloud migration, and custom development. Get a response within 24 hours or book a free 30-minute discovery call with our expert team.',
+    'Contact Serpent Software for AI solutions, cloud migration, and custom development. Get a response within 24 hours or book a free 30-minute discovery call with our expert team.',
   canonical: `${SITE_CONFIG.url}/contact`,
   keywords: [
     'contact',
-    'consulting',
+    'development',
     'free consultation',
     'software development inquiry',
-    'AI consulting',
+    'AI development',
     'cloud migration help',
   ],
 });
@@ -37,7 +37,7 @@ export default function ContactPage() {
         <div className="mx-auto mb-8 max-w-3xl text-center">
           <h1 className="mb-6 text-4xl font-bold tracking-tight md:text-5xl">Get in Touch</h1>
           <p className="text-xl text-muted-foreground">
-            Contact AIvanceWorks to discuss your AI, cloud, or custom development needs. We respond
+            Contact Serpent Software to discuss your AI, cloud, or custom development needs. We respond
             within 24 hours, or you can book a free 30-minute discovery call to get started
             immediately.
           </p>
@@ -106,7 +106,7 @@ export default function ContactPage() {
 
             {/* Trust Signals */}
             <div className="rounded-lg bg-muted/50 p-6">
-              <h3 className="mb-4 text-lg font-semibold">Why Choose AIvanceWorks?</h3>
+              <h3 className="mb-4 text-lg font-semibold">Why Choose Serpent Software?</h3>
               <ul className="space-y-2 text-sm">
                 <li className="flex items-start">
                   <span className="mr-2 text-primary" aria-hidden="true">
@@ -141,20 +141,20 @@ export default function ContactPage() {
               </ul>
             </div>
 
-            {/* Book Consultation CTA */}
+            {/* Schedule a Call CTA */}
             <div className="rounded-lg bg-primary/10 p-6">
               <h3 className="mb-2 text-lg font-semibold">Prefer to talk first?</h3>
               <p className="mb-4 text-sm text-muted-foreground">
-                Book a free 30-minute discovery call with our Solutions Architect. No strings
-                attached — we'll discuss your project and provide actionable recommendations.
+                Schedule a call with our Solutions Architect. No strings attached — we'll discuss
+                your project and provide actionable recommendations.
               </p>
-              <Link
-                href="/book-consultation"
+              <a
+                href={`mailto:${CONTACT_CONFIG.email.contact}?subject=Schedule a Call`}
                 className="inline-flex items-center justify-center rounded-lg bg-primary px-6 py-3 font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
               >
                 <Calendar className="mr-2 h-4 w-4" aria-hidden="true" />
-                Book Free Consultation
-              </Link>
+                Schedule a Call
+              </a>
             </div>
 
             {/* What Happens Next */}

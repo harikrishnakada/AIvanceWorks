@@ -22,7 +22,7 @@ const serviceCategories: ServiceCategory[] = [
     shortDescription: 'Azure & AWS cloud architecture, migration, and optimization services',
     description: `Modernize your infrastructure with Azure and AWS cloud solutions designed for scalability, resilience, and cost efficiency. Our cloud architects design migration strategies that reduce operational costs by 40-60% while improving uptime to 99.9%. We specialize in Infrastructure as Code (Terraform, Bicep), container orchestration with Kubernetes, and serverless architectures using Azure Functions and Container Apps.`,
     icon: 'Cloud',
-    gradient: 'from-blue-500 to-cyan-600',
+    gradient: 'from-lime-500 to-emerald-600',
     capabilities: [
       'Cloud Architecture Design & Review',
       'Azure & AWS Migration (On-Premises to Cloud)',
@@ -73,9 +73,9 @@ const serviceCategories: ServiceCategory[] = [
     name: 'AI & Machine Learning Solutions',
     slug: 'ai-machine-learning',
     shortDescription: 'Production-ready AI solutions with LLMs, RAG, and agentic AI frameworks',
-    description: `AIvanceWorks delivers production-ready AI and machine learning solutions that transform how businesses process information, automate workflows, and serve customers. Our AI consulting services leverage Large Language Models (LLMs), Retrieval-Augmented Generation (RAG) frameworks, and agentic AI systems to solve complex business challenges. Unlike proof-of-concept experiments, we build enterprise-grade AI applications with 99.5% uptime, sub-second response times, and measurable ROI within 60 days.`,
+    description: `Serpent Software delivers production-ready AI and machine learning solutions that transform how businesses process information, automate workflows, and serve customers. Our AI development services leverage Large Language Models (LLMs), Retrieval-Augmented Generation (RAG) frameworks, and agentic AI systems to solve complex business challenges. Unlike proof-of-concept experiments, we build enterprise-grade AI applications with 99.5% uptime, sub-second response times, and measurable ROI within 60 days.`,
     icon: 'Bot',
-    gradient: 'from-violet-500 to-purple-600',
+    gradient: 'from-lime-400 to-green-600',
     capabilities: [
       'Large Language Model (LLM) Integration',
       'Retrieval-Augmented Generation (RAG) Systems',
@@ -156,7 +156,7 @@ const serviceCategories: ServiceCategory[] = [
     shortDescription: 'Legacy modernization and enterprise system integration services',
     description: `Modernize legacy systems and integrate disparate applications with minimal business disruption. We specialize in on-premises to cloud migrations, API integrations, and enterprise service bus implementations. Our proven migration methodology ensures data integrity, security, and compliance throughout the transition process, with rollback plans and phased cutover strategies.`,
     icon: 'ArrowLeftRight',
-    gradient: 'from-indigo-500 to-blue-600',
+    gradient: 'from-lime-600 to-emerald-700',
     capabilities: [
       'Legacy System Modernization',
       'On-Premises to Cloud Migration',

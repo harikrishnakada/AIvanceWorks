@@ -17,7 +17,7 @@ export default function HomePage() {
     <>
       <JsonLd
         data={generateWebPageSchema(
-          'AI-First Software Consulting | AIvanceWorks',
+          'AI-Native Software Development | Serpent Software',
           SITE_CONFIG.url
         )}
       />

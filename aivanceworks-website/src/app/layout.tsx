@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Plus_Jakarta_Sans, JetBrains_Mono } from 'next/font/google';
 import { GoogleTagManager } from '@next/third-parties/google';
 import '@/styles/globals.css';
 import { constructMetadata } from '@/lib/seo';
@@ -8,12 +8,22 @@ import { generateOrganizationSchema, generateWebSiteSchema } from '@/lib/schema'
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-geist-sans' });
+const jakarta = Plus_Jakarta_Sans({
+  weight: ['400', '500', '600', '700', '800'],
+  subsets: ['latin'],
+  variable: '--font-jakarta',
+});
+
+const jetbrains = JetBrains_Mono({
+  weight: ['400', '500', '700'],
+  subsets: ['latin'],
+  variable: '--font-jetbrains',
+});
 
 export const metadata: Metadata = constructMetadata({
   keywords: [
     'AI development',
-    'software consulting',
+    'software development',
     'Azure cloud services',
     'custom software development',
     'AI agents',
@@ -29,11 +39,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" data-theme="mamba" className={`${jakarta.variable} ${jetbrains.variable}`}>
        {process.env.NEXT_PUBLIC_GTM_ID && (
           <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID} />
         )}
       <head>
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <JsonLd
           data={[generateOrganizationSchema(), generateWebSiteSchema()]}
         />

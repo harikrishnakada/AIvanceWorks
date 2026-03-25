@@ -7,7 +7,7 @@ import { Calendar, Video, Users, CheckCircle, Mail } from 'lucide-react';
 import { SITE_CONFIG } from '@/lib/constants';
 
 // Cal.com configuration
-const CALCOM_USERNAME = process.env.NEXT_PUBLIC_CALCOM_USERNAME || 'aivanceworks';
+const CALCOM_USERNAME = process.env.NEXT_PUBLIC_CALCOM_USERNAME || 'serpentsoftware';
 const CALCOM_EVENT_TYPE = 'discovery-call';
 const CAL_LINK = `${CALCOM_USERNAME}/${CALCOM_EVENT_TYPE}`;
 
@@ -25,10 +25,10 @@ export default function BookConsultationPage() {
     (async function () {
       const cal = await getCalApi();
       cal('ui', {
-        theme: 'light',
+        theme: 'dark',
         styles: {
           branding: {
-            brandColor: '#2563eb',
+            brandColor: '#84CC16',
           },
         },
         hideEventTypeDetails: false,
@@ -55,7 +55,7 @@ export default function BookConsultationPage() {
               '@context': 'https://schema.org',
               '@type': 'Service',
               name: 'Free Discovery Consultation',
-              serviceType: 'Consulting',
+              serviceType: 'Software Development',
               description:
                 '30-minute free strategy session to discuss software development, AI solutions, and cloud migration needs.',
               provider: { '@id': `${SITE_CONFIG.url}/#organization` },

@@ -32,7 +32,7 @@ export function AuthorBio({ author, showFull = false }: AuthorBioProps) {
 
   // Full version for post detail pages
   return (
-    <div className="bg-gradient-to-br from-gray-50 to-blue-50/30 rounded-xl p-8">
+    <div className="bg-gradient-to-br from-gray-50 to-accent/8 rounded-xl p-8">
       <div className="flex flex-col sm:flex-row gap-6">
         {/* Author Image */}
         <div className="flex-shrink-0">
@@ -49,7 +49,7 @@ export function AuthorBio({ author, showFull = false }: AuthorBioProps) {
         <div className="flex-grow">
           <div className="mb-2">
             <h3 className="text-2xl font-bold text-gray-900">{name}</h3>
-            <p className="text-blue-600 font-medium">{role}</p>
+            <p className="text-accent-hover font-medium">{role}</p>
           </div>
 
           <p className="text-gray-700 mb-4 leading-relaxed">{bio}</p>
@@ -61,7 +61,7 @@ export function AuthorBio({ author, showFull = false }: AuthorBioProps) {
                 href={linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-sm text-gray-600 hover:text-blue-600 transition-colors"
+                className="flex items-center gap-2 text-sm text-gray-600 hover:text-accent transition-colors"
                 aria-label={`${name} on LinkedIn`}
               >
                 <Linkedin className="w-5 h-5" />
@@ -73,7 +73,7 @@ export function AuthorBio({ author, showFull = false }: AuthorBioProps) {
                 href={twitter}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-sm text-gray-600 hover:text-blue-400 transition-colors"
+                className="flex items-center gap-2 text-sm text-gray-600 hover:text-accent transition-colors"
                 aria-label={`${name} on Twitter`}
               >
                 <Twitter className="w-5 h-5" />

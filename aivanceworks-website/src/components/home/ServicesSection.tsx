@@ -12,8 +12,6 @@ const services = [
       'Deploy production-ready AI agents, RAG frameworks, and LLM integrations that automate workflows and enhance decision-making with Azure AI Foundry.',
     icon: Bot,
     href: '/services/ai-machine-learning',
-    iconBg: 'bg-blue-50',
-    iconColor: 'text-blue-600',
   },
   {
     title: 'Cloud Engineering',
@@ -21,8 +19,6 @@ const services = [
       'Migrate and optimize your infrastructure on Azure or AWS. Our certified architects design scalable systems that reduce cloud costs by up to 50%.',
     icon: Cloud,
     href: '/services/cloud-engineering',
-    iconBg: 'bg-sky-50',
-    iconColor: 'text-sky-600',
   },
   {
     title: 'Full-Stack Development',
@@ -30,8 +26,6 @@ const services = [
       'Build enterprise applications with .NET, React, and Next.js. From MVPs to complex platforms, we deliver production-grade software on schedule.',
     icon: Code2,
     href: '/services/full-stack-development',
-    iconBg: 'bg-emerald-50',
-    iconColor: 'text-emerald-600',
   },
   {
     title: 'Data Engineering',
@@ -39,8 +33,6 @@ const services = [
       'Transform raw data into actionable insights with ETL pipelines, Power BI dashboards, and Azure Synapse. Make data-driven decisions faster.',
     icon: Database,
     href: '/services/data-engineering',
-    iconBg: 'bg-amber-50',
-    iconColor: 'text-amber-600',
   },
   {
     title: 'Enterprise Integration',
@@ -48,8 +40,6 @@ const services = [
       'Modernize legacy systems and integrate disparate applications with minimal disruption. API integrations, migrations, and service bus implementations.',
     icon: Globe,
     href: '/services/enterprise-integration',
-    iconBg: 'bg-rose-50',
-    iconColor: 'text-rose-600',
   },
   {
     title: 'DevOps & CI/CD',
@@ -57,8 +47,6 @@ const services = [
       'Accelerate deployments with Azure DevOps, GitHub Actions, and Kubernetes. Automate testing, reduce errors, and ship features faster.',
     icon: Settings,
     href: '/services/devops-automation',
-    iconBg: 'bg-violet-50',
-    iconColor: 'text-violet-600',
   },
 ];
 
@@ -112,15 +100,15 @@ export function ServicesSection() {
   const totalDots = maxIndex + 1;
 
   return (
-    <section className="py-6 sm:py-8 lg:py-12 bg-white">
+    <section className="py-6 sm:py-8 lg:py-12 bg-surface-light">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-2 sm:gap-3 mb-4 sm:mb-5 lg:mb-7">
           <div className="max-w-2xl">
-            <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-black text-gray-900 mb-1 sm:mb-2">
+            <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-black text-text-heading mb-1 sm:mb-2">
               End-to-End Software Development Services
             </h2>
-            <p className="text-xs sm:text-sm md:text-base text-gray-500 leading-relaxed">
+            <p className="text-xs sm:text-sm md:text-base text-text-body leading-relaxed">
               From AI strategy to production deployment, we deliver the full spectrum of software development services your business needs to thrive.
             </p>
           </div>
@@ -129,14 +117,14 @@ export function ServicesSection() {
           <div className="hidden sm:flex items-center gap-1.5 shrink-0">
             <button
               onClick={prevSlide}
-              className="p-2 rounded-lg border border-gray-200 hover:border-blue-300 hover:bg-blue-50 text-gray-400 hover:text-blue-600 transition-all duration-200"
+              className="p-2 rounded-lg border border-border hover:border-accent/30 hover:bg-accent/5 text-muted-foreground hover:text-accent transition-all duration-200"
               aria-label="Previous services"
             >
               <ChevronLeft className="h-4 w-4" />
             </button>
             <button
               onClick={handleNext}
-              className="p-2 rounded-lg border border-gray-200 hover:border-blue-300 hover:bg-blue-50 text-gray-400 hover:text-blue-600 transition-all duration-200"
+              className="p-2 rounded-lg border border-border hover:border-accent/30 hover:bg-accent/5 text-muted-foreground hover:text-accent transition-all duration-200"
               aria-label="Next services"
             >
               <ChevronRight className="h-4 w-4" />
@@ -159,22 +147,20 @@ export function ServicesSection() {
                 style={{ width: `${100 / visibleCount}%` }}
               >
                 <Link href={service.href} className="group block h-full">
-                  <Card className="h-full border-gray-100 bg-white rounded-xl sm:rounded-2xl hover:shadow-[0_12px_40px_rgba(37,99,235,0.12)] hover:border-blue-200 transition-all duration-300">
+                  <Card className="h-full border-border bg-surface-white rounded-xl sm:rounded-2xl hover:shadow-card hover:border-border-hover hover:-translate-y-1 transition-all duration-[400ms] ease-[cubic-bezier(0.16,1,0.3,1)]">
                     <CardHeader className="p-4 sm:p-5 pb-2 sm:pb-3">
-                      <div
-                        className={`w-9 h-9 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl ${service.iconBg} flex items-center justify-center mb-2.5 sm:mb-3 group-hover:scale-110 transition-transform duration-300`}
-                      >
-                        <service.icon className={`h-4 w-4 sm:h-5 sm:w-5 ${service.iconColor}`} />
+                      <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-accent/8 flex items-center justify-center mb-2.5 sm:mb-3 group-hover:scale-110 transition-transform duration-300">
+                        <service.icon className="h-4 w-4 sm:h-5 sm:w-5 text-accent" />
                       </div>
-                      <CardTitle className="text-sm sm:text-base font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
+                      <CardTitle className="text-sm sm:text-base font-bold text-text-heading group-hover:text-accent-hover transition-colors">
                         {service.title}
                       </CardTitle>
                     </CardHeader>
                     <CardContent className="px-4 sm:px-5 pb-4 sm:pb-5">
-                      <CardDescription className="text-gray-500 text-xs sm:text-sm leading-relaxed">
+                      <CardDescription className="text-text-body text-xs sm:text-sm leading-relaxed">
                         {service.description}
                       </CardDescription>
-                      <div className="mt-3 flex items-center text-blue-600 font-semibold text-xs sm:text-sm opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-1 group-hover:translate-y-0">
+                      <div className="mt-3 flex items-center text-accent-hover font-semibold text-xs sm:text-sm opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-1 group-hover:translate-y-0">
                         Learn more
                         <ArrowRight className="ml-1 h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
                       </div>
@@ -199,8 +185,8 @@ export function ServicesSection() {
                 }}
                 className={`h-1.5 sm:h-2 rounded-full transition-all duration-300 ${
                   index === currentIndex
-                    ? 'bg-blue-600 w-5 sm:w-7'
-                    : 'bg-gray-200 w-1.5 sm:w-2 hover:bg-gray-300'
+                    ? 'bg-accent w-5 sm:w-7'
+                    : 'bg-border w-1.5 sm:w-2 hover:bg-border-hover'
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
@@ -212,14 +198,14 @@ export function ServicesSection() {
             <div className="flex sm:hidden gap-1.5">
               <button
                 onClick={prevSlide}
-                className="p-1.5 rounded-lg border border-gray-200 hover:border-blue-300 text-gray-400 hover:text-blue-600 transition-all"
+                className="p-1.5 rounded-lg border border-border hover:border-accent/30 hover:bg-accent/5 text-muted-foreground hover:text-accent transition-all"
                 aria-label="Previous services"
               >
                 <ChevronLeft className="h-3.5 w-3.5" />
               </button>
               <button
                 onClick={handleNext}
-                className="p-1.5 rounded-lg border border-gray-200 hover:border-blue-300 text-gray-400 hover:text-blue-600 transition-all"
+                className="p-1.5 rounded-lg border border-border hover:border-accent/30 hover:bg-accent/5 text-muted-foreground hover:text-accent transition-all"
                 aria-label="Next services"
               >
                 <ChevronRight className="h-3.5 w-3.5" />
@@ -228,7 +214,7 @@ export function ServicesSection() {
 
             <Link
               href="/services"
-              className="inline-flex items-center text-blue-600 hover:text-blue-700 font-semibold text-xs sm:text-sm"
+              className="inline-flex items-center text-accent-hover hover:text-accent font-semibold text-xs sm:text-sm"
             >
               View all
               <ArrowRight className="ml-1 h-3.5 w-3.5" />

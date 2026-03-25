@@ -64,42 +64,42 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
         }}
       />
 
-      <article className="min-h-screen bg-white">
+      <article className="min-h-screen bg-surface-white">
         {/* Hero Section */}
-        <header className="bg-gradient-to-br from-slate-50 to-blue-50/30 py-8 lg:py-12 border-b border-gray-100">
+        <header className="bg-surface-light py-8 lg:py-12 border-b border-border">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <Link
               href="/case-studies"
-              className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 mb-6 transition-colors"
+              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-text-heading mb-6 transition-colors"
             >
               <ArrowLeft className="w-4 h-4" />
               Back to Case Studies
             </Link>
 
             <div className="mb-4">
-              <span className="inline-block px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">
+              <span className="inline-block px-3 py-1 bg-accent/8 text-accent-hover rounded-full text-sm font-medium">
                 {caseStudy.industry}
               </span>
             </div>
 
-            <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+            <h1 className="text-4xl lg:text-5xl font-bold text-text-heading mb-6 leading-tight">
               {caseStudy.title}
             </h1>
 
-            <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+            <p className="text-xl text-text-body mb-8 leading-relaxed">
               {caseStudy.excerpt}
             </p>
 
             {/* Metrics Banner */}
             {caseStudy.metrics && caseStudy.metrics.length > 0 && (
-              <div className="grid grid-cols-3 gap-6 py-6 border-t border-b border-gray-200">
+              <div className="grid grid-cols-3 gap-6 py-6 border-t border-b border-border">
                 {caseStudy.metrics.map((metric, idx) => (
                   <div key={idx} className="text-center">
-                    <div className="text-3xl font-bold text-blue-600 mb-1">
+                    <div className="text-3xl font-bold text-accent mb-1">
                       {metric.value}
                     </div>
-                    <div className="text-sm text-gray-600">{metric.suffix}</div>
-                    <div className="text-xs text-gray-500 mt-1">{metric.label}</div>
+                    <div className="text-sm text-text-body">{metric.suffix}</div>
+                    <div className="text-xs text-muted-foreground mt-1">{metric.label}</div>
                   </div>
                 ))}
               </div>
@@ -109,7 +109,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
 
         {/* Featured Image */}
         {caseStudy.image && (
-          <div className="relative w-full h-[400px] lg:h-[500px] bg-gray-100">
+          <div className="relative w-full h-[400px] lg:h-[500px] bg-surface-warm">
             <Image
               src={caseStudy.image}
               alt={caseStudy.title}
@@ -124,25 +124,25 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
           {/* Client Info */}
           {caseStudy.client && (
-            <Card className="p-6 mb-12 bg-gray-50">
-              <h2 className="text-lg font-semibold text-gray-900 mb-4">Client Overview</h2>
+            <Card className="p-6 mb-12 bg-surface-light border-border">
+              <h2 className="text-lg font-semibold text-text-heading mb-4">Client Overview</h2>
               <div className="grid md:grid-cols-3 gap-4 text-sm">
                 {caseStudy.client.name && (
                   <div>
-                    <div className="text-gray-500">Company</div>
-                    <div className="font-medium">{caseStudy.client.name}</div>
+                    <div className="text-muted-foreground">Company</div>
+                    <div className="font-medium text-text-heading">{caseStudy.client.name}</div>
                   </div>
                 )}
                 {caseStudy.client.size && (
                   <div>
-                    <div className="text-gray-500">Size</div>
-                    <div className="font-medium">{caseStudy.client.size}</div>
+                    <div className="text-muted-foreground">Size</div>
+                    <div className="font-medium text-text-heading">{caseStudy.client.size}</div>
                   </div>
                 )}
                 {caseStudy.client.location && (
                   <div>
-                    <div className="text-gray-500">Location</div>
-                    <div className="font-medium">{caseStudy.client.location}</div>
+                    <div className="text-muted-foreground">Location</div>
+                    <div className="font-medium text-text-heading">{caseStudy.client.location}</div>
                   </div>
                 )}
               </div>
@@ -152,12 +152,12 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
           {/* Services Used */}
           {caseStudy.services && caseStudy.services.length > 0 && (
             <section className="mb-12">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Services Provided</h2>
+              <h2 className="text-2xl font-bold text-text-heading mb-4">Services Provided</h2>
               <div className="flex flex-wrap gap-2">
                 {caseStudy.services.map((service) => (
                   <span
                     key={service}
-                    className="px-4 py-2 bg-blue-50 text-blue-700 rounded-lg text-sm font-medium"
+                    className="px-4 py-2 bg-accent/8 text-accent-hover rounded-lg text-sm font-medium"
                   >
                     {service}
                   </span>
@@ -169,16 +169,16 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
           {/* Challenge */}
           {caseStudy.challenge && (
             <section className="mb-12">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">The Challenge</h2>
-              <p className="text-gray-700 leading-relaxed text-lg">{caseStudy.challenge}</p>
+              <h2 className="text-2xl font-bold text-text-heading mb-4">The Challenge</h2>
+              <p className="text-text-body leading-relaxed text-lg">{caseStudy.challenge}</p>
             </section>
           )}
 
           {/* Solution - Placeholder for now */}
           <section className="mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Our Solution</h2>
+            <h2 className="text-2xl font-bold text-text-heading mb-4">Our Solution</h2>
             <div className="prose prose-lg max-w-none">
-              <p className="text-gray-700 leading-relaxed">
+              <p className="text-text-body leading-relaxed">
                 Detailed solution content will be added through the Sanity CMS. This section will
                 include the comprehensive approach we took to solve the client's challenges,
                 including architecture decisions, implementation details, and key milestones.
@@ -189,12 +189,12 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
           {/* Technologies */}
           {caseStudy.technologies && caseStudy.technologies.length > 0 && (
             <section className="mb-12">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Technologies Used</h2>
+              <h2 className="text-2xl font-bold text-text-heading mb-4">Technologies Used</h2>
               <div className="flex flex-wrap gap-2">
                 {caseStudy.technologies.map((tech) => (
                   <span
                     key={tech}
-                    className="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg text-sm font-medium"
+                    className="px-4 py-2 bg-surface-warm text-text-body rounded-lg text-sm font-medium"
                   >
                     {tech}
                   </span>
@@ -206,20 +206,20 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
           {/* Results */}
           {caseStudy.metrics && caseStudy.metrics.length > 0 && (
             <section className="mb-12">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Results & Impact</h2>
+              <h2 className="text-2xl font-bold text-text-heading mb-4">Results & Impact</h2>
               <div className="grid md:grid-cols-2 gap-6">
                 {caseStudy.metrics.map((metric, idx) => (
-                  <Card key={idx} className="p-6 border-l-4 border-blue-600">
+                  <Card key={idx} className="p-6 border-l-4 border-accent border-border">
                     <div className="flex items-start gap-3">
-                      <CheckCircle2 className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
+                      <CheckCircle2 className="w-6 h-6 text-accent flex-shrink-0 mt-1" />
                       <div>
-                        <div className="text-3xl font-bold text-blue-600 mb-1">
+                        <div className="text-3xl font-bold text-accent mb-1">
                           {metric.value}
                         </div>
-                        <div className="text-sm font-medium text-gray-900 mb-1">
+                        <div className="text-sm font-medium text-text-heading mb-1">
                           {metric.suffix}
                         </div>
-                        <div className="text-sm text-gray-600">{metric.label}</div>
+                        <div className="text-sm text-text-body">{metric.label}</div>
                       </div>
                     </div>
                   </Card>
@@ -230,31 +230,30 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
 
           {/* Testimonial */}
           {caseStudy.testimonial && (
-            <Card className="p-8 bg-gradient-to-br from-blue-50 to-indigo-50 border-l-4 border-blue-600 mb-12">
-              <blockquote className="text-lg text-gray-700 italic mb-4">
+            <Card className="p-8 bg-surface-light border-l-4 border-accent border-border mb-12">
+              <blockquote className="text-lg text-text-body italic mb-4">
                 &ldquo;{caseStudy.testimonial.quote}&rdquo;
               </blockquote>
               <div className="text-sm">
-                <div className="font-semibold text-gray-900">
+                <div className="font-semibold text-text-heading">
                   {caseStudy.testimonial.author}
                 </div>
-                <div className="text-gray-600">{caseStudy.testimonial.role}</div>
+                <div className="text-muted-foreground">{caseStudy.testimonial.role}</div>
               </div>
             </Card>
           )}
 
           {/* CTA */}
-          <Card className="p-8 text-center bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
-            <h2 className="text-2xl font-bold mb-4">Ready to Achieve Similar Results?</h2>
-            <p className="text-blue-100 mb-6">
+          <Card className="p-8 text-center bg-surface-dark text-text-light border-0">
+            <h2 className="text-2xl font-bold mb-4 text-text-light">Ready to Achieve Similar Results?</h2>
+            <p className="text-muted-foreground mb-6">
               Let's discuss how we can help transform your business with our proven expertise.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 asChild
                 size="lg"
-                variant="secondary"
-                className="bg-white text-blue-700 hover:bg-gray-100"
+                className="bg-accent text-accent-foreground hover:bg-accent-hover"
               >
                 <Link href="/contact">Start Your Project</Link>
               </Button>
@@ -262,7 +261,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
                 asChild
                 size="lg"
                 variant="outline"
-                className="border-white text-white hover:bg-white/10"
+                className="border-border/30 text-text-light hover:bg-white/10"
               >
                 <Link href="/services">Explore Our Services</Link>
               </Button>
