@@ -182,7 +182,7 @@ export function contactFormConfirmationTemplate(data: ContactFormData): string {
     <h2>Can't wait to get started?</h2>
     <p>Book a free 30-minute discovery call with our team right now:</p>
 
-    <a href="${SITE_CONFIG.url}/book-consultation" class="button">Start a Project</a>
+    <a href="${SITE_CONFIG.url}/book-consultation" class="button">Book an Appointment</a>
 
     <h2>In the meantime...</h2>
     <p>Check out our latest insights on AI, cloud engineering, and custom software development:</p>
@@ -220,7 +220,7 @@ export function newsletterWelcomeTemplate(email: string): string {
 
     <p>Want to discuss a project? Get in touch with our team:</p>
 
-    <a href="${SITE_CONFIG.url}/book-consultation" class="button">Start a Project</a>
+    <a href="${SITE_CONFIG.url}/book-consultation" class="button">Book an Appointment</a>
 
     <p>
       Best regards,<br>

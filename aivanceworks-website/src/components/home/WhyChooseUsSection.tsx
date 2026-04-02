@@ -64,7 +64,7 @@ export function WhyChooseUsSection() {
               </div>
 
               {/* Content */}
-              <div className="flex-1 min-w-0">
+              <div className="flex-1 min-w-0 sm:pr-12 lg:pr-16">
                 <h3 className="text-sm sm:text-base font-bold text-text-heading mb-1">
                   {item.title}
                 </h3>
@@ -82,7 +82,7 @@ export function WhyChooseUsSection() {
               </div>
 
               {/* Decorative Number — hidden on mobile */}
-              <div className="hidden sm:block absolute top-4 right-5 text-5xl lg:text-6xl font-black text-surface-warm select-none">
+              <div className="hidden sm:block absolute top-3 right-4 text-4xl md:text-5xl lg:text-6xl font-black text-surface-warm/60 select-none pointer-events-none">
                 {String(index + 1).padStart(2, '0')}
               </div>
             </div>

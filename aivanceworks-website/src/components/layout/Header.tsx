@@ -91,7 +91,7 @@ export function Header() {
                   alt={SITE_CONFIG.name}
                   width={180}
                   height={32}
-                  className="h-7 md:h-8 w-auto"
+                  className="h-8 sm:h-9 md:h-10 lg:h-11 w-auto"
                   priority
                 />
               </Link>
@@ -185,7 +185,7 @@ export function Header() {
                 asChild
                 className="bg-accent text-text-heading hover:bg-accent-hover shadow-sm font-semibold text-[11px] lg:text-sm h-8 lg:h-9 px-2.5 lg:px-3 transition-all duration-200 hover:shadow-glow-faint"
               >
-                <Link href="/contact">Start a project</Link>
+                <Link href="/contact">Book an Appointment</Link>
               </Button>
             </div>
 
@@ -280,7 +280,7 @@ export function Header() {
                     onClick={() => setIsMegaMenuOpen(false)}
                     className="inline-flex items-center gap-1.5 text-[11px] md:text-xs font-semibold text-accent hover:text-accent-bright transition-colors"
                   >
-                    Start a project
+                    Book an Appointment
                     <ArrowRight className="h-3 w-3" />
                   </Link>
                 </div>

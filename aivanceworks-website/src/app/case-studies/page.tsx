@@ -173,7 +173,7 @@ export default async function CaseStudiesPage() {
             size="lg"
             className="bg-accent text-accent-foreground hover:bg-accent-hover"
           >
-            <Link href="/contact">Start a project</Link>
+            <Link href="/contact">Book an Appointment</Link>
           </Button>
         </div>
       </section>

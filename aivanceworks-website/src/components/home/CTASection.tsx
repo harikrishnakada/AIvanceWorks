@@ -39,7 +39,7 @@ export function CTASection() {
                 >
                   <Link href="/contact">
                     <ArrowRight className="mr-2 h-3.5 w-3.5 sm:h-4 sm:w-4" />
-                    Start a project
+                    Book an Appointment
                   </Link>
                 </Button>
                 <Button

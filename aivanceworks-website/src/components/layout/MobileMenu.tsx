@@ -134,7 +134,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               asChild
             >
               <Link href="/contact" onClick={onClose}>
-                Start a project
+                Book an Appointment
               </Link>
             </Button>
           </div>

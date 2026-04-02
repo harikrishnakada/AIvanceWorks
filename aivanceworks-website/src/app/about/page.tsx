@@ -116,7 +116,7 @@ export default function AboutPage() {
                 className="bg-accent text-accent-foreground hover:bg-accent-hover"
                 asChild
               >
-                <Link href="/contact">Start a Project</Link>
+                <Link href="/contact">Book an Appointment</Link>
               </Button>
               <Button
                 size="lg"

@@ -682,7 +682,7 @@ export default function TeamPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold mb-4 text-text-light">Ready to Build Your Team?</h2>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Start a project with us to discuss your requirements. We'll recommend the
+            Book an appointment with us to discuss your requirements. We'll recommend the
             optimal team configuration and provide a detailed proposal within 48 hours.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -691,7 +691,7 @@ export default function TeamPage() {
               size="lg"
               className="bg-accent text-accent-foreground hover:bg-accent-hover"
             >
-              <Link href="/contact">Start a Project</Link>
+              <Link href="/contact">Book an Appointment</Link>
             </Button>
             <Button
               asChild

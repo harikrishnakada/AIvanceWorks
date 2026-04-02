@@ -5,5 +5,5 @@
   <circle cx="21" cy="8" r="2" fill="#09090B"/>
   <!-- Wordmark -->
   <text x="40" y="26" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-weight="700" font-size="20" letter-spacing="-0.6" fill="#09090B">Serpent</text>
-  <text x="138" y="26" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-weight="400" font-size="20" letter-spacing="-0.4" fill="#71717A">Software</text>
+  <text x="116" y="26" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-weight="400" font-size="20" letter-spacing="-0.4" fill="#71717A">Software</text>
 </svg>

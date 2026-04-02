@@ -81,7 +81,7 @@ export default function ServicesPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent-hover">
-                <Link href="/contact">Start a project</Link>
+                <Link href="/contact">Book an Appointment</Link>
               </Button>
               <Button
                 asChild
@@ -239,7 +239,7 @@ export default function ServicesPage() {
                 </li>
               </ul>
               <Button asChild className="w-full bg-accent text-accent-foreground hover:bg-accent-hover" size="lg">
-                <Link href="/contact">Start a project</Link>
+                <Link href="/contact">Book an Appointment</Link>
               </Button>
             </div>
           </div>

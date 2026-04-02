@@ -50,18 +50,18 @@ export const NAVIGATION = {
   ],
   // Mega menu columns for "What We Do"
   whatWeDo: [
-    {
-      title: 'Artificial Intelligence',
-      icon: 'Brain',
-      description: 'Intelligent automation & agents',
-      links: [
-        { label: 'AI Development', href: '/services/ai-machine-learning', icon: 'Cpu' },
-        { label: 'AI-Driven Diagnostics', href: '/services/ai-diagnostics', icon: 'Activity' },
-        { label: 'AI Automation Systems', href: '/services/ai-automation', icon: 'Zap' },
-        { label: 'AI Agents for Finance', href: '/services/ai-finance', icon: 'TrendingUp' },
-        { label: 'AI Agents for Healthcare', href: '/services/ai-healthcare', icon: 'Heart' },
-      ],
-    },
+    // {
+    //   title: 'Artificial Intelligence',
+    //   icon: 'Brain',
+    //   description: 'Intelligent automation & agents',
+    //   links: [
+    //     { label: 'AI Development', href: '/services/ai-machine-learning', icon: 'Cpu' },
+    //     { label: 'AI-Driven Diagnostics', href: '/services/ai-diagnostics', icon: 'Activity' },
+    //     { label: 'AI Automation Systems', href: '/services/ai-automation', icon: 'Zap' },
+    //     { label: 'AI Agents for Finance', href: '/services/ai-finance', icon: 'TrendingUp' },
+    //     { label: 'AI Agents for Healthcare', href: '/services/ai-healthcare', icon: 'Heart' },
+    //   ],
+    // },
     {
       title: 'Services',
       icon: 'Code2',
@@ -91,6 +91,21 @@ export const NAVIGATION = {
         { label: 'Cloud Migration', href: '/services/cloud-engineering', icon: 'Cloud' },
         { label: 'CI/CD Pipeline Setup', href: '/services/ci-cd-pipeline', icon: 'RefreshCw' },
         { label: 'Security', href: '/services/security-compliance', icon: 'Shield' },
+      ],
+    },
+
+     {
+      title: 'Technologies',
+      icon: 'Cpu',
+      description: 'Languages, frameworks & platforms',
+      links: [
+        { label: 'Next JS / React JS', href: '/services/full-stack-development', icon: 'Globe' },
+        { label: 'TypeScript / JavaScript', href: '/services/full-stack-development', icon: 'Code2' },
+        { label: '.NET 10', href: '/services/enterprise-integration', icon: 'Layers' },
+        { label: 'Python', href: '/services/ai-machine-learning', icon: 'Cpu' },
+        { label: 'Microsoft SQL Server', href: '/services/data-engineering', icon: 'Server' },
+        { label: 'Azure', href: '/services/cloud-engineering', icon: 'Cloud' },
+        { label: 'AWS', href: '/services/cloud-engineering', icon: 'Shield' },
       ],
     },
   ],

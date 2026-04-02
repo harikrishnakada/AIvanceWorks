@@ -52,7 +52,7 @@ export function HeroSection() {
                 className="w-full sm:w-auto bg-accent text-text-heading hover:bg-accent-hover hover:shadow-glow text-[13px] sm:text-sm md:text-sm px-5 sm:px-6 md:px-7 h-10 sm:h-10 md:h-11 font-semibold rounded-[10px] transition-all duration-300"
               >
                 <Link href="/contact">
-                  Start a project
+                  Book an Appointment
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
