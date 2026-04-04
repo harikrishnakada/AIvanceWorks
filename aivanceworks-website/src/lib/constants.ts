@@ -51,7 +51,7 @@ export const NAVIGATION = {
   // Mega menu columns for "What We Do"
   whatWeDo: [
     {
-      title: 'Artificial Intelligence',
+      title: 'AI',
       icon: 'Brain',
       description: 'Intelligent automation & agents',
       links: [
@@ -67,6 +67,7 @@ export const NAVIGATION = {
       icon: 'Code2',
       description: 'End-to-end software solutions',
       links: [
+        { label: 'Product Discovery', href: '/services/product-discovery', icon: 'Search' },
         { label: 'AI Development', href: '/services/ai-machine-learning', icon: 'Bot' },
         { label: 'MVP Development', href: '/services/mvp-development', icon: 'Rocket' },
         { label: 'SaaS Software Development', href: '/services/saas-development', icon: 'Layers' },
@@ -76,7 +77,6 @@ export const NAVIGATION = {
         { label: 'Mobile App Development', href: '/services/mobile-development', icon: 'Smartphone' },
         { label: 'Custom Software', href: '/services/custom-software', icon: 'Settings' },
         { label: 'UI/UX Design', href: '/services/ui-ux-design', icon: 'Palette' },
-        { label: 'Product Discovery', href: '/services/product-discovery', icon: 'Search' },
         { label: 'E-Commerce', href: '/services/e-commerce', icon: 'ShoppingCart' },
         { label: 'IT Consulting', href: '/services/it-consulting', icon: 'MessageSquare' },
         { label: 'IT Support', href: '/services/it-support', icon: 'Headphones' },
@@ -91,6 +91,18 @@ export const NAVIGATION = {
         { label: 'Cloud Migration', href: '/services/cloud-engineering', icon: 'Cloud' },
         { label: 'CI/CD Pipeline Setup', href: '/services/ci-cd-pipeline', icon: 'RefreshCw' },
         { label: 'Security', href: '/services/security-compliance', icon: 'Shield' },
+      ],
+      technologiesLabel: 'Technologies',
+      technologiesIcon: 'Cpu',
+      technologiesDescription: 'Our core tech stack',
+      technologies: [
+        { label: 'Next.js / React.js', icon: 'Globe' },
+        { label: 'TypeScript / JavaScript', icon: 'Code2' },
+        { label: '.NET 10', icon: 'Layers' },
+        { label: 'Python', icon: 'Cpu' },
+        { label: 'Microsoft SQL', icon: 'Server' },
+        { label: 'Azure', icon: 'Cloud' },
+        { label: 'AWS', icon: 'Zap' },
       ],
     },
   ],

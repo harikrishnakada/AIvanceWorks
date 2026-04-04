@@ -50,7 +50,7 @@ export function FAQSection() {
       {/* FAQ Schema */}
       <JsonLd data={generateFAQSchema(faqs)} />
 
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-4 sm:mb-6 lg:mb-8">
           <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-black text-gray-900 mb-1.5 sm:mb-2 leading-tight">

@@ -3,7 +3,7 @@ import { generateWebPageSchema } from '@/lib/schema';
 import { SITE_CONFIG } from '@/lib/constants';
 import {
   HeroSection,
-  PartnersSection,
+  ExperienceSection,
   ServicesSection,
   WhyChooseUsSection,
   CaseStudiesSection,
@@ -22,11 +22,11 @@ export default function HomePage() {
         )}
       />
 
-      {/* Hero Section - Headline, subheadline, dual CTA */}
+      {/* Hero Section - Headline, subheadline, dual CTA, Partners */}
       <HeroSection />
 
-      {/* Partners & Technologies */}
-      <PartnersSection />
+      {/* Our Experience - Certifications and stats */}
+      <ExperienceSection />
 
       {/* Why Choose Us - 4 differentiators with stats */}
       <WhyChooseUsSection />
@@ -35,16 +35,17 @@ export default function HomePage() {
       <ServicesSection />
 
       {/* Case Studies Preview - 3 featured case studies */}
-      <CaseStudiesSection />
+      {/* <CaseStudiesSection /> */}
 
       {/* Testimonials Carousel */}
       {/* <TestimonialsSection /> */}
 
+       {/* Final CTA Section */}
+      <CTASection />
+
       {/* FAQ Section with Schema Markup */}
       <FAQSection />
-
-      {/* Final CTA Section */}
-      <CTASection />
+     
     </>
   );
 }

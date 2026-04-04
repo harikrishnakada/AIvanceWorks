@@ -115,8 +115,8 @@ export function ServicesSection() {
     <section className="py-6 sm:py-8 lg:py-12 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-2 sm:gap-3 mb-4 sm:mb-5 lg:mb-7">
-          <div className="max-w-2xl">
+        <div className="flex flex-col items-center gap-2 sm:gap-3 mb-4 sm:mb-5 lg:mb-7">
+          <div className="w-full text-center max-w-3xl mx-auto">
             <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-black text-gray-900 mb-1 sm:mb-2">
               End-to-End Software Development Services
             </h2>
@@ -126,7 +126,7 @@ export function ServicesSection() {
           </div>
 
           {/* Desktop Navigation Arrows */}
-          <div className="hidden sm:flex items-center gap-1.5 shrink-0">
+          {/* <div className="hidden sm:flex items-center gap-1.5 shrink-0">
             <button
               onClick={prevSlide}
               className="p-2 rounded-lg border border-gray-200 hover:border-blue-300 hover:bg-blue-50 text-gray-400 hover:text-blue-600 transition-all duration-200"
@@ -141,7 +141,7 @@ export function ServicesSection() {
             >
               <ChevronRight className="h-4 w-4" />
             </button>
-          </div>
+          </div> */}
         </div>
 
         {/* Carousel */}

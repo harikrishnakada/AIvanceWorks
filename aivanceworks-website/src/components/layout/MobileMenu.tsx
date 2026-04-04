@@ -4,7 +4,25 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { NAVIGATION } from '@/lib/constants';
 import { Button } from '@/components/ui/button';
-import { ChevronDown } from 'lucide-react';
+import {
+  ChevronDown,
+  Code2, Server, Brain,
+  Bot, Rocket, Layers, Lightbulb, Building2, Globe, Smartphone,
+  Settings, Palette, MessageSquare, Headphones,
+  GitBranch, Cloud, RefreshCw, Shield,
+  Cpu, Activity, Zap, TrendingUp, Heart,
+  Search, ShoppingCart,
+} from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
+
+const iconMap: Record<string, LucideIcon> = {
+  Code2, Server, Brain,
+  Bot, Rocket, Layers, Lightbulb, Building2, Globe, Smartphone,
+  Settings, Palette, MessageSquare, Headphones,
+  GitBranch, Cloud, RefreshCw, Shield,
+  Cpu, Activity, Zap, TrendingUp, Heart,
+  Search, ShoppingCart,
+};
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -56,41 +74,103 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                   />
                 </button>
 
-                {/* What We Do — 3 Category Sections */}
+                {/* What We Do — Category Sections */}
                 {isWhatWeDoOpen && (
                   <div className="mt-1 space-y-1 animate-in slide-in-from-top-2 duration-200">
-                    {NAVIGATION.whatWeDo.map((category) => (
-                      <div key={category.title}>
-                        {/* Category Header */}
-                        <button
-                          onClick={() => toggleCategory(category.title)}
-                          className="flex items-center justify-between w-full px-4 py-2.5 text-sm font-semibold text-gray-700 hover:bg-gray-50 rounded-lg transition-colors"
-                        >
-                          {category.title}
-                          <ChevronDown
-                            className={`h-4 w-4 text-gray-400 transition-transform duration-200 ${
-                              expandedCategory === category.title ? 'rotate-180' : ''
-                            }`}
-                          />
-                        </button>
+                    {NAVIGATION.whatWeDo.map((category) => {
+                      const CategoryIcon = iconMap[category.icon] || Code2;
+                      return (
+                        <div key={category.title}>
+                          {/* Category Header */}
+                          <button
+                            onClick={() => toggleCategory(category.title)}
+                            className="flex items-center justify-between w-full px-3 py-2.5 text-sm font-semibold text-gray-700 hover:bg-gray-50 rounded-lg transition-colors"
+                          >
+                            <div className="flex items-center gap-2.5">
+                              <div className="w-7 h-7 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0">
+                                <CategoryIcon className="h-3.5 w-3.5 text-blue-600" />
+                              </div>
+                              <div className="text-left">
+                                <div className="text-sm font-semibold text-gray-800">{category.title}</div>
+                                <div className="text-[10px] text-gray-400 font-normal">{category.description}</div>
+                              </div>
+                            </div>
+                            <ChevronDown
+                              className={`h-4 w-4 text-gray-400 transition-transform duration-200 flex-shrink-0 ${
+                                expandedCategory === category.title ? 'rotate-180' : ''
+                              }`}
+                            />
+                          </button>
 
-                        {/* Category Links */}
-                        {expandedCategory === category.title && (
-                          <div className="pl-4 space-y-0.5 animate-in slide-in-from-top-1 duration-150">
-                            {category.links.map((link) => (
-                              <Link
-                                key={link.href + link.label}
-                                href={link.href}
-                                onClick={onClose}
-                                className="block px-4 py-2 text-sm text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-lg transition-colors"
-                              >
-                                {link.label}
-                              </Link>
-                            ))}
-                          </div>
-                        )}
-                      </div>
-                    ))}
+                          {/* Category Links */}
+                          {expandedCategory === category.title && (
+                            <div className="pl-4 space-y-0.5 animate-in slide-in-from-top-1 duration-150">
+                              {category.links.map((link) => {
+                                const LinkIcon = iconMap[link.icon] || Code2;
+                                return (
+                                  <Link
+                                    key={link.href + link.label}
+                                    href={link.href}
+                                    onClick={onClose}
+                                    className="flex items-center gap-2 px-3 py-2 text-sm text-gray-600 hover:text-blue-600 hover:bg-blue-50/60 rounded-lg transition-colors"
+                                  >
+                                    <LinkIcon className="h-3.5 w-3.5 text-gray-400 flex-shrink-0" />
+                                    {link.label}
+                                  </Link>
+                                );
+                              })}
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
+
+                    {/* Technologies — rendered as 4th category */}
+                    {(() => {
+                      const infraCol = NAVIGATION.whatWeDo.find((c) => 'technologies' in c && c.technologies);
+                      if (!infraCol || !('technologies' in infraCol)) return null;
+                      const techs = infraCol.technologies as unknown as { label: string; icon: string }[];
+                      const techTitle = 'technologiesLabel' in infraCol ? String(infraCol.technologiesLabel) : 'Technologies';
+                      const techDesc = 'technologiesDescription' in infraCol ? String(infraCol.technologiesDescription) : 'Our core tech stack';
+                      const techIconKey = 'technologiesIcon' in infraCol ? String(infraCol.technologiesIcon) : 'Cpu';
+                      const TechCatIcon = iconMap[techIconKey] || Cpu;
+                      return (
+                        <div>
+                          <button
+                            onClick={() => toggleCategory(techTitle)}
+                            className="flex items-center justify-between w-full px-3 py-2.5 text-sm font-semibold text-gray-700 hover:bg-gray-50 rounded-lg transition-colors"
+                          >
+                            <div className="flex items-center gap-2.5">
+                              <div className="w-7 h-7 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0">
+                                <TechCatIcon className="h-3.5 w-3.5 text-blue-600" />
+                              </div>
+                              <div className="text-left">
+                                <div className="text-sm font-semibold text-gray-800">{techTitle}</div>
+                                <div className="text-[10px] text-gray-400 font-normal">{techDesc}</div>
+                              </div>
+                            </div>
+                            <ChevronDown
+                              className={`h-4 w-4 text-gray-400 transition-transform duration-200 flex-shrink-0 ${
+                                expandedCategory === techTitle ? 'rotate-180' : ''
+                              }`}
+                            />
+                          </button>
+                          {expandedCategory === techTitle && (
+                            <div className="pl-4 space-y-0.5 animate-in slide-in-from-top-1 duration-150">
+                              {techs.map((tech) => {
+                                const TechIcon = iconMap[tech.icon] || Code2;
+                                return (
+                                  <div key={tech.label} className="flex items-center gap-2 px-3 py-2 text-sm text-gray-600">
+                                    <TechIcon className="h-3.5 w-3.5 text-gray-400 flex-shrink-0" />
+                                    {tech.label}
+                                  </div>
+                                );
+                              })}
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })()}
                   </div>
                 )}
               </div>

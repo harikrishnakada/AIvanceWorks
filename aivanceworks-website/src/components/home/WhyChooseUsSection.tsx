@@ -2,10 +2,10 @@ import { Award, Clock, Shield, Users } from 'lucide-react';
 
 const differentiators = [
   {
-    title: 'AI-First Approach',
+    title: 'AI - Powered Cloud Computing',
     description:
       'We use AI-augmented development workflows to deliver faster and smarter. Our team has production experience with Azure AI Foundry, LangChain, and RAG frameworks.',
-    stat: '3x',
+    stat: '5x',
     statLabel: 'Faster Development',
     icon: Award,
   },
@@ -18,7 +18,7 @@ const differentiators = [
     icon: Shield,
   },
   {
-    title: 'Startup-Friendly',
+    title: 'Startup-Enterprise',
     description:
       'Boutique pricing with enterprise quality. We work shoulder-to-shoulder with your team, ensuring knowledge transfer and long-term success.',
     stat: '50%',
@@ -55,7 +55,7 @@ export function WhyChooseUsSection() {
 
         {/* Differentiators Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 lg:gap-5">
-          {differentiators.map((item, index) => (
+          {differentiators.map((item) => (
             <div
               key={item.title}
               className="relative flex gap-3 sm:gap-4 p-4 sm:p-5 bg-white rounded-xl sm:rounded-2xl border border-gray-100 shadow-sm hover:shadow-[0_12px_40px_rgba(37,99,235,0.1)] hover:border-blue-100 transition-all duration-300"
@@ -85,10 +85,6 @@ export function WhyChooseUsSection() {
                 </div>
               </div>
 
-              {/* Decorative Number — hidden on mobile */}
-              <div className="hidden sm:block absolute top-4 right-5 text-5xl lg:text-6xl font-black text-gray-50 select-none">
-                {String(index + 1).padStart(2, '0')}
-              </div>
             </div>
           ))}
         </div>

@@ -150,7 +150,7 @@ export function Header() {
                   aria-expanded={isMegaMenuOpen}
                   aria-haspopup="true"
                 >
-                  Services
+                  What We Do
                   <ChevronDown
                     className={`ml-0.5 h-3 w-3 transition-transform duration-200 ${
                       isMegaMenuOpen ? 'rotate-180' : ''
@@ -163,6 +163,9 @@ export function Header() {
               </Link>
               <Link href="/case-studies" className="px-2 py-1.5 text-xs font-medium text-blue-700 hover:text-blue-900 transition-colors rounded-md hover:bg-blue-50">
                 Case Studies
+              </Link>
+              <Link href="/blog" className="px-2 py-1.5 text-xs font-medium text-blue-700 hover:text-blue-900 transition-colors rounded-md hover:bg-blue-50">
+                Blog
               </Link>
               <Link href="/about" className="px-2 py-1.5 text-xs font-medium text-blue-700 hover:text-blue-900 transition-colors rounded-md hover:bg-blue-50">
                 About
@@ -184,7 +187,7 @@ export function Header() {
                 asChild
                 className="bg-blue-600 text-white hover:bg-blue-700 shadow-sm font-semibold text-[11px] lg:text-sm h-8 lg:h-9 px-2.5 lg:px-3"
               >
-                <Link href="/book-consultation">Book Consultation</Link>
+                <Link href="/book-consultation">Book an Appointment</Link>
               </Button>
             </div>
 
@@ -264,6 +267,37 @@ export function Header() {
                             );
                           })}
                         </ul>
+
+                        {'technologies' in column && column.technologies && (
+                          <>
+                            <div className="mt-8 md:mt-9" />
+                            <div className="flex items-center gap-2 md:gap-3 mb-1">
+                              <div className="w-8 h-8 md:w-9 md:h-9 rounded-lg bg-blue-50 flex items-center justify-center">
+                                {(() => { const TechHeadIcon = iconMap[('technologiesIcon' in column ? column.technologiesIcon : 'Cpu') as string] || Code2; return <TechHeadIcon className="h-4 w-4 text-blue-600" />; })()}
+                              </div>
+                              <div>
+                                <h3 className="text-sm md:text-base font-bold text-gray-900">
+                                  {'technologiesLabel' in column ? column.technologiesLabel : 'Technologies'}
+                                </h3>
+                                <p className="text-[10px] md:text-xs text-gray-400">
+                                  {'technologiesDescription' in column ? column.technologiesDescription : ''}
+                                </p>
+                              </div>
+                            </div>
+                            <div className="h-px bg-gradient-to-r from-gray-200 via-gray-100 to-transparent my-2 md:my-3" />
+                            <ul className="space-y-0.5">
+                              {column.technologies.map((tech) => {
+                                const TechIcon = iconMap[tech.icon] || Code2;
+                                return (
+                                  <li key={tech.label} className="flex items-center gap-2 py-1 md:py-[5px] px-2 text-xs md:text-sm text-gray-500">
+                                    <TechIcon className="h-3 w-3 md:h-3.5 md:w-3.5 text-gray-400 flex-shrink-0" />
+                                    <span className="truncate">{tech.label}</span>
+                                  </li>
+                                );
+                              })}
+                            </ul>
+                          </>
+                        )}
                       </div>
                     );
                   })}
