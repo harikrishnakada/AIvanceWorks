@@ -21,7 +21,7 @@ const certifications = [
 
 export function ExperienceSection() {
   return (
-    <section className="relative overflow-hidden py-1.5 sm:py-2 md:py-3">
+    <section className="relative overflow-hidden pt-0.5 sm:pt-1 md:pt-1.5 pb-1.5 sm:pb-2 md:pb-3">
 
       <div className="relative max-w-[1440px] w-full mx-auto px-2 sm:px-3 md:px-6 lg:px-8">
 

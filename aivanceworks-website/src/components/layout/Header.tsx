@@ -11,7 +11,7 @@ import {
   Settings, Palette, MessageSquare, Headphones,
   GitBranch, Cloud, RefreshCw, Shield,
   Cpu, Activity, Zap, TrendingUp, Heart,
-  Search, ShoppingCart,
+  Search, ShoppingCart, Store,
 } from 'lucide-react';
 import { MobileMenu } from './MobileMenu';
 import type { LucideIcon } from 'lucide-react';
@@ -22,7 +22,7 @@ const iconMap: Record<string, LucideIcon> = {
   Settings, Palette, MessageSquare, Headphones,
   GitBranch, Cloud, RefreshCw, Shield,
   Cpu, Activity, Zap, TrendingUp, Heart,
-  Search, ShoppingCart,
+  Search, ShoppingCart, Store,
 };
 
 export function Header() {
@@ -77,7 +77,7 @@ export function Header() {
         }`}
       >
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Main navigation">
-          <div className="flex items-center justify-between h-14 md:h-16 lg:h-18">
+          <div className="flex items-center justify-between h-14 md:h-16 lg:h-18" >
             {/* Logo */}
             <div className="flex-shrink-0">
               <Link
@@ -85,12 +85,12 @@ export function Header() {
                 className="flex items-center space-x-2 group"
                 aria-label={`${SITE_CONFIG.name} homepage`}
               >
-                <div className="relative">
+                {/* <div className="relative">
                   <div className="w-8 h-8 md:w-9 md:h-9 bg-blue-600 rounded-lg flex items-center justify-center transform transition-transform group-hover:scale-105">
                     <span className="text-white font-bold text-base md:text-lg">SS</span>
                   </div>
-                </div>
-                <span className="text-lg md:text-xl font-bold text-blue-700">
+                </div> */}
+                <span className="text-lg md:text-xl font-bold text-blue-700" style={{fontSize: "xx-large", color:"rgb(15 32 88)"}}>
                   {SITE_CONFIG.name}
                 </span>
               </Link>
@@ -267,6 +267,33 @@ export function Header() {
                             );
                           })}
                         </ul>
+
+                        {/* Grouped Links (Solutions column) */}
+                        {'groups' in column && (column as unknown as { groups: { heading: string; links: { label: string; href: string; icon: string }[] }[] }).groups?.map((group) => (
+                          <div key={group.heading} className="mt-2">
+                            <h4 className="text-xs md:text-sm font-bold text-blue-600 px-2 md:px-2.5 -mx-1 py-1">
+                              {group.heading}
+                            </h4>
+                            <ul className="space-y-0.5">
+                              {group.links.map((link) => {
+                                const LinkIcon = iconMap[link.icon] || Code2;
+                                return (
+                                  <li key={link.href + link.label}>
+                                    <Link
+                                      href={link.href}
+                                      onClick={() => setIsMegaMenuOpen(false)}
+                                      className="group/link flex items-center gap-2 py-1.5 md:py-[7px] px-2 md:px-2.5 -mx-1 rounded-lg text-xs md:text-sm text-gray-600 hover:text-blue-700 hover:bg-blue-50/70 transition-all duration-150"
+                                    >
+                                      <LinkIcon className="h-3 w-3 md:h-3.5 md:w-3.5 text-gray-400 group-hover/link:text-blue-500 transition-colors flex-shrink-0" />
+                                      <span className="truncate">{link.label}</span>
+                                      <ArrowRight className="h-3 w-3 ml-auto text-gray-300 opacity-0 -translate-x-1 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all duration-150 flex-shrink-0" />
+                                    </Link>
+                                  </li>
+                                );
+                              })}
+                            </ul>
+                          </div>
+                        ))}
 
                         {'technologies' in column && column.technologies && (
                           <>

@@ -11,7 +11,7 @@ import {
   Settings, Palette, MessageSquare, Headphones,
   GitBranch, Cloud, RefreshCw, Shield,
   Cpu, Activity, Zap, TrendingUp, Heart,
-  Search, ShoppingCart,
+  Search, ShoppingCart, Store,
 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
@@ -21,7 +21,7 @@ const iconMap: Record<string, LucideIcon> = {
   Settings, Palette, MessageSquare, Headphones,
   GitBranch, Cloud, RefreshCw, Shield,
   Cpu, Activity, Zap, TrendingUp, Heart,
-  Search, ShoppingCart,
+  Search, ShoppingCart, Store,
 };
 
 interface MobileMenuProps {
@@ -119,6 +119,28 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                                   </Link>
                                 );
                               })}
+                              {/* Grouped Links (Solutions column) */}
+                              {'groups' in category && (category as unknown as { groups: { heading: string; links: { label: string; href: string; icon: string }[] }[] }).groups?.map((group) => (
+                                <div key={group.heading} className="mt-1">
+                                  <h4 className="text-sm font-bold text-blue-600 px-3 py-1.5">
+                                    {group.heading}
+                                  </h4>
+                                  {group.links.map((link) => {
+                                    const LinkIcon = iconMap[link.icon] || Code2;
+                                    return (
+                                      <Link
+                                        key={link.href + link.label}
+                                        href={link.href}
+                                        onClick={onClose}
+                                        className="flex items-center gap-2 px-3 py-2 text-sm text-gray-600 hover:text-blue-600 hover:bg-blue-50/60 rounded-lg transition-colors"
+                                      >
+                                        <LinkIcon className="h-3.5 w-3.5 text-gray-400 flex-shrink-0" />
+                                        {link.label}
+                                      </Link>
+                                    );
+                                  })}
+                                </div>
+                              ))}
                             </div>
                           )}
                         </div>

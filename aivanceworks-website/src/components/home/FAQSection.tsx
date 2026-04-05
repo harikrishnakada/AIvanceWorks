@@ -4,41 +4,41 @@ import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { generateFAQSchema } from '@/lib/schema';
-
-const faqs = [
-  {
-    question: 'What is AI software development and how can it help my business?',
-    answer:
-      'AI software development helps businesses implement artificial intelligence solutions like AI agents, RAG frameworks, and machine learning models. Serpent Software specializes in turning AI concepts into production-ready systems that automate workflows, enhance decision-making, and reduce operational costs. Our clients typically see 40-60% efficiency improvements within the first quarter.',
-  },
-  {
-    question: 'How much does it cost to hire an AI development consultant?',
-    answer:
-      'AI development costs vary based on project scope and complexity. Serpent Software offers competitive boutique rates of $135-225/hour, significantly lower than enterprise consultancies ($400-900/hour) while maintaining the same quality. We provide fixed-price projects, time-and-materials, and retainer options to match your budget and timeline.',
-  },
-  {
-    question: 'What is a RAG framework and why do businesses need it?',
-    answer:
-      'RAG (Retrieval-Augmented Generation) is an AI architecture that combines large language models with your company\'s proprietary data. Instead of generic AI responses, RAG systems provide accurate, context-aware answers from your documents, databases, and knowledge bases. Businesses use RAG for customer support automation, document processing, and internal knowledge management.',
-  },
-  {
-    question: 'How long does it take to build a custom AI solution?',
-    answer:
-      'Custom AI solution timelines depend on complexity. A proof-of-concept RAG system takes 2-4 weeks. Production-ready AI agents with integrations typically require 6-12 weeks. Enterprise AI platforms may take 3-6 months. Serpent Software uses agile methodology with bi-weekly demos, so you see progress and can adjust requirements throughout development.',
-  },
-  {
-    question: 'What Azure certifications does your team have?',
-    answer:
-      'Our team holds multiple Microsoft certifications including AI-102 (Azure AI Engineer), AZ-204 (Azure Developer), DP-420 (Cosmos DB Developer), and AZ-900 (Azure Fundamentals). This ensures enterprise-grade architecture decisions and best practices for cloud security, scalability, and cost optimization on Azure.',
-  },
-  {
-    question: 'Do you work with startups or only enterprise clients?',
-    answer:
-      'Serpent Software works with both startups and mid-market enterprises (50-5000 employees). Our boutique model means startups get enterprise-quality expertise at accessible pricing, while larger organizations benefit from our agility and personalized service. We\'ve helped Series A startups build MVPs and scaled systems for established companies with millions of users.',
-  },
-];
+import { SITE_CONFIG } from '@/lib/constants';
 
 export function FAQSection() {
+  const faqs = [
+    {
+      question: 'What is AI software development and how can it help my business?',
+      answer:
+        `AI software development helps businesses implement artificial intelligence solutions like AI agents, RAG frameworks, and machine learning models. ${SITE_CONFIG.name} specializes in turning AI concepts into production-ready systems that automate workflows, enhance decision-making, and reduce operational costs. Our clients typically see 40-60% efficiency improvements within the first quarter.`,
+    },
+    {
+      question: 'How much does it cost to hire an AI development consultant?',
+      answer:
+        `AI development costs vary based on project scope and complexity. ${SITE_CONFIG.name} offers competitive boutique rates of $135-225/hour, significantly lower than enterprise consultancies ($400-900/hour) while maintaining the same quality. We provide fixed-price projects, time-and-materials, and retainer options to match your budget and timeline.`,
+    },
+    {
+      question: 'What is a RAG framework and why do businesses need it?',
+      answer:
+        'RAG (Retrieval-Augmented Generation) is an AI architecture that combines large language models with your company\'s proprietary data. Instead of generic AI responses, RAG systems provide accurate, context-aware answers from your documents, databases, and knowledge bases. Businesses use RAG for customer support automation, document processing, and internal knowledge management.',
+    },
+    {
+      question: 'How long does it take to build a custom AI solution?',
+      answer:
+        `Custom AI solution timelines depend on complexity. A proof-of-concept RAG system takes 2-4 weeks. Production-ready AI agents with integrations typically require 6-12 weeks. Enterprise AI platforms may take 3-6 months. ${SITE_CONFIG.name} uses agile methodology with bi-weekly demos, so you see progress and can adjust requirements throughout development.`,
+    },
+    {
+      question: 'What Azure certifications does your team have?',
+      answer:
+        'Our team holds multiple Microsoft certifications including AI-102 (Azure AI Engineer), AZ-204 (Azure Developer), DP-420 (Cosmos DB Developer), and AZ-900 (Azure Fundamentals). This ensures enterprise-grade architecture decisions and best practices for cloud security, scalability, and cost optimization on Azure.',
+    },
+    {
+      question: 'Do you work with startups or only enterprise clients?',
+      answer:
+        `${SITE_CONFIG.name} works with both startups and mid-market enterprises (50-5000 employees). Our boutique model means startups get enterprise-quality expertise at accessible pricing, while larger organizations benefit from our agility and personalized service. We've helped Series A startups build MVPs and scaled systems for established companies with millions of users.`,
+    },
+  ];
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const toggleFAQ = (index: number) => {

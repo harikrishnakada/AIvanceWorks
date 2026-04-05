@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Calendar, Mail } from 'lucide-react';
+import { SITE_CONFIG, NAVIGATION } from '@/lib/constants';
 
 export function CTASection() {
   return (
@@ -60,7 +61,7 @@ export function CTASection() {
 
               {/* Trust Note */}
               <p className="mt-4 text-[11px] sm:text-xs md:text-sm text-white/30 font-medium">
-                Join 50+ companies that have accelerated their AI journey with Serpent Software.
+                Join 50+ companies that have accelerated their AI journey with {SITE_CONFIG.name}.
               </p>
             </div>
           </div>

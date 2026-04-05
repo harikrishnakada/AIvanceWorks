@@ -1,4 +1,5 @@
 import { Award, Clock, Shield, Users } from 'lucide-react';
+import { SITE_CONFIG } from '@/lib/constants';
 
 const differentiators = [
   {
@@ -46,7 +47,7 @@ export function WhyChooseUsSection() {
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-5 sm:mb-6 lg:mb-8">
           <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-black text-gray-900 mb-2 leading-tight">
-            Why Companies Choose Serpent Software
+            Why Companies Choose {SITE_CONFIG.name}
           </h2>
           <p className="text-xs sm:text-sm md:text-base text-gray-500 leading-relaxed">
             We combine deep technical expertise with a partnership mindset to deliver measurable business outcomes.

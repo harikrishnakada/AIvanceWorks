@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Play, Zap, Clock, TrendingUp } from 'lucide-react';
+import { SITE_CONFIG } from '@/lib/constants';
 
 const partners = [
   { name: 'Google', logo: '/partners/google.svg', width: 'w-[70px] sm:w-[85px] md:w-[100px] lg:w-[120px]' },
@@ -55,7 +56,7 @@ export function HeroSection() {
               xl:flex-1
               px-4 sm:px-6 md:px-10 lg:px-16
               pt-4 sm:pt-5 md:pt-7 lg:pt-9
-              pb-4 sm:pb-5 md:pb-7 lg:pb-9"
+              pb-2 sm:pb-2.5 md:pb-3 lg:pb-4"
           >
             {/* Hero content */}
             <div
@@ -94,7 +95,7 @@ export function HeroSection() {
                   text-white/60 max-w-xl mx-auto
                   mb-2.5 sm:mb-3 md:mb-4"
               >
-                Serpent Software is a cloud computing software development company including services
+                 {SITE_CONFIG.name} is a cloud computing software development company including services
                 in AI Development, SaaS Development and several other development services.
               </p>
 

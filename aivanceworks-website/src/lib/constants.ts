@@ -3,7 +3,7 @@ export const SUPPORT_EMAIL = 'serpentsoftware@gmail.com';
 export const FROM_EMAIL = 'notifications@serpentsoftware.com';
 
 export const SITE_CONFIG = {
-  name: 'Serpent Software',
+  name: 'Rovasoft',
   description:
     'AI-first software development for startups. Expert teams in AI agents, RAG frameworks, Azure cloud, and custom development.',
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://serpentsoftware.com',
@@ -13,10 +13,10 @@ export const SITE_CONFIG = {
     linkedin: 'https://linkedin.com/company/serpentsoftware',
     github: 'https://github.com/serpentsoftware',
   },
-  creator: 'Serpent Software Team',
+  creator: 'Rovasoft Team',
   company: {
-    name: 'Serpent Software',
-    legalName: 'Serpent Software LLC',
+    name: 'Rovasoft',
+    legalName: 'Rovasoft LLC',
     slogan: 'Transform Your Ideas Into Intelligent Solutions',
     email: CONTACT_EMAIL,
     phone: '+1 (555) 123-4567',
@@ -50,18 +50,18 @@ export const NAVIGATION = {
   ],
   // Mega menu columns for "What We Do"
   whatWeDo: [
-    {
-      title: 'AI',
-      icon: 'Brain',
-      description: 'Intelligent automation & agents',
-      links: [
-        { label: 'AI Development', href: '/services/ai-machine-learning', icon: 'Cpu' },
-        { label: 'AI-Driven Diagnostics', href: '/services/ai-diagnostics', icon: 'Activity' },
-        { label: 'AI Automation Systems', href: '/services/ai-automation', icon: 'Zap' },
-        { label: 'AI Agents for Finance', href: '/services/ai-finance', icon: 'TrendingUp' },
-        { label: 'AI Agents for Healthcare', href: '/services/ai-healthcare', icon: 'Heart' },
-      ],
-    },
+    // {
+    //   title: 'AI',
+    //   icon: 'Brain',
+    //   description: 'Intelligent automation & agents',
+    //   links: [
+    //     { label: 'AI Development', href: '/services/ai-machine-learning', icon: 'Cpu' },
+    //     { label: 'AI-Driven Diagnostics', href: '/services/ai-diagnostics', icon: 'Activity' },
+    //     { label: 'AI Automation Systems', href: '/services/ai-automation', icon: 'Zap' },
+    //     { label: 'AI Agents for Finance', href: '/services/ai-finance', icon: 'TrendingUp' },
+    //     { label: 'AI Agents for Healthcare', href: '/services/ai-healthcare', icon: 'Heart' },
+    //   ],
+    // },
     {
       title: 'Services',
       icon: 'Code2',
@@ -80,6 +80,40 @@ export const NAVIGATION = {
         { label: 'E-Commerce', href: '/services/e-commerce', icon: 'ShoppingCart' },
         { label: 'IT Consulting', href: '/services/it-consulting', icon: 'MessageSquare' },
         { label: 'IT Support', href: '/services/it-support', icon: 'Headphones' },
+      ],
+    },
+     {
+      title: 'Solutions',
+      icon: 'Code2',
+      description: 'Industry-specific solutions',
+      links: [],
+      groups: [
+        {
+          heading: 'HealthCare',
+          links: [
+            { label: 'Patient Portals', href: '/solutions/patient-portals', icon: 'Heart' },
+            { label: 'EHR & EMR Development', href: '/solutions/ehr-emr-development', icon: 'Activity' },
+            { label: 'Hospital Management Systems', href: '/solutions/hospital-management-systems', icon: 'Building2' },
+          ],
+        },
+        {
+          heading: 'Insurance',
+          links: [
+            { label: 'Insurance Portals', href: '/solutions/insurance-portals', icon: 'Shield' },
+            { label: 'Underwriting Software', href: '/solutions/underwriting-software', icon: 'TrendingUp' },
+            { label: 'Agency Management Software', href: '/solutions/agency-management-software', icon: 'Building2' },
+            { label: 'Policy Administration Systems', href: '/solutions/policy-administration-systems', icon: 'Layers' },
+            { label: 'Quoting Software', href: '/solutions/quoting-software', icon: 'Cpu' },
+            { label: 'Document Management Software', href: '/solutions/document-management-software', icon: 'Settings' },
+          ],
+        },
+        {
+          heading: 'E-Commerce & Retail',
+          links: [
+            { label: 'E-Commerce Websites', href: '/solutions/e-commerce-websites', icon: 'ShoppingCart' },
+            { label: 'Retail Websites', href: '/solutions/retail-websites', icon: 'Store' },
+          ],
+        },
       ],
     },
     {
