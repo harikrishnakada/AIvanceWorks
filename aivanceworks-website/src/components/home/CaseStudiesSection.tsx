@@ -69,7 +69,7 @@ export async function CaseStudiesSection() {
               See how we&apos;ve helped startups and enterprises achieve measurable business outcomes with AI and cloud solutions.
             </p>
           </div>
-          <Button variant="outline" asChild className="shrink-0 rounded-xl border-gray-200 hover:border-blue-300 hover:bg-blue-50 hover:text-blue-600 font-semibold transition-all duration-200">
+          <Button variant="outline" asChild className="shrink-0 rounded-xl border-gray-200 hover:border-brand-300 hover:bg-brand-50 hover:text-brand-600 font-semibold transition-all duration-200">
             <Link href="/case-studies">
               View All Case Studies
               <ArrowRight className="ml-2 h-4 w-4" />
@@ -83,10 +83,10 @@ export async function CaseStudiesSection() {
             <Link
               key={study.slug || index}
               href={`/case-studies/${study.slug}`}
-              className="group flex flex-col bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-[0_12px_40px_rgba(37,99,235,0.1)] hover:border-blue-100 transition-all duration-300"
+              className="group flex flex-col bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-brand-card hover:border-brand-100 transition-all duration-300"
             >
               {/* Image */}
-              <div className="aspect-video bg-gradient-to-br from-blue-50 to-indigo-50 relative">
+              <div className="aspect-video bg-gradient-to-br from-brand-50 to-accent-50 relative">
                 {study.image ? (
                   <Image
                     src={study.image}
@@ -96,7 +96,7 @@ export async function CaseStudiesSection() {
                   />
                 ) : (
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="text-sm font-semibold text-blue-600 bg-white/90 px-4 py-1.5 rounded-full shadow-sm">
+                    <span className="text-sm font-semibold text-brand-600 bg-white/90 px-4 py-1.5 rounded-full shadow-sm">
                       {study.industry}
                     </span>
                   </div>
@@ -110,7 +110,7 @@ export async function CaseStudiesSection() {
                   {study.services.map((service) => (
                     <span
                       key={service}
-                      className="text-xs font-semibold text-blue-600 bg-blue-50 px-2.5 py-1 rounded-lg"
+                      className="text-xs font-semibold text-brand-600 bg-brand-50 px-2.5 py-1 rounded-lg"
                     >
                       {service}
                     </span>
@@ -118,7 +118,7 @@ export async function CaseStudiesSection() {
                 </div>
 
                 {/* Title */}
-                <h3 className="text-sm sm:text-base font-bold text-gray-900 mb-1.5 sm:mb-2 group-hover:text-blue-600 transition-colors line-clamp-2">
+                <h3 className="text-sm sm:text-base font-bold text-gray-900 mb-1.5 sm:mb-2 group-hover:text-brand-600 transition-colors line-clamp-2">
                   {study.title}
                 </h3>
 
@@ -131,7 +131,7 @@ export async function CaseStudiesSection() {
                 <div className="grid grid-cols-3 gap-2 sm:gap-3 pt-3 sm:pt-4 border-t border-gray-100">
                   {study.metrics.map((metric, idx) => (
                     <div key={idx} className="text-center">
-                      <div className="text-sm sm:text-base font-black text-blue-600">
+                      <div className="text-sm sm:text-base font-black text-brand-600">
                         {metric.value}
                       </div>
                       <div className="text-xs text-gray-400 font-medium">{metric.suffix}</div>

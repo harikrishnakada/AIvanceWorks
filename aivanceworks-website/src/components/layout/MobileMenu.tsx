@@ -87,8 +87,8 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                             className="flex items-center justify-between w-full px-3 py-2.5 text-sm font-semibold text-gray-700 hover:bg-gray-50 rounded-lg transition-colors"
                           >
                             <div className="flex items-center gap-2.5">
-                              <div className="w-7 h-7 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0">
-                                <CategoryIcon className="h-3.5 w-3.5 text-blue-600" />
+                              <div className="w-7 h-7 rounded-lg bg-brand-50 flex items-center justify-center flex-shrink-0">
+                                <CategoryIcon className="h-3.5 w-3.5 text-brand-600" />
                               </div>
                               <div className="text-left">
                                 <div className="text-sm font-semibold text-gray-800">{category.title}</div>
@@ -112,7 +112,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                                     key={link.href + link.label}
                                     href={link.href}
                                     onClick={onClose}
-                                    className="flex items-center gap-2 px-3 py-2 text-sm text-gray-600 hover:text-blue-600 hover:bg-blue-50/60 rounded-lg transition-colors"
+                                    className="flex items-center gap-2 px-3 py-2 text-sm text-gray-600 hover:text-brand-600 hover:bg-brand-50/60 rounded-lg transition-colors"
                                   >
                                     <LinkIcon className="h-3.5 w-3.5 text-gray-400 flex-shrink-0" />
                                     {link.label}
@@ -122,7 +122,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                               {/* Grouped Links (Solutions column) */}
                               {'groups' in category && (category as unknown as { groups: { heading: string; links: { label: string; href: string; icon: string }[] }[] }).groups?.map((group) => (
                                 <div key={group.heading} className="mt-1">
-                                  <h4 className="text-sm font-bold text-blue-600 px-3 py-1.5">
+                                  <h4 className="text-sm font-bold text-brand-600 px-3 py-1.5">
                                     {group.heading}
                                   </h4>
                                   {group.links.map((link) => {
@@ -132,7 +132,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                                         key={link.href + link.label}
                                         href={link.href}
                                         onClick={onClose}
-                                        className="flex items-center gap-2 px-3 py-2 text-sm text-gray-600 hover:text-blue-600 hover:bg-blue-50/60 rounded-lg transition-colors"
+                                        className="flex items-center gap-2 px-3 py-2 text-sm text-gray-600 hover:text-brand-600 hover:bg-brand-50/60 rounded-lg transition-colors"
                                       >
                                         <LinkIcon className="h-3.5 w-3.5 text-gray-400 flex-shrink-0" />
                                         {link.label}
@@ -163,8 +163,8 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                             className="flex items-center justify-between w-full px-3 py-2.5 text-sm font-semibold text-gray-700 hover:bg-gray-50 rounded-lg transition-colors"
                           >
                             <div className="flex items-center gap-2.5">
-                              <div className="w-7 h-7 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0">
-                                <TechCatIcon className="h-3.5 w-3.5 text-blue-600" />
+                              <div className="w-7 h-7 rounded-lg bg-brand-50 flex items-center justify-center flex-shrink-0">
+                                <TechCatIcon className="h-3.5 w-3.5 text-brand-600" />
                               </div>
                               <div className="text-left">
                                 <div className="text-sm font-semibold text-gray-800">{techTitle}</div>
@@ -224,7 +224,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           <div className="border-t border-gray-200 p-6 space-y-3 bg-gray-50">
             <Button
               variant="outline"
-              className="w-full border-gray-300 text-gray-700 hover:border-blue-300 hover:bg-white"
+              className="w-full border-gray-300 text-gray-700 hover:border-brand-300 hover:bg-white"
               asChild
             >
               <Link href="/contact" onClick={onClose}>
@@ -232,7 +232,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               </Link>
             </Button>
             <Button
-              className="w-full bg-blue-600 text-white hover:bg-blue-700 shadow-sm font-semibold"
+              className="w-full bg-brand-600 text-white hover:bg-brand-700 shadow-sm font-semibold"
               asChild
             >
               <Link href="/book-consultation" onClick={onClose}>

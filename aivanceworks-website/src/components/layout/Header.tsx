@@ -86,11 +86,11 @@ export function Header() {
                 aria-label={`${SITE_CONFIG.name} homepage`}
               >
                 {/* <div className="relative">
-                  <div className="w-8 h-8 md:w-9 md:h-9 bg-blue-600 rounded-lg flex items-center justify-center transform transition-transform group-hover:scale-105">
+                  <div className="w-8 h-8 md:w-9 md:h-9 bg-brand-600 rounded-lg flex items-center justify-center transform transition-transform group-hover:scale-105">
                     <span className="text-white font-bold text-base md:text-lg">SS</span>
                   </div>
                 </div> */}
-                <span className="text-lg md:text-xl font-bold text-blue-700" style={{fontSize: "xx-large", color:"rgb(15 32 88)"}}>
+                <span className="text-2xl md:text-3xl font-bold text-brand-900">
                   {SITE_CONFIG.name}
                 </span>
               </Link>
@@ -105,7 +105,7 @@ export function Header() {
                 onMouseLeave={handleMegaMenuLeave}
               >
                 <button
-                  className="flex items-center px-3 xl:px-4 py-2 text-sm xl:text-base font-medium text-blue-700 hover:text-blue-900 transition-colors rounded-lg hover:bg-blue-50"
+                  className="flex items-center px-3 xl:px-4 py-2 text-sm xl:text-base font-medium text-brand-700 hover:text-brand-900 transition-colors rounded-lg hover:bg-brand-50"
                   aria-expanded={isMegaMenuOpen}
                   aria-haspopup="true"
                 >
@@ -121,7 +121,7 @@ export function Header() {
               {/* How We Work */}
               <Link
                 href="/how-we-work"
-                className="px-3 xl:px-4 py-2 text-sm xl:text-base font-medium text-blue-700 hover:text-blue-900 transition-colors rounded-lg hover:bg-blue-50"
+                className="px-3 xl:px-4 py-2 text-sm xl:text-base font-medium text-brand-700 hover:text-brand-900 transition-colors rounded-lg hover:bg-brand-50"
               >
                 How We Work
               </Link>
@@ -131,7 +131,7 @@ export function Header() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="px-3 xl:px-4 py-2 text-sm xl:text-base font-medium text-blue-700 hover:text-blue-900 transition-colors rounded-lg hover:bg-blue-50"
+                  className="px-3 xl:px-4 py-2 text-sm xl:text-base font-medium text-brand-700 hover:text-brand-900 transition-colors rounded-lg hover:bg-brand-50"
                 >
                   {item.label}
                 </Link>
@@ -146,7 +146,7 @@ export function Header() {
                 onMouseLeave={handleMegaMenuLeave}
               >
                 <button
-                  className="flex items-center px-2 py-1.5 text-xs font-medium text-blue-700 hover:text-blue-900 transition-colors rounded-md hover:bg-blue-50"
+                  className="flex items-center px-2 py-1.5 text-xs font-medium text-brand-700 hover:text-brand-900 transition-colors rounded-md hover:bg-brand-50"
                   aria-expanded={isMegaMenuOpen}
                   aria-haspopup="true"
                 >
@@ -158,16 +158,16 @@ export function Header() {
                   />
                 </button>
               </div>
-              <Link href="/how-we-work" className="px-2 py-1.5 text-xs font-medium text-blue-700 hover:text-blue-900 transition-colors rounded-md hover:bg-blue-50">
+              <Link href="/how-we-work" className="px-2 py-1.5 text-xs font-medium text-brand-700 hover:text-brand-900 transition-colors rounded-md hover:bg-brand-50">
                 How We Work
               </Link>
-              <Link href="/case-studies" className="px-2 py-1.5 text-xs font-medium text-blue-700 hover:text-blue-900 transition-colors rounded-md hover:bg-blue-50">
+              <Link href="/case-studies" className="px-2 py-1.5 text-xs font-medium text-brand-700 hover:text-brand-900 transition-colors rounded-md hover:bg-brand-50">
                 Case Studies
               </Link>
-              <Link href="/blog" className="px-2 py-1.5 text-xs font-medium text-blue-700 hover:text-blue-900 transition-colors rounded-md hover:bg-blue-50">
+              <Link href="/blog" className="px-2 py-1.5 text-xs font-medium text-brand-700 hover:text-brand-900 transition-colors rounded-md hover:bg-brand-50">
                 Blog
               </Link>
-              <Link href="/about" className="px-2 py-1.5 text-xs font-medium text-blue-700 hover:text-blue-900 transition-colors rounded-md hover:bg-blue-50">
+              <Link href="/about" className="px-2 py-1.5 text-xs font-medium text-brand-700 hover:text-brand-900 transition-colors rounded-md hover:bg-brand-50">
                 About
               </Link>
             </div>
@@ -178,14 +178,14 @@ export function Header() {
                 variant="outline"
                 size="sm"
                 asChild
-                className="border-blue-200 text-blue-700 hover:border-blue-400 hover:bg-blue-50 text-[11px] lg:text-sm h-8 lg:h-9 px-2.5 lg:px-3"
+                className="border-brand-200 text-brand-700 hover:border-brand-400 hover:bg-brand-50 text-[11px] lg:text-sm h-8 lg:h-9 px-2.5 lg:px-3"
               >
                 <Link href="/contact">Contact</Link>
               </Button>
               <Button
                 size="sm"
                 asChild
-                className="bg-blue-600 text-white hover:bg-blue-700 shadow-sm font-semibold text-[11px] lg:text-sm h-8 lg:h-9 px-2.5 lg:px-3"
+                className="bg-brand-600 text-white hover:bg-brand-700 shadow-sm font-semibold text-[11px] lg:text-sm h-8 lg:h-9 px-2.5 lg:px-3"
               >
                 <Link href="/book-consultation">Book an Appointment</Link>
               </Button>
@@ -194,7 +194,7 @@ export function Header() {
             {/* Mobile Menu Button — hidden from md */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 rounded-lg text-blue-700 hover:bg-blue-50 transition-colors shrink-0"
+              className="md:hidden p-2 rounded-lg text-brand-700 hover:bg-brand-50 transition-colors shrink-0"
               aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={isMobileMenuOpen}
             >
@@ -232,8 +232,8 @@ export function Header() {
                       <div key={column.title} className="p-4 md:p-5 lg:p-6">
                         {/* Column Header */}
                         <div className="flex items-center gap-2 md:gap-3 mb-1">
-                          <div className="w-8 h-8 md:w-9 md:h-9 rounded-lg bg-blue-50 flex items-center justify-center">
-                            <CategoryIcon className="h-4 w-4 text-blue-600" />
+                          <div className="w-8 h-8 md:w-9 md:h-9 rounded-lg bg-brand-50 flex items-center justify-center">
+                            <CategoryIcon className="h-4 w-4 text-brand-600" />
                           </div>
                           <div>
                             <h3 className="text-sm md:text-base font-bold text-gray-900">
@@ -257,9 +257,9 @@ export function Header() {
                                 <Link
                                   href={link.href}
                                   onClick={() => setIsMegaMenuOpen(false)}
-                                  className="group/link flex items-center gap-2 py-1.5 md:py-[7px] px-2 md:px-2.5 -mx-1 rounded-lg text-xs md:text-sm text-gray-600 hover:text-blue-700 hover:bg-blue-50/70 transition-all duration-150"
+                                  className="group/link flex items-center gap-2 py-1.5 md:py-[7px] px-2 md:px-2.5 -mx-1 rounded-lg text-xs md:text-sm text-gray-600 hover:text-brand-700 hover:bg-brand-50/70 transition-all duration-150"
                                 >
-                                  <LinkIcon className="h-3 w-3 md:h-3.5 md:w-3.5 text-gray-400 group-hover/link:text-blue-500 transition-colors flex-shrink-0" />
+                                  <LinkIcon className="h-3 w-3 md:h-3.5 md:w-3.5 text-gray-400 group-hover/link:text-brand-500 transition-colors flex-shrink-0" />
                                   <span className="truncate">{link.label}</span>
                                   <ArrowRight className="h-3 w-3 ml-auto text-gray-300 opacity-0 -translate-x-1 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all duration-150 flex-shrink-0" />
                                 </Link>
@@ -271,7 +271,7 @@ export function Header() {
                         {/* Grouped Links (Solutions column) */}
                         {'groups' in column && (column as unknown as { groups: { heading: string; links: { label: string; href: string; icon: string }[] }[] }).groups?.map((group) => (
                           <div key={group.heading} className="mt-2">
-                            <h4 className="text-xs md:text-sm font-bold text-blue-600 px-2 md:px-2.5 -mx-1 py-1">
+                            <h4 className="text-xs md:text-sm font-bold text-brand-600 px-2 md:px-2.5 -mx-1 py-1">
                               {group.heading}
                             </h4>
                             <ul className="space-y-0.5">
@@ -282,9 +282,9 @@ export function Header() {
                                     <Link
                                       href={link.href}
                                       onClick={() => setIsMegaMenuOpen(false)}
-                                      className="group/link flex items-center gap-2 py-1.5 md:py-[7px] px-2 md:px-2.5 -mx-1 rounded-lg text-xs md:text-sm text-gray-600 hover:text-blue-700 hover:bg-blue-50/70 transition-all duration-150"
+                                      className="group/link flex items-center gap-2 py-1.5 md:py-[7px] px-2 md:px-2.5 -mx-1 rounded-lg text-xs md:text-sm text-gray-600 hover:text-brand-700 hover:bg-brand-50/70 transition-all duration-150"
                                     >
-                                      <LinkIcon className="h-3 w-3 md:h-3.5 md:w-3.5 text-gray-400 group-hover/link:text-blue-500 transition-colors flex-shrink-0" />
+                                      <LinkIcon className="h-3 w-3 md:h-3.5 md:w-3.5 text-gray-400 group-hover/link:text-brand-500 transition-colors flex-shrink-0" />
                                       <span className="truncate">{link.label}</span>
                                       <ArrowRight className="h-3 w-3 ml-auto text-gray-300 opacity-0 -translate-x-1 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all duration-150 flex-shrink-0" />
                                     </Link>
@@ -299,8 +299,8 @@ export function Header() {
                           <>
                             <div className="mt-8 md:mt-9" />
                             <div className="flex items-center gap-2 md:gap-3 mb-1">
-                              <div className="w-8 h-8 md:w-9 md:h-9 rounded-lg bg-blue-50 flex items-center justify-center">
-                                {(() => { const TechHeadIcon = iconMap[('technologiesIcon' in column ? column.technologiesIcon : 'Cpu') as string] || Code2; return <TechHeadIcon className="h-4 w-4 text-blue-600" />; })()}
+                              <div className="w-8 h-8 md:w-9 md:h-9 rounded-lg bg-brand-50 flex items-center justify-center">
+                                {(() => { const TechHeadIcon = iconMap[('technologiesIcon' in column ? column.technologiesIcon : 'Cpu') as string] || Code2; return <TechHeadIcon className="h-4 w-4 text-brand-600" />; })()}
                               </div>
                               <div>
                                 <h3 className="text-sm md:text-base font-bold text-gray-900">
@@ -338,7 +338,7 @@ export function Header() {
                   <Link
                     href="/book-consultation"
                     onClick={() => setIsMegaMenuOpen(false)}
-                    className="inline-flex items-center gap-1.5 text-[11px] md:text-xs font-semibold text-blue-600 hover:text-blue-700 transition-colors"
+                    className="inline-flex items-center gap-1.5 text-[11px] md:text-xs font-semibold text-brand-600 hover:text-brand-700 transition-colors"
                   >
                     Book a free consultation
                     <ArrowRight className="h-3 w-3" />

@@ -20,14 +20,14 @@ const stats = [
 export function HeroSection() {
   return (
     <section
-      className="relative bg-gradient-to-b from-gray-50 via-blue-50/30 to-white overflow-hidden
+      className="relative bg-gradient-to-b from-gray-50 via-brand-50/30 to-white overflow-hidden
         flex flex-col
         xl:min-h-[calc(100dvh-4.5rem)]"
     >
       {/* Background grid */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#2563eb05_1px,transparent_1px),linear-gradient(to_bottom,#2563eb05_1px,transparent_1px)] bg-[size:32px_32px]" />
-      <div className="hidden md:block absolute top-0 right-1/4 w-[400px] h-[400px] bg-blue-100/30 rounded-full blur-[120px] pointer-events-none" />
-      <div className="hidden md:block absolute bottom-0 left-1/4 w-[300px] h-[300px] bg-blue-50/30 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--brand-grid)_1px,transparent_1px),linear-gradient(to_bottom,var(--brand-grid)_1px,transparent_1px)] bg-[size:32px_32px]" />
+      <div className="hidden md:block absolute top-0 right-1/4 w-[400px] h-[400px] bg-brand-100/30 rounded-full blur-[120px] pointer-events-none" />
+      <div className="hidden md:block absolute bottom-0 left-1/4 w-[300px] h-[300px] bg-brand-50/30 rounded-full blur-[100px] pointer-events-none" />
 
       {/* Outer wrapper */}
       <div
@@ -39,16 +39,16 @@ export function HeroSection() {
         <div
           className="flex flex-col relative w-full
             xl:flex-1
-            bg-gradient-to-br from-[#1a1f36] via-[#1e2744] to-[#1a2038]
+            bg-gradient-to-br from-surface-dark-from via-surface-dark-via to-surface-dark-to
             rounded-2xl lg:rounded-3xl
             border border-white/[0.06]
-            shadow-[0_20px_60px_rgba(37,99,235,0.15)]
+            shadow-brand-panel
             overflow-hidden"
         >
           {/* Glow orbs */}
-          <div className="absolute top-0 left-1/3 w-[500px] h-56 bg-blue-500/[0.07] rounded-full blur-[100px] pointer-events-none" />
-          <div className="absolute bottom-0 right-1/3 w-[400px] h-48 bg-indigo-500/[0.06] rounded-full blur-[80px] pointer-events-none" />
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
+          <div className="absolute top-0 left-1/3 w-[500px] h-56 bg-brand-500/[0.07] rounded-full blur-[100px] pointer-events-none" />
+          <div className="absolute bottom-0 right-1/3 w-[400px] h-48 bg-accent-500/[0.06] rounded-full blur-[80px] pointer-events-none" />
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--brand-grid-light)_1px,transparent_1px),linear-gradient(to_bottom,var(--brand-grid-light)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
 
           {/* Card body */}
           <div
@@ -66,13 +66,13 @@ export function HeroSection() {
               {/* Badge */}
               <div
                 className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full
-                  bg-blue-500/[0.12] border border-blue-400/[0.15]
-                  text-blue-300 text-[10px] sm:text-[11px] font-semibold tracking-wide
+                  bg-brand-500/[0.12] border border-brand-400/[0.15]
+                  text-brand-300 text-[10px] sm:text-[11px] font-semibold tracking-wide
                   mb-2 sm:mb-2.5"
               >
                 <span className="relative flex h-1.5 w-1.5">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75" />
-                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-blue-400" />
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75" />
+                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-brand-400" />
                 </span>
                 AI-Powered Cloud Computing
               </div>
@@ -84,7 +84,7 @@ export function HeroSection() {
                   mb-1.5 sm:mb-2 md:mb-3"
               >
                 Built Smarter Software,{' '}
-                <span className="bg-gradient-to-r from-blue-400 via-blue-300 to-indigo-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-brand-400 via-brand-300 to-accent-400 bg-clip-text text-transparent">
                   Delivered Faster
                 </span>
               </h1>
@@ -104,8 +104,8 @@ export function HeroSection() {
                 <Button
                   size="lg"
                   asChild
-                  className="w-full sm:w-auto bg-blue-600 text-white hover:bg-blue-500
-                    shadow-[0_8px_30px_rgba(37,99,235,0.4)]
+                  className="w-full sm:w-auto bg-brand-600 text-white hover:bg-brand-500
+                    shadow-glow-sm
                     text-[12px] sm:text-[13px] px-5 sm:px-6
                     h-9 sm:h-10 font-bold rounded-xl transition-all duration-300"
                 >
@@ -140,9 +140,9 @@ export function HeroSection() {
                     key={stat.label}
                     className="bg-white/[0.05] backdrop-blur-sm border border-white/[0.07]
                       rounded-xl px-2 py-2 sm:px-3 sm:py-2.5 md:px-4 md:py-3
-                      hover:bg-white/[0.08] hover:border-blue-400/20 transition-all duration-300"
+                      hover:bg-white/[0.08] hover:border-brand-400/20 transition-all duration-300"
                   >
-                    <stat.icon className="h-3 w-3 sm:h-3.5 sm:w-3.5 lg:h-4 lg:w-4 text-blue-400 mb-1 mx-auto" />
+                    <stat.icon className="h-3 w-3 sm:h-3.5 sm:w-3.5 lg:h-4 lg:w-4 text-brand-400 mb-1 mx-auto" />
                     <div className="text-sm sm:text-base lg:text-xl font-black text-white leading-none mb-0.5">
                       {stat.value}
                     </div>
@@ -157,7 +157,7 @@ export function HeroSection() {
             {/* Partners bar */}
             <div className="mt-3 sm:mt-4 md:mt-5 pt-3 sm:pt-4 border-t border-white/[0.08] shrink-0">
               <p
-                className="text-[9px] sm:text-[10px] text-blue-400/60 text-center
+                className="text-[9px] sm:text-[10px] text-brand-400/60 text-center
                   uppercase tracking-[0.2em] font-semibold mb-1"
               >
                 Trusted Technology
@@ -167,7 +167,7 @@ export function HeroSection() {
                   font-black text-white mb-2 sm:mb-3"
               >
                 Our Partners &{' '}
-                <span className="bg-gradient-to-r from-blue-400 via-blue-300 to-indigo-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-brand-400 via-brand-300 to-accent-400 bg-clip-text text-transparent">
                   Technologies
                 </span>
               </h2>

@@ -65,9 +65,9 @@ export function TestimonialsSection() {
   return (
     <section className="py-6 sm:py-8 lg:py-12 relative overflow-hidden">
       {/* Clean white bg with subtle blue wash */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-white to-indigo-50/30" />
-      <div className="hidden md:block absolute top-0 right-0 w-[600px] h-[600px] bg-blue-100/30 rounded-full blur-[150px]" />
-      <div className="hidden md:block absolute bottom-0 left-0 w-[400px] h-[400px] bg-indigo-100/20 rounded-full blur-[120px]" />
+      <div className="absolute inset-0 bg-gradient-to-br from-brand-50/50 via-white to-accent-50/30" />
+      <div className="hidden md:block absolute top-0 right-0 w-[600px] h-[600px] bg-brand-100/30 rounded-full blur-[150px]" />
+      <div className="hidden md:block absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent-100/20 rounded-full blur-[120px]" />
 
       <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
@@ -84,11 +84,11 @@ export function TestimonialsSection() {
         <div className="relative">
           {/* Quote Icon */}
           <div className="absolute -top-1 left-2 sm:left-4 lg:left-8 z-10">
-            <Quote className="h-7 w-7 sm:h-9 sm:w-9 lg:h-10 lg:w-10 text-blue-200/60" />
+            <Quote className="h-7 w-7 sm:h-9 sm:w-9 lg:h-10 lg:w-10 text-brand-200/60" />
           </div>
 
           {/* Main Content */}
-          <div className="bg-white rounded-xl sm:rounded-2xl lg:rounded-3xl p-4 sm:p-6 lg:p-9 border border-gray-100 shadow-[0_12px_40px_rgba(37,99,235,0.08)]">
+          <div className="bg-white rounded-xl sm:rounded-2xl lg:rounded-3xl p-4 sm:p-6 lg:p-9 border border-gray-100 shadow-brand-card-sm">
             <div className="min-h-[120px] sm:min-h-[140px] md:min-h-[160px] flex flex-col justify-center">
               {/* Quote */}
               <blockquote className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-800 leading-relaxed mb-4 sm:mb-5 lg:mb-6 font-medium">
@@ -97,7 +97,7 @@ export function TestimonialsSection() {
 
               {/* Author */}
               <div className="flex items-center gap-3">
-                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-white text-xs sm:text-sm font-bold shadow-[0_4px_12px_rgba(37,99,235,0.3)]">
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-brand-500 to-brand-600 flex items-center justify-center text-white text-xs sm:text-sm font-bold shadow-brand-badge">
                   {testimonials[currentIndex].avatar}
                 </div>
                 <div>
@@ -122,7 +122,7 @@ export function TestimonialsSection() {
                   onClick={() => goToSlide(index)}
                   className={`h-1.5 sm:h-2 rounded-full transition-all duration-300 ${
                     index === currentIndex
-                      ? 'bg-blue-600 w-5 sm:w-7'
+                      ? 'bg-brand-600 w-5 sm:w-7'
                       : 'bg-gray-200 w-1.5 sm:w-2 hover:bg-gray-300'
                   }`}
                   aria-label={`Go to testimonial ${index + 1}`}
@@ -134,7 +134,7 @@ export function TestimonialsSection() {
             <div className="flex gap-1.5 sm:gap-2">
               <button
                 onClick={prevSlide}
-                className="p-1.5 sm:p-2 rounded-lg sm:rounded-xl border border-gray-200 bg-white hover:border-blue-300 hover:bg-blue-50 text-gray-400 hover:text-blue-600 transition-all duration-200"
+                className="p-1.5 sm:p-2 rounded-lg sm:rounded-xl border border-gray-200 bg-white hover:border-brand-300 hover:bg-brand-50 text-gray-400 hover:text-brand-600 transition-all duration-200"
                 aria-label="Previous testimonial"
               >
                 <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5" />
@@ -144,7 +144,7 @@ export function TestimonialsSection() {
                   nextSlide();
                   setIsAutoPlaying(false);
                 }}
-                className="p-1.5 sm:p-2 rounded-lg sm:rounded-xl border border-gray-200 bg-white hover:border-blue-300 hover:bg-blue-50 text-gray-400 hover:text-blue-600 transition-all duration-200"
+                className="p-1.5 sm:p-2 rounded-lg sm:rounded-xl border border-gray-200 bg-white hover:border-brand-300 hover:bg-brand-50 text-gray-400 hover:text-brand-600 transition-all duration-200"
                 aria-label="Next testimonial"
               >
                 <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5" />

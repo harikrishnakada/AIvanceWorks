@@ -1,5 +1,87 @@
 @import "tailwindcss";
+@import "./themes/blue.css";
+@import "./themes/purple.css";
 
+/* ─── Theme Token Bridge ───
+   @theme generates Tailwind utilities (bg-brand-600, text-accent-400, etc.)
+   Actual color values come from data-theme CSS variables in themes/*.css.
+   To add a new theme: create themes/<name>.css with [data-theme="<name>"]. */
+@theme {
+  /* Brand palette */
+  --color-brand-50: var(--brand-50);
+  --color-brand-100: var(--brand-100);
+  --color-brand-200: var(--brand-200);
+  --color-brand-300: var(--brand-300);
+  --color-brand-400: var(--brand-400);
+  --color-brand-500: var(--brand-500);
+  --color-brand-600: var(--brand-600);
+  --color-brand-700: var(--brand-700);
+  --color-brand-800: var(--brand-800);
+  --color-brand-900: var(--brand-900);
+
+  /* Accent palette */
+  --color-accent-50: var(--accent-50);
+  --color-accent-100: var(--accent-100);
+  --color-accent-200: var(--accent-200);
+  --color-accent-300: var(--accent-300);
+  --color-accent-400: var(--accent-400);
+  --color-accent-500: var(--accent-500);
+  --color-accent-700: var(--accent-700);
+
+  /* Surface gradients (for dark cards) */
+  --color-surface-dark-from: var(--surface-dark-from);
+  --color-surface-dark-via: var(--surface-dark-via);
+  --color-surface-dark-to: var(--surface-dark-to);
+
+  /* Surface palette */
+  --color-surface-dark: var(--surface-dark);
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-surface-light: var(--surface-light);
+  --color-surface-warm: var(--surface-warm);
+  --color-surface-white: var(--surface-white);
+
+  /* Text roles */
+  --color-text-light: var(--text-light);
+  --color-text-heading: var(--text-heading);
+  --color-text-body: var(--text-body);
+  --color-text-muted: var(--text-muted);
+  --color-text-subtle: var(--text-subtle);
+  --color-text-secondary: var(--text-secondary);
+
+  /* Border tokens */
+  --color-border-dark: var(--border-dark);
+  --color-border-light: var(--border-light);
+  --color-border-hover: var(--border-hover);
+  --color-border-subtle: var(--border-subtle);
+
+  /* Glass tokens */
+  --color-glass-bg: var(--glass-bg);
+  --color-glass-border: var(--glass-border);
+  --color-glass-hover: var(--glass-hover);
+  --color-glass-nav: var(--glass-nav);
+
+  /* Named shadows */
+  --shadow-card: 0 20px 40px rgba(0, 0, 0, 0.08);
+  --shadow-card-sm: 0 8px 20px rgba(0, 0, 0, 0.06);
+  --shadow-glow: 0 8px 30px rgba(var(--brand-shadow-rgb), 0.25);
+  --shadow-glow-sm: 0 0 12px rgba(var(--brand-shadow-rgb), 0.4);
+  --shadow-glow-faint: 0 8px 30px rgba(var(--brand-shadow-rgb), 0.06);
+  --shadow-panel: 0 20px 60px rgba(0, 0, 0, 0.3);
+  --shadow-brand-panel: 0 20px 60px rgba(var(--brand-shadow-rgb), 0.15);
+  --shadow-brand-panel-lg: 0 20px 60px rgba(var(--brand-shadow-rgb), 0.2);
+  --shadow-brand-card: 0 12px 40px rgba(var(--brand-shadow-rgb), 0.1);
+  --shadow-brand-card-sm: 0 12px 40px rgba(var(--brand-shadow-rgb), 0.08);
+  --shadow-brand-badge: 0 4px 12px rgba(var(--brand-shadow-rgb), 0.3);
+  --shadow-nav: 0 2px 15px rgba(0, 0, 0, 0.3);
+
+  /* Border radius */
+  --radius-lg: 0.625rem;
+  --radius-md: 0.585rem;
+  --radius-sm: 0.565rem;
+}
+
+/* ─── Base Styles ─── */
 * {
   border-color: hsl(var(--border));
 }
@@ -11,6 +93,70 @@ body {
   font-feature-settings: 'rlig' 1, 'calt' 1;
 }
 
+/* ─── Glass Morphism Utilities ─── */
+.glass-dark {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+}
+
+.glass-nav {
+  background: var(--glass-nav);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+/* ─── Animation Utilities ─── */
+.reveal {
+  animation: reveal-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.card-hover {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+}
+
+.btn-glow:hover {
+  box-shadow: var(--shadow-glow);
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ─── Accessibility: Reduced Motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .card-hover,
+  .btn-glow {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ─── shadcn/ui Color Tokens ─── */
 :root {
   --background: 0 0% 100%;
   --foreground: 222.2 84% 4.9%;

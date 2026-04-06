@@ -27,16 +27,16 @@ export function ExperienceSection() {
 
         {/* Dark card */}
         <div className="relative w-full
-          bg-gradient-to-br from-[#1a1f36] via-[#1e2744] to-[#1a2038]
+          bg-gradient-to-br from-surface-dark-from via-surface-dark-via to-surface-dark-to
           rounded-2xl lg:rounded-3xl
           border border-white/[0.06]
-          shadow-[0_20px_60px_rgba(37,99,235,0.15)]
+          shadow-brand-panel
           overflow-hidden">
 
           {/* Glow orbs */}
-          <div className="absolute top-0 left-1/3 w-[400px] h-40 bg-blue-500/[0.07] rounded-full blur-[100px] pointer-events-none" />
-          <div className="absolute bottom-0 right-1/3 w-[300px] h-32 bg-indigo-500/[0.06] rounded-full blur-[80px] pointer-events-none" />
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
+          <div className="absolute top-0 left-1/3 w-[400px] h-40 bg-brand-500/[0.07] rounded-full blur-[100px] pointer-events-none" />
+          <div className="absolute bottom-0 right-1/3 w-[300px] h-32 bg-accent-500/[0.06] rounded-full blur-[80px] pointer-events-none" />
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--brand-grid-light)_1px,transparent_1px),linear-gradient(to_bottom,var(--brand-grid-light)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
 
           {/* Card body */}
           <div className="relative
@@ -46,11 +46,11 @@ export function ExperienceSection() {
             {/* Header */}
             <div className="text-center mb-4 sm:mb-5 md:mb-6">
               <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full
-                bg-blue-500/[0.12] border border-blue-400/[0.15]
-                text-blue-300 text-[10px] sm:text-[11px] font-semibold tracking-wide mb-2 sm:mb-3">
+                bg-brand-500/[0.12] border border-brand-400/[0.15]
+                text-brand-300 text-[10px] sm:text-[11px] font-semibold tracking-wide mb-2 sm:mb-3">
                 <span className="relative flex h-1.5 w-1.5">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75" />
-                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-blue-400" />
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75" />
+                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-brand-400" />
                 </span>
                 Microsoft Certified Professional
               </div>
@@ -58,7 +58,7 @@ export function ExperienceSection() {
               <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl
                 font-black tracking-tight text-white mb-1.5">
                 Our{' '}
-                <span className="bg-gradient-to-r from-blue-400 via-blue-300 to-indigo-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-brand-400 via-brand-300 to-accent-400 bg-clip-text text-transparent">
                   Experience
                 </span>
               </h2>
@@ -78,8 +78,8 @@ export function ExperienceSection() {
                     sm:w-[85px] sm:h-[85px]
                     md:w-[100px] md:h-[100px]
                     lg:w-[115px] lg:h-[115px]
-                    drop-shadow-[0_6px_18px_rgba(37,99,235,0.35)]
-                    group-hover:drop-shadow-[0_10px_28px_rgba(37,99,235,0.55)]
+                    drop-shadow-[0_6px_18px_rgba(var(--brand-shadow-rgb),0.35)]
+                    group-hover:drop-shadow-[0_10px_28px_rgba(var(--brand-shadow-rgb),0.55)]
                     group-hover:scale-[1.04]
                     transition-all duration-300">
                     <Image
@@ -93,7 +93,7 @@ export function ExperienceSection() {
 
                   {/* Label */}
                   <div className="text-center">
-                    <p className="text-[9px] sm:text-[10px] text-blue-400/70 font-semibold uppercase tracking-widest mb-0.5">
+                    <p className="text-[9px] sm:text-[10px] text-brand-400/70 font-semibold uppercase tracking-widest mb-0.5">
                       Microsoft Certified
                     </p>
                     <h3 className="text-xs sm:text-sm font-bold text-white">
@@ -101,7 +101,7 @@ export function ExperienceSection() {
                     </h3>
                     <span className="inline-block mt-1 text-[9px] sm:text-[10px] font-semibold
                       px-2 py-0.5 rounded-full
-                      bg-blue-500/[0.15] border border-blue-400/[0.2] text-blue-300 tracking-wide">
+                      bg-brand-500/[0.15] border border-brand-400/[0.2] text-brand-300 tracking-wide">
                       {cert.level} · {cert.code}
                     </span>
                   </div>

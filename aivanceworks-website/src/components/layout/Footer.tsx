@@ -91,10 +91,10 @@ export function Footer() {
             <div className="lg:col-span-2">
               {/* Logo */}
               <Link href="/" className="inline-flex items-center space-x-2 group">
-                <div className="w-9 h-9 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-lg flex items-center justify-center transform transition-transform group-hover:scale-105">
+                <div className="w-9 h-9 bg-gradient-to-br from-brand-600 to-accent-700 rounded-lg flex items-center justify-center transform transition-transform group-hover:scale-105">
                   <span className="text-white font-bold text-lg">SS</span>
                 </div>
-                <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+                <span className="text-xl font-bold bg-gradient-to-r from-brand-600 to-accent-500 bg-clip-text text-transparent">
                   {SITE_CONFIG.name}
                 </span>
               </Link>
@@ -121,7 +121,7 @@ export function Footer() {
                     <Button
                       type="submit"
                       disabled={status === 'loading' || status === 'success'}
-                      className="bg-blue-600 hover:bg-blue-700 whitespace-nowrap"
+                      className="bg-brand-600 hover:bg-brand-700 whitespace-nowrap"
                       size="default"
                     >
                       {status === 'loading' ? (
@@ -160,7 +160,7 @@ export function Footer() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={social.ariaLabel}
-                      className="p-2 rounded-lg bg-white border border-gray-200 text-gray-600 hover:text-blue-600 hover:border-blue-300 transition-colors"
+                      className="p-2 rounded-lg bg-white border border-gray-200 text-gray-600 hover:text-brand-600 hover:border-brand-300 transition-colors"
                     >
                       <social.icon className="h-5 w-5" />
                     </a>
@@ -179,7 +179,7 @@ export function Footer() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm text-gray-600 hover:text-blue-600 transition-colors"
+                      className="text-sm text-gray-600 hover:text-brand-600 transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -198,7 +198,7 @@ export function Footer() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm text-gray-600 hover:text-blue-600 transition-colors"
+                      className="text-sm text-gray-600 hover:text-brand-600 transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -217,7 +217,7 @@ export function Footer() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm text-gray-600 hover:text-blue-600 transition-colors"
+                      className="text-sm text-gray-600 hover:text-brand-600 transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -236,7 +236,7 @@ export function Footer() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm text-gray-600 hover:text-blue-600 transition-colors"
+                      className="text-sm text-gray-600 hover:text-brand-600 transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -248,7 +248,7 @@ export function Footer() {
               <div className="space-y-2 text-sm text-gray-600">
                 <a
                   href={`mailto:${SITE_CONFIG.company.email}`}
-                  className="flex items-center hover:text-blue-600 transition-colors"
+                  className="flex items-center hover:text-brand-600 transition-colors"
                 >
                   <Mail className="h-4 w-4 mr-2" />
                   {SITE_CONFIG.company.email}

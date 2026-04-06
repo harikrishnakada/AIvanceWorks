@@ -68,13 +68,13 @@ export function FAQSection() {
               key={index}
               className={`bg-white rounded-2xl border overflow-hidden transition-all duration-300 ${
                 openIndex === index
-                  ? 'border-blue-200 shadow-[0_8px_30px_rgba(37,99,235,0.08)]'
+                  ? 'border-brand-200 shadow-glow-faint'
                   : 'border-gray-100 hover:border-gray-200'
               }`}
             >
               <button
                 onClick={() => toggleFAQ(index)}
-                className="w-full flex items-center justify-between p-3.5 sm:p-5 text-left hover:bg-blue-50/30 transition-colors"
+                className="w-full flex items-center justify-between p-3.5 sm:p-5 text-left hover:bg-brand-50/30 transition-colors"
                 aria-expanded={openIndex === index}
                 aria-controls={`faq-answer-${index}`}
               >
@@ -82,11 +82,11 @@ export function FAQSection() {
                   {faq.question}
                 </span>
                 <div className={`flex-shrink-0 w-6 h-6 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl flex items-center justify-center transition-all duration-300 ${
-                  openIndex === index ? 'bg-blue-100 rotate-180' : 'bg-gray-100'
+                  openIndex === index ? 'bg-brand-100 rotate-180' : 'bg-gray-100'
                 }`}>
                   <ChevronDown
                     className={`h-4 w-4 transition-colors ${
-                      openIndex === index ? 'text-blue-600' : 'text-gray-400'
+                      openIndex === index ? 'text-brand-600' : 'text-gray-400'
                     }`}
                   />
                 </div>

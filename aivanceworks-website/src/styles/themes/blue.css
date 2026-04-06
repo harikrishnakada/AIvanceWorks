@@ -1,0 +1,69 @@
+/* ─── Blue Theme (Default) ───
+   Brand: Blue (#2563eb)  ·  Accent: Indigo (#6366f1)
+   Applied via: <html data-theme="blue"> or as :root fallback */
+
+:root,
+[data-theme="blue"] {
+  /* Brand palette */
+  --brand-50: #eff6ff;
+  --brand-100: #dbeafe;
+  --brand-200: #bfdbfe;
+  --brand-300: #93c5fd;
+  --brand-400: #60a5fa;
+  --brand-500: #3b82f6;
+  --brand-600: #2563eb;
+  --brand-700: #1d4ed8;
+  --brand-800: #1e40af;
+  --brand-900: #1e3a8a;
+
+  /* Accent palette */
+  --accent-50: #eef2ff;
+  --accent-100: #e0e7ff;
+  --accent-200: #c7d2fe;
+  --accent-300: #a5b4fc;
+  --accent-400: #818cf8;
+  --accent-500: #6366f1;
+  --accent-700: #4338ca;
+
+  /* Dark surface gradients */
+  --surface-dark-from: #1a1f36;
+  --surface-dark-via: #1e2744;
+  --surface-dark-to: #1a2038;
+
+  /* Surface palette */
+  --surface-dark: #0f1629;
+  --surface: #1a1f36;
+  --surface-elevated: #1e2744;
+  --surface-light: #f8fafc;
+  --surface-warm: #f1f5f9;
+  --surface-white: #ffffff;
+
+  /* Text roles */
+  --text-light: #f8fafc;
+  --text-heading: #0f172a;
+  --text-body: #475569;
+  --text-muted: #64748b;
+  --text-subtle: #94a3b8;
+  --text-secondary: #334155;
+
+  /* Border tokens */
+  --border-dark: #1e293b;
+  --border-light: #e2e8f0;
+  --border-hover: #cbd5e1;
+  --border-subtle: rgba(255, 255, 255, 0.06);
+
+  /* Glass tokens */
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.06);
+  --glass-hover: rgba(255, 255, 255, 0.05);
+  --glass-nav: rgba(15, 22, 41, 0.85);
+
+  /* Utility tokens */
+  --brand-shadow-rgb: 37, 99, 235;
+  --brand-grid: #2563eb05;
+  --brand-grid-light: #ffffff03;
+
+  /* Destructive */
+  --destructive: #ef4444;
+  --destructive-foreground: #fafafa;
+}
