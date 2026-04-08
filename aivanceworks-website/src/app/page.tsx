@@ -4,6 +4,7 @@ import { SITE_CONFIG } from '@/lib/constants';
 import {
   HeroSection,
   ExperienceSection,
+  ChallengesSection,
   ServicesSection,
   WhyChooseUsSection,
   CaseStudiesSection,
@@ -28,7 +29,10 @@ export default function HomePage() {
       {/* Our Experience - Certifications and stats */}
       <ExperienceSection />
 
-      {/* Why Choose Us - 4 differentiators with stats */}
+      {/* Are You Facing These Challenges? - 3 challenge cards */}
+      <ChallengesSection />
+
+      {/* Why Companies Choose Us - 5 differentiator cards */}
       <WhyChooseUsSection />
 
       {/* Services Overview - 6 service cards */}

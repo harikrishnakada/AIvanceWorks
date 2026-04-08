@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Play, Zap, Clock, TrendingUp } from 'lucide-react';
+import { ArrowRight, Play } from 'lucide-react';
 import { SITE_CONFIG } from '@/lib/constants';
 
 const partners = [
@@ -11,18 +11,11 @@ const partners = [
   { name: 'Microsoft', logo: '/partners/microsoft.svg', width: 'w-[80px] sm:w-[95px] md:w-[115px] lg:w-[135px]' },
 ];
 
-const stats = [
-  { value: '5x', label: 'Faster Development', icon: Zap },
-  { value: '50%', label: 'Cost Reduction', icon: TrendingUp },
-  { value: '53.95%', label: 'Uptime SLA', icon: Clock },
-];
-
 export function HeroSection() {
   return (
     <section
       className="relative bg-gradient-to-b from-gray-50 via-brand-50/30 to-white overflow-hidden
-        flex flex-col
-        xl:min-h-[calc(100dvh-4.5rem)]"
+        flex flex-col"
     >
       {/* Background grid */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--brand-grid)_1px,transparent_1px),linear-gradient(to_bottom,var(--brand-grid)_1px,transparent_1px)] bg-[size:32px_32px]" />
@@ -31,14 +24,14 @@ export function HeroSection() {
 
       {/* Outer wrapper */}
       <div
-        className="relative flex-1 flex flex-col max-w-[1440px] w-full mx-auto
-          px-2 sm:px-3 md:px-6 lg:px-8
-          py-1.5 sm:py-2 md:py-3 lg:py-4"
+        className="relative flex-1 flex flex-col w-full
+          px-4 sm:px-6 md:px-8 lg:px-12
+          pt-4 sm:pt-5 md:pt-6 lg:pt-8
+          pb-2 sm:pb-3 md:pb-4 lg:pb-5"
       >
         {/* Hero Card */}
         <div
           className="flex flex-col relative w-full
-            xl:flex-1
             bg-gradient-to-br from-surface-dark-from via-surface-dark-via to-surface-dark-to
             rounded-2xl lg:rounded-3xl
             border border-white/[0.06]
@@ -53,22 +46,20 @@ export function HeroSection() {
           {/* Card body */}
           <div
             className="relative flex flex-col
-              xl:flex-1
-              px-4 sm:px-6 md:px-10 lg:px-16
-              pt-4 sm:pt-5 md:pt-7 lg:pt-9
-              pb-2 sm:pb-2.5 md:pb-3 lg:pb-4"
+              px-4 sm:px-6 md:px-10 lg:px-16 xl:px-24
+              pt-8 sm:pt-10 md:pt-14 lg:pt-18
+              pb-6 sm:pb-8 md:pb-10 lg:pb-12"
           >
             {/* Hero content */}
             <div
-              className="flex flex-col items-center text-center max-w-3xl mx-auto w-full
-                xl:flex-1 xl:justify-center"
+              className="flex flex-col items-center text-center max-w-4xl mx-auto w-full"
             >
               {/* Badge */}
               <div
-                className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full
+                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full
                   bg-brand-500/[0.12] border border-brand-400/[0.15]
-                  text-brand-300 text-[10px] sm:text-[11px] font-semibold tracking-wide
-                  mb-2 sm:mb-2.5"
+                  text-brand-300 text-xs sm:text-sm font-semibold tracking-wide
+                  mb-3 sm:mb-4 md:mb-5"
               >
                 <span className="relative flex h-1.5 w-1.5">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75" />
@@ -79,39 +70,41 @@ export function HeroSection() {
 
               {/* Headline */}
               <h1
-                className="text-[20px] leading-[1.15] sm:text-[26px] md:text-[34px] lg:text-[44px]
+                className="text-[22px] leading-[1.15] sm:text-[36px] md:text-[52px] lg:text-[64px]
                   font-black tracking-tight text-white
-                  mb-1.5 sm:mb-2 md:mb-3"
+                  mb-3 sm:mb-4 md:mb-5"
               >
-                Built Smarter Software,{' '}
+                Founders Product &{' '}
+                <br className="hidden sm:block" />
                 <span className="bg-gradient-to-r from-brand-400 via-brand-300 to-accent-400 bg-clip-text text-transparent">
-                  Delivered Faster
+                  Custom Software Development
                 </span>
               </h1>
 
               {/* Subheadline */}
               <p
-                className="text-[12px] leading-relaxed sm:text-[13px] md:text-sm lg:text-base
-                  text-white/60 max-w-xl mx-auto
-                  mb-2.5 sm:mb-3 md:mb-4"
+                className="text-base leading-relaxed sm:text-lg md:text-xl lg:text-2xl
+                  text-white/65 max-w-2xl mx-auto
+                  mb-4 sm:mb-5 md:mb-6"
               >
                  {SITE_CONFIG.name} is a cloud computing software development company including services
                 in AI Development, SaaS Development and several other development services.
               </p>
 
               {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4 md:mb-5 w-full sm:w-auto">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full max-w-xs sm:max-w-none sm:w-auto mx-auto">
                 <Button
                   size="lg"
                   asChild
                   className="w-full sm:w-auto bg-brand-600 text-white hover:bg-brand-500
                     shadow-glow-sm
-                    text-[12px] sm:text-[13px] px-5 sm:px-6
-                    h-9 sm:h-10 font-bold rounded-xl transition-all duration-300"
+                    text-sm sm:text-base md:text-lg px-6 sm:px-8
+                    h-11 sm:h-12 md:h-13 font-bold rounded-xl transition-all duration-300
+                    justify-center"
                 >
-                  <Link href="/book-consultation">
+                  <Link href="/book-consultation" className="inline-flex items-center justify-center">
                     Book an Appointment
-                    <ArrowRight className="ml-2 h-3.5 w-3.5" />
+                    <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
                 <Button
@@ -120,42 +113,20 @@ export function HeroSection() {
                   asChild
                   className="w-full sm:w-auto border-white/20 text-white
                     hover:border-white/35 hover:bg-white/[0.06]
-                    text-[12px] sm:text-[13px] px-5 sm:px-6
-                    h-9 sm:h-10 rounded-xl transition-all duration-300"
+                    text-sm sm:text-base md:text-lg px-6 sm:px-8
+                    h-11 sm:h-12 md:h-13 rounded-xl transition-all duration-300
+                    justify-center"
                 >
-                  <Link href="/services">
-                    <Play className="mr-2 h-3 w-3" />
+                  <Link href="/services" className="inline-flex items-center justify-center">
+                    <Play className="mr-2 h-3.5 w-3.5" />
                     View Our Services
                   </Link>
                 </Button>
               </div>
-
-              {/* Stat Cards */}
-              <div
-                className="grid grid-cols-3 gap-2 sm:gap-3
-                  w-full max-w-[280px] sm:max-w-sm md:max-w-lg lg:max-w-xl mx-auto"
-              >
-                {stats.map((stat) => (
-                  <div
-                    key={stat.label}
-                    className="bg-white/[0.05] backdrop-blur-sm border border-white/[0.07]
-                      rounded-xl px-2 py-2 sm:px-3 sm:py-2.5 md:px-4 md:py-3
-                      hover:bg-white/[0.08] hover:border-brand-400/20 transition-all duration-300"
-                  >
-                    <stat.icon className="h-3 w-3 sm:h-3.5 sm:w-3.5 lg:h-4 lg:w-4 text-brand-400 mb-1 mx-auto" />
-                    <div className="text-sm sm:text-base lg:text-xl font-black text-white leading-none mb-0.5">
-                      {stat.value}
-                    </div>
-                    <div className="text-[8px] sm:text-[9px] lg:text-[10px] text-white/40 font-medium leading-tight">
-                      {stat.label}
-                    </div>
-                  </div>
-                ))}
-              </div>
             </div>
 
             {/* Partners bar */}
-            <div className="mt-3 sm:mt-4 md:mt-5 pt-3 sm:pt-4 border-t border-white/[0.08] shrink-0">
+            <div className="mt-6 sm:mt-8 md:mt-10 pt-4 sm:pt-5 md:pt-6 border-t border-white/[0.08] shrink-0">
               <p
                 className="text-[9px] sm:text-[10px] text-brand-400/60 text-center
                   uppercase tracking-[0.2em] font-semibold mb-1"
@@ -164,7 +135,7 @@ export function HeroSection() {
               </p>
               <h2
                 className="text-center text-xs sm:text-sm md:text-base lg:text-lg
-                  font-black text-white mb-2 sm:mb-3"
+                  font-black text-white mb-1.5 sm:mb-2"
               >
                 Our Partners &{' '}
                 <span className="bg-gradient-to-r from-brand-400 via-brand-300 to-accent-400 bg-clip-text text-transparent">

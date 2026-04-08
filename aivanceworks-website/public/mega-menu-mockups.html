@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mega Menu Design Options — Serpent Software</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --blue-50: #eff6ff;
+    --blue-100: #dbeafe;
+    --blue-200: #bfdbfe;
+    --blue-400: #60a5fa;
+    --blue-500: #3b82f6;
+    --blue-600: #2563eb;
+    --blue-700: #1d4ed8;
+    --blue-800: #1e40af;
+    --blue-900: #1e3a8a;
+    --violet-500: #8b5cf6;
+    --violet-50: #f5f3ff;
+    --emerald-500: #10b981;
+    --emerald-50: #ecfdf5;
+    --cyan-500: #06b6d4;
+    --cyan-50: #ecfeff;
+    --amber-500: #f59e0b;
+    --amber-50: #fffbeb;
+    --gray-50: #f9fafb;
+    --gray-100: #f3f4f6;
+    --gray-200: #e5e7eb;
+    --gray-300: #d1d5db;
+    --gray-400: #9ca3af;
+    --gray-500: #6b7280;
+    --gray-600: #4b5563;
+    --gray-700: #374151;
+    --gray-800: #1f2937;
+    --gray-900: #111827;
+    --slate-800: #1e293b;
+    --slate-900: #0f172a;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: var(--gray-50);
+    color: var(--gray-900);
+    line-height: 1.5;
+  }
+
+  .page-header {
+    background: linear-gradient(135deg, #1a1f36, #1e2744, #1a2038);
+    color: white;
+    padding: 48px 32px;
+    text-align: center;
+  }
+  .page-header h1 {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+  .page-header p {
+    color: #94a3b8;
+    font-size: 15px;
+  }
+
+  .option-section {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 24px;
+  }
+  .option-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .option-badge {
+    background: var(--blue-600);
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+  }
+  .option-badge.recommended {
+    background: linear-gradient(135deg, var(--blue-600), var(--violet-500));
+  }
+  .option-name {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--gray-900);
+  }
+  .option-desc {
+    color: var(--gray-500);
+    font-size: 14px;
+    margin-bottom: 20px;
+    max-width: 700px;
+  }
+
+  /* =============== SHARED HEADER BAR =============== */
+  .mock-header-bar {
+    background: white;
+    border-bottom: 1px solid var(--gray-200);
+    padding: 0 24px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 12px 12px 0 0;
+  }
+  .mock-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .mock-logo-icon {
+    width: 32px; height: 32px;
+    background: var(--blue-600);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 13px;
+  }
+  .mock-logo-text {
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--blue-700);
+  }
+  .mock-nav-links {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+  }
+  .mock-nav-link {
+    padding: 6px 14px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--blue-700);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .mock-nav-link:hover { background: var(--blue-50); }
+  .mock-nav-link.active {
+    background: var(--blue-50);
+    color: var(--blue-800);
+  }
+  .mock-nav-link .chevron {
+    display: inline-block;
+    font-size: 10px;
+    margin-left: 4px;
+    transition: transform 0.2s;
+  }
+  .mock-nav-link.active .chevron {
+    transform: rotate(180deg);
+  }
+  .mock-cta-group {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+  .mock-btn-outline {
+    padding: 7px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    border: 1px solid var(--blue-200);
+    color: var(--blue-700);
+    border-radius: 8px;
+    background: white;
+    cursor: pointer;
+  }
+  .mock-btn-primary {
+    padding: 7px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    background: var(--blue-600);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  /* =============== MOCKUP CONTAINER =============== */
+  .mockup-container {
+    border-radius: 12px;
+    border: 1px solid var(--gray-200);
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+    background: white;
+    position: relative;
+  }
+  .mockup-backdrop {
+    background: rgba(0,0,0,0.25);
+    backdrop-filter: blur(2px);
+    padding-bottom: 40px;
+  }
+
+  /* =============== OPTION A: TABBED PANEL =============== */
+  .tabbed-mega {
+    max-width: 960px;
+    margin: 8px auto 0;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    border: 1px solid var(--gray-200);
+    overflow: hidden;
+  }
+  .tabbed-inner {
+    display: grid;
+    grid-template-columns: 200px 1fr 240px;
+    min-height: 380px;
+  }
+  .tab-sidebar {
+    background: var(--gray-50);
+    border-right: 1px solid var(--gray-100);
+    padding: 16px 8px;
+  }
+  .tab-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 10px 12px;
+    border: none;
+    background: transparent;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.15s;
+    text-align: left;
+    margin-bottom: 2px;
+  }
+  .tab-btn:hover { background: white; }
+  .tab-btn.active {
+    background: white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  }
+  .tab-btn.active .tab-indicator {
+    position: absolute;
+    left: 0;
+    width: 3px;
+    height: 28px;
+    border-radius: 0 3px 3px 0;
+  }
+  .tab-icon {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+  .tab-icon.services { background: var(--blue-50); color: var(--blue-600); }
+  .tab-icon.solutions { background: var(--emerald-50); color: var(--emerald-500); }
+  .tab-icon.infra { background: var(--cyan-50); color: var(--cyan-500); }
+  .tab-icon.tech { background: var(--violet-50); color: var(--violet-500); }
+  .tab-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gray-900);
+  }
+  .tab-subtitle {
+    font-size: 11px;
+    color: var(--gray-400);
+  }
+  .tab-content {
+    padding: 20px 24px;
+  }
+  .tab-content-header {
+    margin-bottom: 16px;
+  }
+  .tab-content-header h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--gray-900);
+  }
+  .tab-content-header p {
+    font-size: 12px;
+    color: var(--gray-400);
+    margin-top: 2px;
+  }
+  .service-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+  }
+  .service-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.12s;
+  }
+  .service-item:hover { background: var(--blue-50); }
+  .service-item-icon {
+    width: 28px; height: 28px;
+    border-radius: 6px;
+    background: var(--blue-50);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: var(--blue-500);
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .service-item-text h4 {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gray-800);
+    line-height: 1.3;
+  }
+  .service-item-text p {
+    font-size: 11px;
+    color: var(--gray-400);
+    line-height: 1.4;
+  }
+  .featured-sidebar {
+    border-left: 1px solid var(--gray-100);
+    background: linear-gradient(180deg, var(--gray-50), white);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  .featured-card {
+    background: linear-gradient(135deg, #1a1f36, #1e2744);
+    border-radius: 12px;
+    padding: 20px;
+    color: white;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .featured-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--blue-400);
+    margin-bottom: 10px;
+  }
+  .featured-card h4 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+  .featured-card p {
+    font-size: 12px;
+    color: #94a3b8;
+    line-height: 1.5;
+    flex: 1;
+  }
+  .featured-link {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--blue-400);
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .featured-cta-btn {
+    margin-top: 12px;
+    background: var(--blue-600);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+  }
+  .tabbed-bottom-bar {
+    background: var(--gray-50);
+    border-top: 1px solid var(--gray-100);
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .tabbed-bottom-bar span {
+    font-size: 12px;
+    color: var(--gray-400);
+  }
+  .tabbed-bottom-bar a {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--blue-600);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  /* =============== OPTION B: ENHANCED GRID =============== */
+  .grid-mega {
+    max-width: 1000px;
+    margin: 8px auto 0;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    border: 1px solid var(--gray-200);
+    overflow: hidden;
+  }
+  .grid-inner {
+    display: grid;
+    grid-template-columns: 1.4fr 1.2fr 1fr;
+  }
+  .grid-column {
+    padding: 20px 24px;
+  }
+  .grid-column + .grid-column {
+    border-left: 1px solid var(--gray-100);
+  }
+  .grid-col-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 4px;
+  }
+  .grid-col-icon {
+    width: 36px; height: 36px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+  }
+  .grid-col-icon.blue { background: var(--blue-50); color: var(--blue-600); }
+  .grid-col-icon.emerald { background: var(--emerald-50); color: var(--emerald-500); }
+  .grid-col-icon.cyan { background: var(--cyan-50); color: var(--cyan-500); }
+  .grid-col-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gray-900);
+  }
+  .grid-col-desc {
+    font-size: 11px;
+    color: var(--gray-400);
+  }
+  .grid-divider {
+    height: 1px;
+    background: linear-gradient(90deg, var(--gray-200), transparent);
+    margin: 10px 0 8px;
+  }
+  .grid-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 8px;
+    margin: 0 -8px;
+    border-radius: 8px;
+    font-size: 13px;
+    color: var(--gray-600);
+    cursor: pointer;
+    transition: all 0.12s;
+  }
+  .grid-link:hover {
+    background: var(--blue-50);
+    color: var(--blue-700);
+  }
+  .grid-link-icon {
+    width: 22px; height: 22px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    flex-shrink: 0;
+  }
+  .grid-link-icon.blue { background: var(--blue-50); color: var(--blue-500); }
+  .grid-link-icon.emerald { background: var(--emerald-50); color: var(--emerald-500); }
+  .grid-link-icon.cyan { background: var(--cyan-50); color: var(--cyan-500); }
+  .grid-link-desc {
+    font-size: 10px;
+    color: var(--gray-400);
+  }
+  .grid-group-heading {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--emerald-500);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 6px 8px 2px;
+    margin: 4px -8px 0;
+  }
+  .grid-more {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--blue-600);
+    padding: 6px 8px;
+    margin: 2px -8px 0;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+  }
+  .grid-tech-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 4px;
+  }
+  .grid-tech-chip {
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    background: var(--gray-50);
+    color: var(--gray-600);
+    border: 1px solid var(--gray-100);
+    font-weight: 500;
+  }
+  .grid-featured-row {
+    border-top: 1px solid var(--gray-100);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .grid-featured-card {
+    flex: 1;
+    background: linear-gradient(135deg, #1a1f36, #1e2744);
+    border-radius: 12px;
+    padding: 16px 20px;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .grid-featured-card .gf-icon {
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    background: rgba(96, 165, 250, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--blue-400);
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .grid-featured-card h4 {
+    font-size: 13px;
+    font-weight: 700;
+  }
+  .grid-featured-card p {
+    font-size: 11px;
+    color: #94a3b8;
+    margin-top: 2px;
+  }
+  .grid-bottom-bar {
+    background: var(--gray-50);
+    border-top: 1px solid var(--gray-100);
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .grid-bottom-bar span {
+    font-size: 12px;
+    color: var(--gray-400);
+  }
+  .grid-bottom-bar a {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--blue-600);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  /* =============== OPTION C: SPOTLIGHT CARDS =============== */
+  .spotlight-mega {
+    max-width: 1000px;
+    margin: 8px auto 0;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    border: 1px solid var(--gray-200);
+    overflow: hidden;
+  }
+  .spotlight-inner {
+    padding: 28px 28px 20px;
+  }
+  .spotlight-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+  }
+  .spotlight-card {
+    border: 1px solid var(--gray-100);
+    border-radius: 14px;
+    padding: 24px 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .spotlight-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .spotlight-card:hover {
+    border-color: var(--gray-200);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    transform: translateY(-2px);
+  }
+  .spotlight-card:hover::before { opacity: 1; }
+  .spotlight-card.blue::before { background: linear-gradient(90deg, var(--blue-400), var(--blue-600)); }
+  .spotlight-card.emerald::before { background: linear-gradient(90deg, var(--emerald-500), #14b8a6); }
+  .spotlight-card.cyan::before { background: linear-gradient(90deg, var(--cyan-500), #0891b2); }
+  .spotlight-card.violet::before { background: linear-gradient(90deg, var(--violet-500), #7c3aed); }
+  .spotlight-card-icon {
+    width: 48px; height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin: 0 auto 14px;
+  }
+  .spotlight-card-icon.blue { background: var(--blue-50); color: var(--blue-600); }
+  .spotlight-card-icon.emerald { background: var(--emerald-50); color: var(--emerald-500); }
+  .spotlight-card-icon.cyan { background: var(--cyan-50); color: var(--cyan-500); }
+  .spotlight-card-icon.violet { background: var(--violet-50); color: var(--violet-500); }
+  .spotlight-card h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: 6px;
+  }
+  .spotlight-card p {
+    font-size: 12px;
+    color: var(--gray-400);
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .spotlight-card-count {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--gray-500);
+    margin-bottom: 10px;
+  }
+  .spotlight-card-link {
+    font-size: 12px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+  }
+  .spotlight-card.blue .spotlight-card-link { color: var(--blue-600); }
+  .spotlight-card.emerald .spotlight-card-link { color: var(--emerald-500); }
+  .spotlight-card.cyan .spotlight-card-link { color: var(--cyan-500); }
+  .spotlight-card.violet .spotlight-card-link { color: var(--violet-500); }
+
+  .spotlight-expanded {
+    margin-top: 16px;
+    border: 1px solid var(--gray-100);
+    border-radius: 14px;
+    padding: 20px 24px;
+    background: var(--gray-50);
+  }
+  .spotlight-expanded-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--gray-400);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+  }
+  .spotlight-expanded-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+  }
+  .spotlight-expanded-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    font-size: 13px;
+    color: var(--gray-600);
+    cursor: pointer;
+    transition: background 0.12s;
+  }
+  .spotlight-expanded-item:hover {
+    background: white;
+    color: var(--blue-700);
+  }
+  .spotlight-expanded-item .se-icon {
+    width: 24px; height: 24px;
+    border-radius: 6px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    color: var(--blue-500);
+    flex-shrink: 0;
+    border: 1px solid var(--gray-100);
+  }
+
+  .spotlight-bottom-bar {
+    background: var(--gray-50);
+    border-top: 1px solid var(--gray-100);
+    padding: 14px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .spotlight-bottom-bar span {
+    font-size: 12px;
+    color: var(--gray-400);
+  }
+  .spotlight-bottom-bar a {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--blue-600);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  /* =============== PROS/CONS =============== */
+  .pros-cons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 16px;
+    margin-bottom: 40px;
+  }
+  .pros, .cons {
+    padding: 16px 20px;
+    border-radius: 12px;
+    font-size: 13px;
+  }
+  .pros { background: #ecfdf5; border: 1px solid #a7f3d0; }
+  .cons { background: #fef2f2; border: 1px solid #fecaca; }
+  .pros h4 { color: #059669; font-size: 13px; font-weight: 700; margin-bottom: 8px; }
+  .cons h4 { color: #dc2626; font-size: 13px; font-weight: 700; margin-bottom: 8px; }
+  .pros ul, .cons ul { padding-left: 16px; color: var(--gray-600); }
+  .pros li, .cons li { margin-bottom: 4px; }
+
+  .divider {
+    max-width: 1200px;
+    margin: 48px auto;
+    border: none;
+    border-top: 2px dashed var(--gray-200);
+  }
+
+  /* Emoji icons (stand-in for Lucide) */
+  .ico { font-style: normal; }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>Mega Menu Redesign — Compare Options</h1>
+  <p>Three design approaches for the "What We Do" dropdown, using your actual brand colors and content</p>
+</div>
+
+<!-- ======================== OPTION A ======================== -->
+<div class="option-section">
+  <div class="option-label">
+    <span class="option-badge recommended">OPTION A</span>
+    <span class="option-name">Tabbed Panel with Featured Sidebar</span>
+  </div>
+  <p class="option-desc">
+    Left sidebar with category tabs. Clicking a tab shows its content in the main area. Only 4–6 items visible at once, greatly reducing cognitive load. Contextual featured sidebar for case studies and CTAs.
+  </p>
+
+  <div class="mockup-container">
+    <div class="mock-header-bar">
+      <div class="mock-logo">
+        <div class="mock-logo-icon">SS</div>
+        <div class="mock-logo-text">Serpent Software</div>
+      </div>
+      <div class="mock-nav-links">
+        <div class="mock-nav-link active">What We Do <span class="chevron">▾</span></div>
+        <div class="mock-nav-link">How We Work</div>
+        <div class="mock-nav-link">Case Studies</div>
+        <div class="mock-nav-link">Blog</div>
+        <div class="mock-nav-link">About</div>
+      </div>
+      <div class="mock-cta-group">
+        <button class="mock-btn-outline">Contact</button>
+        <button class="mock-btn-primary">Book an Appointment</button>
+      </div>
+    </div>
+    <div class="mockup-backdrop">
+      <div class="tabbed-mega">
+        <div class="tabbed-inner">
+          <!-- Tab Sidebar -->
+          <div class="tab-sidebar">
+            <button class="tab-btn active">
+              <div class="tab-icon services">⚡</div>
+              <div>
+                <div class="tab-title">Services</div>
+                <div class="tab-subtitle">13 offerings</div>
+              </div>
+            </button>
+            <button class="tab-btn">
+              <div class="tab-icon solutions">🏥</div>
+              <div>
+                <div class="tab-title">Solutions</div>
+                <div class="tab-subtitle">By industry</div>
+              </div>
+            </button>
+            <button class="tab-btn">
+              <div class="tab-icon infra">☁️</div>
+              <div>
+                <div class="tab-title">Infrastructure</div>
+                <div class="tab-subtitle">Cloud & DevOps</div>
+              </div>
+            </button>
+            <button class="tab-btn">
+              <div class="tab-icon tech">🔧</div>
+              <div>
+                <div class="tab-title">Technologies</div>
+                <div class="tab-subtitle">Our tech stack</div>
+              </div>
+            </button>
+          </div>
+
+          <!-- Tab Content (showing Services) -->
+          <div class="tab-content">
+            <div class="tab-content-header">
+              <h3>Services</h3>
+              <p>End-to-end software solutions for every stage of your product</p>
+            </div>
+            <div class="service-grid">
+              <div class="service-item">
+                <div class="service-item-icon">🤖</div>
+                <div class="service-item-text">
+                  <h4>AI Development</h4>
+                  <p>Intelligent apps & agents</p>
+                </div>
+              </div>
+              <div class="service-item">
+                <div class="service-item-icon">🔍</div>
+                <div class="service-item-text">
+                  <h4>Product Discovery</h4>
+                  <p>Validate before you build</p>
+                </div>
+              </div>
+              <div class="service-item">
+                <div class="service-item-icon">🚀</div>
+                <div class="service-item-text">
+                  <h4>MVP Development</h4>
+                  <p>Launch fast, iterate smart</p>
+                </div>
+              </div>
+              <div class="service-item">
+                <div class="service-item-icon">📦</div>
+                <div class="service-item-text">
+                  <h4>SaaS Development</h4>
+                  <p>Scalable cloud platforms</p>
+                </div>
+              </div>
+              <div class="service-item">
+                <div class="service-item-icon">💡</div>
+                <div class="service-item-text">
+                  <h4>Startup Development</h4>
+                  <p>From idea to product</p>
+                </div>
+              </div>
+              <div class="service-item">
+                <div class="service-item-icon">🏢</div>
+                <div class="service-item-text">
+                  <h4>Enterprise Applications</h4>
+                  <p>Large-scale integrations</p>
+                </div>
+              </div>
+              <div class="service-item">
+                <div class="service-item-icon">🌐</div>
+                <div class="service-item-text">
+                  <h4>Web App Development</h4>
+                  <p>Full-stack web solutions</p>
+                </div>
+              </div>
+              <div class="service-item">
+                <div class="service-item-icon">📱</div>
+                <div class="service-item-text">
+                  <h4>Mobile App Development</h4>
+                  <p>iOS & Android apps</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Featured Sidebar -->
+          <div class="featured-sidebar">
+            <div class="featured-card">
+              <div class="featured-label">✦ Featured</div>
+              <h4>How we helped TechCorp cut deployment time by 70%</h4>
+              <p>Our DevOps team automated their entire CI/CD pipeline, reducing deploy cycles from hours to minutes.</p>
+              <div class="featured-link">Read case study →</div>
+            </div>
+            <button class="featured-cta-btn">Book a free consultation →</button>
+          </div>
+        </div>
+        <div class="tabbed-bottom-bar">
+          <span>Explore all our capabilities</span>
+          <a href="#">View all services →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pros-cons">
+    <div class="pros">
+      <h4>✓ Pros</h4>
+      <ul>
+        <li>Low cognitive load — only 4-8 items visible at once</li>
+        <li>Featured sidebar drives engagement with case studies</li>
+        <li>Descriptions make services understandable at a glance</li>
+        <li>Category tabs show breadth without overwhelming</li>
+        <li>Modern, premium feel (Stripe, Linear-inspired)</li>
+      </ul>
+    </div>
+    <div class="cons">
+      <h4>✗ Cons</h4>
+      <ul>
+        <li>Requires a click/hover to switch categories</li>
+        <li>Users can't scan all services at once</li>
+        <li>More complex interaction model</li>
+        <li>Featured sidebar takes space from content</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ======================== OPTION B ======================== -->
+<div class="option-section">
+  <div class="option-label">
+    <span class="option-badge">OPTION B</span>
+    <span class="option-name">Enhanced Grid with Descriptions</span>
+  </div>
+  <p class="option-desc">
+    Improved version of your current 3-column layout. Adds descriptions, color-coded category icons, better visual hierarchy, and a featured content row. Familiar pattern, minimal interaction required.
+  </p>
+
+  <div class="mockup-container">
+    <div class="mock-header-bar">
+      <div class="mock-logo">
+        <div class="mock-logo-icon">SS</div>
+        <div class="mock-logo-text">Serpent Software</div>
+      </div>
+      <div class="mock-nav-links">
+        <div class="mock-nav-link active">What We Do <span class="chevron">▾</span></div>
+        <div class="mock-nav-link">How We Work</div>
+        <div class="mock-nav-link">Case Studies</div>
+        <div class="mock-nav-link">Blog</div>
+        <div class="mock-nav-link">About</div>
+      </div>
+      <div class="mock-cta-group">
+        <button class="mock-btn-outline">Contact</button>
+        <button class="mock-btn-primary">Book an Appointment</button>
+      </div>
+    </div>
+    <div class="mockup-backdrop">
+      <div class="grid-mega">
+        <div class="grid-inner">
+          <!-- Services Column -->
+          <div class="grid-column">
+            <div class="grid-col-header">
+              <div class="grid-col-icon blue">⚡</div>
+              <div>
+                <div class="grid-col-title">Services</div>
+                <div class="grid-col-desc">End-to-end software solutions</div>
+              </div>
+            </div>
+            <div class="grid-divider"></div>
+            <div class="grid-link">
+              <div class="grid-link-icon blue">🤖</div>
+              <div>AI Development<div class="grid-link-desc">Intelligent apps & agents</div></div>
+            </div>
+            <div class="grid-link">
+              <div class="grid-link-icon blue">🔍</div>
+              <div>Product Discovery<div class="grid-link-desc">Validate before you build</div></div>
+            </div>
+            <div class="grid-link">
+              <div class="grid-link-icon blue">🚀</div>
+              <div>MVP Development<div class="grid-link-desc">Launch fast, iterate</div></div>
+            </div>
+            <div class="grid-link">
+              <div class="grid-link-icon blue">📦</div>
+              <div>SaaS Development<div class="grid-link-desc">Scalable cloud platforms</div></div>
+            </div>
+            <div class="grid-link">
+              <div class="grid-link-icon blue">🌐</div>
+              <div>Web App Development<div class="grid-link-desc">Full-stack web solutions</div></div>
+            </div>
+            <div class="grid-link">
+              <div class="grid-link-icon blue">📱</div>
+              <div>Mobile Development<div class="grid-link-desc">iOS & Android apps</div></div>
+            </div>
+            <div class="grid-more">+ 7 more services →</div>
+          </div>
+
+          <!-- Solutions Column -->
+          <div class="grid-column">
+            <div class="grid-col-header">
+              <div class="grid-col-icon emerald">🏥</div>
+              <div>
+                <div class="grid-col-title">Solutions</div>
+                <div class="grid-col-desc">Industry-specific solutions</div>
+              </div>
+            </div>
+            <div class="grid-divider"></div>
+            <div class="grid-group-heading">Healthcare</div>
+            <div class="grid-link">
+              <div class="grid-link-icon emerald">❤️</div>
+              Patient Portals
+            </div>
+            <div class="grid-link">
+              <div class="grid-link-icon emerald">📊</div>
+              EHR & EMR Development
+            </div>
+            <div class="grid-link">
+              <div class="grid-link-icon emerald">🏢</div>
+              Hospital Management
+            </div>
+            <div class="grid-group-heading">Insurance</div>
+            <div class="grid-link">
+              <div class="grid-link-icon emerald">🛡️</div>
+              Insurance Portals
+            </div>
+            <div class="grid-link">
+              <div class="grid-link-icon emerald">📈</div>
+              Underwriting Software
+            </div>
+            <div class="grid-group-heading" style="margin-top: 6px;">E-Commerce & Retail</div>
+            <div class="grid-link">
+              <div class="grid-link-icon emerald">🛒</div>
+              E-Commerce Websites
+            </div>
+          </div>
+
+          <!-- Infrastructure Column -->
+          <div class="grid-column">
+            <div class="grid-col-header">
+              <div class="grid-col-icon cyan">☁️</div>
+              <div>
+                <div class="grid-col-title">Infrastructure</div>
+                <div class="grid-col-desc">Cloud & DevOps excellence</div>
+              </div>
+            </div>
+            <div class="grid-divider"></div>
+            <div class="grid-link">
+              <div class="grid-link-icon cyan">🔀</div>
+              DevOps
+            </div>
+            <div class="grid-link">
+              <div class="grid-link-icon cyan">☁️</div>
+              Cloud Migration
+            </div>
+            <div class="grid-link">
+              <div class="grid-link-icon cyan">🔄</div>
+              CI/CD Pipeline
+            </div>
+            <div class="grid-link">
+              <div class="grid-link-icon cyan">🛡️</div>
+              Security & Compliance
+            </div>
+
+            <div style="margin-top: 16px;">
+              <div class="grid-col-header">
+                <div class="grid-col-icon" style="background: var(--violet-50); color: var(--violet-500);">🔧</div>
+                <div>
+                  <div class="grid-col-title">Technologies</div>
+                  <div class="grid-col-desc">Our core tech stack</div>
+                </div>
+              </div>
+              <div class="grid-divider"></div>
+              <div class="grid-tech-row">
+                <span class="grid-tech-chip">Next.js</span>
+                <span class="grid-tech-chip">React</span>
+                <span class="grid-tech-chip">TypeScript</span>
+                <span class="grid-tech-chip">.NET 10</span>
+                <span class="grid-tech-chip">Python</span>
+                <span class="grid-tech-chip">Azure</span>
+                <span class="grid-tech-chip">AWS</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="grid-bottom-bar">
+          <span>Not sure where to start?</span>
+          <a href="#">Book a free consultation →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pros-cons">
+    <div class="pros">
+      <h4>✓ Pros</h4>
+      <ul>
+        <li>Everything visible at once — no tabs to click</li>
+        <li>Familiar pattern, low learning curve</li>
+        <li>Color-coded categories add visual differentiation</li>
+        <li>Descriptions added to services for clarity</li>
+        <li>Tech chips provide quick scan of capabilities</li>
+      </ul>
+    </div>
+    <div class="cons">
+      <h4>✗ Cons</h4>
+      <ul>
+        <li>Still shows 20+ items — can feel overwhelming</li>
+        <li>Services column remains much longer than others</li>
+        <li>Limited space for featured content or CTAs</li>
+        <li>Less "premium" feel — more utilitarian</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ======================== OPTION C ======================== -->
+<div class="option-section">
+  <div class="option-label">
+    <span class="option-badge">OPTION C</span>
+    <span class="option-name">Spotlight Category Cards</span>
+  </div>
+  <p class="option-desc">
+    Full-width dropdown with large visual cards for each category. Hovering/clicking a card reveals its services in an expanded sub-panel below. Highly visual and modern — inspired by Stripe and Vercel.
+  </p>
+
+  <div class="mockup-container">
+    <div class="mock-header-bar">
+      <div class="mock-logo">
+        <div class="mock-logo-icon">SS</div>
+        <div class="mock-logo-text">Serpent Software</div>
+      </div>
+      <div class="mock-nav-links">
+        <div class="mock-nav-link active">What We Do <span class="chevron">▾</span></div>
+        <div class="mock-nav-link">How We Work</div>
+        <div class="mock-nav-link">Case Studies</div>
+        <div class="mock-nav-link">Blog</div>
+        <div class="mock-nav-link">About</div>
+      </div>
+      <div class="mock-cta-group">
+        <button class="mock-btn-outline">Contact</button>
+        <button class="mock-btn-primary">Book an Appointment</button>
+      </div>
+    </div>
+    <div class="mockup-backdrop">
+      <div class="spotlight-mega">
+        <div class="spotlight-inner">
+          <div class="spotlight-cards">
+            <div class="spotlight-card blue" style="border-color: var(--blue-200); box-shadow: 0 8px 30px rgba(37,99,235,0.08);">
+              <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg, var(--blue-400), var(--blue-600));opacity:1;"></div>
+              <div class="spotlight-card-icon blue">⚡</div>
+              <h3>Services</h3>
+              <p>End-to-end software solutions for every stage</p>
+              <div class="spotlight-card-count">13 services</div>
+              <div class="spotlight-card-link">Explore →</div>
+            </div>
+            <div class="spotlight-card emerald">
+              <div class="spotlight-card-icon emerald">🏥</div>
+              <h3>Solutions</h3>
+              <p>Industry-specific healthcare, insurance & retail</p>
+              <div class="spotlight-card-count">3 industries</div>
+              <div class="spotlight-card-link">Explore →</div>
+            </div>
+            <div class="spotlight-card cyan">
+              <div class="spotlight-card-icon cyan">☁️</div>
+              <h3>Infrastructure</h3>
+              <p>Cloud migration, DevOps & security excellence</p>
+              <div class="spotlight-card-count">4 services</div>
+              <div class="spotlight-card-link">Explore →</div>
+            </div>
+            <div class="spotlight-card violet">
+              <div class="spotlight-card-icon violet">🔧</div>
+              <h3>Technologies</h3>
+              <p>Modern frameworks & cloud platforms we master</p>
+              <div class="spotlight-card-count">7 technologies</div>
+              <div class="spotlight-card-link">See all →</div>
+            </div>
+          </div>
+
+          <!-- Expanded panel (showing Services expanded) -->
+          <div class="spotlight-expanded">
+            <div class="spotlight-expanded-label">Services — End-to-end software solutions</div>
+            <div class="spotlight-expanded-grid">
+              <div class="spotlight-expanded-item">
+                <div class="se-icon">🤖</div> AI Development
+              </div>
+              <div class="spotlight-expanded-item">
+                <div class="se-icon">🔍</div> Product Discovery
+              </div>
+              <div class="spotlight-expanded-item">
+                <div class="se-icon">🚀</div> MVP Development
+              </div>
+              <div class="spotlight-expanded-item">
+                <div class="se-icon">📦</div> SaaS Development
+              </div>
+              <div class="spotlight-expanded-item">
+                <div class="se-icon">💡</div> Startup Development
+              </div>
+              <div class="spotlight-expanded-item">
+                <div class="se-icon">🏢</div> Enterprise Apps
+              </div>
+              <div class="spotlight-expanded-item">
+                <div class="se-icon">🌐</div> Web App Dev
+              </div>
+              <div class="spotlight-expanded-item">
+                <div class="se-icon">📱</div> Mobile App Dev
+              </div>
+              <div class="spotlight-expanded-item">
+                <div class="se-icon">⚙️</div> Custom Software
+              </div>
+              <div class="spotlight-expanded-item">
+                <div class="se-icon">🎨</div> UI/UX Design
+              </div>
+              <div class="spotlight-expanded-item">
+                <div class="se-icon">🛒</div> E-Commerce
+              </div>
+              <div class="spotlight-expanded-item">
+                <div class="se-icon">💬</div> IT Consulting
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="spotlight-bottom-bar">
+          <span>Not sure where to start?</span>
+          <a href="#">Book a free consultation →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pros-cons">
+    <div class="pros">
+      <h4>✓ Pros</h4>
+      <ul>
+        <li>Most visually striking and modern</li>
+        <li>Clean initial view — only 4 cards, not 20+ links</li>
+        <li>Color-coded cards create strong visual identity</li>
+        <li>Progressive disclosure — details on demand</li>
+        <li>Great hover animations and micro-interactions</li>
+      </ul>
+    </div>
+    <div class="cons">
+      <h4>✗ Cons</h4>
+      <ul>
+        <li>Two-step interaction to reach a specific service</li>
+        <li>Expanded panel can make dropdown very tall</li>
+        <li>Sub-items lack descriptions in expanded view</li>
+        <li>More vertical space needed than other options</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div style="text-align: center; padding: 40px 24px 60px; color: var(--gray-400); font-size: 14px;">
+  Review the options above and let me know which direction you'd like to go in the terminal.
+</div>
+
+</body>
+</html>

@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { Zap, Clock, TrendingUp } from 'lucide-react';
 
 const certifications = [
   {
@@ -19,9 +20,15 @@ const certifications = [
   },
 ];
 
+const stats = [
+  { value: '5x', label: 'Faster Development', icon: Zap },
+  { value: '50%', label: 'Cost Reduction', icon: TrendingUp },
+  { value: '53.95%', label: 'Uptime SLA', icon: Clock },
+];
+
 export function ExperienceSection() {
   return (
-    <section className="relative overflow-hidden pt-0.5 sm:pt-1 md:pt-1.5 pb-1.5 sm:pb-2 md:pb-3">
+    <section className="relative overflow-hidden pt-0.5 sm:pt-0.5 md:pt-1 pb-1 sm:pb-1.5 md:pb-2">
 
       <div className="relative max-w-[1440px] w-full mx-auto px-2 sm:px-3 md:px-6 lg:px-8">
 
@@ -41,10 +48,10 @@ export function ExperienceSection() {
           {/* Card body */}
           <div className="relative
             px-4 sm:px-8 md:px-12 lg:px-16
-            py-4 sm:py-5 md:py-7 lg:py-9">
+            py-3 sm:py-4 md:py-5 lg:py-6">
 
             {/* Header */}
-            <div className="text-center mb-4 sm:mb-5 md:mb-6">
+            <div className="text-center mb-2 sm:mb-3 md:mb-4">
               <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full
                 bg-brand-500/[0.12] border border-brand-400/[0.15]
                 text-brand-300 text-[10px] sm:text-[11px] font-semibold tracking-wide mb-2 sm:mb-3">
@@ -68,16 +75,16 @@ export function ExperienceSection() {
             </div>
 
             {/* Badges */}
-            <div className="flex flex-row items-center justify-center gap-6 sm:gap-10 md:gap-16 lg:gap-24">
+            <div className="flex flex-row items-center justify-center gap-4 sm:gap-8 md:gap-12 lg:gap-16">
               {certifications.map((cert) => (
                 <div key={cert.code} className="group flex flex-col items-center gap-2 sm:gap-3">
 
                   {/* Badge image */}
                   <div className="relative
-                    w-[65px] h-[65px]
-                    sm:w-[85px] sm:h-[85px]
-                    md:w-[100px] md:h-[100px]
-                    lg:w-[115px] lg:h-[115px]
+                    w-[55px] h-[55px]
+                    sm:w-[70px] sm:h-[70px]
+                    md:w-[80px] md:h-[80px]
+                    lg:w-[90px] lg:h-[90px]
                     drop-shadow-[0_6px_18px_rgba(var(--brand-shadow-rgb),0.35)]
                     group-hover:drop-shadow-[0_10px_28px_rgba(var(--brand-shadow-rgb),0.55)]
                     group-hover:scale-[1.04]
@@ -87,7 +94,7 @@ export function ExperienceSection() {
                       alt={cert.alt}
                       fill
                       className="object-contain"
-                      sizes="(max-width: 640px) 65px, (max-width: 768px) 85px, (max-width: 1024px) 100px, 115px"
+                      sizes="(max-width: 640px) 55px, (max-width: 768px) 70px, (max-width: 1024px) 80px, 90px"
                     />
                   </div>
 
@@ -109,8 +116,28 @@ export function ExperienceSection() {
               ))}
             </div>
 
+            {/* Stats Row */}
+            <div className="grid grid-cols-3 gap-2 sm:gap-3 max-w-lg mx-auto mt-4 sm:mt-5">
+              {stats.map((stat) => (
+                <div
+                  key={stat.label}
+                  className="bg-white/[0.05] backdrop-blur-sm border border-white/[0.07]
+                    rounded-xl px-2 py-2 sm:px-3 sm:py-2.5 md:px-4 md:py-3
+                    text-center hover:bg-white/[0.08] hover:border-brand-400/20 transition-all duration-300"
+                >
+                  <stat.icon className="h-3 w-3 sm:h-3.5 sm:w-3.5 lg:h-4 lg:w-4 text-brand-400 mb-1 mx-auto" />
+                  <div className="text-sm sm:text-base lg:text-xl font-black text-white leading-none mb-0.5">
+                    {stat.value}
+                  </div>
+                  <div className="text-[8px] sm:text-[9px] lg:text-[10px] text-white/40 font-medium leading-tight">
+                    {stat.label}
+                  </div>
+                </div>
+              ))}
+            </div>
+
             {/* Footer note */}
-            <div className="mt-4 sm:mt-5 pt-3 sm:pt-4 border-t border-white/[0.08] text-center">
+            <div className="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-white/[0.08] text-center">
               <p className="text-[9px] sm:text-[10px] text-white/25 font-medium tracking-wide">
                 Verified credentials issued by Microsoft · Building enterprise solutions on Azure
               </p>

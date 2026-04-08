@@ -30,7 +30,9 @@ interface MobileMenuProps {
 }
 
 export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
-  const [isWhatWeDoOpen, setIsWhatWeDoOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isAiMlOpen, setIsAiMlOpen] = useState(false);
+  const [isSolutionsOpen, setIsSolutionsOpen] = useState(false);
   const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
 
   if (!isOpen) return null;
@@ -59,25 +61,60 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           {/* Menu Content */}
           <div className="flex-1 overflow-y-auto px-6 py-6 mt-16">
             <nav className="space-y-1" aria-label="Mobile navigation">
-              {/* What We Do Accordion */}
+              {/* AI & ML Accordion */}
               <div className="border-b border-gray-200 pb-1">
                 <button
-                  onClick={() => setIsWhatWeDoOpen(!isWhatWeDoOpen)}
+                  onClick={() => setIsAiMlOpen(!isAiMlOpen)}
                   className="flex items-center justify-between w-full px-4 py-3 text-base font-medium text-gray-900 hover:bg-gray-50 rounded-lg transition-colors"
-                  aria-expanded={isWhatWeDoOpen}
+                  aria-expanded={isAiMlOpen}
                 >
-                  What We Do
+                  AI & ML
                   <ChevronDown
                     className={`h-5 w-5 text-gray-500 transition-transform duration-200 ${
-                      isWhatWeDoOpen ? 'rotate-180' : ''
+                      isAiMlOpen ? 'rotate-180' : ''
                     }`}
                   />
                 </button>
 
-                {/* What We Do — Category Sections */}
-                {isWhatWeDoOpen && (
+                {isAiMlOpen && (
+                  <div className="mt-1 space-y-0.5 animate-in slide-in-from-top-2 duration-200 pl-4">
+                    {NAVIGATION.aiMlMenu.links.map((link) => {
+                      const LinkIcon = iconMap[link.icon] || Code2;
+                      return (
+                        <Link
+                          key={link.href + link.label}
+                          href={link.href}
+                          onClick={onClose}
+                          className="flex items-center gap-2 px-3 py-2 text-sm text-gray-600 hover:text-brand-600 hover:bg-brand-50/60 rounded-lg transition-colors"
+                        >
+                          <LinkIcon className="h-3.5 w-3.5 text-gray-400 flex-shrink-0" />
+                          {link.label}
+                        </Link>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
+
+              {/* Services Accordion */}
+              <div className="border-b border-gray-200 pb-1">
+                <button
+                  onClick={() => setIsServicesOpen(!isServicesOpen)}
+                  className="flex items-center justify-between w-full px-4 py-3 text-base font-medium text-gray-900 hover:bg-gray-50 rounded-lg transition-colors"
+                  aria-expanded={isServicesOpen}
+                >
+                  Services
+                  <ChevronDown
+                    className={`h-5 w-5 text-gray-500 transition-transform duration-200 ${
+                      isServicesOpen ? 'rotate-180' : ''
+                    }`}
+                  />
+                </button>
+
+                {/* Services — Category Sections */}
+                {isServicesOpen && (
                   <div className="mt-1 space-y-1 animate-in slide-in-from-top-2 duration-200">
-                    {NAVIGATION.whatWeDo.map((category) => {
+                    {NAVIGATION.servicesMenu.map((category) => {
                       const CategoryIcon = iconMap[category.icon] || Code2;
                       return (
                         <div key={category.title}>
@@ -119,95 +156,84 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                                   </Link>
                                 );
                               })}
-                              {/* Grouped Links (Solutions column) */}
-                              {'groups' in category && (category as unknown as { groups: { heading: string; links: { label: string; href: string; icon: string }[] }[] }).groups?.map((group) => (
-                                <div key={group.heading} className="mt-1">
-                                  <h4 className="text-sm font-bold text-brand-600 px-3 py-1.5">
-                                    {group.heading}
-                                  </h4>
-                                  {group.links.map((link) => {
-                                    const LinkIcon = iconMap[link.icon] || Code2;
-                                    return (
-                                      <Link
-                                        key={link.href + link.label}
-                                        href={link.href}
-                                        onClick={onClose}
-                                        className="flex items-center gap-2 px-3 py-2 text-sm text-gray-600 hover:text-brand-600 hover:bg-brand-50/60 rounded-lg transition-colors"
-                                      >
-                                        <LinkIcon className="h-3.5 w-3.5 text-gray-400 flex-shrink-0" />
-                                        {link.label}
-                                      </Link>
-                                    );
-                                  })}
-                                </div>
-                              ))}
                             </div>
                           )}
                         </div>
                       );
                     })}
 
-                    {/* Technologies — rendered as 4th category */}
-                    {(() => {
-                      const infraCol = NAVIGATION.whatWeDo.find((c) => 'technologies' in c && c.technologies);
-                      if (!infraCol || !('technologies' in infraCol)) return null;
-                      const techs = infraCol.technologies as unknown as { label: string; icon: string }[];
-                      const techTitle = 'technologiesLabel' in infraCol ? String(infraCol.technologiesLabel) : 'Technologies';
-                      const techDesc = 'technologiesDescription' in infraCol ? String(infraCol.technologiesDescription) : 'Our core tech stack';
-                      const techIconKey = 'technologiesIcon' in infraCol ? String(infraCol.technologiesIcon) : 'Cpu';
-                      const TechCatIcon = iconMap[techIconKey] || Cpu;
+                  </div>
+                )}
+              </div>
+
+              {/* Solutions Accordion */}
+              <div className="border-b border-gray-200 pb-1">
+                <button
+                  onClick={() => setIsSolutionsOpen(!isSolutionsOpen)}
+                  className="flex items-center justify-between w-full px-4 py-3 text-base font-medium text-gray-900 hover:bg-gray-50 rounded-lg transition-colors"
+                  aria-expanded={isSolutionsOpen}
+                >
+                  Solutions
+                  <ChevronDown
+                    className={`h-5 w-5 text-gray-500 transition-transform duration-200 ${
+                      isSolutionsOpen ? 'rotate-180' : ''
+                    }`}
+                  />
+                </button>
+
+                {/* Solutions — Industry Groups */}
+                {isSolutionsOpen && (
+                  <div className="mt-1 space-y-1 animate-in slide-in-from-top-2 duration-200">
+                    {NAVIGATION.solutionsMenu.map((group) => {
+                      const GroupIcon = iconMap[group.icon] || Code2;
                       return (
-                        <div>
+                        <div key={group.heading}>
+                          {/* Group Header */}
                           <button
-                            onClick={() => toggleCategory(techTitle)}
+                            onClick={() => toggleCategory(group.heading)}
                             className="flex items-center justify-between w-full px-3 py-2.5 text-sm font-semibold text-gray-700 hover:bg-gray-50 rounded-lg transition-colors"
                           >
                             <div className="flex items-center gap-2.5">
                               <div className="w-7 h-7 rounded-lg bg-brand-50 flex items-center justify-center flex-shrink-0">
-                                <TechCatIcon className="h-3.5 w-3.5 text-brand-600" />
+                                <GroupIcon className="h-3.5 w-3.5 text-brand-600" />
                               </div>
-                              <div className="text-left">
-                                <div className="text-sm font-semibold text-gray-800">{techTitle}</div>
-                                <div className="text-[10px] text-gray-400 font-normal">{techDesc}</div>
-                              </div>
+                              <div className="text-sm font-semibold text-gray-800">{group.heading}</div>
                             </div>
                             <ChevronDown
                               className={`h-4 w-4 text-gray-400 transition-transform duration-200 flex-shrink-0 ${
-                                expandedCategory === techTitle ? 'rotate-180' : ''
+                                expandedCategory === group.heading ? 'rotate-180' : ''
                               }`}
                             />
                           </button>
-                          {expandedCategory === techTitle && (
+
+                          {/* Group Links */}
+                          {expandedCategory === group.heading && (
                             <div className="pl-4 space-y-0.5 animate-in slide-in-from-top-1 duration-150">
-                              {techs.map((tech) => {
-                                const TechIcon = iconMap[tech.icon] || Code2;
+                              {group.links.map((link) => {
+                                const LinkIcon = iconMap[link.icon] || Code2;
                                 return (
-                                  <div key={tech.label} className="flex items-center gap-2 px-3 py-2 text-sm text-gray-600">
-                                    <TechIcon className="h-3.5 w-3.5 text-gray-400 flex-shrink-0" />
-                                    {tech.label}
-                                  </div>
+                                  <Link
+                                    key={link.href + link.label}
+                                    href={link.href}
+                                    onClick={onClose}
+                                    className="flex items-center gap-2 px-3 py-2 text-sm text-gray-600 hover:text-brand-600 hover:bg-brand-50/60 rounded-lg transition-colors"
+                                  >
+                                    <LinkIcon className="h-3.5 w-3.5 text-gray-400 flex-shrink-0" />
+                                    {link.label}
+                                  </Link>
                                 );
                               })}
                             </div>
                           )}
                         </div>
                       );
-                    })()}
+                    })}
                   </div>
                 )}
               </div>
 
-              {/* How We Work */}
-              <Link
-                href="/how-we-work"
-                onClick={onClose}
-                className="block px-4 py-3 text-base font-medium text-gray-900 hover:bg-gray-50 rounded-lg transition-colors"
-              >
-                How We Work
-              </Link>
-
-              {/* Main Navigation Links */}
-              {NAVIGATION.main.filter((item) => item.label !== 'What We Do' && item.label !== 'How We Work').map((item) => (
+              {/* Other Navigation Links (Industry, Case Studies, Blog, About) */}
+              {NAVIGATION.main.filter((item) => !['Services', 'AI & ML', 'Solutions'].includes(item.label)).map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}

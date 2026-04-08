@@ -8,7 +8,9 @@
       "WebFetch(domain:codesandbox.io)",
       "Bash(npm install:*)",
       "Bash(python3 .claude/skills/ui-ux-pro-max/scripts/search.py \"dark navbar navigation professional SaaS\" --domain style -n 5)",
-      "Bash(python .claude/skills/ui-ux-pro-max/scripts/search.py \"dark navbar navigation professional SaaS\" --domain style -n 5)"
+      "Bash(python .claude/skills/ui-ux-pro-max/scripts/search.py \"dark navbar navigation professional SaaS\" --domain style -n 5)",
+      "WebFetch(domain:www.framer.com)",
+      "Read(//c/Users/harik/AppData/Local/Temp/claude/C--Users-harik-source-repos-genisis/63f08b73-e1c8-4e67-91d0-e4b6a865616c/tasks/**)"
     ]
   },
   "enabledPlugins": {

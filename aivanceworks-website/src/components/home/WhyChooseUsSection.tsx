@@ -1,5 +1,8 @@
-import { Award, Clock, Shield, Users } from 'lucide-react';
+import { Award, Clock, Shield, Users, Code2 } from 'lucide-react';
 import { SITE_CONFIG } from '@/lib/constants';
+
+/* ============================================================
+   ORIGINAL IMPLEMENTATION — commented out for backward compatibility
 
 const differentiators = [
   {
@@ -39,7 +42,102 @@ const differentiators = [
 export function WhyChooseUsSection() {
   return (
     <section className="py-6 sm:py-8 lg:py-12 relative overflow-hidden">
-      {/* Subtle blue gradient wash background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white via-brand-50/30 to-white" />
+      <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-100/30 rounded-full blur-[150px]" />
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center max-w-2xl mx-auto mb-5 sm:mb-6 lg:mb-8">
+          <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-black text-gray-900 mb-2 leading-tight">
+            Why Companies Choose {SITE_CONFIG.name}
+          </h2>
+          <p className="text-xs sm:text-sm md:text-base text-gray-500 leading-relaxed">
+            We combine deep technical expertise with a partnership mindset to deliver measurable business outcomes.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 lg:gap-5">
+          {differentiators.map((item) => (
+            <div
+              key={item.title}
+              className="relative flex gap-3 sm:gap-4 p-4 sm:p-5 bg-white rounded-xl sm:rounded-2xl border border-gray-100 shadow-sm hover:shadow-brand-card hover:border-brand-100 transition-all duration-300"
+            >
+              <div className="flex-shrink-0">
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-brand-50 flex items-center justify-center">
+                  <item.icon className="h-4 w-4 sm:h-5 sm:w-5 text-brand-600" />
+                </div>
+              </div>
+              <div className="flex-1 min-w-0">
+                <h3 className="text-sm sm:text-base font-bold text-gray-900 mb-1">
+                  {item.title}
+                </h3>
+                <p className="text-gray-500 leading-relaxed mb-2.5 text-xs sm:text-sm line-clamp-3 sm:line-clamp-none">
+                  {item.description}
+                </p>
+                <div className="flex items-baseline gap-1.5">
+                  <span className="text-xl sm:text-2xl font-black text-brand-600">
+                    {item.stat}
+                  </span>
+                  <span className="text-[11px] sm:text-xs text-gray-400 font-medium">{item.statLabel}</span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+   END OF ORIGINAL IMPLEMENTATION
+   ============================================================ */
+
+const differentiators = [
+  {
+    title: 'AI-Powered Cloud Computing',
+    description:
+      'We use AI-augmented development workflows to deliver faster and smarter. Production experience with Azure AI Foundry, LangChain, and RAG frameworks.',
+    stat: '5x',
+    statLabel: 'Faster Development',
+    icon: Award,
+  },
+  {
+    title: 'Microsoft Certified',
+    description:
+      'Our architects hold AI-102, AZ-204, and DP-420 certifications. Deep expertise in the Azure ecosystem ensures enterprise-grade solutions.',
+    stat: '8+',
+    statLabel: 'Years Experience',
+    icon: Shield,
+  },
+  {
+    title: 'Dedicated Development Teams',
+    description:
+      'A boutique team that integrates directly with yours. Full transparency, daily standups, and seamless collaboration from day one.',
+    stat: '100%',
+    statLabel: 'Team Integration',
+    icon: Code2,
+  },
+  {
+    title: 'Startup to Enterprise',
+    description:
+      'Boutique pricing with enterprise quality. We work shoulder-to-shoulder with your team, ensuring knowledge transfer and long-term success.',
+    stat: '50%',
+    statLabel: 'Cost Savings',
+    icon: Users,
+  },
+  {
+    title: 'End-to-End Delivery',
+    description:
+      'From architecture to deployment, we own the entire delivery lifecycle. Agile methodology with transparent communication and predictable timelines.',
+    stat: '100%',
+    statLabel: 'On-Time Delivery',
+    icon: Clock,
+  },
+];
+
+export function WhyChooseUsSection() {
+  return (
+    <section className="py-6 sm:py-8 lg:py-12 relative overflow-hidden">
+      {/* Subtle gradient background */}
       <div className="absolute inset-0 bg-gradient-to-b from-white via-brand-50/30 to-white" />
       <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-100/30 rounded-full blur-[150px]" />
 
@@ -54,38 +152,41 @@ export function WhyChooseUsSection() {
           </p>
         </div>
 
-        {/* Differentiators Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 lg:gap-5">
+        {/* 5-Card Grid: 3 top + 2 bottom centered */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-5">
           {differentiators.map((item) => (
             <div
               key={item.title}
-              className="relative flex gap-3 sm:gap-4 p-4 sm:p-5 bg-white rounded-xl sm:rounded-2xl border border-gray-100 shadow-sm hover:shadow-brand-card hover:border-brand-100 transition-all duration-300"
+              className="relative flex flex-col items-center text-center
+                p-5 sm:p-6 lg:p-7
+                bg-white rounded-xl sm:rounded-2xl border border-gray-100
+                shadow-sm hover:shadow-brand-card hover:border-brand-100
+                transition-all duration-300"
             >
               {/* Icon */}
-              <div className="flex-shrink-0">
-                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-brand-50 flex items-center justify-center">
-                  <item.icon className="h-4 w-4 sm:h-5 sm:w-5 text-brand-600" />
-                </div>
+              <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-brand-50 flex items-center justify-center mb-3">
+                <item.icon className="h-5 w-5 sm:h-6 sm:w-6 text-brand-600" />
               </div>
 
-              {/* Content */}
-              <div className="flex-1 min-w-0">
-                <h3 className="text-sm sm:text-base font-bold text-gray-900 mb-1">
-                  {item.title}
-                </h3>
-                <p className="text-gray-500 leading-relaxed mb-2.5 text-xs sm:text-sm line-clamp-3 sm:line-clamp-none">
-                  {item.description}
-                </p>
+              {/* Title */}
+              <h3 className="text-sm sm:text-base font-bold text-gray-900 mb-1.5">
+                {item.title}
+              </h3>
 
-                {/* Stat */}
-                <div className="flex items-baseline gap-1.5">
-                  <span className="text-xl sm:text-2xl font-black text-brand-600">
-                    {item.stat}
-                  </span>
-                  <span className="text-[11px] sm:text-xs text-gray-400 font-medium">{item.statLabel}</span>
-                </div>
+              {/* Description */}
+              <p className="text-gray-500 text-xs sm:text-sm leading-relaxed mb-3 line-clamp-3 sm:line-clamp-none">
+                {item.description}
+              </p>
+
+              {/* Stat */}
+              <div className="flex items-baseline gap-1.5 mt-auto">
+                <span className="text-xl sm:text-2xl font-black text-brand-600">
+                  {item.stat}
+                </span>
+                <span className="text-[11px] sm:text-xs text-gray-400 font-medium">
+                  {item.statLabel}
+                </span>
               </div>
-
             </div>
           ))}
         </div>

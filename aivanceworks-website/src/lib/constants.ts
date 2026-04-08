@@ -2,8 +2,9 @@ export const CONTACT_EMAIL = 'serpentsoftware@gmail.com';
 export const SUPPORT_EMAIL = 'serpentsoftware@gmail.com';
 export const FROM_EMAIL = 'notifications@serpentsoftware.com';
 
+export const sitename = 'aiDevsoft';
 export const SITE_CONFIG = {
-  name: 'Rovasoft',
+  name: sitename,
   description:
     'AI-first software development for startups. Expert teams in AI agents, RAG frameworks, Azure cloud, and custom development.',
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://serpentsoftware.com',
@@ -13,9 +14,9 @@ export const SITE_CONFIG = {
     linkedin: 'https://linkedin.com/company/serpentsoftware',
     github: 'https://github.com/serpentsoftware',
   },
-  creator: 'Rovasoft Team',
+  creator: `${sitename} Team`,
   company: {
-    name: 'Rovasoft',
+    name: sitename,
     legalName: 'Rovasoft LLC',
     slogan: 'Transform Your Ideas Into Intelligent Solutions',
     email: CONTACT_EMAIL,
@@ -32,8 +33,10 @@ export const SITE_CONFIG = {
 
 export const NAVIGATION = {
   main: [
-    { label: 'What We Do', href: '/services' },
-    { label: 'How We Work', href: '/how-we-work' },
+    { label: 'AI & ML', href: '/services/ai-machine-learning' },
+    { label: 'Services', href: '/services' },
+    { label: 'Solutions', href: '/solutions' },
+    { label: 'Industry', href: '/industry' },
     { label: 'Case Studies', href: '/case-studies' },
     { label: 'Blog', href: '/blog' },
     { label: 'About', href: '/about' },
@@ -48,22 +51,24 @@ export const NAVIGATION = {
     { label: 'Enterprise Integration', href: '/services/enterprise-integration' },
     { label: 'Security & Compliance', href: '/services/security-compliance' },
   ],
-  // Mega menu columns for "What We Do"
-  whatWeDo: [
-    // {
-    //   title: 'AI',
-    //   icon: 'Brain',
-    //   description: 'Intelligent automation & agents',
-    //   links: [
-    //     { label: 'AI Development', href: '/services/ai-machine-learning', icon: 'Cpu' },
-    //     { label: 'AI-Driven Diagnostics', href: '/services/ai-diagnostics', icon: 'Activity' },
-    //     { label: 'AI Automation Systems', href: '/services/ai-automation', icon: 'Zap' },
-    //     { label: 'AI Agents for Finance', href: '/services/ai-finance', icon: 'TrendingUp' },
-    //     { label: 'AI Agents for Healthcare', href: '/services/ai-healthcare', icon: 'Heart' },
-    //   ],
-    // },
+  // AI & ML menu (standalone top-level dropdown)
+  aiMlMenu: {
+    title: 'AI and ML',
+    icon: 'Brain',
+    description: 'Intelligent automation & agents',
+    links: [
+      { label: 'Custom AI Agents', href: '/services/ai-machine-learning/agentic-ai-automation', icon: 'Zap' },
+      { label: 'AI Strategy & Consulting', href: '/services/ai-machine-learning/ai-strategy-consulting', icon: 'MessageSquare' },
+      { label: 'RAG Framework Development', href: '/services/ai-machine-learning/rag-frameworks', icon: 'Search' },
+      { label: 'AI-Driven Diagnostics', href: '/services/ai-diagnostics', icon: 'Activity' },
+      //{ label: 'AI Agents for Finance', href: '/services/ai-finance', icon: 'TrendingUp' },
+      //{ label: 'AI Agents for Healthcare', href: '/services/ai-healthcare', icon: 'Heart' },
+    ],
+  },
+  // Mega menu columns for "Services" dropdown
+  servicesMenu: [
     {
-      title: 'Services',
+      title: 'Software Engineering',
       icon: 'Code2',
       description: 'End-to-end software solutions',
       links: [
@@ -82,40 +87,6 @@ export const NAVIGATION = {
         { label: 'IT Support', href: '/services/it-support', icon: 'Headphones' },
       ],
     },
-     {
-      title: 'Solutions',
-      icon: 'Code2',
-      description: 'Industry-specific solutions',
-      links: [],
-      groups: [
-        {
-          heading: 'HealthCare',
-          links: [
-            { label: 'Patient Portals', href: '/solutions/patient-portals', icon: 'Heart' },
-            { label: 'EHR & EMR Development', href: '/solutions/ehr-emr-development', icon: 'Activity' },
-            { label: 'Hospital Management Systems', href: '/solutions/hospital-management-systems', icon: 'Building2' },
-          ],
-        },
-        {
-          heading: 'Insurance',
-          links: [
-            { label: 'Insurance Portals', href: '/solutions/insurance-portals', icon: 'Shield' },
-            { label: 'Underwriting Software', href: '/solutions/underwriting-software', icon: 'TrendingUp' },
-            { label: 'Agency Management Software', href: '/solutions/agency-management-software', icon: 'Building2' },
-            { label: 'Policy Administration Systems', href: '/solutions/policy-administration-systems', icon: 'Layers' },
-            { label: 'Quoting Software', href: '/solutions/quoting-software', icon: 'Cpu' },
-            { label: 'Document Management Software', href: '/solutions/document-management-software', icon: 'Settings' },
-          ],
-        },
-        {
-          heading: 'E-Commerce & Retail',
-          links: [
-            { label: 'E-Commerce Websites', href: '/solutions/e-commerce-websites', icon: 'ShoppingCart' },
-            { label: 'Retail Websites', href: '/solutions/retail-websites', icon: 'Store' },
-          ],
-        },
-      ],
-    },
     {
       title: 'Infrastructure',
       icon: 'Server',
@@ -126,17 +97,51 @@ export const NAVIGATION = {
         { label: 'CI/CD Pipeline Setup', href: '/services/ci-cd-pipeline', icon: 'RefreshCw' },
         { label: 'Security', href: '/services/security-compliance', icon: 'Shield' },
       ],
-      technologiesLabel: 'Technologies',
-      technologiesIcon: 'Cpu',
-      technologiesDescription: 'Our core tech stack',
-      technologies: [
-        { label: 'Next.js / React.js', icon: 'Globe' },
-        { label: 'TypeScript / JavaScript', icon: 'Code2' },
-        { label: '.NET 10', icon: 'Layers' },
-        { label: 'Python', icon: 'Cpu' },
-        { label: 'Microsoft SQL', icon: 'Server' },
-        { label: 'Azure', icon: 'Cloud' },
-        { label: 'AWS', icon: 'Zap' },
+    },
+    {
+      title: 'Technologies',
+      icon: 'Cpu',
+      description: 'Our core tech stack',
+      links: [
+        { label: 'Next.js / React.js', href: '/services/full-stack-development', icon: 'Globe' },
+        { label: 'TypeScript / JavaScript', href: '/services/full-stack-development', icon: 'Code2' },
+        { label: '.NET 10', href: '/services/full-stack-development', icon: 'Layers' },
+        { label: 'Python', href: '/services/ai-machine-learning', icon: 'Cpu' },
+        { label: 'Microsoft SQL', href: '/services/data-engineering', icon: 'Server' },
+        { label: 'Azure', href: '/services/cloud-engineering', icon: 'Cloud' },
+        { label: 'AWS', href: '/services/cloud-engineering', icon: 'Zap' },
+      ],
+    },
+  ],
+  // Mega menu columns for "Solutions" dropdown
+  solutionsMenu: [
+    {
+      heading: 'HealthCare',
+      icon: 'Heart',
+      links: [
+        { label: 'Patient Portals', href: '/solutions/patient-portals', icon: 'Heart' },
+        { label: 'EHR & EMR Development', href: '/solutions/ehr-emr-development', icon: 'Activity' },
+        { label: 'Hospital Management Systems', href: '/solutions/hospital-management-systems', icon: 'Building2' },
+      ],
+    },
+    {
+      heading: 'Insurance',
+      icon: 'Shield',
+      links: [
+        { label: 'Insurance Portals', href: '/solutions/insurance-portals', icon: 'Shield' },
+        { label: 'Underwriting Software', href: '/solutions/underwriting-software', icon: 'TrendingUp' },
+        { label: 'Agency Management Software', href: '/solutions/agency-management-software', icon: 'Building2' },
+        { label: 'Policy Administration Systems', href: '/solutions/policy-administration-systems', icon: 'Layers' },
+        { label: 'Quoting Software', href: '/solutions/quoting-software', icon: 'Cpu' },
+        { label: 'Document Management Software', href: '/solutions/document-management-software', icon: 'Settings' },
+      ],
+    },
+    {
+      heading: 'E-Commerce & Retail',
+      icon: 'ShoppingCart',
+      links: [
+        { label: 'E-Commerce Websites', href: '/solutions/e-commerce-websites', icon: 'ShoppingCart' },
+        { label: 'Retail Websites', href: '/solutions/retail-websites', icon: 'Store' },
       ],
     },
   ],
