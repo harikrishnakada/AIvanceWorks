@@ -6,7 +6,7 @@ import { JsonLd } from '@/components/seo/JsonLd';
 import { SITE_CONFIG } from '@/lib/constants';
 import { getServicePageData } from '@/lib/content';
 import { ServiceDetailTemplate } from '@/components/templates';
-import { DiscoveryBeforeAfter } from '@/components/signature';
+import { DiscoveryBeforeAfter, DiscoveryHeroIllustration } from '@/components/signature';
 
 const SLUG = 'product-discovery';
 
@@ -56,7 +56,11 @@ export default async function ProductDiscoveryPage() {
   return (
     <>
       <JsonLd data={schema} />
-      <ServiceDetailTemplate data={data} signature={<DiscoveryBeforeAfter />} />
+      <ServiceDetailTemplate
+          data={data}
+          signature={<DiscoveryBeforeAfter />}
+          heroIllustration={<DiscoveryHeroIllustration />}
+        />
     </>
   );
 }

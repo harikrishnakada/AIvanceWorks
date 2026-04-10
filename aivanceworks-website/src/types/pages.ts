@@ -146,7 +146,14 @@ export type SectionKey =
   | 'complianceSpotlight'
   | 'personaComparison'
   | 'relatedPages'
+  | 'imageFeatures'
   | 'signature';
+
+export interface ImageFeatureData {
+  heading: string;
+  description: string;
+  image: { src: string; alt: string };
+}
 
 // ─── Base page data ─────────────────────────────────────
 
@@ -172,6 +179,7 @@ export interface BasePageData {
     primaryCta: CTA;
     secondaryCta?: CTA;
     metrics?: HeroMetric[];
+    heroImage?: { src: string; alt: string };
   };
 
   metricsStrip?: HeroMetric[];
@@ -204,6 +212,7 @@ export interface SolutionPageData extends BasePageData {
   industryMetrics?: HeroMetric[];
   complianceDetail?: ComplianceDetail;
   caseStudySpotlight?: CaseStudyRef;
+  imageFeatures?: ImageFeatureData[];
   signatureComponent: string; // component identifier, e.g. 'PortalArchitectureMap'
 }
 

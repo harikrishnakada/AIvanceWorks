@@ -1286,6 +1286,35 @@ This is the single most powerful move for making a page feel intentional. An ung
 
 Decorative images (background textures, abstract shapes) use `alt=""` and `aria-hidden="true"`.
 
+### 11.5 Two-track imagery strategy (v1.2)
+
+**Rationale:** Brainstormed and approved 2026-04-10, refined same day. Solution pages sell domain expertise to industry buyers — photos build "they understand our world" trust. Service pages sell abstract processes — stock photos add nothing; illustrations and interactivity communicate the value better.
+
+**Hero component** (`components/shared/sections/Hero.tsx`):
+- All heroes render inside a **box card** matching the homepage style: `rounded-2xl lg:rounded-3xl`, `border border-white/[0.06]`, `shadow-brand-panel`, glow orbs, grid overlay.
+- The hero is **not** a full-bleed section — it sits within page padding (`px-4 sm:px-6 md:px-8 lg:px-12`), creating the "inset card" feel.
+
+**Solution pages** (`/solutions/*`):
+- **Hero:** Full-bleed background image inside the box card. Photo covers the entire card at reduced opacity (`opacity-40`). A left-to-right gradient scrim (dark → transparent) ensures text readability. Content overlaid on the left (`max-w-2xl`). Metrics render inline below CTAs with a `border-t` divider.
+- **Mid-page:** 2-3 `ImageFeature` sections with alternating text/image layout. Images display at original colors (no CSS filters). Images use `fill` + `object-cover` inside an `aspect-[3/2]` container.
+- **Photo sourcing:** Unsplash (§11.3 criteria apply). Original photos, no color grading filters. Human faces preferred, industry-appropriate, diverse, no clichés.
+- **Photo storage:** `public/images/solutions/{slug}/hero.jpg`, `feature-1.jpg`, `feature-2.jpg`.
+
+**Service pages** (`/services/*`):
+- **Hero:** Box card with inline SVG illustration in the right column. Text left, illustration right in a two-column grid. Metrics render inline below CTAs (not in a separate MetricsCard).
+- **Illustrations:** Inline SVG components in `components/signature/`. Use CSS variables for colors (`var(--brand-*)`, `var(--accent-*)`), `<title>` + `<desc>` for accessibility.
+- **Animations:** Scroll-triggered step reveals on ProcessTimeline via `useScrollReveal` hook + `scroll-stagger` CSS class.
+- **Signatures:** Interactive — click-to-expand (DiscoveryBeforeAfter), phase-focus (MvpDualTrackRoadmap). Both are `'use client'` components with `useState`.
+
+**Imagery workflow for new pages** (integrated into §13 Step 7.5):
+1. **Research:** Identify 3-4 photo subjects per solution page (hero + 2-3 features) based on the industry and buyer persona.
+2. **Source:** Download from Unsplash. Landscape orientation, minimum 1200px wide, JPEG format.
+3. **Store:** `public/images/solutions/{slug}/hero.jpg`, `feature-1.jpg`, etc.
+4. **Data:** Add `heroImage` to the `hero` block and `imageFeatures` array to the data file. Add `'imageFeatures'` to the `composition` array after `'featureGrid'`.
+5. **For services:** Create an inline SVG illustration component in `components/signature/` and pass it via `heroIllustration` prop from the page route.
+
+**Driven by pages:** all 5 pilot pages.
+
 ---
 
 ## 12. How to deviate from this document
@@ -1386,6 +1415,29 @@ Create `src/data/services/<slug>.ts` or `src/data/solutions/<slug>.ts` with the 
 
 **Output:** working data file with all required fields, plus `_unverified` list populated for any unverified claims.
 
+### Step 7.5 — Source and configure imagery (v1.2)
+
+This step applies differently based on page type. See §11.5 for the full imagery strategy.
+
+**For solution pages:**
+
+1. Research 3 photo subjects: 1 hero + 2 features. Match the industry and buyer persona — a patient portal hero should show clinical technology in use, not a generic office.
+2. Source from Unsplash. Landscape, minimum 1200px wide, JPEG. Follow §11.3 selection criteria (industry-appropriate, human faces, diversity, no clichés).
+3. Download to `public/images/solutions/{slug}/hero.jpg`, `feature-1.jpg`, `feature-2.jpg`.
+4. Add `heroImage: { src: '/images/solutions/{slug}/hero.jpg', alt: '...' }` to the `hero` block in the data file.
+5. Add `imageFeatures` array with heading, description, and image for each feature.
+6. Add `'imageFeatures'` to the `composition` array (after `'featureGrid'`).
+
+**For service pages:**
+
+1. Design an abstract SVG illustration themed to the service (see pilot examples: `DiscoveryHeroIllustration`, `MvpHeroIllustration`).
+2. Create the component in `components/signature/{Name}HeroIllustration.tsx`. Use CSS variables, include `<title>` and `<desc>`.
+3. Export from `components/signature/index.ts`.
+4. In the page route file, import and pass via `heroIllustration={<{Name}HeroIllustration />}` to `ServiceDetailTemplate`.
+5. Ensure `metricsStrip` is populated in the data file (metrics display below the hero, not in the hero card).
+
+**Output:** imagery files in place, data file updated with image references, page route wired.
+
 ### Step 8 — Content integrity pass
 
 Walk every number, quote, logo, and claim in the data file. For each:
@@ -1452,6 +1504,8 @@ Expected outputs:
 - A composition sheet (ordered section list with tone annotations).
 - The new data file at src/data/services/<slug>.ts.
 - The page file at app/services/<slug>/page.tsx (if the route doesn't already exist).
+- A hero SVG illustration component at components/signature/<Name>HeroIllustration.tsx (per §11.5 imagery workflow).
+- The page route must pass heroIllustration={<...HeroIllustration />} to ServiceDetailTemplate.
 - Any new signature component file at components/signature/<Name>.tsx.
 - Any new shared component file at components/shared/sections/<Name>.tsx (only if reused by a second page).
 - A diff to the constitution if you deviated from anything.
@@ -1481,8 +1535,10 @@ Archetype guidance: regulated industries default to Archetype C unless the buyer
 
 Expected outputs:
 - A composition sheet (ordered section list with tone annotations).
-- src/data/solutions/<slug>.ts with a complete SolutionPageData object matching src/types/pages.ts.
+- src/data/solutions/<slug>.ts with a complete SolutionPageData object matching src/types/pages.ts, including heroImage and imageFeatures data (per §11.5 imagery workflow).
+- 3 Unsplash photos downloaded to public/images/solutions/<slug>/ (hero.jpg, feature-1.jpg, feature-2.jpg).
 - app/solutions/<slug>/page.tsx (if the route doesn't already exist).
+- 'imageFeatures' included in the composition array (after 'featureGrid').
 - Any new signature component at components/signature/<Name>.tsx.
 - Any new shared component at components/shared/sections/<Name>.tsx (only if reused).
 - A diff to the constitution if deviated.
@@ -1734,7 +1790,7 @@ These are things the v1.0 constitution does not resolve. They are here so future
 2. **Case study library.** `CaseStudySpotlight` is defined but there is no content library yet. Deferred until at least 2 verified cases exist.
 3. **Internationalization.** All copy is en-US. i18n would affect the data schema (all strings become localized records). Deferred indefinitely — no current business need.
 4. **Dark-mode by user preference.** The theme-switch system supports multiple themes but the pilot only exposes `blue`. If a user-facing dark mode is added, `tone="dark"` sections will need to re-check contrast against the dark-mode palette.
-5. **Animation standards.** `globals.css` has `.reveal` and `.card-hover` utilities, but there is no documented standard for scroll-triggered or on-view animations. Needed when signature sections want motion.
+5. **Animation standards (partially resolved v1.1).** Scroll-triggered reveals use `useScrollReveal` hook + `scroll-animations.css` with IntersectionObserver and CSS `@keyframes`. `prefers-reduced-motion` respected. Interactive signature components use CSS transitions. Full motion design language (page transitions, loading states) remains deferred.
 6. **SEO page schema variants.** `src/lib/schema.ts` needs extensions for `Service` and `Product` schema JSON-LD variants that the solution pages use. Deferred to the pilot implementation.
 7. **Lead-magnet / content-upgrade slots.** Sections like "Download the HIPAA portal checklist" are hinted at in the marketing brief but not in the pilot. Future sections: `LeadMagnetBlock`, `DownloadCTA`.
 8. **A/B testing of composition.** No framework for testing alternate compositions yet. Deferred until traffic justifies it.
@@ -1748,6 +1804,8 @@ These are things the v1.0 constitution does not resolve. They are here so future
 | Version | Date | Changes |
 |---|---|---|
 | **1.0** | 2026-04-08 | Initial constitution. Pilot scope: `/services/product-discovery`, `/services/mvp-development`, `/solutions/patient-portals`, `/solutions/insurance-portals`. Establishes Option B direction (shared library + two template variants), the four tones, the four archetypes, the shared component library, the theming hard rules, the data schema, content integrity rules, responsiveness standards, signature section pattern, 10-step creation process, and 5 prompt templates. |
+| **1.1** | 2026-04-10 | Two-track imagery strategy: photo-driven solutions, illustration-driven services. New `ImageFeature` section component. Interactive signature components. Scroll-triggered animations. Resolves open question #5 (animation standards, partial). |
+| **1.2** | 2026-04-10 | Hero redesigned as box card matching homepage. Solution hero images changed from split layout to full-bleed background with gradient scrim. Removed CSS color filters — photos display at original colors. Added Step 7.5 (imagery workflow) to 10-step process. Updated prompt templates §14.1 and §14.2 with imagery deliverables. |
 
 ---
 

@@ -1,15 +1,23 @@
 ---
-name: Services/Solutions imagery strategy is deferred and research-driven
-description: Pilot pages defer imagery to a per-page research phase before Phase 5/6 of the design system pilot
+name: Services/Solutions imagery strategy — RESOLVED
+description: Imagery decisions made and implemented for all 5 pilot pages (2026-04-10). Full workflow documented in constitution §11.5 v1.2 + Step 7.5.
 type: project
 ---
 
-Imagery on services/solutions pages is a per-page lead-generation strategy decision, not a uniform technical default. The current design system pilot (see project_pilot_scope) explicitly ships without photographs in Phases 1–4 and will re-evaluate before Phase 5 (signature components) or Phase 6 (pilot data files).
+Imagery decisions were made and implemented on 2026-04-10. See constitution §11.5 (v1.2), Step 7.5, and spec at `docs/superpowers/specs/2026-04-10-imagery-strategy-design.md`.
 
-**Why:** User wants each pilot page (Product Discovery, MVP Development, Patient Portals, Insurance Portals) to get its imagery treatment based on its specific conversion strategy — options range from no imagery (dark gradient hero only) to right-column hero image, full-bleed photo hero, or mid-page ImageFeature sections. The spec's current "no imagery" stance was chosen because no real case photos were approved; it is not a permanent design choice. Constitution §11 already allows Unsplash (color-graded) and inline SVG; the question is strategic placement per page, not whether imagery is allowed.
+**Summary:**
+- All heroes render inside a **box card** matching the homepage style (rounded corners, border, glow, grid)
+- Solutions (patient-portals, insurance-portals, e-commerce-websites): Full-bleed background image in hero box card (opacity-40, gradient scrim for text readability) + 2 ImageFeature sections mid-page
+- Services (product-discovery, mvp-development): SVG illustration in hero right column + scroll animations + interactive signatures
+- Photos: Unsplash, **original colors** (no CSS filters). Stored in `public/images/solutions/{slug}/`
+- Spot SVG illustrations for service feature sections: deferred to follow-up
 
-**How to apply:**
-1. Before Phase 5 or Phase 6 starts, stop and ask the user for the per-page imagery decisions: (a) hero treatment, (b) mid-page photos, (c) source + brand grading approach. Do not guess.
-2. If the user asks for imagery support to be added, the minimal shared-component changes are: extend `Hero` with optional `heroImage?: { src, alt }`, optionally add a new `ImageFeature` section (left-text / right-image), extend `BasePageData` types accordingly. Keep fields optional so pages opt in.
-3. Do not pre-build speculative image components or add `imagePath` fields to data files before the research is in.
-4. `CaseStudySpotlight` remains deferred until real case studies are approved — separate from the hero/mid-page imagery decision.
+**Workflow for new pages (constitution Step 7.5):**
+1. Research photo subjects (solutions) or design SVG illustration (services)
+2. Source from Unsplash / create SVG component
+3. Store in `public/images/solutions/{slug}/` or `components/signature/`
+4. Add `heroImage` + `imageFeatures` to data file (solutions) or pass `heroIllustration` from page route (services)
+5. Add `'imageFeatures'` to composition array
+
+**How to apply:** When adding new solution pages, follow the photo-driven pattern. When adding new service pages, follow the illustration-driven pattern. Constitution §11.5 and §13 Step 7.5 have full details. Prompt templates §14.1 and §14.2 include imagery deliverables.

@@ -39,6 +39,7 @@ const eCommerceWebsites: SolutionPageData = {
     'hero',
     'metricsStrip',
     'featureGrid',
+    'imageFeatures',
     'signature',
     'benefitsGrid',
     'techStackBlock',
@@ -58,6 +59,10 @@ const eCommerceWebsites: SolutionPageData = {
       'Custom Next.js storefronts on Azure/AWS with AI-powered personalisation, tokenized checkout, and full platform-migration expertise. Architected for Core Web Vitals leadership and to scale without per-transaction platform fees.',
     primaryCta: { label: 'Book a Discovery Call', href: '/contact' },
     secondaryCta: { label: 'See the AI showcase', href: '#signature' },
+    heroImage: {
+      src: '/images/solutions/e-commerce-websites/hero.jpg',
+      alt: 'E-commerce fulfillment operation with digital inventory management',
+    },
     metrics: [
       {
         value: 'Sub-1.5s',
@@ -316,6 +321,25 @@ const eCommerceWebsites: SolutionPageData = {
       question: 'What does ongoing maintenance and support look like after launch?',
       answer:
         'We offer tiered managed service agreements covering security patching, dependency updates, performance monitoring, and a monthly allocation of engineering hours for new features and optimisations. The codebase is fully documented and handed over to you, so you are never locked into our support — you can choose to maintain it in-house, with another agency, or with us.',
+    },
+  ],
+
+  imageFeatures: [
+    {
+      heading: 'Storefronts That Convert, Not Just Display',
+      description: 'AI-powered product recommendations, dynamic pricing, and optimized checkout flows. Every storefront decision is backed by conversion data, not guesswork.',
+      image: {
+        src: '/images/solutions/e-commerce-websites/feature-1.jpg',
+        alt: 'Shopper browsing products on a mobile e-commerce application',
+      },
+    },
+    {
+      heading: 'Real-Time Analytics You Can Act On',
+      description: 'Conversion funnels, cart abandonment tracking, and revenue dashboards — all in one place. See what\'s working, what\'s not, and where to invest next.',
+      image: {
+        src: '/images/solutions/e-commerce-websites/feature-2.jpg',
+        alt: 'E-commerce performance dashboard showing conversion analytics and revenue data',
+      },
     },
   ],
 

@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "./themes/blue.css";
 @import "./themes/purple.css";
+@import './scroll-animations.css';
 
 /* ─── Theme Token Bridge ───
    @theme generates Tailwind utilities (bg-brand-600, text-accent-400, etc.)

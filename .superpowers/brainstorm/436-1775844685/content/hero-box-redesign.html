@@ -1,0 +1,178 @@
+<h2>Hero Redesign: Box Style with Blended Image</h2>
+<p class="subtitle">Matching your homepage "box" hero — contained card, image blends into background, content-dense. Click to select.</p>
+
+<div class="cards" style="display: grid; grid-template-columns: 1fr; gap: 2rem;">
+
+  <!-- Option A: Split Box with mask-image fade -->
+  <div class="card" data-choice="split-box-mask" onclick="toggleSelect(this)" style="overflow: hidden;">
+    <div class="card-body" style="padding: 0;">
+      <div style="padding: 1.25rem 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+          <span style="background: #3b82f6; color: white; font-weight: 700; border-radius: 6px; padding: 0.25rem 0.75rem; font-size: 0.85rem;">A</span>
+          <h3 style="margin: 0; font-size: 1.2rem;">Split Box + Image Mask-Fade (Recommended)</h3>
+        </div>
+        <p style="margin: 0; color: #999; font-size: 0.85rem;">Homepage-style rounded card. Image on right fades into the dark background via CSS mask-image. Metrics inline below CTAs. Content-dense left column.</p>
+      </div>
+      <div style="padding: 1.5rem; background: #0a0a0a;">
+        <!-- Outer page background simulation -->
+        <div style="margin: 0 auto; max-width: 100%;">
+          <!-- The "box" hero card -->
+          <div style="background: linear-gradient(135deg, #0f172a 0%, #1a1a2e 50%, #0f172a 100%); border-radius: 16px; border: 1px solid rgba(255,255,255,0.06); overflow: hidden; position: relative;">
+            <!-- Subtle grid overlay -->
+            <div style="position: absolute; inset: 0; background-image: linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px); background-size: 40px 40px; pointer-events: none;"></div>
+
+            <div style="display: grid; grid-template-columns: 1.1fr 0.9fr; position: relative; z-index: 1;">
+              <!-- Left: Content (dense) -->
+              <div style="padding: 2rem 1.5rem;">
+                <!-- Badge -->
+                <div style="display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.55rem; color: #60a5fa; background: rgba(59,130,246,0.12); border: 1px solid rgba(59,130,246,0.15); padding: 0.15rem 0.5rem; border-radius: 99px; margin-bottom: 0.6rem;">
+                  Healthcare Solutions
+                </div>
+                <!-- Headline -->
+                <div style="font-size: 1.15rem; font-weight: 700; color: #f1f5f9; margin-bottom: 0.4rem; line-height: 1.25; letter-spacing: -0.01em;">
+                  HIPAA-Compliant Patient Portals
+                </div>
+                <!-- Subhead -->
+                <div style="font-size: 0.62rem; color: #94a3b8; line-height: 1.6; margin-bottom: 0.6rem; max-width: 90%;">
+                  Secure portal experiences that connect patients to care teams with real-time records, messaging, and scheduling — audit-ready from day one.
+                </div>
+                <!-- CTAs -->
+                <div style="display: flex; gap: 0.4rem; margin-bottom: 0.8rem;">
+                  <div style="background: #3b82f6; color: white; padding: 0.22rem 0.65rem; border-radius: 6px; font-size: 0.55rem; font-weight: 500;">Get Started</div>
+                  <div style="border: 1px solid rgba(255,255,255,0.15); color: #94a3b8; padding: 0.22rem 0.65rem; border-radius: 6px; font-size: 0.55rem;">See Case Study</div>
+                </div>
+                <!-- Inline metrics (trust strip) -->
+                <div style="display: flex; gap: 1rem; padding-top: 0.6rem; border-top: 1px solid rgba(255,255,255,0.06);">
+                  <div>
+                    <div style="font-size: 0.85rem; font-weight: 700; color: #60a5fa;">99.9%</div>
+                    <div style="font-size: 0.45rem; color: #64748b;">Uptime SLA</div>
+                  </div>
+                  <div>
+                    <div style="font-size: 0.85rem; font-weight: 700; color: #60a5fa;">40%</div>
+                    <div style="font-size: 0.45rem; color: #64748b;">Fewer No-Shows</div>
+                  </div>
+                  <div>
+                    <div style="font-size: 0.85rem; font-weight: 700; color: #60a5fa;">HIPAA</div>
+                    <div style="font-size: 0.45rem; color: #64748b;">Compliant</div>
+                  </div>
+                </div>
+              </div>
+              <!-- Right: Image with mask fade -->
+              <div style="position: relative; min-height: 200px;">
+                <!-- Simulated image area -->
+                <div style="position: absolute; inset: 0; background: linear-gradient(135deg, #1a4a6c 0%, #2a5a7c 40%, #1a3a5c 100%); display: flex; align-items: center; justify-content: center;">
+                  <div style="text-align: center;">
+                    <div style="font-size: 2.5rem;">👩‍⚕️</div>
+                    <div style="font-size: 0.45rem; color: #e2e8f0; margin-top: 0.25rem; font-style: italic;">Photo: clinical setting</div>
+                  </div>
+                </div>
+                <!-- Mask fade on left edge -->
+                <div style="position: absolute; inset: 0; background: linear-gradient(to right, #0f172a 0%, transparent 30%); pointer-events: none;"></div>
+                <!-- Mask fade on bottom -->
+                <div style="position: absolute; inset: 0; background: linear-gradient(to top, #0f172a 0%, transparent 25%); pointer-events: none;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="text-align: center; padding: 0.4rem; margin-top: 0.75rem; background: rgba(59,130,246,0.05); border-radius: 4px;">
+          <span style="color: #64748b; font-size: 0.55rem; font-style: italic;">Box card with rounded corners + image fades into dark bg via mask-image + metrics inline below CTAs</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Option B: Full-bleed background image box -->
+  <div class="card" data-choice="fullbleed-box" onclick="toggleSelect(this)" style="overflow: hidden;">
+    <div class="card-body" style="padding: 0;">
+      <div style="padding: 1.25rem 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+          <span style="background: #10b981; color: white; font-weight: 700; border-radius: 6px; padding: 0.25rem 0.75rem; font-size: 0.85rem;">B</span>
+          <h3 style="margin: 0; font-size: 1.2rem;">Full-Bleed Image Background Box</h3>
+        </div>
+        <p style="margin: 0; color: #999; font-size: 0.85rem;">Image covers the entire box as background. Text overlaid with gradient scrim on left. Maximum visual impact.</p>
+      </div>
+      <div style="padding: 1.5rem; background: #0a0a0a;">
+        <div style="background: linear-gradient(135deg, #1a3a5c 0%, #2a5a7c 30%, #1a4a6c 100%); border-radius: 16px; border: 1px solid rgba(255,255,255,0.06); overflow: hidden; position: relative; min-height: 200px;">
+          <!-- Simulated photo background -->
+          <div style="position: absolute; inset: 0; opacity: 0.4;"></div>
+          <!-- Gradient scrim (left-to-right dark) -->
+          <div style="position: absolute; inset: 0; background: linear-gradient(to right, rgba(15,23,42,0.9) 0%, rgba(15,23,42,0.6) 40%, transparent 70%);"></div>
+          <!-- Content overlay -->
+          <div style="position: relative; z-index: 1; padding: 2rem 1.5rem; max-width: 55%;">
+            <div style="display: inline-flex; font-size: 0.55rem; color: #60a5fa; background: rgba(59,130,246,0.15); padding: 0.15rem 0.5rem; border-radius: 99px; margin-bottom: 0.5rem; backdrop-filter: blur(4px);">Healthcare Solutions</div>
+            <div style="font-size: 1.15rem; font-weight: 700; color: #ffffff; margin-bottom: 0.4rem; line-height: 1.25; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">HIPAA-Compliant Patient Portals</div>
+            <div style="font-size: 0.62rem; color: #e2e8f0; line-height: 1.6; margin-bottom: 0.6rem; text-shadow: 0 1px 4px rgba(0,0,0,0.3);">Secure portal experiences that connect patients to care teams with real-time records, messaging, and scheduling.</div>
+            <div style="display: flex; gap: 0.4rem; margin-bottom: 0.8rem;">
+              <div style="background: #3b82f6; color: white; padding: 0.22rem 0.65rem; border-radius: 6px; font-size: 0.55rem;">Get Started</div>
+              <div style="border: 1px solid rgba(255,255,255,0.4); color: white; padding: 0.22rem 0.65rem; border-radius: 6px; font-size: 0.55rem; backdrop-filter: blur(4px);">Case Study</div>
+            </div>
+            <div style="display: flex; gap: 1rem; padding-top: 0.6rem; border-top: 1px solid rgba(255,255,255,0.1);">
+              <div><div style="font-size: 0.8rem; font-weight: 700; color: #fff;">99.9%</div><div style="font-size: 0.45rem; color: #cbd5e1;">Uptime</div></div>
+              <div><div style="font-size: 0.8rem; font-weight: 700; color: #fff;">40%</div><div style="font-size: 0.45rem; color: #cbd5e1;">Fewer No-Shows</div></div>
+              <div><div style="font-size: 0.8rem; font-weight: 700; color: #fff;">HIPAA</div><div style="font-size: 0.45rem; color: #cbd5e1;">Compliant</div></div>
+            </div>
+          </div>
+          <div style="position: absolute; top: 8px; right: 8px; background: rgba(0,0,0,0.5); padding: 0.1rem 0.35rem; border-radius: 3px; z-index: 2;"><span style="font-size: 0.4rem; color: #94a3b8;">[ full photo background ]</span></div>
+        </div>
+        <div style="text-align: center; padding: 0.4rem; margin-top: 0.75rem; background: rgba(16,185,129,0.05); border-radius: 4px;">
+          <span style="color: #64748b; font-size: 0.55rem; font-style: italic;">Photo fills entire box as background — gradient scrim ensures text readability</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Option C: Box with image in constrained right panel -->
+  <div class="card" data-choice="constrained-box" onclick="toggleSelect(this)" style="overflow: hidden;">
+    <div class="card-body" style="padding: 0;">
+      <div style="padding: 1.25rem 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+          <span style="background: #f59e0b; color: #111; font-weight: 700; border-radius: 6px; padding: 0.25rem 0.75rem; font-size: 0.85rem;">C</span>
+          <h3 style="margin: 0; font-size: 1.2rem;">Box with Rounded Image Panel</h3>
+        </div>
+        <p style="margin: 0; color: #999; font-size: 0.85rem;">Image sits in a rounded inset panel on the right — a visible card-within-a-card. Clean separation between content and image.</p>
+      </div>
+      <div style="padding: 1.5rem; background: #0a0a0a;">
+        <div style="background: linear-gradient(135deg, #0f172a 0%, #1a1a2e 50%, #0f172a 100%); border-radius: 16px; border: 1px solid rgba(255,255,255,0.06); overflow: hidden; padding: 1.5rem; position: relative;">
+          <div style="position: absolute; inset: 0; background-image: linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px); background-size: 40px 40px; pointer-events: none;"></div>
+          <div style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 1.25rem; position: relative; z-index: 1; align-items: center;">
+            <div>
+              <div style="display: inline-flex; font-size: 0.55rem; color: #60a5fa; background: rgba(59,130,246,0.12); border: 1px solid rgba(59,130,246,0.15); padding: 0.15rem 0.5rem; border-radius: 99px; margin-bottom: 0.5rem;">Healthcare Solutions</div>
+              <div style="font-size: 1.15rem; font-weight: 700; color: #f1f5f9; margin-bottom: 0.4rem; line-height: 1.25;">HIPAA-Compliant Patient Portals</div>
+              <div style="font-size: 0.62rem; color: #94a3b8; line-height: 1.6; margin-bottom: 0.6rem;">Secure portal experiences that connect patients to care teams with real-time records, messaging, and scheduling.</div>
+              <div style="display: flex; gap: 0.4rem; margin-bottom: 0.8rem;">
+                <div style="background: #3b82f6; color: white; padding: 0.22rem 0.65rem; border-radius: 6px; font-size: 0.55rem;">Get Started</div>
+                <div style="border: 1px solid rgba(255,255,255,0.15); color: #94a3b8; padding: 0.22rem 0.65rem; border-radius: 6px; font-size: 0.55rem;">Case Study</div>
+              </div>
+              <div style="display: flex; gap: 1rem; padding-top: 0.6rem; border-top: 1px solid rgba(255,255,255,0.06);">
+                <div><div style="font-size: 0.8rem; font-weight: 700; color: #60a5fa;">99.9%</div><div style="font-size: 0.45rem; color: #64748b;">Uptime</div></div>
+                <div><div style="font-size: 0.8rem; font-weight: 700; color: #60a5fa;">40%</div><div style="font-size: 0.45rem; color: #64748b;">Fewer No-Shows</div></div>
+                <div><div style="font-size: 0.8rem; font-weight: 700; color: #60a5fa;">HIPAA</div><div style="font-size: 0.45rem; color: #64748b;">Compliant</div></div>
+              </div>
+            </div>
+            <!-- Right: Rounded image panel -->
+            <div style="background: linear-gradient(135deg, #1a4a6c, #2a5a7c); border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.06);">
+              <div style="text-align: center;">
+                <div style="font-size: 2.5rem;">👩‍⚕️</div>
+                <div style="font-size: 0.45rem; color: #e2e8f0; margin-top: 0.25rem; font-style: italic;">Photo: clinical setting</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="text-align: center; padding: 0.4rem; margin-top: 0.75rem; background: rgba(245,158,11,0.05); border-radius: 4px;">
+          <span style="color: #64748b; font-size: 0.55rem; font-style: italic;">Image in visible rounded panel — clean separation, consistent height</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="margin-top: 1.5rem; padding: 1rem; background: rgba(139,92,246,0.08); border: 1px solid rgba(139,92,246,0.15); border-radius: 8px;">
+  <h3 style="margin-top: 0; font-size: 0.9rem; color: #a78bfa;">My Recommendation: Option A</h3>
+  <div style="font-size: 0.75rem; color: var(--text-secondary); line-height: 1.7;">
+    <strong style="color: var(--text-primary);">A (Split Box + Mask-Fade)</strong> matches your homepage's box style, makes the image blend seamlessly via CSS <code>mask-image</code> (no overlays that muddy the photo), and packs content densely with inline metrics below CTAs. The key changes from current:<br/><br/>
+    1. <strong>Box wrapper:</strong> <code>rounded-2xl border border-white/[0.06] overflow-hidden</code> — matches homepage HeroSection<br/>
+    2. <strong>Image blend:</strong> <code>mask-image: linear-gradient(to right, transparent, black 30%)</code> — image dissolves into dark bg from left edge<br/>
+    3. <strong>Metrics inline:</strong> Below CTAs with a subtle top border — fills the "empty space"<br/>
+    4. <strong>No empty space:</strong> Tighter padding, metrics fill the gap that existed below CTAs
+  </div>
+</div>

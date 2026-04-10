@@ -16,25 +16,31 @@ This spec defines the per-page imagery strategy for the 5 pilot pages in the ser
 
 **Pages:** Patient Portals, Insurance Portals, E-commerce Websites
 
-### 1.1 Hero Treatment — Split Layout (Text Left / Photo Right)
+### 1.1 Hero Treatment — Full-Bleed Background Image in Box Card (REVISED)
 
-- Left column: badge, headline, subhead, CTAs (unchanged)
-- Right column: Unsplash photo in a rounded container with color grading
-- Metrics card stays in the hero — positioned as an overlay on the photo's lower edge, or stacked below the photo within the right column (implementation decides based on visual balance)
+> **Revised 2026-04-10:** Changed from split layout to full-bleed background. Removed CSS color filters.
+
+- Hero renders inside a **box card** matching the homepage: `rounded-2xl lg:rounded-3xl`, `border border-white/[0.06]`, `shadow-brand-panel`, glow orbs, grid overlay.
+- Photo covers the entire card as a **background image** at `opacity-40` using `fill` + `object-cover`.
+- A **left-to-right gradient scrim** (`from-[var(--surface-dark-from)]/90 via-[var(--surface-dark-via)]/70 to-transparent`) ensures text readability on the left while showing the photo on the right.
+- A **bottom fade** gradient blends the card into the next section.
+- Content overlaid on the left side (`max-w-2xl`): badge, headline, subhead, CTAs, inline metrics.
+- Metrics render **inline below CTAs** with a `border-t` divider — not in a separate MetricsCard.
+- Photos display at **original colors** — no CSS filters (saturate, contrast, sepia, hue-rotate removed).
 - Photo selection criteria per constitution §11.3:
   - Industry-appropriate scenes (clinical for healthcare, corporate for insurance, storefront/digital for e-commerce)
   - Human faces strongly preferred
   - Diversity in age, gender, ethnicity
   - No clichés (no handshakes, no blue-brain circuitry, no stacks of coins)
-- Color grading: 10-20% desaturation, cool blue temperature shift, consistent contrast curve
 
 ### 1.2 Mid-Page — ImageFeature Sections (2-3 per page)
 
 - New `ImageFeature` component: text on one side, photo on the other
 - Alternating layout: first instance text-left/image-right, second text-right/image-left, etc.
 - Photos illustrate the specific feature described in the adjacent text
-- Same color grading as hero photos
-- Next.js `<Image>` component with proper `sizes`, `priority` (hero only), and `alt` text per constitution §11.4
+- Original photo colors — no CSS filters applied
+- Images use `fill` + `object-cover` inside an `aspect-[3/2]` container for consistent sizing
+- Next.js `<Image>` component with proper `sizes` and `alt` text per constitution §11.4
 
 ### 1.3 Photo Requirements Per Page
 
@@ -108,23 +114,20 @@ Existing signature components (PortalArchitectureMap, ClaimsFlowComparison, Ecom
 
 ## 3. Component Changes
 
-### 3.1 Modified: `Hero` Component
+### 3.1 Modified: `Hero` Component (REVISED v1.2)
 
 ```typescript
 // Added to HeroProps
-heroImage?: {
-  src: string;
-  alt: string;
-  width?: number;
-  height?: number;
-};
+heroImage?: { src: string; alt: string };
 heroIllustration?: ReactNode;
 ```
 
-- When `heroImage` is provided: render Next.js `<Image>` in right column (solutions)
-- When `heroIllustration` is provided: render the ReactNode in right column (services)
-- When neither: current behavior (metrics card in right column, or single column)
-- When `heroImage` or `heroIllustration` is present and `metrics` is also provided: metrics render inside hero below the image/illustration, or the page should use MetricsStrip below hero instead
+**All heroes now render inside a box card** matching the homepage style (`rounded-2xl`, `border`, `shadow-brand-panel`, glow orbs, grid overlay).
+
+- When `heroImage` is provided: photo renders as **full-bleed background** at `opacity-40` with gradient scrim. Content overlaid on left (`max-w-2xl`). Metrics inline below CTAs.
+- When `heroIllustration` is provided: two-column grid (text left, illustration right) inside the box card. Metrics inline below CTAs.
+- When neither: standard layout inside box card (single column or metrics card right column).
+- The `Section` primitive is no longer used for the hero — the component manages its own box card wrapper directly.
 
 ### 3.2 New: `ImageFeature` Section Component
 
@@ -181,15 +184,15 @@ imageFeatures?: Array<{
 
 ---
 
-## 4. Photo Sourcing Approach
+## 4. Photo Sourcing Approach (REVISED v1.2)
 
 - Source: Unsplash (free commercial use) per constitution §11.3
-- Color grading applied via CSS filters on `<Image>` wrapper or pre-processed files:
-  - `filter: saturate(0.85) contrast(1.05)` + subtle blue hue shift via `sepia(0.05) hue-rotate(180deg)`
-  - Or: download and pre-process in image editor for consistency
+- **No CSS color filters** — photos display at original colors. The hero's `opacity-40` + gradient scrim handle integration with the dark card background.
 - Store photos in `public/images/solutions/{slug}/` directory
 - Naming: `hero.jpg`, `feature-1.jpg`, `feature-2.jpg`, `feature-3.jpg`
-- All photos optimized: WebP format via Next.js Image component, proper `sizes` attribute
+- Landscape orientation, minimum 1200px wide, JPEG format
+- All photos optimized via Next.js `<Image>` component with proper `sizes` attribute
+- Hero photos use `fill` + `object-cover` (full-bleed background). Feature photos use `fill` + `object-cover` inside `aspect-[3/2]` containers.
 
 ---
 
@@ -225,14 +228,15 @@ Record the following in the constitution as a deviation (§12):
 
 ---
 
-## 8. Summary Table
+## 8. Summary Table (REVISED v1.2)
 
 | | Solutions (3 pages) | Services (2 pages) |
 |---|---|---|
-| **Hero right column** | Unsplash photo (color-graded) | Abstract SVG illustration |
-| **Metrics** | In hero (right column card) | MetricsStrip below hero |
-| **Mid-page imagery** | 2-3 ImageFeature sections | 3-5 spot SVG illustrations |
+| **Hero** | Full-bleed background photo in box card | SVG illustration (right column) in box card |
+| **Metrics** | Inline below CTAs in hero | Inline below CTAs in hero |
+| **Mid-page imagery** | 2-3 ImageFeature sections (original colors) | Spot SVG illustrations (deferred) |
 | **Animations** | Standard `.reveal` | Scroll-triggered process reveals |
 | **Signatures** | Static (existing) | Interactive (hover/click) |
-| **Photos total** | 9-12 across 3 pages | 0 |
-| **New components** | ImageFeature | Hero illustrations, spot SVGs |
+| **Photos total** | 9 across 3 pages | 0 |
+| **New components** | ImageFeature | Hero illustrations |
+| **Hero style** | Box card (`rounded-2xl`, border, glow, grid) | Box card (same) |

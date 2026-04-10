@@ -36,6 +36,7 @@ const insurancePortals: SolutionPageData = {
     'metricsStrip',
     'personaComparison',
     'featureGrid',
+    'imageFeatures',
     'signature',
     'integrationsPanel',
     'benefitsGrid',
@@ -55,6 +56,10 @@ const insurancePortals: SolutionPageData = {
       'Custom insurance portals that turn manual workflows into self-service: policy management, digital FNOL, AI-assisted document intake, quoting, and co-branded agent tools — integrated with Guidewire, Duck Creek, Applied Epic, and more.',
     primaryCta: { label: 'Book a Discovery Call', href: '/contact' },
     secondaryCta: { label: 'See the claims flow', href: '#signature' },
+    heroImage: {
+      src: '/images/solutions/insurance-portals/hero.jpg',
+      alt: 'Insurance advisor reviewing policy details on a modern workstation',
+    },
     metrics: [
       {
         value: '~75%',
@@ -418,6 +423,25 @@ const insurancePortals: SolutionPageData = {
       question: 'Can you build a portal that is white-labelled for our agents or broker networks?',
       answer:
         'Yes. Multi-tenancy and white-labelling are built-in design considerations, not afterthoughts. Each agency or broker channel can have its own branded subdomain, colour scheme, logo, and custom disclosure text while sharing the same underlying platform. This significantly reduces per-channel cost compared to building separate portals and makes centralised compliance updates straightforward.',
+    },
+  ],
+
+  imageFeatures: [
+    {
+      heading: 'Claims Processing in Minutes, Not Weeks',
+      description: 'Adjusters review, approve, and route claims from a single dashboard with built-in compliance checks. Automation handles the routine, humans handle the exceptions.',
+      image: {
+        src: '/images/solutions/insurance-portals/feature-1.jpg',
+        alt: 'Claims professional reviewing an analytics dashboard with policy data',
+      },
+    },
+    {
+      heading: 'Self-Service That Policyholders Actually Use',
+      description: 'Policyholders manage coverage, file claims, and track status without calling an agent. Designed for adoption — not just built and abandoned.',
+      image: {
+        src: '/images/solutions/insurance-portals/feature-2.jpg',
+        alt: 'Client and insurance advisor meeting with a laptop showing policy details',
+      },
     },
   ],
 

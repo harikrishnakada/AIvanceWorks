@@ -35,6 +35,7 @@ const patientPortals: SolutionPageData = {
     'hero',
     'metricsStrip',
     'featureGrid',
+    'imageFeatures',
     'complianceSpotlight',
     'signature',
     'complianceDeepDive',
@@ -56,6 +57,10 @@ const patientPortals: SolutionPageData = {
       'Secure, HIPAA-compliant portals built on Azure with deep EHR integration, designed around patient workflows to drive real adoption and measurably reduce administrative overhead.',
     primaryCta: { label: 'Book a Discovery Call', href: '/contact' },
     secondaryCta: { label: 'See the architecture', href: '#signature' },
+    heroImage: {
+      src: '/images/solutions/patient-portals/hero.jpg',
+      alt: 'Clinician reviewing patient records on a tablet in a modern healthcare facility',
+    },
     metrics: [
       {
         value: '40–60%',
@@ -436,6 +441,25 @@ const patientPortals: SolutionPageData = {
       question: 'Can you add telehealth video visits to the portal?',
       answer:
         'Yes. We integrate video visit workflows directly into the portal so patients and providers access appointments from a single platform rather than switching between tools. We support Doxy.me, Zoom for Healthcare, and Azure Communication Services depending on your existing contracts and compliance requirements. Telehealth sessions are scheduled through the same appointment module and can trigger automated reminders.',
+    },
+  ],
+
+  imageFeatures: [
+    {
+      heading: 'Real-Time Lab Results at Your Patients\' Fingertips',
+      description: 'Patients see lab values the moment they\'re released by the provider. No more waiting for phone calls or paper mail — instant access builds trust and reduces inbound support calls.',
+      image: {
+        src: '/images/solutions/patient-portals/feature-1.jpg',
+        alt: 'Patient reviewing lab results on a mobile health app',
+      },
+    },
+    {
+      heading: 'Secure Messaging That Meets HIPAA Standards',
+      description: 'HIPAA-compliant chat between patients and care teams with attachment support, read receipts, and audit trails. Keeps communication inside the portal instead of leaking to unsecured email.',
+      image: {
+        src: '/images/solutions/patient-portals/feature-2.jpg',
+        alt: 'Doctor and patient communicating through a secure telehealth session',
+      },
     },
   ],
 

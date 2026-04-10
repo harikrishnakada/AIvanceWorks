@@ -1,0 +1,201 @@
+<h2>Hero Image Placement: When & How</h2>
+<p class="subtitle">Three hero treatments — each suits a different page context. Click to select your preference.</p>
+
+<div class="cards" style="display: grid; grid-template-columns: 1fr; gap: 2rem;">
+
+  <!-- Variant 1: Text-only (current) -->
+  <div class="card" data-choice="text-only" onclick="toggleSelect(this)" style="overflow: hidden;">
+    <div class="card-body" style="padding: 0;">
+      <div style="padding: 1.25rem 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+          <span style="background: #3b82f6; color: white; font-weight: 700; border-radius: 6px; padding: 0.25rem 0.75rem; font-size: 0.85rem;">1</span>
+          <h3 style="margin: 0; font-size: 1.2rem;">Text-Only Hero (current)</h3>
+        </div>
+        <p style="margin: 0; color: #999; font-size: 0.85rem;">Dark gradient, headline, subhead, CTAs. Right column shows metrics card. No photo.</p>
+      </div>
+      <div style="padding: 1.5rem; background: #111;">
+        <div style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%); border-radius: 8px; padding: 1.75rem; position: relative; overflow: hidden;">
+          <div style="position: absolute; top: 0; right: 0; width: 35%; height: 100%; background: radial-gradient(ellipse at 70% 30%, rgba(59,130,246,0.06) 0%, transparent 70%);"></div>
+          <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 1.5rem; align-items: center;">
+            <div>
+              <div style="font-size: 0.6rem; color: #60a5fa; background: rgba(59,130,246,0.15); display: inline-block; padding: 0.15rem 0.5rem; border-radius: 99px; margin-bottom: 0.5rem;">Healthcare Solutions</div>
+              <div style="font-size: 1.1rem; font-weight: 700; color: #f1f5f9; margin-bottom: 0.4rem; line-height: 1.3;">HIPAA-Compliant Patient Portals</div>
+              <div style="font-size: 0.65rem; color: #94a3b8; line-height: 1.6; margin-bottom: 0.6rem;">Secure portal experiences that connect patients to their care teams with real-time access to records.</div>
+              <div style="display: flex; gap: 0.4rem;">
+                <div style="background: #3b82f6; color: white; padding: 0.2rem 0.6rem; border-radius: 5px; font-size: 0.55rem;">Get Started</div>
+                <div style="border: 1px solid #475569; color: #94a3b8; padding: 0.2rem 0.6rem; border-radius: 5px; font-size: 0.55rem;">Case Study</div>
+              </div>
+            </div>
+            <!-- Metrics card -->
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 0.75rem;">
+              <div style="font-size: 0.55rem; font-weight: 600; color: #94a3b8; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em;">Key Results</div>
+              <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+                <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                  <span style="font-size: 0.5rem; color: #94a3b8;">Uptime SLA</span>
+                  <span style="font-size: 0.85rem; font-weight: 700; color: #60a5fa;">99.9%</span>
+                </div>
+                <div style="height: 1px; background: rgba(255,255,255,0.06);"></div>
+                <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                  <span style="font-size: 0.5rem; color: #94a3b8;">Fewer No-Shows</span>
+                  <span style="font-size: 0.85rem; font-weight: 700; color: #60a5fa;">40%</span>
+                </div>
+                <div style="height: 1px; background: rgba(255,255,255,0.06);"></div>
+                <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                  <span style="font-size: 0.5rem; color: #94a3b8;">Compliance</span>
+                  <span style="font-size: 0.85rem; font-weight: 700; color: #60a5fa;">HIPAA</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top: 0.75rem; padding: 0.5rem 0.75rem; background: rgba(59,130,246,0.05); border-radius: 6px; border-left: 3px solid #3b82f6;">
+          <div style="font-size: 0.6rem; font-weight: 600; color: #e2e8f0; margin-bottom: 0.2rem;">Best for:</div>
+          <div style="font-size: 0.55rem; color: #94a3b8; line-height: 1.5;">Pages where <strong style="color:#e2e8f0;">metrics or credibility signals</strong> matter more than emotional connection. The numbers do the convincing — compliance pages, technical services, B2B decision-makers scanning for proof points.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Variant 2: LHS Text / RHS Image -->
+  <div class="card" data-choice="split-image" onclick="toggleSelect(this)" style="overflow: hidden;">
+    <div class="card-body" style="padding: 0;">
+      <div style="padding: 1.25rem 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+          <span style="background: #10b981; color: white; font-weight: 700; border-radius: 6px; padding: 0.25rem 0.75rem; font-size: 0.85rem;">2</span>
+          <h3 style="margin: 0; font-size: 1.2rem;">Split Hero (Text Left / Image Right)</h3>
+        </div>
+        <p style="margin: 0; color: #999; font-size: 0.85rem;">Headline and CTAs on the left, an industry-relevant photo on the right. Image replaces or augments the metrics card.</p>
+      </div>
+      <div style="padding: 1.5rem; background: #111;">
+        <div style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%); border-radius: 8px; padding: 1.75rem; position: relative; overflow: hidden;">
+          <div style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 1.5rem; align-items: center;">
+            <div>
+              <div style="font-size: 0.6rem; color: #60a5fa; background: rgba(59,130,246,0.15); display: inline-block; padding: 0.15rem 0.5rem; border-radius: 99px; margin-bottom: 0.5rem;">Healthcare Solutions</div>
+              <div style="font-size: 1.1rem; font-weight: 700; color: #f1f5f9; margin-bottom: 0.4rem; line-height: 1.3;">HIPAA-Compliant Patient Portals</div>
+              <div style="font-size: 0.65rem; color: #94a3b8; line-height: 1.6; margin-bottom: 0.6rem;">Secure portal experiences that connect patients to their care teams with real-time access to records.</div>
+              <div style="display: flex; gap: 0.4rem;">
+                <div style="background: #3b82f6; color: white; padding: 0.2rem 0.6rem; border-radius: 5px; font-size: 0.55rem;">Get Started</div>
+                <div style="border: 1px solid #475569; color: #94a3b8; padding: 0.2rem 0.6rem; border-radius: 5px; font-size: 0.55rem;">Case Study</div>
+              </div>
+            </div>
+            <!-- Image panel -->
+            <div style="background: linear-gradient(135deg, #1a3a5c 0%, #2a5a7c 50%, #1a4a6c 100%); border-radius: 10px; overflow: hidden; min-height: 140px; display: flex; align-items: center; justify-content: center; position: relative; border: 1px solid rgba(59,130,246,0.15);">
+              <div style="position: absolute; inset: 0; background: linear-gradient(180deg, transparent 60%, rgba(15,23,42,0.4) 100%);"></div>
+              <div style="text-align: center; z-index: 1;">
+                <div style="font-size: 3rem; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));">👩‍⚕️</div>
+                <div style="font-size: 0.5rem; color: #e2e8f0; font-style: italic; padding: 0 0.75rem; margin-top: 0.3rem; text-shadow: 0 1px 2px rgba(0,0,0,0.5);">Photo: Nurse reviewing patient records on tablet</div>
+                <div style="font-size: 0.42rem; color: #94a3b8; margin-top: 0.15rem;">Unsplash · color-graded · rounded corners</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top: 0.75rem; padding: 0.5rem 0.75rem; background: rgba(16,185,129,0.05); border-radius: 6px; border-left: 3px solid #10b981;">
+          <div style="font-size: 0.6rem; font-weight: 600; color: #e2e8f0; margin-bottom: 0.2rem;">Best for:</div>
+          <div style="font-size: 0.55rem; color: #94a3b8; line-height: 1.5;">Pages where <strong style="color:#e2e8f0;">emotional connection and industry identity</strong> matter. Healthcare portal with a nurse, e-commerce with a storefront, insurance with an advisor. Shows the buyer "this is for people like me" immediately.</div>
+        </div>
+        <div style="margin-top: 0.5rem; padding: 0.5rem 0.75rem; background: rgba(255,255,255,0.02); border-radius: 6px; border: 1px solid rgba(255,255,255,0.06);">
+          <div style="font-size: 0.55rem; color: #f59e0b; margin-bottom: 0.15rem;">⚠️ Trade-off</div>
+          <div style="font-size: 0.5rem; color: #94a3b8;">Metrics card moves below the hero (into MetricsStrip). You lose the immediate "proof points in the hero" but gain visual warmth. Can also overlay small metrics on the image.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Variant 3: Full-bleed photo background -->
+  <div class="card" data-choice="full-bleed" onclick="toggleSelect(this)" style="overflow: hidden;">
+    <div class="card-body" style="padding: 0;">
+      <div style="padding: 1.25rem 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+          <span style="background: #f59e0b; color: #111; font-weight: 700; border-radius: 6px; padding: 0.25rem 0.75rem; font-size: 0.85rem;">3</span>
+          <h3 style="margin: 0; font-size: 1.2rem;">Full-Bleed Photo Hero</h3>
+        </div>
+        <p style="margin: 0; color: #999; font-size: 0.85rem;">Photo covers the entire hero section as a background. Text overlaid with a dark gradient scrim for readability.</p>
+      </div>
+      <div style="padding: 1.5rem; background: #111;">
+        <div style="border-radius: 8px; padding: 2.5rem 1.75rem; position: relative; overflow: hidden; min-height: 170px; background: linear-gradient(135deg, #1a3a5c 0%, #2a5a7c 30%, #1a4a6c 60%, #1e293b 100%);">
+          <!-- Simulated photo background -->
+          <div style="position: absolute; inset: 0; opacity: 0.25; background: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22><rect fill=%22%231a3a5c%22 width=%22200%22 height=%22200%22/><circle cx=%2250%22 cy=%2280%22 r=%2230%22 fill=%22%232a5a7c%22 opacity=%220.5%22/><circle cx=%22150%22 cy=%2260%22 r=%2245%22 fill=%22%231a4a6c%22 opacity=%220.4%22/></svg>');"></div>
+          <!-- Dark gradient overlay / scrim -->
+          <div style="position: absolute; inset: 0; background: linear-gradient(to right, rgba(15,23,42,0.85) 0%, rgba(15,23,42,0.7) 45%, rgba(15,23,42,0.3) 100%);"></div>
+          <div style="position: absolute; top: 8px; right: 8px; background: rgba(0,0,0,0.6); padding: 0.15rem 0.5rem; border-radius: 3px; z-index: 2;">
+            <span style="font-size: 0.42rem; color: #94a3b8;">[ Full-bleed background: clinical team in modern hospital facility ]</span>
+          </div>
+          <div style="position: relative; z-index: 1; max-width: 55%;">
+            <div style="font-size: 0.6rem; color: #60a5fa; background: rgba(59,130,246,0.2); display: inline-block; padding: 0.15rem 0.5rem; border-radius: 99px; margin-bottom: 0.5rem; backdrop-filter: blur(4px);">Healthcare Solutions</div>
+            <div style="font-size: 1.2rem; font-weight: 700; color: #ffffff; margin-bottom: 0.4rem; line-height: 1.3; text-shadow: 0 2px 8px rgba(0,0,0,0.4);">HIPAA-Compliant Patient Portals</div>
+            <div style="font-size: 0.65rem; color: #e2e8f0; line-height: 1.6; margin-bottom: 0.6rem; text-shadow: 0 1px 4px rgba(0,0,0,0.4);">Secure portal experiences that connect patients to their care teams with real-time access to records.</div>
+            <div style="display: flex; gap: 0.4rem;">
+              <div style="background: #3b82f6; color: white; padding: 0.2rem 0.6rem; border-radius: 5px; font-size: 0.55rem;">Get Started</div>
+              <div style="border: 1px solid rgba(255,255,255,0.5); color: white; padding: 0.2rem 0.6rem; border-radius: 5px; font-size: 0.55rem; backdrop-filter: blur(4px);">Case Study</div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top: 0.75rem; padding: 0.5rem 0.75rem; background: rgba(245,158,11,0.05); border-radius: 6px; border-left: 3px solid #f59e0b;">
+          <div style="font-size: 0.6rem; font-weight: 600; color: #e2e8f0; margin-bottom: 0.2rem;">Best for:</div>
+          <div style="font-size: 0.55rem; color: #94a3b8; line-height: 1.5;">Pages where the <strong style="color:#e2e8f0;">industry itself is the selling point</strong> — "we understand your world." High emotional impact. Works when you have a great photo. Risky with mediocre stock photos — can look generic fast.</div>
+        </div>
+        <div style="margin-top: 0.5rem; padding: 0.5rem 0.75rem; background: rgba(255,255,255,0.02); border-radius: 6px; border: 1px solid rgba(255,255,255,0.06);">
+          <div style="font-size: 0.55rem; color: #ef4444; margin-bottom: 0.15rem;">⚠️ Trade-offs</div>
+          <div style="font-size: 0.5rem; color: #94a3b8; line-height: 1.5;">
+            • No room for metrics card in the hero<br/>
+            • Text readability depends on photo + scrim quality<br/>
+            • Needs a genuinely good photo — bad stock kills credibility<br/>
+            • Largest performance cost (LCP image)
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Decision framework -->
+<div style="margin-top: 2rem; padding: 1.25rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px;">
+  <h3 style="margin-top: 0; font-size: 1rem;">Decision Framework: When to Use Which</h3>
+  <table style="width: 100%; font-size: 0.7rem; border-collapse: collapse;">
+    <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+      <td style="padding: 0.5rem; color: #64748b; font-weight: 600;">Signal</td>
+      <td style="padding: 0.5rem; color: #3b82f6; text-align: center; font-weight: 600;">Text-Only</td>
+      <td style="padding: 0.5rem; color: #10b981; text-align: center; font-weight: 600;">Split</td>
+      <td style="padding: 0.5rem; color: #f59e0b; text-align: center; font-weight: 600;">Full-Bleed</td>
+    </tr>
+    <tr style="border-bottom: 1px solid rgba(255,255,255,0.06);">
+      <td style="padding: 0.5rem; color: #94a3b8;">Buyer wants proof first</td>
+      <td style="padding: 0.5rem; text-align: center; color: #10b981;">✓</td>
+      <td style="padding: 0.5rem; text-align: center; color: #64748b;">—</td>
+      <td style="padding: 0.5rem; text-align: center; color: #64748b;">—</td>
+    </tr>
+    <tr style="border-bottom: 1px solid rgba(255,255,255,0.06);">
+      <td style="padding: 0.5rem; color: #94a3b8;">Buyer wants to feel understood</td>
+      <td style="padding: 0.5rem; text-align: center; color: #64748b;">—</td>
+      <td style="padding: 0.5rem; text-align: center; color: #10b981;">✓</td>
+      <td style="padding: 0.5rem; text-align: center; color: #10b981;">✓</td>
+    </tr>
+    <tr style="border-bottom: 1px solid rgba(255,255,255,0.06);">
+      <td style="padding: 0.5rem; color: #94a3b8;">Strong industry-specific photo available</td>
+      <td style="padding: 0.5rem; text-align: center; color: #64748b;">—</td>
+      <td style="padding: 0.5rem; text-align: center; color: #10b981;">✓</td>
+      <td style="padding: 0.5rem; text-align: center; color: #10b981;">✓</td>
+    </tr>
+    <tr style="border-bottom: 1px solid rgba(255,255,255,0.06);">
+      <td style="padding: 0.5rem; color: #94a3b8;">Metrics are the hero's main job</td>
+      <td style="padding: 0.5rem; text-align: center; color: #10b981;">✓</td>
+      <td style="padding: 0.5rem; text-align: center; color: #64748b;">—</td>
+      <td style="padding: 0.5rem; text-align: center; color: #64748b;">—</td>
+    </tr>
+    <tr>
+      <td style="padding: 0.5rem; color: #94a3b8;">Service is abstract / process-driven</td>
+      <td style="padding: 0.5rem; text-align: center; color: #10b981;">✓</td>
+      <td style="padding: 0.5rem; text-align: center; color: #64748b;">—</td>
+      <td style="padding: 0.5rem; text-align: center; color: #64748b;">—</td>
+    </tr>
+  </table>
+</div>
+
+<div style="margin-top: 1.5rem; padding: 1rem; background: rgba(139,92,246,0.05); border: 1px solid rgba(139,92,246,0.15); border-radius: 8px;">
+  <h3 style="margin-top: 0; font-size: 0.9rem; color: #a78bfa;">💡 My Recommendation for Your 5 Pages</h3>
+  <div style="font-size: 0.7rem; color: #94a3b8; line-height: 1.7;">
+    <strong style="color: #e2e8f0;">Solutions (industry pages)</strong> → Split hero. These pages sell domain expertise — showing the industry builds trust.<br/>
+    <strong style="color: #e2e8f0;">Services (process pages)</strong> → Text-only hero. Product Discovery and MVP Dev are abstract processes — a stock photo of "people at whiteboards" adds nothing the headline doesn't already say.<br/><br/>
+    <span style="color: #a78bfa;">This gives you a natural visual distinction between solution and service pages without breaking the shared design system.</span>
+  </div>
+</div>

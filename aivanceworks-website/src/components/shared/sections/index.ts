@@ -13,3 +13,4 @@ export { EngagementModels, type EngagementModelsProps, type EngagementModel, typ
 export { ComplianceDeepDive, type ComplianceDeepDiveProps, type SafeguardItem } from './ComplianceDeepDive';
 export { ComplianceSpotlight, type ComplianceSpotlightProps, type CompliancePillar } from './ComplianceSpotlight';
 export { PersonaComparison, type PersonaComparisonProps, type PersonaCard, type PersonaAccent } from './PersonaComparison';
+export { ImageFeature, type ImageFeatureProps } from './ImageFeature';

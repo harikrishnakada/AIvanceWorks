@@ -6,7 +6,7 @@ import { JsonLd } from '@/components/seo/JsonLd';
 import { SITE_CONFIG } from '@/lib/constants';
 import { getServicePageData } from '@/lib/content';
 import { ServiceDetailTemplate } from '@/components/templates';
-import { MvpDualTrackRoadmap } from '@/components/signature';
+import { MvpDualTrackRoadmap, MvpHeroIllustration } from '@/components/signature';
 
 const SLUG = 'mvp-development';
 
@@ -56,7 +56,11 @@ export default async function MvpDevelopmentPage() {
   return (
     <>
       <JsonLd data={schema} />
-      <ServiceDetailTemplate data={data} signature={<MvpDualTrackRoadmap />} />
+      <ServiceDetailTemplate
+          data={data}
+          signature={<MvpDualTrackRoadmap />}
+          heroIllustration={<MvpHeroIllustration />}
+        />
     </>
   );
 }

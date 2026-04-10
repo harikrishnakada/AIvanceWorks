@@ -26,11 +26,17 @@ export interface ServiceDetailTemplateProps {
    * which signature component belongs to which page.
    */
   signature?: ReactNode;
+  /**
+   * Optional illustration rendered in the Hero right column.
+   * When provided, hero metrics are suppressed (they render via MetricsStrip instead).
+   */
+  heroIllustration?: ReactNode;
 }
 
 export const ServiceDetailTemplate = ({
   data,
   signature,
+  heroIllustration,
 }: ServiceDetailTemplateProps) => {
   const sectionRenderers: Record<SectionKey, () => ReactNode> = {
     hero: () => (
@@ -41,7 +47,8 @@ export const ServiceDetailTemplate = ({
         subhead={data.hero.subhead}
         primaryCta={data.hero.primaryCta}
         secondaryCta={data.hero.secondaryCta}
-        metrics={data.hero.metrics}
+        metrics={heroIllustration ? undefined : data.hero.metrics}
+        heroIllustration={heroIllustration}
       />
     ),
     metricsStrip: () =>
@@ -92,6 +99,7 @@ export const ServiceDetailTemplate = ({
           footerNote={data.personaComparison.footerNote}
         />
       ) : null,
+    imageFeatures: () => null, // not used by services (wired in Task 5)
     relatedPages: () =>
       data.relatedPages ? <RelatedPages pages={data.relatedPages} /> : null,
     faq: () => <FAQ faqs={data.faqs} />,

@@ -1,5 +1,8 @@
+'use client';
+
 import { Clock, FileText, ArrowRight } from 'lucide-react';
 import { Section, Container, StepBadge } from '@/components/shared/primitives';
+import { useScrollReveal } from '@/hooks/useScrollReveal';
 
 export interface ProcessStep {
   title: string;
@@ -24,7 +27,10 @@ export const ProcessTimeline = ({
   steps,
   tone = 'light',
   className,
-}: ProcessTimelineProps) => (
+}: ProcessTimelineProps) => {
+  const gridRef = useScrollReveal<HTMLDivElement>();
+
+  return (
   <Section tone={tone} size="md" className={className}>
     <Container>
       <div className="text-center mb-12 md:mb-14 max-w-3xl mx-auto">
@@ -43,7 +49,10 @@ export const ProcessTimeline = ({
         )}
       </div>
 
-      <div className="grid gap-5 md:gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+      <div
+        ref={gridRef}
+        className="grid gap-5 md:gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 scroll-stagger"
+      >
         {steps.map((step, idx) => (
           <div key={idx} className="relative">
             <div className="h-full bg-surface-white border border-border-light rounded-xl shadow-card-sm p-5 md:p-6">
@@ -78,4 +87,5 @@ export const ProcessTimeline = ({
       </div>
     </Container>
   </Section>
-);
+  );
+};

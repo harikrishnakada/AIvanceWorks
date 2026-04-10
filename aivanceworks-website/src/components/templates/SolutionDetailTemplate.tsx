@@ -15,6 +15,7 @@ import {
   ComplianceSpotlight,
   PersonaComparison,
   RelatedPages,
+  ImageFeature,
 } from '@/components/shared/sections';
 
 export interface SolutionDetailTemplateProps {
@@ -36,6 +37,7 @@ export const SolutionDetailTemplate = ({
         primaryCta={data.hero.primaryCta}
         secondaryCta={data.hero.secondaryCta}
         metrics={data.hero.metrics}
+        heroImage={data.hero.heroImage}
       />
     ),
     metricsStrip: () =>
@@ -90,6 +92,10 @@ export const SolutionDetailTemplate = ({
       ) : null,
     discoveryMethodology: () => null,
     engagementModels: () => null,
+    imageFeatures: () =>
+      data.imageFeatures && data.imageFeatures.length > 0 ? (
+        <ImageFeature features={data.imageFeatures} />
+      ) : null,
     relatedPages: () =>
       data.relatedPages ? <RelatedPages pages={data.relatedPages} /> : null,
     faq: () => <FAQ faqs={data.faqs} />,
