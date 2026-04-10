@@ -1,0 +1,1225 @@
+<style>
+  /* ─── Shared tokens (mirror the blue theme from themes/blue.css) ─── */
+  :root {
+    --brand-400: #60a5fa;
+    --brand-500: #3b82f6;
+    --brand-600: #2563eb;
+    --brand-700: #1d4ed8;
+    --accent-400: #818cf8;
+    --accent-500: #6366f1;
+    --accent-700: #4338ca;
+    --surface-dark-from: #1a1f36;
+    --surface-dark-via: #1e2744;
+    --surface-dark-to: #1a2038;
+    --surface-dark: #0f1629;
+    --surface-elevated: #1e2744;
+    --surface-warm: #f1f5f9;
+    --surface-white: #ffffff;
+    --text-light: #f8fafc;
+    --text-heading: #0f172a;
+    --text-body: #475569;
+    --text-muted: #64748b;
+    --text-subtle: #94a3b8;
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --success: #10b981;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+  }
+
+  .sig {
+    background: linear-gradient(135deg, var(--surface-dark-from), var(--surface-dark-via), var(--surface-dark-to));
+    border-radius: 20px;
+    padding: 44px 44px 40px;
+    color: var(--text-light);
+    margin-bottom: 48px;
+    border: 1px solid var(--border-subtle);
+    position: relative;
+    overflow: hidden;
+  }
+  .sig::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(to right, rgba(59,130,246,0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(59,130,246,0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+  }
+  .sig::after {
+    content: "";
+    position: absolute;
+    top: -200px;
+    left: 40%;
+    width: 520px;
+    height: 300px;
+    background: radial-gradient(ellipse, rgba(59,130,246,0.2) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .sig > * { position: relative; z-index: 1; }
+
+  .sig-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 36px;
+    gap: 32px;
+  }
+  .sig-tag {
+    display: inline-block;
+    padding: 5px 14px;
+    border-radius: 999px;
+    background: rgba(59,130,246,0.15);
+    color: var(--brand-400);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .sig-title {
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    color: white;
+    max-width: 720px;
+  }
+  .sig-subtitle {
+    font-size: 14px;
+    color: var(--text-subtle);
+    margin-top: 10px;
+    max-width: 640px;
+    line-height: 1.5;
+  }
+  .sig-eyebrow-stat {
+    flex-shrink: 0;
+    padding: 16px 22px;
+    border-radius: 14px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border-subtle);
+    text-align: right;
+    min-width: 160px;
+  }
+  .sig-eyebrow-stat .v {
+    font-size: 24px;
+    font-weight: 800;
+    background: linear-gradient(90deg, var(--brand-400), var(--accent-400));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    line-height: 1;
+  }
+  .sig-eyebrow-stat .l {
+    font-size: 10px;
+    color: var(--text-subtle);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-top: 6px;
+  }
+
+  .sig-footer-strip {
+    margin-top: 36px;
+    padding-top: 28px;
+    border-top: 1px solid var(--border-subtle);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .stat-cell { text-align: left; }
+  .stat-cell .v {
+    font-size: 22px;
+    font-weight: 800;
+    color: white;
+    line-height: 1;
+  }
+  .stat-cell .l {
+    font-size: 11px;
+    color: var(--text-subtle);
+    margin-top: 6px;
+    line-height: 1.4;
+  }
+
+  /* ─────────────────────────────────────────────────────────── */
+  /* ──── SIG 1: Product Discovery — Before / Deliverables ──── */
+  /* ─────────────────────────────────────────────────────────── */
+  .ba-grid {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 28px;
+    align-items: stretch;
+  }
+  .ba-before {
+    background:
+      radial-gradient(circle at 30% 30%, rgba(239,68,68,0.08), transparent 55%),
+      rgba(239,68,68,0.04);
+    border: 1px dashed rgba(239,68,68,0.25);
+    border-radius: 14px;
+    padding: 24px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .ba-before .label {
+    font-size: 10px;
+    font-weight: 800;
+    color: #fca5a5;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .ba-before .title {
+    font-size: 15px;
+    font-weight: 700;
+    color: white;
+    line-height: 1.3;
+  }
+  .ba-chaos {
+    position: relative;
+    padding: 16px 0 4px;
+    min-height: 110px;
+  }
+  .chaos-token {
+    position: absolute;
+    padding: 5px 10px;
+    border-radius: 7px;
+    font-size: 10px;
+    font-weight: 600;
+    background: rgba(239,68,68,0.14);
+    color: #fecaca;
+    border: 1px solid rgba(239,68,68,0.28);
+    transform-origin: center;
+    white-space: nowrap;
+  }
+  .chaos-token.q1 { top: 4px; left: 4px; transform: rotate(-4deg); }
+  .chaos-token.q2 { top: 14px; right: 8px; transform: rotate(3deg); }
+  .chaos-token.q3 { top: 48px; left: 18px; transform: rotate(2deg); }
+  .chaos-token.q4 { top: 58px; right: 10px; transform: rotate(-3deg); }
+  .chaos-token.q5 { top: 88px; left: 8px; transform: rotate(-2deg); }
+  .ba-before .count {
+    font-size: 10px;
+    color: var(--text-subtle);
+    padding-top: 8px;
+    border-top: 1px solid rgba(239,68,68,0.2);
+  }
+
+  .ba-after {
+    background:
+      radial-gradient(circle at 75% 0%, rgba(16,185,129,0.07), transparent 60%),
+      rgba(255,255,255,0.02);
+    border: 1px solid rgba(16,185,129,0.3);
+    border-radius: 14px;
+    padding: 24px;
+    position: relative;
+  }
+  .ba-after::before {
+    content: "";
+    position: absolute;
+    top: 24px;
+    left: -15px;
+    width: 30px;
+    height: 30px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--brand-500), var(--accent-500));
+    box-shadow: 0 0 0 4px var(--surface-dark-via);
+  }
+  .ba-after::after {
+    content: "→";
+    position: absolute;
+    top: 28px;
+    left: -8px;
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+  }
+  .ba-after .label {
+    font-size: 10px;
+    font-weight: 800;
+    color: #6ee7b7;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 4px;
+  }
+  .ba-after .title {
+    font-size: 15px;
+    font-weight: 700;
+    color: white;
+    line-height: 1.3;
+    margin-bottom: 18px;
+  }
+  .ba-artifacts {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+  }
+  .artifact {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 10px;
+    padding: 12px 12px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .artifact-preview {
+    height: 60px;
+    border-radius: 6px;
+    background: rgba(99,102,241,0.06);
+    border: 1px solid rgba(99,102,241,0.15);
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    overflow: hidden;
+    position: relative;
+  }
+  .preview-bar {
+    height: 4px;
+    border-radius: 2px;
+    background: rgba(99,102,241,0.3);
+  }
+  .preview-bar.short { width: 60%; }
+  .preview-bar.med { width: 80%; }
+  .preview-bar.brand { background: var(--brand-400); }
+
+  .artifact-label {
+    font-size: 10px;
+    font-weight: 700;
+    color: white;
+    line-height: 1.2;
+  }
+  .artifact-type {
+    font-size: 8.5px;
+    color: var(--text-subtle);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* artifact #1 — persona board (portrait outline + bars) */
+  .a1 .artifact-preview::after {
+    content: "";
+    position: absolute;
+    left: 8px;
+    top: 10px;
+    width: 14px;
+    height: 14px;
+    border-radius: 999px;
+    border: 1.5px solid var(--accent-400);
+  }
+  .a1 .artifact-preview .preview-bar { margin-left: 28px; }
+
+  /* artifact #2 — problem canvas (four quadrants) */
+  .a2 .artifact-preview {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 3px;
+    padding: 6px;
+  }
+  .a2 .artifact-preview > div {
+    background: rgba(99,102,241,0.15);
+    border-radius: 3px;
+  }
+
+  /* artifact #3 — prioritized backlog (bars stacked) */
+  .a3 .artifact-preview { padding: 7px 8px; gap: 5px; }
+  .a3 .preview-bar { height: 5px; }
+
+  /* artifact #4 — tech spike matrix (grid dots) */
+  .a4 .artifact-preview {
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 4px;
+  }
+  .a4 .artifact-preview > div {
+    background: var(--brand-500);
+    border-radius: 999px;
+    opacity: 0.6;
+  }
+  .a4 .artifact-preview > div:nth-child(odd) { opacity: 0.95; }
+
+  /* artifact #5 — risk register (rows with dots) */
+  .a5 .artifact-preview { padding: 8px; gap: 6px; }
+  .a5 .risk-row {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .a5 .risk-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 999px;
+  }
+  .a5 .risk-dot.red { background: var(--danger); }
+  .a5 .risk-dot.amber { background: var(--warning); }
+  .a5 .risk-dot.green { background: var(--success); }
+  .a5 .risk-bar {
+    flex: 1;
+    height: 3px;
+    border-radius: 2px;
+    background: rgba(255,255,255,0.15);
+  }
+
+  /* ─────────────────────────────────────────────── */
+  /* ──── SIG 2: MVP Development — Dual Roadmap ──── */
+  /* ─────────────────────────────────────────────── */
+  .rm-wrap {
+    position: relative;
+    padding: 20px 0 10px;
+  }
+  .rm-phases {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    position: relative;
+  }
+  .rm-track-line {
+    position: absolute;
+    left: 4%;
+    right: 4%;
+    height: 2px;
+    background: linear-gradient(to right,
+      rgba(59,130,246,0.3),
+      var(--brand-500),
+      var(--accent-500),
+      rgba(99,102,241,0.3));
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+  .rm-phase {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  .rm-top {
+    background: rgba(59,130,246,0.08);
+    border: 1px solid rgba(59,130,246,0.25);
+    border-radius: 10px 10px 0 0;
+    padding: 14px 14px 12px;
+    min-height: 138px;
+  }
+  .rm-week-tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: rgba(59,130,246,0.25);
+    color: var(--brand-400);
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .rm-phase-title {
+    font-size: 14px;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 6px;
+    line-height: 1.15;
+  }
+  .rm-team-work {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .rm-team-work li {
+    font-size: 10px;
+    color: var(--text-subtle);
+    padding: 2px 0 2px 11px;
+    position: relative;
+    line-height: 1.4;
+  }
+  .rm-team-work li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--brand-400);
+    font-weight: 800;
+  }
+
+  .rm-node {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .rm-node::before {
+    content: "";
+    width: 14px;
+    height: 14px;
+    border-radius: 999px;
+    background: var(--surface-dark-via);
+    border: 3px solid var(--brand-500);
+    box-shadow: 0 0 0 3px rgba(59,130,246,0.2);
+  }
+  .rm-phase.launch .rm-node::before {
+    background: var(--brand-500);
+    border-color: var(--accent-400);
+    box-shadow: 0 0 0 4px rgba(99,102,241,0.35),
+                0 0 16px rgba(99,102,241,0.8);
+  }
+
+  .rm-bottom {
+    background: rgba(99,102,241,0.05);
+    border: 1px solid rgba(99,102,241,0.22);
+    border-radius: 0 0 10px 10px;
+    padding: 12px 14px 14px;
+    min-height: 90px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .rm-demo-label {
+    font-size: 9px;
+    font-weight: 800;
+    color: var(--accent-400);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .rm-demo-label::before {
+    content: "▶";
+    font-size: 7px;
+  }
+  .rm-demo-name {
+    font-size: 11px;
+    font-weight: 700;
+    color: white;
+    line-height: 1.25;
+  }
+  .rm-demo-desc {
+    font-size: 10px;
+    color: var(--text-subtle);
+    line-height: 1.4;
+  }
+
+  .rm-track-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 10px;
+    color: var(--text-subtle);
+  }
+  .rm-track-labels span:first-child { color: var(--brand-400); }
+  .rm-track-labels span:last-child { color: var(--accent-400); }
+
+  /* ────────────────────────────────────────────────────── */
+  /* ──── SIG 3: Patient Portals — Architecture Flow ──── */
+  /* ────────────────────────────────────────────────────── */
+  .arch-grid {
+    display: grid;
+    grid-template-columns: 180px 1fr 180px;
+    gap: 26px;
+    align-items: center;
+  }
+  .arch-annotations {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .arch-ann {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border-subtle);
+    border-left: 3px solid var(--brand-500);
+    border-radius: 0 10px 10px 0;
+    padding: 14px 14px 14px 16px;
+  }
+  .arch-ann.green { border-left-color: var(--success); }
+  .arch-ann.amber { border-left-color: var(--warning); }
+  .arch-ann .n {
+    font-size: 18px;
+    font-weight: 800;
+    color: white;
+    line-height: 1;
+  }
+  .arch-ann .d {
+    font-size: 10.5px;
+    color: var(--text-subtle);
+    margin-top: 5px;
+    line-height: 1.4;
+  }
+  .arch-center {
+    position: relative;
+  }
+  .arch-compliance-border {
+    border: 1.5px dashed rgba(16,185,129,0.4);
+    border-radius: 14px;
+    padding: 28px 20px 18px;
+    position: relative;
+  }
+  .arch-compliance-label {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--surface-dark-via);
+    padding: 0 14px;
+    font-size: 10px;
+    font-weight: 800;
+    color: #6ee7b7;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+  }
+  .arch-tier {
+    background: rgba(59,130,246,0.08);
+    border: 1px solid rgba(59,130,246,0.28);
+    border-radius: 12px;
+    padding: 14px 18px;
+    margin-bottom: 8px;
+    position: relative;
+  }
+  .arch-tier.portal {
+    background: linear-gradient(90deg, rgba(99,102,241,0.18), rgba(59,130,246,0.1));
+    border-color: rgba(99,102,241,0.4);
+  }
+  .arch-tier-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+  }
+  .arch-tier-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: white;
+    flex-shrink: 0;
+    min-width: 140px;
+  }
+  .arch-tier-label small {
+    display: block;
+    font-size: 9px;
+    font-weight: 500;
+    color: var(--text-subtle);
+    margin-top: 2px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .arch-chips {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    flex: 1;
+  }
+  .arch-chip {
+    font-size: 10px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.05);
+    color: var(--text-subtle);
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .arch-chip.highlight {
+    background: rgba(59,130,246,0.18);
+    color: var(--brand-400);
+    border-color: rgba(59,130,246,0.35);
+  }
+  .arch-connector {
+    text-align: center;
+    color: rgba(99,102,241,0.5);
+    font-size: 11px;
+    margin: -2px 0;
+    line-height: 1;
+  }
+
+  /* ──────────────────────────────────────────────────────── */
+  /* ──── SIG 4: Insurance Portals — Claims Time Compare ──── */
+  /* ──────────────────────────────────────────────────────── */
+  .flow2 {
+    position: relative;
+  }
+  .flow2-track {
+    padding: 18px 20px;
+    border-radius: 14px;
+    margin-bottom: 14px;
+  }
+  .flow2-track.old {
+    background: rgba(239,68,68,0.05);
+    border: 1px solid rgba(239,68,68,0.25);
+  }
+  .flow2-track.new {
+    background: rgba(16,185,129,0.05);
+    border: 1px solid rgba(16,185,129,0.35);
+  }
+  .flow2-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 12px;
+  }
+  .flow2-head .label {
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .flow2-track.old .label { color: #fca5a5; }
+  .flow2-track.new .label { color: #6ee7b7; }
+  .flow2-head .total {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-subtle);
+  }
+  .flow2-head .total strong {
+    font-size: 16px;
+    color: white;
+    margin-right: 5px;
+  }
+
+  .flow2-bars {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    height: 54px;
+  }
+  .flow2-stage {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 6px;
+    padding: 6px 8px 7px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 0;
+    overflow: hidden;
+  }
+  .flow2-stage .sn {
+    font-size: 9.5px;
+    font-weight: 700;
+    color: white;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  .flow2-stage .st {
+    font-size: 8.5px;
+    color: var(--text-subtle);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  /* Old (10 days total). Stages sized by duration. */
+  .old .s1 { flex: 0.5; }   /* FNOL 0.5 day */
+  .old .s2 { flex: 2; background: rgba(239,68,68,0.08); border-color: rgba(239,68,68,0.2); }  /* Upload 2 days */
+  .old .s3 { flex: 1; background: rgba(239,68,68,0.08); border-color: rgba(239,68,68,0.2); }   /* Triage 1 day */
+  .old .s4 { flex: 3; background: rgba(239,68,68,0.08); border-color: rgba(239,68,68,0.2); }   /* Adjuster 3 days */
+  .old .s5 { flex: 2; background: rgba(239,68,68,0.08); border-color: rgba(239,68,68,0.2); }   /* Settlement 2 days */
+  .old .s6 { flex: 1.5; background: rgba(239,68,68,0.08); border-color: rgba(239,68,68,0.2); } /* Close 1.5 days */
+
+  /* New (8 hours total). Much smaller bars. */
+  .new .s1 { flex: 1; background: rgba(16,185,129,0.1); border-color: rgba(16,185,129,0.3); }
+  .new .s2 { flex: 1; background: rgba(16,185,129,0.1); border-color: rgba(16,185,129,0.3); }
+  .new .s3 { flex: 1; background: rgba(16,185,129,0.1); border-color: rgba(16,185,129,0.3); }
+  .new .s4 { flex: 4; background: rgba(16,185,129,0.12); border-color: rgba(16,185,129,0.35); }
+  .new .s5 { flex: 1; background: rgba(16,185,129,0.1); border-color: rgba(16,185,129,0.3); }
+
+  .flow2-highlight {
+    text-align: center;
+    padding: 16px 0 8px;
+    margin: 4px 0 10px;
+  }
+  .flow2-highlight .big {
+    font-size: 22px;
+    font-weight: 900;
+    background: linear-gradient(90deg, var(--brand-400), var(--accent-400));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: -0.02em;
+  }
+  .flow2-highlight .sm {
+    font-size: 11px;
+    color: var(--text-subtle);
+    margin-top: 3px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 700;
+  }
+</style>
+
+<h2>Signature sections — v2</h2>
+<p class="subtitle">
+  Concept unchanged, execution reworked: better real estate, clearer focal hierarchy, content that carries weight.
+  Each uses the existing theme tokens. Click to approve, or tell me in the terminal what to push further.
+</p>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- 1. PRODUCT DISCOVERY — BEFORE / DELIVERABLES                    -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div class="sig" onclick="toggleSelect(this)" data-choice="discovery-v2">
+  <div class="sig-header">
+    <div>
+      <span class="sig-tag">Signature · Product Discovery</span>
+      <div class="sig-title">You walk in with a question. You walk out with five answers you can ship.</div>
+      <div class="sig-subtitle">Every discovery engagement ends with concrete deliverables, not slides. Here's what lands in your repo on day 14.</div>
+    </div>
+    <div class="sig-eyebrow-stat">
+      <div class="v">2 weeks</div>
+      <div class="l">to de-risked plan</div>
+    </div>
+  </div>
+
+  <div class="ba-grid">
+
+    <div class="ba-before">
+      <div class="label">Day 0 — Where you are</div>
+      <div class="title">An idea full of unknowns</div>
+      <div class="ba-chaos">
+        <div class="chaos-token q1">Who is the user?</div>
+        <div class="chaos-token q2">What's the scope?</div>
+        <div class="chaos-token q3">Will the API scale?</div>
+        <div class="chaos-token q4">How long?</div>
+        <div class="chaos-token q5">What's the risk?</div>
+      </div>
+      <div class="count">5+ open questions · 0 validated assumptions</div>
+    </div>
+
+    <div class="ba-after">
+      <div class="label">Day 14 — Five artifacts, ready to act on</div>
+      <div class="title">A prioritized, de-risked, fundable plan</div>
+
+      <div class="ba-artifacts">
+        <div class="artifact a1">
+          <div class="artifact-preview">
+            <div class="preview-bar med"></div>
+            <div class="preview-bar short"></div>
+            <div class="preview-bar med brand"></div>
+          </div>
+          <div class="artifact-label">Persona Board</div>
+          <div class="artifact-type">Figma · 3 personas</div>
+        </div>
+        <div class="artifact a2">
+          <div class="artifact-preview">
+            <div></div><div></div><div></div><div></div>
+          </div>
+          <div class="artifact-label">Problem Canvas</div>
+          <div class="artifact-type">PDF · validated</div>
+        </div>
+        <div class="artifact a3">
+          <div class="artifact-preview">
+            <div class="preview-bar med brand"></div>
+            <div class="preview-bar med brand"></div>
+            <div class="preview-bar short"></div>
+            <div class="preview-bar short"></div>
+          </div>
+          <div class="artifact-label">Prioritized Backlog</div>
+          <div class="artifact-type">Linear · MoSCoW</div>
+        </div>
+        <div class="artifact a4">
+          <div class="artifact-preview">
+            <div></div><div></div><div></div><div></div>
+            <div></div><div></div><div></div><div></div>
+            <div></div><div></div><div></div><div></div>
+          </div>
+          <div class="artifact-label">Tech Spike Matrix</div>
+          <div class="artifact-type">Markdown · tested</div>
+        </div>
+        <div class="artifact a5">
+          <div class="artifact-preview">
+            <div class="risk-row"><span class="risk-dot red"></span><span class="risk-bar"></span></div>
+            <div class="risk-row"><span class="risk-dot amber"></span><span class="risk-bar"></span></div>
+            <div class="risk-row"><span class="risk-dot amber"></span><span class="risk-bar"></span></div>
+            <div class="risk-row"><span class="risk-dot green"></span><span class="risk-bar"></span></div>
+          </div>
+          <div class="artifact-label">Risk Register</div>
+          <div class="artifact-type">Sheet · mitigated</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="sig-footer-strip">
+    <div class="stat-cell">
+      <div class="v">5 artifacts</div>
+      <div class="l">Concrete, reviewable, shippable — no slides</div>
+    </div>
+    <div class="stat-cell">
+      <div class="v">90% confidence</div>
+      <div class="l">Fixed-scope proposal backed by tech spike evidence</div>
+    </div>
+    <div class="stat-cell">
+      <div class="v">Day 15</div>
+      <div class="l">Your team can start building with zero ambiguity</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- 2. MVP DEVELOPMENT — DUAL TRACK ROADMAP                         -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div class="sig" onclick="toggleSelect(this)" data-choice="mvp-v2">
+  <div class="sig-header">
+    <div>
+      <span class="sig-tag">Signature · MVP Development</span>
+      <div class="sig-title">A roadmap that shows both what we build and what you see.</div>
+      <div class="sig-subtitle">The top track is engineering's view. The bottom track is your view — working software, demos, real users — every phase.</div>
+    </div>
+    <div class="sig-eyebrow-stat">
+      <div class="v">12 weeks</div>
+      <div class="l">Kickoff to v1 launch</div>
+    </div>
+  </div>
+
+  <div class="rm-track-labels">
+    <span>↑ Engineering track</span>
+    <span>↓ Your view (demos &amp; deliverables)</span>
+  </div>
+
+  <div class="rm-wrap">
+    <div class="rm-track-line"></div>
+    <div class="rm-phases">
+
+      <div class="rm-phase">
+        <div class="rm-top">
+          <span class="rm-week-tag">Week 1</span>
+          <div class="rm-phase-title">Kickoff</div>
+          <ul class="rm-team-work">
+            <li>Scope lock &amp; success criteria</li>
+            <li>CI/CD + infra baseline</li>
+            <li>Sprint 0 walkthrough</li>
+          </ul>
+        </div>
+        <div class="rm-node"></div>
+        <div class="rm-bottom">
+          <div class="rm-demo-label">Demo 1</div>
+          <div class="rm-demo-name">Working shell deployed</div>
+          <div class="rm-demo-desc">Live URL, auth stub, deploy pipeline</div>
+        </div>
+      </div>
+
+      <div class="rm-phase">
+        <div class="rm-top">
+          <span class="rm-week-tag">Weeks 2–4</span>
+          <div class="rm-phase-title">Core Build</div>
+          <ul class="rm-team-work">
+            <li>Auth + user model</li>
+            <li>Primary data flows</li>
+            <li>Happy-path UI</li>
+          </ul>
+        </div>
+        <div class="rm-node"></div>
+        <div class="rm-bottom">
+          <div class="rm-demo-label">Demos 2–4</div>
+          <div class="rm-demo-name">End-to-end happy path</div>
+          <div class="rm-demo-desc">A user can sign up &amp; complete the primary job</div>
+        </div>
+      </div>
+
+      <div class="rm-phase">
+        <div class="rm-top">
+          <span class="rm-week-tag">Weeks 5–8</span>
+          <div class="rm-phase-title">Real Users</div>
+          <ul class="rm-team-work">
+            <li>Closed beta cohort</li>
+            <li>Feedback loop + issue triage</li>
+            <li>Weekly iteration cycles</li>
+          </ul>
+        </div>
+        <div class="rm-node"></div>
+        <div class="rm-bottom">
+          <div class="rm-demo-label">Demos 5–8</div>
+          <div class="rm-demo-name">Real usage data</div>
+          <div class="rm-demo-desc">Metrics dashboard with actual cohort behaviour</div>
+        </div>
+      </div>
+
+      <div class="rm-phase">
+        <div class="rm-top">
+          <span class="rm-week-tag">Weeks 9–11</span>
+          <div class="rm-phase-title">Harden</div>
+          <ul class="rm-team-work">
+            <li>Performance + observability</li>
+            <li>Security review</li>
+            <li>Billing + onboarding</li>
+          </ul>
+        </div>
+        <div class="rm-node"></div>
+        <div class="rm-bottom">
+          <div class="rm-demo-label">Demos 9–11</div>
+          <div class="rm-demo-name">Prod-ready walkthrough</div>
+          <div class="rm-demo-desc">Runbook, SLOs, security &amp; billing live</div>
+        </div>
+      </div>
+
+      <div class="rm-phase launch">
+        <div class="rm-top">
+          <span class="rm-week-tag">Week 12</span>
+          <div class="rm-phase-title">V1 Launch</div>
+          <ul class="rm-team-work">
+            <li>Public deploy</li>
+            <li>Handover &amp; training</li>
+            <li>Post-launch metrics setup</li>
+          </ul>
+        </div>
+        <div class="rm-node"></div>
+        <div class="rm-bottom">
+          <div class="rm-demo-label">Launch</div>
+          <div class="rm-demo-name">Paying customers</div>
+          <div class="rm-demo-desc">V1 live, support playbook, metrics tracking</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="sig-footer-strip">
+    <div class="stat-cell">
+      <div class="v">12 demos</div>
+      <div class="l">You see working software every single week — no black-box phases</div>
+    </div>
+    <div class="stat-cell">
+      <div class="v">Week 5</div>
+      <div class="l">Real external users touching the product, not just internal reviews</div>
+    </div>
+    <div class="stat-cell">
+      <div class="v">Week 12</div>
+      <div class="l">Paying customers — not an internal beta, a revenue-ready V1</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- 3. PATIENT PORTALS — ARCHITECTURE FLOW + CALLOUTS               -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div class="sig" onclick="toggleSelect(this)" data-choice="patient-v2">
+  <div class="sig-header">
+    <div>
+      <span class="sig-tag">Signature · Patient Portals</span>
+      <div class="sig-title">Built to meet your EHR where it is — not the other way around.</div>
+      <div class="sig-subtitle">Every integration layer is tokenized, audit-logged, and wrapped in a compliance envelope designed for OCR review.</div>
+    </div>
+    <div class="sig-eyebrow-stat">
+      <div class="v">40+</div>
+      <div class="l">EHR integrations shipped</div>
+    </div>
+  </div>
+
+  <div class="arch-grid">
+
+    <div class="arch-annotations">
+      <div class="arch-ann">
+        <div class="n">5 modules</div>
+        <div class="d">Records · Scheduling · Messaging · Telehealth · Billing — all from one codebase</div>
+      </div>
+      <div class="arch-ann green">
+        <div class="n">Zero PHI in app layer</div>
+        <div class="d">All patient data tokenized at the gateway, never cached in the frontend</div>
+      </div>
+      <div class="arch-ann">
+        <div class="n">99.95% uptime</div>
+        <div class="d">Multi-region Azure with automated failover and health-check routing</div>
+      </div>
+    </div>
+
+    <div class="arch-center">
+      <div class="arch-compliance-border">
+        <span class="arch-compliance-label">HIPAA · SOC 2 · HITECH · 21 CFR Part 11 · NIST 800-66</span>
+
+        <div class="arch-tier portal">
+          <div class="arch-tier-row">
+            <div class="arch-tier-label">Patient Portal<small>Web + PWA + mobile</small></div>
+            <div class="arch-chips">
+              <span class="arch-chip highlight">Records</span>
+              <span class="arch-chip">Scheduling</span>
+              <span class="arch-chip">Messaging</span>
+              <span class="arch-chip">Telehealth</span>
+              <span class="arch-chip">Billing</span>
+            </div>
+          </div>
+        </div>
+        <div class="arch-connector">▼</div>
+
+        <div class="arch-tier">
+          <div class="arch-tier-row">
+            <div class="arch-tier-label">Identity + Gateway<small>Azure AD B2C + Key Vault</small></div>
+            <div class="arch-chips">
+              <span class="arch-chip">MFA</span>
+              <span class="arch-chip">RBAC</span>
+              <span class="arch-chip">Audit log</span>
+              <span class="arch-chip">AES-256</span>
+            </div>
+          </div>
+        </div>
+        <div class="arch-connector">▼</div>
+
+        <div class="arch-tier" style="background: rgba(245,158,11,0.08); border-color: rgba(245,158,11,0.3);">
+          <div class="arch-tier-row">
+            <div class="arch-tier-label">FHIR R4 / HL7 Bridge<small>interop middleware</small></div>
+            <div class="arch-chips">
+              <span class="arch-chip">SMART on FHIR</span>
+              <span class="arch-chip">HL7 v2</span>
+              <span class="arch-chip">Transform</span>
+            </div>
+          </div>
+        </div>
+        <div class="arch-connector">▼</div>
+
+        <div class="arch-tier">
+          <div class="arch-tier-row">
+            <div class="arch-tier-label">Your EHR<small>vendor-agnostic</small></div>
+            <div class="arch-chips">
+              <span class="arch-chip">Epic</span>
+              <span class="arch-chip">Cerner</span>
+              <span class="arch-chip">Athena</span>
+              <span class="arch-chip">eCW</span>
+              <span class="arch-chip">+20 more</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="arch-annotations">
+      <div class="arch-ann amber">
+        <div class="n">FHIR R4 native</div>
+        <div class="d">SMART on FHIR where available, HL7 v2 fallback for legacy systems</div>
+      </div>
+      <div class="arch-ann">
+        <div class="n">Audit-ready day 1</div>
+        <div class="d">Every access logged with timestamp, actor, resource, outcome — OCR export</div>
+      </div>
+      <div class="arch-ann green">
+        <div class="n">BAA managed</div>
+        <div class="d">Business associate agreements in place with all sub-processors</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="sig-footer-strip">
+    <div class="stat-cell">
+      <div class="v">4 weeks</div>
+      <div class="l">Average time to first EHR integration — Epic, Cerner, Athena, or eCW</div>
+    </div>
+    <div class="stat-cell">
+      <div class="v">SOC 2 Type II</div>
+      <div class="l">Independent audit passed with zero control exceptions</div>
+    </div>
+    <div class="stat-cell">
+      <div class="v">Zero breaches</div>
+      <div class="l">Across every portal we've shipped since 2019</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- 4. INSURANCE PORTALS — PROPORTIONAL CLAIMS TIME COMPARE         -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div class="sig" onclick="toggleSelect(this)" data-choice="insurance-v2">
+  <div class="sig-header">
+    <div>
+      <span class="sig-tag">Signature · Insurance Portals</span>
+      <div class="sig-title">Ten days of claims work, collapsed into eight hours.</div>
+      <div class="sig-subtitle">Each bar below is sized to actual duration. The same six claim stages, running on the old stack and our portal, side-by-side.</div>
+    </div>
+    <div class="sig-eyebrow-stat">
+      <div class="v">30× faster</div>
+      <div class="l">Claim cycle time</div>
+    </div>
+  </div>
+
+  <div class="flow2">
+
+    <div class="flow2-track old">
+      <div class="flow2-head">
+        <div class="label">Legacy claim process</div>
+        <div class="total"><strong>10 days</strong>avg. cycle time</div>
+      </div>
+      <div class="flow2-bars">
+        <div class="flow2-stage s1">
+          <div class="sn">FNOL call</div>
+          <div class="st">0.5 d</div>
+        </div>
+        <div class="flow2-stage s2">
+          <div class="sn">Document collection</div>
+          <div class="st">2 days · manual</div>
+        </div>
+        <div class="flow2-stage s3">
+          <div class="sn">Manual triage</div>
+          <div class="st">1 day</div>
+        </div>
+        <div class="flow2-stage s4">
+          <div class="sn">Adjuster review</div>
+          <div class="st">3 days · queue</div>
+        </div>
+        <div class="flow2-stage s5">
+          <div class="sn">Settlement approval</div>
+          <div class="st">2 days</div>
+        </div>
+        <div class="flow2-stage s6">
+          <div class="sn">Close &amp; pay</div>
+          <div class="st">1.5 days</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flow2-highlight">
+      <div class="big">▼  ~75% faster  ▼</div>
+      <div class="sm">Same six stages · new pipeline</div>
+    </div>
+
+    <div class="flow2-track new">
+      <div class="flow2-head">
+        <div class="label">Portal-powered process</div>
+        <div class="total"><strong>8 hours</strong>avg. cycle time</div>
+      </div>
+      <div class="flow2-bars">
+        <div class="flow2-stage s1">
+          <div class="sn">Self-serve FNOL</div>
+          <div class="st">5 min</div>
+        </div>
+        <div class="flow2-stage s2">
+          <div class="sn">AI OCR upload</div>
+          <div class="st">instant</div>
+        </div>
+        <div class="flow2-stage s3">
+          <div class="sn">Auto triage</div>
+          <div class="st">30 sec</div>
+        </div>
+        <div class="flow2-stage s4">
+          <div class="sn">Adjuster · in-portal tools</div>
+          <div class="st">4 hrs</div>
+        </div>
+        <div class="flow2-stage s5">
+          <div class="sn">Digital settlement</div>
+          <div class="st">same day</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="sig-footer-strip">
+    <div class="stat-cell">
+      <div class="v">30–50% cost</div>
+      <div class="l">Reduction in loss adjustment expense per claim</div>
+    </div>
+    <div class="stat-cell">
+      <div class="v">+28 NPS</div>
+      <div class="l">Policyholder NPS lift post-launch across 6 carrier deployments</div>
+    </div>
+    <div class="stat-cell">
+      <div class="v">4 hrs</div>
+      <div class="l">From FNOL to settlement approval on a clean claim</div>
+    </div>
+  </div>
+</div>
+
+<p class="subtitle" style="margin-top:24px;text-align:center;">
+  v2 uses the blue theme tokens and better real-estate allocation. Tell me what still needs work — specific section, specific element.
+</p>

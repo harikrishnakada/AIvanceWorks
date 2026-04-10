@@ -1,0 +1,321 @@
+<style>
+  .mini-mockup {
+    background: #0f172a;
+    border-radius: 8px;
+    padding: 14px 14px 10px;
+    min-height: 170px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 10px;
+  }
+  .mini-hero {
+    border-radius: 6px;
+    padding: 10px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .mini-hero .mini-badge {
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 999px;
+    font-size: 8px;
+    font-weight: 600;
+    width: fit-content;
+    margin-bottom: 2px;
+  }
+  .mini-hero .mini-title {
+    font-weight: 700;
+    font-size: 11px;
+    line-height: 1.2;
+  }
+  .mini-row {
+    display: flex;
+    gap: 4px;
+  }
+  .mini-card {
+    flex: 1;
+    background: #fff;
+    border-radius: 4px;
+    padding: 6px;
+    color: #0f172a;
+    font-size: 8px;
+    line-height: 1.3;
+    min-height: 34px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .mini-card .mini-icon {
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+  }
+  .mini-card strong { font-size: 8.5px; }
+  .industry-label {
+    font-size: 9px;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    margin-top: 2px;
+  }
+
+  /* Theme variations for Option A — uniform */
+  .theme-uniform .mini-hero { background: linear-gradient(135deg,#1e293b,#0f172a); }
+  .theme-uniform .mini-badge { background: rgba(59,130,246,0.25); color: #93c5fd; }
+  .theme-uniform .mini-icon { background: #3b82f6; }
+
+  /* Theme variations for Option B — themed per industry */
+  .theme-health .mini-hero { background: linear-gradient(135deg,#134e4a,#042f2e); }
+  .theme-health .mini-badge { background: rgba(16,185,129,0.25); color: #6ee7b7; }
+  .theme-health .mini-icon { background: #10b981; }
+  .theme-health .mini-card { border-left: 2px solid #10b981; }
+
+  .theme-insurance .mini-hero { background: linear-gradient(135deg,#1e1b4b,#0f172a); }
+  .theme-insurance .mini-badge { background: rgba(99,102,241,0.25); color: #a5b4fc; }
+  .theme-insurance .mini-icon { background: #6366f1; }
+  .theme-insurance .mini-card { border-left: 2px solid #6366f1; }
+
+  .theme-retail .mini-hero { background: linear-gradient(135deg,#7c2d12,#431407); }
+  .theme-retail .mini-badge { background: rgba(249,115,22,0.25); color: #fed7aa; }
+  .theme-retail .mini-icon { background: #f97316; }
+  .theme-retail .mini-card { border-left: 2px solid #f97316; }
+
+  /* Option C — bespoke per page */
+  .bespoke-1 .mini-hero {
+    background: radial-gradient(circle at top right, #059669, #064e3b);
+  }
+  .bespoke-1 .mini-card { border-radius: 50% / 20%; background: #ecfdf5; }
+  .bespoke-1 .mini-icon { background: #059669; border-radius: 999px; }
+
+  .bespoke-2 .mini-hero {
+    background: #0b0f1a;
+    position: relative;
+    border: 1px solid rgba(99,102,241,0.3);
+  }
+  .bespoke-2 .mini-card {
+    background: #1e1b4b;
+    color: #e0e7ff;
+    border: 1px solid rgba(99,102,241,0.3);
+  }
+  .bespoke-2 .mini-card strong { color: #a5b4fc; }
+  .bespoke-2 .mini-icon { background: #a5b4fc; }
+
+  .bespoke-3 .mini-hero {
+    background: linear-gradient(120deg,#fbbf24,#f97316);
+    color: #431407;
+  }
+  .bespoke-3 .mini-title { color: #431407; }
+  .bespoke-3 .mini-badge { background: rgba(0,0,0,0.15); color: #431407; }
+  .bespoke-3 .mini-card { background: #fffbeb; border: 1px solid #fcd34d; }
+  .bespoke-3 .mini-icon { background: #f97316; }
+
+  /* Card layout for options — 3 side by side */
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr !important;
+    gap: 20px !important;
+  }
+  .card { cursor: pointer; }
+  .card-mockups {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .approach-note {
+    margin-top: 10px;
+    padding: 8px 10px;
+    background: rgba(148,163,184,0.08);
+    border-radius: 6px;
+    font-size: 11px;
+    line-height: 1.4;
+    color: #94a3b8;
+  }
+  .approach-note strong { color: #cbd5e1; }
+  .cost-pill {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 10px;
+    font-weight: 600;
+    margin-right: 4px;
+  }
+  .cost-low { background: #065f46; color: #6ee7b7; }
+  .cost-med { background: #92400e; color: #fde68a; }
+  .cost-high { background: #7f1d1d; color: #fecaca; }
+</style>
+
+<h2>Three directions for services & solutions pages</h2>
+<p class="subtitle">
+  The core question: how much visual variation do you want across page types (services vs. solutions) and across industries (healthcare vs. insurance vs. retail)?
+  Each mockup below shows how a Patient Portal, Insurance Portal, and Retail Website would render. Click the approach you lean toward.
+</p>
+
+<div class="cards">
+
+  <!-- OPTION A: UNIFORM TEMPLATE -->
+  <div class="card" data-choice="uniform" onclick="toggleSelect(this)">
+    <div class="card-body">
+      <h3>A — Uniform Template</h3>
+      <p>Same layout, same color system, content is the only thing that changes. Build once, fill with data.</p>
+    </div>
+    <div class="card-image">
+      <div class="card-mockups">
+        <div class="industry-label">Healthcare</div>
+        <div class="mini-mockup theme-uniform">
+          <div class="mini-hero">
+            <span class="mini-badge">Healthcare</span>
+            <div class="mini-title">Patient Portals</div>
+          </div>
+          <div class="mini-row">
+            <div class="mini-card"><div class="mini-icon"></div><strong>Records</strong></div>
+            <div class="mini-card"><div class="mini-icon"></div><strong>Scheduling</strong></div>
+          </div>
+        </div>
+        <div class="industry-label">Insurance</div>
+        <div class="mini-mockup theme-uniform">
+          <div class="mini-hero">
+            <span class="mini-badge">Insurance</span>
+            <div class="mini-title">Insurance Portals</div>
+          </div>
+          <div class="mini-row">
+            <div class="mini-card"><div class="mini-icon"></div><strong>Claims</strong></div>
+            <div class="mini-card"><div class="mini-icon"></div><strong>Quoting</strong></div>
+          </div>
+        </div>
+        <div class="industry-label">Retail</div>
+        <div class="mini-mockup theme-uniform">
+          <div class="mini-hero">
+            <span class="mini-badge">Retail</span>
+            <div class="mini-title">Retail Websites</div>
+          </div>
+          <div class="mini-row">
+            <div class="mini-card"><div class="mini-icon"></div><strong>Catalog</strong></div>
+            <div class="mini-card"><div class="mini-icon"></div><strong>Checkout</strong></div>
+          </div>
+        </div>
+      </div>
+      <div class="approach-note">
+        <span class="cost-pill cost-low">Fast</span>
+        <span class="cost-pill cost-low">Consistent</span>
+        <br><br>
+        <strong>Pro:</strong> 20+ pages ship fast. Easy to maintain. No drift.
+        <br>
+        <strong>Con:</strong> Healthcare, insurance, and retail feel like the same business. No industry personality.
+      </div>
+    </div>
+  </div>
+
+  <!-- OPTION B: THEMED SHARED SKELETON -->
+  <div class="card" data-choice="themed" onclick="toggleSelect(this)">
+    <div class="card-body">
+      <h3>B — Shared Skeleton, Industry Theming <span style="font-size:10px;color:#10b981">(Recommended)</span></h3>
+      <p>Same section structure, but each industry gets its own color palette, iconography, and one or two signature "unique" sections.</p>
+    </div>
+    <div class="card-image">
+      <div class="card-mockups">
+        <div class="industry-label">Healthcare · emerald</div>
+        <div class="mini-mockup theme-health">
+          <div class="mini-hero">
+            <span class="mini-badge">HIPAA Ready</span>
+            <div class="mini-title">Patient Portals</div>
+          </div>
+          <div class="mini-row">
+            <div class="mini-card"><div class="mini-icon"></div><strong>FHIR Records</strong></div>
+            <div class="mini-card"><div class="mini-icon"></div><strong>Telehealth</strong></div>
+          </div>
+        </div>
+        <div class="industry-label">Insurance · indigo</div>
+        <div class="mini-mockup theme-insurance">
+          <div class="mini-hero">
+            <span class="mini-badge">Carrier Grade</span>
+            <div class="mini-title">Insurance Portals</div>
+          </div>
+          <div class="mini-row">
+            <div class="mini-card"><div class="mini-icon"></div><strong>FNOL Intake</strong></div>
+            <div class="mini-card"><div class="mini-icon"></div><strong>Underwriting</strong></div>
+          </div>
+        </div>
+        <div class="industry-label">Retail · warm</div>
+        <div class="mini-mockup theme-retail">
+          <div class="mini-hero">
+            <span class="mini-badge">Conversion First</span>
+            <div class="mini-title">Retail Websites</div>
+          </div>
+          <div class="mini-row">
+            <div class="mini-card"><div class="mini-icon"></div><strong>Storefront</strong></div>
+            <div class="mini-card"><div class="mini-icon"></div><strong>AI Search</strong></div>
+          </div>
+        </div>
+      </div>
+      <div class="approach-note">
+        <span class="cost-pill cost-med">Balanced</span>
+        <span class="cost-pill cost-low">Reusable</span>
+        <br><br>
+        <strong>Pro:</strong> Pages feel industry-aware. Builds on what you already have (SolutionData + unique slot). Scales to all 11 solutions and 13 services.
+        <br>
+        <strong>Con:</strong> Needs a real design system (tokens, theme provider), not ad-hoc blue everywhere.
+      </div>
+    </div>
+  </div>
+
+  <!-- OPTION C: BESPOKE PER PAGE -->
+  <div class="card" data-choice="bespoke" onclick="toggleSelect(this)">
+    <div class="card-body">
+      <h3>C — Bespoke Per Page</h3>
+      <p>Each flagship page gets its own visual language. Different hero treatments, layouts, typography.</p>
+    </div>
+    <div class="card-image">
+      <div class="card-mockups">
+        <div class="industry-label">Healthcare · clinical</div>
+        <div class="mini-mockup bespoke-1">
+          <div class="mini-hero">
+            <span class="mini-badge">HIPAA + FHIR</span>
+            <div class="mini-title">Patient Portals</div>
+          </div>
+          <div class="mini-row">
+            <div class="mini-card"><div class="mini-icon"></div><strong>Records</strong></div>
+            <div class="mini-card"><div class="mini-icon"></div><strong>Care Team</strong></div>
+          </div>
+        </div>
+        <div class="industry-label">Insurance · data-dense</div>
+        <div class="mini-mockup bespoke-2">
+          <div class="mini-hero">
+            <span class="mini-badge">Guidewire Integration</span>
+            <div class="mini-title">Insurance Portals</div>
+          </div>
+          <div class="mini-row">
+            <div class="mini-card"><div class="mini-icon"></div><strong>Claims Flow</strong></div>
+            <div class="mini-card"><div class="mini-icon"></div><strong>Rating</strong></div>
+          </div>
+        </div>
+        <div class="industry-label">Retail · vibrant</div>
+        <div class="mini-mockup bespoke-3">
+          <div class="mini-hero">
+            <span class="mini-badge">Commerce</span>
+            <div class="mini-title">Retail Websites</div>
+          </div>
+          <div class="mini-row">
+            <div class="mini-card"><div class="mini-icon"></div><strong>Catalog</strong></div>
+            <div class="mini-card"><div class="mini-icon"></div><strong>AI Recs</strong></div>
+          </div>
+        </div>
+      </div>
+      <div class="approach-note">
+        <span class="cost-pill cost-high">High effort</span>
+        <span class="cost-pill cost-high">Hard to maintain</span>
+        <br><br>
+        <strong>Pro:</strong> Distinctive, memorable. Each page can be truly optimized for its audience.
+        <br>
+        <strong>Con:</strong> Expensive for 20+ pages. Easy to drift into inconsistency. Long build cycle before traffic comes in.
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<p class="subtitle" style="margin-top:28px;text-align:center;">
+  Click the approach you lean toward, or tell me in the terminal if you want to mix them.
+</p>

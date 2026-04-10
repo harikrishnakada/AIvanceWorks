@@ -1,0 +1,579 @@
+<style>
+  :root {
+    --bg-dark-1: #0f172a;
+    --bg-dark-2: #1e293b;
+    --bg-dark-3: #111827;
+    --brand-blue: #3b82f6;
+    --brand-blue-light: #60a5fa;
+    --brand-indigo: #6366f1;
+    --text-primary: #f1f5f9;
+    --text-secondary: #cbd5e1;
+    --text-muted: #94a3b8;
+    --green: #10b981;
+    --amber: #f59e0b;
+    --red: #ef4444;
+  }
+
+  .sig-section {
+    background: linear-gradient(135deg, var(--bg-dark-1), var(--bg-dark-2), var(--bg-dark-1));
+    border-radius: 16px;
+    padding: 32px;
+    color: var(--text-primary);
+    margin-bottom: 40px;
+    border: 1px solid rgba(255,255,255,0.05);
+    position: relative;
+    overflow: hidden;
+  }
+  .sig-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(to right, rgba(59,130,246,0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(59,130,246,0.04) 1px, transparent 1px);
+    background-size: 32px 32px;
+    pointer-events: none;
+  }
+  .sig-section > * { position: relative; z-index: 1; }
+
+  .sig-tag {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 999px;
+    background: rgba(59,130,246,0.15);
+    color: var(--brand-blue-light);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .sig-title {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    color: white;
+    margin-bottom: 6px;
+  }
+  .sig-subtitle {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+    max-width: 640px;
+  }
+
+  /* ─────────── Signature 1: Product Discovery — Before/After ─────────── */
+  .before-after {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 18px;
+    align-items: stretch;
+  }
+  .ba-col {
+    border-radius: 12px;
+    padding: 20px;
+    min-height: 240px;
+  }
+  .ba-before {
+    background: rgba(239,68,68,0.05);
+    border: 1px dashed rgba(239,68,68,0.25);
+  }
+  .ba-after {
+    background: rgba(16,185,129,0.05);
+    border: 1px solid rgba(16,185,129,0.3);
+  }
+  .ba-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 14px;
+  }
+  .ba-before .ba-label { color: #fca5a5; }
+  .ba-after .ba-label { color: #6ee7b7; }
+  .ba-headline {
+    font-size: 14px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 10px;
+  }
+  .ba-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .ba-list li {
+    font-size: 11px;
+    color: var(--text-secondary);
+    padding: 6px 0 6px 18px;
+    position: relative;
+    line-height: 1.4;
+  }
+  .ba-before li::before {
+    content: "?";
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    border-radius: 999px;
+    background: rgba(239,68,68,0.2);
+    color: #fca5a5;
+    font-size: 9px;
+    font-weight: 800;
+    text-align: center;
+    line-height: 12px;
+  }
+  .ba-after li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    border-radius: 999px;
+    background: rgba(16,185,129,0.2);
+    color: #6ee7b7;
+    font-size: 8px;
+    font-weight: 800;
+    text-align: center;
+    line-height: 12px;
+  }
+  .ba-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 6px;
+    color: var(--brand-blue-light);
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0 4px;
+  }
+  .ba-arrow svg {
+    width: 48px;
+    height: 36px;
+  }
+
+  /* ─────────── Signature 2: MVP Development — Roadmap ─────────── */
+  .roadmap {
+    position: relative;
+    padding-top: 40px;
+  }
+  .roadmap-track {
+    position: absolute;
+    top: 56px;
+    left: 3%;
+    right: 3%;
+    height: 3px;
+    background: linear-gradient(to right, rgba(59,130,246,0.1), var(--brand-blue), rgba(99,102,241,0.1));
+    border-radius: 999px;
+  }
+  .roadmap-steps {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    position: relative;
+  }
+  .roadmap-step {
+    position: relative;
+    padding: 28px 8px 0;
+    text-align: center;
+  }
+  .roadmap-dot {
+    position: absolute;
+    top: 24px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 16px;
+    height: 16px;
+    border-radius: 999px;
+    background: var(--brand-blue);
+    border: 3px solid var(--bg-dark-1);
+    box-shadow: 0 0 0 2px var(--brand-blue);
+  }
+  .roadmap-week {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--brand-blue-light);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 16px;
+  }
+  .roadmap-phase-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: white;
+    margin: 4px 0 6px;
+  }
+  .roadmap-deliverable {
+    font-size: 10px;
+    color: var(--text-muted);
+    line-height: 1.4;
+  }
+
+  /* ─────────── Signature 3: Patient Portals — Architecture Map ─────────── */
+  .arch-wrap {
+    padding: 20px 8px;
+  }
+  .arch-compliance-ring {
+    border: 1px dashed rgba(16,185,129,0.35);
+    border-radius: 16px;
+    padding: 26px 20px 20px;
+    position: relative;
+  }
+  .arch-compliance-label {
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    background: var(--bg-dark-2);
+    padding: 0 10px;
+    font-size: 10px;
+    font-weight: 700;
+    color: #6ee7b7;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .arch-layers {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .arch-layer {
+    background: rgba(59,130,246,0.08);
+    border: 1px solid rgba(59,130,246,0.25);
+    border-radius: 10px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+  }
+  .arch-layer.portal {
+    background: linear-gradient(90deg, rgba(99,102,241,0.18), rgba(59,130,246,0.12));
+    border-color: rgba(99,102,241,0.4);
+  }
+  .arch-layer.fhir {
+    background: rgba(245,158,11,0.08);
+    border-color: rgba(245,158,11,0.25);
+  }
+  .arch-layer-label {
+    flex: 0 0 140px;
+    font-size: 12px;
+    font-weight: 700;
+    color: white;
+  }
+  .arch-layer-label small {
+    display: block;
+    font-size: 9px;
+    font-weight: 500;
+    color: var(--text-muted);
+    margin-top: 2px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .arch-items {
+    flex: 1;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+  .arch-chip {
+    font-size: 10px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.06);
+    color: var(--text-secondary);
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .arch-arrow-down {
+    text-align: center;
+    color: rgba(99,102,241,0.5);
+    font-size: 16px;
+    margin: -4px 0;
+  }
+
+  /* ─────────── Signature 4: Insurance Portals — Claims Flow ─────────── */
+  .flow {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+    align-items: stretch;
+    position: relative;
+  }
+  .flow-step {
+    background: rgba(59,130,246,0.06);
+    border: 1px solid rgba(59,130,246,0.22);
+    border-radius: 10px;
+    padding: 16px 12px 12px;
+    text-align: center;
+    position: relative;
+  }
+  .flow-step::after {
+    content: "";
+    position: absolute;
+    right: -6px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid rgba(59,130,246,0.5);
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    z-index: 2;
+  }
+  .flow-step:last-child::after { display: none; }
+  .flow-icon {
+    width: 32px;
+    height: 32px;
+    margin: 0 auto 8px;
+    border-radius: 8px;
+    background: rgba(59,130,246,0.18);
+    border: 1px solid rgba(59,130,246,0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: var(--brand-blue-light);
+  }
+  .flow-name {
+    font-size: 11px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 6px;
+  }
+  .flow-time {
+    font-size: 9px;
+    color: var(--text-muted);
+    line-height: 1.3;
+  }
+  .flow-time .old {
+    text-decoration: line-through;
+    color: #fca5a5;
+  }
+  .flow-time .new {
+    color: #6ee7b7;
+    font-weight: 700;
+  }
+
+  .sig-card-note {
+    margin-top: 20px;
+    padding: 12px 16px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 8px;
+    border-left: 3px solid var(--brand-blue);
+    font-size: 11px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+  .sig-card-note strong { color: white; }
+</style>
+
+<h2>Four signature sections, one per pilot page</h2>
+<p class="subtitle">
+  These are rough wireframes — layout and concept, not final polish. Each uses the current brand palette (blue + dark). Click any section to select it, or tell me in the terminal which ones you want to keep, swap, or redesign.
+</p>
+
+<!-- ─────────── 1. Product Discovery — Before/After ─────────── -->
+<div class="sig-section" onclick="toggleSelect(this)" data-choice="product-discovery-beforeafter">
+  <span class="sig-tag">Signature · Product Discovery</span>
+  <div class="sig-title">What you walk in with vs. what you walk out with</div>
+  <div class="sig-subtitle">Before / After transformation. The fastest way to sell a discovery sprint is to show the concrete artifacts you hand over at the end.</div>
+
+  <div class="before-after">
+    <div class="ba-col ba-before">
+      <div class="ba-label">Before Discovery</div>
+      <div class="ba-headline">A vague idea with unknown risks</div>
+      <ul class="ba-list">
+        <li>"We want to build an AI-powered tool"</li>
+        <li>No clarity on users, problem, or competitors</li>
+        <li>No validated scope or MVP definition</li>
+        <li>Unknown technical risks and unknowns</li>
+        <li>Uncertain investment and timeline</li>
+      </ul>
+    </div>
+    <div class="ba-arrow">
+      <svg viewBox="0 0 48 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2 18 L40 18" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M32 8 L44 18 L32 28" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+      <div>2-Week<br>Discovery</div>
+    </div>
+    <div class="ba-col ba-after">
+      <div class="ba-label">After Discovery</div>
+      <div class="ba-headline">A prioritized, de-risked plan</div>
+      <ul class="ba-list">
+        <li>Validated problem statement + target users</li>
+        <li>Prioritized MVP backlog with acceptance criteria</li>
+        <li>Technical architecture + tech-spike results</li>
+        <li>Risk register with mitigations</li>
+        <li>Fixed-scope proposal with 90% confidence estimate</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sig-card-note">
+    <strong>Why this section:</strong> Product Discovery buyers are asking "what do I actually get?" The Before/After shows the tangible deliverables side-by-side, which is more convincing than a bulleted capability list.
+  </div>
+</div>
+
+<!-- ─────────── 2. MVP Development — Roadmap ─────────── -->
+<div class="sig-section" onclick="toggleSelect(this)" data-choice="mvp-roadmap">
+  <span class="sig-tag">Signature · MVP Development</span>
+  <div class="sig-title">From kickoff to real users in 12 weeks</div>
+  <div class="sig-subtitle">Roadmap timeline. MVP buyers think in weeks and milestones — show them exactly what happens in each phase.</div>
+
+  <div class="roadmap">
+    <div class="roadmap-track"></div>
+    <div class="roadmap-steps">
+      <div class="roadmap-step">
+        <div class="roadmap-dot"></div>
+        <div class="roadmap-week">Week 1</div>
+        <div class="roadmap-phase-title">Kickoff</div>
+        <div class="roadmap-deliverable">Scope lock, sprint 0, CI/CD skeleton deployed</div>
+      </div>
+      <div class="roadmap-step">
+        <div class="roadmap-dot"></div>
+        <div class="roadmap-week">Weeks 2-4</div>
+        <div class="roadmap-phase-title">Core Build</div>
+        <div class="roadmap-deliverable">Auth, core data models, primary happy-path UI</div>
+      </div>
+      <div class="roadmap-step">
+        <div class="roadmap-dot"></div>
+        <div class="roadmap-week">Weeks 5-8</div>
+        <div class="roadmap-phase-title">Real Users</div>
+        <div class="roadmap-deliverable">Internal beta, first external users, weekly iteration</div>
+      </div>
+      <div class="roadmap-step">
+        <div class="roadmap-dot"></div>
+        <div class="roadmap-week">Weeks 9-11</div>
+        <div class="roadmap-phase-title">Harden</div>
+        <div class="roadmap-deliverable">Performance, observability, security review, billing</div>
+      </div>
+      <div class="roadmap-step">
+        <div class="roadmap-dot"></div>
+        <div class="roadmap-week">Week 12</div>
+        <div class="roadmap-phase-title">V1 Launch</div>
+        <div class="roadmap-deliverable">Production deploy, runbook, handover, metrics</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sig-card-note">
+    <strong>Why this section:</strong> Founders/PMs buying MVP work are anxious about time-to-market. A 5-step roadmap with deliverables per phase reassures them that the schedule is real and thought through.
+  </div>
+</div>
+
+<!-- ─────────── 3. Patient Portals — Architecture Map ─────────── -->
+<div class="sig-section" onclick="toggleSelect(this)" data-choice="patient-portals-architecture">
+  <span class="sig-tag">Signature · Patient Portals</span>
+  <div class="sig-title">How it connects to your EHR (and stays HIPAA-compliant)</div>
+  <div class="sig-subtitle">Architecture / integration map. The #1 healthcare-buyer question is "will this work with our EHR?" — answer it visually with a layered diagram.</div>
+
+  <div class="arch-wrap">
+    <div class="arch-compliance-ring">
+      <span class="arch-compliance-label">HIPAA · SOC 2 · HITECH · 21 CFR Part 11</span>
+
+      <div class="arch-layers">
+
+        <div class="arch-layer portal">
+          <div class="arch-layer-label">Patient Portal<small>Web + PWA</small></div>
+          <div class="arch-items">
+            <span class="arch-chip">Records</span>
+            <span class="arch-chip">Scheduling</span>
+            <span class="arch-chip">Messaging</span>
+            <span class="arch-chip">Telehealth</span>
+            <span class="arch-chip">Billing</span>
+          </div>
+        </div>
+
+        <div class="arch-arrow-down">▼</div>
+
+        <div class="arch-layer">
+          <div class="arch-layer-label">Identity + API Gateway<small>Azure AD B2C · Key Vault</small></div>
+          <div class="arch-items">
+            <span class="arch-chip">MFA</span>
+            <span class="arch-chip">RBAC</span>
+            <span class="arch-chip">Audit Log</span>
+            <span class="arch-chip">Encryption</span>
+          </div>
+        </div>
+
+        <div class="arch-arrow-down">▼</div>
+
+        <div class="arch-layer fhir">
+          <div class="arch-layer-label">FHIR R4 / HL7 Layer<small>Interop middleware</small></div>
+          <div class="arch-items">
+            <span class="arch-chip">SMART on FHIR</span>
+            <span class="arch-chip">HL7 v2 bridge</span>
+            <span class="arch-chip">Transformation</span>
+          </div>
+        </div>
+
+        <div class="arch-arrow-down">▼</div>
+
+        <div class="arch-layer">
+          <div class="arch-layer-label">Your EHR Systems<small>Any vendor</small></div>
+          <div class="arch-items">
+            <span class="arch-chip">Epic MyChart</span>
+            <span class="arch-chip">Cerner</span>
+            <span class="arch-chip">Athenahealth</span>
+            <span class="arch-chip">eClinicalWorks</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="sig-card-note">
+    <strong>Why this section:</strong> Healthcare CIOs need to see that you understand the real integration surface. A layered architecture map (with compliance wrapping everything) is the most credible proof that you've done this before.
+  </div>
+</div>
+
+<!-- ─────────── 4. Insurance Portals — Claims Flow ─────────── -->
+<div class="sig-section" onclick="toggleSelect(this)" data-choice="insurance-portals-claims-flow">
+  <span class="sig-tag">Signature · Insurance Portals</span>
+  <div class="sig-title">Claims that used to take days, now take hours</div>
+  <div class="sig-subtitle">Process flowchart with time compression. Insurance buyers care about speed and operational cost — a flow diagram with before/after times at each stage is instantly persuasive.</div>
+
+  <div class="flow">
+    <div class="flow-step">
+      <div class="flow-icon">📥</div>
+      <div class="flow-name">FNOL Intake</div>
+      <div class="flow-time"><span class="old">4 hrs</span><br><span class="new">5 min</span><br>self-service</div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-icon">📄</div>
+      <div class="flow-name">Document Upload</div>
+      <div class="flow-time"><span class="old">2 days</span><br><span class="new">Instant</span><br>AI OCR</div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-icon">🧠</div>
+      <div class="flow-name">AI Triage</div>
+      <div class="flow-time"><span class="old">1 day</span><br><span class="new">30 sec</span><br>auto-classify</div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-icon">👤</div>
+      <div class="flow-name">Adjuster Review</div>
+      <div class="flow-time"><span class="old">3 days</span><br><span class="new">4 hrs</span><br>in-portal tools</div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-icon">✓</div>
+      <div class="flow-name">Settlement</div>
+      <div class="flow-time"><span class="old">2 days</span><br><span class="new">Same day</span><br>digital pay</div>
+    </div>
+  </div>
+
+  <div class="sig-card-note">
+    <strong>Why this section:</strong> Insurance operations buyers are judged on claims cycle time. Seeing each stage compress — with old/new times side-by-side — is directly tied to the ROI that lets them get this project funded internally.
+  </div>
+</div>
+
+<p class="subtitle" style="text-align:center;margin-top:24px;">
+  React in the terminal: which do you keep, which do you want reshaped, which do you want replaced?
+</p>

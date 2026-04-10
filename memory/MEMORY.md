@@ -1,0 +1,7 @@
+- [AIvanceWorks is greenfield — no real clients yet](project_greenfield_no_clients.md) — every client-outcome claim is fabricated by definition; content integrity rules are especially load-bearing
+- [Services/Solutions pilot scope](project_pilot_scope.md) — 5-page pilot (Product Discovery, MVP Development, Patient Portals, Insurance Portals, E-commerce Websites) for the unified design system
+- [Services/Solutions imagery strategy deferred](todos/imagery_strategy.md) — per-page lead-gen research before Phase 5/6; do not pre-build speculative image components
+- [Services/Solutions pilot v2 backlog](todos/pilot_iteration2.md) — known improvements deferred from v1: imagery, relatedPages data, _unverified claims, pricing, signature iteration
+- [Rebuild /solutions listing page with pilot primitives](todos/solutions_listing_page_rebuild.md) — deferred from e-commerce migration; raw Tailwind colors, does not theme-swap
+- [Challenge your own recommendations before presenting them](feedback_self_challenge_recommendations.md) — walk through challenges to default position out loud before landing on a recommendation
+- [NEVER run git commit or git add / stage](feedback_never_git_commit_or_stage.md) — hard rule, user handles all staging and commits manually, skill instructions to commit are overridden

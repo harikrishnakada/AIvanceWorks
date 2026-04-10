@@ -1,0 +1,456 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - navigation "Main navigation" [ref=e3]:
+      - generic [ref=e4]:
+        - link "aiDevsoft homepage" [ref=e6] [cursor=pointer]:
+          - /url: /
+          - generic [ref=e7]: aiDevsoft
+        - generic [ref=e8]:
+          - button "AI & ML" [ref=e10]:
+            - text: AI & ML
+            - img [ref=e11]
+          - button "Services" [ref=e14]:
+            - text: Services
+            - img [ref=e15]
+          - button "Solutions" [ref=e18]:
+            - text: Solutions
+            - img [ref=e19]
+          - link "Industry" [ref=e21] [cursor=pointer]:
+            - /url: /industry
+          - link "Case Studies" [ref=e22] [cursor=pointer]:
+            - /url: /case-studies
+          - link "Blog" [ref=e23] [cursor=pointer]:
+            - /url: /blog
+          - link "About" [ref=e24] [cursor=pointer]:
+            - /url: /about
+        - generic [ref=e25]:
+          - link "Contact" [ref=e26] [cursor=pointer]:
+            - /url: /contact
+          - link "Book an Appointment" [ref=e27] [cursor=pointer]:
+            - /url: /book-consultation
+  - main [ref=e29]:
+    - navigation "Breadcrumb" [ref=e30]:
+      - list [ref=e32]:
+        - listitem [ref=e33]:
+          - link "Home" [ref=e34] [cursor=pointer]:
+            - /url: /
+        - listitem [ref=e35]:
+          - img [ref=e36]
+          - link "Solutions" [ref=e38] [cursor=pointer]:
+            - /url: /solutions
+        - listitem [ref=e39]:
+          - img [ref=e40]
+          - generic [ref=e42]: E-commerce Websites
+    - generic [ref=e47]:
+      - generic [ref=e48]:
+        - generic [ref=e49]: E-commerce Solutions
+        - heading "Headless commerce, built for performance — and owned by you." [level=1] [ref=e50]
+        - paragraph [ref=e51]: Custom Next.js storefronts on Azure/AWS with AI-powered personalisation, tokenized checkout, and full platform-migration expertise. Architected for Core Web Vitals leadership and to scale without per-transaction platform fees.
+        - generic [ref=e52]:
+          - link "Book a Discovery Call" [ref=e53] [cursor=pointer]:
+            - /url: /contact
+          - link "See the AI showcase" [ref=e54] [cursor=pointer]:
+            - /url: "#signature"
+      - generic [ref=e55]:
+        - heading "Key Results" [level=3] [ref=e56]
+        - generic [ref=e57]:
+          - generic [ref=e58]:
+            - generic [ref=e60]: Sub-1.5s
+            - generic [ref=e61]:
+              - generic [ref=e62]: Target LCP
+              - generic [ref=e63]: Architected for Core Web Vitals leadership
+          - generic [ref=e64]:
+            - generic [ref=e66]: Headless
+            - generic [ref=e67]:
+              - generic [ref=e68]: Architecture
+              - generic [ref=e69]: Next.js frontend + decoupled commerce backend
+          - generic [ref=e70]:
+            - generic [ref=e72]: Migration-ready
+            - generic [ref=e73]:
+              - generic [ref=e74]: Platform experience
+              - generic [ref=e75]: Shopify, Magento, WooCommerce, Salesforce Commerce Cloud
+    - generic [ref=e80]:
+      - generic [ref=e81]:
+        - generic [ref=e82]: Custom-built
+        - generic [ref=e83]: Conversion Architecture
+        - generic [ref=e84]: Every page, component, and checkout step designed for your specific conversion funnel — not adapted from a template.
+      - generic [ref=e85]:
+        - generic [ref=e86]: <1.5s
+        - generic [ref=e87]: Target LCP
+        - generic [ref=e88]: Next.js App Router with SSR, image optimisation, and edge caching — architected to this standard.
+      - generic [ref=e89]:
+        - generic [ref=e90]: AI-powered
+        - generic [ref=e91]: Personalisation Engine
+        - generic [ref=e92]: Real-time product recommendations, dynamic bundling, and personalised search results architected to lift average order value.
+      - generic [ref=e93]:
+        - generic [ref=e94]: Frictionless
+        - generic [ref=e95]: Checkout Flow
+        - generic [ref=e96]: Tokenized payments, express options, and progress-optimised checkout designed to minimise cart abandonment.
+    - generic [ref=e101]:
+      - generic [ref=e102]:
+        - img [ref=e104]
+        - heading "Custom Storefront & Product Catalogue" [level=3] [ref=e108]
+        - paragraph [ref=e109]: Pixel-perfect storefronts with advanced filtering, faceted search, variant management, and rich product pages optimised for both conversion and organic search — built to your brand, not a template.
+      - generic [ref=e110]:
+        - img [ref=e112]
+        - heading "AI Product Recommendations & Personalisation" [level=3] [ref=e115]
+        - paragraph [ref=e116]: Real-time recommendation engine using collaborative filtering and browsing behaviour to surface relevant products at every stage of the customer journey, architected to lift conversion rate and average order value.
+      - generic [ref=e117]:
+        - img [ref=e119]
+        - heading "Inventory & Order Management" [level=3] [ref=e123]
+        - paragraph [ref=e124]: Real-time inventory tracking across warehouses, automated reorder triggers, order lifecycle management, and fulfilment partner integrations so your operations team has full visibility without switching between tools.
+      - generic [ref=e125]:
+        - img [ref=e127]
+        - heading "Checkout & Payment Optimisation" [level=3] [ref=e129]
+        - paragraph [ref=e130]: Tokenized checkout with Stripe, Braintree, or Adyen keeps raw card data out of your environment (PCI DSS SAQ A), while supporting Apple Pay, Google Pay, Buy-Now-Pay-Later, multi-currency, and localised tax calculation via Avalara or TaxJar.
+      - generic [ref=e131]:
+        - img [ref=e133]
+        - heading "Multi-Channel & Headless Architecture" [level=3] [ref=e136]
+        - paragraph [ref=e137]: A headless commerce architecture decouples your storefront from your commerce backend, enabling consistent experiences across web, mobile, and social commerce. Supports migrations from Shopify, Magento, WooCommerce, and Salesforce Commerce Cloud with full SEO redirect maps.
+      - generic [ref=e138]:
+        - img [ref=e140]
+        - heading "Marketing & Analytics Ready" [level=3] [ref=e141]
+        - paragraph [ref=e142]: GA4, Meta Pixel, and Klaviyo integration via server-side tagging for resilient attribution that survives ad-blockers and iOS tracking changes. Revenue attribution, funnel analysis, and lifetime value reporting built into the dashboard.
+    - generic [ref=e146]:
+      - generic [ref=e147]:
+        - generic [ref=e148]: AI, built in
+        - heading "AI woven into every step of the shopper’s journey." [level=2] [ref=e149]
+        - paragraph [ref=e150]: Recommendation engines, visual search, pricing intelligence, and personalisation designed into the storefront from day one — not bolted on after launch.
+      - generic [ref=e151]:
+        - generic [ref=e152]:
+          - img [ref=e154]
+          - heading "Smart product recommendations" [level=3] [ref=e157]
+          - paragraph [ref=e158]: Recommendation engine analyses browsing behaviour, purchase history, and similar-customer profiles to surface the most relevant products at every stage of the journey — from landing page to checkout.
+        - generic [ref=e159]:
+          - img [ref=e161]
+          - heading "Visual search" [level=3] [ref=e164]
+          - paragraph [ref=e165]: Shoppers snap a photo and find matching products instantly. Computer vision powered by Azure AI Vision, with a fallback to custom embedding models when catalogues need fine-tuning.
+        - generic [ref=e166]:
+          - img [ref=e168]
+          - heading "Dynamic pricing" [level=3] [ref=e171]
+          - paragraph [ref=e172]: Real-time price optimisation based on demand signals, competitor pricing, and inventory levels — with guardrails for margin floors and brand-safety rules.
+        - generic [ref=e173]:
+          - img [ref=e175]
+          - heading "Predictive inventory" [level=3] [ref=e179]
+          - paragraph [ref=e180]: Forecast demand by SKU, prevent stockouts, and reduce carrying costs with ML-driven inventory planning tuned to your seasonality and promotional calendar.
+        - generic [ref=e181]:
+          - img [ref=e183]
+          - heading "Personalised shopping journeys" [level=3] [ref=e188]
+          - paragraph [ref=e189]: Every visitor sees a storefront adapted to their preferences — hero banners, category ordering, search results, and email campaigns driven by a unified customer profile shared across channels.
+    - generic [ref=e194]:
+      - generic [ref=e196]:
+        - img [ref=e198]
+        - generic [ref=e201]:
+          - heading "Conversion-First Architecture" [level=3] [ref=e202]
+          - paragraph [ref=e203]: A storefront designed specifically for your customers and products — with CRO principles built into every page, from product hierarchy to checkout friction — typically outperforms template-based platforms adapted to fit your business.
+      - generic [ref=e205]:
+        - img [ref=e207]
+        - generic [ref=e209]:
+          - heading "Performance Leadership" [level=3] [ref=e210]
+          - paragraph [ref=e211]: Next.js App Router with server-side rendering, automatic image optimisation, and global CDN delivery are architected to produce Core Web Vitals scores of the kind that Google rewards in organic search rankings and that typically correlate with lower bounce rates.
+      - generic [ref=e213]:
+        - img [ref=e215]
+        - generic [ref=e218]:
+          - heading "Personalisation Built In, Not Bolted On" [level=3] [ref=e219]
+          - paragraph [ref=e220]: Every visitor sees a storefront adapted to their behaviour and preferences — product recommendations, dynamic banners, personalised search results — architected into the storefront from day one rather than layered on via third-party tags.
+      - generic [ref=e222]:
+        - img [ref=e224]
+        - generic [ref=e228]:
+          - heading "Scalable Without Platform Constraints" [level=3] [ref=e229]
+          - paragraph [ref=e230]: Custom architecture is built to handle high-traffic events (Black Friday, product launches) without platform fees that scale with revenue, and supports new channels, markets, and product lines without rebuilding.
+      - generic [ref=e232]:
+        - img [ref=e234]
+        - generic [ref=e236]:
+          - heading "Full Ownership & No Platform Lock-In" [level=3] [ref=e237]
+          - paragraph [ref=e238]: You own the codebase, the data, and the infrastructure. No per-transaction fees, no forced platform upgrades, no risk of a third-party platform change breaking your business.
+    - generic [ref=e243]:
+      - generic [ref=e244]:
+        - heading "Key Capabilities" [level=3] [ref=e245]
+        - list [ref=e246]:
+          - listitem [ref=e247]:
+            - img [ref=e248]
+            - generic [ref=e251]: Headless commerce architecture (API-first)
+          - listitem [ref=e252]:
+            - img [ref=e253]
+            - generic [ref=e256]: AI product recommendations and personalisation
+          - listitem [ref=e257]:
+            - img [ref=e258]
+            - generic [ref=e261]: Multi-currency and international tax support
+          - listitem [ref=e262]:
+            - img [ref=e263]
+            - generic [ref=e266]: Advanced faceted search and filtering
+          - listitem [ref=e267]:
+            - img [ref=e268]
+            - generic [ref=e271]: Real-time inventory synchronisation
+          - listitem [ref=e272]:
+            - img [ref=e273]
+            - generic [ref=e276]: Multi-warehouse and 3PL fulfilment integration
+          - listitem [ref=e277]:
+            - img [ref=e278]
+            - generic [ref=e281]: Progressive Web App (PWA) support
+          - listitem [ref=e282]:
+            - img [ref=e283]
+            - generic [ref=e286]: SEO-optimised product and category pages
+          - listitem [ref=e287]:
+            - img [ref=e288]
+            - generic [ref=e291]: A/B testing and conversion rate optimisation
+          - listitem [ref=e292]:
+            - img [ref=e293]
+            - generic [ref=e296]: WCAG 2.1 AA accessibility compliance
+          - listitem [ref=e297]:
+            - img [ref=e298]
+            - generic [ref=e301]: ERP/CRM-ready — architected for NetSuite, SAP, and Salesforce integrations without double-entry
+      - generic [ref=e302]:
+        - heading "Technologies" [level=3] [ref=e303]
+        - generic [ref=e304]:
+          - generic [ref=e305]: Next.js 15 / React
+          - generic [ref=e306]: TypeScript
+          - generic [ref=e307]: Tailwind CSS
+          - generic [ref=e308]: Node.js / .NET (API layer)
+          - generic [ref=e309]: PostgreSQL / MongoDB
+          - generic [ref=e310]: Azure / AWS (cloud hosting)
+          - generic [ref=e311]: Azure AI / OpenAI (recommendations)
+          - generic [ref=e312]: Algolia / Azure Cognitive Search
+          - generic [ref=e313]: Stripe / Braintree / Adyen
+          - generic [ref=e314]: Contentful / Sanity.io (headless CMS)
+          - generic [ref=e315]: Vercel (frontend hosting)
+          - generic [ref=e316]: Terraform (IaC)
+    - generic [ref=e320]:
+      - heading "Our Implementation Process" [level=2] [ref=e322]
+      - generic [ref=e323]:
+        - generic [ref=e324]:
+          - generic [ref=e325]:
+            - generic [ref=e326]:
+              - generic [ref=e327]: "1"
+              - generic [ref=e328]:
+                - img [ref=e329]
+                - text: 1–2 weeks
+            - heading "Market Research & UX Discovery" [level=3] [ref=e332]
+            - paragraph [ref=e333]: We analyse your target customer segments, competitor storefronts, and current conversion bottlenecks to define a product strategy grounded in data. For migrations, we audit your existing platform to identify what to preserve, improve, and replace.
+            - generic [ref=e334]:
+              - img [ref=e335]
+              - generic [ref=e338]: Competitive analysis, user journey maps, conversion audit (for migrations), and prioritised feature roadmap
+          - img [ref=e340]
+        - generic [ref=e342]:
+          - generic [ref=e343]:
+            - generic [ref=e344]:
+              - generic [ref=e345]: "2"
+              - generic [ref=e346]:
+                - img [ref=e347]
+                - text: 2–4 weeks
+            - heading "Design & Prototyping" [level=3] [ref=e350]
+            - paragraph [ref=e351]: "We design the storefront with CRO principles embedded throughout: clear product hierarchy, minimal-friction checkout, mobile-first layouts, and strategic social proof placement. Interactive prototypes validated before development begins."
+            - generic [ref=e352]:
+              - img [ref=e353]
+              - generic [ref=e356]: High-fidelity Figma designs, interactive prototype, design system, mobile specification
+          - img [ref=e358]
+        - generic [ref=e360]:
+          - generic [ref=e361]:
+            - generic [ref=e362]:
+              - generic [ref=e363]: "3"
+              - generic [ref=e364]:
+                - img [ref=e365]
+                - text: 6–12 weeks
+            - heading "Storefront Development" [level=3] [ref=e368]
+            - paragraph [ref=e369]: Frontend development in Next.js with App Router, TypeScript, and Tailwind CSS. Backend commerce logic via a headless CMS and custom API layer, with AI recommendation and personalisation services built in from the start rather than layered on later.
+            - generic [ref=e370]:
+              - img [ref=e371]
+              - generic [ref=e374]: Staging storefront with all agreed features, Core Web Vitals report, accessibility audit
+          - img [ref=e376]
+        - generic [ref=e378]:
+          - generic [ref=e379]:
+            - generic [ref=e380]:
+              - generic [ref=e381]: "4"
+              - generic [ref=e382]:
+                - img [ref=e383]
+                - text: 2–4 weeks
+            - heading "Payment, Fulfilment & Systems Integration" [level=3] [ref=e386]
+            - paragraph [ref=e387]: We integrate your chosen payment gateway (Stripe, Braintree, Adyen), shipping carriers, ERP or inventory system, and marketing tools. For platform migrations from Shopify, Magento, or WooCommerce, we handle full product, order, and customer data migration with reconciliation.
+            - generic [ref=e388]:
+              - img [ref=e389]
+              - generic [ref=e392]: Integration test documentation, data migration reconciliation report, end-to-end transaction test results
+          - img [ref=e394]
+        - generic [ref=e397]:
+          - generic [ref=e398]:
+            - generic [ref=e399]: "5"
+            - generic [ref=e400]:
+              - img [ref=e401]
+              - text: 1–2 weeks
+          - heading "Launch, SEO Validation & Growth Optimisation" [level=3] [ref=e404]
+          - paragraph [ref=e405]: Production launch with DNS migration support, 301 redirect mapping for SEO preservation, Google Search Console setup, and a structured A/B testing programme to continuously improve conversion rate post-launch. We provide a defined hypercare period of monitoring and optimisation support.
+          - generic [ref=e406]:
+            - img [ref=e407]
+            - generic [ref=e410]: Live production site, SEO redirect map, Search Console configuration, A/B test plan, hypercare support SLA
+    - generic [ref=e414]:
+      - heading "Explore Related Solutions" [level=2] [ref=e416]
+      - generic [ref=e417]:
+        - link "Product Discovery De-risk your product idea with a structured sprint before writing code. Learn more" [ref=e418] [cursor=pointer]:
+          - /url: /services/product-discovery
+          - generic [ref=e419]:
+            - img [ref=e421]
+            - heading "Product Discovery" [level=3] [ref=e424]
+            - paragraph [ref=e425]: De-risk your product idea with a structured sprint before writing code.
+            - generic [ref=e426]:
+              - text: Learn more
+              - img [ref=e427]
+        - link "MVP Development Ship a working product on a dual-track roadmap balancing speed and engineering quality. Learn more" [ref=e429] [cursor=pointer]:
+          - /url: /services/mvp-development
+          - generic [ref=e430]:
+            - img [ref=e432]
+            - heading "MVP Development" [level=3] [ref=e437]
+            - paragraph [ref=e438]: Ship a working product on a dual-track roadmap balancing speed and engineering quality.
+            - generic [ref=e439]:
+              - text: Learn more
+              - img [ref=e440]
+        - link "Insurance Portals Policyholder, agent, and broker portals that streamline claims and policy workflows. Learn more" [ref=e442] [cursor=pointer]:
+          - /url: /solutions/insurance-portals
+          - generic [ref=e443]:
+            - img [ref=e445]
+            - heading "Insurance Portals" [level=3] [ref=e447]
+            - paragraph [ref=e448]: Policyholder, agent, and broker portals that streamline claims and policy workflows.
+            - generic [ref=e449]:
+              - text: Learn more
+              - img [ref=e450]
+    - generic [ref=e455]:
+      - heading "Frequently Asked Questions" [level=2] [ref=e457]
+      - generic [ref=e458]:
+        - group [ref=e459]:
+          - generic "Can you migrate our existing Shopify, Magento, or WooCommerce store without customer-facing downtime?" [ref=e460] [cursor=pointer]:
+            - heading "Can you migrate our existing Shopify, Magento, or WooCommerce store without customer-facing downtime?" [level=3] [ref=e461]
+            - img [ref=e462]
+        - group [ref=e464]:
+          - generic "How do you integrate the storefront with our existing ERP or CRM?" [ref=e465] [cursor=pointer]:
+            - heading "How do you integrate the storefront with our existing ERP or CRM?" [level=3] [ref=e466]
+            - img [ref=e467]
+        - group [ref=e469]:
+          - generic "How do you handle payment processing and PCI compliance?" [ref=e470] [cursor=pointer]:
+            - heading "How do you handle payment processing and PCI compliance?" [level=3] [ref=e471]
+            - img [ref=e472]
+        - group [ref=e474]:
+          - generic "Will a custom build outperform Shopify for SEO?" [ref=e475] [cursor=pointer]:
+            - heading "Will a custom build outperform Shopify for SEO?" [level=3] [ref=e476]
+            - img [ref=e477]
+        - group [ref=e479]:
+          - generic "How do you handle high-traffic events like product launches or seasonal peaks?" [ref=e480] [cursor=pointer]:
+            - heading "How do you handle high-traffic events like product launches or seasonal peaks?" [level=3] [ref=e481]
+            - img [ref=e482]
+        - group [ref=e484]:
+          - generic "Do you build B2B e-commerce as well as B2C?" [ref=e485] [cursor=pointer]:
+            - heading "Do you build B2B e-commerce as well as B2C?" [level=3] [ref=e486]
+            - img [ref=e487]
+        - group [ref=e489]:
+          - generic "What does ongoing maintenance and support look like after launch?" [ref=e490] [cursor=pointer]:
+            - heading "What does ongoing maintenance and support look like after launch?" [level=3] [ref=e491]
+            - img [ref=e492]
+    - generic [ref=e498]:
+      - heading "Ready to Build a Storefront That Actually Converts?" [level=2] [ref=e499]
+      - paragraph [ref=e500]: Book a free 30-minute discovery call. We will review your current platform, traffic patterns, and conversion goals, then give you a candid assessment of what a custom build would deliver for your business.
+      - generic [ref=e501]:
+        - link "Book Discovery Call" [ref=e502] [cursor=pointer]:
+          - /url: /contact
+        - link "See the AI showcase" [ref=e503] [cursor=pointer]:
+          - /url: "#signature"
+  - contentinfo [ref=e504]:
+    - generic [ref=e505]:
+      - generic [ref=e507]:
+        - generic [ref=e508]:
+          - link "SS aiDevsoft" [ref=e509] [cursor=pointer]:
+            - /url: /
+            - generic [ref=e511]: SS
+            - generic [ref=e512]: aiDevsoft
+          - paragraph [ref=e513]: AI-first software development for startups. Expert teams in AI agents, RAG frameworks, Azure cloud, and custom development.
+          - generic [ref=e514]:
+            - heading "Stay Updated" [level=3] [ref=e515]
+            - generic [ref=e517]:
+              - textbox "Email address for newsletter" [ref=e518]:
+                - /placeholder: Enter your email
+              - button "Subscribe" [ref=e519]:
+                - text: Subscribe
+                - img
+          - generic [ref=e520]:
+            - heading "Follow Us" [level=3] [ref=e521]
+            - generic [ref=e522]:
+              - link "Follow us on LinkedIn" [ref=e523] [cursor=pointer]:
+                - /url: https://linkedin.com/company/serpentsoftware
+                - img [ref=e524]
+              - link "Follow us on Twitter" [ref=e528] [cursor=pointer]:
+                - /url: https://twitter.com/serpentsoftware
+                - img [ref=e529]
+              - link "View our GitHub" [ref=e531] [cursor=pointer]:
+                - /url: https://github.com/serpentsoftware
+                - img [ref=e532]
+        - generic [ref=e535]:
+          - heading "Services" [level=3] [ref=e536]
+          - list [ref=e537]:
+            - listitem [ref=e538]:
+              - link "AI & Machine Learning" [ref=e539] [cursor=pointer]:
+                - /url: /services/ai-machine-learning
+            - listitem [ref=e540]:
+              - link "Cloud Engineering" [ref=e541] [cursor=pointer]:
+                - /url: /services/cloud-engineering
+            - listitem [ref=e542]:
+              - link "Full-Stack Development" [ref=e543] [cursor=pointer]:
+                - /url: /services/full-stack-development
+            - listitem [ref=e544]:
+              - link "Data Engineering" [ref=e545] [cursor=pointer]:
+                - /url: /services/data-engineering
+            - listitem [ref=e546]:
+              - link "DevOps & CI/CD" [ref=e547] [cursor=pointer]:
+                - /url: /services/devops-automation
+            - listitem [ref=e548]:
+              - link "Enterprise Integration" [ref=e549] [cursor=pointer]:
+                - /url: /services/enterprise-integration
+        - generic [ref=e550]:
+          - heading "Company" [level=3] [ref=e551]
+          - list [ref=e552]:
+            - listitem [ref=e553]:
+              - link "About" [ref=e554] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=e555]:
+              - link "Team" [ref=e556] [cursor=pointer]:
+                - /url: /team
+            - listitem [ref=e557]:
+              - link "Careers" [ref=e558] [cursor=pointer]:
+                - /url: /careers
+            - listitem [ref=e559]:
+              - link "Case Studies" [ref=e560] [cursor=pointer]:
+                - /url: /case-studies
+            - listitem [ref=e561]:
+              - link "Contact" [ref=e562] [cursor=pointer]:
+                - /url: /contact
+        - generic [ref=e563]:
+          - heading "Resources" [level=3] [ref=e564]
+          - list [ref=e565]:
+            - listitem [ref=e566]:
+              - link "Blog" [ref=e567] [cursor=pointer]:
+                - /url: /blog
+            - listitem [ref=e568]:
+              - link "Guides" [ref=e569] [cursor=pointer]:
+                - /url: /resources/guides
+            - listitem [ref=e570]:
+              - link "Whitepapers" [ref=e571] [cursor=pointer]:
+                - /url: /resources/whitepapers
+            - listitem [ref=e572]:
+              - link "Tools" [ref=e573] [cursor=pointer]:
+                - /url: /resources/tools
+            - listitem [ref=e574]:
+              - link "FAQ" [ref=e575] [cursor=pointer]:
+                - /url: /faq
+        - generic [ref=e576]:
+          - heading "Legal" [level=3] [ref=e577]
+          - list [ref=e578]:
+            - listitem [ref=e579]:
+              - link "Privacy Policy" [ref=e580] [cursor=pointer]:
+                - /url: /legal/privacy-policy
+            - listitem [ref=e581]:
+              - link "Terms of Service" [ref=e582] [cursor=pointer]:
+                - /url: /legal/terms-of-service
+          - heading "Contact" [level=3] [ref=e583]
+          - link "serpentsoftware@gmail.com" [ref=e585] [cursor=pointer]:
+            - /url: mailto:serpentsoftware@gmail.com
+            - text: serpentsoftware@gmail.com
+      - generic [ref=e589]:
+        - paragraph [ref=e590]: © 2026 Rovasoft LLC. All rights reserved.
+        - paragraph [ref=e591]: Built with precision. Powered by AI.
+  - button "Open Next.js Dev Tools" [ref=e597] [cursor=pointer]:
+    - img [ref=e598]

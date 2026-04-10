@@ -9,6 +9,7 @@
  */
 
 import { ServiceCategory, Service, BlogPost, CaseStudy, Author, FAQ } from '@/types';
+import type { ServicePageData, SolutionPageData } from '@/types/pages';
 
 // ============================================================================
 // SERVICE CATEGORIES DATA
@@ -984,4 +985,41 @@ export async function getAuthorBySlug(slug: string): Promise<Author | undefined>
 export function getServiceFaqs(categorySlug: string, serviceSlug: string): FAQ[] {
   const service = getServiceBySlug(categorySlug, serviceSlug);
   return service?.faqs || [];
+}
+
+// ─── Unified services/solutions data layer ─────────────────
+// Pilot migration: the four pilot pages use these fetchers.
+// Non-pilot pages stay on the legacy fetchers above until migrated.
+
+const SERVICE_PAGE_MODULES: Record<string, () => Promise<{ default: ServicePageData }>> = {
+  'product-discovery': () => import('@/data/services/product-discovery'),
+  'mvp-development': () => import('@/data/services/mvp-development'),
+};
+
+const SOLUTION_PAGE_MODULES: Record<string, () => Promise<{ default: SolutionPageData }>> = {
+  'patient-portals': () => import('@/data/solutions/patient-portals'),
+  'insurance-portals': () => import('@/data/solutions/insurance-portals'),
+  'e-commerce-websites': () => import('@/data/solutions/e-commerce-websites'),
+};
+
+export async function getServicePageData(slug: string): Promise<ServicePageData | null> {
+  const loader = SERVICE_PAGE_MODULES[slug];
+  if (!loader) return null;
+  const mod = await loader();
+  return mod.default;
+}
+
+export async function getSolutionPageData(slug: string): Promise<SolutionPageData | null> {
+  const loader = SOLUTION_PAGE_MODULES[slug];
+  if (!loader) return null;
+  const mod = await loader();
+  return mod.default;
+}
+
+export function getAllServicePageSlugs(): string[] {
+  return Object.keys(SERVICE_PAGE_MODULES);
+}
+
+export function getAllSolutionPageSlugs(): string[] {
+  return Object.keys(SOLUTION_PAGE_MODULES);
 }
