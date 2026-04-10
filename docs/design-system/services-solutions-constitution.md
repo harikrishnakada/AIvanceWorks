@@ -2,10 +2,10 @@
 
 > **Executive summary.** This document is the single source of truth for how every services and solutions page on the AIvanceWorks website is designed and built. It codifies a **shared skeleton + two template variants** approach: a unified component library and design language, expressed through two page templates (ServiceTemplate and SolutionTemplate) whose internal composition is tuned **per page** to match the buyer journey. Brand consistency is enforced through theme tokens, section rhythm, and content integrity rules. Differentiation between industries, services, and offerings happens through **content, imagery, iconography, and one signature section per page** — never through color, palette, or layout chaos. This is a living document: any deviation must be recorded back into it.
 
-**Version:** 1.0
-**Last updated:** 2026-04-08
+**Version:** 1.3
+**Last updated:** 2026-04-10
 **Status:** Canonical. Applies to every services and solutions page built after this date.
-**Pilot scope:** `/services/product-discovery`, `/services/mvp-development`, `/solutions/patient-portals`, `/solutions/insurance-portals`.
+**Pilot scope:** `/services/product-discovery`, `/services/mvp-development`, `/solutions/patient-portals`, `/solutions/insurance-portals`, `/solutions/e-commerce-websites`.
 
 ---
 
@@ -740,6 +740,8 @@ Hero → MetricsStrip → FeatureGrid → Signature → BenefitsGrid → CaseStu
 
 **What to drop.** `ComplianceDeepDive` (unless payment compliance matters — PCI). `EngagementModels` can fold into the CTA section as a short "engagement options" list.
 
+**Reference implementation:** `/solutions/e-commerce-websites` (§15.5). Note how the audience test (§9.5) replaced uncited % metrics with capability framing — this is the model for commerce pages without cited data.
+
 ### 6.5 When to pick which archetype
 
 | Signal | Archetype |
@@ -880,6 +882,14 @@ export interface CaseStudyRef {
   imagePath?: string;
 }
 
+export interface RelatedPageItem {
+  title: string;
+  description: string;               // journey-aware — see Step 7.8
+  href: string;
+  icon: string;                       // Lucide icon name
+  pageType: 'service' | 'solution';   // renders subtle badge, enables future auto-matching
+}
+
 // ─── Base page data ───────────────────────────────────────
 
 export interface BasePageData {
@@ -911,6 +921,7 @@ export interface BasePageData {
   capabilities?: string[];           // 8–10
   technologies?: string[];           // 8–12
   integrations?: IntegrationGroup[]; // new shape — see 7.3
+  relatedPages?: RelatedPageItem[];  // 3 cross-links — see Step 7.8
   faqs: FAQ[];                       // 5–6 (required)
   cta: {                             // required
     title: string;
@@ -1149,7 +1160,45 @@ _unverified: [
 ],
 ```
 
-### 9.5 Review gate
+### 9.5 Audience test (hard)
+
+Every content decision — what to include, what to cut, how to frame a claim, whether a section earns its place — must pass the **audience test** before it ships. This is a hard rule, not a suggestion.
+
+**The test:** For every element (metric, section, feature description, FAQ, integration mention, stat), answer these three questions:
+
+1. **Who actually sees this?** Name the buyer persona by role (e.g., "VP of Digital at a mid-market retailer"). If you can't name the persona, you haven't done the research.
+2. **Do they care?** A business buyer deciding between vendors does not care about your internal architecture elegance. A CTO evaluating technical depth does not care about your marketing slogans. Match the content to what moves *this specific buyer* toward trust, a lead, or clarity.
+3. **Will this generate value?** If the element doesn't move the buyer closer to conversion (booking a call, requesting a proposal, trusting your credibility), it is noise. Cut it or reframe it.
+
+**Common failure modes the audience test catches:**
+
+- **Uncited percentage ranges** (e.g., "25–45% CVR uplift") that every competitor also claims. A VP of Digital reads this and thinks "prove it or remove it." Replace with capability framing ("Custom-built conversion architecture") or cite a specific source.
+- **Developer-lens content on a business-buyer page.** Integration chip grids, raw technology lists, and architecture jargon that impresses engineers but means nothing to the person signing the check.
+- **Outcome language without outcomes.** "Our clients see..." / "We deliver..." / "On average we achieve..." — when the company has zero shipped engagements (greenfield). The buyer can fact-check this. Capability framing ("architected for", "built to", "designed to") is honest; outcome framing without data is not.
+- **Vendor name-dropping that implies shipped experience.** "We have experience integrating with NetSuite and SAP" implies past work. For greenfield, use "We build integrations with..." instead.
+
+**When to run it:** The audience test is not a final review step — it is applied *during* content creation (Step 7 of the 10-step process) and again as a dedicated pass (Step 7.7). Every `_unverified` item should be resolved through the lens of "does the target buyer care, and is this honest?"
+
+**Rationale (v1.3):** During the e-commerce migration (2026-04-10), three `metricsStrip` percentage ranges passed all other integrity checks but failed the audience test — a VP of Digital would read uncited % claims and lose trust. They were replaced with capability-framed metrics. Three feature/FAQ strings were softened from "we have experience" / "integrated" (implying past work) to "we build" / "integration" (describing capability). The audience test caught what the `_unverified` protocol alone did not: technically-honest-but-practically-misleading framing.
+
+### 9.6 Self-challenge protocol (hard)
+
+When making any non-trivial content or design decision (what sections to include, how to frame a metric, whether to name specific vendors, what composition order to use), the implementer must **visibly challenge their own default position** before committing. This is not optional.
+
+**Structure:**
+
+1. State the default position and why it seems right.
+2. Run it through at least these three challenges:
+   - **Audience test** (§9.5): Who sees this? Do they care? Will it generate value?
+   - **Greenfield integrity test** (while AIvanceWorks has no real clients): Can this claim be backed without fabricated outcomes? If not, what's the capability-framed version?
+   - **Counter-cost test**: What do we lose by including this — complexity, dilution, maintenance, brand coherence?
+3. Land on a conclusion — which may be the original position or a reversal.
+
+The point is rigorous self-challenge, not indecision. If after the challenges the original answer still stands, commit to it firmly. But never skip the audience test — it is the most common place implementers go wrong.
+
+**Rationale (v1.3):** Validated twice during the pilot build. First on section-order flexibility (where self-challenge reversed the default from "rigid canonical order" to "flexible with archetypes"). Second on e-commerce integrations (where the initial recommendation to add an integration chip grid was reversed after the audience test revealed business buyers don't care about integration chips — they care about credibility and migration safety).
+
+### 9.7 Review gate
 
 **Before any service or solution page merges to main:**
 
@@ -1438,6 +1487,75 @@ This step applies differently based on page type. See §11.5 for the full imager
 
 **Output:** imagery files in place, data file updated with image references, page route wired.
 
+### Step 7.7 — Audience test pass (v1.3)
+
+Run the audience test (§9.5) on every element in the data file. For each metric, feature description, benefit, FAQ answer, and integration mention:
+
+1. Name the target buyer persona by role.
+2. Ask: does this buyer care about this element? Will it move them toward trust, a lead, or clarity?
+3. Ask: is the framing honest for a greenfield company? Would the buyer feel misled if they discovered we have zero shipped engagements?
+
+**Common replacements this step produces:**
+
+- Uncited % ranges → capability-framed metrics (e.g., "25–45% CVR uplift" → "Custom-built Conversion Architecture")
+- "We deliver / we achieved / clients see" → "Architected for / built to / designed to"
+- "We have experience integrating with X" → "We build integrations with X"
+- "Integrated X, Y, Z" (past tense implying shipped work) → "X, Y, Z integration via..." (capability noun)
+- Developer-lens integration grids → vendor names woven into feature prose where the buyer needs credibility signals
+
+Apply the self-challenge protocol (§9.6) on any decision where you're unsure. Document the reasoning in the `_unverified` review comment block at the top of the `_unverified` array.
+
+**Output:** data file with audience-tested copy. Resolved `_unverified` items noted with reasoning. Remaining `_unverified` items are only those explicitly deferred (content-team reminders, not integrity flags).
+
+### Step 7.8 — Populate `relatedPages` (v1.4)
+
+Every page gets a `relatedPages` array with 2–3 cross-links. The number depends on page type:
+
+- **Service pages:** 3 links. Mix services and solutions freely — "see this capability applied to real verticals." Cross-type internal linking strengthens SEO topic clustering.
+- **Solution pages:** Services only. The buyer is a vertical-specific persona (healthcare CIO, insurance ops leader) — they don't care about other verticals. Show 2 links when only 2 relevant services exist; expand to 3 as the service catalog grows. Never pad with unrelated peer solutions.
+
+This split is validated by competitive research: no major consultancy (Accenture, Thoughtworks, Slalom, Deloitte, Cognizant) separates types in their cross-link sections, and solution buyers consistently engage with "how you'd build it" (services) over "what else you build" (other solutions).
+
+**Symmetry rule:** If page A links to page B, page B should link back to page A where possible. Service→solution links are naturally asymmetric (a service page links to a solution, but the solution page may not link back to that service if it links to other services instead). This is acceptable — prioritize buyer-journey logic over strict symmetry.
+
+**Card data shape:**
+
+Each entry has `title`, `description`, `href`, `icon` (Lucide icon name resolved via `getLucideIcon`), and `pageType` (`'service'` | `'solution'`).
+
+**`pageType` field (v1.4):** Renders a subtle uppercase pill badge ("SERVICE" / "SOLUTION") on each card so the buyer can visually distinguish page types at a glance without creating two separate sections. Also enables future tag-based auto-matching when the catalog exceeds ~12 pages.
+
+**Contextual section headings (v1.4):** The `RelatedPages` component renders different headings depending on which template calls it:
+
+- **`ServiceDetailTemplate`:** eyebrow "Keep Exploring", title "See This Capability in Action", subtitle "Discover how this service powers real-world solutions."
+- **`SolutionDetailTemplate`:** eyebrow "Keep Exploring", title "The Expertise Behind This", subtitle "Explore the services and capabilities that power this solution."
+
+This replaces the old generic "Explore Related Solutions" default. Headings are set at the template level, not per-page data, keeping data files clean.
+
+**Journey-aware descriptions (v1.4):** Descriptions are NOT generic capability summaries of the destination page. They are written from the perspective of the reader on the CURRENT page, answering "why would I go there next?" Each description should:
+
+- Reference the current page's context ("Discovery done?", "Building for insurance?", "Scoping a portal project?")
+- Bridge to the destination with a clear reason to click
+- Be unique per source→destination pair (the same destination gets a different description depending on which page links to it)
+
+**Examples:**
+
+| Source page | Destination | Description |
+|---|---|---|
+| Product Discovery | MVP Development | "Discovery done? We take your validated backlog and ship a production V1 in 12 weeks — no gap between planning and building." |
+| MVP Development | Product Discovery | "Not sure what to build first? A 2-week discovery sprint validates your idea and produces the backlog we build from." |
+| Patient Portals | Insurance Portals | "We apply the same regulated-build approach to insurance — claims automation, multi-tenant portals, and state-level compliance built in." |
+| E-commerce | Insurance Portals | "See how we build complex, multi-user web platforms in regulated industries — same engineering standards, different vertical." |
+
+Note: the same destination (Insurance Portals) gets a completely different description depending on whether the link is from Patient Portals or E-commerce. This is intentional — DRY does not apply to journey-aware copy.
+
+**When adding a new page:** update the `relatedPages` arrays on the existing pages that should cross-link to it. Write journey-aware descriptions for BOTH directions. This is not optional — orphaned pages with no cross-links are a missed conversion opportunity.
+
+Add `'relatedPages'` to the `composition` array if not already present. Place it after `processTimeline` and before `faq`.
+
+**Scalability note:** At 15+ pages, consider migrating from hand-curated arrays to tag-based auto-matching via `src/lib/content.ts`. Add shared tags (e.g., `['cloud', 'ai', 'healthcare']`) to each page's data and generate the 3 most relevant cross-links programmatically. The `pageType` field enables this future transition.
+
+**Output:** `relatedPages` populated on the new page and on any existing pages that should link to it. All descriptions are journey-aware.
+
 ### Step 8 — Content integrity pass
 
 Walk every number, quote, logo, and claim in the data file. For each:
@@ -1446,6 +1564,8 @@ Walk every number, quote, logo, and claim in the data file. For each:
 - Framed as an industry range with a source? OK.
 - Unverified? → add to `_unverified` list with reason.
 - Invented? → remove it.
+
+This step now runs **after** the audience test (Step 7.7), which means most integrity issues have already been caught and resolved. This step is the final sweep for anything the audience test missed.
 
 See [Section 9](#9-content-integrity-rules-hard).
 
@@ -1478,39 +1598,57 @@ Every template ends with the explicit reminder: **deviations must be recorded in
 ```
 Read docs/design-system/services-solutions-constitution.md. You are creating a new service page.
 
-Slug: <e.g., cloud-migration>
-Category: <software-engineering | infrastructure | ai-ml | strategy>
-Primary buyer persona: <e.g., CTO of a 100-engineer SaaS company currently on legacy VMware, evaluating Azure migration>
-Top 3 buyer questions this page must answer:
-  1. <e.g., "How long will this take and what will it cost?">
-  2. <e.g., "How do we avoid downtime during migration?">
-  3. <e.g., "What happens to our existing licenses and data?">
-Key trust issue: <e.g., "We've been burned by consultancies who underestimated the rollback plan">
+Service name: <e.g., Web App Development>
 
-Follow the 10-step process in section 13 of the constitution:
+YOU MUST DO ALL OF THE FOLLOWING AUTONOMOUSLY. Do not ask the user for buyer persona, questions, trust issues, or content strategy — research and determine them yourself.
 
-1. Pick the archetype (A/B/C/D) and justify.
-2. Load the archetype recipe.
-3. Apply the three placement heuristics to reorder.
-4. Curate sections (YAGNI). List any new shared components needed.
-5. Design the signature section: component name, visual pattern, one-sentence argument.
-6. Apply tone rhythm. Confirm no adjacent darks, max 2 darks, accent = CTA only.
-7. Create src/data/services/<slug>.ts with a complete ServicePageData object matching src/types/pages.ts. Populate every field the composition uses.
-8. Content integrity pass: every claim verified, ranged-with-source, or added to _unverified.
-9. Confirm mobile layout planning for the signature section (document as a header comment in the signature component file if you create one).
-10. If you deviated from any archetype, tone rule, or pattern, update the constitution per section 12 before finalizing.
+## Phase 1 — Research (do this BEFORE writing any code)
+
+1. Read the company details in src/company details/markup/ (especially 02-services.md, 06-positioning.md, 10-website-content.md) to understand what this service covers and how it's positioned.
+2. Identify the PRIMARY BUYER PERSONA by role, seniority, and what they're measured on. Use the buyer persona table in §2.3 of the constitution as a starting framework, then refine based on what this specific service actually sells.
+3. Identify the TOP 3 QUESTIONS this buyer would type into Google or ask on a sales call. These drive composition order.
+4. Identify the KEY TRUST ISSUE — what has burned this buyer before? What makes them skeptical?
+5. Study 2-3 existing pilot pages as reference implementations (read their data files in src/data/services/ and src/data/solutions/).
+
+## Phase 2 — Design (constitution §13 steps 1–6)
+
+Follow steps 1–6 of the 10-step process. For every non-trivial decision, apply the self-challenge protocol (§9.6):
+- State your default position.
+- Run the audience test (§9.5): who sees this, do they care, will it generate value?
+- Run the greenfield integrity test: can this be backed without fabricated outcomes?
+- Run the counter-cost test: what do we lose by including this?
+- Land on a conclusion.
+
+## Phase 3 — Build (constitution §13 steps 7–10)
+
+7. Create the data file. Apply the audience test (§9.5) to EVERY metric, feature description, benefit, and FAQ as you write them — not as an afterthought.
+7.5. Source imagery per §11.5.
+7.7. Audience test pass: walk every element through §9.5. Replace uncited % ranges with capability framing. Soften any "we delivered / we achieved / clients see" to capability language. Remove developer-lens content that the business buyer doesn't care about.
+7.8. Populate relatedPages with 3 cross-links (mixed services/solutions). Add `pageType` to each entry. Write journey-aware descriptions unique to each source→destination pair. Update existing pages that should link back.
+8. Content integrity pass (§9).
+9. Responsiveness check.
+10. Record deviations.
+
+## Phase 4 — Wiring
+
+- Add the slug to SERVICE_PAGE_MODULES in src/lib/content.ts.
+- If a new signature component was created, add it to SIGNATURE_COMPONENTS in the page route and to the signature barrel (components/signature/index.ts).
+- Run npx tsc --noEmit and npm run build. Both must pass.
+- Run the token-hygiene grep on all created/modified files.
+- Run the content-integrity grep.
 
 Expected outputs:
-- A composition sheet (ordered section list with tone annotations).
-- The new data file at src/data/services/<slug>.ts.
-- The page file at app/services/<slug>/page.tsx (if the route doesn't already exist).
-- A hero SVG illustration component at components/signature/<Name>HeroIllustration.tsx (per §11.5 imagery workflow).
-- The page route must pass heroIllustration={<...HeroIllustration />} to ServiceDetailTemplate.
-- Any new signature component file at components/signature/<Name>.tsx.
-- Any new shared component file at components/shared/sections/<Name>.tsx (only if reused by a second page).
-- A diff to the constitution if you deviated from anything.
+- src/data/services/<slug>.ts with audience-tested copy and resolved _unverified list.
+- app/services/<slug>/page.tsx (if the route doesn't already exist).
+- A hero SVG illustration component at components/signature/<Name>HeroIllustration.tsx (per §11.5).
+- Any new signature component at components/signature/<Name>.tsx.
+- Any new shared component at components/shared/sections/<Name>.tsx (only if reused).
+- Updated relatedPages on existing pages that cross-link to the new page (with journey-aware descriptions and `pageType`).
+- Updated SERVICE_PAGE_MODULES in src/lib/content.ts.
+- A diff to the constitution if you deviated.
+- tsc clean, build clean, token-hygiene clean, content-integrity clean.
 
-Reminder: deviations from the constitution must be recorded in the constitution itself. Do not merge drift.
+Reminder: deviations must be recorded in the constitution. No fabricated stats. The audience test (§9.5) is mandatory, not optional.
 ```
 
 ### 14.2 Create new solution page
@@ -1518,32 +1656,60 @@ Reminder: deviations from the constitution must be recorded in the constitution 
 ```
 Read docs/design-system/services-solutions-constitution.md. You are creating a new solution page.
 
-Slug: <e.g., hospital-management-systems>
+Solution name: <e.g., Hospital Management Systems>
 Industry: <healthcare | insurance | retail | fintech | ...>
-Primary buyer persona: <e.g., COO of a 300-bed regional hospital, reports to the CEO, measured on patient throughput and staff satisfaction>
-Regulatory context: <e.g., HIPAA, HITECH, Joint Commission accreditation>
-Key integrations the buyer cares about: <e.g., Epic, Cerner, Hospira, Omnicell>
-Top 3 buyer questions this page must answer:
-  1. <e.g., "How will this integrate with our existing Epic deployment?">
-  2. <e.g., "What's the implementation timeline and staff training load?">
-  3. <e.g., "What's the compliance posture?">
-Key trust issue: <e.g., "Hospitals have been burned by multi-year failed ERP migrations">
 
-Follow the 10-step process in section 13 of the constitution.
+YOU MUST DO ALL OF THE FOLLOWING AUTONOMOUSLY. Do not ask the user for buyer persona, questions, integrations, or content strategy — research and determine them yourself.
 
-Archetype guidance: regulated industries default to Archetype C unless the buyer's KPI is purely commercial (then D).
+## Phase 1 — Research (do this BEFORE writing any code)
+
+1. Read the company details in src/company details/markup/ (especially 02-services.md, 06-positioning.md, 10-website-content.md) to understand what this solution covers and how it's positioned.
+2. Research the industry context: what regulations apply? What systems does this buyer already use? What integrations matter?
+3. Identify the PRIMARY BUYER PERSONA by role, seniority, and what they're measured on. Solution buyers are typically business decision-makers (VP Operations, Head of Digital, Business Owner) — not engineers.
+4. Identify the TOP 3 QUESTIONS this buyer asks. These drive composition order.
+5. Identify the KEY TRUST ISSUE — what has burned this buyer before?
+6. Study 2-3 existing pilot pages as reference implementations (read their data files in src/data/solutions/).
+
+## Phase 2 — Design (constitution §13 steps 1–6)
+
+Follow steps 1–6 of the 10-step process. For every non-trivial decision, apply the self-challenge protocol (§9.6).
+
+Archetype guidance: regulated industries default to Archetype C unless the buyer's KPI is purely commercial (then D). When in doubt, the audience test (§9.5) resolves it — ask "does this buyer answer to a regulator or to a revenue target?"
+
+## Phase 3 — Build (constitution §13 steps 7–10)
+
+7. Create the data file. Apply the audience test (§9.5) to EVERY element as you write it.
+7.5. Source imagery per §11.5 (3 photos: hero + 2 features).
+7.7. Audience test pass (§9.5). This is where the hard decisions happen:
+   - Uncited % ranges → replace with capability-framed metrics or cite a real source.
+   - "We delivered / achieved / clients see" → "Architected for / built to / designed to" (greenfield integrity).
+   - Developer-lens content → cut or reframe for business buyers.
+   - Vendor names → "we build with" not "we have shipped with" (greenfield honesty).
+   - Integration chip grids → weave vendor names into feature prose if the buyer needs credibility signals; omit the grid if the audience doesn't care about the plumbing.
+7.8. Populate relatedPages with 3 cross-links (mixed services/solutions). Add `pageType` to each entry. Write journey-aware descriptions unique to each source→destination pair. Update existing pages.
+8. Content integrity pass (§9).
+9. Responsiveness check.
+10. Record deviations.
+
+## Phase 4 — Wiring
+
+- Add the slug to SOLUTION_PAGE_MODULES in src/lib/content.ts.
+- Add signature to SIGNATURE_COMPONENTS in src/app/solutions/[slug]/page.tsx and to the barrel.
+- Run npx tsc --noEmit and npm run build. Both must pass.
+- Token-hygiene grep + content-integrity grep.
 
 Expected outputs:
-- A composition sheet (ordered section list with tone annotations).
-- src/data/solutions/<slug>.ts with a complete SolutionPageData object matching src/types/pages.ts, including heroImage and imageFeatures data (per §11.5 imagery workflow).
-- 3 Unsplash photos downloaded to public/images/solutions/<slug>/ (hero.jpg, feature-1.jpg, feature-2.jpg).
-- app/solutions/<slug>/page.tsx (if the route doesn't already exist).
-- 'imageFeatures' included in the composition array (after 'featureGrid').
+- src/data/solutions/<slug>.ts with audience-tested copy and resolved _unverified list.
+- 3 photos in public/images/solutions/<slug>/ (hero.jpg, feature-1.jpg, feature-2.jpg).
+- 'imageFeatures' in the composition array (after 'featureGrid').
+- app/solutions/<slug>/page.tsx (if the route doesn't already exist — or confirm the dynamic [slug] route handles it).
 - Any new signature component at components/signature/<Name>.tsx.
-- Any new shared component at components/shared/sections/<Name>.tsx (only if reused).
+- Updated relatedPages on existing pages that cross-link (with journey-aware descriptions and `pageType`).
+- Updated SOLUTION_PAGE_MODULES in src/lib/content.ts.
 - A diff to the constitution if deviated.
+- tsc clean, build clean, token-hygiene clean, content-integrity clean.
 
-Reminder: content integrity rules are non-negotiable. No fabricated stats, no invented case studies, no unauthorized logos. Populate _unverified for any unverified claims. Deviations must be recorded in the constitution.
+Reminder: content integrity rules are non-negotiable. The audience test (§9.5) is mandatory. No fabricated stats. Deviations must be recorded in the constitution.
 ```
 
 ### 14.3 Design a new signature section for page X
@@ -1643,7 +1809,7 @@ Reminder: if the audit surfaces a legitimate new pattern that the constitution d
 
 ## 15. Reference — pilot pages and their compositions
 
-These are the four pilot pages, composed in full, as of constitution v1.0. They are the reference implementations of the system. Future pages should look to these as live examples, not as templates to copy blindly.
+These are the five pilot pages, composed in full, as of constitution v1.3. They are the reference implementations of the system. Future pages should look to these as live examples, not as templates to copy blindly.
 
 ### 15.1 Product Discovery (Archetype A — Strategic service)
 
@@ -1653,18 +1819,19 @@ These are the four pilot pages, composed in full, as of constitution v1.0. They 
 **Dominant question:** "Can I trust this team to help me figure out what to build?"
 **Signature:** `DiscoveryBeforeAfter` — before/after columns showing transformation from assumption chaos to five concrete artifacts
 
-**Composition (8 sections):**
+**Composition (9 sections):**
 
 | # | Section | Tone | Notes |
 |---|---|---|---|
-| 1 | `Hero` | dark | Headline: "Discover what to build in 2 weeks, not 2 months." Metrics card in right column. |
+| 1 | `Hero` | dark | Headline: "Turn a fuzzy idea into a plan you can ship." SVG illustration. |
 | 2 | `MetricsStrip` | light | 2 weeks · 5 artifacts · 90% scope confidence · 1 fixed proposal |
-| 3 | `DiscoveryMethodology` | warm | New shared component. Cards for methodology approaches (lean canvas, jobs-to-be-done, user journey mapping, etc.) |
+| 3 | `DiscoveryMethodology` | warm | Cards for methodology approaches (lean canvas, jobs-to-be-done, user journey mapping, etc.) |
 | 4 | `DiscoveryBeforeAfter` [signature] | dark | Before: vague assumptions. After: five specific artifacts. |
 | 5 | `ProcessTimeline` | light | Day-by-day 2-week sprint breakdown |
-| 6 | `EngagementModels` | warm | New shared. 1-week sprint / 2-week standard / 4-week deep-dive tiers + pricing. |
-| 7 | `FAQ` | light | 5–6 common questions |
-| 8 | `CTA` | accent | "Book a free 30-minute discovery call" |
+| 6 | `EngagementModels` | warm | 1-week sprint / 2-week standard / 4-week deep-dive tiers + pricing. |
+| 7 | `RelatedPages` | light | 3 cross-links: MVP Development, E-commerce Websites, Patient Portals |
+| 8 | `FAQ` | warm | 5–6 common questions |
+| 9 | `CTA` | accent | "Book a free 30-minute discovery call" |
 
 **Deviations from Archetype A recipe:**
 
@@ -1673,7 +1840,7 @@ These are the four pilot pages, composed in full, as of constitution v1.0. They 
 - Dropped `BenefitsGrid` — `DiscoveryBeforeAfter` already carries the benefit argument visually.
 - Dropped `CaseStudySpotlight` — this buyer is too early-funnel for case study persuasion to land.
 
-Result: 8 sections, all earning their place.
+Result: 9 sections, all earning their place.
 
 ### 15.2 MVP Development (Archetype B — Technical service)
 
@@ -1683,19 +1850,20 @@ Result: 8 sections, all earning their place.
 **Dominant question:** "Can this team actually ship an MVP in 12 weeks without cutting corners?"
 **Signature:** `MvpDualTrackRoadmap` — 12-week dual-track roadmap, engineering view on top, founder view on bottom
 
-**Composition (9 sections):**
+**Composition (10 sections):**
 
 | # | Section | Tone | Notes |
 |---|---|---|---|
-| 1 | `Hero` | dark | Headline: "Your MVP in 12 weeks. In production by Week 12." |
+| 1 | `Hero` | dark | Headline: "From kickoff to paying customers in 12 weeks." SVG illustration. |
 | 2 | `MetricsStrip` | light | 12 weeks · 12 demos · real users by Week 5 · V1 in production |
 | 3 | `FeatureGrid` | warm | 8 capabilities: auth, backend, frontend, mobile, infra, billing, observability, deployment |
 | 4 | `MvpDualTrackRoadmap` [signature] | dark | Dual-track 12-week visual |
 | 5 | `BenefitsGrid` | light | Outcome-focused — distinct from the roadmap's timeline |
 | 6 | `TechStackBlock` | warm | Next.js, TypeScript, Node, Azure, Postgres, etc. |
 | 7 | `EngagementModels` | light | Fixed-price bundle / milestone / T&M |
-| 8 | `FAQ` | warm | 5–6 common questions |
-| 9 | `CTA` | accent | "Book a 30-minute scoping call" |
+| 8 | `RelatedPages` | warm | 3 cross-links: Product Discovery, E-commerce Websites, Insurance Portals |
+| 9 | `FAQ` | light | 5–6 common questions |
+| 10 | `CTA` | accent | "Book a 30-minute scoping call" |
 
 **Deviations from Archetype B recipe:**
 
@@ -1703,7 +1871,7 @@ Result: 8 sections, all earning their place.
 - Dropped any "Principles" block — overlapping with `BenefitsGrid`.
 - No `CaseStudySpotlight` in pilot — revisit when a real MVP case is verified.
 
-Result: 9 sections, no duplication.
+Result: 10 sections, no duplication.
 
 ### 15.3 Patient Portals (Archetype C — Regulated solution)
 
@@ -1713,27 +1881,32 @@ Result: 9 sections, no duplication.
 **Dominant question:** "Will this pass our security review, integrate with Epic, and actually improve patient engagement?"
 **Signature:** `PortalArchitectureMap` — 4-tier architecture diagram (patient → portal → integration → EHR) with compliance wrap
 
-**Composition (10 sections):**
+**Composition (13 sections):**
 
 | # | Section | Tone | Notes |
 |---|---|---|---|
-| 1 | `Hero` | dark | Headline: "HIPAA-compliant patient portals built for real hospital workflows." |
-| 2 | `MetricsStrip` | light | No-show reduction · engagement lift · admin time saved (all ranged with sources) |
+| 1 | `Hero` | dark | Photo hero background. Headline: "Patient portals that patients actually use — and auditors actually approve." |
+| 2 | `MetricsStrip` | light | No-show reduction · portal adoption · admin workload reduction · patient satisfaction (all ranged with sources) |
 | 3 | `FeatureGrid` | warm | 6 portal modules: Records, Scheduling, Messaging, Telehealth, Prescriptions, Billing |
-| 4 | `PortalArchitectureMap` [signature] | dark | 4-tier architectural diagram |
-| 5 | `ComplianceDeepDive` | warm | New shared. HIPAA / HITECH / SOC 2 safeguards, audit, encryption, BAA. |
-| 6 | `BenefitsGrid` | light | Business outcomes, ROI framing |
-| 7 | `IntegrationsPanel` | warm | New shared. Epic / Cerner / Athena / eCW with HL7 FHIR / SMART on FHIR connection methods. |
-| 8 | `ProcessTimeline` | light | Implementation methodology |
-| 9 | `FAQ` | warm | 5–6 questions focused on security, integration, timelines |
-| 10 | `CTA` | accent | "Book a security review consultation" |
+| 4 | `ImageFeatures` | light | 2 photo-driven feature blocks: lab results access, secure messaging |
+| 5 | `ComplianceSpotlight` | warm | Trust badge strip: HIPAA / HITECH / SOC 2 / FHIR pillars with compliance status text |
+| 6 | `PortalArchitectureMap` [signature] | dark | 4-tier architectural diagram |
+| 7 | `ComplianceDeepDive` | warm | HIPAA / HITECH / SOC 2 safeguards, audit, encryption, BAA detail |
+| 8 | `BenefitsGrid` | light | Business outcomes, ROI framing |
+| 9 | `IntegrationsPanel` | warm | Epic / Cerner / Athena / eCW / Doxy.me / Surescripts with HL7 FHIR / SMART on FHIR connection methods |
+| 10 | `ProcessTimeline` | light | Implementation methodology |
+| 11 | `RelatedPages` | warm | 2 cross-links: Product Discovery, MVP Development (services only) |
+| 12 | `FAQ` | light | 6 questions focused on security, integration, timelines |
+| 13 | `CTA` | accent | "Book a security review consultation" |
 
 **Deviations from Archetype C recipe:**
 
 - No `CaseStudySpotlight` in pilot — insertable when a real case is verified.
-- `ComplianceDeepDive` elevated from optional to standalone. Compliance is the gate for this buyer; it can't be a footnote.
+- `ComplianceSpotlight` added before signature as a trust-building gate — the buyer needs to see compliance credentials before investing attention in the architecture.
+- `ComplianceDeepDive` elevated from optional to standalone after the signature. Compliance is the gate for this buyer; it can't be a footnote.
+- `ImageFeatures` added after `FeatureGrid` — photo-driven blocks that show the product in use, per the two-track imagery strategy (v1.1).
 
-Result: 10 sections. A long page, but every section answers a specific buyer question.
+Result: 13 sections. A long page, but every section answers a specific buyer question.
 
 ### 15.4 Insurance Portals (Archetype C — Regulated solution)
 
@@ -1743,28 +1916,66 @@ Result: 10 sections. A long page, but every section answers a specific buyer que
 **Dominant question:** "How much faster can this actually make our claims and can it integrate with Guidewire?"
 **Signature:** `ClaimsFlowComparison` — proportional time bars, legacy vs. portal
 
-**Composition (9 sections):**
+**Composition (12 sections):**
 
 | # | Section | Tone | Notes |
 |---|---|---|---|
-| 1 | `Hero` | dark | Headline: "Claims in 48 hours. Agents on one dashboard. Built for your core system." |
-| 2 | `MetricsStrip` | light | Claims speed · cost savings · NPS lift (ranged with sources) |
-| 3 | `FeatureGrid` | warm | 6 modules: Policy, Claims, Agent Portal, Quoting, Documents, Reporting |
-| 4 | `ClaimsFlowComparison` [signature] | dark | Legacy vs. portal proportional time bars |
-| 5 | `IntegrationsPanel` | warm | Guidewire PolicyCenter/ClaimCenter, Duck Creek, Applied Epic, Sapiens, OneShield with REST/SOAP connection methods |
-| 6 | `BenefitsGrid` | light | Claims cycle reduction, agent productivity, customer satisfaction |
-| 7 | `ProcessTimeline` | warm | Phased rollout methodology |
-| 8 | `FAQ` | light | 5–6 questions focused on integration, state regulatory variance, timelines |
-| 9 | `CTA` | accent | "Book a core system integration review" |
+| 1 | `Hero` | dark | Photo hero background. Headline: "Claims in hours, not weeks. Portals your agents actually want to use." |
+| 2 | `MetricsStrip` | light | Claims speed · cost savings · retention · policy issuance speed (ranged with sources) |
+| 3 | `PersonaComparison` | warm | Carrier / Agent & Broker / Customer Self-Service — three portal personas side-by-side. Placed early (before FeatureGrid) because the "one platform, three portals" framing is the key differentiator for this buyer. |
+| 4 | `FeatureGrid` | light | 6 modules: Policy, Claims, Agent Portal, Quoting, Documents, Reporting |
+| 5 | `ImageFeatures` | warm | 2 photo-driven feature blocks: claims processing dashboard, policyholder self-service |
+| 6 | `ClaimsFlowComparison` [signature] | dark | Legacy vs. portal proportional time bars |
+| 7 | `IntegrationsPanel` | warm | Guidewire, Duck Creek, Applied Epic, Hawksoft, Sapiens, OneShield with REST/SOAP connection methods |
+| 8 | `BenefitsGrid` | light | Claims cycle reduction, cost savings, retention, scalability, agent relationships |
+| 9 | `ProcessTimeline` | warm | Phased rollout methodology |
+| 10 | `RelatedPages` | light | 2 cross-links: Product Discovery, MVP Development (services only) |
+| 11 | `FAQ` | warm | 6 questions focused on integration, state regulatory variance, timelines |
+| 12 | `CTA` | accent | "Book a core system integration review" |
 
 **Deviations from Archetype C recipe:**
 
+- `PersonaComparison` elevated to position 3 (before `FeatureGrid`) — this buyer's first question is "does it serve all three user types?" and the three-portal framing answers it immediately.
 - No `ComplianceDeepDive` — insurance regulatory compliance is state-level and less consolidated than healthcare; compliance answers fold into the `FAQ` instead.
 - No `CaseStudySpotlight` in pilot — insertable when verified.
+- `ImageFeatures` added after `FeatureGrid` — photo-driven blocks per the two-track imagery strategy (v1.1).
 
-Result: 9 sections. Slightly tighter than Patient Portals because the compliance story is thinner.
+Result: 12 sections. Longer than v1.0 but each addition was justified by buyer-journey analysis.
 
-### 15.5 Refactor strategy (pilot migration order)
+### 15.5 E-commerce Websites (Archetype D — Commerce solution)
+
+**Slug:** `e-commerce-websites`
+**Route:** `/solutions/e-commerce-websites`
+**Buyer:** founder, VP of Digital, or head of e-commerce at a mid-market brand — conversion-focused, wants to own infrastructure, tired of platform fees
+**Dominant question:** "Will a custom build actually outperform Shopify and pay for itself?"
+**Signature:** `EcommerceAiShowcase` — 5-tile asymmetric bento grid showcasing AI-powered commerce capabilities (recommendations, search, pricing, bundling, analytics)
+
+**Composition (11 sections):**
+
+| # | Section | Tone | Notes |
+|---|---|---|---|
+| 1 | `Hero` | dark | Photo hero background. Headline: "Headless commerce, built for performance — and owned by you." |
+| 2 | `MetricsStrip` | light | Custom-built conversion architecture · <1.5s target LCP · AI-powered personalisation · frictionless checkout (capability framing, no uncited %) |
+| 3 | `FeatureGrid` | warm | 6 capabilities: Storefront, AI Recommendations, Inventory/Order Mgmt, Checkout/Payments, Multi-Channel/Headless, Marketing/Analytics |
+| 4 | `ImageFeatures` | light | 2 photo-driven feature blocks: conversion-optimised storefronts, real-time analytics dashboards |
+| 5 | `EcommerceAiShowcase` [signature] | warm | 5-tile bento with A/B/C variant rotation |
+| 6 | `BenefitsGrid` | dark | Conversion-first architecture, performance, personalisation, scalability, ownership |
+| 7 | `TechStackBlock` | light | Next.js, TypeScript, Tailwind, Node/.NET, PostgreSQL/MongoDB, Azure/AWS, Stripe/Braintree/Adyen, Algolia, Terraform |
+| 8 | `ProcessTimeline` | warm | 5-phase: research, design, development, integration, launch |
+| 9 | `RelatedPages` | light | 2 cross-links: Product Discovery, MVP Development (services only) |
+| 10 | `FAQ` | warm | 7 questions: migration, ERP/CRM integration, PCI, SEO, scaling, B2B, maintenance |
+| 11 | `CTA` | accent | "Book a free 30-minute discovery call" |
+
+**Deviations from Archetype D recipe:**
+
+- Dropped `CaseStudySpotlight` — greenfield; no real e-commerce case data yet (Decision B). Insertable when a verified case exists.
+- Dropped `IntegrationsPanel` — integration names are woven into `features[3–5]`, `faqs[0–1]`, and `capabilities` prose (Decision C). A dedicated panel would repeat the same names without adding buyer value.
+- Added `ImageFeatures` after `FeatureGrid` — photo-driven blocks per the two-track imagery strategy (v1.1).
+- `MetricsStrip` uses capability framing instead of % ranges — audience test (§9.5) replaced three uncited % metrics with honest architectural descriptors. This is the reference implementation for how to handle metrics when no cited data exists.
+
+Result: 11 sections. The first Archetype D pilot and the reference for audience-tested content integrity.
+
+### 15.6 Refactor strategy (pilot migration order)
 
 To execute the pilot without breaking the existing site, follow this order:
 
@@ -1806,6 +2017,8 @@ These are things the v1.0 constitution does not resolve. They are here so future
 | **1.0** | 2026-04-08 | Initial constitution. Pilot scope: `/services/product-discovery`, `/services/mvp-development`, `/solutions/patient-portals`, `/solutions/insurance-portals`. Establishes Option B direction (shared library + two template variants), the four tones, the four archetypes, the shared component library, the theming hard rules, the data schema, content integrity rules, responsiveness standards, signature section pattern, 10-step creation process, and 5 prompt templates. |
 | **1.1** | 2026-04-10 | Two-track imagery strategy: photo-driven solutions, illustration-driven services. New `ImageFeature` section component. Interactive signature components. Scroll-triggered animations. Resolves open question #5 (animation standards, partial). |
 | **1.2** | 2026-04-10 | Hero redesigned as box card matching homepage. Solution hero images changed from split layout to full-bleed background with gradient scrim. Removed CSS color filters — photos display at original colors. Added Step 7.5 (imagery workflow) to 10-step process. Updated prompt templates §14.1 and §14.2 with imagery deliverables. |
+| **1.3** | 2026-04-10 | Pilot expanded to 5 pages with `/solutions/e-commerce-websites` (Archetype D). Added §9.5 Audience test (hard) — 3-question buyer relevance gate with common failure modes and replacement patterns. Added §9.6 Self-challenge protocol (hard) — structured default→audience→integrity→counter-cost→conclusion flow. Added Step 7.7 (audience test pass) and Step 7.8 (populate relatedPages) to 10-step process. Fully rewrote §14.1 and §14.2 prompt templates to be autonomous — research, strategy, audience testing, and self-challenge execute without user-provided slots. Added §15.5 E-commerce Websites reference composition (first Archetype D). Updated §15.1–15.4 reference compositions to reflect current state (relatedPages on all pages; imageFeatures, complianceSpotlight, and personaComparison placement on solutions). Added Archetype D reference note (§6.4). Renumbered §15.5 Refactor strategy → §15.6. |
+| **1.4** | 2026-04-10 | **RelatedPages standardization.** Based on competitive research across Accenture, Thoughtworks, Slalom, Deloitte, Cognizant, Stripe, and others. Key changes: (1) Added `RelatedPageItem` interface to §7.2 data schema with new `pageType: 'service' \| 'solution'` field — renders subtle type badge on cards and enables future tag-based auto-matching. (2) Rewrote Step 7.8 to codify mixed service/solution cross-linking (validated by research — no major consultancy separates types), journey-aware descriptions (unique per source→destination pair, not generic capability summaries), and contextual section headings (ServiceDetailTemplate: "See This Capability in Action"; SolutionDetailTemplate: "The Expertise Behind This"). (3) Added scalability note for migration to tag-based auto-matching at 15+ pages. (4) Updated all summary checklists and deliverables lists. Companion reference doc: `docs/content-strategy/service-solution-content-voice-guide.md` (content tone/style). |
 
 ---
 

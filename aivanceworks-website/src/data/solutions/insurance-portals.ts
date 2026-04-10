@@ -310,23 +310,18 @@ const insurancePortals: SolutionPageData = {
     {
       title: 'Product Discovery',
       description:
-        'De-risk your product idea with a structured sprint before writing code.',
+        'Planning a portal modernisation? A discovery sprint maps your core systems, agent workflows, and regulatory requirements before development.',
       href: '/services/product-discovery',
       icon: 'Compass',
+      pageType: 'service',
     },
     {
       title: 'MVP Development',
       description:
-        'Ship a working product on a dual-track roadmap balancing speed and engineering quality.',
+        'Want to launch one portal first? Our 12-week MVP process ships a production-ready module while you plan the full platform.',
       href: '/services/mvp-development',
       icon: 'Rocket',
-    },
-    {
-      title: 'Patient Portals',
-      description:
-        'HIPAA-ready patient portals with secure messaging, scheduling, and records access.',
-      href: '/solutions/patient-portals',
-      icon: 'Stethoscope',
+      pageType: 'service',
     },
   ],
 

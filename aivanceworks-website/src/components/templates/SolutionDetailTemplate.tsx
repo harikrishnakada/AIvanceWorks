@@ -97,7 +97,14 @@ export const SolutionDetailTemplate = ({
         <ImageFeature features={data.imageFeatures} />
       ) : null,
     relatedPages: () =>
-      data.relatedPages ? <RelatedPages pages={data.relatedPages} /> : null,
+      data.relatedPages ? (
+        <RelatedPages
+          pages={data.relatedPages}
+          eyebrow="Keep Exploring"
+          title="The Expertise Behind This"
+          subtitle="Explore the services and capabilities that power this solution."
+        />
+      ) : null,
     faq: () => <FAQ faqs={data.faqs} />,
     ctaBlock: () => (
       <CTABlock

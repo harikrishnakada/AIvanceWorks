@@ -101,7 +101,14 @@ export const ServiceDetailTemplate = ({
       ) : null,
     imageFeatures: () => null, // not used by services (wired in Task 5)
     relatedPages: () =>
-      data.relatedPages ? <RelatedPages pages={data.relatedPages} /> : null,
+      data.relatedPages ? (
+        <RelatedPages
+          pages={data.relatedPages}
+          eyebrow="Keep Exploring"
+          title="See This Capability in Action"
+          subtitle="Discover how this service powers real-world solutions."
+        />
+      ) : null,
     faq: () => <FAQ faqs={data.faqs} />,
     ctaBlock: () => (
       <CTABlock

@@ -391,23 +391,18 @@ const patientPortals: SolutionPageData = {
     {
       title: 'Product Discovery',
       description:
-        'De-risk your product idea with a structured sprint before writing code.',
+        'Scoping a portal project? A discovery sprint maps your EHR landscape, compliance gaps, and patient workflows before development starts.',
       href: '/services/product-discovery',
       icon: 'Compass',
+      pageType: 'service',
     },
     {
       title: 'MVP Development',
       description:
-        'Ship a working product on a dual-track roadmap balancing speed and engineering quality.',
+        'Need to launch fast? Our 12-week MVP process gets a core portal in front of real patients while you plan the full rollout.',
       href: '/services/mvp-development',
       icon: 'Rocket',
-    },
-    {
-      title: 'Insurance Portals',
-      description:
-        'Policyholder, agent, and broker portals that streamline claims and policy workflows.',
-      href: '/solutions/insurance-portals',
-      icon: 'Shield',
+      pageType: 'service',
     },
   ],
 

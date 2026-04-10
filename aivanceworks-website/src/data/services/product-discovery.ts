@@ -186,23 +186,26 @@ const productDiscovery: ServicePageData = {
     {
       title: 'MVP Development',
       description:
-        'Ship a working product on a dual-track roadmap balancing speed and engineering quality.',
+        'Discovery done? We take your validated backlog and ship a production V1 in 12 weeks — no gap between planning and building.',
       href: '/services/mvp-development',
       icon: 'Rocket',
+      pageType: 'service',
     },
     {
       title: 'E-commerce Websites',
       description:
-        'Headless commerce builds and migrations with conversion optimisation from day one.',
+        'See how discovery feeds into a custom storefront build — from conversion research to a headless commerce platform you own.',
       href: '/solutions/e-commerce-websites',
       icon: 'ShoppingCart',
+      pageType: 'solution',
     },
     {
       title: 'Patient Portals',
       description:
-        'HIPAA-ready patient portals with secure messaging, scheduling, and records access.',
+        'See how discovery scopes a regulated portal — EHR integration, HIPAA compliance, and patient workflows mapped before code begins.',
       href: '/solutions/patient-portals',
       icon: 'Stethoscope',
+      pageType: 'solution',
     },
   ],
 

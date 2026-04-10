@@ -206,23 +206,26 @@ const mvpDevelopment: ServicePageData = {
     {
       title: 'Product Discovery',
       description:
-        'De-risk your product idea with a structured sprint before writing code.',
+        'Not sure what to build first? A 2-week discovery sprint validates your idea and produces the backlog we build from.',
       href: '/services/product-discovery',
       icon: 'Compass',
+      pageType: 'service',
     },
     {
       title: 'E-commerce Websites',
       description:
-        'Headless commerce builds and migrations with conversion optimisation from day one.',
+        'Building a storefront? See how our MVP process adapts to headless commerce with AI personalisation and tokenised checkout.',
       href: '/solutions/e-commerce-websites',
       icon: 'ShoppingCart',
+      pageType: 'solution',
     },
     {
       title: 'Insurance Portals',
       description:
-        'Policyholder, agent, and broker portals that streamline claims and policy workflows.',
+        'Building for insurance? See how our engineering approach handles multi-tenant portals, claims automation, and regulatory compliance.',
       href: '/solutions/insurance-portals',
       icon: 'Shield',
+      pageType: 'solution',
     },
   ],
 

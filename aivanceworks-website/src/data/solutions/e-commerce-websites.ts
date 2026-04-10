@@ -261,23 +261,18 @@ const eCommerceWebsites: SolutionPageData = {
     {
       title: 'Product Discovery',
       description:
-        'De-risk your product idea with a structured sprint before writing code.',
+        'Migrating platforms or building from scratch? A discovery sprint validates your conversion strategy and scopes the technical build.',
       href: '/services/product-discovery',
       icon: 'Compass',
+      pageType: 'service',
     },
     {
       title: 'MVP Development',
       description:
-        'Ship a working product on a dual-track roadmap balancing speed and engineering quality.',
+        'Want to test the market first? Our 12-week MVP process launches a core storefront with real transactions before you commit to the full build.',
       href: '/services/mvp-development',
       icon: 'Rocket',
-    },
-    {
-      title: 'Insurance Portals',
-      description:
-        'Policyholder, agent, and broker portals that streamline claims and policy workflows.',
-      href: '/solutions/insurance-portals',
-      icon: 'Shield',
+      pageType: 'service',
     },
   ],
 

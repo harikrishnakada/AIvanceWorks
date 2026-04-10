@@ -117,6 +117,7 @@ export interface RelatedPageItem {
   description: string;
   href: string;
   icon: string;                          // Lucide icon name
+  pageType: 'service' | 'solution';      // enables type badge + future auto-matching
 }
 
 export interface CaseStudyRef {

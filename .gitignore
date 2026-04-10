@@ -4,3 +4,5 @@ node_modules
 .cursor/debug.log
 /.vs
 .claude/settings.local.json
+.playwright-mcp/**
+playwright/**
