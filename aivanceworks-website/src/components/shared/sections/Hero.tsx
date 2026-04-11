@@ -48,7 +48,7 @@ export const Hero = ({
           className="relative w-full overflow-hidden
             bg-gradient-to-br from-surface-dark-from via-surface-dark-via to-surface-dark-to
             rounded-2xl lg:rounded-3xl
-            border border-white/[0.06]
+            border border-border-subtle
             shadow-brand-panel"
         >
           {/* Glow orbs */}
@@ -70,29 +70,29 @@ export const Hero = ({
                 className="object-cover opacity-40"
               />
               {/* Gradient scrim — dark on left for text readability, transparent on right to show image */}
-              <div className="absolute inset-0 bg-gradient-to-r from-[var(--surface-dark-from)]/90 via-[var(--surface-dark-via)]/70 to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-r from-surface-dark-from/90 via-surface-dark-via/70 to-transparent pointer-events-none" />
               {/* Bottom edge fade into card background */}
-              <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[var(--surface-dark-to)] to-transparent pointer-events-none" />
+              <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-surface-dark-to to-transparent pointer-events-none" />
 
               {/* Content overlay */}
               <div className="relative z-10 px-6 sm:px-8 md:px-10 lg:px-14 py-8 sm:py-10 md:py-14 lg:py-16 max-w-2xl">
                 {badge && (
                   <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-500/[0.12] border border-brand-400/[0.15] text-brand-300 text-xs sm:text-sm font-semibold tracking-wide mb-4 md:mb-5 backdrop-blur-sm">
                     {badgeHref ? (
-                      <Link href={badgeHref} className="hover:text-brand-200 transition-colors">
+                      <Link href={badgeHref} className="hover:text-brand-200 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent rounded-full">
                         {badge}
                       </Link>
                     ) : badge}
                   </div>
                 )}
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-bold text-white mb-4 md:mb-5 leading-[1.15] tracking-tight">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-bold text-text-light mb-4 md:mb-5 leading-[1.15] tracking-tight">
                   {headline}
                 </h1>
-                <p className="text-base md:text-lg text-white/70 leading-relaxed mb-6">
+                <p className="text-base md:text-lg text-text-light/70 leading-relaxed mb-6">
                   {subhead}
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3">
-                  <Button asChild size="lg" className="bg-brand-600 hover:bg-brand-500 text-text-light shadow-glow-sm font-semibold rounded-xl">
+                  <Button asChild size="lg" className="bg-brand-600 hover:bg-brand-500 text-text-light shadow-glow-sm font-semibold rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent">
                     <Link href={primaryCta.href}>{primaryCta.label}</Link>
                   </Button>
                   {secondaryCta && (
@@ -100,7 +100,7 @@ export const Hero = ({
                       asChild
                       variant="outline"
                       size="lg"
-                      className="border-white/25 text-white hover:border-white/40 hover:bg-white/[0.08] rounded-xl backdrop-blur-sm"
+                      className="border-text-light/25 text-text-light hover:border-text-light/40 hover:bg-glass-hover rounded-xl backdrop-blur-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
                     >
                       <Link href={secondaryCta.href}>{secondaryCta.label}</Link>
                     </Button>
@@ -108,11 +108,11 @@ export const Hero = ({
                 </div>
                 {/* Inline metrics below CTAs */}
                 {hasMetrics && (
-                  <div className="flex flex-wrap gap-x-8 gap-y-3 mt-8 pt-6 border-t border-white/[0.12]">
+                  <div className="flex flex-wrap gap-x-8 gap-y-3 mt-8 pt-6 border-t border-text-light/[0.12]">
                     {metrics!.map((metric, idx) => (
                       <div key={idx}>
-                        <div className="text-xl md:text-2xl font-bold text-white">{metric.value}</div>
-                        <div className="text-xs text-white/50">{metric.label}</div>
+                        <div className="text-xl md:text-2xl font-bold text-text-light">{metric.value}</div>
+                        <div className="text-xs text-text-subtle">{metric.label}</div>
                       </div>
                     ))}
                   </div>
@@ -137,7 +137,7 @@ export const Hero = ({
                   {badge && (
                     <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-500/[0.12] border border-brand-400/[0.15] text-brand-300 text-xs sm:text-sm font-semibold tracking-wide mb-4 md:mb-5">
                       {badgeHref ? (
-                        <Link href={badgeHref} className="hover:text-brand-200 transition-colors">
+                        <Link href={badgeHref} className="hover:text-brand-200 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent rounded-full">
                           {badge}
                         </Link>
                       ) : badge}
@@ -159,7 +159,7 @@ export const Hero = ({
                     "flex flex-col sm:flex-row gap-3",
                     !(hasIllustration || hasMetrics) && "justify-center"
                   )}>
-                    <Button asChild size="lg" className="bg-brand-600 hover:bg-brand-500 text-text-light shadow-glow-sm font-semibold rounded-xl">
+                    <Button asChild size="lg" className="bg-brand-600 hover:bg-brand-500 text-text-light shadow-glow-sm font-semibold rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent">
                       <Link href={primaryCta.href}>{primaryCta.label}</Link>
                     </Button>
                     {secondaryCta && (
@@ -167,7 +167,7 @@ export const Hero = ({
                         asChild
                         variant="outline"
                         size="lg"
-                        className="border-white/20 text-text-light hover:border-white/35 hover:bg-white/[0.06] rounded-xl"
+                        className="border-text-light/20 text-text-light hover:border-text-light/35 hover:bg-glass-bg rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
                       >
                         <Link href={secondaryCta.href}>{secondaryCta.label}</Link>
                       </Button>
@@ -175,7 +175,7 @@ export const Hero = ({
                   </div>
                   {/* Inline metrics for illustration/no-image heroes */}
                   {hasMetrics && !hasImage && (
-                    <div className="flex flex-wrap gap-x-8 gap-y-3 mt-8 pt-6 border-t border-white/[0.08]">
+                    <div className="flex flex-wrap gap-x-8 gap-y-3 mt-8 pt-6 border-t border-border-subtle">
                       {metrics!.map((metric, idx) => (
                         <div key={idx}>
                           <div className="text-xl md:text-2xl font-bold text-brand-400">{metric.value}</div>

@@ -89,7 +89,7 @@ When implementing the website, follow the architecture doc. Summary:
 6. **Design**: Avoid generic "AI slop" aesthetics. Create distinctive, professional styling.
 7. **CMS Abstraction**: Always use `src/lib/content.ts` as the abstraction layer for fetching blog/services/case studies. Never import Sanity client directly in components or pages. This enables easy migration to Payload or MDX later.
 8. **Brand Name**: Never hardcode the company/brand name. Always import `SITE_CONFIG` from `@/lib/constants` and use `SITE_CONFIG.name` (or `SITE_CONFIG.company.legalName` for legal contexts). This ensures a single source of truth for branding across the entire site.
-9. **Services/Solutions Design Constitution**: Every new service or solution page MUST be designed and built according to `docs/design-system/services-solutions-constitution.md`. Do NOT redesign from scratch — read the constitution, pick an archetype, follow the 10-step process. Any deviation must be recorded in the constitution itself.
+9. **Services/Solutions Design Constitution**: Every new service or solution page MUST be designed and built according to `docs/design-system/services-solutions-constitution.md`. Do NOT redesign from scratch — read the constitution, pick an archetype, follow the 13-step process. Any deviation must be recorded in the constitution itself. For rationale and deeper context on specific rules, see `docs/design-system/constitution-reference.md`. Prompt templates, pilot compositions, changelog, and theming examples are in `docs/design-system/constitution/`.
 
 ## Implementation Quick Start
 
@@ -166,6 +166,7 @@ See **Part 10** of the architecture doc for detailed prompts for each implementa
 | Frontend engineering standards | `agents/frontend-engineer.md` |
 | Agent collaboration protocols | `agents/README.md` |
 | Services/Solutions design constitution | `docs/design-system/services-solutions-constitution.md` |
+| Constitution reference (rationale, examples) | `docs/design-system/constitution-reference.md` |
 
 ## CMS Abstraction Layer
 

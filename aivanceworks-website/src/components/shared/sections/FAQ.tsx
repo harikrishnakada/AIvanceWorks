@@ -47,7 +47,7 @@ export const FAQ = ({
             key={idx}
             className="group bg-surface-white border border-border-light rounded-xl overflow-hidden"
           >
-            <summary className="flex items-center justify-between cursor-pointer p-5 md:p-6 hover:bg-surface-warm transition-colors list-none">
+            <summary className="flex items-center justify-between cursor-pointer p-5 md:p-6 hover:bg-surface-warm transition-colors list-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2 rounded-xl">
               <h3 className="text-base md:text-lg font-semibold text-text-heading pr-4">
                 {faq.question}
               </h3>

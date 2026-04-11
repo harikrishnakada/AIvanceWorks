@@ -50,7 +50,7 @@ export const RelatedPages = ({
         {pages.map((page, idx) => {
           const Icon = getLucideIcon(page.icon);
           return (
-            <Link key={idx} href={page.href} className="group">
+            <Link key={idx} href={page.href} className="group rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2">
               <div className="h-full bg-surface-white border border-border-light rounded-xl shadow-card-sm hover:shadow-card hover:border-brand-300 transition-all p-6 md:p-7">
                 <div className="flex items-start justify-between mb-5">
                   <IconTile

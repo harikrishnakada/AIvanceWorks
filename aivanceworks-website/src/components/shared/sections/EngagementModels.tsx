@@ -90,6 +90,7 @@ export const EngagementModels = ({
             <Button
               asChild
               className={cn(
+                'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2',
                 model.featured
                   ? 'bg-brand-600 hover:bg-brand-700 text-text-light'
                   : 'bg-surface-warm hover:bg-surface-light text-text-heading border border-border-light'

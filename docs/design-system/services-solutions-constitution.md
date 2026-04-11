@@ -1,8 +1,8 @@
 # Services & Solutions Design Constitution
 
-> **Executive summary.** This document is the single source of truth for how every services and solutions page on the AIvanceWorks website is designed and built. It codifies a **shared skeleton + two template variants** approach: a unified component library and design language, expressed through two page templates (ServiceTemplate and SolutionTemplate) whose internal composition is tuned **per page** to match the buyer journey. Brand consistency is enforced through theme tokens, section rhythm, and content integrity rules. Differentiation between industries, services, and offerings happens through **content, imagery, iconography, and one signature section per page** — never through color, palette, or layout chaos. This is a living document: any deviation must be recorded back into it.
+> **Executive summary.** This document is the single source of truth for how every services and solutions page on the AIvanceWorks website is designed and built. It codifies a **shared skeleton + two template variants** approach: a unified component library and design language, expressed through two page templates (ServiceTemplate and SolutionTemplate) whose internal composition is tuned **per page** to match the buyer journey. Brand consistency is enforced through theme tokens, section rhythm, and content integrity rules. Differentiation between industries, services, and offerings happens through **content, imagery, iconography, and one signature section per page** — never through color, palette, or layout chaos. This is a living document: any deviation must be recorded back into it. Supplementary material (rationale, examples, prompt templates, pilot references) lives in `constitution-reference.md` and `constitution/`. This file contains all enforceable rules.
 
-**Version:** 1.3
+**Version:** 2.0
 **Last updated:** 2026-04-10
 **Status:** Canonical. Applies to every services and solutions page built after this date.
 **Pilot scope:** `/services/product-discovery`, `/services/mvp-development`, `/solutions/patient-portals`, `/solutions/insurance-portals`, `/solutions/e-commerce-websites`.
@@ -24,126 +24,47 @@
 11. [Iconography and imagery](#11-iconography-and-imagery)
 12. [How to deviate from this document](#12-how-to-deviate-from-this-document)
 13. [Process — creating a new service or solution page](#13-process--creating-a-new-service-or-solution-page)
-14. [Prompt templates](#14-prompt-templates)
-15. [Reference — pilot pages and their compositions](#15-reference--pilot-pages-and-their-compositions)
-16. [Open questions and deferred decisions](#16-open-questions-and-deferred-decisions)
-17. [Changelog](#17-changelog)
+14. [Prompt templates](#14-prompt-templates) *(→ constitution/prompt-templates.md)*
+15. [Reference — pilot pages](#15-reference--pilot-pages-and-their-compositions) *(→ constitution/pilot-compositions.md)*
+16. [Open questions](#16-open-questions-and-deferred-decisions) *(→ constitution/open-questions.md)*
+17. [Changelog](#17-changelog) *(→ constitution/changelog.md)*
+
+**Companion files:** [Constitution Reference](constitution-reference.md) | [Voice Guide](../content-strategy/service-solution-content-voice-guide.md)
 
 ---
 
 ## 1. Purpose and scope
 
-### What this document is
+This constitution governs every `/services/*` and `/solutions/*` page on the AIvanceWorks website. It ensures every page is produced through a deliberate, repeatable workflow and the component/pattern library stays coherent as it scales.
 
-The **Services & Solutions Design Constitution** is a long-lived design-system charter that governs every `/services/*` and `/solutions/*` page on the AIvanceWorks website. It exists so that:
+**Pilot scope:** `/services/product-discovery`, `/services/mvp-development`, `/solutions/patient-portals`, `/solutions/insurance-portals`, `/solutions/e-commerce-websites`.
 
-- No future contributor (human or Claude session) has to re-hold the strategic conversation that produced this system.
-- Every new service or solution page is produced through a deliberate, repeatable workflow that takes the buyer journey seriously.
-- The library of components, tones, and patterns stays coherent as it scales from four pilot pages to thirty or more.
+**What this is not:** not a whole-site style guide, not a CMS schema, not the pilot implementation plan, not a rigid template. Pages compose sections differently to match their audience.
 
-### What this document is **not**
+**Audience:** developers, designers, future Claude sessions, and PR reviewers.
 
-- It is **not** the pilot implementation plan. A separate spec under `docs/superpowers/specs/` tracks the pilot build. This constitution is the standard the pilot implements, and the standard every post-pilot page must meet.
-- It is **not** a style guide for the whole website. It scopes to services and solutions pages only. Homepage, blog, about, and case-study detail pages have their own standards.
-- It is **not** a CMS schema for the Sanity dataset. Data schemas here are TypeScript shapes for the flat-file `src/data/*` structure the pilot uses. If Sanity/Payload adoption changes the schema, that change is recorded here via the deviation protocol.
-- It is **not** a rigid template. The whole point of Decision 7 is that pages compose sections differently to match their audience. Archetypes are starting points, not straitjackets.
-
-### Who this document is for
-
-- **Developers and designers** building new pages, refactoring existing components, or adding to the shared library.
-- **Future Claude sessions** told "build me a new service page for X" or "add a solutions page for Y." The prompt templates in Section 14 are written so that a fresh session can read this file and produce a correct page with no extra context.
-- **Reviewers** gating pull requests against the hard rules (theming, content integrity, section rhythm).
-
-### How to deviate
-
-Every rule here is either **hard** (non-negotiable, violations block merge) or **principled** (deviation allowed when justified). The deviation protocol is in [Section 12](#12-how-to-deviate-from-this-document). The short version: when you deviate, update **this file** with the rationale so the deviation becomes canonical instead of drift.
+**Deviation:** when you deviate, update this file per [Section 12](#12-how-to-deviate-from-this-document) so the deviation becomes canonical.
 
 ---
 
 ## 2. Core design philosophy
 
-Eight principles. Each has a **what** and a **why**. Understand the why or you will accidentally break the system.
+These principles govern every design decision. For the full narrative, see [`constitution-reference.md` §2](constitution-reference.md#2--design-philosophy-full-narrative).
 
-### 2.1 Shared skeleton, two template variants
-
-**What.** One component library in `components/shared/`. Two page templates: `ServiceTemplate` and `SolutionTemplate`. Both templates draw from the same component library but allow different section compositions because services and solutions serve different audiences.
-
-**Why.** We considered three directions:
-
-- **Option A — Fully uniform template.** Every service and solution page runs the exact same 8 sections in the exact same order. Rejected because it flattens two different buyer journeys into one experience, which serves the template rather than the buyer.
-- **Option B — Shared library + two variants + per-page composition.** Single brand palette, single component library, but each page picks which sections to use and in what order. **Chosen.** This is the approach used by Thoughtworks, EPAM, Accenture, and Deloitte Digital, for the same reason.
-- **Option C — Fully bespoke per page.** Every page designed from scratch. Rejected because it's expensive, drifts quickly, and makes pattern reuse impossible.
-
-Option B is the middle ground. We get the cost savings of a shared library and the coherence of a shared design language, without sacrificing the storytelling each audience deserves.
-
-### 2.2 Per-page editorial composition, not rigid ordering
-
-**What.** Every page picks which sections it uses and in what order based on the buyer it's addressing. The section order is an **editorial decision**, not a mechanical one.
-
-**Why.** Most traffic to these pages is long-tail Google search. Visitors land on one page, scroll it, and either convert or bounce. Cross-page consistency of section order has almost no benefit for a visitor who only sees one page, but optimal per-page storytelling has massive benefit. A healthcare CIO (risk-averse, long attention span, wants compliance early) and a startup founder (outcome-focused, short attention span, wants speed and cost) should not be forced into the same narrative order.
-
-Structural anchors are fixed (Hero first, CTA last, FAQ near the end). Everything in between is composed to fit the audience.
-
-### 2.3 Services and solutions serve different audiences
-
-**What.** Two template variants exist because two distinct buyer personas exist.
-
-| | Services page | Solutions page |
-|---|---|---|
-| **Buyer** | CTO, VP Eng, Tech Lead | VP Operations, Head of Digital, Business Owner |
-| **Query** | "RAG framework consulting," "cloud migration experts" | "Reduce claims processing time," "HIPAA patient portal" |
-| **Emotional driver** | Trust in technical competence | Risk reduction, outcome certainty |
-| **Decision inputs** | Stack depth, engagement model, pricing clarity, process discipline | Industry metrics, compliance, subsystem integrations, case studies |
-| **Shopper type** | Capability shopper | Outcome shopper |
-
-This is why a services page leans on `TechStackBlock`, `EngagementModels`, and `ProcessTimeline`, while a solutions page leans on `IntegrationsPanel`, `ComplianceDeepDive`, and `CaseStudySpotlight`. Same library, different section menus.
-
-### 2.4 Content, imagery, icons, and signature sections are the differentiation levers
-
-**What.** Patient Portals does not look different from MVP Development because of color or layout. It looks different because:
-
-- **Content** is written for a risk-averse healthcare administrator vs. a speed-obsessed founder.
-- **Imagery** is clinical stock photography (color-graded to the brand palette) vs. whiteboard-and-roadmap scenes (also color-graded to the brand palette).
-- **Iconography** pulls clinical Lucide icons (HeartPulse, Stethoscope, FileText) vs. developer icons (Rocket, GitBranch, Zap) — same library, different selections.
-- **The signature section** for Patient Portals is a four-tier architecture map; MVP Development is a dual-track roadmap. One per page, single-use, unmistakable.
-
-Color is not a differentiation lever. See the next principle.
-
-### 2.5 Single brand palette
-
-**What.** One palette. The existing blue theme (`src/styles/themes/blue.css`) is the brand. There is no "healthcare green" or "FinTech teal" variant of the services pages.
-
-**Why.** Palette variation between pages creates visual chaos and makes navigation feel fragmented. The theme token system (`data-theme="blue" | "purple"`) exists so the **entire site** can be re-skinned in one switch, not so individual pages can diverge. Industry distinction is carried by the four levers in 2.4, not by hue.
-
-Exploration of per-industry palettes was explicitly rejected during the design conversation that produced this constitution.
-
-### 2.6 Theme-token discipline
-
-**What.** All components reference theme tokens only. No raw Tailwind color shades, no hex values, no RGB literals.
-
-**Why.** The testable guarantee: flipping `<html data-theme="blue">` to `<html data-theme="purple">` must re-skin every page with zero component edits. If any single `bg-gray-50`, `text-blue-600`, or `#3b82f6` leaks into a component, the guarantee breaks and the theme token system stops being useful. See [Section 3](#3-theming-rules-hard) for the enforcement rules and code examples.
-
-### 2.7 Audience-driven storytelling
-
-**What.** The order of sections on a page is decided by three heuristics:
-
-1. **Lead with what the buyer searched for.** Put that section right after the hero.
-2. **Place the signature section at the natural narrative break.** Usually middle; near top for skeptical audiences; near bottom for persuasion-focused audiences.
-3. **Proof before process** for outcome-focused buyers; **process before proof** for risk-averse buyers.
-
-**Why.** These are not rules. They are guides for editorial judgment. The archetypes in [Section 6](#6-page-template-approach-and-archetypes) encode these heuristics as starting recipes, but every page is free to deviate with justification.
-
-### 2.8 Content integrity over marketing velocity
-
-**What.** No fabricated statistics. No invented case studies. No unauthorized logos. Every public claim is verified, ranged-with-source, or omitted. See [Section 9](#9-content-integrity-rules-hard).
-
-**Why.** AIvanceWorks sells trust to risk-averse buyers (especially in regulated industries). A single fabricated stat discovered by a prospective client destroys years of trust-building. The `_unverified` list and human review gate exist so that marketing velocity can never outrun reality.
+1. **Shared skeleton, two template variants.** One component library, two page templates (`ServiceDetailTemplate`, `SolutionDetailTemplate`). Composition varies per page, not layout or palette.
+2. **Per-page editorial composition.** Section order is tuned per page to match the buyer journey. Archetypes are starting points, not rigid templates.
+3. **Services ≠ solutions.** Services sell capabilities to any industry. Solutions sell outcomes to a specific vertical. Templates, data schemas, and content framing reflect this.
+4. **Differentiation through content, not chrome.** Pages are distinguished by copy, imagery, iconography, and one signature section — never by color palette, layout structure, or component design.
+5. **Single brand palette.** One palette, one set of tokens, one visual language. No per-page or per-industry color overrides.
+6. **Theme-token discipline.** Every color reference uses a token-backed Tailwind class. Raw colors are forbidden. Flipping `data-theme` re-skins every page with zero component edits.
+7. **Audience-driven storytelling.** Every element must pass the audience test (§9.5): who sees this, do they care, will it generate value? Content that doesn't move the buyer is cut.
+8. **Content integrity over marketing velocity.** No fabricated stats, no invented case studies, no unauthorized logos. Trust is the product.
 
 ---
 
 ## 3. Theming rules (hard)
 
-These rules are **hard**: violations block merge. They exist to preserve the testable guarantee in principle 2.6.
+Hard rules — violations block merge. They preserve the testable guarantee in §2 principle 6 (single brand palette).
 
 ### 3.1 The token system
 
@@ -233,85 +154,7 @@ from-blue-600     to-indigo-700       via-purple-500
 
 ### 3.4 Side-by-side examples
 
-**FORBIDDEN** (current `SolutionBenefits.tsx`):
-
-```tsx
-<section className="py-8 lg:py-12 bg-gray-50">
-  <h2 className="text-3xl font-bold text-gray-900 mb-4">{title}</h2>
-  <p className="text-lg text-gray-600">{subtitle}</p>
-  <div className="bg-white rounded-xl border border-gray-200 hover:border-blue-300">
-    <div className="w-12 h-12 rounded-xl bg-blue-50">
-      <Icon className="h-6 w-6 text-blue-600" />
-    </div>
-    <h3 className="text-lg font-semibold text-gray-900">{benefit.title}</h3>
-    <span className="text-2xl font-bold text-blue-600">{benefit.stat}</span>
-  </div>
-</section>
-```
-
-**REQUIRED** (refactored using tokens):
-
-```tsx
-<Section tone="warm">
-  <Container>
-    <h2 className="text-3xl font-bold text-text-heading mb-4">{title}</h2>
-    <p className="text-lg text-text-body">{subtitle}</p>
-    <div className="bg-surface-white rounded-xl border border-border-light hover:border-brand-300 shadow-card-sm">
-      <div className="w-12 h-12 rounded-xl bg-brand-50">
-        <Icon className="h-6 w-6 text-brand-600" aria-hidden="true" />
-      </div>
-      <h3 className="text-lg font-semibold text-text-heading">{benefit.title}</h3>
-      <span className="text-2xl font-bold text-brand-600">{benefit.stat}</span>
-    </div>
-  </Container>
-</Section>
-```
-
-**FORBIDDEN** (current `SolutionCTA.tsx`):
-
-```tsx
-<section className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
-  <p className="text-lg text-blue-100">{description}</p>
-  <Button className="bg-white text-blue-700 hover:bg-gray-100">...</Button>
-</section>
-```
-
-**REQUIRED** (refactored):
-
-```tsx
-<Section tone="accent">
-  <Container>
-    <p className="text-lg text-text-light/90">{description}</p>
-    <Button className="bg-surface-white text-brand-700 hover:bg-surface-warm">...</Button>
-  </Container>
-</Section>
-```
-
-**FORBIDDEN** (current `SolutionHero.tsx`):
-
-```tsx
-<nav className="bg-gray-50 border-b border-gray-200">...</nav>
-<section className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
-  <div className="inline-flex items-center gap-2 rounded-full bg-blue-500/20 text-blue-300">
-    <Link href={badgeHref} className="hover:text-blue-200">{badge}</Link>
-  </div>
-  <div className="bg-gradient-to-br from-blue-500 to-indigo-600">...</div>
-</section>
-```
-
-**REQUIRED:**
-
-```tsx
-<Breadcrumbs tone="light" />
-<Section tone="dark">
-  <Container>
-    <div className="inline-flex items-center gap-2 rounded-full bg-brand-500/20 text-brand-300">
-      <Link href={badgeHref} className="hover:text-brand-200">{badge}</Link>
-    </div>
-    <div className="bg-gradient-to-br from-brand-500 to-accent-600">...</div>
-  </Container>
-</Section>
-```
+See [`constitution/theming-examples.md`](constitution/theming-examples.md) for before/after code examples. The rules in §3.2 and §3.3 above are the enforceable standard; the examples are a learning aid. The `scripts/token-hygiene.sh` lint script automates detection of violations.
 
 ### 3.5 The testable guarantee
 
@@ -331,23 +174,7 @@ document.documentElement.setAttribute('data-theme', 'blue');
 
 ### 3.6 Where existing components violate these rules
 
-The following components in `components/solutions/` violate the theming rules and **must be refactored or deleted** as part of the pilot migration:
-
-| Component | Violation | Pilot action |
-|---|---|---|
-| `SolutionHero.tsx` | `bg-gray-50`, `from-gray-900 via-gray-800`, `bg-blue-500/20`, `text-blue-300`, `from-blue-500 to-indigo-600` | Delete. Replaced by shared `Hero` component using tokens. |
-| `SolutionBenefits.tsx` | `bg-gray-50`, `text-gray-900`, `text-gray-600`, `bg-white`, `border-gray-200`, `bg-blue-50`, `text-blue-600` | Delete. Replaced by `BenefitsGrid`. |
-| `SolutionFAQ.tsx` | `bg-white`, `text-gray-900`, `text-gray-600`, `bg-gray-50`, `hover:bg-gray-100` | Delete. Replaced by shared `FAQ`. |
-| `SolutionCTA.tsx` | `from-blue-600 to-indigo-700`, `text-blue-100`, `text-blue-700`, `hover:bg-gray-100` | Delete. Replaced by `CTABlock` using `tone="accent"`. |
-| `SolutionProcess.tsx` | (assumed similar) | Delete. Replaced by `ProcessTimeline`. |
-| `SolutionTechStack.tsx` | (assumed similar) | Delete. Replaced by `TechStackBlock`. |
-| `SolutionFeatures.tsx` | (assumed similar) | Delete. Replaced by `FeatureGrid`. |
-| `SolutionRelated.tsx` | (assumed similar) | Delete. Not used in pilot; revisit post-pilot. |
-| `unique/ComplianceShowcase.tsx` | Already partly token-compliant (uses `surface-dark-*`), but per-page specificity moves to `components/signature/`. | Fold its pattern into the new shared `ComplianceDeepDive` and a per-page `ComplianceShowcase` in `components/signature/` where needed. |
-| `unique/PortalTypesComparison.tsx` | (assumed similar) | Retire — content moves into `FeatureGrid` or a signature diagram. |
-| `unique/AiPoweredFeatures.tsx` | (assumed similar) | Retire — content moves into `FeatureGrid`. |
-
-All of these must be gone by the end of the pilot migration. See [Section 15](#15-reference--pilot-pages-and-their-compositions) for the refactor sequence.
+See [`constitution-reference.md` §3.6](constitution-reference.md#36--where-existing-components-violate-theming-rules) for the audit of known violations. The `scripts/token-hygiene.sh` script automates detection.
 
 ---
 
@@ -537,94 +364,27 @@ Each of these is a full page section. Each must be wrapped internally in `<Secti
 
 **`ComplianceDeepDive`** — a detail panel showing technical safeguards (encryption, access control, audit), audit certifications (HIPAA, HITECH, SOC 2, etc.), and partner agreements (BAA, DPA). **New component created in the pilot** for Patient Portals; reusable by future healthcare and any compliance-sensitive solution.
 
+**`ComplianceSpotlight`** — a lighter-weight compliance callout with eyebrow, title, status text, 3–4 pillar cards, and optional certification badges. Used on solution pages where compliance matters but doesn't warrant a full `ComplianceDeepDive`. **New component created in the pilot** for Insurance Portals and E-commerce; reusable by any solution needing a compliance signal without the deep-dive detail.
+
+**`PersonaComparison`** — a side-by-side persona card grid showing 2–3 buyer personas with icons, titles, subtitles, and feature lists. Each card gets an accent color (`brand`, `accent`, or `secondary`). Optional footer note. **New component created in the pilot** for Patient Portals; reusable by any page targeting multiple buyer personas.
+
+**`ImageFeature`** — a section rendering `imageFeatures` data as alternating image+text blocks. Each block has a heading, description, and a photo with alt text. Layout alternates image-left/image-right on desktop, stacks on mobile. **New component created in the pilot** for Patient Portals and E-commerce; reusable by all solution pages following the two-track imagery strategy (§11.5).
+
+**`RelatedPages`** — cross-link cards (2–3) pointing to related services and solutions. Each card shows title, journey-aware description, icon, and a `pageType` badge ("SERVICE" / "SOLUTION"). Contextual headings change based on the calling template (see Step 10). **New component created in v1.4** for all pilot pages; reusable by every services and solutions page.
+
 ### 5.3 The Section primitive as rhythm enforcer
 
-The `Section` component is the single point of enforcement for tone and vertical rhythm. **Reference implementation:**
-
-```tsx
-// components/shared/primitives/Section.tsx
-import { cn } from '@/lib/utils';
-import { ReactNode } from 'react';
-
-type SectionTone = 'dark' | 'light' | 'warm' | 'accent';
-
-interface SectionProps {
-  tone?: SectionTone;
-  id?: string;
-  className?: string;
-  /** Optional grid overlay on dark sections */
-  withGrid?: boolean;
-  /** Adjust vertical padding; defaults to the rhythm scale */
-  size?: 'sm' | 'md' | 'lg';
-  children: ReactNode;
-}
-
-const TONE_STYLES: Record<SectionTone, string> = {
-  dark:
-    'bg-gradient-to-br from-surface-dark-from via-surface-dark-via to-surface-dark-to text-text-light',
-  light: 'bg-surface-white text-text-heading',
-  warm: 'bg-surface-warm text-text-heading',
-  accent: 'bg-gradient-to-r from-brand-600 to-accent-500 text-white',
-};
-
-const SIZE_STYLES: Record<NonNullable<SectionProps['size']>, string> = {
-  sm: 'py-10 sm:py-12 lg:py-16',
-  md: 'py-12 sm:py-16 lg:py-20',
-  lg: 'py-16 sm:py-20 lg:py-24',
-};
-
-export const Section = ({
-  tone = 'light',
-  id,
-  className,
-  withGrid = false,
-  size = 'lg',
-  children,
-}: SectionProps) => {
-  return (
-    <section
-      id={id}
-      data-tone={tone}
-      className={cn(
-        'relative overflow-hidden',
-        TONE_STYLES[tone],
-        SIZE_STYLES[size],
-        className
-      )}
-    >
-      {tone === 'dark' && withGrid && (
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 bg-[linear-gradient(to_right,var(--brand-grid)_1px,transparent_1px),linear-gradient(to_bottom,var(--brand-grid)_1px,transparent_1px)] bg-[size:48px_48px] opacity-40"
-        />
-      )}
-      <div className="relative z-10">{children}</div>
-    </section>
-  );
-};
-```
+The `Section` component (`src/components/shared/primitives/Section.tsx`) is the single point of enforcement for tone and vertical rhythm. For the full reference implementation, see [`constitution-reference.md` §5.3](constitution-reference.md#53--section-primitive-reference-implementation).
 
 **Key properties:**
 
 - `tone` is the only API surface for color. Components that consume `Section` never pick their own background.
-- `SIZE_STYLES` encodes the vertical rhythm scale. `lg` is the default for major sections; `md` for tighter sections like `MetricsStrip`; `sm` for compressed spacers.
-- `withGrid` emits the brand grid overlay used on dark sections. It uses a CSS var (`--brand-grid`) from the theme file, not a hardcoded color.
-- The `data-tone` attribute enables child components to conditionally restyle (e.g., a card that needs to go glassy on a dark parent).
+- `size` encodes the vertical rhythm scale: `lg` (default for major sections), `md` (tighter, e.g., `MetricsStrip`), `sm` (compressed spacers).
+- `withGrid` emits the brand grid overlay on dark sections using a CSS var (`--brand-grid`), not a hardcoded color.
+- `data-tone` attribute enables child components to conditionally restyle.
 - **Nothing color-related** is visible in JSX consumers of `Section`. That's the point.
 
-**Usage:**
-
-```tsx
-// In a page or reusable section:
-<Section tone="warm">
-  <Container>
-    <h2 className="text-3xl font-bold text-text-heading">Features</h2>
-    <FeatureGrid features={features} />
-  </Container>
-</Section>
-```
-
-**Every page section is wrapped in `Section`.** There are no exceptions in shared components. Signature sections (which live in `components/signature/`) also use `Section` unless they have a specialized layout that requires a bare `<section>` — and even then, they respect tone tokens.
+**Every page section is wrapped in `Section`.** No exceptions in shared components. Signature sections also use `Section` unless they have a specialized layout — and even then, they respect tone tokens.
 
 ### 5.4 Where to put things
 
@@ -753,11 +513,17 @@ Hero → MetricsStrip → FeatureGrid → Signature → BenefitsGrid → CaseStu
 
 If a page sits between two archetypes (e.g., AI Strategy Consulting is strategic but also technical), pick the archetype closest to the **primary buyer persona** and cherry-pick one or two sections from the other. Document the cherry-pick in the data file.
 
+**B vs. D decision guide.** Archetypes B (Technical) and D (Commerce) share near-identical default compositions but target different buyer mindsets. Use this tiebreaker:
+
+- Choose **B (Technical)** when the buyer's primary concern is **execution quality and technical capability** — they want to know *how* you build, what stack you use, and that your team can deliver.
+- Choose **D (Commerce)** when the buyer's primary KPI is **revenue, conversion, or transaction volume** — they want to know *what business outcome* you'll drive, not how you'll drive it.
+- When both apply (e.g., a custom e-commerce build where the buyer cares about both execution and revenue), **default to D** and cherry-pick B's technical-depth sections (`TechStackBlock`, detailed `ProcessTimeline`).
+
 ---
 
 ## 7. Data schema
 
-All page content lives in TypeScript files under `src/data/services/` and `src/data/solutions/`, one file per page. Components consume data through props, never through direct data imports; the page file is the only place that imports a data file.
+One TypeScript file per page under `src/data/services/` or `src/data/solutions/`. Components consume data through props only — the page file is the only import site for a data file.
 
 ### 7.1 File locations
 
@@ -794,22 +560,16 @@ export interface CTA {
 export interface HeroMetric {
   value: string;
   label: string;
-  description?: string;
+  description: string;           // required — always shown in MetricsCard
 }
 
-export interface MetricItem {
-  value: string;
-  label: string;
-  description?: string;
-}
-
-export interface Feature {
+export interface FeatureItem {
   icon: string;         // Lucide icon name
   title: string;
   description: string;
 }
 
-export interface Benefit {
+export interface BenefitItem {
   icon: string;
   title: string;
   description: string;
@@ -817,14 +577,14 @@ export interface Benefit {
   statLabel?: string;
 }
 
-export interface ProcessStep {
+export interface ProcessStepData {
   title: string;
   description: string;
-  duration?: string;
-  deliverable?: string;
+  duration: string;              // required
+  deliverable: string;           // required
 }
 
-export interface FAQ {
+export interface FAQItem {
   question: string;
   answer: string;
 }
@@ -841,36 +601,29 @@ export interface MethodologyCard {
   icon: string;
   name: string;                      // "Design Sprint"
   description: string;
-  whenToUse: string;
 }
 
-export interface EngagementModel {
+export interface EngagementModelData {
   name: string;                      // "1-Week Sprint"
   duration: string;                  // "1 week"
-  startingPrice: string;             // "$12,000"
-  summary: string;
-  included: string[];                // CheckList items
-  cta: CTA;
+  priceFrom?: string;                // "$12,000" — optional, not all tiers expose price
+  whatsIncluded: string[];           // CheckList items
+  suitableFor: string;              // one-line persona fit
+  primaryCta: CTA;
+  featured?: boolean;               // highlights the recommended tier
+}
+
+export interface SafeguardItem {
+  icon: string;
+  title: string;
+  description: string;
 }
 
 export interface ComplianceDetail {
   frameworks: string[];              // ["HIPAA", "HITECH", "SOC 2 Type II"]
-  safeguards: {                      // technical safeguards
-    title: string;
-    description: string;
-    icon: string;
-  }[];
-  audit: {
-    title: string;
-    description: string;
-  };
+  safeguards: SafeguardItem[];       // technical safeguards
+  auditNote: string;                 // single audit-readiness statement
   partnerAgreements?: string[];      // ["BAA", "DPA"]
-}
-
-export interface IndustryMetric {
-  value: string;
-  label: string;
-  source?: string;                   // citation if industry-wide figure
 }
 
 export interface CaseStudyRef {
@@ -884,10 +637,60 @@ export interface CaseStudyRef {
 
 export interface RelatedPageItem {
   title: string;
-  description: string;               // journey-aware — see Step 7.8
+  description: string;               // journey-aware — see Step 10
   href: string;
   icon: string;                       // Lucide icon name
   pageType: 'service' | 'solution';   // renders subtle badge, enables future auto-matching
+}
+
+export interface BreadcrumbItem {
+  label: string;
+  href: string;
+}
+
+// ─── Section keys (template dispatch) ─────────────────────
+
+export type SectionKey =
+  | 'hero' | 'metricsStrip' | 'featureGrid' | 'benefitsGrid'
+  | 'processTimeline' | 'techStackBlock' | 'integrationsPanel'
+  | 'faq' | 'ctaBlock' | 'discoveryMethodology' | 'engagementModels'
+  | 'complianceDeepDive' | 'complianceSpotlight' | 'personaComparison'
+  | 'relatedPages' | 'imageFeatures' | 'signature';
+
+// ─── Compound section data ────────────────────────────────
+
+export interface CompliancePillar {
+  icon: string;
+  title: string;
+  description: string;
+}
+
+export interface ComplianceSpotlightData {
+  eyebrow?: string;
+  title: string;
+  highlightText?: string;
+  statusText: string;
+  pillars: CompliancePillar[];
+  badges?: string[];
+}
+
+export type PersonaAccent = 'brand' | 'accent' | 'secondary';
+
+export interface PersonaCard {
+  icon: string;
+  title: string;
+  subtitle: string;
+  features: string[];
+  accent?: PersonaAccent;
+}
+
+export interface PersonaComparisonData {
+  eyebrow?: string;
+  title?: string;
+  highlightText?: string;
+  subtitle?: string;
+  personas: PersonaCard[];
+  footerNote?: string;
 }
 
 // ─── Base page data ───────────────────────────────────────
@@ -901,28 +704,40 @@ export interface BasePageData {
   metaTitle: string;
   metaDescription: string;
   keywords: string[];
+  canonicalPath: string;             // e.g. '/services/product-discovery'
+
+  // Navigation
+  breadcrumb: BreadcrumbItem[];
+
+  // Composition — lives in the data file, NOT passed as a separate prop.
+  // The template reads `data.composition` to decide which sections to render.
+  composition: SectionKey[];
 
   // Hero
   hero: {
-    badge: string;
+    badge?: string;
+    badgeHref?: string;              // optional link target for badge
     headline: string;
     subhead: string;
     primaryCta: CTA;
     secondaryCta?: CTA;
     metrics?: HeroMetric[];          // right-column MetricsCard
+    heroImage?: { src: string; alt: string }; // solution pages — full-bleed bg
   };
 
   // Composable sections — a page opts into which it uses by including
   // the corresponding field. Undefined fields are simply not rendered.
-  metricsStrip?: MetricItem[];
-  features?: Feature[];              // typically 6
-  benefits?: Benefit[];              // 4–6
-  processSteps?: ProcessStep[];      // 5
+  metricsStrip?: HeroMetric[];
+  features?: FeatureItem[];          // typically 6
+  benefits?: BenefitItem[];          // 4–6
+  processSteps?: ProcessStepData[];  // 5
   capabilities?: string[];           // 8–10
   technologies?: string[];           // 8–12
   integrations?: IntegrationGroup[]; // new shape — see 7.3
-  relatedPages?: RelatedPageItem[];  // 3 cross-links — see Step 7.8
-  faqs: FAQ[];                       // 5–6 (required)
+  complianceSpotlight?: ComplianceSpotlightData;
+  personaComparison?: PersonaComparisonData;
+  relatedPages?: RelatedPageItem[];  // 3 cross-links — see Step 10
+  faqs: FAQItem[];                   // 5–6 (required)
   cta: {                             // required
     title: string;
     description: string;
@@ -936,16 +751,19 @@ export interface BasePageData {
 
 // ─── Solution extension ───────────────────────────────────
 
+export interface ImageFeatureData {
+  heading: string;
+  description: string;
+  image: { src: string; alt: string };
+}
+
 export interface SolutionPageData extends BasePageData {
   industry: 'healthcare' | 'insurance' | 'retail' | 'fintech' | string;
-  industryMetrics?: IndustryMetric[];
+  industryMetrics?: HeroMetric[];
   complianceDetail?: ComplianceDetail;
   caseStudySpotlight?: CaseStudyRef;
-  signatureSection:
-    | 'architecture-map'
-    | 'claims-flow'
-    | 'compliance-showcase'
-    | string;
+  imageFeatures?: ImageFeatureData[];
+  signatureComponent: string;  // component name, e.g. 'PortalArchitectureMap'
 }
 
 // ─── Service extension ────────────────────────────────────
@@ -953,41 +771,18 @@ export interface SolutionPageData extends BasePageData {
 export interface ServicePageData extends BasePageData {
   category: 'software-engineering' | 'infrastructure' | 'ai-ml' | 'strategy' | string;
   methodology?: MethodologyCard[];
-  engagementModels?: EngagementModel[];
+  engagementModels?: EngagementModelData[];
   pricing?: {
     startingPrice: string;
     whatsIncluded: string[];
   };
-  signatureSection:
-    | 'roadmap'
-    | 'before-after'
-    | 'framework-diagram'
-    | string;
+  signatureComponent: string;  // component name, e.g. 'MvpDualTrackRoadmap'
 }
 ```
 
 ### 7.3 Why `integrations` is a typed shape, not an array of strings
 
-The old `SolutionData.integrations: string[]` shape cannot support the new `IntegrationsPanel` component, which needs a connection method per integration. The new shape is:
-
-```ts
-integrations: [
-  {
-    name: 'Epic',
-    category: 'EHR',
-    connectionMethod: 'HL7 FHIR R4, SMART on FHIR',
-    capabilities: ['bi-directional sync', 'real-time patient context'],
-  },
-  {
-    name: 'Guidewire PolicyCenter',
-    category: 'Core Policy',
-    connectionMethod: 'REST + SOAP',
-    capabilities: ['policy lookup', 'endorsement write-back'],
-  },
-]
-```
-
-Both Patient Portals (EHR list) and Insurance Portals (core policy systems list) use the same `IntegrationsPanel` component, differing only in their data. That's the whole win of the new shape.
+The `IntegrationGroup` interface uses structured fields (`name`, `category`, `connectionMethod`, `capabilities`) instead of `string[]` to support the `IntegrationsPanel` component's display needs. See [`constitution-reference.md` §7.3](constitution-reference.md#73--why-integrations-is-a-typed-shape) for the full rationale.
 
 ### 7.4 The `_unverified` field
 
@@ -1177,9 +972,9 @@ Every content decision — what to include, what to cut, how to frame a claim, w
 - **Outcome language without outcomes.** "Our clients see..." / "We deliver..." / "On average we achieve..." — when the company has zero shipped engagements (greenfield). The buyer can fact-check this. Capability framing ("architected for", "built to", "designed to") is honest; outcome framing without data is not.
 - **Vendor name-dropping that implies shipped experience.** "We have experience integrating with NetSuite and SAP" implies past work. For greenfield, use "We build integrations with..." instead.
 
-**When to run it:** The audience test is not a final review step — it is applied *during* content creation (Step 7 of the 10-step process) and again as a dedicated pass (Step 7.7). Every `_unverified` item should be resolved through the lens of "does the target buyer care, and is this honest?"
+**When to run it:** The audience test is not a final review step — it is applied *during* content creation (Step 7 of the 13-step process) and again as a dedicated pass (Step 9). Every `_unverified` item should be resolved through the lens of "does the target buyer care, and is this honest?"
 
-**Rationale (v1.3):** During the e-commerce migration (2026-04-10), three `metricsStrip` percentage ranges passed all other integrity checks but failed the audience test — a VP of Digital would read uncited % claims and lose trust. They were replaced with capability-framed metrics. Three feature/FAQ strings were softened from "we have experience" / "integrated" (implying past work) to "we build" / "integration" (describing capability). The audience test caught what the `_unverified` protocol alone did not: technically-honest-but-practically-misleading framing.
+> Rationale: see [`constitution-reference.md` §9.5](constitution-reference.md#95--audience-test-rationale).
 
 ### 9.6 Self-challenge protocol (hard)
 
@@ -1196,7 +991,7 @@ When making any non-trivial content or design decision (what sections to include
 
 The point is rigorous self-challenge, not indecision. If after the challenges the original answer still stands, commit to it firmly. But never skip the audience test — it is the most common place implementers go wrong.
 
-**Rationale (v1.3):** Validated twice during the pilot build. First on section-order flexibility (where self-challenge reversed the default from "rigid canonical order" to "flexible with archetypes"). Second on e-commerce integrations (where the initial recommendation to add an integration chip grid was reversed after the audience test revealed business buyers don't care about integration chips — they care about credibility and migration safety).
+> Rationale: see [`constitution-reference.md` §9.6](constitution-reference.md#96--self-challenge-protocol-rationale).
 
 ### 9.7 Review gate
 
@@ -1207,6 +1002,24 @@ The point is rigorous self-challenge, not indecision. If after the challenges th
 3. The PR checklist (to be added to `.github/pull_request_template.md`) includes a "Content integrity confirmed" checkbox.
 
 This rule applies to copy in the data file **and** any inline copy inside components (though inline copy in shared components should be minimized — prefer data-driven copy).
+
+### 9.8 Headline and copy length rules
+
+- **Hero headline:** max 12 words / 70 characters. Must communicate the core value proposition in a single scannable line.
+- **Hero subhead:** max 25 words. Expands on the headline with buyer-relevant context.
+- **FAQ answers:** 50–120 words each. Lead with the direct answer in the first sentence, then expand. Maintain consistent depth across all FAQs on a page — a 50-word answer next to a 150-word answer signals uneven quality.
+- **`ImageFeature` headings:** max 6 words. Outcome-focused, not feature-descriptive.
+- **`ImageFeature` descriptions:** 15–30 words. One sentence, focused on what the buyer gets — not how it works.
+- **`ImageFeature` alt text:** must describe the visual content of the image, not repeat the heading. Example: "Clinician reviewing patient records on a tablet in a hospital corridor" — not "Patient Portal Dashboard."
+
+### 9.9 Cross-reference — content voice guide
+
+For detailed tone, voice, and copy-pattern guidance, see `docs/content-strategy/service-solution-content-voice-guide.md`. The voice guide and this constitution are complementary:
+
+- **This constitution** defines structure, composition rules, rhythm, theming, and data schemas.
+- **The voice guide** defines language, tone, CTA patterns, metric framing, and per-section copy conventions.
+
+Both documents must be consulted when creating or reviewing a page. The voice guide's "so what / prove it / only us" test is the tone-level equivalent of this constitution's audience test (§9.5).
 
 ---
 
@@ -1276,6 +1089,24 @@ Each signature component **must document** its mobile layout as a comment at the
 - **`ClaimsFlowComparison`** — the two track bars stack fully vertically: Legacy on top with its callouts below it, Portal below with its callouts below it. Bars remain **proportional** (legacy 100%, portal ~10% of legacy width) to preserve the visual argument. On very narrow screens (≤ 375px), the bars remain horizontal but scrollable within a carousel.
 
 When a new signature section is added to `components/signature/`, its file header must include a similar comment documenting its mobile collapse rules.
+
+### 10.8 Inter-page navigation
+
+When a user navigates between service/solution pages:
+
+- **Scroll position** resets to top on page transition.
+- **Breadcrumbs** reflect the current page hierarchy (Home → Services → Category → Page).
+- **`RelatedPages`** section provides lateral navigation to related services/solutions (see Step 10 for data population rules).
+- **Browser back button** returns to the previous scroll position on the source page.
+- **Prefetching:** linked service/solution pages should be prefetched on hover using Next.js `<Link>` prefetch behavior for instant transitions.
+
+### 10.9 Loading and disabled states (deferred)
+
+Loading and disabled states for section components are deferred until CMS integration replaces the current flat-file data layer. When implemented:
+
+- **Skeleton screens** should match section layout dimensions (e.g., a `FeatureGrid` skeleton renders 6 placeholder cards at the correct grid size).
+- **CTA buttons** should show a spinner icon and be disabled (`aria-disabled="true"`, `pointer-events-none`) during async operations (form submission, booking flow).
+- **Error states** should provide a clear message and a retry action. Empty states (no data for a section) should hide the section entirely rather than render an empty shell.
 
 ---
 
@@ -1355,7 +1186,7 @@ Decorative images (background textures, abstract shapes) use `alt=""` and `aria-
 - **Animations:** Scroll-triggered step reveals on ProcessTimeline via `useScrollReveal` hook + `scroll-stagger` CSS class.
 - **Signatures:** Interactive — click-to-expand (DiscoveryBeforeAfter), phase-focus (MvpDualTrackRoadmap). Both are `'use client'` components with `useState`.
 
-**Imagery workflow for new pages** (integrated into §13 Step 7.5):
+**Imagery workflow for new pages** (integrated into §13 Step 8):
 1. **Research:** Identify 3-4 photo subjects per solution page (hero + 2-3 features) based on the industry and buyer persona.
 2. **Source:** Download from Unsplash. Landscape orientation, minimum 1200px wide, JPEG format.
 3. **Store:** `public/images/solutions/{slug}/hero.jpg`, `feature-1.jpg`, etc.
@@ -1408,7 +1239,7 @@ If a deviation is **used in code but not in the constitution**, it is drift. Dri
 
 ## 13. Process — creating a new service or solution page
 
-This is the 10-step workflow every future Claude session (and human contributor) follows. It is the operational heart of the constitution. Prompt templates in [Section 14](#14-prompt-templates) wrap these steps for copy-paste use.
+This is the 13-step workflow every future Claude session (and human contributor) follows. It is the operational heart of the constitution. Prompt templates in [Section 14](#14-prompt-templates) wrap these steps for copy-paste use.
 
 ### Step 1 — Identify the archetype
 
@@ -1464,7 +1295,7 @@ Create `src/data/services/<slug>.ts` or `src/data/solutions/<slug>.ts` with the 
 
 **Output:** working data file with all required fields, plus `_unverified` list populated for any unverified claims.
 
-### Step 7.5 — Source and configure imagery (v1.2)
+### Step 8 — Source and configure imagery
 
 This step applies differently based on page type. See §11.5 for the full imagery strategy.
 
@@ -1487,7 +1318,7 @@ This step applies differently based on page type. See §11.5 for the full imager
 
 **Output:** imagery files in place, data file updated with image references, page route wired.
 
-### Step 7.7 — Audience test pass (v1.3)
+### Step 9 — Audience test pass
 
 Run the audience test (§9.5) on every element in the data file. For each metric, feature description, benefit, FAQ answer, and integration mention:
 
@@ -1507,7 +1338,7 @@ Apply the self-challenge protocol (§9.6) on any decision where you're unsure. D
 
 **Output:** data file with audience-tested copy. Resolved `_unverified` items noted with reasoning. Remaining `_unverified` items are only those explicitly deferred (content-team reminders, not integrity flags).
 
-### Step 7.8 — Populate `relatedPages` (v1.4)
+### Step 10 — Populate `relatedPages`
 
 Every page gets a `relatedPages` array with 2–3 cross-links. The number depends on page type:
 
@@ -1556,7 +1387,7 @@ Add `'relatedPages'` to the `composition` array if not already present. Place it
 
 **Output:** `relatedPages` populated on the new page and on any existing pages that should link to it. All descriptions are journey-aware.
 
-### Step 8 — Content integrity pass
+### Step 11 — Content integrity pass
 
 Walk every number, quote, logo, and claim in the data file. For each:
 
@@ -1565,13 +1396,13 @@ Walk every number, quote, logo, and claim in the data file. For each:
 - Unverified? → add to `_unverified` list with reason.
 - Invented? → remove it.
 
-This step now runs **after** the audience test (Step 7.7), which means most integrity issues have already been caught and resolved. This step is the final sweep for anything the audience test missed.
+This step now runs **after** the audience test (Step 9), which means most integrity issues have already been caught and resolved. This step is the final sweep for anything the audience test missed.
 
 See [Section 9](#9-content-integrity-rules-hard).
 
 **Output:** cleaned data file with accurate `_unverified` list.
 
-### Step 9 — Responsiveness check
+### Step 12 — Responsiveness check
 
 - Ensure every section renders cleanly at 375, 768, and 1280.
 - Ensure the signature section has a documented mobile layout in its component file header comment.
@@ -1579,7 +1410,7 @@ See [Section 9](#9-content-integrity-rules-hard).
 
 **Output:** visually validated page at all required breakpoints.
 
-### Step 10 — Record any deviations
+### Step 13 — Record any deviations
 
 If you deviated from the archetype, rhythm, tone rules, or added a new pattern, update the constitution per [Section 12](#12-how-to-deviate-from-this-document). Do not skip this step. Drift starts here.
 
@@ -1589,437 +1420,20 @@ If you deviated from the archetype, rhythm, tone rules, or added a new pattern, 
 
 ## 14. Prompt templates
 
-These are copy-paste-ready prompts for future Claude sessions. Fill in the `<slot>` values, paste into Claude, and get back a correct page without re-explaining the system.
-
-Every template ends with the explicit reminder: **deviations must be recorded in the constitution itself.**
-
-### 14.1 Create new service page
-
-```
-Read docs/design-system/services-solutions-constitution.md. You are creating a new service page.
-
-Service name: <e.g., Web App Development>
-
-YOU MUST DO ALL OF THE FOLLOWING AUTONOMOUSLY. Do not ask the user for buyer persona, questions, trust issues, or content strategy — research and determine them yourself.
-
-## Phase 1 — Research (do this BEFORE writing any code)
-
-1. Read the company details in src/company details/markup/ (especially 02-services.md, 06-positioning.md, 10-website-content.md) to understand what this service covers and how it's positioned.
-2. Identify the PRIMARY BUYER PERSONA by role, seniority, and what they're measured on. Use the buyer persona table in §2.3 of the constitution as a starting framework, then refine based on what this specific service actually sells.
-3. Identify the TOP 3 QUESTIONS this buyer would type into Google or ask on a sales call. These drive composition order.
-4. Identify the KEY TRUST ISSUE — what has burned this buyer before? What makes them skeptical?
-5. Study 2-3 existing pilot pages as reference implementations (read their data files in src/data/services/ and src/data/solutions/).
-
-## Phase 2 — Design (constitution §13 steps 1–6)
-
-Follow steps 1–6 of the 10-step process. For every non-trivial decision, apply the self-challenge protocol (§9.6):
-- State your default position.
-- Run the audience test (§9.5): who sees this, do they care, will it generate value?
-- Run the greenfield integrity test: can this be backed without fabricated outcomes?
-- Run the counter-cost test: what do we lose by including this?
-- Land on a conclusion.
-
-## Phase 3 — Build (constitution §13 steps 7–10)
-
-7. Create the data file. Apply the audience test (§9.5) to EVERY metric, feature description, benefit, and FAQ as you write them — not as an afterthought.
-7.5. Source imagery per §11.5.
-7.7. Audience test pass: walk every element through §9.5. Replace uncited % ranges with capability framing. Soften any "we delivered / we achieved / clients see" to capability language. Remove developer-lens content that the business buyer doesn't care about.
-7.8. Populate relatedPages with 3 cross-links (mixed services/solutions). Add `pageType` to each entry. Write journey-aware descriptions unique to each source→destination pair. Update existing pages that should link back.
-8. Content integrity pass (§9).
-9. Responsiveness check.
-10. Record deviations.
-
-## Phase 4 — Wiring
-
-- Add the slug to SERVICE_PAGE_MODULES in src/lib/content.ts.
-- If a new signature component was created, add it to SIGNATURE_COMPONENTS in the page route and to the signature barrel (components/signature/index.ts).
-- Run npx tsc --noEmit and npm run build. Both must pass.
-- Run the token-hygiene grep on all created/modified files.
-- Run the content-integrity grep.
-
-Expected outputs:
-- src/data/services/<slug>.ts with audience-tested copy and resolved _unverified list.
-- app/services/<slug>/page.tsx (if the route doesn't already exist).
-- A hero SVG illustration component at components/signature/<Name>HeroIllustration.tsx (per §11.5).
-- Any new signature component at components/signature/<Name>.tsx.
-- Any new shared component at components/shared/sections/<Name>.tsx (only if reused).
-- Updated relatedPages on existing pages that cross-link to the new page (with journey-aware descriptions and `pageType`).
-- Updated SERVICE_PAGE_MODULES in src/lib/content.ts.
-- A diff to the constitution if you deviated.
-- tsc clean, build clean, token-hygiene clean, content-integrity clean.
-
-Reminder: deviations must be recorded in the constitution. No fabricated stats. The audience test (§9.5) is mandatory, not optional.
-```
-
-### 14.2 Create new solution page
-
-```
-Read docs/design-system/services-solutions-constitution.md. You are creating a new solution page.
-
-Solution name: <e.g., Hospital Management Systems>
-Industry: <healthcare | insurance | retail | fintech | ...>
-
-YOU MUST DO ALL OF THE FOLLOWING AUTONOMOUSLY. Do not ask the user for buyer persona, questions, integrations, or content strategy — research and determine them yourself.
-
-## Phase 1 — Research (do this BEFORE writing any code)
-
-1. Read the company details in src/company details/markup/ (especially 02-services.md, 06-positioning.md, 10-website-content.md) to understand what this solution covers and how it's positioned.
-2. Research the industry context: what regulations apply? What systems does this buyer already use? What integrations matter?
-3. Identify the PRIMARY BUYER PERSONA by role, seniority, and what they're measured on. Solution buyers are typically business decision-makers (VP Operations, Head of Digital, Business Owner) — not engineers.
-4. Identify the TOP 3 QUESTIONS this buyer asks. These drive composition order.
-5. Identify the KEY TRUST ISSUE — what has burned this buyer before?
-6. Study 2-3 existing pilot pages as reference implementations (read their data files in src/data/solutions/).
-
-## Phase 2 — Design (constitution §13 steps 1–6)
-
-Follow steps 1–6 of the 10-step process. For every non-trivial decision, apply the self-challenge protocol (§9.6).
-
-Archetype guidance: regulated industries default to Archetype C unless the buyer's KPI is purely commercial (then D). When in doubt, the audience test (§9.5) resolves it — ask "does this buyer answer to a regulator or to a revenue target?"
-
-## Phase 3 — Build (constitution §13 steps 7–10)
-
-7. Create the data file. Apply the audience test (§9.5) to EVERY element as you write it.
-7.5. Source imagery per §11.5 (3 photos: hero + 2 features).
-7.7. Audience test pass (§9.5). This is where the hard decisions happen:
-   - Uncited % ranges → replace with capability-framed metrics or cite a real source.
-   - "We delivered / achieved / clients see" → "Architected for / built to / designed to" (greenfield integrity).
-   - Developer-lens content → cut or reframe for business buyers.
-   - Vendor names → "we build with" not "we have shipped with" (greenfield honesty).
-   - Integration chip grids → weave vendor names into feature prose if the buyer needs credibility signals; omit the grid if the audience doesn't care about the plumbing.
-7.8. Populate relatedPages with 3 cross-links (mixed services/solutions). Add `pageType` to each entry. Write journey-aware descriptions unique to each source→destination pair. Update existing pages.
-8. Content integrity pass (§9).
-9. Responsiveness check.
-10. Record deviations.
-
-## Phase 4 — Wiring
-
-- Add the slug to SOLUTION_PAGE_MODULES in src/lib/content.ts.
-- Add signature to SIGNATURE_COMPONENTS in src/app/solutions/[slug]/page.tsx and to the barrel.
-- Run npx tsc --noEmit and npm run build. Both must pass.
-- Token-hygiene grep + content-integrity grep.
-
-Expected outputs:
-- src/data/solutions/<slug>.ts with audience-tested copy and resolved _unverified list.
-- 3 photos in public/images/solutions/<slug>/ (hero.jpg, feature-1.jpg, feature-2.jpg).
-- 'imageFeatures' in the composition array (after 'featureGrid').
-- app/solutions/<slug>/page.tsx (if the route doesn't already exist — or confirm the dynamic [slug] route handles it).
-- Any new signature component at components/signature/<Name>.tsx.
-- Updated relatedPages on existing pages that cross-link (with journey-aware descriptions and `pageType`).
-- Updated SOLUTION_PAGE_MODULES in src/lib/content.ts.
-- A diff to the constitution if deviated.
-- tsc clean, build clean, token-hygiene clean, content-integrity clean.
-
-Reminder: content integrity rules are non-negotiable. The audience test (§9.5) is mandatory. No fabricated stats. Deviations must be recorded in the constitution.
-```
-
-### 14.3 Design a new signature section for page X
-
-```
-Read docs/design-system/services-solutions-constitution.md, specifically section 8 (signature sections).
-
-You are designing a new signature section for: <page slug, e.g., /services/ai-strategy-consulting>
-
-Context:
-- Archetype: <A/B/C/D>
-- Primary buyer persona: <persona>
-- The page's emotional argument: <e.g., "We turn vague AI ambitions into a shortlist of 3 validated pilots in 4 weeks">
-- The section must communicate: <the one thing the visitor will remember>
-
-Step 1 — Review the four pilot signature components as exemplars:
-- components/signature/DiscoveryBeforeAfter.tsx (Product Discovery — before/after comparison pattern)
-- components/signature/MvpDualTrackRoadmap.tsx (MVP Development — dual-track timeline pattern)
-- components/signature/PortalArchitectureMap.tsx (Patient Portals — hierarchical tier map pattern)
-- components/signature/ClaimsFlowComparison.tsx (Insurance Portals — proportional bar comparison pattern)
-
-Step 2 — Propose 2–3 signature section options:
-  For each option provide:
-  - Component name (PascalCase, page-specific).
-  - Visualization pattern from the catalog in §8.3 (data viz, hierarchical, process/flow, comparison, interactive, illustrative, or a new pattern you justify).
-  - One-sentence argument it carries.
-  - Rough sketch / ASCII mockup of the desktop layout.
-  - Mobile collapse strategy.
-  - Why this option fits this buyer better than the other options.
-
-Step 3 — Recommend one.
-
-Step 4 — After alignment, write the TSX component in components/signature/<Name>.tsx, wrapped in <Section tone="dark"> (unless section 4.4 deviation applies). Document mobile layout as a header comment.
-
-Reminder: signature components obey all theme-token rules. Flipping data-theme must re-skin them. If you invent a new visual pattern not in the catalog, add it to section 8.3 of the constitution as a deviation.
-```
-
-### 14.4 Add a new reusable section to the shared library
-
-```
-Read docs/design-system/services-solutions-constitution.md, specifically section 5 (shared component library).
-
-You are adding a new reusable section to components/shared/sections/.
-
-Section name: <e.g., PricingComparisonTable>
-What it does: <short description>
-Which pages will use it (must be at least 2): <list page slugs>
-If only one current consumer, justify why it belongs in shared instead of signature.
-
-Requirements:
-1. Wrap the section in <Section tone={...}>. The tone may be a prop.
-2. Use only theme tokens. Run through the allowed-tokens list in §3.2 — any class outside that list is forbidden.
-3. Design for the target density (6–10 sections per page). Don't make it so tall that it dominates.
-4. Mobile-responsive per §10 rules.
-5. Accept its data as props matching an interface in src/types/pages.ts. If a new data type is needed, add it to pages.ts and update BasePageData / ServicePageData / SolutionPageData as appropriate.
-6. Export the component and its props type.
-7. Add a brief docblock with: purpose, when to use, example usage, and any accessibility notes.
-
-Deliverables:
-- components/shared/sections/<Name>.tsx
-- Updated src/types/pages.ts if new types added
-- Updated components/shared/index.ts barrel
-- Updated docs/design-system/services-solutions-constitution.md §5.2 with the new entry
-
-Reminder: if the new section introduces a new data type or a new rule, that rule goes in the constitution. Drift is not allowed.
-```
-
-### 14.5 Audit an existing page against the constitution
-
-```
-Read docs/design-system/services-solutions-constitution.md.
-
-Audit the following page against the constitution:
-Page: <e.g., /solutions/patient-portals>
-Files:
-  - app/solutions/patient-portals/page.tsx
-  - src/data/solutions/patient-portals.ts
-  - any page-specific components imported by the above
-
-Check:
-1. Theming (§3) — grep the page file and all imported components for forbidden classes: any bg-/text-/border-/from-/to-/via- followed by slate|gray|zinc|neutral|stone|red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose. Grep for hex values (#[0-9a-f]{3,8}). Report every violation with file and line.
-2. Rhythm (§4) — map out the section order with tones. Flag adjacent darks, more than 2 darks total, missing accent CTA.
-3. Composition (§6) — identify the archetype the page should be. Compare the actual composition to the archetype recipe. Flag undocumented deviations.
-4. Data schema (§7) — confirm the data file matches ServicePageData or SolutionPageData. Flag missing required fields.
-5. Content integrity (§9) — list every number, quote, logo, and stat in the data file. For each, identify whether it is verified, ranged, unverified (in _unverified list), or invented (removed). Flag any stat not in _unverified that looks unverifiable.
-6. Responsiveness (§10) — confirm the signature section has a mobile layout comment. Flag any grid that doesn't collapse predictably.
-7. Iconography / imagery (§11) — confirm Lucide only, alt text on every image.
-
-Output format: one section per check, with PASS / FAIL / WARN and specific file:line references for any failures.
-
-At the end, recommend a remediation order by priority. Do not modify any files — just audit.
-
-Reminder: if the audit surfaces a legitimate new pattern that the constitution doesn't cover, that's a deviation — flag it and recommend a constitution update.
-```
-
----
+Prompt templates for launching new Claude sessions are maintained in [`constitution/prompt-templates.md`](constitution/prompt-templates.md). They wrap the 13-step process (Section 13) for copy-paste use. An agent already dispatched to create a page does not need to read them.
 
 ## 15. Reference — pilot pages and their compositions
 
-These are the five pilot pages, composed in full, as of constitution v1.3. They are the reference implementations of the system. Future pages should look to these as live examples, not as templates to copy blindly.
-
-### 15.1 Product Discovery (Archetype A — Strategic service)
-
-**Slug:** `product-discovery`
-**Route:** `/services/product-discovery`
-**Buyer:** technical founder or CTO considering a new product bet, unclear on scope
-**Dominant question:** "Can I trust this team to help me figure out what to build?"
-**Signature:** `DiscoveryBeforeAfter` — before/after columns showing transformation from assumption chaos to five concrete artifacts
-
-**Composition (9 sections):**
-
-| # | Section | Tone | Notes |
-|---|---|---|---|
-| 1 | `Hero` | dark | Headline: "Turn a fuzzy idea into a plan you can ship." SVG illustration. |
-| 2 | `MetricsStrip` | light | 2 weeks · 5 artifacts · 90% scope confidence · 1 fixed proposal |
-| 3 | `DiscoveryMethodology` | warm | Cards for methodology approaches (lean canvas, jobs-to-be-done, user journey mapping, etc.) |
-| 4 | `DiscoveryBeforeAfter` [signature] | dark | Before: vague assumptions. After: five specific artifacts. |
-| 5 | `ProcessTimeline` | light | Day-by-day 2-week sprint breakdown |
-| 6 | `EngagementModels` | warm | 1-week sprint / 2-week standard / 4-week deep-dive tiers + pricing. |
-| 7 | `RelatedPages` | light | 3 cross-links: MVP Development, E-commerce Websites, Patient Portals |
-| 8 | `FAQ` | warm | 5–6 common questions |
-| 9 | `CTA` | accent | "Book a free 30-minute discovery call" |
-
-**Deviations from Archetype A recipe:**
-
-- Dropped `FeatureGrid` — the discovery artifacts ARE the features; a grid would duplicate the signature section.
-- Dropped `TechStackBlock` — discovery isn't about stack; buyers don't care yet.
-- Dropped `BenefitsGrid` — `DiscoveryBeforeAfter` already carries the benefit argument visually.
-- Dropped `CaseStudySpotlight` — this buyer is too early-funnel for case study persuasion to land.
-
-Result: 9 sections, all earning their place.
-
-### 15.2 MVP Development (Archetype B — Technical service)
-
-**Slug:** `mvp-development`
-**Route:** `/services/mvp-development`
-**Buyer:** startup founder or product lead with a validated idea, needs it built fast
-**Dominant question:** "Can this team actually ship an MVP in 12 weeks without cutting corners?"
-**Signature:** `MvpDualTrackRoadmap` — 12-week dual-track roadmap, engineering view on top, founder view on bottom
-
-**Composition (10 sections):**
-
-| # | Section | Tone | Notes |
-|---|---|---|---|
-| 1 | `Hero` | dark | Headline: "From kickoff to paying customers in 12 weeks." SVG illustration. |
-| 2 | `MetricsStrip` | light | 12 weeks · 12 demos · real users by Week 5 · V1 in production |
-| 3 | `FeatureGrid` | warm | 8 capabilities: auth, backend, frontend, mobile, infra, billing, observability, deployment |
-| 4 | `MvpDualTrackRoadmap` [signature] | dark | Dual-track 12-week visual |
-| 5 | `BenefitsGrid` | light | Outcome-focused — distinct from the roadmap's timeline |
-| 6 | `TechStackBlock` | warm | Next.js, TypeScript, Node, Azure, Postgres, etc. |
-| 7 | `EngagementModels` | light | Fixed-price bundle / milestone / T&M |
-| 8 | `RelatedPages` | warm | 3 cross-links: Product Discovery, E-commerce Websites, Insurance Portals |
-| 9 | `FAQ` | light | 5–6 common questions |
-| 10 | `CTA` | accent | "Book a 30-minute scoping call" |
-
-**Deviations from Archetype B recipe:**
-
-- Dropped standalone `ProcessTimeline` — the dual-track roadmap IS the process, and duplicating it kills the signature moment.
-- Dropped any "Principles" block — overlapping with `BenefitsGrid`.
-- No `CaseStudySpotlight` in pilot — revisit when a real MVP case is verified.
-
-Result: 10 sections, no duplication.
-
-### 15.3 Patient Portals (Archetype C — Regulated solution)
-
-**Slug:** `patient-portals`
-**Route:** `/solutions/patient-portals`
-**Buyer:** hospital operations leader, CIO, or digital health lead — risk-averse, compliance-gated
-**Dominant question:** "Will this pass our security review, integrate with Epic, and actually improve patient engagement?"
-**Signature:** `PortalArchitectureMap` — 4-tier architecture diagram (patient → portal → integration → EHR) with compliance wrap
-
-**Composition (13 sections):**
-
-| # | Section | Tone | Notes |
-|---|---|---|---|
-| 1 | `Hero` | dark | Photo hero background. Headline: "Patient portals that patients actually use — and auditors actually approve." |
-| 2 | `MetricsStrip` | light | No-show reduction · portal adoption · admin workload reduction · patient satisfaction (all ranged with sources) |
-| 3 | `FeatureGrid` | warm | 6 portal modules: Records, Scheduling, Messaging, Telehealth, Prescriptions, Billing |
-| 4 | `ImageFeatures` | light | 2 photo-driven feature blocks: lab results access, secure messaging |
-| 5 | `ComplianceSpotlight` | warm | Trust badge strip: HIPAA / HITECH / SOC 2 / FHIR pillars with compliance status text |
-| 6 | `PortalArchitectureMap` [signature] | dark | 4-tier architectural diagram |
-| 7 | `ComplianceDeepDive` | warm | HIPAA / HITECH / SOC 2 safeguards, audit, encryption, BAA detail |
-| 8 | `BenefitsGrid` | light | Business outcomes, ROI framing |
-| 9 | `IntegrationsPanel` | warm | Epic / Cerner / Athena / eCW / Doxy.me / Surescripts with HL7 FHIR / SMART on FHIR connection methods |
-| 10 | `ProcessTimeline` | light | Implementation methodology |
-| 11 | `RelatedPages` | warm | 2 cross-links: Product Discovery, MVP Development (services only) |
-| 12 | `FAQ` | light | 6 questions focused on security, integration, timelines |
-| 13 | `CTA` | accent | "Book a security review consultation" |
-
-**Deviations from Archetype C recipe:**
-
-- No `CaseStudySpotlight` in pilot — insertable when a real case is verified.
-- `ComplianceSpotlight` added before signature as a trust-building gate — the buyer needs to see compliance credentials before investing attention in the architecture.
-- `ComplianceDeepDive` elevated from optional to standalone after the signature. Compliance is the gate for this buyer; it can't be a footnote.
-- `ImageFeatures` added after `FeatureGrid` — photo-driven blocks that show the product in use, per the two-track imagery strategy (v1.1).
-
-Result: 13 sections. A long page, but every section answers a specific buyer question.
-
-### 15.4 Insurance Portals (Archetype C — Regulated solution)
-
-**Slug:** `insurance-portals`
-**Route:** `/solutions/insurance-portals`
-**Buyer:** VP of operations or claims at a mid-size P&C carrier — wants claims speed + agent productivity, regulatory but less consolidated than HIPAA
-**Dominant question:** "How much faster can this actually make our claims and can it integrate with Guidewire?"
-**Signature:** `ClaimsFlowComparison` — proportional time bars, legacy vs. portal
-
-**Composition (12 sections):**
-
-| # | Section | Tone | Notes |
-|---|---|---|---|
-| 1 | `Hero` | dark | Photo hero background. Headline: "Claims in hours, not weeks. Portals your agents actually want to use." |
-| 2 | `MetricsStrip` | light | Claims speed · cost savings · retention · policy issuance speed (ranged with sources) |
-| 3 | `PersonaComparison` | warm | Carrier / Agent & Broker / Customer Self-Service — three portal personas side-by-side. Placed early (before FeatureGrid) because the "one platform, three portals" framing is the key differentiator for this buyer. |
-| 4 | `FeatureGrid` | light | 6 modules: Policy, Claims, Agent Portal, Quoting, Documents, Reporting |
-| 5 | `ImageFeatures` | warm | 2 photo-driven feature blocks: claims processing dashboard, policyholder self-service |
-| 6 | `ClaimsFlowComparison` [signature] | dark | Legacy vs. portal proportional time bars |
-| 7 | `IntegrationsPanel` | warm | Guidewire, Duck Creek, Applied Epic, Hawksoft, Sapiens, OneShield with REST/SOAP connection methods |
-| 8 | `BenefitsGrid` | light | Claims cycle reduction, cost savings, retention, scalability, agent relationships |
-| 9 | `ProcessTimeline` | warm | Phased rollout methodology |
-| 10 | `RelatedPages` | light | 2 cross-links: Product Discovery, MVP Development (services only) |
-| 11 | `FAQ` | warm | 6 questions focused on integration, state regulatory variance, timelines |
-| 12 | `CTA` | accent | "Book a core system integration review" |
-
-**Deviations from Archetype C recipe:**
-
-- `PersonaComparison` elevated to position 3 (before `FeatureGrid`) — this buyer's first question is "does it serve all three user types?" and the three-portal framing answers it immediately.
-- No `ComplianceDeepDive` — insurance regulatory compliance is state-level and less consolidated than healthcare; compliance answers fold into the `FAQ` instead.
-- No `CaseStudySpotlight` in pilot — insertable when verified.
-- `ImageFeatures` added after `FeatureGrid` — photo-driven blocks per the two-track imagery strategy (v1.1).
-
-Result: 12 sections. Longer than v1.0 but each addition was justified by buyer-journey analysis.
-
-### 15.5 E-commerce Websites (Archetype D — Commerce solution)
-
-**Slug:** `e-commerce-websites`
-**Route:** `/solutions/e-commerce-websites`
-**Buyer:** founder, VP of Digital, or head of e-commerce at a mid-market brand — conversion-focused, wants to own infrastructure, tired of platform fees
-**Dominant question:** "Will a custom build actually outperform Shopify and pay for itself?"
-**Signature:** `EcommerceAiShowcase` — 5-tile asymmetric bento grid showcasing AI-powered commerce capabilities (recommendations, search, pricing, bundling, analytics)
-
-**Composition (11 sections):**
-
-| # | Section | Tone | Notes |
-|---|---|---|---|
-| 1 | `Hero` | dark | Photo hero background. Headline: "Headless commerce, built for performance — and owned by you." |
-| 2 | `MetricsStrip` | light | Custom-built conversion architecture · <1.5s target LCP · AI-powered personalisation · frictionless checkout (capability framing, no uncited %) |
-| 3 | `FeatureGrid` | warm | 6 capabilities: Storefront, AI Recommendations, Inventory/Order Mgmt, Checkout/Payments, Multi-Channel/Headless, Marketing/Analytics |
-| 4 | `ImageFeatures` | light | 2 photo-driven feature blocks: conversion-optimised storefronts, real-time analytics dashboards |
-| 5 | `EcommerceAiShowcase` [signature] | warm | 5-tile bento with A/B/C variant rotation |
-| 6 | `BenefitsGrid` | dark | Conversion-first architecture, performance, personalisation, scalability, ownership |
-| 7 | `TechStackBlock` | light | Next.js, TypeScript, Tailwind, Node/.NET, PostgreSQL/MongoDB, Azure/AWS, Stripe/Braintree/Adyen, Algolia, Terraform |
-| 8 | `ProcessTimeline` | warm | 5-phase: research, design, development, integration, launch |
-| 9 | `RelatedPages` | light | 2 cross-links: Product Discovery, MVP Development (services only) |
-| 10 | `FAQ` | warm | 7 questions: migration, ERP/CRM integration, PCI, SEO, scaling, B2B, maintenance |
-| 11 | `CTA` | accent | "Book a free 30-minute discovery call" |
-
-**Deviations from Archetype D recipe:**
-
-- Dropped `CaseStudySpotlight` — greenfield; no real e-commerce case data yet (Decision B). Insertable when a verified case exists.
-- Dropped `IntegrationsPanel` — integration names are woven into `features[3–5]`, `faqs[0–1]`, and `capabilities` prose (Decision C). A dedicated panel would repeat the same names without adding buyer value.
-- Added `ImageFeatures` after `FeatureGrid` — photo-driven blocks per the two-track imagery strategy (v1.1).
-- `MetricsStrip` uses capability framing instead of % ranges — audience test (§9.5) replaced three uncited % metrics with honest architectural descriptors. This is the reference implementation for how to handle metrics when no cited data exists.
-
-Result: 11 sections. The first Archetype D pilot and the reference for audience-tested content integrity.
-
-### 15.6 Refactor strategy (pilot migration order)
-
-To execute the pilot without breaking the existing site, follow this order:
-
-1. **Build new shared library alongside existing code** in `components/shared/`. Do not touch `components/solutions/` yet. Every shared component is token-compliant from day one.
-2. **Build the two templates** (`ServiceTemplate`, `SolutionTemplate`) in `components/templates/`.
-3. **Build the four signature components** in `components/signature/`.
-4. **Create the four new data files** in `src/data/services/` and `src/data/solutions/`, populating them from the existing `src/data/solutions.ts` and `src/lib/content.ts` for the pilot pages only.
-5. **Migrate the four pilot pages** (`app/services/product-discovery/page.tsx`, etc.) to use the new templates and data files.
-6. **Run the theme-flip smoke test** on each pilot page: `data-theme="blue" ↔ data-theme="purple"`. Confirm every surface repaints.
-7. **Run content integrity pass** on each pilot page. Confirm `_unverified` lists are complete.
-8. **Delete the old `components/solutions/*` files** listed in [§3.6](#36-where-existing-components-violate-these-rules) once no page references them. Keep `components/solutions/unique/*` temporarily as reference while extracting patterns, then delete.
-9. **Clean up `src/data/solutions.ts`** once all pilot solutions have migrated. The remaining (non-pilot) solutions stay in the old file until their own migration.
-
-Post-pilot rollout: each subsequent service or solution page follows the 10-step process in [Section 13](#13-process--creating-a-new-service-or-solution-page).
-
----
+Pilot page breakdowns are maintained in [`constitution/pilot-compositions.md`](constitution/pilot-compositions.md). When creating a new page, read one actual data file as an exemplar (e.g., `src/data/services/product-discovery.ts`) rather than these summaries. The archetype recipes in Section 6 are the authoritative starting compositions.
 
 ## 16. Open questions and deferred decisions
 
-These are things the v1.0 constitution does not resolve. They are here so future work knows what to revisit.
-
-1. **Sanity / CMS integration.** The pilot uses flat TypeScript files for data. When CMS adoption happens, the data schemas in [Section 7](#7-data-schema) need to be mapped to Sanity document types (or Payload collections). The `src/lib/content.ts` abstraction layer mediates the switch. Deferred until post-pilot.
-2. **Case study library.** `CaseStudySpotlight` is defined but there is no content library yet. Deferred until at least 2 verified cases exist.
-3. **Internationalization.** All copy is en-US. i18n would affect the data schema (all strings become localized records). Deferred indefinitely — no current business need.
-4. **Dark-mode by user preference.** The theme-switch system supports multiple themes but the pilot only exposes `blue`. If a user-facing dark mode is added, `tone="dark"` sections will need to re-check contrast against the dark-mode palette.
-5. **Animation standards (partially resolved v1.1).** Scroll-triggered reveals use `useScrollReveal` hook + `scroll-animations.css` with IntersectionObserver and CSS `@keyframes`. `prefers-reduced-motion` respected. Interactive signature components use CSS transitions. Full motion design language (page transitions, loading states) remains deferred.
-6. **SEO page schema variants.** `src/lib/schema.ts` needs extensions for `Service` and `Product` schema JSON-LD variants that the solution pages use. Deferred to the pilot implementation.
-7. **Lead-magnet / content-upgrade slots.** Sections like "Download the HIPAA portal checklist" are hinted at in the marketing brief but not in the pilot. Future sections: `LeadMagnetBlock`, `DownloadCTA`.
-8. **A/B testing of composition.** No framework for testing alternate compositions yet. Deferred until traffic justifies it.
-9. **Mobile navigation of a signature section.** Some signature sections (e.g., `ClaimsFlowComparison` on ≤ 375px) may benefit from a horizontal carousel. UX pattern not yet decided.
-10. **Post-pilot audit cadence.** How often to audit the constitution for drift (quarterly? per-quarter-of-growth?). Deferred.
-
----
+See [`constitution/open-questions.md`](constitution/open-questions.md). These are explicitly unresolved — they do not guide current page creation.
 
 ## 17. Changelog
 
-| Version | Date | Changes |
-|---|---|---|
-| **1.0** | 2026-04-08 | Initial constitution. Pilot scope: `/services/product-discovery`, `/services/mvp-development`, `/solutions/patient-portals`, `/solutions/insurance-portals`. Establishes Option B direction (shared library + two template variants), the four tones, the four archetypes, the shared component library, the theming hard rules, the data schema, content integrity rules, responsiveness standards, signature section pattern, 10-step creation process, and 5 prompt templates. |
-| **1.1** | 2026-04-10 | Two-track imagery strategy: photo-driven solutions, illustration-driven services. New `ImageFeature` section component. Interactive signature components. Scroll-triggered animations. Resolves open question #5 (animation standards, partial). |
-| **1.2** | 2026-04-10 | Hero redesigned as box card matching homepage. Solution hero images changed from split layout to full-bleed background with gradient scrim. Removed CSS color filters — photos display at original colors. Added Step 7.5 (imagery workflow) to 10-step process. Updated prompt templates §14.1 and §14.2 with imagery deliverables. |
-| **1.3** | 2026-04-10 | Pilot expanded to 5 pages with `/solutions/e-commerce-websites` (Archetype D). Added §9.5 Audience test (hard) — 3-question buyer relevance gate with common failure modes and replacement patterns. Added §9.6 Self-challenge protocol (hard) — structured default→audience→integrity→counter-cost→conclusion flow. Added Step 7.7 (audience test pass) and Step 7.8 (populate relatedPages) to 10-step process. Fully rewrote §14.1 and §14.2 prompt templates to be autonomous — research, strategy, audience testing, and self-challenge execute without user-provided slots. Added §15.5 E-commerce Websites reference composition (first Archetype D). Updated §15.1–15.4 reference compositions to reflect current state (relatedPages on all pages; imageFeatures, complianceSpotlight, and personaComparison placement on solutions). Added Archetype D reference note (§6.4). Renumbered §15.5 Refactor strategy → §15.6. |
-| **1.4** | 2026-04-10 | **RelatedPages standardization.** Based on competitive research across Accenture, Thoughtworks, Slalom, Deloitte, Cognizant, Stripe, and others. Key changes: (1) Added `RelatedPageItem` interface to §7.2 data schema with new `pageType: 'service' \| 'solution'` field — renders subtle type badge on cards and enables future tag-based auto-matching. (2) Rewrote Step 7.8 to codify mixed service/solution cross-linking (validated by research — no major consultancy separates types), journey-aware descriptions (unique per source→destination pair, not generic capability summaries), and contextual section headings (ServiceDetailTemplate: "See This Capability in Action"; SolutionDetailTemplate: "The Expertise Behind This"). (3) Added scalability note for migration to tag-based auto-matching at 15+ pages. (4) Updated all summary checklists and deliverables lists. Companion reference doc: `docs/content-strategy/service-solution-content-voice-guide.md` (content tone/style). |
+See [`constitution/changelog.md`](constitution/changelog.md).
 
 ---
 
-*End of constitution. When in doubt, re-read [Section 2](#2-core-design-philosophy) and [Section 13](#13-process--creating-a-new-service-or-solution-page). When still in doubt, document the ambiguity in [Section 16](#16-open-questions-and-deferred-decisions) and ask.*
+*End of constitution. When in doubt, re-read [Section 2](#2-core-design-philosophy) and [Section 13](#13-process--creating-a-new-service-or-solution-page). When still in doubt, document the ambiguity in `constitution/open-questions.md` and ask.*

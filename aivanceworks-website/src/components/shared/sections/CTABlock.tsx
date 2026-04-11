@@ -36,7 +36,7 @@ export const CTABlock = ({
             asChild
             size="lg"
             variant="secondary"
-            className="bg-surface-white text-brand-700 hover:bg-surface-warm"
+            className="bg-surface-white text-brand-700 hover:bg-surface-warm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
           >
             <Link href={primaryCta.href}>{primaryCta.label}</Link>
           </Button>
@@ -45,7 +45,7 @@ export const CTABlock = ({
               asChild
               size="lg"
               variant="outline"
-              className="border-border-subtle text-text-light hover:bg-[color:var(--glass-hover)]"
+              className="border-border-subtle text-text-light hover:bg-[color:var(--glass-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
             >
               <Link href={secondaryCta.href}>{secondaryCta.label}</Link>
             </Button>
