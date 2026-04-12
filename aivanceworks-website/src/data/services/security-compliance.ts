@@ -311,12 +311,12 @@ const securityCompliance: ServicePageData = {
       pageType: 'solution',
     },
     {
-      title: 'Document Management Software',
+      title: 'IT Consulting',
       description:
-        'Security controls are necessary but not sufficient — the documents that prove compliance need their own management layer. See how we build DMS systems designed for audit-day readiness, legal hold, and immutable access logging.',
-      href: '/solutions/document-management-software',
-      icon: 'FolderOpen',
-      pageType: 'solution',
+        'Audit finding or vendor review flagged a strategic gap? Our IT Consulting engagements run the upstream decision — vendor selection, build-vs-buy, transformation roadmap — through the same regulatory lens, so remediation work starts from a decision your auditor will accept.',
+      href: '/services/it-consulting',
+      icon: 'Compass',
+      pageType: 'service',
     },
   ],
 

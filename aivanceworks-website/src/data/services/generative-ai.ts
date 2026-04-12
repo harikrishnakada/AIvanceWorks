@@ -255,11 +255,11 @@ const generativeAi: ServicePageData = {
 
   relatedPages: [
     {
-      title: 'Computer Vision',
+      title: 'AI Strategy & Consulting',
       description:
-        'Building multimodal AI? When your system needs to understand images — interpret inspection results, respond to visual queries, or process camera-captured data — we build the vision layer that feeds your generative pipeline.',
-      href: '/services/computer-vision',
-      icon: 'Eye',
+        'Not sure which AI use cases to prioritize before committing to an engineering build? Our strategy assessment validates business cases, scores use cases by impact and feasibility, and produces a roadmap so your GenAI investment starts with the right problem.',
+      href: '/services/ai-strategy-consulting',
+      icon: 'Compass',
       pageType: 'service',
     },
     {

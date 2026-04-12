@@ -16,6 +16,8 @@ import {
   HospitalOperationsHub,
   FiledRateQuotingFlow,
   DocumentLifecycleMap,
+  UnifiedRetailCommerceMap,
+  PolicyLifecycleControlPlane,
 } from '@/components/signature';
 import type { ReactNode } from 'react';
 
@@ -57,6 +59,8 @@ const SIGNATURE_COMPONENTS: Record<string, ReactNode> = {
   HospitalOperationsHub: <HospitalOperationsHub />,
   FiledRateQuotingFlow: <FiledRateQuotingFlow />,
   DocumentLifecycleMap: <DocumentLifecycleMap />,
+  UnifiedRetailCommerceMap: <UnifiedRetailCommerceMap />,
+  PolicyLifecycleControlPlane: <PolicyLifecycleControlPlane />,
 };
 
 export default async function SolutionPage({ params }: PageProps) {

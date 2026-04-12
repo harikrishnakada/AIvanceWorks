@@ -275,12 +275,12 @@ const eCommerceWebsites: SolutionPageData = {
       pageType: 'service',
     },
     {
-      title: 'Mobile App Development',
+      title: 'Retail Websites',
       description:
-        'Need a mobile shopping experience? See how we build cross-platform apps with native checkout, push notifications, and offline product browsing.',
-      href: '/services/mobile-development',
-      icon: 'Smartphone',
-      pageType: 'service',
+        'Have physical stores alongside your online channel? See how we extend the same commerce core into BOPIS, ship-from-store, POS-integrated checkout, and unified loyalty — one brand, every channel.',
+      href: '/solutions/retail-websites',
+      icon: 'Store',
+      pageType: 'solution',
     },
   ],
 

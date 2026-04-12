@@ -324,11 +324,11 @@ const insurancePortals: SolutionPageData = {
       pageType: 'service',
     },
     {
-      title: 'Quoting Software',
+      title: 'Policy Administration Systems',
       description:
-        'Running a portal rollout? The quoting flow is usually the highest-traffic, highest-risk module. Our quoting platform keeps every agent, broker, and consumer quote on filed rates across every channel your portal exposes.',
-      href: '/solutions/quoting-software',
-      icon: 'Cpu',
+        'The portal is the face of the carrier; the policy administration system is the spine behind it. Plan them together &mdash; our PAS platform owns the policy lifecycle your portal reads from and writes to, with a phased strangler path off your legacy core.',
+      href: '/solutions/policy-administration-systems',
+      icon: 'Layers',
       pageType: 'solution',
     },
   ],

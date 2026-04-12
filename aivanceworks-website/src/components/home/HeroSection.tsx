@@ -27,8 +27,8 @@ export function HeroSection() {
       <div
         className="relative flex-1 flex flex-col w-full
           px-4 sm:px-6 md:px-8 lg:px-12
-          pt-4 sm:pt-5 md:pt-6 lg:pt-8
-          pb-2 sm:pb-3 md:pb-4 lg:pb-5"
+          pt-3 sm:pt-4 md:pt-4 lg:pt-5
+          pb-2 sm:pb-2 md:pb-3 lg:pb-3"
       >
         {/* Hero Card */}
         <div
@@ -48,8 +48,8 @@ export function HeroSection() {
           <div
             className="relative flex flex-col
               px-4 sm:px-6 md:px-10 lg:px-16 xl:px-24
-              pt-8 sm:pt-10 md:pt-14 lg:pt-18
-              pb-6 sm:pb-8 md:pb-10 lg:pb-12"
+              pt-6 sm:pt-8 md:pt-10 lg:pt-12
+              pb-5 sm:pb-6 md:pb-7 lg:pb-8"
           >
             {/* Hero content */}
             <div
@@ -127,7 +127,7 @@ export function HeroSection() {
             </div>
 
             {/* Partners bar */}
-            <div className="mt-6 sm:mt-8 md:mt-10 pt-4 sm:pt-5 md:pt-6 border-t border-white/[0.08] shrink-0">
+            <div className="mt-4 sm:mt-6 md:mt-7 pt-4 sm:pt-5 md:pt-6 border-t border-white/[0.08] shrink-0">
               <p
                 className="text-[9px] sm:text-[10px] text-brand-400/60 text-center
                   uppercase tracking-[0.2em] font-semibold mb-1"

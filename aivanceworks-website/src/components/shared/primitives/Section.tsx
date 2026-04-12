@@ -19,9 +19,9 @@ const TONE_CLASSES: Record<SectionTone, string> = {
 };
 
 const SIZE_CLASSES: Record<SectionSize, string> = {
-  sm: 'py-10 md:py-14 lg:py-16',
-  md: 'py-12 md:py-20 lg:py-24',
-  lg: 'py-16 md:py-24 lg:py-32',
+  sm: 'py-6 md:py-8 lg:py-10',
+  md: 'py-8 md:py-10 lg:py-12',
+  lg: 'py-10 md:py-14 lg:py-16',
 };
 
 export const Section = ({

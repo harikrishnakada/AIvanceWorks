@@ -51,3 +51,9 @@ export { SecurityComplianceHeroIllustration } from './SecurityComplianceHeroIllu
 export { AgencyWorkflowTransformation } from './AgencyWorkflowTransformation';
 export { FiledRateQuotingFlow } from './FiledRateQuotingFlow';
 export { DocumentLifecycleMap } from './DocumentLifecycleMap';
+export { UnifiedRetailCommerceMap } from './UnifiedRetailCommerceMap';
+export { PolicyLifecycleControlPlane } from './PolicyLifecycleControlPlane';
+export { AiStrategyFrameworkBlueprint } from './AiStrategyFrameworkBlueprint';
+export { AiStrategyHeroIllustration } from './AiStrategyHeroIllustration';
+export { RegulatedItDecisionGauntlet } from './RegulatedItDecisionGauntlet';
+export { ItConsultingHeroIllustration } from './ItConsultingHeroIllustration';

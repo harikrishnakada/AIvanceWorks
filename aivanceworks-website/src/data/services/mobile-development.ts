@@ -273,11 +273,11 @@ const mobileDevelopment: ServicePageData = {
       pageType: 'service',
     },
     {
-      title: 'E-commerce Websites',
+      title: 'Retail Websites',
       description:
-        'Launching mobile commerce? See how we build shopping experiences with native checkout, push notifications, and offline product browsing.',
-      href: '/solutions/e-commerce-websites',
-      icon: 'ShoppingCart',
+        'Building a store-associate or shopper app for an omnichannel retail brand? See how we tie native mobile experiences into the same commerce core that drives the website, POS, and loyalty — one customer, every surface.',
+      href: '/solutions/retail-websites',
+      icon: 'Store',
       pageType: 'solution',
     },
   ],

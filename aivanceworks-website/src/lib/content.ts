@@ -1014,6 +1014,8 @@ const SERVICE_PAGE_MODULES: Record<string, () => Promise<{ default: ServicePageD
   'devops': () => import('@/data/services/devops'),
   'intelligent-automation': () => import('@/data/services/intelligent-automation'),
   'security-compliance': () => import('@/data/services/security-compliance'),
+  'ai-strategy-consulting': () => import('@/data/services/ai-strategy-consulting'),
+  'it-consulting': () => import('@/data/services/it-consulting'),
 };
 
 const SOLUTION_PAGE_MODULES: Record<string, () => Promise<{ default: SolutionPageData }>> = {
@@ -1025,7 +1027,9 @@ const SOLUTION_PAGE_MODULES: Record<string, () => Promise<{ default: SolutionPag
   'underwriting-software': () => import('@/data/solutions/underwriting-software'),
   'agency-management-software': () => import('@/data/solutions/agency-management-software'),
   'quoting-software': () => import('@/data/solutions/quoting-software'),
+  'policy-administration-systems': () => import('@/data/solutions/policy-administration-systems'),
   'document-management-software': () => import('@/data/solutions/document-management-software'),
+  'retail-websites': () => import('@/data/solutions/retail-websites'),
 };
 
 export async function getServicePageData(slug: string): Promise<ServicePageData | null> {
