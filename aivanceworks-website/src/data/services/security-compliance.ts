@@ -311,12 +311,12 @@ const securityCompliance: ServicePageData = {
       pageType: 'solution',
     },
     {
-      title: 'DevOps & CI/CD',
+      title: 'Document Management Software',
       description:
-        'Compliance lives in the pipeline. Our DevOps engagements bake SAST, DAST, IaC policy checks, and secret-scanning into the delivery flow — so controls ship with every release.',
-      href: '/services/devops',
-      icon: 'GitBranch',
-      pageType: 'service',
+        'Security controls are necessary but not sufficient — the documents that prove compliance need their own management layer. See how we build DMS systems designed for audit-day readiness, legal hold, and immutable access logging.',
+      href: '/solutions/document-management-software',
+      icon: 'FolderOpen',
+      pageType: 'solution',
     },
   ],
 

@@ -14,6 +14,9 @@ import type { SolutionPageData } from '@/types/pages';
 //   - ImageFeatures added after FeatureGrid — per two-track imagery strategy (v1.1).
 //   - No PersonaComparison — single primary user type (underwriters), not multi-portal.
 //   - Explainability and fair lending compliance added to compliance framing (underwriting-specific).
+//   - relatedPages: v2 swapped SaaS Development for Quoting Software (same-vertical peer)
+//     to create a symmetric bidirectional cross-link — same CUO/VP Product buyer evaluates
+//     both as part of one rating-engine-centric stack. Per §10 v2.1 exception.
 
 const underwritingSoftware: SolutionPageData = {
   slug: 'underwriting-software',
@@ -440,12 +443,12 @@ const underwritingSoftware: SolutionPageData = {
       pageType: 'service',
     },
     {
-      title: 'SaaS Development',
+      title: 'Quoting Software',
       description:
-        'Building an InsurTech product? Our SaaS expertise handles multi-tenancy, subscription billing, and the infrastructure your MGA clients need.',
-      href: '/services/saas-development',
-      icon: 'Layers',
-      pageType: 'service',
+        'Underwriting and quoting share a rating spine. Our quoting platform adds the multi-channel intake, filed-rate verification gate, and bind-ready workflow that sit in front of every submission your underwriters see.',
+      href: '/solutions/quoting-software',
+      icon: 'Cpu',
+      pageType: 'solution',
     },
   ],
 

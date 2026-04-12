@@ -12,6 +12,10 @@ import {
   EcommerceAiShowcase,
   ClinicalWorkflowOrchestrator,
   UnderwritingDecisionEngine,
+  AgencyWorkflowTransformation,
+  HospitalOperationsHub,
+  FiledRateQuotingFlow,
+  DocumentLifecycleMap,
 } from '@/components/signature';
 import type { ReactNode } from 'react';
 
@@ -49,6 +53,10 @@ const SIGNATURE_COMPONENTS: Record<string, ReactNode> = {
   EcommerceAiShowcase: <EcommerceAiShowcase />,
   ClinicalWorkflowOrchestrator: <ClinicalWorkflowOrchestrator />,
   UnderwritingDecisionEngine: <UnderwritingDecisionEngine />,
+  AgencyWorkflowTransformation: <AgencyWorkflowTransformation />,
+  HospitalOperationsHub: <HospitalOperationsHub />,
+  FiledRateQuotingFlow: <FiledRateQuotingFlow />,
+  DocumentLifecycleMap: <DocumentLifecycleMap />,
 };
 
 export default async function SolutionPage({ params }: PageProps) {

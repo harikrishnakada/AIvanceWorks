@@ -1021,7 +1021,11 @@ const SOLUTION_PAGE_MODULES: Record<string, () => Promise<{ default: SolutionPag
   'insurance-portals': () => import('@/data/solutions/insurance-portals'),
   'e-commerce-websites': () => import('@/data/solutions/e-commerce-websites'),
   'ehr-emr-development': () => import('@/data/solutions/ehr-emr-development'),
+  'hospital-management-systems': () => import('@/data/solutions/hospital-management-systems'),
   'underwriting-software': () => import('@/data/solutions/underwriting-software'),
+  'agency-management-software': () => import('@/data/solutions/agency-management-software'),
+  'quoting-software': () => import('@/data/solutions/quoting-software'),
+  'document-management-software': () => import('@/data/solutions/document-management-software'),
 };
 
 export async function getServicePageData(slug: string): Promise<ServicePageData | null> {

@@ -3,7 +3,9 @@
     "allow": [
       "Bash(npx tsc:*)",
       "Bash(bash scripts/token-hygiene.sh src/components/signature/ComplianceCoverageMatrix.tsx src/components/signature/SecurityComplianceHeroIllustration.tsx)",
-      "Bash(bash scripts/token-hygiene.sh)"
+      "Bash(bash scripts/token-hygiene.sh)",
+      "Bash(bash scripts/token-hygiene.sh src/components/templates/ServiceDetailTemplate.tsx)",
+      "Bash(bash scripts/token-hygiene.sh src/data/services/security-compliance.ts)"
     ]
   }
 }

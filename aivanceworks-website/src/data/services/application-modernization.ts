@@ -303,12 +303,12 @@ const applicationModernization: ServicePageData = {
       pageType: 'service',
     },
     {
-      title: 'DevOps',
+      title: 'Agency Management Software',
       description:
-        'Modernized your codebase? Make sure your deployment pipeline keeps pace. CI/CD, environment promotion, and automated rollbacks for your new microservices architecture.',
-      href: '/services/devops',
-      icon: 'GitBranch',
-      pageType: 'service',
+        'Modernizing an insurance AMS? See how we apply the strangler-fig approach to replace legacy agency management systems — carrier integrations, commission engine, and producer tools — without a rip-and-replace migration.',
+      href: '/solutions/agency-management-software',
+      icon: 'Building2',
+      pageType: 'solution',
     },
   ],
 

@@ -437,12 +437,20 @@ const ehrEmrDevelopment: SolutionPageData = {
       pageType: 'service',
     },
     {
-      title: 'MVP Development',
+      title: 'Document Management Software',
       description:
-        'Need to prove the concept first? Our 12-week MVP process gets a core clinical module in front of real providers while you plan the full rollout.',
-      href: '/services/mvp-development',
-      icon: 'Rocket',
-      pageType: 'service',
+        'Clinical documents from your EHR need a management layer that enforces HIPAA retention schedules and produces a complete audit trail. See how we build the DMS that manages what your EHR produces.',
+      href: '/solutions/document-management-software',
+      icon: 'FolderOpen',
+      pageType: 'solution',
+    },
+    {
+      title: 'Hospital Management Systems',
+      description:
+        'Clinical platform in hand, operations still fragmented? Our HMS engagement wraps billing, bed management, HR, and inventory around your EHR — without replacing what works.',
+      href: '/solutions/hospital-management-systems',
+      icon: 'Building2',
+      pageType: 'solution',
     },
   ],
 

@@ -201,11 +201,11 @@ const productDiscovery: ServicePageData = {
       pageType: 'solution',
     },
     {
-      title: 'Patient Portals',
+      title: 'Agency Management Software',
       description:
-        'See how discovery scopes a regulated portal — EHR integration, HIPAA compliance, and patient workflows mapped before code begins.',
-      href: '/solutions/patient-portals',
-      icon: 'Stethoscope',
+        'See how discovery scopes an insurance AMS — carrier integrations, commission structures, and producer workflows mapped before development starts.',
+      href: '/solutions/agency-management-software',
+      icon: 'Building2',
       pageType: 'solution',
     },
   ],

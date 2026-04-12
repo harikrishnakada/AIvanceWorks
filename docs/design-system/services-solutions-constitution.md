@@ -2,8 +2,8 @@
 
 > **Executive summary.** This document is the single source of truth for how every services and solutions page on the AIvanceWorks website is designed and built. It codifies a **shared skeleton + two template variants** approach: a unified component library and design language, expressed through two page templates (ServiceTemplate and SolutionTemplate) whose internal composition is tuned **per page** to match the buyer journey. Brand consistency is enforced through theme tokens, section rhythm, and content integrity rules. Differentiation between industries, services, and offerings happens through **content, imagery, iconography, and one signature section per page** — never through color, palette, or layout chaos. This is a living document: any deviation must be recorded back into it. Supplementary material (rationale, examples, prompt templates, pilot references) lives in `constitution-reference.md` and `constitution/`. This file contains all enforceable rules.
 
-**Version:** 2.0
-**Last updated:** 2026-04-10
+**Version:** 2.2
+**Last updated:** 2026-04-12
 **Status:** Canonical. Applies to every services and solutions page built after this date.
 **Pilot scope:** `/services/product-discovery`, `/services/mvp-development`, `/solutions/patient-portals`, `/solutions/insurance-portals`, `/solutions/e-commerce-websites`.
 
@@ -364,7 +364,7 @@ Each of these is a full page section. Each must be wrapped internally in `<Secti
 
 **`EngagementModels`** — pricing and engagement-tier cards. Each tier card shows a name, starting price, duration, what's included (`CheckList`), and a CTA. **New component created in the pilot** for Product Discovery and MVP Development; reusable by every services page that exposes engagement tiers.
 
-**`ComplianceDeepDive`** — a detail panel showing technical safeguards (encryption, access control, audit), audit certifications (HIPAA, HITECH, SOC 2, etc.), and partner agreements (BAA, DPA). **New component created in the pilot** for Patient Portals; reusable by future healthcare and any compliance-sensitive solution.
+**`ComplianceDeepDive`** — a detail panel showing technical safeguards (encryption, access control, audit), audit certifications (HIPAA, HITECH, SOC 2, etc.), and partner agreements (BAA, DPA). **New component created in the pilot** for Patient Portals; reusable by future healthcare and any compliance-sensitive solution. **Extended in v2.1 to services** — rendered by `ServiceDetailTemplate` via `data.complianceDeepDive` on `ServicePageData`. Driven by `/services/security-compliance`, where compliance is the product (not an attribute of a vertical solution). See [Section 12](#12-how-to-deviate-from-this-document) deviation log.
 
 **`ComplianceSpotlight`** — a lighter-weight compliance callout with eyebrow, title, status text, 3–4 pillar cards, and optional certification badges. Used on solution pages where compliance matters but doesn't warrant a full `ComplianceDeepDive`. **New component created in the pilot** for Insurance Portals and E-commerce; reusable by any solution needing a compliance signal without the deep-dive detail.
 
@@ -1328,7 +1328,7 @@ Apply the self-challenge protocol (§9.6) on any decision where you're unsure. D
 Every page gets a `relatedPages` array with 2–3 cross-links. The number depends on page type:
 
 - **Service pages:** 3 links. Mix services and solutions freely — "see this capability applied to real verticals." Cross-type internal linking strengthens SEO topic clustering.
-- **Solution pages:** Services only. The buyer is a vertical-specific persona (healthcare CIO, insurance ops leader) — they don't care about other verticals. Show 2 links when only 2 relevant services exist; expand to 3 as the service catalog grows. Never pad with unrelated peer solutions.
+- **Solution pages:** Services-first. The buyer is a vertical-specific persona (healthcare CIO, insurance ops leader). Default is services only. Show 2 links when only 2 relevant services exist; expand to 3 as the service catalog grows. **Exception (v2.1):** one same-vertical peer solution MAY be included when the buyer persona genuinely overlaps (e.g., EHR ↔ HMS — both evaluated by the same healthcare CIO). Never link cross-vertical (healthcare → insurance). Never pad with unrelated peer solutions.
 
 This split is validated by competitive research: no major consultancy (Accenture, Thoughtworks, Slalom, Deloitte, Cognizant) separates types in their cross-link sections, and solution buyers consistently engage with "how you'd build it" (services) over "what else you build" (other solutions).
 
@@ -1418,6 +1418,10 @@ See [`constitution/open-questions.md`](constitution/open-questions.md). These ar
 ## 17. Changelog
 
 See [`constitution/changelog.md`](constitution/changelog.md).
+
+**Inline deviation log (current file-level amendments):**
+
+- **v2.1 — ComplianceDeepDive extended to services.** `ServicePageData` gains an optional `complianceDeepDive?: ComplianceDetail` field. `ServiceDetailTemplate` now renders the shared `ComplianceDeepDive` section when that field is populated. Driven by `/services/security-compliance`, where audit readiness and framework-mapped safeguards ARE the engagement deliverable — the lighter `ComplianceSpotlight` is insufficient to carry the trust argument for a CISO buyer. §5.2 description updated to reflect reusability across both solutions and compliance-focused services.
 
 ---
 

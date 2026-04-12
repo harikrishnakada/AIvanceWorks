@@ -323,6 +323,14 @@ const insurancePortals: SolutionPageData = {
       icon: 'Rocket',
       pageType: 'service',
     },
+    {
+      title: 'Quoting Software',
+      description:
+        'Running a portal rollout? The quoting flow is usually the highest-traffic, highest-risk module. Our quoting platform keeps every agent, broker, and consumer quote on filed rates across every channel your portal exposes.',
+      href: '/solutions/quoting-software',
+      icon: 'Cpu',
+      pageType: 'solution',
+    },
   ],
 
   integrations: [
