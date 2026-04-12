@@ -994,12 +994,34 @@ export function getServiceFaqs(categorySlug: string, serviceSlug: string): FAQ[]
 const SERVICE_PAGE_MODULES: Record<string, () => Promise<{ default: ServicePageData }>> = {
   'product-discovery': () => import('@/data/services/product-discovery'),
   'mvp-development': () => import('@/data/services/mvp-development'),
+  'saas-development': () => import('@/data/services/saas-development'),
+  'cloud-strategy': () => import('@/data/services/cloud-strategy'),
+  'finops': () => import('@/data/services/finops'),
+  'startup-development': () => import('@/data/services/startup-development'),
+  'mobile-development': () => import('@/data/services/mobile-development'),
+  'web-app-development': () => import('@/data/services/web-app-development'),
+  'application-modernization': () => import('@/data/services/application-modernization'),
+  'custom-software-development': () => import('@/data/services/custom-software-development'),
+  'ui-ux-design': () => import('@/data/services/ui-ux-design'),
+  'quality-engineering': () => import('@/data/services/quality-engineering'),
+  'architecture-advisory': () => import('@/data/services/architecture-advisory'),
+  'generative-ai': () => import('@/data/services/generative-ai'),
+  'cloud-migration': () => import('@/data/services/cloud-migration'),
+  'cloud-infrastructure': () => import('@/data/services/cloud-infrastructure'),
+  'nlp-document-ai': () => import('@/data/services/nlp-document-ai'),
+  'conversational-ai': () => import('@/data/services/conversational-ai'),
+  'computer-vision': () => import('@/data/services/computer-vision'),
+  'devops': () => import('@/data/services/devops'),
+  'intelligent-automation': () => import('@/data/services/intelligent-automation'),
+  'security-compliance': () => import('@/data/services/security-compliance'),
 };
 
 const SOLUTION_PAGE_MODULES: Record<string, () => Promise<{ default: SolutionPageData }>> = {
   'patient-portals': () => import('@/data/solutions/patient-portals'),
   'insurance-portals': () => import('@/data/solutions/insurance-portals'),
   'e-commerce-websites': () => import('@/data/solutions/e-commerce-websites'),
+  'ehr-emr-development': () => import('@/data/solutions/ehr-emr-development'),
+  'underwriting-software': () => import('@/data/solutions/underwriting-software'),
 };
 
 export async function getServicePageData(slug: string): Promise<ServicePageData | null> {

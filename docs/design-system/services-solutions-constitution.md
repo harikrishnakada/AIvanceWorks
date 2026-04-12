@@ -29,7 +29,9 @@
 16. [Open questions](#16-open-questions-and-deferred-decisions) *(→ constitution/open-questions.md)*
 17. [Changelog](#17-changelog) *(→ constitution/changelog.md)*
 
-**Companion files:** [Constitution Reference](constitution-reference.md) | [Voice Guide](../content-strategy/service-solution-content-voice-guide.md)
+**Companion files:** [Constitution Reference](constitution-reference.md) | [Voice Guide](../content-strategy/service-solution-content-voice-guide.md) | [Services Catalog](../services-catalog.md)
+
+> **Services source of truth:** The canonical list of all services, their descriptions, capabilities, and routes lives in [`docs/services-catalog.md`](../services-catalog.md). The navigation structure is defined in `aivanceworks-website/src/lib/constants.ts`. The legacy `src/company details/markup/02-services.md` is retained for historical reference only and should NOT be used for new page development.
 
 ---
 
@@ -394,7 +396,7 @@ The `Section` component (`src/components/shared/primitives/Section.tsx`) is the 
 | A new section that will be reused by 2+ pages | `components/shared/sections/` |
 | A one-off section used by a single page (its signature) | `components/signature/` |
 | A per-page layout template | `components/templates/` (new — see Section 6) |
-| A page wrapper or layout | `app/services/[...]/layout.tsx` or the page file itself |
+| A page wrapper or layout | `app/services/layout.tsx` or `app/solutions/layout.tsx` |
 
 The bar for adding a new component to `components/shared/sections/` is: **at least two pilot or upcoming pages will use it.** Below that threshold, it lives in `components/signature/` until a second consumer materializes.
 
@@ -523,7 +525,7 @@ If a page sits between two archetypes (e.g., AI Strategy Consulting is strategic
 
 ## 7. Data schema
 
-One TypeScript file per page under `src/data/services/` or `src/data/solutions/`. Components consume data through props only — the page file is the only import site for a data file.
+One TypeScript file per page under `src/data/services/` or `src/data/solutions/`. Components consume data through props only — the dynamic route page (`app/services/[slug]/page.tsx` or `app/solutions/[slug]/page.tsx`) is the only import site for a data file, via the `getServicePageData` / `getSolutionPageData` abstraction in `src/lib/content.ts`.
 
 ### 7.1 File locations
 
@@ -798,56 +800,38 @@ _unverified: [
 
 **Pre-launch gate:** `_unverified` must be empty or explicitly cleared by a human reviewer before a page is merged to main. See [Section 9](#9-content-integrity-rules-hard).
 
-### 7.5 Page file contract
+### 7.5 Dynamic route and component registry
 
-A page file (`app/services/product-discovery/page.tsx`, etc.) must:
+Both services and solutions use a **single dynamic route** per type:
 
-1. Import the data file: `import data from '@/data/services/product-discovery';`
-2. Import the template: `import { ServiceTemplate } from '@/components/templates/ServiceTemplate';`
-3. Emit metadata via `constructMetadata({ title: data.metaTitle, description: data.metaDescription, ... })`.
-4. Emit JSON-LD (Service schema for services, FAQPage schema always) via `<JsonLd>`.
-5. Render `<ServiceTemplate data={data} composition={...} />` where `composition` is the ordered list of section names to render.
+- `app/services/[slug]/page.tsx` — handles all service pages
+- `app/solutions/[slug]/page.tsx` — handles all solution pages
 
-Example:
+**Do NOT create individual page directories per service or solution.** All per-page differentiation lives in the data file and the component registries inside the dynamic route.
 
-```tsx
-// app/services/product-discovery/page.tsx
-import data from '@/data/services/product-discovery';
-import { ServiceTemplate } from '@/components/templates/ServiceTemplate';
-import { JsonLd } from '@/components/seo/JsonLd';
-import { generateServiceSchema, generateFAQSchema } from '@/lib/schema';
-import { constructMetadata } from '@/lib/seo';
+The dynamic route page must:
 
-export const metadata = constructMetadata({
-  title: data.metaTitle,
-  description: data.metaDescription,
-  keywords: data.keywords,
-});
+1. Load data via `getServicePageData(slug)` / `getSolutionPageData(slug)` from `@/lib/content`.
+2. Resolve the signature component via a `SIGNATURE_COMPONENTS` registry keyed by `data.signatureComponent`.
+3. Resolve the hero illustration (services only) via a `HERO_ILLUSTRATION_COMPONENTS` registry keyed by `data.heroIllustrationComponent`.
+4. Emit metadata via `constructMetadata(...)` using data fields.
+5. Emit JSON-LD (Service schema, BreadcrumbList, FAQPage) via `<JsonLd>`.
+6. Render the template: `<ServiceDetailTemplate data={data} signature={...} heroIllustration={...} />`.
 
-export default function ProductDiscoveryPage() {
-  return (
-    <>
-      <JsonLd schema={generateServiceSchema(data)} />
-      <JsonLd schema={generateFAQSchema(data.faqs)} />
-      <ServiceTemplate
-        data={data}
-        composition={[
-          'hero',
-          'metricsStrip',
-          'discoveryMethodology',
-          'signature',          // resolves to DiscoveryBeforeAfter via data.signatureSection
-          'processTimeline',
-          'engagementModels',
-          'faq',
-          'cta',
-        ]}
-      />
-    </>
-  );
-}
-```
+**Adding a new service page requires four steps:**
 
-This gives every page a **declarative composition** at the top of the page file, which is the most readable possible summary of "what does this page look like?"
+1. Create `src/data/services/<slug>.ts` with the full `ServicePageData` object.
+2. Create signature + hero illustration components in `components/signature/`. Export from `components/signature/index.ts`.
+3. Add one entry to `SIGNATURE_COMPONENTS` and one to `HERO_ILLUSTRATION_COMPONENTS` in `app/services/[slug]/page.tsx`.
+4. Add the slug to `SERVICE_PAGE_MODULES` in `src/lib/content.ts`.
+
+**Adding a new solution page requires three steps:**
+
+1. Create `src/data/solutions/<slug>.ts` with the full `SolutionPageData` object.
+2. Create signature component in `components/signature/`. Export from `components/signature/index.ts`.
+3. Add one entry to `SIGNATURE_COMPONENTS` in `app/solutions/[slug]/page.tsx` and the slug to `SOLUTION_PAGE_MODULES` in `src/lib/content.ts`.
+
+The `composition` array in each data file is the declarative summary of "what does this page look like?" — section order, which sections are included, and which are omitted.
 
 ---
 
@@ -900,7 +884,7 @@ Signature components are **single-use**. Only the page they belong to imports th
 
 Even though signature sections are single-use, they must be:
 
-- **Swappable.** A page's signature can be replaced with a different signature by editing only the page file, not the other sections. Never wire a signature into sibling components.
+- **Swappable.** A page's signature can be replaced with a different signature by editing only the component registry in the dynamic route file, not the other sections. Never wire a signature into sibling components.
 - **Self-contained.** A signature component has no side effects on the rest of the page. No global state, no shared refs, no DOM coupling.
 - **Token-compliant.** The same theming rules that apply to shared components apply to signature components. Flipping `data-theme` must re-skin them cleanly.
 - **Responsive.** Signature sections have the most specialized layouts, which means they have the highest mobile design risk. Each signature component must have a documented mobile layout — see [Section 10.7](#107-signature-section-mobile-layouts).
@@ -1191,7 +1175,7 @@ Decorative images (background textures, abstract shapes) use `alt=""` and `aria-
 2. **Source:** Download from Unsplash. Landscape orientation, minimum 1200px wide, JPEG format.
 3. **Store:** `public/images/solutions/{slug}/hero.jpg`, `feature-1.jpg`, etc.
 4. **Data:** Add `heroImage` to the `hero` block and `imageFeatures` array to the data file. Add `'imageFeatures'` to the `composition` array after `'featureGrid'`.
-5. **For services:** Create an inline SVG illustration component in `components/signature/` and pass it via `heroIllustration` prop from the page route.
+5. **For services:** Create an inline SVG illustration component in `components/signature/`, export it from `components/signature/index.ts`, add `heroIllustrationComponent` to the data file, and register it in `HERO_ILLUSTRATION_COMPONENTS` in `app/services/[slug]/page.tsx`.
 
 **Driven by pages:** all 5 pilot pages.
 
@@ -1313,10 +1297,11 @@ This step applies differently based on page type. See §11.5 for the full imager
 1. Design an abstract SVG illustration themed to the service (see pilot examples: `DiscoveryHeroIllustration`, `MvpHeroIllustration`).
 2. Create the component in `components/signature/{Name}HeroIllustration.tsx`. Use CSS variables, include `<title>` and `<desc>`.
 3. Export from `components/signature/index.ts`.
-4. In the page route file, import and pass via `heroIllustration={<{Name}HeroIllustration />}` to `ServiceDetailTemplate`.
-5. Ensure `metricsStrip` is populated in the data file (metrics display below the hero, not in the hero card).
+4. Set `heroIllustrationComponent: '{Name}HeroIllustration'` in the data file.
+5. Register the component in `HERO_ILLUSTRATION_COMPONENTS` in `app/services/[slug]/page.tsx`.
+6. Ensure `metricsStrip` is populated in the data file (metrics display below the hero, not in the hero card).
 
-**Output:** imagery files in place, data file updated with image references, page route wired.
+**Output:** imagery files in place, data file updated with image references, registry updated.
 
 ### Step 9 — Audience test pass
 

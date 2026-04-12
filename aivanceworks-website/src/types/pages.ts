@@ -229,5 +229,11 @@ export interface ServicePageData extends BasePageData {
     startingPrice: string;
     whatsIncluded: string[];
   };
+  // ComplianceDeepDive on services is a v2.1 extension driven by
+  // /services/security-compliance. Services that sell compliance as the
+  // product need the full safeguards + frameworks + audit-note detail, not
+  // just the lighter ComplianceSpotlight. Optional — most services ignore it.
+  complianceDeepDive?: ComplianceDetail;
   signatureComponent: string;
+  heroIllustrationComponent: string;
 }

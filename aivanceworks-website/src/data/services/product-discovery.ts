@@ -39,6 +39,7 @@ const productDiscovery: ServicePageData = {
 
   category: 'strategy',
   signatureComponent: 'DiscoveryBeforeAfter',
+  heroIllustrationComponent: 'DiscoveryHeroIllustration',
 
   hero: {
     badge: 'Strategic Service',

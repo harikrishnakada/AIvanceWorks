@@ -274,6 +274,14 @@ const eCommerceWebsites: SolutionPageData = {
       icon: 'Rocket',
       pageType: 'service',
     },
+    {
+      title: 'Mobile App Development',
+      description:
+        'Need a mobile shopping experience? See how we build cross-platform apps with native checkout, push notifications, and offline product browsing.',
+      href: '/services/mobile-development',
+      icon: 'Smartphone',
+      pageType: 'service',
+    },
   ],
 
   faqs: [

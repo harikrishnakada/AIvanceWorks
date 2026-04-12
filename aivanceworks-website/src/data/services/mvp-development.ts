@@ -40,6 +40,7 @@ const mvpDevelopment: ServicePageData = {
 
   category: 'software-engineering',
   signatureComponent: 'MvpDualTrackRoadmap',
+  heroIllustrationComponent: 'MvpHeroIllustration',
 
   hero: {
     badge: 'Technical Service',
@@ -212,20 +213,20 @@ const mvpDevelopment: ServicePageData = {
       pageType: 'service',
     },
     {
-      title: 'E-commerce Websites',
+      title: 'Software Dev for Startups',
       description:
-        'Building a storefront? See how our MVP process adapts to headless commerce with AI personalisation and tokenised checkout.',
-      href: '/solutions/e-commerce-websites',
-      icon: 'ShoppingCart',
-      pageType: 'solution',
+        'Need an ongoing dev partner after launch? See our flexible startup engagement models — scale the team up or down as your stage demands.',
+      href: '/services/startup-development',
+      icon: 'Lightbulb',
+      pageType: 'service',
     },
     {
-      title: 'Insurance Portals',
+      title: 'SaaS Software Development',
       description:
-        'Building for insurance? See how our engineering approach handles multi-tenant portals, claims automation, and regulatory compliance.',
-      href: '/solutions/insurance-portals',
-      icon: 'Shield',
-      pageType: 'solution',
+        'Ready to scale your MVP into a multi-tenant SaaS platform? See how we add subscription billing, tenant isolation, and enterprise features to a proven product.',
+      href: '/services/saas-development',
+      icon: 'Layers',
+      pageType: 'service',
     },
   ],
 

@@ -13,7 +13,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 | Document | Purpose |
 |----------|---------|
 | `src/software-consulting-website-architecture.md` | **Master blueprint** — SEO/GEO/AEO strategy, tech stack, site map, schema markup, folder structure, and implementation prompts. **Reference this first** for any website work. |
-| `src/company details/markup/*.md` | Company formation content (services, pricing, positioning, team, etc.) |
+| `docs/services-catalog.md` | **Services source of truth** — all 17 core services + 8 client-facing landing pages, organized by pillar. Reference this for any service page work. |
+| `src/company details/markup/*.md` | Company formation content (pricing, positioning, team, etc.). Note: `02-services.md` is **legacy** — use `docs/services-catalog.md` instead. |
 
 
 ## Available Agents
@@ -84,7 +85,7 @@ When implementing the website, follow the architecture doc. Summary:
 1. **SEO/GEO/AEO**: Every page needs unique meta tags, semantic HTML, and JSON-LD schema. Content should have clear answers in first 40-60 words.
 2. **URLs**: Hyphenated, lowercase, descriptive with primary keyword.
 3. **Code**: TypeScript throughout. Use patterns from the architecture doc (`constructMetadata`, dynamic sitemap, schema components in `src/lib/seo.ts`, `src/lib/schema.ts`).
-4. **Content Source**: Pull website copy from `src/company details/markup/` files. Align with `10-website-content.md`.
+4. **Content Source**: Pull service definitions from `docs/services-catalog.md`. Pull other website copy from `src/company details/markup/` files. Align with `10-website-content.md`. Note: `02-services.md` is legacy — do NOT use for new service pages.
 5. **E-E-A-T**: Include author attribution, credentials, case metrics where specified.
 6. **Design**: Avoid generic "AI slop" aesthetics. Create distinctive, professional styling.
 7. **CMS Abstraction**: Always use `src/lib/content.ts` as the abstraction layer for fetching blog/services/case studies. Never import Sanity client directly in components or pages. This enables easy migration to Payload or MDX later.
@@ -132,7 +133,8 @@ Include Organization and WebPage JSON-LD schema.
 - Category pages (`/services/[category]`)
 - Detail pages (`/services/[category]/[slug]`)
 - Include Service schema on each detail page
-- Pull content from `02-services.md`
+- Pull content from `docs/services-catalog.md` (NOT legacy `02-services.md`)
+- Navigation structure defined in `aivanceworks-website/src/lib/constants.ts`
 
 ### 6. Blog System
 - Blog listing page with pagination
@@ -162,7 +164,8 @@ See **Part 10** of the architecture doc for detailed prompts for each implementa
 | Folder structure | Architecture doc Part 7.1 |
 | Quality checklist | Architecture doc Part 10.3 |
 | Pre-launch checklist | Architecture doc Part 11.1 |
-| Company content (services, pricing) | `src/company details/markup/*.md` |
+| **Services catalog (source of truth)** | `docs/services-catalog.md` |
+| Company content (pricing, positioning) | `src/company details/markup/*.md` |
 | Frontend engineering standards | `agents/frontend-engineer.md` |
 | Agent collaboration protocols | `agents/README.md` |
 | Services/Solutions design constitution | `docs/design-system/services-solutions-constitution.md` |
@@ -192,7 +195,7 @@ This way, switching from Sanity → Payload/MDX only requires updating `content.
 
 - `00-index.md` — Index of all company docs
 - `01-company.md` — Company overview, mission, vision, values
-- `02-services.md` — Service offerings
+- `02-services.md` — Service offerings **(LEGACY — use `docs/services-catalog.md` instead)**
 - `03-technology.md` — Technology stack and expertise
 - `04-pricing.md` — Pricing and engagement models
 - `05-team.md` — Team structure

@@ -23,7 +23,46 @@
       "mcp__plugin_playwright_playwright__browser_evaluate",
       "mcp__plugin_playwright_playwright__browser_console_messages",
       "mcp__plugin_playwright_playwright__browser_resize",
-      "Bash(grep:*)"
+      "Bash(grep:*)",
+      "Bash(bash:*)",
+      "Bash(curl -s http://localhost:64484)",
+      "Bash(curl -s http://localhost:53999)",
+      "Bash(node:*)",
+      "Bash(taskkill //F //FI \"WINDOWTITLE eq *53999*\")",
+      "Bash(fuser -k 53999/tcp)",
+      "Bash(netstat -ano)",
+      "Bash(taskkill:*)",
+      "Bash(curl -L 'https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?w=1280&q=80&fit=crop&auto=format' -o /c/Users/harik/source/repos/genisis/aivanceworks-website/public/images/solutions/patient-portals/hero.jpg --progress-bar)",
+      "Bash(curl -L 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1280&q=80&fit=crop&auto=format' -o /c/Users/harik/source/repos/genisis/aivanceworks-website/public/images/solutions/patient-portals/feature-1.jpg --progress-bar)",
+      "Bash(curl -L 'https://images.unsplash.com/photo-1576089172869-4f5f6f315620?w=1280&q=80&fit=crop&auto=format' -o /c/Users/harik/source/repos/genisis/aivanceworks-website/public/images/solutions/patient-portals/feature-2.jpg --progress-bar)",
+      "Bash(curl -L 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=1280&q=80&fit=crop&auto=format' -o /c/Users/harik/source/repos/genisis/aivanceworks-website/public/images/solutions/insurance-portals/hero.jpg --progress-bar)",
+      "Bash(curl -L 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1280&q=80&fit=crop&auto=format' -o /c/Users/harik/source/repos/genisis/aivanceworks-website/public/images/solutions/insurance-portals/feature-1.jpg --progress-bar)",
+      "Bash(curl -L 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1280&q=80&fit=crop&auto=format' -o /c/Users/harik/source/repos/genisis/aivanceworks-website/public/images/solutions/insurance-portals/feature-2.jpg --progress-bar)",
+      "Bash(curl -L 'https://images.unsplash.com/photo-1553413077-190dd305871c?w=1280&q=80&fit=crop&auto=format' -o /c/Users/harik/source/repos/genisis/aivanceworks-website/public/images/solutions/e-commerce-websites/hero.jpg --progress-bar)",
+      "Bash(curl -L 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1280&q=80&fit=crop&auto=format' -o /c/Users/harik/source/repos/genisis/aivanceworks-website/public/images/solutions/e-commerce-websites/feature-1.jpg --progress-bar)",
+      "Bash(curl -L 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1280&q=80&fit=crop&auto=format' -o /c/Users/harik/source/repos/genisis/aivanceworks-website/public/images/solutions/e-commerce-websites/feature-2.jpg --progress-bar)",
+      "Read(//dev/**)",
+      "Bash(echo \"exit: $?\")",
+      "Bash(chmod +x:*)",
+      "Bash(echo \"EXIT CODE: $?\")",
+      "Bash(sed -n '234,237p' /c/Users/harik/source/repos/genisis/docs/design-system/services-solutions-constitution.md)",
+      "Bash(sed -n '1610,1628p' /c/Users/harik/source/repos/genisis/docs/design-system/services-solutions-constitution.md)",
+      "Bash(wc:*)",
+      "Bash([ -f \"C:/Users/harik/source/repos/genisis/docs/design-system/constitution/$f\" ])"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "mcp__plugin_playwright_playwright__browser_take_screenshot",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/playwright-screenshot.sh",
+            "statusMessage": "Redirecting screenshot to playwright/ directory..."
+          }
+        ]
+      }
     ]
   },
   "enabledPlugins": {

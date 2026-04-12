@@ -404,6 +404,14 @@ const patientPortals: SolutionPageData = {
       icon: 'Rocket',
       pageType: 'service',
     },
+    {
+      title: 'Security & Compliance',
+      description:
+        'Worried the portal will pass UX review but fail HIPAA? Our security and compliance engagement produces the Zero-Trust controls and audit-ready evidence package your compliance team needs before go-live.',
+      href: '/services/security-compliance',
+      icon: 'ShieldCheck',
+      pageType: 'service',
+    },
   ],
 
   faqs: [

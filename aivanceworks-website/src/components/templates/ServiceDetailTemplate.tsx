@@ -13,6 +13,7 @@ import {
   CTABlock,
   DiscoveryMethodology,
   EngagementModels,
+  ComplianceDeepDive,
   ComplianceSpotlight,
   PersonaComparison,
   RelatedPages,
@@ -76,7 +77,18 @@ export const ServiceDetailTemplate = ({
       data.engagementModels ? (
         <EngagementModels models={data.engagementModels} />
       ) : null,
-    complianceDeepDive: () => null, // not used by services
+    complianceDeepDive: () =>
+      data.complianceDeepDive ? (
+        <ComplianceDeepDive
+          frameworks={data.complianceDeepDive.frameworks}
+          safeguards={data.complianceDeepDive.safeguards}
+          auditNote={data.complianceDeepDive.auditNote}
+          partnerAgreements={data.complianceDeepDive.partnerAgreements}
+          eyebrow="Compliance engineered in"
+          title="A control set your auditor can actually sign off on."
+          subtitle="Every safeguard is wired into the architecture, documented for the assessor, and mapped to the frameworks you need to pass — not reconstructed the week before the audit."
+        />
+      ) : null,
     complianceSpotlight: () =>
       data.complianceSpotlight ? (
         <ComplianceSpotlight

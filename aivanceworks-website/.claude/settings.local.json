@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx tsc:*)",
+      "Bash(bash scripts/token-hygiene.sh src/components/signature/ComplianceCoverageMatrix.tsx src/components/signature/SecurityComplianceHeroIllustration.tsx)",
+      "Bash(bash scripts/token-hygiene.sh)"
+    ]
+  }
+}

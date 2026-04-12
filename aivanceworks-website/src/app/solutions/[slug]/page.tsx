@@ -10,6 +10,8 @@ import {
   PortalArchitectureMap,
   ClaimsFlowComparison,
   EcommerceAiShowcase,
+  ClinicalWorkflowOrchestrator,
+  UnderwritingDecisionEngine,
 } from '@/components/signature';
 import type { ReactNode } from 'react';
 
@@ -45,6 +47,8 @@ const SIGNATURE_COMPONENTS: Record<string, ReactNode> = {
   PortalArchitectureMap: <PortalArchitectureMap />,
   ClaimsFlowComparison: <ClaimsFlowComparison />,
   EcommerceAiShowcase: <EcommerceAiShowcase />,
+  ClinicalWorkflowOrchestrator: <ClinicalWorkflowOrchestrator />,
+  UnderwritingDecisionEngine: <UnderwritingDecisionEngine />,
 };
 
 export default async function SolutionPage({ params }: PageProps) {
