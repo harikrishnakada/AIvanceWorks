@@ -31,7 +31,7 @@ export const ProcessTimeline = ({
   const gridRef = useScrollReveal<HTMLDivElement>();
 
   return (
-  <Section tone={tone} size="md" className={className}>
+  <Section data-section="process-timeline" tone={tone} size="md" className={className}>
     <Container>
       <div className="text-center mb-12 md:mb-14 max-w-3xl mx-auto">
         {eyebrow && (

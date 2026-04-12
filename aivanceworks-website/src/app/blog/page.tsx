@@ -49,7 +49,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
 
       <main className="min-h-screen bg-white">
         {/* Header Section */}
-        <section className="bg-gradient-to-br from-slate-50 to-blue-50/30 py-16 border-b border-gray-100">
+        <section data-section="blog-hero" className="bg-gradient-to-br from-slate-50 to-blue-50/30 py-16 border-b border-gray-100">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl">
               <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
@@ -79,7 +79,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
         </section>
 
         {/* Posts Grid */}
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <section data-section="blog-posts-grid" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <PostList
             posts={posts}
             currentPage={currentPage}
@@ -88,7 +88,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
         </section>
 
         {/* Categories Section */}
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+        <section data-section="blog-categories" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">Browse by Category</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
             {[

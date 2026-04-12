@@ -25,7 +25,7 @@ export const IntegrationsPanel = ({
   tone = 'warm',
   className,
 }: IntegrationsPanelProps) => (
-  <Section tone={tone} size="md" className={className}>
+  <Section data-section="integrations-panel" tone={tone} size="md" className={className}>
     <Container>
       <div className="text-center mb-12 md:mb-14 max-w-3xl mx-auto">
         {eyebrow && (

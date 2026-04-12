@@ -25,7 +25,7 @@ const challenges = [
 
 export function ChallengesSection() {
   return (
-    <section className="py-6 sm:py-8 lg:py-12 relative overflow-hidden">
+    <section data-section="home-challenges" className="py-6 sm:py-8 lg:py-12 relative overflow-hidden">
       {/* Subtle gradient background */}
       <div className="absolute inset-0 bg-gradient-to-b from-white via-brand-50/30 to-white" />
       <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-100/30 rounded-full blur-[150px]" />

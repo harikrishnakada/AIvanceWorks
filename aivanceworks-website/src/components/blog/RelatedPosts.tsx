@@ -18,7 +18,7 @@ export async function RelatedPosts({ currentPostId, category, limit = 3 }: Relat
   }
 
   return (
-    <section className="mt-16 pt-16 border-t border-gray-200">
+    <section data-section="blog-related-posts" className="mt-16 pt-16 border-t border-gray-200">
       <div className="flex items-center justify-between mb-8">
         <h2 className="text-3xl font-bold text-gray-900">Related Articles</h2>
         <Link

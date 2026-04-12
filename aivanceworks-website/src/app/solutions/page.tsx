@@ -56,7 +56,7 @@ export default function SolutionsPage() {
       <JsonLd data={solutionsPageSchema} />
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white py-16 lg:py-24">
+      <section data-section="solutions-hero" className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 text-blue-300 text-sm mb-6">
             Industry Solutions
@@ -92,6 +92,8 @@ export default function SolutionsPage() {
         <section
           key={category.heading}
           id={category.heading.toLowerCase().replace(/[^a-z0-9]+/g, '-')}
+          data-section="solutions-category"
+          data-category={category.heading}
           className={catIdx % 2 === 0 ? 'py-8 lg:py-12 bg-white' : 'py-8 lg:py-12 bg-gray-50'}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -135,7 +137,7 @@ export default function SolutionsPage() {
       ))}
 
       {/* CTA */}
-      <section className="py-8 lg:py-12 bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
+      <section data-section="solutions-cta" className="py-8 lg:py-12 bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold mb-4">
             Don&apos;t See Your Industry?

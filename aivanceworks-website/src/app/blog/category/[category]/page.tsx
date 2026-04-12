@@ -114,7 +114,7 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
 
       <main className="min-h-screen bg-white">
         {/* Header Section */}
-        <section className="bg-gradient-to-br from-slate-50 to-blue-50/30 py-16 border-b border-gray-100">
+        <section data-section="blog-category-hero" className="bg-gradient-to-br from-slate-50 to-blue-50/30 py-16 border-b border-gray-100">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Back to Blog Link */}
             <Link
@@ -146,7 +146,7 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
         </section>
 
         {/* Posts Grid */}
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <section data-section="blog-category-posts-grid" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <PostList
             posts={posts}
             currentPage={currentPage}
@@ -155,7 +155,7 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
         </section>
 
         {/* Other Categories */}
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+        <section data-section="blog-category-other" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">Explore Other Categories</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {Object.entries(categoryMap)

@@ -21,7 +21,7 @@ export const TechStackBlock = ({
   tone = 'warm',
   className,
 }: TechStackBlockProps) => (
-  <Section tone={tone} size="md" className={className}>
+  <Section data-section="tech-stack-block" tone={tone} size="md" className={className}>
     <Container>
       {(title || eyebrow) && (
         <div className="text-center mb-12 md:mb-14 max-w-3xl mx-auto">

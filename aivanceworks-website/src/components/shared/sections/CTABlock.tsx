@@ -22,7 +22,7 @@ export const CTABlock = ({
   secondaryCta,
   className,
 }: CTABlockProps) => (
-  <Section tone="accent" size="md" className={className}>
+  <Section data-section="cta-block" tone="accent" size="md" className={className}>
     <Container width="narrow">
       <div className="text-center">
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-text-light mb-4 md:mb-5 tracking-tight">

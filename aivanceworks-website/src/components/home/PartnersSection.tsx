@@ -10,7 +10,7 @@ const partners = [
 
 export function PartnersSection() {
   return (
-    <section className="py-4 sm:py-6 lg:py-8">
+    <section data-section="home-partners" className="py-4 sm:py-6 lg:py-8">
       <div className="max-w-[1440px] mx-auto px-3 sm:px-4 md:px-5 lg:px-6">
         <div className="relative bg-gradient-to-br from-surface-dark-from via-surface-dark-via to-surface-dark-to rounded-2xl md:rounded-2xl lg:rounded-3xl overflow-hidden border border-white/[0.06] shadow-brand-panel">
           {/* Background effects */}

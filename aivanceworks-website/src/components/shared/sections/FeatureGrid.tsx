@@ -32,7 +32,7 @@ export const FeatureGrid = ({
   tone = 'light',
   className,
 }: FeatureGridProps) => (
-  <Section tone={tone} size="md" className={className}>
+  <Section data-section="feature-grid" tone={tone} size="md" className={className}>
     <Container>
       {(title || subtitle || eyebrow) && (
         <div className="text-center mb-12 md:mb-14 max-w-3xl mx-auto">

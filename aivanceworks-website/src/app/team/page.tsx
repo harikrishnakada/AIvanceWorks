@@ -272,7 +272,7 @@ export default function TeamPage() {
       <JsonLd data={pageSchema} />
 
       {/* Hero Section - AEO optimized with direct answer in first 40-60 words */}
-      <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white py-8 lg:py-12">
+      <section data-section="team-hero" className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white py-8 lg:py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl">
             <div className="flex items-center gap-3 mb-4">
@@ -332,7 +332,7 @@ export default function TeamPage() {
       </section>
 
       {/* Team Summary Stats - GEO optimized with specific, quotable data */}
-      <section className="py-12 bg-gray-50 border-b border-gray-100">
+      <section data-section="team-stats" className="py-12 bg-gray-50 border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
@@ -362,7 +362,7 @@ export default function TeamPage() {
       </section>
 
       {/* Team Philosophy Section */}
-      <section className="py-8 lg:py-12 bg-white">
+      <section data-section="team-philosophy" className="py-8 lg:py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center mb-8">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -420,7 +420,7 @@ export default function TeamPage() {
       </section>
 
       {/* Core Roles & Expertise Section */}
-      <section className="py-8 lg:py-12 bg-gray-50">
+      <section data-section="team-roles" className="py-8 lg:py-12 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Core Team Roles & Expertise</h2>
@@ -484,7 +484,7 @@ export default function TeamPage() {
       </section>
 
       {/* Team Configurations Section */}
-      <section className="py-8 lg:py-12 bg-white">
+      <section data-section="team-configurations" className="py-8 lg:py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -564,7 +564,7 @@ export default function TeamPage() {
       </section>
 
       {/* Certifications & Credentials Section */}
-      <section className="py-8 lg:py-12 bg-gradient-to-br from-blue-50 to-indigo-50">
+      <section data-section="team-certifications" className="py-8 lg:py-12 bg-gradient-to-br from-blue-50 to-indigo-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -657,7 +657,7 @@ export default function TeamPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-8 lg:py-12 bg-white">
+      <section data-section="team-faq" className="py-8 lg:py-12 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -680,7 +680,7 @@ export default function TeamPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-8 lg:py-12 bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
+      <section data-section="team-cta" className="py-8 lg:py-12 bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold mb-4">Ready to Build Your Team?</h2>
           <p className="text-lg text-blue-100 mb-8 max-w-2xl mx-auto">

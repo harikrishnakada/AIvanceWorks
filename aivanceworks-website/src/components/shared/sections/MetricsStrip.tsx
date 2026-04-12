@@ -14,7 +14,7 @@ export const MetricsStrip = ({
   tone = 'light',
   className,
 }: MetricsStripProps) => (
-  <Section tone={tone} size="sm" className={className}>
+  <Section data-section="metrics-strip" tone={tone} size="sm" className={className}>
     <Container>
       {eyebrow && (
         <div className="text-xs md:text-sm font-semibold uppercase tracking-wider text-brand-600 mb-4 md:mb-6">

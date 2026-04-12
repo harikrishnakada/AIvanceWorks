@@ -36,7 +36,7 @@ export default async function CaseStudiesPage() {
       />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white py-8 lg:py-12">
+      <section data-section="case-studies-hero" className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white py-8 lg:py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h1 className="text-4xl sm:text-5xl font-bold mb-6">
@@ -54,7 +54,7 @@ export default async function CaseStudiesPage() {
       </section>
 
       {/* Case Studies Grid */}
-      <section className="py-8 lg:py-12 bg-white">
+      <section data-section="case-studies-grid" className="py-8 lg:py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {caseStudies.length === 0 ? (
             <div className="text-center py-12">
@@ -151,7 +151,7 @@ export default async function CaseStudiesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-8 lg:py-12 bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
+      <section data-section="case-studies-cta" className="py-8 lg:py-12 bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold mb-4">Ready to Create Your Success Story?</h2>
           <p className="text-lg text-blue-100 mb-8">

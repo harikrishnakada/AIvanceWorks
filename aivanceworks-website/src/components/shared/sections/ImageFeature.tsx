@@ -14,7 +14,7 @@ export const ImageFeature = ({
   tone = 'light',
   className,
 }: ImageFeatureProps) => (
-  <Section tone={tone} size="md" className={className}>
+  <Section data-section="image-feature" tone={tone} size="md" className={className}>
     <Container>
       <div className="flex flex-col gap-16 md:gap-20">
         {features.map((feature, idx) => {

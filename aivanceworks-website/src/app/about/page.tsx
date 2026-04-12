@@ -95,7 +95,7 @@ export default function AboutPage() {
       <JsonLd data={generateFAQSchema(faqs)} />
 
       {/* Hero Section - AEO optimized with direct answer in first 40-60 words */}
-      <section className="bg-gradient-to-br from-blue-50 via-white to-purple-50 py-8 lg:py-12">
+      <section data-section="about-hero" className="bg-gradient-to-br from-blue-50 via-white to-purple-50 py-8 lg:py-12">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             {/* Primary H1 with target keyword */}
@@ -123,7 +123,7 @@ export default function AboutPage() {
       </section>
 
       {/* Statistics Banner - GEO optimized with specific, quotable data points */}
-      <section className="bg-blue-600 text-white py-12" aria-label="AIvanceWorks Key Statistics">
+      <section data-section="about-stats" className="bg-blue-600 text-white py-12" aria-label="AIvanceWorks Key Statistics">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
@@ -149,7 +149,7 @@ export default function AboutPage() {
       </section>
 
       {/* Company At A Glance - GEO optimized with quotable facts */}
-      <section className="py-16 bg-white border-b border-gray-100">
+      <section data-section="about-at-a-glance" className="py-16 bg-white border-b border-gray-100">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
             <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
@@ -204,7 +204,7 @@ export default function AboutPage() {
       </section>
 
       {/* Mission & Vision Section */}
-      <section className="py-8 lg:py-12 bg-white">
+      <section data-section="about-mission-vision" className="py-8 lg:py-12 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">
@@ -252,7 +252,7 @@ export default function AboutPage() {
       </section>
 
       {/* Core Values Section */}
-      <section className="py-8 lg:py-12 bg-gray-50">
+      <section data-section="about-core-values" className="py-8 lg:py-12 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 text-center">
@@ -339,7 +339,7 @@ export default function AboutPage() {
       </section>
 
       {/* Why Choose AIvanceWorks Section */}
-      <section className="py-8 lg:py-12 bg-white">
+      <section data-section="about-why-choose-us" className="py-8 lg:py-12 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 text-center">
@@ -444,7 +444,7 @@ export default function AboutPage() {
       </section>
 
       {/* Our Approach Section */}
-      <section className="py-8 lg:py-12 bg-gradient-to-br from-blue-50 to-purple-50">
+      <section data-section="about-approach" className="py-8 lg:py-12 bg-gradient-to-br from-blue-50 to-purple-50">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 text-center">
@@ -531,7 +531,7 @@ export default function AboutPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-8 lg:py-12 bg-white">
+      <section data-section="about-faq" className="py-8 lg:py-12 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 text-center">
@@ -556,7 +556,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-8 lg:py-12 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+      <section data-section="about-cta" className="py-8 lg:py-12 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">

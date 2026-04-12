@@ -151,7 +151,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
 
           {/* Services Used */}
           {caseStudy.services && caseStudy.services.length > 0 && (
-            <section className="mb-12">
+            <section data-section="case-study-services" className="mb-12">
               <h2 className="text-2xl font-bold text-gray-900 mb-4">Services Provided</h2>
               <div className="flex flex-wrap gap-2">
                 {caseStudy.services.map((service) => (
@@ -168,14 +168,14 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
 
           {/* Challenge */}
           {caseStudy.challenge && (
-            <section className="mb-12">
+            <section data-section="case-study-challenge" className="mb-12">
               <h2 className="text-2xl font-bold text-gray-900 mb-4">The Challenge</h2>
               <p className="text-gray-700 leading-relaxed text-lg">{caseStudy.challenge}</p>
             </section>
           )}
 
           {/* Solution - Placeholder for now */}
-          <section className="mb-12">
+          <section data-section="case-study-solution" className="mb-12">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Our Solution</h2>
             <div className="prose prose-lg max-w-none">
               <p className="text-gray-700 leading-relaxed">
@@ -188,7 +188,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
 
           {/* Technologies */}
           {caseStudy.technologies && caseStudy.technologies.length > 0 && (
-            <section className="mb-12">
+            <section data-section="case-study-technologies" className="mb-12">
               <h2 className="text-2xl font-bold text-gray-900 mb-4">Technologies Used</h2>
               <div className="flex flex-wrap gap-2">
                 {caseStudy.technologies.map((tech) => (
@@ -205,7 +205,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
 
           {/* Results */}
           {caseStudy.metrics && caseStudy.metrics.length > 0 && (
-            <section className="mb-12">
+            <section data-section="case-study-results" className="mb-12">
               <h2 className="text-2xl font-bold text-gray-900 mb-4">Results & Impact</h2>
               <div className="grid md:grid-cols-2 gap-6">
                 {caseStudy.metrics.map((metric, idx) => (

@@ -23,7 +23,7 @@ export const FAQ = ({
   tone = 'light',
   className,
 }: FAQProps) => (
-  <Section tone={tone} size="md" className={className}>
+  <Section data-section="faq" tone={tone} size="md" className={className}>
     <Container width="narrow">
       <div className="text-center mb-10 md:mb-12">
         {eyebrow && (

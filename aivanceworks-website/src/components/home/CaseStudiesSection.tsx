@@ -57,7 +57,7 @@ export async function CaseStudiesSection() {
   // Use Sanity data if available, otherwise use placeholder data
   const caseStudies = featuredCaseStudies.length > 0 ? featuredCaseStudies : placeholderCaseStudies;
   return (
-    <section className="py-6 sm:py-8 lg:py-12 bg-white">
+    <section data-section="home-case-studies" className="py-6 sm:py-8 lg:py-12 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-2 sm:gap-3 mb-4 sm:mb-5 lg:mb-7">

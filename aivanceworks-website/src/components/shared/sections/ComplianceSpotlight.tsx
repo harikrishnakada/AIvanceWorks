@@ -55,7 +55,7 @@ export const ComplianceSpotlight = ({
   })();
 
   return (
-    <Section tone={tone} size="md" className={className}>
+    <Section data-section="compliance-spotlight" tone={tone} size="md" className={className}>
       <Container>
         <div className="relative overflow-hidden rounded-2xl border border-[color:var(--glass-border)] shadow-brand-panel bg-gradient-to-br from-surface-dark-from via-surface-dark-via to-surface-dark-to px-6 sm:px-10 lg:px-16 py-10 md:py-14 lg:py-16">
           {/* Grid overlay */}

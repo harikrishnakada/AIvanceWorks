@@ -40,7 +40,7 @@ export const Hero = ({
   const hasIllustration = !!heroIllustration;
 
   return (
-    <section className={cn('relative overflow-hidden', className)}>
+    <section data-section="hero" className={cn('relative overflow-hidden', className)}>
       {/* Outer wrapper — matches homepage HeroSection spacing */}
       <div className="px-4 sm:px-6 md:px-8 lg:px-12 pt-4 sm:pt-5 md:pt-6 lg:pt-8 pb-2 sm:pb-3 md:pb-4 lg:pb-5">
         {/* Hero Card Box */}
@@ -70,12 +70,12 @@ export const Hero = ({
                 className="object-cover opacity-40"
               />
               {/* Gradient scrim — dark on left for text readability, transparent on right to show image */}
-              <div className="absolute inset-0 bg-gradient-to-r from-surface-dark-from/90 via-surface-dark-via/70 to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-r from-surface-dark-from/95 from-0% via-surface-dark-via/80 via-55% to-transparent to-90% pointer-events-none" />
               {/* Bottom edge fade into card background */}
               <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-surface-dark-to to-transparent pointer-events-none" />
 
               {/* Content overlay */}
-              <div className="relative z-10 px-6 sm:px-8 md:px-10 lg:px-14 py-8 sm:py-10 md:py-14 lg:py-16 max-w-2xl">
+              <div className="relative z-10 px-6 sm:px-8 md:px-10 lg:px-14 py-8 sm:py-10 md:py-14 lg:py-16 max-w-3xl lg:max-w-[58%]">
                 {badge && (
                   <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-500/[0.12] border border-brand-400/[0.15] text-brand-300 text-xs sm:text-sm font-semibold tracking-wide mb-4 md:mb-5 backdrop-blur-sm">
                     {badgeHref ? (

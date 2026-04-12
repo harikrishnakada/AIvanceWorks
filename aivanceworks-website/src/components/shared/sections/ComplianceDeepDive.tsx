@@ -30,7 +30,7 @@ export const ComplianceDeepDive = ({
   tone = 'warm',
   className,
 }: ComplianceDeepDiveProps) => (
-  <Section tone={tone} size="md" className={className}>
+  <Section data-section="compliance-deep-dive" tone={tone} size="md" className={className}>
     <Container>
       <div className="text-center mb-12 md:mb-14 max-w-3xl mx-auto">
         {eyebrow && (

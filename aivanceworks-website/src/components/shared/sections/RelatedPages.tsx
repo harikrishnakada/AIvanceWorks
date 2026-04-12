@@ -28,7 +28,7 @@ export const RelatedPages = ({
   tone = 'warm',
   className,
 }: RelatedPagesProps) => (
-  <Section tone={tone} size="md" className={className}>
+  <Section data-section="related-pages" tone={tone} size="md" className={className}>
     <Container>
       <div className="text-center mb-10 md:mb-12 max-w-3xl mx-auto">
         {eyebrow && (

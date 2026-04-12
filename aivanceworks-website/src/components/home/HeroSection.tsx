@@ -14,6 +14,7 @@ const partners = [
 export function HeroSection() {
   return (
     <section
+      data-section="home-hero"
       className="relative bg-gradient-to-b from-gray-50 via-brand-50/30 to-white overflow-hidden
         flex flex-col"
     >
