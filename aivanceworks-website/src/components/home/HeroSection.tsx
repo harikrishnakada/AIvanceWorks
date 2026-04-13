@@ -159,7 +159,7 @@ export function HeroSection() {
                   </div>
                 ))}
               </div>
-              <p className="text-center text-[8px] sm:text-[9px] md:text-[10px] text-white/25 mt-2 font-medium">
+              <p className="text-center text-[8px] sm:text-[9px] md:text-[10px] text-white/75 mt-2 font-medium">
                 Building with the world&apos;s leading platforms
               </p>
             </div>

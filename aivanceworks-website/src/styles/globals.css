@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "./themes/blue.css";
 @import "./themes/purple.css";
+@import "./themes/black.css";
 @import './scroll-animations.css';
 
 /* ─── Theme Token Bridge ───

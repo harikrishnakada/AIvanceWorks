@@ -50,7 +50,7 @@ export function PartnersSection() {
             </div>
 
             {/* Bottom tagline */}
-            <p className="text-center text-[10px] sm:text-xs text-white/25 mt-4 sm:mt-5 lg:mt-6 font-medium">
+            <p className="text-center text-[10px] sm:text-xs text-white/50 mt-4 sm:mt-5 lg:mt-6 font-medium">
               Building with the world&apos;s leading platforms
             </p>
           </div>

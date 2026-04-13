@@ -1,0 +1,84 @@
+/* ─── Black Theme ───
+   Brand: Blue (#2563eb) · Accent: Indigo (#6366f1) on black-to-dark-gray surfaces.
+   Applied via: <html data-theme="black">
+
+   Design notes:
+   - Body surface is near-black (#0a0a0a) so the overall page reads "black".
+   - The hero panel gradient (--surface-dark-from/via/to) intentionally uses
+     a dark-gray ramp (#0d → #1f → #0d). Hero SVG illustrations use brand/
+     accent colors at 0.08–0.35 opacity, and low-alpha strokes multiply the
+     color *by* alpha — so they disappear on pure black. A gray substrate
+     under the hero gives those strokes something to paint against while
+     still reading as part of the "black" theme (the rest of the viewport
+     is near-black).
+   - Brand/accent 300/400/500 are shifted one tier brighter than the blue
+     theme so decorative strokes stay legible on the gray hero substrate.
+     600+ preserved so button CTAs stay on-brand. */
+
+[data-theme="black"] {
+  /* Brand palette — light end shifted one tier brighter */
+  --brand-50: #eff6ff;
+  --brand-100: #dbeafe;
+  --brand-200: #bfdbfe;
+  --brand-300: #bfdbfe; /* was #93c5fd */
+  --brand-400: #93c5fd; /* was #60a5fa */
+  --brand-500: #60a5fa; /* was #3b82f6 */
+  --brand-600: #2563eb;
+  --brand-700: #1d4ed8;
+  --brand-800: #1e40af;
+  --brand-900: #1e3a8a;
+
+  /* Accent palette — same one-tier lift */
+  --accent-50: #eef2ff;
+  --accent-100: #e0e7ff;
+  --accent-200: #c7d2fe;
+  --accent-300: #c7d2fe; /* was #a5b4fc */
+  --accent-400: #a5b4fc; /* was #818cf8 */
+  --accent-500: #818cf8; /* was #6366f1 */
+  --accent-700: #4338ca;
+
+  /* Hero-panel gradient — dark-gray ramp that gives illustrations tonal
+     substrate. Reading as part of the black theme because the body around
+     it is near-black. Do not collapse these to pure #000 or illustrations
+     will vanish. */
+  --surface-dark-from: #0d0d0d;
+  --surface-dark-via: #1f1f1f;
+  --surface-dark-to: #0d0d0d;
+
+  /* Surface palette (tiered for elevation) */
+  --surface-dark: #000000;
+  --surface: #0a0a0a;
+  --surface-elevated: #1a1a1a;
+  --surface-light: #f8fafc;
+  --surface-warm: #f1f5f9;
+  --surface-white: #ffffff;
+
+  /* Text roles */
+  --text-light: #f8fafc;
+  --text-heading: #0f172a;
+  --text-body: #475569;
+  --text-muted: #64748b;
+  --text-subtle: #94a3b8;
+  --text-secondary: #334155;
+
+  /* Border tokens (brighter than blue theme for legibility on dark surfaces) */
+  --border-dark: #2a2a2a;
+  --border-light: #e2e8f0;
+  --border-hover: #cbd5e1;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+
+  /* Glass tokens (bumped for visibility on dark surfaces) */
+  --glass-bg: rgba(255, 255, 255, 0.04);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-hover: rgba(255, 255, 255, 0.06);
+  --glass-nav: rgba(0, 0, 0, 0.85);
+
+  /* Utility tokens */
+  --brand-shadow-rgb: 37, 99, 235;
+  --brand-grid: #2563eb05;
+  --brand-grid-light: #ffffff04;
+
+  /* Destructive */
+  --destructive: #ef4444;
+  --destructive-foreground: #fafafa;
+}

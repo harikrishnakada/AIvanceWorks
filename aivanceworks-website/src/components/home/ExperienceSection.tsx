@@ -69,7 +69,7 @@ export function ExperienceSection() {
                   Experience
                 </span>
               </h2>
-              <p className="text-[11px] sm:text-xs md:text-sm text-white/50 leading-relaxed max-w-md mx-auto">
+              <p className="text-[11px] sm:text-xs md:text-sm text-white/75 leading-relaxed max-w-md mx-auto">
                 Industry-recognized Microsoft certifications backed by hands-on Azure cloud and AI engineering.
               </p>
             </div>
@@ -138,7 +138,7 @@ export function ExperienceSection() {
 
             {/* Footer note */}
             <div className="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-white/[0.08] text-center">
-              <p className="text-[9px] sm:text-[10px] text-white/25 font-medium tracking-wide">
+              <p className="text-[9px] sm:text-[10px] text-white/50 font-medium tracking-wide">
                 Verified credentials issued by Microsoft · Building enterprise solutions on Azure
               </p>
             </div>

@@ -29,7 +29,7 @@ export function CTASection() {
               </h2>
 
               {/* Supporting Text */}
-              <p className="text-xs sm:text-sm md:text-base lg:text-lg text-white/50 mb-4 sm:mb-5 leading-relaxed">
+              <p className="text-xs sm:text-sm md:text-base lg:text-lg text-white/75 mb-4 sm:mb-5 leading-relaxed">
                 Let&apos;s discuss how AI and cloud solutions can transform your business.
                 Book a free 30-minute consultation with our experts — no commitment required.
               </p>
