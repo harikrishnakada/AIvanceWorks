@@ -4,6 +4,10 @@
 @import "./themes/black.css";
 @import './scroll-animations.css';
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* ─── Theme Token Bridge ───
    @theme generates Tailwind utilities (bg-brand-600, text-accent-400, etc.)
    Actual color values come from data-theme CSS variables in themes/*.css.

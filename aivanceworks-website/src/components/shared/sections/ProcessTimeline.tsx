@@ -78,8 +78,11 @@ export const ProcessTimeline = ({
               </div>
             </div>
             {idx < steps.length - 1 && (
-              <div className="hidden xl:block absolute top-1/2 -right-3 -translate-y-1/2 z-10">
-                <ArrowRight className="h-6 w-6 text-border-hover" aria-hidden="true" />
+              <div
+                className="hidden xl:flex absolute top-1/2 -right-6 -translate-y-1/2 z-10 w-6 h-6 items-center justify-center pointer-events-none"
+                aria-hidden="true"
+              >
+                <ArrowRight className="h-5 w-5 text-border-hover" />
               </div>
             )}
           </div>

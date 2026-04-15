@@ -167,18 +167,18 @@ export const SoftwareDeliveryPipeline = () => {
         </div>
 
         {/* Pipeline phases */}
-        <div className="relative max-w-4xl mx-auto">
+        <div className="relative mx-auto w-full max-w-6xl">
           {/* Desktop: horizontal grid */}
-          <div className="hidden lg:grid lg:grid-cols-6 gap-3">
+          <div className="hidden lg:grid lg:grid-cols-6 gap-4 items-stretch">
             {PHASES.map((phase, idx) => {
               const isFocused = focusedPhase === phase.id;
               const isDimmed = focusedPhase !== null && !isFocused;
 
               return (
-                <div key={phase.id} className="relative">
+                <div key={phase.id} className="relative h-full">
                   {/* Flow arrow between phases */}
                   {idx > 0 && (
-                    <div className="absolute -left-2 top-1/2 -translate-y-1/2 -translate-x-0.5 z-0">
+                    <div className="absolute -left-3 top-1/2 -translate-y-1/2 z-0">
                       <svg width="6" height="10" viewBox="0 0 6 10" className="text-brand-400/25">
                         <path d="M0,0 L6,5 L0,10" fill="currentColor" />
                       </svg>
@@ -191,7 +191,7 @@ export const SoftwareDeliveryPipeline = () => {
                     aria-expanded={isFocused}
                     aria-label={`Phase ${phase.number}: ${phase.title} — ${isFocused ? 'click to collapse' : 'click to expand'}`}
                     className={cn(
-                      'w-full text-left rounded-xl border p-4 transition-all duration-300 relative z-10 h-full',
+                      'w-full text-left rounded-xl border p-5 transition-all duration-300 relative z-10 h-full flex flex-col',
                       'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400',
                       phase.accent
                         ? 'border-accent-500/20 bg-accent-500/[0.06]'
@@ -214,10 +214,10 @@ export const SoftwareDeliveryPipeline = () => {
                       {phase.number}
                     </span>
 
-                    <h3 className="text-sm font-semibold text-text-light leading-tight mb-1">
+                    <h3 className="text-sm font-semibold text-text-light leading-snug mb-1.5 text-balance">
                       {phase.title}
                     </h3>
-                    <p className="text-xs text-text-light/45 leading-relaxed">
+                    <p className="text-xs text-text-light/55 leading-relaxed text-balance">
                       {phase.subtitle}
                     </p>
                   </button>
@@ -424,8 +424,8 @@ export const SoftwareDeliveryPipeline = () => {
             </div>
           )}
 
-          {/* Side annotations — desktop only */}
-          <div className="hidden lg:block absolute -left-16 top-1/3 -translate-y-1/2">
+          {/* Side annotations — extra-large screens only (avoid overlap on smaller laptops) */}
+          <div className="hidden xl:block absolute -left-12 top-12 pointer-events-none">
             <p
               className="text-[10px] font-semibold uppercase tracking-[0.15em] text-brand-300/40"
               style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
@@ -433,7 +433,7 @@ export const SoftwareDeliveryPipeline = () => {
               Your Visibility
             </p>
           </div>
-          <div className="hidden lg:block absolute -right-16 top-1/3 -translate-y-1/2">
+          <div className="hidden xl:block absolute -right-12 top-12 pointer-events-none">
             <p
               className="text-[10px] font-semibold uppercase tracking-[0.15em] text-accent-300/40"
               style={{ writingMode: 'vertical-rl' }}

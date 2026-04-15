@@ -159,43 +159,47 @@ export const DesignMaturitySpectrum = ({
           </p>
         </div>
 
-        {/* ─── Progress bar (desktop) ─── */}
-        <div className="hidden lg:flex items-center justify-center mb-10 px-12">
+        {/* ─── Progress bar (desktop) — uses same grid as cards so dots/labels align ─── */}
+        <div className="hidden lg:grid grid-cols-3 gap-5 mb-10 relative">
           {STAGES.map((stage, i) => {
             const styles = ACCENT_STYLES[stage.accentType];
+            const isLast = i === STAGES.length - 1;
             return (
-              <div key={stage.level} className="flex items-center flex-1">
-                {/* Stage dot */}
-                <div className="flex flex-col items-center gap-1.5">
+              <div
+                key={stage.level}
+                className="relative flex flex-col items-center gap-1.5"
+              >
+                {/* Connector line — spans from this dot's center to the next dot's center
+                    (column width + one gap), drawn behind dots */}
+                {!isLast && (
                   <div
-                    className={cn(
-                      'w-4 h-4 rounded-full ring-2 ring-offset-2 ring-offset-surface-dark',
-                      styles.dot,
-                      expandedStage === i ? 'ring-brand-400' : 'ring-transparent'
-                    )}
-                  />
-                  <span className="text-xs font-semibold text-text-light/50 uppercase tracking-wider">
-                    Level {stage.level}
-                  </span>
-                </div>
-                {/* Connector line */}
-                {i < STAGES.length - 1 && (
-                  <div className="flex-1 mx-3">
-                    <div className="h-0.5 bg-surface-elevated rounded-full overflow-hidden">
-                      <div
-                        className={cn('h-full rounded-full', styles.progressBg)}
-                        style={{ width: '100%' }}
-                      />
-                    </div>
+                    className="absolute top-2 left-1/2 h-0.5 -translate-y-1/2 rounded-full bg-surface-elevated overflow-hidden"
+                    style={{ width: 'calc(100% + 1.25rem)' }}
+                  >
+                    <div
+                      className={cn('h-full w-full rounded-full', styles.progressBg)}
+                    />
                   </div>
                 )}
+
+                {/* Stage dot */}
+                <div
+                  className={cn(
+                    'relative z-10 w-4 h-4 rounded-full ring-2 ring-offset-2 ring-offset-surface-dark transition-shadow',
+                    styles.dot,
+                    expandedStage === i ? 'ring-brand-400' : 'ring-transparent'
+                  )}
+                />
+                <span className="relative z-10 text-xs font-semibold text-text-light/60 uppercase tracking-wider">
+                  Level {stage.level}
+                </span>
               </div>
             );
           })}
         </div>
 
         {/* ─── Stage cards ─── */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-5">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-5 items-stretch">
           {STAGES.map((stage, i) => {
             const styles = ACCENT_STYLES[stage.accentType];
             const isExpanded = expandedStage === i;

@@ -22,7 +22,9 @@
 
 'use client';
 
+import { useState } from 'react';
 import { Lightbulb, TrendingUp, Building2, ChevronRight } from 'lucide-react';
+import { Section, Container } from '@/components/shared/primitives';
 
 interface StageData {
   icon: React.ReactNode;
@@ -79,22 +81,36 @@ const stages: StageData[] = [
   },
 ];
 
-function StageCard({ stage, index }: { stage: StageData; index: number }) {
-  const isMiddle = index === 1;
-
+function StageCard({
+  stage,
+  index,
+  isActive,
+  isMostCommon,
+  onSelect,
+}: {
+  stage: StageData;
+  index: number;
+  isActive: boolean;
+  isMostCommon: boolean;
+  onSelect: (index: number) => void;
+}) {
   return (
-    <div
-      className={`relative flex flex-col rounded-xl border p-6 transition-all ${
-        isMiddle
-          ? 'border-brand-500/30 bg-brand-500/[0.06] shadow-brand-panel'
-          : 'border-border-dark bg-surface-elevated'
+    <button
+      type="button"
+      onClick={() => onSelect(index)}
+      aria-pressed={isActive}
+      aria-label={`Select ${stage.stage}: ${stage.label}`}
+      className={`relative flex flex-col rounded-xl border p-6 text-left transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 focus-visible:ring-offset-2 focus-visible:ring-offset-surface-dark-from ${
+        isActive
+          ? 'border-brand-500/40 bg-brand-500/[0.08] shadow-brand-panel scale-[1.02]'
+          : 'border-border-dark bg-surface-elevated hover:border-brand-500/30 hover:bg-brand-500/[0.04]'
       }`}
     >
       {/* Stage badge */}
       <div className="mb-4 flex items-center gap-3">
         <div
-          className={`flex h-10 w-10 items-center justify-center rounded-lg ${
-            isMiddle
+          className={`flex h-10 w-10 items-center justify-center rounded-lg transition-colors ${
+            isActive
               ? 'bg-brand-500/20 text-brand-300'
               : 'bg-brand-500/10 text-brand-400'
           }`}
@@ -115,7 +131,7 @@ function StageCard({ stage, index }: { stage: StageData; index: number }) {
       </p>
 
       {/* Meta row */}
-      <div className="mb-4 flex gap-4 text-xs">
+      <div className="mb-4 flex flex-wrap gap-2 text-xs sm:gap-4">
         <div className="rounded-md bg-brand-500/10 px-2.5 py-1">
           <span className="font-semibold text-brand-300">{stage.teamSize}</span>
         </div>
@@ -134,94 +150,165 @@ function StageCard({ stage, index }: { stage: StageData; index: number }) {
         ))}
       </ul>
 
-      {/* Featured badge */}
-      {isMiddle && (
-        <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-brand-600 px-3 py-0.5 text-xs font-semibold text-white">
+      {/* Featured badge — anchored to the actual "most common" stage, not the active one */}
+      {isMostCommon && (
+        <div className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-brand-600 px-3 py-0.5 text-xs font-semibold text-white">
           Most Common
         </div>
       )}
-    </div>
+    </button>
   );
 }
 
+const MOST_COMMON_INDEX = 1;
+const STAGE_LABELS = ['Seed', 'Series A', 'Series B+'];
+
 export function StartupGrowthTimeline() {
+  const [activeIndex, setActiveIndex] = useState(MOST_COMMON_INDEX);
+  const lastIndex = stages.length - 1;
+  const progressPercent = lastIndex === 0 ? 0 : (activeIndex / lastIndex) * 100;
+
   return (
-    <div className="w-full">
-      {/* Section header */}
-      <div className="mb-10 text-center">
-        <span className="mb-2 inline-block text-sm font-semibold uppercase tracking-wider text-brand-400">
-          Your Startup Journey
-        </span>
-        <h2 className="mb-3 text-3xl font-bold text-text-light sm:text-4xl">
-          We grow with you
-        </h2>
-        <p className="mx-auto max-w-2xl text-base text-text-light/70">
-          Your engineering needs change at every stage. Our engagement adapts — from
-          a lean sprint team validating your MVP to a full-scale engineering org
-          preparing for your in-house transition.
-        </p>
-      </div>
-
-      {/* Desktop: horizontal 3-card layout with connecting bar */}
-      <div className="hidden md:block">
-        {/* Connecting progress bar */}
-        <div className="relative mx-auto mb-8 flex max-w-4xl items-center justify-between px-12">
-          {/* Background line */}
-          <div className="absolute left-16 right-16 top-1/2 h-0.5 -translate-y-1/2 bg-brand-500/20" />
-          {/* Progress fill */}
-          <div className="absolute left-16 top-1/2 h-0.5 w-1/3 -translate-y-1/2 bg-gradient-to-r from-brand-500 to-brand-400" />
-
-          {/* Stage dots */}
-          {['Seed', 'Series A', 'Series B+'].map((label, i) => (
-            <div key={label} className="relative z-10 flex flex-col items-center">
-              <div
-                className={`flex h-8 w-8 items-center justify-center rounded-full border-2 ${
-                  i === 0
-                    ? 'border-brand-400 bg-brand-500/30'
-                    : 'border-brand-500/30 bg-surface-dark'
-                }`}
-              >
-                <span className="text-xs font-bold text-brand-300">{i + 1}</span>
-              </div>
-              <span className="mt-1.5 text-xs font-medium text-text-muted">{label}</span>
-            </div>
-          ))}
+    <Section tone="dark" withGrid size="lg">
+      <Container>
+        {/* Section header */}
+        <div className="mb-10 text-center md:mb-14">
+          <span className="mb-2 inline-block text-xs font-semibold uppercase tracking-wider text-brand-400 sm:text-sm">
+            Your Startup Journey
+          </span>
+          <h2 className="mb-3 text-2xl font-bold text-text-light sm:text-3xl md:text-4xl">
+            We grow with you
+          </h2>
+          <p className="mx-auto max-w-2xl text-sm text-text-light/70 sm:text-base">
+            Your engineering needs change at every stage. Our engagement adapts — from
+            a lean sprint team validating your MVP to a full-scale engineering org
+            preparing for your in-house transition.
+          </p>
         </div>
 
-        {/* Cards */}
-        <div className="mx-auto grid max-w-5xl grid-cols-3 gap-6">
-          {stages.map((stage, i) => (
-            <StageCard key={stage.label} stage={stage} index={i} />
-          ))}
+        {/* Desktop: horizontal 3-card layout with connecting bar */}
+        <div className="hidden md:block">
+          {/* Connecting progress bar */}
+          <div className="relative mx-auto mb-10 flex max-w-4xl items-center justify-between px-12">
+            {/* Background line — spans dot 1 to dot 3 centers */}
+            <div className="absolute left-16 right-16 top-4 h-0.5 bg-brand-500/20" />
+            {/* Progress fill — width animates with selection */}
+            <div
+              className="absolute left-16 top-4 h-0.5 bg-gradient-to-r from-brand-500 to-brand-400 transition-[width] duration-500 ease-out"
+              style={{ width: `calc((100% - 8rem) * ${progressPercent / 100})` }}
+            />
+
+            {/* Stage dots */}
+            {STAGE_LABELS.map((label, i) => {
+              const isReached = i <= activeIndex;
+              return (
+                <button
+                  key={label}
+                  type="button"
+                  onClick={() => setActiveIndex(i)}
+                  aria-label={`Jump to ${label}`}
+                  aria-pressed={i === activeIndex}
+                  className="relative z-10 flex flex-col items-center focus:outline-none"
+                >
+                  <div
+                    className={`flex h-8 w-8 items-center justify-center rounded-full border-2 transition-all duration-300 ${
+                      isReached
+                        ? 'border-brand-400 bg-brand-500/30'
+                        : 'border-brand-500/40 bg-surface-elevated'
+                    } ${i === activeIndex ? 'ring-2 ring-brand-400/40 ring-offset-2 ring-offset-surface-dark-from' : ''}`}
+                  >
+                    <span
+                      className={`text-xs font-bold transition-colors ${
+                        isReached ? 'text-brand-200' : 'text-brand-400'
+                      }`}
+                    >
+                      {i + 1}
+                    </span>
+                  </div>
+                  <span
+                    className={`mt-2 text-xs font-medium transition-colors ${
+                      i === activeIndex ? 'text-brand-300' : 'text-text-light/70'
+                    }`}
+                  >
+                    {label}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Cards */}
+          <div className="mx-auto grid max-w-5xl grid-cols-3 gap-6 pt-3">
+            {stages.map((stage, i) => (
+              <StageCard
+                key={stage.label}
+                stage={stage}
+                index={i}
+                isActive={i === activeIndex}
+                isMostCommon={i === MOST_COMMON_INDEX}
+                onSelect={setActiveIndex}
+              />
+            ))}
+          </div>
         </div>
-      </div>
 
-      {/* Mobile: vertical stack with connecting line */}
-      <div className="md:hidden">
-        <div className="relative space-y-6 pl-8">
-          {/* Vertical connecting line */}
-          <div className="absolute bottom-4 left-3 top-4 w-0.5 bg-gradient-to-b from-brand-500 via-brand-400 to-brand-500/20" />
+        {/* Mobile: vertical stack with connecting line */}
+        <div className="md:hidden">
+          <div className="relative space-y-6 pl-10">
+            {/* Vertical connecting line — background */}
+            <div className="absolute bottom-6 left-4 top-6 w-0.5 bg-brand-500/20" />
+            {/* Vertical connecting line — progress fill */}
+            <div
+              className="absolute left-4 top-6 w-0.5 bg-gradient-to-b from-brand-500 to-brand-400 transition-[height] duration-500 ease-out"
+              style={{ height: `calc((100% - 3rem) * ${progressPercent / 100})` }}
+            />
 
-          {stages.map((stage, i) => (
-            <div key={stage.label} className="relative">
-              {/* Timeline dot */}
-              <div className="absolute -left-8 top-6 flex h-6 w-6 items-center justify-center rounded-full border-2 border-brand-400 bg-surface-dark">
-                <span className="text-[10px] font-bold text-brand-300">{i + 1}</span>
-              </div>
+            {stages.map((stage, i) => {
+              const isReached = i <= activeIndex;
+              return (
+                <div key={stage.label} className="relative">
+                  {/* Timeline dot */}
+                  <button
+                    type="button"
+                    onClick={() => setActiveIndex(i)}
+                    aria-label={`Select stage ${i + 1}`}
+                    aria-pressed={i === activeIndex}
+                    className={`absolute -left-10 top-6 z-10 flex h-7 w-7 items-center justify-center rounded-full border-2 transition-all ${
+                      isReached
+                        ? 'border-brand-400 bg-brand-500/30'
+                        : 'border-brand-500/40 bg-surface-elevated'
+                    } ${i === activeIndex ? 'ring-2 ring-brand-400/40' : ''}`}
+                  >
+                    <span
+                      className={`text-[11px] font-bold ${
+                        isReached ? 'text-brand-200' : 'text-brand-400'
+                      }`}
+                    >
+                      {i + 1}
+                    </span>
+                  </button>
 
-              <StageCard stage={stage} index={i} />
+                  <StageCard
+                    stage={stage}
+                    index={i}
+                    isActive={i === activeIndex}
+                    isMostCommon={i === MOST_COMMON_INDEX}
+                    onSelect={setActiveIndex}
+                  />
 
-              {/* Arrow between cards */}
-              {i < stages.length - 1 && (
-                <div className="flex justify-center py-2">
-                  <ChevronRight className="h-4 w-4 rotate-90 text-brand-400/50" />
+                  {/* Arrow between cards */}
+                  {i < stages.length - 1 && (
+                    <div className="flex justify-center py-2">
+                      <ChevronRight className="h-4 w-4 rotate-90 text-brand-400/50" />
+                    </div>
+                  )}
                 </div>
-              )}
-            </div>
-          ))}
+              );
+            })}
+          </div>
         </div>
-      </div>
-    </div>
+      </Container>
+    </Section>
   );
 }
 

@@ -4,6 +4,7 @@ import { Mail, Phone, Clock, Calendar } from 'lucide-react';
 import { constructMetadata } from '@/lib/seo';
 import { generateContactPointSchema } from '@/lib/schema';
 import { ContactForm } from '@/components/forms/ContactForm';
+import { Button } from '@/components/ui/button';
 import { SITE_CONFIG, CONTACT_CONFIG } from '@/lib/constants';
 
 export const metadata: Metadata = constructMetadata({
@@ -106,7 +107,7 @@ export default function ContactPage() {
 
             {/* Trust Signals */}
             <div className="rounded-lg bg-muted/50 p-6">
-              <h3 className="mb-4 text-lg font-semibold">Why Choose AIvanceWorks?</h3>
+              <h3 className="mb-4 text-lg font-semibold">Why Choose {SITE_CONFIG.name}?</h3>
               <ul className="space-y-2 text-sm">
                 <li className="flex items-start">
                   <span className="mr-2 text-primary" aria-hidden="true">
@@ -148,13 +149,16 @@ export default function ContactPage() {
                 Book a free 30-minute discovery call with our Solutions Architect. No strings
                 attached — we'll discuss your project and provide actionable recommendations.
               </p>
-              <Link
-                href="/book-consultation"
-                className="inline-flex items-center justify-center rounded-lg bg-primary px-6 py-3 font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+              <Button
+                asChild
+                size="lg"
+                className="w-full bg-brand-600 text-white shadow-sm hover:bg-brand-700 sm:w-auto"
               >
-                <Calendar className="mr-2 h-4 w-4" aria-hidden="true" />
-                Book Free Consultation
-              </Link>
+                <Link href="/book-consultation">
+                  <Calendar className="mr-2 h-4 w-4" aria-hidden="true" />
+                  Book Free Consultation
+                </Link>
+              </Button>
             </div>
 
             {/* What Happens Next */}

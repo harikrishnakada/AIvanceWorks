@@ -140,7 +140,11 @@ export const ServiceDetailTemplate = ({
         const renderer = sectionRenderers[key];
         const content = renderer();
         if (!content) return null;
-        return <div key={`${key}-${idx}`}>{content}</div>;
+        return (
+          <div key={`${key}-${idx}`} id={key} className="scroll-mt-24">
+            {content}
+          </div>
+        );
       })}
     </>
   );

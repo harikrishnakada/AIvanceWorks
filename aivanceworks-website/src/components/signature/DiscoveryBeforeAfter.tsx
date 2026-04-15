@@ -120,7 +120,7 @@ export interface DiscoveryBeforeAfterProps {
 }
 
 export const DiscoveryBeforeAfter = ({
-  headline = 'Day 14 — Five artifacts, ready to act on',
+  headline = 'Day 14 - Five artifacts, ready to act on',
   subhead = 'Every discovery sprint ends with concrete deliverables your team can ship against on Monday morning.',
 }: DiscoveryBeforeAfterProps) => {
   const [expandedIdx, setExpandedIdx] = useState<number | null>(null);

@@ -129,13 +129,13 @@ export const WebAppBuildPipeline = () => {
           <div className="hidden lg:block absolute top-[52px] left-[10%] right-[10%] h-px bg-gradient-to-r from-brand-400/10 via-brand-400/20 to-brand-400/10 z-0" />
 
           {/* Stage cards */}
-          <div className="space-y-3 lg:space-y-0 lg:grid lg:grid-cols-5 lg:gap-3">
+          <div className="space-y-3 lg:space-y-0 lg:grid lg:grid-cols-5 lg:gap-3 lg:items-stretch">
             {STAGES.map((stage, idx) => {
               const isFocused = focusedStage === stage.id;
               const isDimmed = focusedStage !== null && !isFocused;
 
               return (
-                <div key={stage.id} className="relative z-10">
+                <div key={stage.id} className="relative z-10 lg:h-full">
                   {/* Mobile: quality gate marker between stages */}
                   {idx > 0 && (
                     <div className="flex justify-center -mt-1.5 -mb-1.5 lg:hidden relative z-0">
@@ -162,6 +162,7 @@ export const WebAppBuildPipeline = () => {
                     aria-label={`${stage.title} — ${isFocused ? 'click to collapse' : 'click to expand'}`}
                     className={cn(
                       'w-full text-left rounded-xl border transition-all duration-300',
+                      'lg:h-full lg:flex lg:flex-col',
                       'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400',
                       stage.accent
                         ? 'border-accent-500/20 bg-accent-500/[0.06]'
@@ -172,8 +173,8 @@ export const WebAppBuildPipeline = () => {
                     )}
                   >
                     {/* Stage header */}
-                    <div className="px-4 py-3 lg:px-3 lg:py-4">
-                      <div className="flex items-center gap-3 lg:flex-col lg:items-start lg:gap-2">
+                    <div className="px-4 py-3 lg:px-3 lg:py-4 lg:flex-1">
+                      <div className="flex items-center gap-3 lg:flex-col lg:items-start lg:gap-2 lg:h-full">
                         {/* Stage number badge */}
                         <span
                           className={cn(

@@ -100,7 +100,7 @@ export const MvpDualTrackRoadmap = () => {
             A roadmap that shows both tracks
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-text-light mb-4 tracking-tight">
-            12 weeks. 12 demos. Real users by week 5.
+            12 Weeks. 12 Demos. Real users by Week 5.
           </h2>
           <p className="text-base md:text-lg text-text-subtle leading-relaxed">
             Top track is engineering&apos;s view. Bottom track is your view — working software,

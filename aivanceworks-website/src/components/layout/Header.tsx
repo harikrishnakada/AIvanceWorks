@@ -53,6 +53,29 @@ export function Header() {
   }, []);
 
   useEffect(() => {
+    if (!activeDropdown) return;
+    const handlePointerDown = (e: MouseEvent) => {
+      const target = e.target as HTMLElement | null;
+      if (!target) return;
+      if (!target.closest('[data-dropdown]')) {
+        if (dropdownTimeout.current) clearTimeout(dropdownTimeout.current);
+        setActiveDropdown(null);
+      }
+    };
+    document.addEventListener('mousedown', handlePointerDown);
+    document.addEventListener('touchstart', handlePointerDown as unknown as EventListener);
+    return () => {
+      document.removeEventListener('mousedown', handlePointerDown);
+      document.removeEventListener('touchstart', handlePointerDown as unknown as EventListener);
+    };
+  }, [activeDropdown]);
+
+  const toggleDropdown = (menu: Exclude<DropdownType, null>) => {
+    if (dropdownTimeout.current) clearTimeout(dropdownTimeout.current);
+    setActiveDropdown((prev) => (prev === menu ? null : menu));
+  };
+
+  useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = 'hidden';
     } else {
@@ -89,7 +112,7 @@ export function Header() {
                 className="flex items-center space-x-2 group"
                 aria-label={`${SITE_CONFIG.name} homepage`}
               >
-                <span className="text-2xl md:text-3xl font-bold text-brand-900">
+                <span className="text-2xl md:text-3xl font-bold text-heading">
                   {SITE_CONFIG.name}
                 </span>
               </Link>
@@ -99,16 +122,18 @@ export function Header() {
             <div className="hidden lg:flex lg:items-center lg:space-x-0.5 xl:space-x-1">
               {/* AI & ML Dropdown */}
               <div
+                data-dropdown="ai-ml"
                 className="relative"
                 onMouseEnter={() => handleDropdownEnter('ai-ml')}
                 onMouseLeave={handleDropdownLeave}
               >
                 <button
+                  onClick={() => toggleDropdown('ai-ml')}
                   className="flex items-center px-3 xl:px-4 py-2 text-sm xl:text-base font-medium text-brand-700 hover:text-brand-900 transition-colors rounded-lg hover:bg-brand-50"
                   aria-expanded={activeDropdown === 'ai-ml'}
                   aria-haspopup="true"
                 >
-                  AI & ML
+                  AI
                   <ChevronDown
                     className={`ml-1 h-3.5 w-3.5 xl:h-4 xl:w-4 transition-transform duration-200 ${
                       activeDropdown === 'ai-ml' ? 'rotate-180' : ''
@@ -181,11 +206,13 @@ export function Header() {
 
               {/* Services Dropdown */}
               <div
+                data-dropdown="services"
                 className="relative"
                 onMouseEnter={() => handleDropdownEnter('services')}
                 onMouseLeave={handleDropdownLeave}
               >
                 <button
+                  onClick={() => toggleDropdown('services')}
                   className="flex items-center px-3 xl:px-4 py-2 text-sm xl:text-base font-medium text-brand-700 hover:text-brand-900 transition-colors rounded-lg hover:bg-brand-50"
                   aria-expanded={activeDropdown === 'services'}
                   aria-haspopup="true"
@@ -201,11 +228,13 @@ export function Header() {
 
               {/* Solutions Dropdown */}
               <div
+                data-dropdown="solutions"
                 className="relative"
                 onMouseEnter={() => handleDropdownEnter('solutions')}
                 onMouseLeave={handleDropdownLeave}
               >
                 <button
+                  onClick={() => toggleDropdown('solutions')}
                   className="flex items-center px-3 xl:px-4 py-2 text-sm xl:text-base font-medium text-brand-700 hover:text-brand-900 transition-colors rounded-lg hover:bg-brand-50"
                   aria-expanded={activeDropdown === 'solutions'}
                   aria-haspopup="true"
@@ -235,11 +264,13 @@ export function Header() {
             <div className="hidden md:flex md:items-center md:space-x-0.5 lg:hidden">
               {/* AI & ML Dropdown */}
               <div
+                data-dropdown="ai-ml"
                 className="relative"
                 onMouseEnter={() => handleDropdownEnter('ai-ml')}
                 onMouseLeave={handleDropdownLeave}
               >
                 <button
+                  onClick={() => toggleDropdown('ai-ml')}
                   className="flex items-center px-2 py-1.5 text-xs font-medium text-brand-700 hover:text-brand-900 transition-colors rounded-md hover:bg-brand-50"
                   aria-expanded={activeDropdown === 'ai-ml'}
                   aria-haspopup="true"
@@ -307,11 +338,13 @@ export function Header() {
 
               {/* Services Dropdown */}
               <div
+                data-dropdown="services"
                 className="relative"
                 onMouseEnter={() => handleDropdownEnter('services')}
                 onMouseLeave={handleDropdownLeave}
               >
                 <button
+                  onClick={() => toggleDropdown('services')}
                   className="flex items-center px-2 py-1.5 text-xs font-medium text-brand-700 hover:text-brand-900 transition-colors rounded-md hover:bg-brand-50"
                   aria-expanded={activeDropdown === 'services'}
                   aria-haspopup="true"
@@ -327,11 +360,13 @@ export function Header() {
 
               {/* Solutions Dropdown */}
               <div
+                data-dropdown="solutions"
                 className="relative"
                 onMouseEnter={() => handleDropdownEnter('solutions')}
                 onMouseLeave={handleDropdownLeave}
               >
                 <button
+                  onClick={() => toggleDropdown('solutions')}
                   className="flex items-center px-2 py-1.5 text-xs font-medium text-brand-700 hover:text-brand-900 transition-colors rounded-md hover:bg-brand-50"
                   aria-expanded={activeDropdown === 'solutions'}
                   aria-haspopup="true"
@@ -396,6 +431,7 @@ export function Header() {
       {/* Services Mega Menu Dropdown — visible from md */}
       {activeDropdown === 'services' && (
         <div
+          data-dropdown="services"
           className="fixed top-14 md:top-16 lg:top-18 left-0 right-0 z-40 hidden md:block"
           onMouseEnter={() => handleDropdownEnter('services')}
           onMouseLeave={handleDropdownLeave}
@@ -481,6 +517,7 @@ export function Header() {
       {/* Solutions Mega Menu Dropdown — visible from md */}
       {activeDropdown === 'solutions' && (
         <div
+          data-dropdown="solutions"
           className="fixed top-14 md:top-16 lg:top-18 left-0 right-0 z-40 hidden md:block"
           onMouseEnter={() => handleDropdownEnter('solutions')}
           onMouseLeave={handleDropdownLeave}

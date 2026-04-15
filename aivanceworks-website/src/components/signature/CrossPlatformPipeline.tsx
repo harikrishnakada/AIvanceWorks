@@ -24,6 +24,7 @@
 'use client';
 
 import { Code2, Layers, Smartphone, Apple, ArrowRight, ChevronDown } from 'lucide-react';
+import { Section, Container } from '@/components/shared/primitives';
 
 interface LayerData {
   icon: React.ReactNode;
@@ -161,86 +162,88 @@ function LayerCard({ layer, index }: { layer: LayerData; index: number }) {
 
 export function CrossPlatformPipeline() {
   return (
-    <div className="w-full">
-      {/* Section header */}
-      <div className="mb-10 text-center">
-        <span className="mb-2 inline-block text-sm font-semibold uppercase tracking-wider text-brand-400">
-          Cross-Platform Architecture
-        </span>
-        <h2 className="mb-3 text-3xl font-bold text-text-light sm:text-4xl">
-          One codebase, both platforms
-        </h2>
-        <p className="mx-auto max-w-2xl text-base text-text-light/70">
-          Your mobile app flows through three layers — shared business logic, a thin
-          platform bridge, and a unified deployment pipeline that ships to both stores
-          from a single release.
-        </p>
-      </div>
+    <Section tone="dark" withGrid size="lg">
+      <Container>
+        {/* Section header */}
+        <div className="mb-10 text-center md:mb-14">
+          <span className="mb-2 inline-block text-xs font-semibold uppercase tracking-wider text-brand-400 sm:text-sm">
+            Cross-Platform Architecture
+          </span>
+          <h2 className="mb-3 text-2xl font-bold text-text-light sm:text-3xl md:text-4xl">
+            One codebase, both platforms
+          </h2>
+          <p className="mx-auto max-w-2xl text-sm text-text-light/70 sm:text-base">
+            Your mobile app flows through three layers — shared business logic, a thin
+            platform bridge, and a unified deployment pipeline that ships to both stores
+            from a single release.
+          </p>
+        </div>
 
-      {/* Desktop: horizontal 3-column pipeline with connecting arrows */}
-      <div className="hidden md:block">
-        <div className="mx-auto grid max-w-5xl grid-cols-3 gap-4 lg:gap-6">
-          {layers.map((layer, i) => (
-            <div key={layer.label} className="relative">
-              <LayerCard layer={layer} index={i} />
+        {/* Desktop: horizontal 3-column pipeline with connecting arrows */}
+        <div className="hidden md:block">
+          <div className="mx-auto grid max-w-5xl grid-cols-3 items-stretch gap-4 lg:gap-6">
+            {layers.map((layer, i) => (
+              <div key={layer.label} className="relative h-full">
+                <LayerCard layer={layer} index={i} />
 
-              {/* Connecting arrow to next card */}
-              {i < layers.length - 1 && (
-                <div className="absolute -right-3 top-1/2 z-10 flex -translate-y-1/2 lg:-right-4">
-                  <div className="flex h-6 w-6 items-center justify-center rounded-full border border-brand-500/30 bg-surface-dark lg:h-7 lg:w-7">
-                    <ArrowRight className="h-3 w-3 text-brand-400 lg:h-3.5 lg:w-3.5" />
+                {/* Connecting arrow to next card */}
+                {i < layers.length - 1 && (
+                  <div className="absolute -right-3 top-1/2 z-10 flex -translate-y-1/2 lg:-right-4">
+                    <div className="flex h-6 w-6 items-center justify-center rounded-full border border-brand-500/30 bg-surface-elevated lg:h-7 lg:w-7">
+                      <ArrowRight className="h-3 w-3 text-brand-400 lg:h-3.5 lg:w-3.5" />
+                    </div>
                   </div>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-
-        {/* Bottom summary bar */}
-        <div className="mx-auto mt-8 flex max-w-3xl items-center justify-center gap-8">
-          <div className="flex items-center gap-2">
-            <div className="h-2 w-2 rounded-full bg-brand-400" />
-            <span className="text-xs font-medium text-text-muted">Shared across platforms</span>
-          </div>
-          <div className="h-4 w-px bg-border-dark" />
-          <div className="flex items-center gap-2">
-            <div className="h-2 w-2 rounded-full bg-brand-400/50" />
-            <span className="text-xs font-medium text-text-muted">Platform-specific (thin layer)</span>
-          </div>
-          <div className="h-4 w-px bg-border-dark" />
-          <div className="flex items-center gap-2">
-            <div className="h-2 w-2 rounded-full bg-accent-400" />
-            <span className="text-xs font-medium text-text-muted">Automated deployment</span>
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile: vertical stack with connecting line */}
-      <div className="md:hidden">
-        <div className="relative space-y-6 pl-8">
-          {/* Vertical connecting line */}
-          <div className="absolute bottom-4 left-3 top-4 w-0.5 bg-gradient-to-b from-brand-500 via-brand-400 to-accent-400/40" />
-
-          {layers.map((layer, i) => (
-            <div key={layer.label} className="relative">
-              {/* Timeline dot */}
-              <div className="absolute -left-8 top-6 flex h-6 w-6 items-center justify-center rounded-full border-2 border-brand-400 bg-surface-dark">
-                <span className="text-[10px] font-bold text-brand-300">{i + 1}</span>
+                )}
               </div>
+            ))}
+          </div>
 
-              <LayerCard layer={layer} index={i} />
-
-              {/* Arrow between cards */}
-              {i < layers.length - 1 && (
-                <div className="flex justify-center py-2">
-                  <ChevronDown className="h-4 w-4 text-brand-400/50" />
-                </div>
-              )}
+          {/* Bottom summary bar */}
+          <div className="mx-auto mt-10 flex max-w-3xl flex-wrap items-center justify-center gap-x-8 gap-y-3">
+            <div className="flex items-center gap-2">
+              <div className="h-2 w-2 rounded-full bg-brand-400" />
+              <span className="text-xs font-medium text-text-light/70">Shared across platforms</span>
             </div>
-          ))}
+            <div className="hidden h-4 w-px bg-border-dark md:block" />
+            <div className="flex items-center gap-2">
+              <div className="h-2 w-2 rounded-full bg-brand-400/50" />
+              <span className="text-xs font-medium text-text-light/70">Platform-specific (thin layer)</span>
+            </div>
+            <div className="hidden h-4 w-px bg-border-dark md:block" />
+            <div className="flex items-center gap-2">
+              <div className="h-2 w-2 rounded-full bg-accent-400" />
+              <span className="text-xs font-medium text-text-light/70">Automated deployment</span>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+
+        {/* Mobile: vertical stack with connecting line */}
+        <div className="md:hidden">
+          <div className="relative space-y-6 pl-10">
+            {/* Vertical connecting line */}
+            <div className="absolute bottom-6 left-4 top-6 w-0.5 bg-gradient-to-b from-brand-500 via-brand-400 to-accent-400/40" />
+
+            {layers.map((layer, i) => (
+              <div key={layer.label} className="relative">
+                {/* Timeline dot */}
+                <div className="absolute -left-10 top-6 z-10 flex h-7 w-7 items-center justify-center rounded-full border-2 border-brand-400 bg-surface-elevated">
+                  <span className="text-[11px] font-bold text-brand-300">{i + 1}</span>
+                </div>
+
+                <LayerCard layer={layer} index={i} />
+
+                {/* Arrow between cards */}
+                {i < layers.length - 1 && (
+                  <div className="flex justify-center py-2">
+                    <ChevronDown className="h-4 w-4 text-brand-400/50" />
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </Container>
+    </Section>
   );
 }
 

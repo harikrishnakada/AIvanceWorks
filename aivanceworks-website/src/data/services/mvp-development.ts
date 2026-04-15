@@ -52,10 +52,10 @@ const mvpDevelopment: ServicePageData = {
   },
 
   metricsStrip: [
-    { value: '12 weeks', label: 'Kickoff to V1 launch', description: 'Fixed timeline' },
-    { value: '12 demos', label: 'Working software weekly', description: 'No black-box phases' },
+    { value: '12 Weeks', label: 'Kickoff to V1 launch', description: 'Fixed timeline' },
+    { value: '12 Demos', label: 'Working software weekly', description: 'No black-box phases' },
     { value: 'Week 5', label: 'Real users in the product', description: 'Not an internal beta' },
-    { value: 'V1 in prod', label: 'Paying customers by launch', description: 'Revenue-ready' },
+    { value: 'V1 in Prod', label: 'Paying customers by launch', description: 'Revenue-ready' },
   ],
 
   features: [

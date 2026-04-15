@@ -35,28 +35,33 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   const [isSolutionsOpen, setIsSolutionsOpen] = useState(false);
   const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
 
-  if (!isOpen) return null;
-
   const toggleCategory = (title: string) => {
     setExpandedCategory(expandedCategory === title ? null : title);
   };
 
   return (
     <div
-      className="fixed inset-0 z-40 md:hidden"
+      className={`fixed inset-0 z-40 md:hidden ${isOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}
       role="dialog"
       aria-modal="true"
+      aria-hidden={!isOpen}
       aria-label="Mobile menu"
     >
       {/* Backdrop */}
       <div
-        className="fixed inset-0 bg-black/50 backdrop-blur-sm animate-in fade-in duration-200"
+        className={`fixed inset-0 bg-black/50 backdrop-blur-sm transition-opacity duration-200 ${
+          isOpen ? 'opacity-100' : 'opacity-0'
+        }`}
         onClick={onClose}
         aria-hidden="true"
       />
 
       {/* Menu Panel */}
-      <div className="fixed inset-y-0 right-0 w-full max-w-sm bg-white shadow-[−8px_0_30px_rgba(0,0,0,0.1)] border-l border-gray-200 animate-in slide-in-from-right duration-300">
+      <div
+        className={`fixed inset-y-0 right-0 w-full max-w-sm bg-white shadow-[−8px_0_30px_rgba(0,0,0,0.1)] border-l border-gray-200 transform transition-transform duration-200 ease-out will-change-transform ${
+          isOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
+      >
         <div className="flex flex-col h-full">
           {/* Menu Content */}
           <div className="flex-1 overflow-y-auto px-6 py-6 mt-16">
@@ -68,7 +73,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                   className="flex items-center justify-between w-full px-4 py-3 text-base font-medium text-gray-900 hover:bg-gray-50 rounded-lg transition-colors"
                   aria-expanded={isAiMlOpen}
                 >
-                  AI & ML
+                  AI
                   <ChevronDown
                     className={`h-5 w-5 text-gray-500 transition-transform duration-200 ${
                       isAiMlOpen ? 'rotate-180' : ''
@@ -233,7 +238,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               </div>
 
               {/* Other Navigation Links (Industry, Case Studies, Blog, About) */}
-              {NAVIGATION.main.filter((item) => !['Services', 'AI & ML', 'Solutions'].includes(item.label)).map((item) => (
+              {NAVIGATION.main.filter((item) => !['Services', 'AI', 'Solutions'].includes(item.label)).map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}

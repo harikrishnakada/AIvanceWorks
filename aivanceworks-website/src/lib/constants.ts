@@ -2,7 +2,7 @@ export const CONTACT_EMAIL = 'serpentsoftware@gmail.com';
 export const SUPPORT_EMAIL = 'serpentsoftware@gmail.com';
 export const FROM_EMAIL = 'notifications@serpentsoftware.com';
 
-export const sitename = 'aiDevsoft';
+export const sitename = 'C10 Software';
 export const SITE_CONFIG = {
   name: sitename,
   description:
@@ -37,7 +37,7 @@ export const NAVIGATION = {
     { label: 'Services', href: '/services' },
     { label: 'Solutions', href: '/solutions' },
     { label: 'Industry', href: '/industry' },
-    { label: 'Case Studies', href: '/case-studies' },
+    // { label: 'Case Studies', href: '/case-studies' },
     { label: 'Blog', href: '/blog' },
     { label: 'About', href: '/about' },
   ],
@@ -50,7 +50,7 @@ export const NAVIGATION = {
   ],
   // AI & ML menu (standalone top-level dropdown)
   aiMlMenu: {
-    title: 'AI and ML',
+    title: 'AI',
     icon: 'Brain',
     description: 'Intelligent automation & agents',
     links: [

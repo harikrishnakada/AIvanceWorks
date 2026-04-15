@@ -115,7 +115,7 @@ export const TestCoveragePyramid = () => {
         </div>
 
         {/* Pyramid stack */}
-        <div className="relative max-w-3xl mx-auto space-y-2 lg:space-y-3">
+        <div className="relative mx-auto w-full max-w-3xl space-y-2 lg:space-y-3">
           {TIERS.map((tier, idx) => {
             const isFocused = focusedTier === tier.id;
             const isDimmed = focusedTier !== null && !isFocused;
@@ -128,119 +128,110 @@ export const TestCoveragePyramid = () => {
                   aria-expanded={isFocused}
                   aria-label={`${tier.title} — ${isFocused ? 'click to collapse' : 'click to expand'}`}
                   className={cn(
-                    'text-left rounded-xl border transition-all duration-300',
+                    'w-full text-left rounded-xl border transition-all duration-300',
                     'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400',
+                    // Desktop pyramid: width comes from --tier-w CSS var.
+                    // Focused state expands to full width.
+                    isFocused ? 'lg:w-full' : 'lg:w-[var(--tier-w)]',
                     tier.accent
                       ? 'border-accent-500/20 bg-accent-500/[0.06]'
                       : 'border-brand-400/15 bg-brand-500/[0.06]',
                     isFocused && 'ring-1 ring-brand-400/30 shadow-glow',
                     isFocused && tier.accent && 'ring-accent-400/30',
                     isDimmed && 'opacity-40',
-                    // On mobile, all tiers are full-width
-                    isFocused ? 'w-full' : 'w-full',
                   )}
                   style={{
-                    // On desktop, pyramid width varies by tier
-                    maxWidth: isFocused ? '100%' : undefined,
+                    ['--tier-w' as string]: `${tier.widthPercent}%`,
                   }}
                 >
-                  {/* Desktop: pyramid width via CSS variable */}
-                  <div
-                    className="lg:mx-auto transition-all duration-300"
-                    style={{
-                      width: '100%',
-                      maxWidth: isFocused ? '100%' : `${tier.widthPercent}%`,
-                    }}
-                  >
-                    {/* Tier header */}
-                    <div className="px-5 py-4 lg:px-6 lg:py-5 flex items-start justify-between gap-4">
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-3 mb-1">
+                  {/* Tier header */}
+                  <div className="px-5 py-4 lg:px-6 lg:py-5 flex items-start justify-between gap-4">
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-3 mb-1">
+                        <span
+                          className={cn(
+                            'inline-flex items-center justify-center w-7 h-7 rounded-md text-xs font-bold shrink-0',
+                            tier.accent
+                              ? 'bg-accent-500/20 text-accent-400'
+                              : 'bg-brand-500/20 text-brand-400',
+                          )}
+                        >
+                          {idx + 1}
+                        </span>
+                        <h3 className="text-base lg:text-lg font-semibold text-text-light leading-snug">
+                          {tier.title}
+                        </h3>
+                      </div>
+                      <p className="text-sm text-text-light/60 ml-10">
+                        {tier.subtitle}
+                      </p>
+                      {/* Tool chips */}
+                      <div className="flex flex-wrap gap-1.5 mt-2 ml-10">
+                        {tier.tools.map((tool) => (
                           <span
+                            key={tool}
                             className={cn(
-                              'inline-flex items-center justify-center w-7 h-7 rounded-md text-xs font-bold shrink-0',
+                              'text-[10px] font-medium px-2 py-0.5 rounded-full',
                               tier.accent
-                                ? 'bg-accent-500/20 text-accent-400'
-                                : 'bg-brand-500/20 text-brand-400',
+                                ? 'bg-accent-500/10 text-accent-400/70'
+                                : 'bg-brand-500/10 text-brand-400/70',
                             )}
                           >
-                            {idx + 1}
+                            {tool}
                           </span>
-                          <h3 className="text-base lg:text-lg font-semibold text-text-light">
-                            {tier.title}
-                          </h3>
-                        </div>
-                        <p className="text-sm text-text-light/50 ml-10">
-                          {tier.subtitle}
-                        </p>
-                        {/* Tool chips */}
-                        <div className="flex flex-wrap gap-1.5 mt-2 ml-10">
-                          {tier.tools.map((tool) => (
-                            <span
-                              key={tool}
-                              className={cn(
-                                'text-[10px] font-medium px-2 py-0.5 rounded-full',
-                                tier.accent
-                                  ? 'bg-accent-500/10 text-accent-400/70'
-                                  : 'bg-brand-500/10 text-brand-400/70',
-                              )}
-                            >
-                              {tool}
-                            </span>
-                          ))}
-                        </div>
+                        ))}
                       </div>
-
-                      {/* Expand indicator */}
-                      <svg
-                        width="16"
-                        height="16"
-                        viewBox="0 0 16 16"
-                        className={cn(
-                          'mt-1.5 shrink-0 transition-transform duration-200 text-text-light/30',
-                          isFocused && 'rotate-180',
-                        )}
-                      >
-                        <path d="M4,6 L8,10 L12,6" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
                     </div>
 
-                    {/* Expanded detail */}
-                    {isFocused && (
-                      <div className="px-5 pb-5 lg:px-6 lg:pb-6 border-t border-white/[0.06] pt-4">
-                        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                          {tier.details.map((detail) => (
-                            <div
-                              key={detail.label}
-                              className={cn(
-                                'rounded-lg p-3 border',
-                                tier.accent
-                                  ? 'bg-accent-500/[0.04] border-accent-500/10'
-                                  : 'bg-brand-500/[0.04] border-brand-400/10',
-                              )}
-                            >
-                              <p className={cn(
-                                'text-sm font-medium mb-1',
-                                tier.accent ? 'text-accent-400' : 'text-brand-300',
-                              )}>
-                                {detail.label}
-                              </p>
-                              <p className="text-xs text-text-light/50 leading-relaxed">
-                                {detail.description}
-                              </p>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    )}
+                    {/* Expand indicator */}
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      className={cn(
+                        'mt-1.5 shrink-0 transition-transform duration-200 text-text-light/30',
+                        isFocused && 'rotate-180',
+                      )}
+                    >
+                      <path d="M4,6 L8,10 L12,6" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
                   </div>
+
+                  {/* Expanded detail */}
+                  {isFocused && (
+                    <div className="px-5 pb-5 lg:px-6 lg:pb-6 border-t border-white/[0.06] pt-4">
+                      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                        {tier.details.map((detail) => (
+                          <div
+                            key={detail.label}
+                            className={cn(
+                              'rounded-lg p-3 border',
+                              tier.accent
+                                ? 'bg-accent-500/[0.04] border-accent-500/10'
+                                : 'bg-brand-500/[0.04] border-brand-400/10',
+                            )}
+                          >
+                            <p className={cn(
+                              'text-sm font-medium mb-1',
+                              tier.accent ? 'text-accent-400' : 'text-brand-300',
+                            )}>
+                              {detail.label}
+                            </p>
+                            <p className="text-xs text-text-light/60 leading-relaxed">
+                              {detail.description}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </button>
               </div>
             );
           })}
 
-          {/* Side annotations — desktop only */}
-          <div className="hidden lg:block absolute -left-20 top-1/2 -translate-y-1/2">
+          {/* Side annotations — extra-large screens only (avoid overlap on smaller laptops) */}
+          <div className="hidden xl:block absolute -left-14 top-1/2 -translate-y-1/2 pointer-events-none">
             <p
               className="text-[10px] font-semibold uppercase tracking-[0.15em] text-brand-300/40"
               style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
@@ -248,7 +239,7 @@ export const TestCoveragePyramid = () => {
               Speed &amp; Volume
             </p>
           </div>
-          <div className="hidden lg:block absolute -right-16 top-1/2 -translate-y-1/2">
+          <div className="hidden xl:block absolute -right-14 top-1/2 -translate-y-1/2 pointer-events-none">
             <p
               className="text-[10px] font-semibold uppercase tracking-[0.15em] text-accent-300/40"
               style={{ writingMode: 'vertical-rl' }}
