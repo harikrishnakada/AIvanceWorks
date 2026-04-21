@@ -112,10 +112,10 @@ export function ServicesSection() {
   const totalDots = maxIndex + 1;
 
   return (
-    <section data-section="home-services" className="py-6 sm:py-8 lg:py-12 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section data-section="home-services" className="py-7 sm:py-8 lg:py-10 bg-white">
+      <div className="w-full px-4 sm:px-6 md:px-8 lg:px-12">
         {/* Section Header */}
-        <div className="flex flex-col items-center gap-2 sm:gap-3 mb-4 sm:mb-5 lg:mb-7">
+        <div className="flex flex-col items-center gap-2 sm:gap-3 mb-3 sm:mb-4 lg:mb-5">
           <div className="w-full text-center max-w-3xl mx-auto">
             <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-black text-gray-900 mb-1 sm:mb-2">
               End-to-End Software Development Services

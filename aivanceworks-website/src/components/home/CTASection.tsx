@@ -5,11 +5,11 @@ import { SITE_CONFIG, NAVIGATION } from '@/lib/constants';
 
 export function CTASection() {
   return (
-    <section data-section="home-cta" className="py-6 sm:py-8 lg:py-12 relative overflow-hidden">
+    <section data-section="home-cta" className="py-7 sm:py-8 lg:py-10 relative overflow-hidden">
       {/* Subtle background */}
       <div className="absolute inset-0 bg-gradient-to-b from-white via-brand-50/20 to-white" />
 
-      <div className="relative max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+      <div className="relative w-full px-4 sm:px-6 md:px-8 lg:px-12">
         <div className="relative bg-gradient-to-br from-surface-dark-from via-surface-dark-via to-surface-dark-to rounded-xl sm:rounded-2xl lg:rounded-3xl overflow-hidden shadow-brand-panel-lg">
           {/* Background Pattern */}
           <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--brand-grid-light)_1px,transparent_1px),linear-gradient(to_bottom,var(--brand-grid-light)_1px,transparent_1px)] bg-[size:32px_32px]" />

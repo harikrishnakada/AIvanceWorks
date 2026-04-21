@@ -2,8 +2,9 @@
 
 import Link from 'next/link';
 import { useState, useEffect, useRef } from 'react';
-import { SITE_CONFIG, NAVIGATION } from '@/lib/constants';
+import { NAVIGATION } from '@/lib/constants';
 import { Button } from '@/components/ui/button';
+import { Logo } from '@/components/brand/Logo';
 import {
   Menu, X, ChevronDown, ArrowRight,
   Code2, Server, Brain,
@@ -12,6 +13,7 @@ import {
   GitBranch, Cloud, RefreshCw, Shield,
   Cpu, Activity, Zap, TrendingUp, Heart,
   Search, ShoppingCart, Store,
+  Target, Package, Sparkles, FileText, Workflow,
 } from 'lucide-react';
 import { MobileMenu } from './MobileMenu';
 import type { LucideIcon } from 'lucide-react';
@@ -23,6 +25,7 @@ const iconMap: Record<string, LucideIcon> = {
   GitBranch, Cloud, RefreshCw, Shield,
   Cpu, Activity, Zap, TrendingUp, Heart,
   Search, ShoppingCart, Store,
+  Target, Package, Sparkles, FileText, Workflow,
 };
 
 type DropdownType = 'services' | 'ai-ml' | 'solutions' | null;
@@ -104,18 +107,10 @@ export function Header() {
         }`}
       >
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Main navigation">
-          <div className="flex items-center justify-between h-14 md:h-16 lg:h-18" >
+          <div className="flex items-center justify-between h-20 md:h-18 lg:h-20">
             {/* Logo */}
             <div className="flex-shrink-0">
-              <Link
-                href="/"
-                className="flex items-center space-x-2 group"
-                aria-label={`${SITE_CONFIG.name} homepage`}
-              >
-                <span className="text-2xl md:text-3xl font-bold text-heading">
-                  {SITE_CONFIG.name}
-                </span>
-              </Link>
+              <Logo />
             </div>
 
             {/* Desktop Navigation — visible from lg (1024px) */}
@@ -129,13 +124,13 @@ export function Header() {
               >
                 <button
                   onClick={() => toggleDropdown('ai-ml')}
-                  className="flex items-center px-3 xl:px-4 py-2 text-sm xl:text-base font-medium text-brand-700 hover:text-brand-900 transition-colors rounded-lg hover:bg-brand-50"
+                  className="flex items-center px-4 xl:px-5 py-2 text-base xl:text-lg font-medium text-gray-900 hover:text-black transition-colors rounded-lg hover:bg-gray-100"
                   aria-expanded={activeDropdown === 'ai-ml'}
                   aria-haspopup="true"
                 >
-                  AI
+                  AI Solutions
                   <ChevronDown
-                    className={`ml-1 h-3.5 w-3.5 xl:h-4 xl:w-4 transition-transform duration-200 ${
+                    className={`ml-1.5 h-4 w-4 xl:h-5 xl:w-5 transition-transform duration-200 ${
                       activeDropdown === 'ai-ml' ? 'rotate-180' : ''
                     }`}
                   />
@@ -213,13 +208,13 @@ export function Header() {
               >
                 <button
                   onClick={() => toggleDropdown('services')}
-                  className="flex items-center px-3 xl:px-4 py-2 text-sm xl:text-base font-medium text-brand-700 hover:text-brand-900 transition-colors rounded-lg hover:bg-brand-50"
+                  className="flex items-center px-4 xl:px-5 py-2 text-base xl:text-lg font-medium text-gray-900 hover:text-black transition-colors rounded-lg hover:bg-gray-100"
                   aria-expanded={activeDropdown === 'services'}
                   aria-haspopup="true"
                 >
                   Services
                   <ChevronDown
-                    className={`ml-1 h-3.5 w-3.5 xl:h-4 xl:w-4 transition-transform duration-200 ${
+                    className={`ml-1.5 h-4 w-4 xl:h-5 xl:w-5 transition-transform duration-200 ${
                       activeDropdown === 'services' ? 'rotate-180' : ''
                     }`}
                   />
@@ -235,13 +230,13 @@ export function Header() {
               >
                 <button
                   onClick={() => toggleDropdown('solutions')}
-                  className="flex items-center px-3 xl:px-4 py-2 text-sm xl:text-base font-medium text-brand-700 hover:text-brand-900 transition-colors rounded-lg hover:bg-brand-50"
+                  className="flex items-center px-4 xl:px-5 py-2 text-base xl:text-lg font-medium text-gray-900 hover:text-black transition-colors rounded-lg hover:bg-gray-100"
                   aria-expanded={activeDropdown === 'solutions'}
                   aria-haspopup="true"
                 >
                   Solutions
                   <ChevronDown
-                    className={`ml-1 h-3.5 w-3.5 xl:h-4 xl:w-4 transition-transform duration-200 ${
+                    className={`ml-1.5 h-4 w-4 xl:h-5 xl:w-5 transition-transform duration-200 ${
                       activeDropdown === 'solutions' ? 'rotate-180' : ''
                     }`}
                   />
@@ -253,7 +248,7 @@ export function Header() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="px-3 xl:px-4 py-2 text-sm xl:text-base font-medium text-brand-700 hover:text-brand-900 transition-colors rounded-lg hover:bg-brand-50"
+                  className="px-4 xl:px-5 py-2 text-base xl:text-lg font-medium text-gray-900 hover:text-black transition-colors rounded-lg hover:bg-gray-100"
                 >
                   {item.label}
                 </Link>
@@ -271,13 +266,13 @@ export function Header() {
               >
                 <button
                   onClick={() => toggleDropdown('ai-ml')}
-                  className="flex items-center px-2 py-1.5 text-xs font-medium text-brand-700 hover:text-brand-900 transition-colors rounded-md hover:bg-brand-50"
+                  className="flex items-center px-3 py-2 text-sm font-medium text-gray-900 hover:text-black transition-colors rounded-md hover:bg-gray-100"
                   aria-expanded={activeDropdown === 'ai-ml'}
                   aria-haspopup="true"
                 >
-                  AI & ML
+                  AI Solutions
                   <ChevronDown
-                    className={`ml-0.5 h-3 w-3 transition-transform duration-200 ${
+                    className={`ml-1 h-3.5 w-3.5 transition-transform duration-200 ${
                       activeDropdown === 'ai-ml' ? 'rotate-180' : ''
                     }`}
                   />
@@ -345,13 +340,13 @@ export function Header() {
               >
                 <button
                   onClick={() => toggleDropdown('services')}
-                  className="flex items-center px-2 py-1.5 text-xs font-medium text-brand-700 hover:text-brand-900 transition-colors rounded-md hover:bg-brand-50"
+                  className="flex items-center px-3 py-2 text-sm font-medium text-gray-900 hover:text-black transition-colors rounded-md hover:bg-gray-100"
                   aria-expanded={activeDropdown === 'services'}
                   aria-haspopup="true"
                 >
                   Services
                   <ChevronDown
-                    className={`ml-0.5 h-3 w-3 transition-transform duration-200 ${
+                    className={`ml-1 h-3.5 w-3.5 transition-transform duration-200 ${
                       activeDropdown === 'services' ? 'rotate-180' : ''
                     }`}
                   />
@@ -367,13 +362,13 @@ export function Header() {
               >
                 <button
                   onClick={() => toggleDropdown('solutions')}
-                  className="flex items-center px-2 py-1.5 text-xs font-medium text-brand-700 hover:text-brand-900 transition-colors rounded-md hover:bg-brand-50"
+                  className="flex items-center px-3 py-2 text-sm font-medium text-gray-900 hover:text-black transition-colors rounded-md hover:bg-gray-100"
                   aria-expanded={activeDropdown === 'solutions'}
                   aria-haspopup="true"
                 >
                   Solutions
                   <ChevronDown
-                    className={`ml-0.5 h-3 w-3 transition-transform duration-200 ${
+                    className={`ml-1 h-3.5 w-3.5 transition-transform duration-200 ${
                       activeDropdown === 'solutions' ? 'rotate-180' : ''
                     }`}
                   />
@@ -385,7 +380,7 @@ export function Header() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="px-2 py-1.5 text-xs font-medium text-brand-700 hover:text-brand-900 transition-colors rounded-md hover:bg-brand-50"
+                  className="px-3 py-2 text-sm font-medium text-gray-900 hover:text-black transition-colors rounded-md hover:bg-gray-100"
                 >
                   {item.label}
                 </Link>
@@ -395,19 +390,11 @@ export function Header() {
             {/* CTA Buttons — visible from md */}
             <div className="hidden md:flex md:items-center md:space-x-1.5 lg:space-x-3">
               <Button
-                variant="outline"
                 size="sm"
                 asChild
-                className="border-brand-200 text-brand-700 hover:border-brand-400 hover:bg-brand-50 text-[11px] lg:text-sm h-8 lg:h-9 px-2.5 lg:px-3"
+                className="bg-brand-600 text-white hover:bg-brand-700 text-sm lg:text-base h-9 lg:h-10 px-4 lg:px-5 font-semibold shadow-sm"
               >
                 <Link href="/contact">Contact</Link>
-              </Button>
-              <Button
-                size="sm"
-                asChild
-                className="bg-brand-600 text-white hover:bg-brand-700 shadow-sm font-semibold text-[11px] lg:text-sm h-8 lg:h-9 px-2.5 lg:px-3"
-              >
-                <Link href="/book-consultation">Book an Appointment</Link>
               </Button>
             </div>
 
@@ -432,13 +419,13 @@ export function Header() {
       {activeDropdown === 'services' && (
         <div
           data-dropdown="services"
-          className="fixed top-14 md:top-16 lg:top-18 left-0 right-0 z-40 hidden md:block"
+          className="fixed top-16 md:top-18 lg:top-20 left-0 right-0 z-40 hidden md:block"
           onMouseEnter={() => handleDropdownEnter('services')}
           onMouseLeave={handleDropdownLeave}
         >
           {/* Backdrop */}
           <div
-            className="fixed inset-0 top-14 md:top-16 lg:top-18 bg-black/30 backdrop-blur-[2px]"
+            className="fixed inset-0 top-16 md:top-18 lg:top-20 bg-black/30 backdrop-blur-[2px]"
             onClick={closeDropdown}
           />
 
@@ -518,13 +505,13 @@ export function Header() {
       {activeDropdown === 'solutions' && (
         <div
           data-dropdown="solutions"
-          className="fixed top-14 md:top-16 lg:top-18 left-0 right-0 z-40 hidden md:block"
+          className="fixed top-16 md:top-18 lg:top-20 left-0 right-0 z-40 hidden md:block"
           onMouseEnter={() => handleDropdownEnter('solutions')}
           onMouseLeave={handleDropdownLeave}
         >
           {/* Backdrop */}
           <div
-            className="fixed inset-0 top-14 md:top-16 lg:top-18 bg-black/30 backdrop-blur-[2px]"
+            className="fixed inset-0 top-16 md:top-18 lg:top-20 bg-black/30 backdrop-blur-[2px]"
             onClick={closeDropdown}
           />
 
@@ -598,7 +585,7 @@ export function Header() {
       <MobileMenu isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)} />
 
       {/* Spacer to prevent content from hiding under fixed header */}
-      <div className="h-14 md:h-16 lg:h-18" />
+      <div className="h-20 md:h-18 lg:h-20" />
     </>
   );
 }

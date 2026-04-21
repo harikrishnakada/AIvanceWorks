@@ -17,7 +17,7 @@ export const SITE_CONFIG = {
   creator: `${sitename} Team`,
   company: {
     name: sitename,
-    legalName: 'Rovasoft LLC',
+    legalName: 'C10 LLC',
     slogan: 'Transform Your Ideas Into Intelligent Solutions',
     email: CONTACT_EMAIL,
     phone: '+1 (555) 123-4567',
@@ -33,7 +33,7 @@ export const SITE_CONFIG = {
 
 export const NAVIGATION = {
   main: [
-    { label: 'AI & ML', href: '/services/ai-machine-learning' },
+    //{ label: 'AI', href: '/services/ai-machine-learning' },
     { label: 'Services', href: '/services' },
     { label: 'Solutions', href: '/solutions' },
     { label: 'Industry', href: '/industry' },
@@ -50,10 +50,10 @@ export const NAVIGATION = {
   ],
   // AI & ML menu (standalone top-level dropdown)
   aiMlMenu: {
-    title: 'AI',
+    title: 'AI Solutions',
     icon: 'Brain',
     description: 'Intelligent automation & agents',
-    links: [
+      links: [
       { label: 'AI Strategy & Consulting', href: '/services/ai-strategy-consulting', icon: 'MessageSquare' },
       { label: 'Generative AI', href: '/services/generative-ai', icon: 'Zap' },
       { label: 'NLP & Document AI', href: '/services/nlp-document-ai', icon: 'Search' },

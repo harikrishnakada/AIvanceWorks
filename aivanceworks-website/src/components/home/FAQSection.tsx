@@ -46,7 +46,7 @@ export function FAQSection() {
   };
 
   return (
-    <section data-section="home-faq" className="py-6 sm:py-8 lg:py-12 bg-white">
+    <section data-section="home-faq" className="py-7 sm:py-8 lg:py-10 bg-white">
       {/* FAQ Schema */}
       <JsonLd data={generateFAQSchema(faqs)} />
 

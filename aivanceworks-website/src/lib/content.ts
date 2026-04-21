@@ -1016,6 +1016,7 @@ const SERVICE_PAGE_MODULES: Record<string, () => Promise<{ default: ServicePageD
   'security-compliance': () => import('@/data/services/security-compliance'),
   'ai-strategy-consulting': () => import('@/data/services/ai-strategy-consulting'),
   'it-consulting': () => import('@/data/services/it-consulting'),
+  
 };
 
 const SOLUTION_PAGE_MODULES: Record<string, () => Promise<{ default: SolutionPageData }>> = {

@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { SITE_CONFIG, NAVIGATION } from '@/lib/constants';
+import { Logo } from '@/components/brand/Logo';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Linkedin, Github, Twitter, Mail, ArrowRight } from 'lucide-react';
@@ -90,15 +91,7 @@ export function Footer() {
             {/* Brand & Newsletter */}
             <div className="lg:col-span-2">
               {/* Logo */}
-              <Link
-                href="/"
-                className="inline-flex items-center group"
-                aria-label={`${SITE_CONFIG.name} homepage`}
-              >
-                <span className="text-2xl md:text-3xl font-bold text-brand-900">
-                  {SITE_CONFIG.name}
-                </span>
-              </Link>
+              <Logo />
 
               <p className="mt-4 text-sm text-gray-600 leading-relaxed max-w-sm">
                 {SITE_CONFIG.description}

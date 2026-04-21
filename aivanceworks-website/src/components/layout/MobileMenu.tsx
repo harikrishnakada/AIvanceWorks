@@ -12,6 +12,7 @@ import {
   GitBranch, Cloud, RefreshCw, Shield,
   Cpu, Activity, Zap, TrendingUp, Heart,
   Search, ShoppingCart, Store,
+  Target, Package, Sparkles, FileText, Workflow,
 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
@@ -22,6 +23,7 @@ const iconMap: Record<string, LucideIcon> = {
   GitBranch, Cloud, RefreshCw, Shield,
   Cpu, Activity, Zap, TrendingUp, Heart,
   Search, ShoppingCart, Store,
+  Target, Package, Sparkles, FileText, Workflow,
 };
 
 interface MobileMenuProps {
@@ -73,7 +75,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                   className="flex items-center justify-between w-full px-4 py-3 text-base font-medium text-gray-900 hover:bg-gray-50 rounded-lg transition-colors"
                   aria-expanded={isAiMlOpen}
                 >
-                  AI
+                  AI Solutions
                   <ChevronDown
                     className={`h-5 w-5 text-gray-500 transition-transform duration-200 ${
                       isAiMlOpen ? 'rotate-180' : ''
@@ -248,28 +250,28 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                   {item.label}
                 </Link>
               ))}
-            </nav>
-          </div>
 
-          {/* CTA Buttons */}
-          <div className="border-t border-gray-200 p-6 space-y-3 bg-gray-50">
-            <Button
-              variant="outline"
-              className="w-full border-gray-300 text-gray-700 hover:border-brand-300 hover:bg-white"
-              asChild
-            >
-              <Link href="/contact" onClick={onClose}>
-                Contact Us
-              </Link>
-            </Button>
-            <Button
-              className="w-full bg-brand-600 text-white hover:bg-brand-700 shadow-sm font-semibold"
-              asChild
-            >
-              <Link href="/book-consultation" onClick={onClose}>
-                Book Consultation
-              </Link>
-            </Button>
+              {/* CTA Buttons */}
+              <div className="pt-4 space-y-3">
+                <Button
+                  variant="outline"
+                  className="w-full border-gray-300 text-gray-700 hover:border-brand-300 hover:bg-white"
+                  asChild
+                >
+                  <Link href="/contact" onClick={onClose}>
+                    Contact Us
+                  </Link>
+                </Button>
+                <Button
+                  className="w-full bg-brand-600 text-white hover:bg-brand-700 shadow-sm font-semibold"
+                  asChild
+                >
+                  <Link href="/book-consultation" onClick={onClose}>
+                    Book Consultation
+                  </Link>
+                </Button>
+              </div>
+            </nav>
           </div>
         </div>
       </div>
