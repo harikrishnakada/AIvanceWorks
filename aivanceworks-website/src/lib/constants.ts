@@ -48,18 +48,33 @@ export const NAVIGATION = {
     { label: 'Cloud & Infrastructure', href: '/services/cloud-engineering' },
     { label: 'Security & Compliance', href: '/services/security-compliance' },
   ],
-  // AI & ML menu (standalone top-level dropdown)
+  // AI menu (standalone top-level dropdown — grouped: Solutions + Services)
   aiMlMenu: {
-    title: 'AI Solutions',
+    title: 'AI',
     icon: 'Brain',
     description: 'Intelligent automation & agents',
-      links: [
-      { label: 'AI Strategy & Consulting', href: '/services/ai-strategy-consulting', icon: 'MessageSquare' },
-      { label: 'Generative AI', href: '/services/generative-ai', icon: 'Zap' },
-      { label: 'NLP & Document AI', href: '/services/nlp-document-ai', icon: 'Search' },
-      { label: 'Conversational AI', href: '/services/conversational-ai', icon: 'MessageCircle' },
-      { label: 'Computer Vision', href: '/services/computer-vision', icon: 'Eye' },
-      { label: 'Intelligent Automation', href: '/services/intelligent-automation', icon: 'Activity' },
+    groups: [
+      {
+        title: 'AI Industry Solutions',
+        icon: 'Sparkles',
+        description: 'AI-powered industry platforms',
+        links: [
+          { label: 'C10 AI Fintech', href: '/solutions/ai-fintech', icon: 'CreditCard' },
+          { label: 'C10 AI Healthcare', href: '/solutions/ai-healthcare', icon: 'Stethoscope' },
+          { label: 'C10 AI Retail', href: '/solutions/ai-retail', icon: 'ShoppingCart' },
+        ],
+      },
+      {
+        title: 'AI Automation & Intelligence',
+        icon: 'Brain',
+        description: 'AI capability building blocks',
+        links: [
+          { label: 'Generative AI', href: '/services/generative-ai', icon: 'Sparkles' },
+          { label: 'NLP & Document AI', href: '/services/nlp-document-ai', icon: 'FileText' },
+          { label: 'Conversational AI', href: '/services/conversational-ai', icon: 'MessageCircle' },
+          { label: 'Computer Vision', href: '/services/computer-vision', icon: 'Eye' },
+        ],
+      },
     ],
   },
   // Mega menu columns for "Services" dropdown

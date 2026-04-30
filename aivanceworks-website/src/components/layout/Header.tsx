@@ -9,11 +9,12 @@ import {
   Menu, X, ChevronDown, ArrowRight,
   Code2, Server, Brain,
   Bot, Rocket, Layers, Lightbulb, Building2, Globe, Smartphone,
-  Settings, Palette, MessageSquare, Headphones,
+  Settings, Palette, MessageSquare, MessageCircle, Headphones,
   GitBranch, Cloud, RefreshCw, Shield,
   Cpu, Activity, Zap, TrendingUp, Heart,
   Search, ShoppingCart, Store,
   Target, Package, Sparkles, FileText, Workflow,
+  CreditCard, Stethoscope, Eye,
 } from 'lucide-react';
 import { MobileMenu } from './MobileMenu';
 import type { LucideIcon } from 'lucide-react';
@@ -21,11 +22,12 @@ import type { LucideIcon } from 'lucide-react';
 const iconMap: Record<string, LucideIcon> = {
   Code2, Server, Brain,
   Bot, Rocket, Layers, Lightbulb, Building2, Globe, Smartphone,
-  Settings, Palette, MessageSquare, Headphones,
+  Settings, Palette, MessageSquare, MessageCircle, Headphones,
   GitBranch, Cloud, RefreshCw, Shield,
   Cpu, Activity, Zap, TrendingUp, Heart,
   Search, ShoppingCart, Store,
   Target, Package, Sparkles, FileText, Workflow,
+  CreditCard, Stethoscope, Eye,
 };
 
 type DropdownType = 'services' | 'ai-ml' | 'solutions' | null;
@@ -115,7 +117,7 @@ export function Header() {
 
             {/* Desktop Navigation — visible from lg (1024px) */}
             <div className="hidden lg:flex lg:items-center lg:space-x-0.5 xl:space-x-1">
-              {/* AI & ML Dropdown */}
+              {/* AI Dropdown */}
               <div
                 data-dropdown="ai-ml"
                 className="relative"
@@ -135,68 +137,6 @@ export function Header() {
                     }`}
                   />
                 </button>
-
-                {/* AI & ML Inline Dropdown */}
-                {activeDropdown === 'ai-ml' && (
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 md:pt-3 w-[280px] md:w-[320px] lg:w-[340px] z-50 animate-in fade-in slide-in-from-top-2 duration-200">
-                    <div className="bg-white rounded-xl md:rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.15)] border border-gray-200/80 overflow-hidden">
-                      <div className="p-4 md:p-5">
-                        {/* Header */}
-                        <div className="flex items-center gap-2 md:gap-3 mb-1">
-                          <div className="w-8 h-8 md:w-9 md:h-9 rounded-lg bg-brand-50 flex items-center justify-center">
-                            <Brain className="h-4 w-4 text-brand-600" />
-                          </div>
-                          <div>
-                            <h3 className="text-sm md:text-base font-bold text-gray-900">
-                              {NAVIGATION.aiMlMenu.title}
-                            </h3>
-                            <p className="text-[10px] md:text-xs text-gray-400">
-                              {NAVIGATION.aiMlMenu.description}
-                            </p>
-                          </div>
-                        </div>
-
-                        {/* Divider */}
-                        <div className="h-px bg-gradient-to-r from-gray-200 via-gray-100 to-transparent my-2 md:my-3" />
-
-                        {/* Links */}
-                        <ul className="space-y-0.5">
-                          {NAVIGATION.aiMlMenu.links.map((link) => {
-                            const LinkIcon = iconMap[link.icon] || Code2;
-                            return (
-                              <li key={link.href + link.label}>
-                                <Link
-                                  href={link.href}
-                                  onClick={closeDropdown}
-                                  className="group/link flex items-center gap-2 py-1.5 md:py-[7px] px-2 md:px-2.5 -mx-1 rounded-lg text-xs md:text-sm text-gray-600 hover:text-brand-700 hover:bg-brand-50/70 transition-all duration-150"
-                                >
-                                  <LinkIcon className="h-3 w-3 md:h-3.5 md:w-3.5 text-gray-400 group-hover/link:text-brand-500 transition-colors flex-shrink-0" />
-                                  <span className="truncate">{link.label}</span>
-                                  <ArrowRight className="h-3 w-3 ml-auto text-gray-300 opacity-0 -translate-x-1 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all duration-150 flex-shrink-0" />
-                                </Link>
-                              </li>
-                            );
-                          })}
-                        </ul>
-                      </div>
-
-                      {/* Bottom CTA bar */}
-                      <div className="bg-gray-50/80 border-t border-gray-100 px-4 md:px-5 py-2.5 flex items-center justify-between">
-                        <p className="text-[11px] md:text-xs text-gray-500">
-                          Explore AI capabilities
-                        </p>
-                        <Link
-                          href="/book-consultation"
-                          onClick={closeDropdown}
-                          className="inline-flex items-center gap-1.5 text-[11px] md:text-xs font-semibold text-brand-600 hover:text-brand-700 transition-colors"
-                        >
-                          Consult
-                          <ArrowRight className="h-3 w-3" />
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                )}
               </div>
 
               {/* Services Dropdown */}
@@ -257,7 +197,7 @@ export function Header() {
 
             {/* Tablet Navigation — visible only at md (768-1023px) */}
             <div className="hidden md:flex md:items-center md:space-x-0.5 lg:hidden">
-              {/* AI & ML Dropdown */}
+              {/* AI Dropdown */}
               <div
                 data-dropdown="ai-ml"
                 className="relative"
@@ -277,58 +217,6 @@ export function Header() {
                     }`}
                   />
                 </button>
-
-                {/* AI & ML Inline Dropdown (tablet) */}
-                {activeDropdown === 'ai-ml' && (
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-[270px] z-50 animate-in fade-in slide-in-from-top-2 duration-200">
-                    <div className="bg-white rounded-xl shadow-[0_20px_60px_rgba(0,0,0,0.15)] border border-gray-200/80 overflow-hidden">
-                      <div className="p-4">
-                        <div className="flex items-center gap-2 mb-1">
-                          <div className="w-7 h-7 rounded-lg bg-brand-50 flex items-center justify-center">
-                            <Brain className="h-3.5 w-3.5 text-brand-600" />
-                          </div>
-                          <div>
-                            <h3 className="text-xs font-bold text-gray-900">
-                              {NAVIGATION.aiMlMenu.title}
-                            </h3>
-                            <p className="text-[9px] text-gray-400">
-                              {NAVIGATION.aiMlMenu.description}
-                            </p>
-                          </div>
-                        </div>
-                        <div className="h-px bg-gradient-to-r from-gray-200 via-gray-100 to-transparent my-2" />
-                        <ul className="space-y-0.5">
-                          {NAVIGATION.aiMlMenu.links.map((link) => {
-                            const LinkIcon = iconMap[link.icon] || Code2;
-                            return (
-                              <li key={link.href + link.label}>
-                                <Link
-                                  href={link.href}
-                                  onClick={closeDropdown}
-                                  className="group/link flex items-center gap-2 py-1.5 px-2 -mx-1 rounded-lg text-xs text-gray-600 hover:text-brand-700 hover:bg-brand-50/70 transition-all duration-150"
-                                >
-                                  <LinkIcon className="h-3 w-3 text-gray-400 group-hover/link:text-brand-500 transition-colors flex-shrink-0" />
-                                  <span className="truncate">{link.label}</span>
-                                </Link>
-                              </li>
-                            );
-                          })}
-                        </ul>
-                      </div>
-                      <div className="bg-gray-50/80 border-t border-gray-100 px-4 py-2 flex items-center justify-between">
-                        <p className="text-[10px] text-gray-500">Explore AI</p>
-                        <Link
-                          href="/book-consultation"
-                          onClick={closeDropdown}
-                          className="inline-flex items-center gap-1 text-[10px] font-semibold text-brand-600 hover:text-brand-700 transition-colors"
-                        >
-                          Consult
-                          <ArrowRight className="h-2.5 w-2.5" />
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                )}
               </div>
 
               {/* Services Dropdown */}
@@ -414,6 +302,91 @@ export function Header() {
           </div>
         </nav>
       </header>
+
+      {/* AI Mega Menu Dropdown — visible from md */}
+      {activeDropdown === 'ai-ml' && (
+        <div
+          data-dropdown="ai-ml"
+          className="fixed top-16 md:top-18 lg:top-20 left-0 right-0 z-40 hidden md:block"
+          onMouseEnter={() => handleDropdownEnter('ai-ml')}
+          onMouseLeave={handleDropdownLeave}
+        >
+          {/* Backdrop */}
+          <div
+            className="fixed inset-0 top-16 md:top-18 lg:top-20 bg-black/30 backdrop-blur-[2px]"
+            onClick={closeDropdown}
+          />
+
+          <div className="relative animate-in fade-in slide-in-from-top-2 duration-200">
+            <div className="max-w-4xl mx-auto px-4 md:px-6 pt-2 md:pt-3">
+              <div className="bg-white rounded-xl md:rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.15)] border border-gray-200/80 overflow-hidden">
+                {/* Columns — Solutions + Services */}
+                <div className="grid grid-cols-2 divide-x divide-gray-100">
+                  {NAVIGATION.aiMlMenu.groups.map((group) => {
+                    const CategoryIcon = iconMap[group.icon] || Code2;
+                    return (
+                      <div key={group.title} className="p-4 md:p-5 lg:p-6">
+                        {/* Column Header */}
+                        <div className="flex items-center gap-2 md:gap-3 mb-1">
+                          <div className="w-8 h-8 md:w-9 md:h-9 rounded-lg bg-brand-50 flex items-center justify-center">
+                            <CategoryIcon className="h-4 w-4 text-brand-600" />
+                          </div>
+                          <div>
+                            <h3 className="text-sm md:text-base font-bold text-gray-900">
+                              {group.title}
+                            </h3>
+                            <p className="text-[10px] md:text-xs text-gray-400">
+                              {group.description}
+                            </p>
+                          </div>
+                        </div>
+
+                        {/* Divider */}
+                        <div className="h-px bg-gradient-to-r from-gray-200 via-gray-100 to-transparent my-2 md:my-3" />
+
+                        {/* Links */}
+                        <ul className="space-y-0.5">
+                          {group.links.map((link) => {
+                            const LinkIcon = iconMap[link.icon] || Code2;
+                            return (
+                              <li key={link.href + link.label}>
+                                <Link
+                                  href={link.href}
+                                  onClick={closeDropdown}
+                                  className="group/link flex items-center gap-2 py-1.5 md:py-[7px] px-2 md:px-2.5 -mx-1 rounded-lg text-xs md:text-sm text-gray-600 hover:text-brand-700 hover:bg-brand-50/70 transition-all duration-150"
+                                >
+                                  <LinkIcon className="h-3 w-3 md:h-3.5 md:w-3.5 text-gray-400 group-hover/link:text-brand-500 transition-colors flex-shrink-0" />
+                                  <span className="truncate">{link.label}</span>
+                                  <ArrowRight className="h-3 w-3 ml-auto text-gray-300 opacity-0 -translate-x-1 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all duration-150 flex-shrink-0" />
+                                </Link>
+                              </li>
+                            );
+                          })}
+                        </ul>
+                      </div>
+                    );
+                  })}
+                </div>
+
+                {/* Bottom CTA bar */}
+                <div className="bg-gray-50/80 border-t border-gray-100 px-4 md:px-6 py-3 flex items-center justify-between">
+                  <p className="text-[11px] md:text-xs text-gray-500">
+                    Explore AI capabilities
+                  </p>
+                  <Link
+                    href="/book-consultation"
+                    onClick={closeDropdown}
+                    className="inline-flex items-center gap-1.5 text-[11px] md:text-xs font-semibold text-brand-600 hover:text-brand-700 transition-colors"
+                  >
+                    Book a free consultation
+                    <ArrowRight className="h-3 w-3" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Services Mega Menu Dropdown — visible from md */}
       {activeDropdown === 'services' && (

@@ -169,7 +169,7 @@ export default function ServicesPage() {
         title="AI Solutions"
         description={NAVIGATION.aiMlMenu.description}
         CategoryIcon={Brain}
-        links={NAVIGATION.aiMlMenu.links}
+        links={NAVIGATION.aiMlMenu.groups[1].links}
         builtOutSlugs={builtOutSlugs}
         iconMap={iconMap}
         descriptions={SERVICE_DESCRIPTIONS}
