@@ -311,12 +311,12 @@ const securityCompliance: ServicePageData = {
       pageType: 'solution',
     },
     {
-      title: 'IT Consulting',
+      title: 'Wealth & Investment Management',
       description:
-        'Audit finding or vendor review flagged a strategic gap? Our IT Consulting engagements run the upstream decision — vendor selection, build-vs-buy, transformation roadmap — through the same regulatory lens, so remediation work starts from a decision your auditor will accept.',
-      href: '/services/it-consulting',
-      icon: 'Compass',
-      pageType: 'service',
+        'Compliance team facing an SEC exam or FINRA sweep? See the same Zero-Trust baseline applied to a wealth platform — Reg BI evidence, Form CRS delivery, and a books-and-records archive built to SEC 17a-4 / IAA 204-2.',
+      href: '/solutions/wealth-investment-management',
+      icon: 'TrendingUp',
+      pageType: 'solution',
     },
   ],
 

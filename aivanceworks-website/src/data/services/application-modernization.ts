@@ -303,11 +303,11 @@ const applicationModernization: ServicePageData = {
       pageType: 'service',
     },
     {
-      title: 'Agency Management Software',
+      title: 'Wealth & Investment Management',
       description:
-        'Modernizing an insurance AMS? See how we apply the strangler-fig approach to replace legacy agency management systems — carrier integrations, commission engine, and producer tools — without a rip-and-replace migration.',
-      href: '/solutions/agency-management-software',
-      icon: 'Building2',
+        'Replacing a legacy advisor portal or back-office? See the strangler-fig approach applied to a wealth platform — trade flow, books-and-records archive, and the existing custodial book of business stay running while the new system takes over channel by channel.',
+      href: '/solutions/wealth-investment-management',
+      icon: 'TrendingUp',
       pageType: 'solution',
     },
   ],

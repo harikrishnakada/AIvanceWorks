@@ -152,12 +152,21 @@ export const NAVIGATION = {
         { label: 'Document Management Software', href: '/solutions/document-management-software', icon: 'Settings' },
       ],
     },
+    // {
+    //   heading: 'E-Commerce & Retail',
+    //   icon: 'ShoppingCart',
+    //   links: [
+    //     { label: 'E-Commerce Websites', href: '/solutions/e-commerce-websites', icon: 'ShoppingCart' },
+    //     { label: 'Retail Websites', href: '/solutions/retail-websites', icon: 'Store' },
+    //   ],
+    // },
     {
-      heading: 'E-Commerce & Retail',
-      icon: 'ShoppingCart',
+      heading: 'Finance',
+      icon: 'TrendingUp',
       links: [
-        { label: 'E-Commerce Websites', href: '/solutions/e-commerce-websites', icon: 'ShoppingCart' },
-        { label: 'Retail Websites', href: '/solutions/retail-websites', icon: 'Store' },
+        { label: 'Digital Banking & Wallets', href: '/solutions/digital-banking-wallets', icon: 'CreditCard' },
+        { label: 'Document Management', href: '/solutions/financial-document-management', icon: 'FileText' },
+        { label: 'Wealth & Investment Management', href: '/solutions/wealth-investment-management', icon: 'TrendingUp' },
       ],
     },
   ],

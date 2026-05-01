@@ -1031,6 +1031,9 @@ const SOLUTION_PAGE_MODULES: Record<string, () => Promise<{ default: SolutionPag
   'policy-administration-systems': () => import('@/data/solutions/policy-administration-systems'),
   'document-management-software': () => import('@/data/solutions/document-management-software'),
   'retail-websites': () => import('@/data/solutions/retail-websites'),
+  'wealth-investment-management': () => import('@/data/solutions/wealth-investment-management'),
+  'digital-banking-wallets': () => import('@/data/solutions/digital-banking-wallets'),
+  'financial-document-management': () => import('@/data/solutions/financial-document-management'),
 };
 
 export async function getServicePageData(slug: string): Promise<ServicePageData | null> {

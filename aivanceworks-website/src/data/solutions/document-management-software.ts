@@ -100,7 +100,7 @@ const documentManagementSoftware: SolutionPageData = {
     primaryCta: { label: 'Book a Discovery Call', href: '/contact' },
     secondaryCta: { label: 'See the document lifecycle', href: '#signature' },
     heroImage: {
-      src: '/images/solutions/document-management-software/hero.jpg',
+      src: '/images/solutions/document-management-software/document-management-1.jpg',
       alt: 'Compliance professional reviewing document management system on a workstation in a regulated industry office',
     },
     metrics: [

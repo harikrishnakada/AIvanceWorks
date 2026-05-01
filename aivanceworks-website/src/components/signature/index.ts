@@ -57,3 +57,7 @@ export { AiStrategyFrameworkBlueprint } from './AiStrategyFrameworkBlueprint';
 export { AiStrategyHeroIllustration } from './AiStrategyHeroIllustration';
 export { RegulatedItDecisionGauntlet } from './RegulatedItDecisionGauntlet';
 export { ItConsultingHeroIllustration } from './ItConsultingHeroIllustration';
+export { ClientWealthCanvas } from './ClientWealthCanvas';
+export { BooksAndRecordsControlPlane } from './BooksAndRecordsControlPlane';
+export { DigitalBankingTransactionFlow } from './DigitalBankingTransactionFlow';
+export { RoleBoundary, type RoleBoundaryProps } from './RoleBoundary';

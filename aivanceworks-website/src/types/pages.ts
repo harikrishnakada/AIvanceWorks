@@ -148,12 +148,21 @@ export type SectionKey =
   | 'personaComparison'
   | 'relatedPages'
   | 'imageFeatures'
+  | 'roleBoundary'
   | 'signature';
 
 export interface ImageFeatureData {
   heading: string;
   description: string;
   image: { src: string; alt: string };
+}
+
+export interface RoleBoundaryData {
+  eyebrow?: string;
+  heading: string;
+  intro: string;
+  bullets: string[];
+  collaboration: string;
 }
 
 // ─── Base page data ─────────────────────────────────────
@@ -192,6 +201,7 @@ export interface BasePageData {
   integrations?: IntegrationGroup[];
   complianceSpotlight?: ComplianceSpotlightData;
   personaComparison?: PersonaComparisonData;
+  roleBoundary?: RoleBoundaryData;
   relatedPages?: RelatedPageItem[];      // internal cross-links (SEO + funnel)
   faqs: FAQItem[];
   cta: {

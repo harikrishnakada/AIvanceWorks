@@ -275,12 +275,12 @@ const nlpDocumentAi: ServicePageData = {
       pageType: 'service',
     },
     {
-      title: 'Conversational AI',
+      title: 'Financial Document Management',
       description:
-        'Your extracted document data becomes the knowledge base for AI chatbots and virtual assistants — we build conversational agents that answer customer questions grounded in the structured content your pipeline produces.',
-      href: '/services/conversational-ai',
-      icon: 'MessageSquare',
-      pageType: 'service',
+        'Document AI is the gate that keeps a records platform clean. See the same OCR and classification stack applied to financial document management — KYC files, advisory agreements, trade confirms, and loan disclosures tagged correctly at ingestion so retention rules, search, and supervisory review work without a manual indexing pass.',
+      href: '/solutions/financial-document-management',
+      icon: 'ShieldCheck',
+      pageType: 'solution',
     },
   ],
 

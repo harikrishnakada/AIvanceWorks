@@ -17,6 +17,7 @@ import {
   RelatedPages,
   ImageFeature,
 } from '@/components/shared/sections';
+import { RoleBoundary } from '@/components/signature';
 
 export interface SolutionDetailTemplateProps {
   data: SolutionPageData;
@@ -88,6 +89,16 @@ export const SolutionDetailTemplate = ({
           subtitle={data.personaComparison.subtitle}
           personas={data.personaComparison.personas}
           footerNote={data.personaComparison.footerNote}
+        />
+      ) : null,
+    roleBoundary: () =>
+      data.roleBoundary ? (
+        <RoleBoundary
+          eyebrow={data.roleBoundary.eyebrow}
+          heading={data.roleBoundary.heading}
+          intro={data.roleBoundary.intro}
+          bullets={data.roleBoundary.bullets}
+          collaboration={data.roleBoundary.collaboration}
         />
       ) : null,
     discoveryMethodology: () => null,

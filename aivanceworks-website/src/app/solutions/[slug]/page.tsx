@@ -18,6 +18,9 @@ import {
   DocumentLifecycleMap,
   UnifiedRetailCommerceMap,
   PolicyLifecycleControlPlane,
+  ClientWealthCanvas,
+  DigitalBankingTransactionFlow,
+  BooksAndRecordsControlPlane,
 } from '@/components/signature';
 import type { ReactNode } from 'react';
 
@@ -61,6 +64,9 @@ const SIGNATURE_COMPONENTS: Record<string, ReactNode> = {
   DocumentLifecycleMap: <DocumentLifecycleMap />,
   UnifiedRetailCommerceMap: <UnifiedRetailCommerceMap />,
   PolicyLifecycleControlPlane: <PolicyLifecycleControlPlane />,
+  ClientWealthCanvas: <ClientWealthCanvas />,
+  DigitalBankingTransactionFlow: <DigitalBankingTransactionFlow />,
+  BooksAndRecordsControlPlane: <BooksAndRecordsControlPlane />,
 };
 
 export default async function SolutionPage({ params }: PageProps) {

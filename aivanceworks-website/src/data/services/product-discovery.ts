@@ -201,11 +201,11 @@ const productDiscovery: ServicePageData = {
       pageType: 'solution',
     },
     {
-      title: 'Agency Management Software',
+      title: 'Wealth & Investment Management',
       description:
-        'See how discovery scopes an insurance AMS — carrier integrations, commission structures, and producer workflows mapped before development starts.',
-      href: '/solutions/agency-management-software',
-      icon: 'Building2',
+        'Scoping a wealth platform overhaul? See how discovery maps custodians, OMS, the supervisory chain, and Reg BI / books-and-records obligations into a buildable backlog before a line of code is written.',
+      href: '/solutions/wealth-investment-management',
+      icon: 'TrendingUp',
       pageType: 'solution',
     },
   ],

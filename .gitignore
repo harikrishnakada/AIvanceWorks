@@ -7,3 +7,5 @@ node_modules
 .playwright-mcp/**
 playwright/**
 .superpowers/
+.claude/settings.local.json
+aivanceworks-website/.claude/settings.local.json
