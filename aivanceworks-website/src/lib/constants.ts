@@ -100,7 +100,7 @@ export const NAVIGATION = {
       ],
     },
     {
-      title: 'Infrastructure',
+      title: 'Infrastructure Management',
       icon: 'Server',
       description: 'Cloud & DevOps excellence',
       links: [

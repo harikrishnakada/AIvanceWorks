@@ -128,7 +128,7 @@ const financialDocumentManagement: SolutionPageData = {
     primaryCta: { label: 'Book a Discovery Call', href: '/contact' },
     secondaryCta: { label: 'See the document control plane', href: '#signature' },
     heroImage: {
-      src: '/images/solutions/financial-document-management/hero.jpg',
+      src: '/images/solutions/financial-document-management/document-management-1.jpg',
       alt: 'Records and operations professional reviewing documents on a tablet in a modern wealth management workspace',
     },
     metrics: [
