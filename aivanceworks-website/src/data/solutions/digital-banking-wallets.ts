@@ -547,10 +547,10 @@ const digitalBankingWallets: SolutionPageData = {
 
   relatedPages: [
     {
-      title: 'Product Discovery',
+      title: 'Market Research',
       description:
-        'Planning to embed finance? A discovery sprint maps your BaaS, sponsor-bank, KYC, and card-issuing choices before a line of code is written.',
-      href: '/services/product-discovery',
+        'Planning to embed finance? Market research maps your BaaS options, competitive fintech landscape, KYC providers, and regulatory requirements before a line of code is written.',
+      href: '/services/market-research',
       icon: 'Compass',
       pageType: 'service',
     },

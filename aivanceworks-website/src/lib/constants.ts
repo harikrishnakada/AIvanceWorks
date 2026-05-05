@@ -85,7 +85,7 @@ export const NAVIGATION = {
       description: 'End-to-end software solutions',
       links: [
         // Client-facing entry points (original)
-        { label: 'Product Discovery', href: '/services/product-discovery', icon: 'Search' },
+        { label: 'Market Research', href: '/services/market-research', icon: 'Search' },
         { label: 'MVP Development', href: '/services/mvp-development', icon: 'Rocket' },
         { label: 'SaaS Software Development', href: '/services/saas-development', icon: 'Layers' },
         { label: 'Software Dev for Startups', href: '/services/startup-development', icon: 'Lightbulb' },

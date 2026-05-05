@@ -308,10 +308,10 @@ const insurancePortals: SolutionPageData = {
 
   relatedPages: [
     {
-      title: 'Product Discovery',
+      title: 'Market Research',
       description:
-        'Planning a portal modernisation? A discovery sprint maps your core systems, agent workflows, and regulatory requirements before development.',
-      href: '/services/product-discovery',
+        'Planning a portal modernisation? Market research maps competitive portals, buyer expectations, agent workflows, and regulatory requirements before development.',
+      href: '/services/market-research',
       icon: 'Compass',
       pageType: 'service',
     },

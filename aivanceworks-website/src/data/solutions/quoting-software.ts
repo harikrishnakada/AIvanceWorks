@@ -459,10 +459,10 @@ const quotingSoftware: SolutionPageData = {
       pageType: 'solution',
     },
     {
-      title: 'Product Discovery',
+      title: 'Market Research',
       description:
-        'Planning a quoting platform overhaul? A discovery sprint maps your rating engines, distribution channels, and state-by-state filing landscape before development begins.',
-      href: '/services/product-discovery',
+        'Planning a quoting platform overhaul? Market research maps competitive quoting tools, distribution channels, rating engine options, and state-by-state regulatory requirements before development begins.',
+      href: '/services/market-research',
       icon: 'Compass',
       pageType: 'service',
     },

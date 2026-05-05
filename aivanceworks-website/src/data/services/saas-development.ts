@@ -255,10 +255,10 @@ const saasDevelopment: ServicePageData = {
       pageType: 'service',
     },
     {
-      title: 'Product Discovery',
+      title: 'Market Research',
       description:
-        'Not sure which features to build first? A discovery sprint maps your market, validates assumptions, and produces the prioritised backlog we build from.',
-      href: '/services/product-discovery',
+        'Not sure which features to build first? Market research maps your competitive landscape, validates buyer priorities, and surfaces the insights that drive your product roadmap.',
+      href: '/services/market-research',
       icon: 'Compass',
       pageType: 'service',
     },

@@ -427,10 +427,10 @@ const underwritingSoftware: SolutionPageData = {
 
   relatedPages: [
     {
-      title: 'Product Discovery',
+      title: 'Market Research',
       description:
-        'Planning an underwriting platform overhaul? A discovery sprint maps your rating engines, data sources, and regulatory landscape before development begins.',
-      href: '/services/product-discovery',
+        'Planning an underwriting platform overhaul? Market research maps competitive underwriting tools, data provider options, rating engines, and regulatory requirements before development begins.',
+      href: '/services/market-research',
       icon: 'Compass',
       pageType: 'service',
     },

@@ -394,10 +394,10 @@ const agencyManagementSoftware: SolutionPageData = {
 
   relatedPages: [
     {
-      title: 'Product Discovery',
+      title: 'Market Research',
       description:
-        'Planning an AMS overhaul? A discovery sprint maps your carrier integrations, commission structures, and producer workflows before a line of code is written.',
-      href: '/services/product-discovery',
+        'Planning an AMS overhaul? Market research maps your competitive landscape, buyer personas, and key integration requirements before a line of code is written.',
+      href: '/services/market-research',
       icon: 'Compass',
       pageType: 'service',
     },

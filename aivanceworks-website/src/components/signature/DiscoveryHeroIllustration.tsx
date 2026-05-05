@@ -1,5 +1,5 @@
 /**
- * DiscoveryHeroIllustration — inline SVG for the Product Discovery hero right column.
+ * DiscoveryHeroIllustration — inline SVG for the Market Research hero right column.
  *
  * Concept: Abstract journey from uncertainty → research/validation → confirmed plan.
  * Three geometric nodes (question, search, target) connected by dashed arrow paths
@@ -12,7 +12,7 @@ export const DiscoveryHeroIllustration = () => (
   <div
     className="w-full max-w-md mx-auto"
     role="img"
-    aria-label="Abstract diagram showing the product discovery journey: from an open question through research and validation to a confirmed plan"
+    aria-label="Abstract diagram showing the market research journey: from an open question through research and validation to a confirmed plan"
   >
     <svg
       viewBox="0 0 400 300"
@@ -20,7 +20,7 @@ export const DiscoveryHeroIllustration = () => (
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <title>Product Discovery Journey</title>
+      <title>Market Research Journey</title>
       <desc>
         Three connected nodes illustrating the discovery process: Idea (question mark hexagon),
         Validate (magnifying glass circle), and Ship (target diamond) — joined by animated

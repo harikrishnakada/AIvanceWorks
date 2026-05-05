@@ -289,10 +289,10 @@ const retailWebsites: SolutionPageData = {
       pageType: 'solution',
     },
     {
-      title: 'Product Discovery',
+      title: 'Market Research',
       description:
-        'Scoping a retail replatform or a unified-commerce initiative? A 2-week discovery sprint validates the channel strategy and produces the integration map we build from.',
-      href: '/services/product-discovery',
+        'Scoping a retail replatform or a unified-commerce initiative? Market research validates your channel strategy, competitive positioning, and buyer expectations before you commit to a build.',
+      href: '/services/market-research',
       icon: 'Compass',
       pageType: 'service',
     },

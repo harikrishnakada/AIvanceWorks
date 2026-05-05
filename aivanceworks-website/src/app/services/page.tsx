@@ -53,7 +53,7 @@ const SERVICE_DESCRIPTIONS: Record<string, string> = {
   'computer-vision': 'Automate visual inspection, recognition, and analysis with deep learning models.',
   'intelligent-automation': 'Orchestrate complex workflows with autonomous AI agents that reason and act.',
    // Software Engineering
-  'product-discovery': 'Validate your idea with user research, prototyping, and technical feasibility analysis.',
+  'market-research': 'Data-driven market sizing, competitive intelligence, and buyer persona research — before you build.',
   'mvp-development': 'Ship a focused, investor-ready MVP in weeks — not months.',
   'saas-development': 'Build scalable multi-tenant SaaS platforms designed for growth.',
   'startup-development': 'Full-stack development tailored to the pace and constraints of startups.',

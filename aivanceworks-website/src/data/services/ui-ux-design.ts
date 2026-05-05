@@ -11,7 +11,7 @@ import type { ServicePageData } from '@/types/pages';
 // Signature: DesignMaturitySpectrum — a 3-stage maturity model (Ad Hoc → Structured → Systematic)
 //   letting the buyer self-assess and see the journey. Comparison/Process hybrid pattern.
 //
-// Composition follows Archetype A recipe (same as Product Discovery, Cloud Strategy).
+// Composition follows Archetype A recipe (same as Market Research, Cloud Strategy).
 // No deviations from the archetype.
 
 const uiUxDesign: ServicePageData = {
@@ -229,10 +229,10 @@ const uiUxDesign: ServicePageData = {
   // Mix of services and solutions. Journey-aware descriptions per §13 Step 10.
   relatedPages: [
     {
-      title: 'Product Discovery',
+      title: 'Market Research',
       description:
-        'Need to validate the idea before designing it? A 2-week discovery sprint produces the research and prioritized backlog that feeds directly into design.',
-      href: '/services/product-discovery',
+        'Need to validate the idea before designing it? Market research produces the buyer insights, persona data, and competitive benchmarks that feed directly into design.',
+      href: '/services/market-research',
       icon: 'Compass',
       pageType: 'service',
     },

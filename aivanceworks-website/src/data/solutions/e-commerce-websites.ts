@@ -259,10 +259,10 @@ const eCommerceWebsites: SolutionPageData = {
 
   relatedPages: [
     {
-      title: 'Product Discovery',
+      title: 'Market Research',
       description:
-        'Migrating platforms or building from scratch? A discovery sprint validates your conversion strategy and scopes the technical build.',
-      href: '/services/product-discovery',
+        'Migrating platforms or building from scratch? Market research validates your buyer segments, competitive positioning, and channel strategy before you commit to a build.',
+      href: '/services/market-research',
       icon: 'Compass',
       pageType: 'service',
     },

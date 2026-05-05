@@ -205,10 +205,10 @@ const mvpDevelopment: ServicePageData = {
 
   relatedPages: [
     {
-      title: 'Product Discovery',
+      title: 'Market Research',
       description:
-        'Not sure what to build first? A 2-week discovery sprint validates your idea and produces the backlog we build from.',
-      href: '/services/product-discovery',
+        'Not sure what to build first? Market research validates your target segment, sizes the opportunity, and surfaces the ICP insights your MVP backlog is built from.',
+      href: '/services/market-research',
       icon: 'Compass',
       pageType: 'service',
     },

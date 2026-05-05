@@ -992,7 +992,7 @@ export function getServiceFaqs(categorySlug: string, serviceSlug: string): FAQ[]
 // Non-pilot pages stay on the legacy fetchers above until migrated.
 
 const SERVICE_PAGE_MODULES: Record<string, () => Promise<{ default: ServicePageData }>> = {
-  'product-discovery': () => import('@/data/services/product-discovery'),
+  'market-research': () => import('@/data/services/market-research'),
   'mvp-development': () => import('@/data/services/mvp-development'),
   'saas-development': () => import('@/data/services/saas-development'),
   'cloud-strategy': () => import('@/data/services/cloud-strategy'),

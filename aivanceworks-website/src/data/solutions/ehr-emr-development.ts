@@ -429,10 +429,10 @@ const ehrEmrDevelopment: SolutionPageData = {
 
   relatedPages: [
     {
-      title: 'Product Discovery',
+      title: 'Market Research',
       description:
-        'Planning an EHR overhaul? A discovery sprint maps your clinical workflows, compliance landscape, and integration requirements before development begins.',
-      href: '/services/product-discovery',
+        'Planning an EHR overhaul? Market research maps the competitive EHR landscape, buyer personas, compliance requirements, and integration expectations before development begins.',
+      href: '/services/market-research',
       icon: 'Compass',
       pageType: 'service',
     },

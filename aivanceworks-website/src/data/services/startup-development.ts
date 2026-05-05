@@ -263,10 +263,10 @@ const startupDevelopment: ServicePageData = {
       pageType: 'service',
     },
     {
-      title: 'Product Discovery',
+      title: 'Market Research',
       description:
-        'Not sure what to build first? A 2-week discovery sprint validates your assumptions and produces the prioritized backlog we build from.',
-      href: '/services/product-discovery',
+        'Not sure what to build first? Market research validates your assumptions, sizes the opportunity, and produces the competitive intelligence your product backlog is built from.',
+      href: '/services/market-research',
       icon: 'Compass',
       pageType: 'service',
     },

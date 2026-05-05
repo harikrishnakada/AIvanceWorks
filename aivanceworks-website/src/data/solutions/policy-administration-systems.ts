@@ -497,10 +497,10 @@ const policyAdministrationSystems: SolutionPageData = {
       pageType: 'service',
     },
     {
-      title: 'Product Discovery',
+      title: 'Market Research',
       description:
-        'Scoping a PAS replacement? A discovery sprint maps your core, billing, claims, and reinsurance touchpoints — and the legacy bridge design — before a line of code is written.',
-      href: '/services/product-discovery',
+        'Scoping a PAS replacement? Market research maps competitive systems, carrier expectations, billing and claims flows, and legacy bridge requirements before a line of code is written.',
+      href: '/services/market-research',
       icon: 'Compass',
       pageType: 'service',
     },

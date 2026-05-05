@@ -389,10 +389,10 @@ const patientPortals: SolutionPageData = {
 
   relatedPages: [
     {
-      title: 'Product Discovery',
+      title: 'Market Research',
       description:
-        'Scoping a portal project? A discovery sprint maps your EHR landscape, compliance gaps, and patient workflows before development starts.',
-      href: '/services/product-discovery',
+        'Scoping a portal project? Market research maps the competitive landscape, patient expectations, compliance gaps, and EHR integration requirements before development starts.',
+      href: '/services/market-research',
       icon: 'Compass',
       pageType: 'service',
     },

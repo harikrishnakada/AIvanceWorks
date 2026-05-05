@@ -1,7 +1,7 @@
 'use client';
 
 /**
- * DiscoveryBeforeAfter — signature section for Product Discovery page.
+ * DiscoveryBeforeAfter — signature section for the Market Research page.
  *
  * Desktop: 5 artifact cards in a horizontal grid under a context headline.
  * Mobile: artifact cards collapse to 2 cols, then 1 col at smallest.
@@ -120,8 +120,8 @@ export interface DiscoveryBeforeAfterProps {
 }
 
 export const DiscoveryBeforeAfter = ({
-  headline = 'Day 14 - Five artifacts, ready to act on',
-  subhead = 'Every discovery sprint ends with concrete deliverables your team can ship against on Monday morning.',
+  headline = 'Week 4 — Five deliverables, ready to act on',
+  subhead = 'Every market research engagement ends with concrete deliverables your product and leadership team can act on immediately.',
 }: DiscoveryBeforeAfterProps) => {
   const [expandedIdx, setExpandedIdx] = useState<number | null>(null);
 

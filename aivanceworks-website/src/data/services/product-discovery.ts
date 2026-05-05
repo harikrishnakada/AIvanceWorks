@@ -2,7 +2,7 @@ import type { ServicePageData } from '@/types/pages';
 
 const productDiscovery: ServicePageData = {
   slug: 'product-discovery',
-  title: 'Product Discovery',
+  title: 'Market Research',
   shortDescription:
     'Turn a fuzzy idea into a prioritized, de-risked plan your team can build against on Monday morning.',
 

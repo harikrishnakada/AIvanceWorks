@@ -477,10 +477,10 @@ const documentManagementSoftware: SolutionPageData = {
       pageType: 'solution',
     },
     {
-      title: 'Product Discovery',
+      title: 'Market Research',
       description:
-        'Before building your DMS, a discovery sprint maps every document type, retention obligation, and compliance gap — so the platform is scoped and budgeted correctly before a line of code is written.',
-      href: '/services/product-discovery',
+        'Before building your DMS, market research maps competitive solutions, buyer priorities, retention obligations, and compliance requirements — so the platform is correctly positioned and scoped.',
+      href: '/services/market-research',
       icon: 'Compass',
       pageType: 'service',
     },
