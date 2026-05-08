@@ -65,13 +65,13 @@ export const NAVIGATION = {
         ],
       },
       {
-        title: 'AI Automation & Intelligence',
+        title: 'Automation & Intelligence',
         icon: 'Brain',
         description: 'AI capability building blocks',
         links: [
           { label: 'Generative AI', href: '/services/generative-ai', icon: 'Sparkles' },
           { label: 'NLP & Document AI', href: '/services/nlp-document-ai', icon: 'FileText' },
-          { label: 'Conversational AI', href: '/services/conversational-ai', icon: 'MessageCircle' },
+          { label: 'Custom AI Agents', href: '/services/conversational-ai', icon: 'MessageCircle' },
           { label: 'Computer Vision', href: '/services/computer-vision', icon: 'Eye' },
         ],
       },
@@ -85,14 +85,12 @@ export const NAVIGATION = {
       description: 'End-to-end software solutions',
       links: [
         // Client-facing entry points (original)
+        { label: 'Custom Software Development', href: '/services/custom-software-development', icon: 'Settings' },
         { label: 'Market Research', href: '/services/market-research', icon: 'Search' },
-        { label: 'MVP Development', href: '/services/mvp-development', icon: 'Rocket' },
         { label: 'SaaS Software Development', href: '/services/saas-development', icon: 'Layers' },
-        { label: 'Software Dev for Startups', href: '/services/startup-development', icon: 'Lightbulb' },
         { label: 'Web App Development', href: '/services/web-app-development', icon: 'Globe' },
         { label: 'Mobile App & Cross-Platform Development', href: '/services/mobile-development', icon: 'Smartphone' },
-        { label: 'Custom Software Development', href: '/services/custom-software-development', icon: 'Settings' },
-        { label: 'Application Modernization', href: '/services/application-modernization', icon: 'RefreshCw' },
+        { label: 'Legacy Modernization', href: '/services/application-modernization', icon: 'RefreshCw' },
         { label: 'UI/UX Design', href: '/services/ui-ux-design', icon: 'Palette' },
         { label: 'Quality Engineering & Testing', href: '/services/quality-engineering', icon: 'CheckCircle' },
         { label: 'Architecture Advisory', href: '/services/architecture-advisory', icon: 'Layers' },
@@ -114,30 +112,26 @@ export const NAVIGATION = {
         { label: 'Security & Compliance', href: '/services/security-compliance', icon: 'Shield' },
       ],
     },
-    {
-      title: 'Technologies',
-      icon: 'Cpu',
-      description: 'Our core tech stack',
+        {
+      title: 'Enterprise Solutions',
+      icon: 'Building2',
+      description: 'Business platforms at scale',
       links: [
-        { label: 'Next.js / React.js', href: '/services/web-app-development', icon: 'Globe' },
-        { label: 'TypeScript / JavaScript', href: '/services/web-app-development', icon: 'Code2' },
-        { label: '.NET 10', href: '/services/custom-software-development', icon: 'Layers' },
-        { label: 'Python', href: '/services/generative-ai', icon: 'Cpu' },
-        { label: 'Microsoft SQL', href: '/services/data-engineering', icon: 'Server' },
-        { label: 'Azure', href: '/services/cloud-infrastructure', icon: 'Cloud' },
-        { label: 'AWS', href: '/services/cloud-infrastructure', icon: 'Zap' },
+        { label: 'ERP', href: '/services/erp-development', icon: 'Rocket' },
+        { label: 'CRM', href: '/services/crm', icon: 'Lightbulb' },
       ],
-    },
+    }
   ],
   // Mega menu columns for "Solutions" dropdown
   solutionsMenu: [
-    {
-      heading: 'HealthCare',
-      icon: 'Heart',
+
+     {
+      heading: 'Finance',
+      icon: 'TrendingUp',
       links: [
-        { label: 'Patient Portals', href: '/solutions/patient-portals', icon: 'Heart' },
-        { label: 'EHR & EMR Development', href: '/solutions/ehr-emr-development', icon: 'Activity' },
-        { label: 'Hospital Management Systems', href: '/solutions/hospital-management-systems', icon: 'Building2' },
+        { label: 'Digital Banking & Wallets', href: '/solutions/digital-banking-wallets', icon: 'CreditCard' },
+        { label: 'Document Management', href: '/solutions/financial-document-management', icon: 'FileText' },
+        { label: 'Wealth & Investment Management', href: '/solutions/wealth-investment-management', icon: 'TrendingUp' },
       ],
     },
     {
@@ -160,17 +154,32 @@ export const NAVIGATION = {
     //     { label: 'Retail Websites', href: '/solutions/retail-websites', icon: 'Store' },
     //   ],
     // },
-    {
-      heading: 'Finance',
-      icon: 'TrendingUp',
+   {
+      heading: 'HealthCare',
+      icon: 'Heart',
       links: [
-        { label: 'Digital Banking & Wallets', href: '/solutions/digital-banking-wallets', icon: 'CreditCard' },
-        { label: 'Document Management', href: '/solutions/financial-document-management', icon: 'FileText' },
-        { label: 'Wealth & Investment Management', href: '/solutions/wealth-investment-management', icon: 'TrendingUp' },
+        { label: 'Patient Portals', href: '/solutions/patient-portals', icon: 'Heart' },
+        { label: 'EHR & EMR Development', href: '/solutions/ehr-emr-development', icon: 'Activity' },
+        { label: 'Hospital Management Systems', href: '/solutions/hospital-management-systems', icon: 'Building2' },
       ],
     },
   ],
 } as const;
+
+export const TECHNOLOGIES =  {
+      title: 'Technologies',
+      icon: 'Cpu',
+      description: 'Our core tech stack',
+      links: [
+        { label: 'Next.js / React.js', href: '/services/web-app-development', icon: 'Globe' },
+        { label: 'TypeScript / JavaScript', href: '/services/web-app-development', icon: 'Code2' },
+        { label: '.NET 10', href: '/services/custom-software-development', icon: 'Layers' },
+        { label: 'Python', href: '/services/generative-ai', icon: 'Cpu' },
+        { label: 'Microsoft SQL', href: '/services/data-engineering', icon: 'Server' },
+        { label: 'Azure', href: '/services/cloud-infrastructure', icon: 'Cloud' },
+        { label: 'AWS', href: '/services/cloud-infrastructure', icon: 'Zap' },
+      ],
+    } as const;
 
 export const CONTACT_CONFIG = {
   email: {

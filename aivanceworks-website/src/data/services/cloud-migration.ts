@@ -309,7 +309,7 @@ const cloudMigration: ServicePageData = {
       pageType: 'service',
     },
     {
-      title: 'Application Modernization',
+      title: 'Legacy Modernization',
       description:
         'Some workloads need more than migration — they need rearchitecting. For legacy monoliths that should become cloud-native services, our modernization team handles the transformation.',
       href: '/services/application-modernization',

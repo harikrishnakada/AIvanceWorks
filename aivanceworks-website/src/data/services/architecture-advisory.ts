@@ -252,7 +252,7 @@ const architectureAdvisory: ServicePageData = {
 
   relatedPages: [
     {
-      title: 'Application Modernization',
+      title: 'Legacy Modernization',
       description:
         'Assessment confirmed it\'s time to modernize? We execute the transformation — strangler fig migrations, monolith decomposition, and incremental extraction without stopping production.',
       href: '/services/application-modernization',

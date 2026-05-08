@@ -237,10 +237,10 @@ const uiUxDesign: ServicePageData = {
       pageType: 'service',
     },
     {
-      title: 'MVP Development',
+      title: 'ERP Development',
       description:
-        'Design done? We take your wireframes, prototypes, and design system and ship a production V1 — no gap between design and engineering.',
-      href: '/services/mvp-development',
+        'Great design is wasted if the ERP underneath is clunky. We pair UX work with ERP customization so your enterprise workflows are as intuitive as a consumer app.',
+      href: '/services/erp-development',
       icon: 'Rocket',
       pageType: 'service',
     },

@@ -555,10 +555,10 @@ const digitalBankingWallets: SolutionPageData = {
       pageType: 'service',
     },
     {
-      title: 'MVP Development',
+      title: 'ERP Development',
       description:
-        'Want to ship one feature first? Our 12-week MVP process delivers a wallet, account opening, or P2P module while the broader platform is planned.',
-      href: '/services/mvp-development',
+        'Fintech platforms need tight integration between transaction processing and financial reporting. We implement the ERP backbone that keeps your books reconciled in real time.',
+      href: '/services/erp-development',
       icon: 'Rocket',
       pageType: 'service',
     },

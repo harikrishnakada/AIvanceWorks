@@ -257,10 +257,10 @@ const mobileDevelopment: ServicePageData = {
 
   relatedPages: [
     {
-      title: 'MVP Development',
+      title: 'ERP Development',
       description:
-        'Need to validate your mobile idea on a fixed timeline? Our 12-week MVP sprint gets a working product with real users by week 5 — then you scale.',
-      href: '/services/mvp-development',
+        'Field teams need mobile access to ERP data — inventory, work orders, customer records. We build mobile apps that connect directly to your ERP in real time.',
+      href: '/services/erp-development',
       icon: 'Rocket',
       pageType: 'service',
     },

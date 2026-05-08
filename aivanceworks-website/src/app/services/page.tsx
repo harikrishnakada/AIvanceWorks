@@ -7,14 +7,14 @@ import {
   Settings, Palette, MessageSquare,
   GitBranch, Cloud, RefreshCw, Shield,
   Activity, Zap, TrendingUp, Database,
-  Search, CheckCircle, Eye,
+  Search, CheckCircle, Eye, Building2,
 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { constructMetadata } from '@/lib/seo';
 import { generateWebPageSchema } from '@/lib/schema';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { getAllServicePageSlugs } from '@/lib/content';
-import { NAVIGATION, SITE_CONFIG } from '@/lib/constants';
+import { NAVIGATION, SITE_CONFIG, TECHNOLOGIES } from '@/lib/constants';
 import { Button } from '@/components/ui/button';
 import { ServicesNavStrip } from '@/components/services/ServicesNavStrip';
 import { ServicePillarSection } from '@/components/services/ServicePillarSection';
@@ -54,9 +54,9 @@ const SERVICE_DESCRIPTIONS: Record<string, string> = {
   'intelligent-automation': 'Orchestrate complex workflows with autonomous AI agents that reason and act.',
    // Software Engineering
   'market-research': 'Data-driven market sizing, competitive intelligence, and buyer persona research — before you build.',
-  'mvp-development': 'Ship a focused, investor-ready MVP in weeks — not months.',
+  'erp-development': 'Unify finance, operations, HR, and supply chain on a single ERP platform.',
   'saas-development': 'Build scalable multi-tenant SaaS platforms designed for growth.',
-  'startup-development': 'Full-stack development tailored to the pace and constraints of startups.',
+  'crm': 'Custom CRM builds and Salesforce / HubSpot / Dynamics customization, designed around how your team actually sells.',
   'web-app-development': 'High-performance web applications with React, Next.js, and .NET backends.',
   'mobile-development': 'Cross-platform mobile apps for iOS and Android with React Native or Flutter.',
   'custom-software-development': 'Bespoke software engineered to fit your exact business processes.',
@@ -77,7 +77,7 @@ const SERVICE_DESCRIPTIONS: Record<string, string> = {
 };
 
 // Tech badges for the Technologies section
-const TECH_BADGES = NAVIGATION.servicesMenu[2].links.map((link) => ({
+const TECH_BADGES = TECHNOLOGIES.links.map((link) => ({
   label: link.label,
   href: link.href,
   icon: link.icon,
@@ -189,13 +189,26 @@ export default function ServicesPage() {
         bg="gray"
       />
 
+      {/* ── Enterprise Solutions ─────────────────────────────── */}
+      <ServicePillarSection
+        id="enterprise-solutions"
+        title={NAVIGATION.servicesMenu[1].title}
+        description={NAVIGATION.servicesMenu[1].description}
+        CategoryIcon={Building2}
+        links={NAVIGATION.servicesMenu[1].links}
+        builtOutSlugs={builtOutSlugs}
+        iconMap={iconMap}
+        descriptions={SERVICE_DESCRIPTIONS}
+        bg="white"
+      />
+
       {/* ── Infrastructure ───────────────────────────────────── */}
       <ServicePillarSection
         id="infrastructure"
-        title={NAVIGATION.servicesMenu[1].title}
-        description={NAVIGATION.servicesMenu[1].description}
+        title={NAVIGATION.servicesMenu[2].title}
+        description={NAVIGATION.servicesMenu[2].description}
         CategoryIcon={Server}
-        links={NAVIGATION.servicesMenu[1].links}
+        links={NAVIGATION.servicesMenu[2].links}
         builtOutSlugs={builtOutSlugs}
         iconMap={iconMap}
         descriptions={SERVICE_DESCRIPTIONS}
@@ -211,10 +224,10 @@ export default function ServicesPage() {
             </div>
             <div>
               <h2 className="text-3xl font-bold text-text-heading">
-                {NAVIGATION.servicesMenu[2].title}
+                {TECHNOLOGIES.title}
               </h2>
               <p className="text-sm text-text-muted mt-0.5">
-                {NAVIGATION.servicesMenu[2].description}
+                {TECHNOLOGIES.description}
               </p>
             </div>
           </div>

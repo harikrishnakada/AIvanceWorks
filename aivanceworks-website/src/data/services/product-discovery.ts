@@ -185,10 +185,10 @@ const productDiscovery: ServicePageData = {
 
   relatedPages: [
     {
-      title: 'MVP Development',
+      title: 'ERP Development',
       description:
-        'Discovery done? We take your validated backlog and ship a production V1 in 12 weeks — no gap between planning and building.',
-      href: '/services/mvp-development',
+        'Discovery complete? We take your validated process requirements and deliver a structured ERP implementation — on time, in scope, and without surprises.',
+      href: '/services/erp-development',
       icon: 'Rocket',
       pageType: 'service',
     },

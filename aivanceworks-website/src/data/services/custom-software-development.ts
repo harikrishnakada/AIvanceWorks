@@ -268,15 +268,15 @@ const customSoftwareDevelopment: ServicePageData = {
 
   relatedPages: [
     {
-      title: 'MVP Development',
+      title: 'ERP Development',
       description:
-        'Have a product idea with a fixed deadline? Our 12-week MVP sprint gets production software in front of real users — the fastest path from requirements to paying customers.',
-      href: '/services/mvp-development',
+        'Need custom modules that extend your ERP beyond what is available out of the box? We build bespoke extensions that integrate cleanly with your ERP data model.',
+      href: '/services/erp-development',
       icon: 'Rocket',
       pageType: 'service',
     },
     {
-      title: 'Application Modernization',
+      title: 'Legacy Modernization',
       description:
         'Have a legacy system holding you back? We assess, plan, and execute the transformation — monolith to microservices, on-prem to cloud, technical debt to clean architecture.',
       href: '/services/application-modernization',

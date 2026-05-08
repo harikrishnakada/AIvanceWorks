@@ -402,7 +402,7 @@ const agencyManagementSoftware: SolutionPageData = {
       pageType: 'service',
     },
     {
-      title: 'Application Modernization',
+      title: 'Legacy Modernization',
       description:
         'Still on Applied Epic but outgrowing it? We modernize around your existing system — adding the producer tools and integrations it lacks — without a rip-and-replace migration.',
       href: '/services/application-modernization',
@@ -410,10 +410,10 @@ const agencyManagementSoftware: SolutionPageData = {
       pageType: 'service',
     },
     {
-      title: 'MVP Development',
+      title: 'ERP Development',
       description:
-        'Want to replace one core function first? Our 12-week process ships the producer pipeline or commission engine module while you plan the full platform.',
-      href: '/services/mvp-development',
+        'Agency back-office — billing, commission tracking, carrier payables — works best when it runs through a proper ERP. We implement and customize ERP systems for insurance agencies.',
+      href: '/services/erp-development',
       icon: 'Rocket',
       pageType: 'service',
     },

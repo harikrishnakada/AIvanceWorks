@@ -267,7 +267,7 @@ const qualityEngineering: ServicePageData = {
       pageType: 'service',
     },
     {
-      title: 'Application Modernization',
+      title: 'Legacy Modernization',
       description:
         'Modernizing a legacy system? Test automation is the safety net that makes incremental migration possible — catch regressions before they reach production.',
       href: '/services/application-modernization',

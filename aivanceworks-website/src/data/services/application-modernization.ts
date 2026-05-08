@@ -18,11 +18,11 @@ import type { ServicePageData } from '@/types/pages';
 
 const applicationModernization: ServicePageData = {
   slug: 'application-modernization',
-  title: 'Application Modernization',
+  title: 'Legacy Modernization',
   shortDescription:
     'Incremental legacy system transformation that keeps production live. Module-by-module decomposition, strangler fig migration, and cloud-native re-architecture — without the big-bang rewrite risk.',
 
-  metaTitle: 'Application Modernization | Legacy System Transformation',
+  metaTitle: 'Legacy Modernization | Legacy System Transformation',
   metaDescription:
     'Application modernization services that transform legacy monoliths into modern architectures incrementally. Strangler fig pattern, API-first migration, and cloud-native re-architecture — production stays live throughout.',
   keywords: [
@@ -44,7 +44,7 @@ const applicationModernization: ServicePageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Services', href: '/services' },
-    { label: 'Application Modernization', href: '/services/application-modernization' },
+    { label: 'Legacy Modernization', href: '/services/application-modernization' },
   ],
 
   composition: [

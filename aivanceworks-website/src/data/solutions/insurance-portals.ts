@@ -316,10 +316,10 @@ const insurancePortals: SolutionPageData = {
       pageType: 'service',
     },
     {
-      title: 'MVP Development',
+      title: 'ERP Development',
       description:
-        'Want to launch one portal first? Our 12-week MVP process ships a production-ready module while you plan the full platform.',
-      href: '/services/mvp-development',
+        'Insurance operations depend on clean integration between your policy system and your financial back-office. We implement the ERP layer that ties them together.',
+      href: '/services/erp-development',
       icon: 'Rocket',
       pageType: 'service',
     },

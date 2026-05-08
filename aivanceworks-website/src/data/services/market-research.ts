@@ -186,10 +186,10 @@ const marketResearch: ServicePageData = {
 
   relatedPages: [
     {
-      title: 'MVP Development',
+      title: 'ERP Development',
       description:
-        'Research done? We take your validated market insight and ship a production-ready MVP in 12 weeks — no gap between strategy and building.',
-      href: '/services/mvp-development',
+        'Research done? We translate your validated business requirements into a structured ERP implementation — the right platform, configured for your processes.',
+      href: '/services/erp-development',
       icon: 'Rocket',
       pageType: 'service',
     },

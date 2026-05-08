@@ -258,10 +258,10 @@ const webAppDevelopment: ServicePageData = {
 
   relatedPages: [
     {
-      title: 'MVP Development',
+      title: 'ERP Development',
       description:
-        'Have a new product idea with a fixed deadline? Our 12-week MVP sprint takes you from concept to paying customers — then we scale it into a full web application.',
-      href: '/services/mvp-development',
+        'Need your web application to exchange data with an ERP? We design and build the integration layer so your app and back-office system stay in sync in real time.',
+      href: '/services/erp-development',
       icon: 'Rocket',
       pageType: 'service',
     },

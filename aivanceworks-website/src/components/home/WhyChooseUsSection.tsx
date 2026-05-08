@@ -1,5 +1,6 @@
 import { Award, Clock, Shield, Users, Code2 } from 'lucide-react';
 import { SITE_CONFIG } from '@/lib/constants';
+import { IconTile } from '@/components/shared/primitives';
 
 const differentiators = [
   {
@@ -61,28 +62,17 @@ export function WhyChooseUsSection() {
         </div>
 
         {/* Cards grid — 3 cols desktop, 2 cols tablet, 1 col mobile */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {differentiators.map((item) => (
             <div
               key={item.title}
-              className="group flex flex-col p-5 sm:p-6
-                bg-white rounded-xl border border-gray-200
-                hover:border-brand-200 hover:shadow-md
-                transition-all duration-300"
+              className="flex flex-col bg-surface-white border border-border-light rounded-xl shadow-card-sm hover:shadow-card transition-shadow p-6 md:p-7"
             >
-              {/* Icon */}
-              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-gray-100 flex items-center justify-center mb-4 flex-shrink-0
-                group-hover:bg-brand-50 transition-colors duration-300">
-                <item.icon className="h-4 w-4 sm:h-5 sm:w-5 text-gray-500 group-hover:text-brand-600 transition-colors duration-300" />
-              </div>
-
-              {/* Title */}
-              <h3 className="text-sm sm:text-base font-bold text-gray-900 mb-2 leading-snug">
+              <IconTile icon={item.icon} size="md" variant="brand" className="mb-5" />
+              <h3 className="text-lg md:text-xl font-semibold text-text-heading mb-2 leading-snug">
                 {item.title}
               </h3>
-
-              {/* Description */}
-              <p className="text-gray-500 text-xs sm:text-sm leading-relaxed mb-4">
+              <p className="text-sm md:text-base text-text-body leading-relaxed mb-4">
                 {item.description}
               </p>
 

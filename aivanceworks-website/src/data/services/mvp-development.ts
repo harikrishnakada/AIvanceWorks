@@ -213,11 +213,11 @@ const mvpDevelopment: ServicePageData = {
       pageType: 'service',
     },
     {
-      title: 'Software Dev for Startups',
+      title: 'Custom Software Development',
       description:
-        'Need an ongoing dev partner after launch? See our flexible startup engagement models — scale the team up or down as your stage demands.',
-      href: '/services/startup-development',
-      icon: 'Lightbulb',
+        'Need an ongoing engineering partner after launch? See our custom software practice — bespoke applications and integrations built around your business processes.',
+      href: '/services/custom-software-development',
+      icon: 'Settings',
       pageType: 'service',
     },
     {

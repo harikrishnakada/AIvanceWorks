@@ -467,10 +467,10 @@ const quotingSoftware: SolutionPageData = {
       pageType: 'service',
     },
     {
-      title: 'MVP Development',
+      title: 'ERP Development',
       description:
-        'Want to launch on one line and one state first? Our 12-week MVP process ships a production-ready quoting flow your producers and consumers can actually use — while you plan the full rollout.',
-      href: '/services/mvp-development',
+        'Quote-to-cash works best when your quoting tool talks directly to your ERP. We implement the ERP and build the integration so orders flow automatically from quote to invoice.',
+      href: '/services/erp-development',
       icon: 'Rocket',
       pageType: 'service',
     },

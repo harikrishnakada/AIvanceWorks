@@ -166,7 +166,7 @@ const serviceCategories: ServiceCategory[] = [
       'Third-Party API Integration',
       'Data Migration Services',
       'Microservices Migration',
-      'Application Modernization',
+      'Legacy Modernization',
     ],
     technologies: [
       'Azure Service Bus', 'Logic Apps', 'API Management', 'SharePoint',
@@ -993,11 +993,11 @@ export function getServiceFaqs(categorySlug: string, serviceSlug: string): FAQ[]
 
 const SERVICE_PAGE_MODULES: Record<string, () => Promise<{ default: ServicePageData }>> = {
   'market-research': () => import('@/data/services/market-research'),
-  'mvp-development': () => import('@/data/services/mvp-development'),
+  'erp-development': () => import('@/data/services/erp-development'),
   'saas-development': () => import('@/data/services/saas-development'),
   'cloud-strategy': () => import('@/data/services/cloud-strategy'),
   'finops': () => import('@/data/services/finops'),
-  'startup-development': () => import('@/data/services/startup-development'),
+  'crm': () => import('@/data/services/crm'),
   'mobile-development': () => import('@/data/services/mobile-development'),
   'web-app-development': () => import('@/data/services/web-app-development'),
   'application-modernization': () => import('@/data/services/application-modernization'),

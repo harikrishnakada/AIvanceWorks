@@ -435,10 +435,10 @@ const underwritingSoftware: SolutionPageData = {
       pageType: 'service',
     },
     {
-      title: 'MVP Development',
+      title: 'ERP Development',
       description:
-        'Need to prove the concept first? Our 12-week MVP process gets a core underwriting module in front of real underwriters while you plan the full platform.',
-      href: '/services/mvp-development',
+        'Underwriting decisions need to flow into financial systems cleanly. We build the ERP integration that carries risk decisions through to policy issuance, billing, and reserve management.',
+      href: '/services/erp-development',
       icon: 'Rocket',
       pageType: 'service',
     },

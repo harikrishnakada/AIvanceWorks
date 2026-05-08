@@ -462,7 +462,7 @@ const hospitalManagementSystems: SolutionPageData = {
       pageType: 'solution',
     },
     {
-      title: 'Application Modernization',
+      title: 'Legacy Modernization',
       description:
         'Running a legacy HIS that is blocking your roadmap? Our modernisation practice uses the strangler-fig pattern to replace modules incrementally — without shutting down live hospital operations.',
       href: '/services/application-modernization',

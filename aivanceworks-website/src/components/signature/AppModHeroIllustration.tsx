@@ -15,7 +15,7 @@ export const AppModHeroIllustration = () => (
   <div
     className="w-full max-w-md mx-auto"
     role="img"
-    aria-label="Application modernization diagram showing a monolith being decomposed into independent microservices"
+    aria-label="Legacy modernization diagram showing a monolith being decomposed into independent microservices"
   >
     <svg
       viewBox="0 0 400 320"
@@ -23,7 +23,7 @@ export const AppModHeroIllustration = () => (
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden="false"
     >
-      <title>Application Modernization Illustration</title>
+      <title>Legacy Modernization Illustration</title>
       <desc>
         A monolithic application block on the left progressively decomposing
         into independent service modules on the right, connected by extraction

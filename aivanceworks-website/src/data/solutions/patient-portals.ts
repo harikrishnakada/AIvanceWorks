@@ -397,10 +397,10 @@ const patientPortals: SolutionPageData = {
       pageType: 'service',
     },
     {
-      title: 'MVP Development',
+      title: 'ERP Development',
       description:
-        'Need to launch fast? Our 12-week MVP process gets a core portal in front of real patients while you plan the full rollout.',
-      href: '/services/mvp-development',
+        'Need to connect your patient portal to a hospital ERP or practice management system? We build the integration layer that keeps clinical and financial data in sync.',
+      href: '/services/erp-development',
       icon: 'Rocket',
       pageType: 'service',
     },

@@ -443,7 +443,7 @@ const financialDocumentManagement: SolutionPageData = {
       pageType: 'service',
     },
     {
-      title: 'Application Modernization',
+      title: 'Legacy Modernization',
       description:
         "Most operator engagements start by escaping SharePoint sprawl, network shares, or a legacy DMS that doesn't integrate. Our modernization engagement runs the strangler-fig migration that retires the old store while the new records platform takes over — without a cutover surprise in the middle.",
       href: '/services/application-modernization',

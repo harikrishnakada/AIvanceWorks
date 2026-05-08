@@ -267,10 +267,10 @@ const eCommerceWebsites: SolutionPageData = {
       pageType: 'service',
     },
     {
-      title: 'MVP Development',
+      title: 'ERP Development',
       description:
-        'Want to test the market first? Our 12-week MVP process launches a core storefront with real transactions before you commit to the full build.',
-      href: '/services/mvp-development',
+        'E-commerce at scale requires ERP integration for inventory, order management, and financial reconciliation. We connect your storefront to your ERP so data flows in real time.',
+      href: '/services/erp-development',
       icon: 'Rocket',
       pageType: 'service',
     },

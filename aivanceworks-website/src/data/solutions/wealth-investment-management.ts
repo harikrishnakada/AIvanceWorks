@@ -414,7 +414,7 @@ const wealthInvestmentManagement: SolutionPageData = {
 
   relatedPages: [
     {
-      title: 'Application Modernization',
+      title: 'Legacy Modernization',
       description:
         'Replacing a legacy advisor portal or wealth back-office? Our strangler-fig modernization preserves trade flow, custodial feeds, and the existing book of business while the new platform takes over channel by channel — no big-bang re-platform.',
       href: '/services/application-modernization',

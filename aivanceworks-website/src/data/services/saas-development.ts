@@ -247,10 +247,10 @@ const saasDevelopment: ServicePageData = {
 
   relatedPages: [
     {
-      title: 'MVP Development',
+      title: 'ERP Development',
       description:
-        'Need to prove the idea first? Our 12-week MVP sprint gets a production V1 with paying customers — then we scale it into a full SaaS platform.',
-      href: '/services/mvp-development',
+        'Adding enterprise customers? ERP integration is often a requirement. We implement and connect ERP systems so your SaaS platform fits neatly into your clients\' back-office stack.',
+      href: '/services/erp-development',
       icon: 'Rocket',
       pageType: 'service',
     },
@@ -263,7 +263,7 @@ const saasDevelopment: ServicePageData = {
       pageType: 'service',
     },
     {
-      title: 'Application Modernization',
+      title: 'Legacy Modernization',
       description:
         'Already have a legacy system you want to transform into a SaaS platform? We decompose monoliths incrementally — extracting multi-tenant architecture without a full rewrite.',
       href: '/services/application-modernization',

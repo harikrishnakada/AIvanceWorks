@@ -489,7 +489,7 @@ const policyAdministrationSystems: SolutionPageData = {
       pageType: 'solution',
     },
     {
-      title: 'Application Modernization',
+      title: 'Legacy Modernization',
       description:
         'Planning to retire a legacy core? Our strangler-fig modernization approach is the engineering practice behind the phased cutover this solution depends on — same principles, applied to your specific legacy estate.',
       href: '/services/application-modernization',
