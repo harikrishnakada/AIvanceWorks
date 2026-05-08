@@ -290,10 +290,10 @@ const aiStrategyConsulting: ServicePageData = {
       pageType: 'service',
     },
     {
-      title: 'Architecture Advisory',
+      title: 'C10 Architecture Advisory',
       description:
         'AI strategy surfaced technical readiness gaps? We assess your current architecture across the dimensions that matter for AI adoption — data access, system modularity, observability — and produce ADRs and a roadmap that identifies what needs to change before AI investments can scale.',
-      href: '/services/architecture-advisory',
+      href: '/services/c10-architecture-advisory',
       icon: 'Layers',
       pageType: 'service',
     },

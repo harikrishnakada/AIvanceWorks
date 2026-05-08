@@ -253,10 +253,10 @@ const cloudInfrastructure: ServicePageData = {
 
   relatedPages: [
     {
-      title: 'Cloud Strategy & Assessment',
+      title: 'C10 Cloud Computing',
       description:
         'Not sure which workloads go where? A structured assessment maps your environment and produces the migration roadmap we build from.',
-      href: '/services/cloud-strategy',
+      href: '/services/c10-cloud-computing',
       icon: 'Compass',
       pageType: 'service',
     },
@@ -316,7 +316,7 @@ const cloudInfrastructure: ServicePageData = {
     description:
       'Book a 30-minute call. We will discuss your current environment, what you need built, and whether a build, managed ops, or audit engagement fits.',
     primaryCta: { label: 'Book infrastructure call', href: '/contact' },
-    secondaryCta: { label: 'See our cloud strategy service', href: '/services/cloud-strategy' },
+    secondaryCta: { label: 'See our cloud strategy service', href: '/services/c10-cloud-computing' },
   },
 
   _unverified: [

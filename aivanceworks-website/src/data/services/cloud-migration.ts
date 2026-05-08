@@ -293,10 +293,10 @@ const cloudMigration: ServicePageData = {
 
   relatedPages: [
     {
-      title: 'Cloud Strategy & Assessment',
+      title: 'C10 Cloud Computing',
       description:
         'Not sure where to start? A structured assessment maps every workload, builds the business case, and produces the migration roadmap this engagement executes against.',
-      href: '/services/cloud-strategy',
+      href: '/services/c10-cloud-computing',
       icon: 'Compass',
       pageType: 'service',
     },

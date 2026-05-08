@@ -13,8 +13,8 @@ import type { ServicePageData } from '@/types/pages';
 //   - 10 sections total — at ceiling but justified for enterprise-facing strategic service
 
 const cloudStrategy: ServicePageData = {
-  slug: 'cloud-strategy',
-  title: 'Cloud Strategy & Assessment',
+  slug: 'c10-cloud-computing',
+  title: 'C10 Cloud Computing',
   shortDescription:
     'A structured cloud readiness assessment that produces a board-ready business case, a workload-by-workload migration roadmap, and a clear operating model — before you commit to any infrastructure work.',
 
@@ -33,12 +33,12 @@ const cloudStrategy: ServicePageData = {
     'workload assessment',
     'cloud migration planning',
   ],
-  canonicalPath: '/services/cloud-strategy',
+  canonicalPath: '/services/c10-cloud-computing',
 
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Services', href: '/services' },
-    { label: 'Cloud Strategy & Assessment', href: '/services/cloud-strategy' },
+    { label: 'C10 Cloud Computing', href: '/services/c10-cloud-computing' },
   ],
 
   composition: [

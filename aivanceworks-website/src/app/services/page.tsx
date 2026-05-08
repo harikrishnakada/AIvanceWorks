@@ -63,10 +63,10 @@ const SERVICE_DESCRIPTIONS: Record<string, string> = {
   'application-modernization': 'Migrate legacy systems to modern cloud-native architectures without downtime.',
   'ui-ux-design': 'User-centered design that converts — from wireframes to polished interfaces.',
   'quality-engineering': 'Automated testing frameworks that catch defects before they reach production.',
-  'architecture-advisory': 'Pragmatic architecture decisions that balance scalability, cost, and speed.',
-  'it-consulting': 'Technology strategy and advisory for CTOs, founders, and engineering leaders.',
+  'c10-architecture-advisory': 'Pragmatic architecture decisions that balance scalability, cost, and speed.',
+  'c10-it-consulting': 'Technology strategy and advisory for CTOs, founders, and engineering leaders.',
   // Infrastructure
-  'cloud-strategy': 'Cloud readiness assessments and migration roadmaps for AWS and Azure.',
+  'c10-cloud-computing': 'Cloud readiness assessments and migration roadmaps for AWS and Azure.',
   'cloud-migration': 'Lift-and-shift or re-architect — zero-downtime migrations to the cloud.',
   'cloud-infrastructure': 'Production-grade cloud infrastructure built with Terraform and IaC best practices.',
   'devops': 'CI/CD pipelines and DevOps culture that ship 10× more with fewer incidents.',

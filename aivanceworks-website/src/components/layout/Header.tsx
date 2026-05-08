@@ -14,7 +14,7 @@ import {
   Cpu, Activity, Zap, TrendingUp, Heart,
   Search, ShoppingCart, Store,
   Target, Package, Sparkles, FileText, Workflow,
-  CreditCard, Stethoscope, Eye,
+  CreditCard, Stethoscope, Eye, Pill, FlaskConical,
 } from 'lucide-react';
 import { MobileMenu } from './MobileMenu';
 import type { LucideIcon } from 'lucide-react';
@@ -27,7 +27,7 @@ const iconMap: Record<string, LucideIcon> = {
   Cpu, Activity, Zap, TrendingUp, Heart,
   Search, ShoppingCart, Store,
   Target, Package, Sparkles, FileText, Workflow,
-  CreditCard, Stethoscope, Eye,
+  CreditCard, Stethoscope, Eye, Pill, FlaskConical,
 };
 
 type DropdownType = 'services' | 'ai-ml' | 'solutions' | null;
@@ -356,7 +356,7 @@ export function Header() {
                                   className="group/link flex items-center gap-2 py-1.5 md:py-[7px] px-2 md:px-2.5 -mx-1 rounded-lg text-xs md:text-sm text-gray-600 hover:text-brand-700 hover:bg-brand-50/70 transition-all duration-150"
                                 >
                                   <LinkIcon className="h-3 w-3 md:h-3.5 md:w-3.5 text-gray-400 group-hover/link:text-brand-500 transition-colors flex-shrink-0" />
-                                  <span className="truncate">{link.label}</span>
+                                  <span className="flex-1 leading-snug">{link.label}</span>
                                   <ArrowRight className="h-3 w-3 ml-auto text-gray-300 opacity-0 -translate-x-1 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all duration-150 flex-shrink-0" />
                                 </Link>
                               </li>
@@ -403,14 +403,14 @@ export function Header() {
           />
 
           <div className="relative animate-in fade-in slide-in-from-top-2 duration-200">
-            <div className="max-w-6xl mx-auto px-4 md:px-6 pt-2 md:pt-3">
+            <div className="max-w-7xl mx-auto px-4 md:px-6 pt-2 md:pt-3">
               <div className="bg-white rounded-xl md:rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.15)] border border-gray-200/80 overflow-hidden">
                 {/* Columns */}
-                <div className="grid grid-cols-3 divide-x divide-gray-100">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
                   {NAVIGATION.servicesMenu.map((column) => {
                     const CategoryIcon = iconMap[column.icon] || Code2;
                     return (
-                      <div key={column.title} className="p-4 md:p-5 lg:p-6">
+                      <div key={column.title} className="p-4 md:p-5 lg:p-6 border-gray-100 [&:not(:first-child)]:border-t sm:[&:not(:first-child)]:border-t-0 sm:[&:nth-child(n+3)]:border-t sm:[&:nth-child(even)]:border-l lg:[&:nth-child(n+3)]:border-t-0 lg:[&:not(:first-child)]:border-l">
                         {/* Column Header */}
                         <div className="flex items-center gap-2 md:gap-3 mb-1">
                           <div className="w-8 h-8 md:w-9 md:h-9 rounded-lg bg-brand-50 flex items-center justify-center">
@@ -441,7 +441,7 @@ export function Header() {
                                   className="group/link flex items-center gap-2 py-1.5 md:py-[7px] px-2 md:px-2.5 -mx-1 rounded-lg text-xs md:text-sm text-gray-600 hover:text-brand-700 hover:bg-brand-50/70 transition-all duration-150"
                                 >
                                   <LinkIcon className="h-3 w-3 md:h-3.5 md:w-3.5 text-gray-400 group-hover/link:text-brand-500 transition-colors flex-shrink-0" />
-                                  <span className="truncate">{link.label}</span>
+                                  <span className="flex-1 leading-snug">{link.label}</span>
                                   <ArrowRight className="h-3 w-3 ml-auto text-gray-300 opacity-0 -translate-x-1 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all duration-150 flex-shrink-0" />
                                 </Link>
                               </li>
@@ -489,10 +489,10 @@ export function Header() {
           />
 
           <div className="relative animate-in fade-in slide-in-from-top-2 duration-200">
-            <div className="max-w-6xl mx-auto px-4 md:px-6 pt-2 md:pt-3">
+            <div className="max-w-[1400px] mx-auto px-4 md:px-6 pt-2 md:pt-3">
               <div className="bg-white rounded-xl md:rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.15)] border border-gray-200/80 overflow-hidden">
                 {/* Columns — one per solution group */}
-                <div className="grid grid-cols-3 divide-x divide-gray-100">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-gray-100">
                   {NAVIGATION.solutionsMenu.map((group) => {
                     const GroupIcon = iconMap[group.icon] || Code2;
                     return (
@@ -502,9 +502,14 @@ export function Header() {
                           <div className="w-8 h-8 md:w-9 md:h-9 rounded-lg bg-brand-50 flex items-center justify-center">
                             <GroupIcon className="h-4 w-4 text-brand-600" />
                           </div>
-                          <h3 className="text-sm md:text-base font-bold text-gray-900">
-                            {group.heading}
-                          </h3>
+                          <div>
+                            <h3 className="text-sm md:text-base font-bold text-gray-900">
+                              {group.heading}
+                            </h3>
+                            <p className="text-[10px] md:text-xs text-gray-400">
+                              {group.description}
+                            </p>
+                          </div>
                         </div>
 
                         {/* Divider */}
@@ -522,7 +527,7 @@ export function Header() {
                                   className="group/link flex items-center gap-2 py-1.5 md:py-[7px] px-2 md:px-2.5 -mx-1 rounded-lg text-xs md:text-sm text-gray-600 hover:text-brand-700 hover:bg-brand-50/70 transition-all duration-150"
                                 >
                                   <LinkIcon className="h-3 w-3 md:h-3.5 md:w-3.5 text-gray-400 group-hover/link:text-brand-500 transition-colors flex-shrink-0" />
-                                  <span className="truncate">{link.label}</span>
+                                  <span className="flex-1 leading-snug">{link.label}</span>
                                   <ArrowRight className="h-3 w-3 ml-auto text-gray-300 opacity-0 -translate-x-1 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all duration-150 flex-shrink-0" />
                                 </Link>
                               </li>

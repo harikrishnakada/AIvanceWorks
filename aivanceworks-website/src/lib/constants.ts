@@ -62,6 +62,7 @@ export const NAVIGATION = {
           { label: 'C10 AI Fintech', href: '/solutions/ai-fintech', icon: 'CreditCard' },
           { label: 'C10 AI Healthcare', href: '/solutions/ai-healthcare', icon: 'Stethoscope' },
           { label: 'C10 AI Retail', href: '/solutions/ai-retail', icon: 'ShoppingCart' },
+          { label: 'C10 AI Pharma', href: '/solutions/ai-pharma', icon: 'Pill' },
         ],
       },
       {
@@ -93,8 +94,16 @@ export const NAVIGATION = {
         { label: 'Legacy Modernization', href: '/services/application-modernization', icon: 'RefreshCw' },
         { label: 'UI/UX Design', href: '/services/ui-ux-design', icon: 'Palette' },
         { label: 'Quality Engineering & Testing', href: '/services/quality-engineering', icon: 'CheckCircle' },
-        { label: 'Architecture Advisory', href: '/services/architecture-advisory', icon: 'Layers' },
-        { label: 'IT Consulting', href: '/services/it-consulting', icon: 'MessageSquare' },
+      ],
+    },
+    {
+      title: 'Advisory',
+      icon: 'MessageSquare',
+      description: 'Strategic guidance & consulting',
+      links: [
+        { label: 'C10 IT Consulting', href: '/services/c10-it-consulting', icon: 'MessageSquare' },
+        { label: 'C10 Cloud Computing', href: '/services/c10-cloud-computing', icon: 'Cloud' },
+        { label: 'C10 Architecture Advisory', href: '/services/c10-architecture-advisory', icon: 'Layers' },
       ],
     },
     {
@@ -102,7 +111,6 @@ export const NAVIGATION = {
       icon: 'Server',
       description: 'Cloud & DevOps excellence',
       links: [
-        { label: 'Cloud Strategy & Assessment', href: '/services/cloud-strategy', icon: 'Search' },
         { label: 'Cloud Migration & Modernization', href: '/services/cloud-migration', icon: 'Cloud' },
         { label: 'Cloud Infrastructure & Operations', href: '/services/cloud-infrastructure', icon: 'Server' },
         { label: 'DevOps', href: '/services/devops', icon: 'GitBranch' },
@@ -127,6 +135,7 @@ export const NAVIGATION = {
 
      {
       heading: 'Finance',
+      description: 'Banking, wealth & financial platforms',
       icon: 'TrendingUp',
       links: [
         { label: 'Digital Banking & Wallets', href: '/solutions/digital-banking-wallets', icon: 'CreditCard' },
@@ -136,6 +145,7 @@ export const NAVIGATION = {
     },
     {
       heading: 'Insurance',
+      description: 'Carrier & agency software systems',
       icon: 'Shield',
       links: [
         { label: 'Insurance Portals', href: '/solutions/insurance-portals', icon: 'Shield' },
@@ -156,11 +166,21 @@ export const NAVIGATION = {
     // },
    {
       heading: 'HealthCare',
+      description: 'Clinical, patient & hospital systems',
       icon: 'Heart',
       links: [
         { label: 'Patient Portals', href: '/solutions/patient-portals', icon: 'Heart' },
         { label: 'EHR & EMR Development', href: '/solutions/ehr-emr-development', icon: 'Activity' },
         { label: 'Hospital Management Systems', href: '/solutions/hospital-management-systems', icon: 'Building2' },
+      ],
+    },
+    {
+      heading: 'Pharma',
+      description: 'Pharmaceuticals and Biotechnology',
+      icon: 'Pill',
+      links: [
+        { label: 'Laboratory Information Management Systems (LIMS)', href: '/solutions/lims', icon: 'FlaskConical' },
+        { label: 'Regulatory Information Management (RIM)', href: '/solutions/rim', icon: 'FileText' },
       ],
     },
   ],

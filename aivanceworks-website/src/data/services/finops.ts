@@ -255,10 +255,10 @@ const finops: ServicePageData = {
 
   relatedPages: [
     {
-      title: 'Cloud Strategy & Assessment',
+      title: 'C10 Cloud Computing',
       description:
         'Still planning your cloud journey? A structured assessment builds the business case with TCO upfront — so cost discipline starts before migration, not after the bill surprises finance.',
-      href: '/services/cloud-strategy',
+      href: '/services/c10-cloud-computing',
       icon: 'Compass',
       pageType: 'service',
     },

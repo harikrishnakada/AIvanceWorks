@@ -995,7 +995,7 @@ const SERVICE_PAGE_MODULES: Record<string, () => Promise<{ default: ServicePageD
   'market-research': () => import('@/data/services/market-research'),
   'erp-development': () => import('@/data/services/erp-development'),
   'saas-development': () => import('@/data/services/saas-development'),
-  'cloud-strategy': () => import('@/data/services/cloud-strategy'),
+  'c10-cloud-computing': () => import('@/data/services/c10-cloud-computing'),
   'finops': () => import('@/data/services/finops'),
   'crm': () => import('@/data/services/crm'),
   'mobile-development': () => import('@/data/services/mobile-development'),
@@ -1004,7 +1004,7 @@ const SERVICE_PAGE_MODULES: Record<string, () => Promise<{ default: ServicePageD
   'custom-software-development': () => import('@/data/services/custom-software-development'),
   'ui-ux-design': () => import('@/data/services/ui-ux-design'),
   'quality-engineering': () => import('@/data/services/quality-engineering'),
-  'architecture-advisory': () => import('@/data/services/architecture-advisory'),
+  'c10-architecture-advisory': () => import('@/data/services/c10-architecture-advisory'),
   'generative-ai': () => import('@/data/services/generative-ai'),
   'cloud-migration': () => import('@/data/services/cloud-migration'),
   'cloud-infrastructure': () => import('@/data/services/cloud-infrastructure'),
@@ -1015,7 +1015,7 @@ const SERVICE_PAGE_MODULES: Record<string, () => Promise<{ default: ServicePageD
   'intelligent-automation': () => import('@/data/services/intelligent-automation'),
   'security-compliance': () => import('@/data/services/security-compliance'),
   'ai-strategy-consulting': () => import('@/data/services/ai-strategy-consulting'),
-  'it-consulting': () => import('@/data/services/it-consulting'),
+  'c10-it-consulting': () => import('@/data/services/c10-it-consulting'),
   
 };
 

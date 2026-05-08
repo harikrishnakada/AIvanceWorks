@@ -15,8 +15,8 @@ import type { ServicePageData } from '@/types/pages';
 //   - 10 sections total — at ceiling but justified for an advisory service with tiered engagement
 
 const architectureAdvisory: ServicePageData = {
-  slug: 'architecture-advisory',
-  title: 'Architecture Advisory',
+  slug: 'c10-architecture-advisory',
+  title: 'C10 Architecture Advisory',
   shortDescription:
     'Independent architecture reviews that produce documented decisions, technology roadmaps, and actionable ADRs — not slide decks that gather dust.',
 
@@ -35,12 +35,12 @@ const architectureAdvisory: ServicePageData = {
     'technical due diligence',
     'evolutionary architecture',
   ],
-  canonicalPath: '/services/architecture-advisory',
+  canonicalPath: '/services/c10-architecture-advisory',
 
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Services', href: '/services' },
-    { label: 'Architecture Advisory', href: '/services/architecture-advisory' },
+    { label: 'C10 Architecture Advisory', href: '/services/c10-architecture-advisory' },
   ],
 
   composition: [
@@ -260,10 +260,10 @@ const architectureAdvisory: ServicePageData = {
       pageType: 'service',
     },
     {
-      title: 'Cloud Strategy & Assessment',
+      title: 'C10 Cloud Computing',
       description:
         'Architecture questions focused on cloud? Our cloud strategy assessment maps every workload to a migration strategy and produces a board-ready business case.',
-      href: '/services/cloud-strategy',
+      href: '/services/c10-cloud-computing',
       icon: 'Cloud',
       pageType: 'service',
     },

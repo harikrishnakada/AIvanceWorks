@@ -239,7 +239,10 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                               <div className="w-7 h-7 rounded-lg bg-brand-50 flex items-center justify-center flex-shrink-0">
                                 <GroupIcon className="h-3.5 w-3.5 text-brand-600" />
                               </div>
-                              <div className="text-sm font-semibold text-gray-800">{group.heading}</div>
+                              <div className="text-left">
+                                <div className="text-sm font-semibold text-gray-800">{group.heading}</div>
+                                <div className="text-[10px] text-gray-400 font-normal">{group.description}</div>
+                              </div>
                             </div>
                             <ChevronDown
                               className={`h-4 w-4 text-gray-400 transition-transform duration-200 flex-shrink-0 ${

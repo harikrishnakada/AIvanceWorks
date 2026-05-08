@@ -57,8 +57,8 @@ import type { ServicePageData } from '@/types/pages';
 //   EngagementModels (light) → RelatedPages (warm) → FAQ (light) → CTA (accent)
 
 const itConsulting: ServicePageData = {
-  slug: 'it-consulting',
-  title: 'IT Consulting',
+  slug: 'c10-it-consulting',
+  title: 'C10 IT Consulting',
   shortDescription:
     'Vendor-neutral IT strategy, vendor selection, and technology due diligence for regulated industries — every recommendation audited against regulatory, vendor-risk, and board-defensibility gates before it lands in your roadmap.',
 
@@ -81,12 +81,12 @@ const itConsulting: ServicePageData = {
     'ciso it advisory',
     'it roadmap consulting',
   ],
-  canonicalPath: '/services/it-consulting',
+  canonicalPath: '/services/c10-it-consulting',
 
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Services', href: '/services' },
-    { label: 'IT Consulting', href: '/services/it-consulting' },
+    { label: 'C10 IT Consulting', href: '/services/c10-it-consulting' },
   ],
 
   composition: [
@@ -329,10 +329,10 @@ const itConsulting: ServicePageData = {
       pageType: 'service',
     },
     {
-      title: 'Cloud Strategy & Assessment',
+      title: 'C10 Cloud Computing',
       description:
         'Roadmap recommends a cloud move or multi-cloud rationalization? We take the decision into detailed cloud readiness, migration waves, and landing-zone design — without the regulatory framing getting lost between strategy and execution.',
-      href: '/services/cloud-strategy',
+      href: '/services/c10-cloud-computing',
       icon: 'Cloud',
       pageType: 'service',
     },
