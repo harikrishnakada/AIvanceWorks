@@ -1034,6 +1034,7 @@ const SOLUTION_PAGE_MODULES: Record<string, () => Promise<{ default: SolutionPag
   'wealth-investment-management': () => import('@/data/solutions/wealth-investment-management'),
   'digital-banking-wallets': () => import('@/data/solutions/digital-banking-wallets'),
   'financial-document-management': () => import('@/data/solutions/financial-document-management'),
+  'ai-pharma': () => import('@/data/solutions/ai-pharma'),
 };
 
 export async function getServicePageData(slug: string): Promise<ServicePageData | null> {

@@ -267,12 +267,12 @@ const nlpDocumentAi: ServicePageData = {
       pageType: 'service',
     },
     {
-      title: 'Computer Vision',
+      title: 'C10 AI Pharma',
       description:
-        'Some documents are images. For scanned forms, camera-captured receipts, and photo-based data entry, computer vision preprocessing enhances image quality before it enters the extraction pipeline — improving accuracy upstream.',
-      href: '/services/computer-vision',
-      icon: 'Scan',
-      pageType: 'service',
+        'Pharma is the most document-heavy industry on the planet — protocols, IND/NDA dossiers, ICH guidelines, FDA correspondence. See the same NLP and document AI stack applied inside a 21 CFR Part 11 audit envelope for submission intelligence and medical-writer tooling.',
+      href: '/solutions/ai-pharma',
+      icon: 'Pill',
+      pageType: 'solution',
     },
     {
       title: 'Financial Document Management',

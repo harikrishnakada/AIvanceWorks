@@ -311,11 +311,11 @@ const securityCompliance: ServicePageData = {
       pageType: 'solution',
     },
     {
-      title: 'Wealth & Investment Management',
+      title: 'C10 AI Pharma',
       description:
-        'Compliance team facing an SEC exam or FINRA sweep? See the same Zero-Trust baseline applied to a wealth platform — Reg BI evidence, Form CRS delivery, and a books-and-records archive built to SEC 17a-4 / IAA 204-2.',
-      href: '/solutions/wealth-investment-management',
-      icon: 'TrendingUp',
+        'Compliance team staring down an FDA pre-submission meeting? See the same Zero-Trust baseline applied to pharma AI — 21 CFR Part 11 audit trails, GxP-aligned validation, and FDA GMLP / SaMD-ready model governance for discovery, trials, and diagnostics.',
+      href: '/solutions/ai-pharma',
+      icon: 'Pill',
       pageType: 'solution',
     },
   ],

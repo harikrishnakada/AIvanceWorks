@@ -255,12 +255,12 @@ const generativeAi: ServicePageData = {
 
   relatedPages: [
     {
-      title: 'AI Strategy & Consulting',
+      title: 'C10 AI Pharma',
       description:
-        'Not sure which AI use cases to prioritize before committing to an engineering build? Our strategy assessment validates business cases, scores use cases by impact and feasibility, and produces a roadmap so your GenAI investment starts with the right problem.',
-      href: '/services/ai-strategy-consulting',
-      icon: 'Compass',
-      pageType: 'service',
+        'Want to see generative AI inside a regulated industry? Our pharma platform applies the same RAG, agent, and grounding patterns to drug discovery, clinical trials, and diagnostics — built to live inside 21 CFR Part 11, GxP, and FDA SaMD guardrails.',
+      href: '/solutions/ai-pharma',
+      icon: 'Pill',
+      pageType: 'solution',
     },
     {
       title: 'NLP & Document AI',

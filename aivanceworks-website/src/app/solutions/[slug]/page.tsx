@@ -21,6 +21,7 @@ import {
   ClientWealthCanvas,
   DigitalBankingTransactionFlow,
   BooksAndRecordsControlPlane,
+  PharmaAiResearchEngine,
 } from '@/components/signature';
 import type { ReactNode } from 'react';
 
@@ -67,6 +68,7 @@ const SIGNATURE_COMPONENTS: Record<string, ReactNode> = {
   ClientWealthCanvas: <ClientWealthCanvas />,
   DigitalBankingTransactionFlow: <DigitalBankingTransactionFlow />,
   BooksAndRecordsControlPlane: <BooksAndRecordsControlPlane />,
+  PharmaAiResearchEngine: <PharmaAiResearchEngine />,
 };
 
 export default async function SolutionPage({ params }: PageProps) {
