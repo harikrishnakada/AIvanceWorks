@@ -394,12 +394,12 @@ const aiPharma: SolutionPageData = {
       pageType: 'service',
     },
     {
-      title: 'NLP & Document AI',
+      title: 'Laboratory Information Management Systems (LIMS)',
       description:
-        'Pharma is a document-heavy industry — protocols, SOPs, scientific literature, internal correspondence. Our NLP and document AI service is the engine behind the document tooling your medical writers and reviewers can use.',
-      href: '/services/nlp-document-ai',
-      icon: 'FileText',
-      pageType: 'service',
+        'Most pharma AI work eventually leans on a LIMS for sample, instrument, and result data. Our LIMS engagement builds the chain-of-custody and audit-trail foundation your research and clinical platforms can sit on top of.',
+      href: '/solutions/lims',
+      icon: 'Beaker',
+      pageType: 'solution',
     },
     {
       title: 'Security & Compliance',

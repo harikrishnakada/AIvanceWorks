@@ -62,3 +62,4 @@ export { BooksAndRecordsControlPlane } from './BooksAndRecordsControlPlane';
 export { DigitalBankingTransactionFlow } from './DigitalBankingTransactionFlow';
 export { RoleBoundary, type RoleBoundaryProps } from './RoleBoundary';
 export { PharmaAiResearchEngine } from './PharmaAiResearchEngine';
+export { SampleLifecycleControlPlane } from './SampleLifecycleControlPlane';

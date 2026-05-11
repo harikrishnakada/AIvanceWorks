@@ -22,6 +22,7 @@ import {
   DigitalBankingTransactionFlow,
   BooksAndRecordsControlPlane,
   PharmaAiResearchEngine,
+  SampleLifecycleControlPlane,
 } from '@/components/signature';
 import type { ReactNode } from 'react';
 
@@ -69,6 +70,7 @@ const SIGNATURE_COMPONENTS: Record<string, ReactNode> = {
   DigitalBankingTransactionFlow: <DigitalBankingTransactionFlow />,
   BooksAndRecordsControlPlane: <BooksAndRecordsControlPlane />,
   PharmaAiResearchEngine: <PharmaAiResearchEngine />,
+  SampleLifecycleControlPlane: <SampleLifecycleControlPlane />,
 };
 
 export default async function SolutionPage({ params }: PageProps) {
