@@ -1036,6 +1036,8 @@ const SOLUTION_PAGE_MODULES: Record<string, () => Promise<{ default: SolutionPag
   'financial-document-management': () => import('@/data/solutions/financial-document-management'),
   'ai-pharma': () => import('@/data/solutions/ai-pharma'),
   'lims': () => import('@/data/solutions/lims'),
+  'regulatory-information-management': () =>
+    import('@/data/solutions/regulatory-information-management'),
 };
 
 export async function getServicePageData(slug: string): Promise<ServicePageData | null> {

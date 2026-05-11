@@ -23,6 +23,7 @@ import {
   BooksAndRecordsControlPlane,
   PharmaAiResearchEngine,
   SampleLifecycleControlPlane,
+  RegulatoryInformationSpine,
 } from '@/components/signature';
 import type { ReactNode } from 'react';
 
@@ -71,6 +72,7 @@ const SIGNATURE_COMPONENTS: Record<string, ReactNode> = {
   BooksAndRecordsControlPlane: <BooksAndRecordsControlPlane />,
   PharmaAiResearchEngine: <PharmaAiResearchEngine />,
   SampleLifecycleControlPlane: <SampleLifecycleControlPlane />,
+  RegulatoryInformationSpine: <RegulatoryInformationSpine />,
 };
 
 export default async function SolutionPage({ params }: PageProps) {

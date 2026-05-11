@@ -386,12 +386,12 @@ const aiPharma: SolutionPageData = {
 
   relatedPages: [
     {
-      title: 'Generative AI',
+      title: 'Regulatory Information Management (RIM)',
       description:
-        'Need the LLM and RAG layer behind document tooling and analytics? Our generative AI service builds those capabilities with the same engineering posture — citations over hallucinations, evaluation harnesses by default.',
-      href: '/services/generative-ai',
-      icon: 'Sparkles',
-      pageType: 'service',
+        'Your pharma AI work eventually has to land back inside a regulated record of truth. Our RIM engagement builds the unified product, dossier, submission, correspondence, and commitment platform your regulatory team can stand behind.',
+      href: '/solutions/regulatory-information-management',
+      icon: 'FolderTree',
+      pageType: 'solution',
     },
     {
       title: 'Laboratory Information Management Systems (LIMS)',

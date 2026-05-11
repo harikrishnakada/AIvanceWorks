@@ -435,11 +435,11 @@ const lims: SolutionPageData = {
 
   relatedPages: [
     {
-      title: 'AI for Pharma & Biotech',
+      title: 'Regulatory Information Management (RIM)',
       description:
-        'Standing up a LIMS to anchor research and clinical data? Our pharma & biotech engagement adds AI-assisted analytics, document tooling, and decision-support software on top of the same engineering foundation.',
-      href: '/solutions/ai-pharma',
-      icon: 'FlaskConical',
+        'Once your lab data is trusted, your regulatory team still needs one record across products, dossiers, submissions, and commitments. Our RIM engagement builds the unified regulatory platform that sits alongside the LIMS, sharing the same audit-aware engineering posture.',
+      href: '/solutions/regulatory-information-management',
+      icon: 'FolderTree',
       pageType: 'solution',
     },
     {

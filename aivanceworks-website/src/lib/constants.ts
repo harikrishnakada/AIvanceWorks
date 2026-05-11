@@ -180,7 +180,7 @@ export const NAVIGATION = {
       icon: 'Pill',
       links: [
         { label: 'Laboratory Information Management Systems (LIMS)', href: '/solutions/lims', icon: 'FlaskConical' },
-        { label: 'Regulatory Information Management (RIM)', href: '/solutions/rim', icon: 'FileText' },
+        { label: 'Regulatory Information Management (RIM)', href: '/solutions/regulatory-information-management', icon: 'FileText' },
       ],
     },
   ],

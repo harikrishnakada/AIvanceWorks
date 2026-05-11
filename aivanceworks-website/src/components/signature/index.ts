@@ -63,3 +63,4 @@ export { DigitalBankingTransactionFlow } from './DigitalBankingTransactionFlow';
 export { RoleBoundary, type RoleBoundaryProps } from './RoleBoundary';
 export { PharmaAiResearchEngine } from './PharmaAiResearchEngine';
 export { SampleLifecycleControlPlane } from './SampleLifecycleControlPlane';
+export { RegulatoryInformationSpine } from './RegulatoryInformationSpine';
