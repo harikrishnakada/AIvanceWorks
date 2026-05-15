@@ -271,12 +271,12 @@ const finops: ServicePageData = {
       pageType: 'service',
     },
     {
-      title: 'Cloud Migration & Modernization',
+      title: 'C10 AI Infrastructure',
       description:
-        'Migrating soon? Migration decisions lock in costs for years. We apply FinOps principles during wave planning — so your new cloud environment is optimized from day one, not day 180.',
-      href: '/services/cloud-migration',
-      icon: 'CloudUpload',
-      pageType: 'service',
+        'Cloud spend running away on AI workloads? AI infrastructure is where FinOps discipline matters most. We engineer GPU pools, budgets, anomaly alerts, and per-workload chargeback into the platform — so a runaway training job surfaces before the invoice does.',
+      href: '/solutions/ai-infrastructure',
+      icon: 'Server',
+      pageType: 'solution',
     },
   ],
 

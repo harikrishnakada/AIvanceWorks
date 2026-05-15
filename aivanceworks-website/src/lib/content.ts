@@ -1016,7 +1016,9 @@ const SERVICE_PAGE_MODULES: Record<string, () => Promise<{ default: ServicePageD
   'security-compliance': () => import('@/data/services/security-compliance'),
   'ai-strategy-consulting': () => import('@/data/services/ai-strategy-consulting'),
   'c10-it-consulting': () => import('@/data/services/c10-it-consulting'),
-  
+  'human-capital-management': () =>
+    import('@/data/services/human-capital-management'),
+
 };
 
 const SOLUTION_PAGE_MODULES: Record<string, () => Promise<{ default: SolutionPageData }>> = {
@@ -1038,6 +1040,7 @@ const SOLUTION_PAGE_MODULES: Record<string, () => Promise<{ default: SolutionPag
   'lims': () => import('@/data/solutions/lims'),
   'regulatory-information-management': () =>
     import('@/data/solutions/regulatory-information-management'),
+  'ai-infrastructure': () => import('@/data/solutions/ai-infrastructure'),
 };
 
 export async function getServicePageData(slug: string): Promise<ServicePageData | null> {

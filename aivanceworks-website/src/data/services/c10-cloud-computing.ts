@@ -255,12 +255,12 @@ const cloudStrategy: ServicePageData = {
       pageType: 'service',
     },
     {
-      title: 'Cloud Infrastructure & Operations',
+      title: 'C10 AI Infrastructure',
       description:
-        'Need the infrastructure built after the strategy is set? We design and operate cloud environments with IaC, monitoring, and disaster recovery built in.',
-      href: '/services/cloud-infrastructure',
+        'Cloud strategy decided, and AI is on the roadmap? Our AI infrastructure engagement builds the compute, data, and cost-guardrail platform your training, inference, and agentic workloads will actually run on — designed alongside the cloud posture you just chose.',
+      href: '/solutions/ai-infrastructure',
       icon: 'Server',
-      pageType: 'service',
+      pageType: 'solution',
     },
   ],
 

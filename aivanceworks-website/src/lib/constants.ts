@@ -60,9 +60,10 @@ export const NAVIGATION = {
         description: 'AI-powered industry platforms',
         links: [
           { label: 'C10 AI Fintech', href: '/solutions/ai-fintech', icon: 'CreditCard' },
+          { label: 'C10 AI Pharma', href: '/solutions/ai-pharma', icon: 'Pill' },
           { label: 'C10 AI Healthcare', href: '/solutions/ai-healthcare', icon: 'Stethoscope' },
           { label: 'C10 AI Retail', href: '/solutions/ai-retail', icon: 'ShoppingCart' },
-          { label: 'C10 AI Pharma', href: '/solutions/ai-pharma', icon: 'Pill' },
+          { label: 'C10 AI Infrastructure', href: '/solutions/ai-infrastructure', icon: 'Server' },
         ],
       },
       {
@@ -80,6 +81,26 @@ export const NAVIGATION = {
   },
   // Mega menu columns for "Services" dropdown
   servicesMenu: [
+     {
+      title: 'Advisory',
+      icon: 'MessageSquare',
+      description: 'Strategic guidance & consulting',
+      links: [
+        { label: 'C10 IT Consulting', href: '/services/c10-it-consulting', icon: 'MessageSquare' },
+        { label: 'C10 Cloud Computing', href: '/services/c10-cloud-computing', icon: 'Cloud' },
+        { label: 'C10 Architecture Advisory', href: '/services/c10-architecture-advisory', icon: 'Layers' },
+      ],
+    },
+        {
+      title: 'Enterprise',
+      icon: 'Building2',
+      description: 'Business platforms at scale',
+      links: [
+        { label: 'ERP', href: '/services/erp-development', icon: 'Rocket' },
+        { label: 'CRM', href: '/services/crm', icon: 'Lightbulb' },
+        { label: 'HCM', href: '/services/human-capital-management', icon: 'Users' },
+      ],
+    },
     {
       title: 'Software Engineering',
       icon: 'Code2',
@@ -95,17 +116,7 @@ export const NAVIGATION = {
         { label: 'UI/UX Design', href: '/services/ui-ux-design', icon: 'Palette' },
         { label: 'Quality Engineering & Testing', href: '/services/quality-engineering', icon: 'CheckCircle' },
       ],
-    },
-    {
-      title: 'Advisory',
-      icon: 'MessageSquare',
-      description: 'Strategic guidance & consulting',
-      links: [
-        { label: 'C10 IT Consulting', href: '/services/c10-it-consulting', icon: 'MessageSquare' },
-        { label: 'C10 Cloud Computing', href: '/services/c10-cloud-computing', icon: 'Cloud' },
-        { label: 'C10 Architecture Advisory', href: '/services/c10-architecture-advisory', icon: 'Layers' },
-      ],
-    },
+    },  
     {
       title: 'Infrastructure Management',
       icon: 'Server',
@@ -119,20 +130,10 @@ export const NAVIGATION = {
         { label: 'FinOps & Cloud Cost Optimization', href: '/services/finops', icon: 'TrendingUp' },
         { label: 'Security & Compliance', href: '/services/security-compliance', icon: 'Shield' },
       ],
-    },
-        {
-      title: 'Enterprise Solutions',
-      icon: 'Building2',
-      description: 'Business platforms at scale',
-      links: [
-        { label: 'ERP', href: '/services/erp-development', icon: 'Rocket' },
-        { label: 'CRM', href: '/services/crm', icon: 'Lightbulb' },
-      ],
-    }
+    }  
   ],
   // Mega menu columns for "Solutions" dropdown
   solutionsMenu: [
-
      {
       heading: 'Finance',
       description: 'Banking, wealth & financial platforms',

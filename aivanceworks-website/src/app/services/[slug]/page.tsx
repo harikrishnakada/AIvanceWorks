@@ -55,7 +55,9 @@ import {
   AiStrategyHeroIllustration,
   RegulatedItDecisionGauntlet,
   ItConsultingHeroIllustration,
-  
+  WorkforceLifecycleSpine,
+  WorkforceHeroIllustration,
+
 } from '@/components/signature';
 import type { ReactNode } from 'react';
 
@@ -112,6 +114,7 @@ const SIGNATURE_COMPONENTS: Record<string, ReactNode> = {
   ComplianceCoverageMatrix: <ComplianceCoverageMatrix />,
   AiStrategyFrameworkBlueprint: <AiStrategyFrameworkBlueprint />,
   RegulatedItDecisionGauntlet: <RegulatedItDecisionGauntlet />,
+  WorkforceLifecycleSpine: <WorkforceLifecycleSpine />,
 
 };
 
@@ -140,7 +143,8 @@ const HERO_ILLUSTRATION_COMPONENTS: Record<string, ReactNode> = {
   SecurityComplianceHeroIllustration: <SecurityComplianceHeroIllustration />,
   AiStrategyHeroIllustration: <AiStrategyHeroIllustration />,
   ItConsultingHeroIllustration: <ItConsultingHeroIllustration />,
-  
+  WorkforceHeroIllustration: <WorkforceHeroIllustration />,
+
 };
 
 export default async function ServicePage({ params }: PageProps) {

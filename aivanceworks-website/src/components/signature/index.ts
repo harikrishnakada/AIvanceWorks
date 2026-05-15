@@ -64,3 +64,6 @@ export { RoleBoundary, type RoleBoundaryProps } from './RoleBoundary';
 export { PharmaAiResearchEngine } from './PharmaAiResearchEngine';
 export { SampleLifecycleControlPlane } from './SampleLifecycleControlPlane';
 export { RegulatoryInformationSpine } from './RegulatoryInformationSpine';
+export { AiInfrastructureStack } from './AiInfrastructureStack';
+export { WorkforceLifecycleSpine } from './WorkforceLifecycleSpine';
+export { WorkforceHeroIllustration } from './WorkforceHeroIllustration';

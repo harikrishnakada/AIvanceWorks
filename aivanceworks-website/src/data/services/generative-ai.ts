@@ -263,12 +263,12 @@ const generativeAi: ServicePageData = {
       pageType: 'solution',
     },
     {
-      title: 'NLP & Document AI',
+      title: 'C10 AI Infrastructure',
       description:
-        'Processing unstructured documents before they reach your RAG pipeline? Our Document AI service handles extraction, classification, and structuring so your retrieval layer ingests clean, indexed data.',
-      href: '/services/nlp-document-ai',
-      icon: 'FileText',
-      pageType: 'service',
+        'Shipping generative AI without the platform underneath it? Our AI infrastructure engagement builds the compute, data fabric, and cost-guardrail platform that RAG, agentic, and LLM workloads actually run on — engineered for portability and predictable spend.',
+      href: '/solutions/ai-infrastructure',
+      icon: 'Server',
+      pageType: 'solution',
     },
     {
       title: 'Conversational AI',

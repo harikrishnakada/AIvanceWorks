@@ -403,14 +403,14 @@ export function Header() {
           />
 
           <div className="relative animate-in fade-in slide-in-from-top-2 duration-200">
-            <div className="max-w-7xl mx-auto px-4 md:px-6 pt-2 md:pt-3">
+            <div className="max-w-[1400px] mx-auto px-4 md:px-6 pt-2 md:pt-3">
               <div className="bg-white rounded-xl md:rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.15)] border border-gray-200/80 overflow-hidden">
                 {/* Columns */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-gray-100">
                   {NAVIGATION.servicesMenu.map((column) => {
                     const CategoryIcon = iconMap[column.icon] || Code2;
                     return (
-                      <div key={column.title} className="p-4 md:p-5 lg:p-6 border-gray-100 [&:not(:first-child)]:border-t sm:[&:not(:first-child)]:border-t-0 sm:[&:nth-child(n+3)]:border-t sm:[&:nth-child(even)]:border-l lg:[&:nth-child(n+3)]:border-t-0 lg:[&:not(:first-child)]:border-l">
+                      <div key={column.title} className="p-4 md:p-5 lg:p-6">
                         {/* Column Header */}
                         <div className="flex items-center gap-2 md:gap-3 mb-1">
                           <div className="w-8 h-8 md:w-9 md:h-9 rounded-lg bg-brand-50 flex items-center justify-center">

@@ -24,6 +24,7 @@ import {
   PharmaAiResearchEngine,
   SampleLifecycleControlPlane,
   RegulatoryInformationSpine,
+  AiInfrastructureStack,
 } from '@/components/signature';
 import type { ReactNode } from 'react';
 
@@ -73,6 +74,7 @@ const SIGNATURE_COMPONENTS: Record<string, ReactNode> = {
   PharmaAiResearchEngine: <PharmaAiResearchEngine />,
   SampleLifecycleControlPlane: <SampleLifecycleControlPlane />,
   RegulatoryInformationSpine: <RegulatoryInformationSpine />,
+  AiInfrastructureStack: <AiInfrastructureStack />,
 };
 
 export default async function SolutionPage({ params }: PageProps) {
