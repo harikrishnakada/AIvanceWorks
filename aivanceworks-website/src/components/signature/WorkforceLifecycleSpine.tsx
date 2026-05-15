@@ -165,10 +165,10 @@ const VARIANT_BORDERS: Record<Annotation['variant'], string> = {
 const PhaseCard = ({ phase, isLast }: { phase: Phase; isLast: boolean }) => {
   const Icon = phase.icon;
   return (
-    <div className="relative flex flex-col">
+    <div className="relative flex flex-col h-full">
       {/* Phase node */}
-      <div className="rounded-2xl border border-accent-500/40 bg-gradient-to-b from-accent-500/15 to-brand-500/10 p-4 md:p-5">
-        <div className="flex items-start gap-3 mb-3">
+      <div className="rounded-2xl border border-accent-500/40 bg-gradient-to-b from-accent-500/15 to-brand-500/10 p-4 md:p-5 flex flex-col h-full">
+        <div className="flex items-center gap-3 mb-3">
           <div className="w-10 h-10 rounded-xl bg-brand-500/20 border border-brand-500/30 flex items-center justify-center shrink-0">
             <Icon
               className="w-5 h-5 text-brand-300"
@@ -176,19 +176,17 @@ const PhaseCard = ({ phase, isLast }: { phase: Phase; isLast: boolean }) => {
               aria-hidden="true"
             />
           </div>
-          <div className="min-w-0">
-            <span className="text-[10px] md:text-xs font-bold text-brand-400 uppercase tracking-wider">
-              Phase {phase.number}
-            </span>
-            <h3 className="text-sm md:text-base font-bold text-text-light leading-tight">
-              {phase.title}
-            </h3>
-          </div>
+          <span className="text-[10px] md:text-xs font-bold text-brand-400 uppercase tracking-wider">
+            Phase {phase.number}
+          </span>
         </div>
-        <p className="text-xs text-text-subtle leading-relaxed mb-3">
+        <h3 className="text-sm md:text-base font-bold text-text-light leading-tight mb-2 lg:min-h-[2.6em]">
+          {phase.title}
+        </h3>
+        <p className="text-xs text-text-subtle leading-relaxed mb-3 lg:min-h-[3.6em]">
           {phase.subtitle}
         </p>
-        <ul className="space-y-1.5">
+        <ul className="space-y-1.5 mt-auto">
           {phase.modules.map((mod, idx) => {
             const ModIcon = mod.icon;
             return (
