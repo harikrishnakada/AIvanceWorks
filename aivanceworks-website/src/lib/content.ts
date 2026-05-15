@@ -1018,6 +1018,7 @@ const SERVICE_PAGE_MODULES: Record<string, () => Promise<{ default: ServicePageD
   'c10-it-consulting': () => import('@/data/services/c10-it-consulting'),
   'human-capital-management': () =>
     import('@/data/services/human-capital-management'),
+  'data-engineering': () => import('@/data/services/data-engineering'),
 
 };
 

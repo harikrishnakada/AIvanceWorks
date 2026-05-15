@@ -67,3 +67,5 @@ export { RegulatoryInformationSpine } from './RegulatoryInformationSpine';
 export { AiInfrastructureStack } from './AiInfrastructureStack';
 export { WorkforceLifecycleSpine } from './WorkforceLifecycleSpine';
 export { WorkforceHeroIllustration } from './WorkforceHeroIllustration';
+export { DataPipelineBlueprint } from './DataPipelineBlueprint';
+export { DataEngineeringHeroIllustration } from './DataEngineeringHeroIllustration';

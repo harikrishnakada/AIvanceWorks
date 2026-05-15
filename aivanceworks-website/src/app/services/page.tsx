@@ -83,11 +83,13 @@ const TECH_BADGES = TECHNOLOGIES.links.map((link) => ({
   icon: link.icon,
 }));
 
-// Jump-to anchors shown in hero
+// Jump-to anchors shown in hero — mirrors the header's Services mega menu
 const JUMP_TO = [
-  { label: 'AI Solutions', id: 'ai-solutions' },
+  { label: 'Automation & Intelligence', id: 'automation-intelligence' },
+  { label: 'Advisory', id: 'advisory' },
+  { label: 'Enterprise', id: 'enterprise' },
   { label: 'Software Engineering', id: 'software-engineering' },
-  { label: 'Infrastructure', id: 'infrastructure' },
+  { label: 'Infrastructure Management', id: 'infrastructure-management' },
   { label: 'Technologies', id: 'technologies' },
 ];
 
@@ -111,51 +113,77 @@ export default function ServicesPage() {
       {/* ── Hero ─────────────────────────────────────────────── */}
       <section
         data-section="services-hero"
-        className="bg-gradient-to-br from-surface-dark-from via-surface-dark-via to-surface-dark-to text-text-light py-10 lg:py-14"
+        className="relative overflow-hidden"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl sm:text-5xl font-bold mb-6">
-              Enterprise Software Consulting Services That Drive Growth
-            </h1>
-            <p className="text-lg text-text-muted mb-8 leading-relaxed">
-              {SITE_CONFIG.name} delivers end-to-end software consulting services for US-based
-              startups and mid-market companies. Our expertise spans cloud engineering, AI/ML
-              solutions, full-stack development, data analytics, DevOps automation, enterprise
-              integration, and security compliance. With projects starting at $5,000 and senior
-              teams averaging 10+ years of experience, we transform complex business challenges
-              into production-ready software solutions.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              <Button asChild size="lg" className="bg-brand-600 hover:bg-brand-700">
-                <Link href="/contact">Get Free Consultation</Link>
-              </Button>
-              <Button
-                asChild
-                variant="outline"
-                size="lg"
-                className="border-border-subtle text-text-light hover:bg-white/10"
-              >
-                <Link href="/case-studies">View Case Studies</Link>
-              </Button>
-            </div>
-            {/* Jump-to strip */}
-            <p className="text-sm text-text-subtle">
-              Jump to:{' '}
-              {JUMP_TO.map((item, i) => (
-                <span key={item.id}>
-                  <a
-                    href={`#${item.id}`}
-                    className="text-text-muted hover:text-text-light transition-colors underline-offset-2 hover:underline"
+        <div className="px-4 sm:px-6 md:px-8 lg:px-12 pt-4 sm:pt-5 md:pt-6 lg:pt-8 pb-2 sm:pb-3 md:pb-4 lg:pb-5">
+          <div
+            className="relative w-full overflow-hidden
+              bg-gradient-to-br from-surface-dark-from via-surface-dark-via to-surface-dark-to
+              rounded-2xl lg:rounded-3xl
+              border border-border-subtle
+              shadow-brand-panel"
+          >
+            {/* Glow orbs */}
+            <div className="absolute top-0 left-1/3 w-[500px] h-56 bg-brand-500/[0.07] rounded-full blur-[100px] pointer-events-none" />
+            <div className="absolute bottom-0 right-1/3 w-[400px] h-48 bg-accent-500/[0.06] rounded-full blur-[80px] pointer-events-none" />
+            {/* Grid overlay */}
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--brand-grid-light)_1px,transparent_1px),linear-gradient(to_bottom,var(--brand-grid-light)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
+
+            <div className="relative z-10 px-6 sm:px-8 md:px-10 lg:px-14 py-8 sm:py-10 md:py-14 lg:py-16">
+              <div className="max-w-3xl">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-500/[0.12] border border-brand-400/[0.15] text-brand-300 text-xs sm:text-sm font-semibold tracking-wide mb-4 md:mb-5">
+                  Our Services
+                </div>
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-bold text-text-light mb-4 md:mb-5 leading-[1.15] tracking-tight">
+                  Enterprise Software Consulting Services That{' '}
+                  <span className="bg-gradient-to-r from-brand-400 to-indigo-400 bg-clip-text text-transparent">
+                    Drive Growth
+                  </span>
+                </h1>
+                <p className="text-base md:text-lg text-text-subtle leading-relaxed max-w-[60ch] mb-6">
+                  {SITE_CONFIG.name} delivers end-to-end software consulting services for US-based
+                  startups and mid-market companies. Our expertise spans cloud engineering, AI/ML
+                  solutions, full-stack development, data analytics, DevOps automation, enterprise
+                  integration, and security compliance. With projects starting at $5,000 and senior
+                  teams averaging 10+ years of experience, we transform complex business challenges
+                  into production-ready software solutions.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-3 mb-8">
+                  <Button
+                    asChild
+                    size="lg"
+                    className="bg-brand-600 hover:bg-brand-500 text-text-light shadow-glow-sm font-semibold rounded-xl"
                   >
-                    {item.label}
-                  </a>
-                  {i < JUMP_TO.length - 1 && (
-                    <span className="mx-2 text-text-subtle">·</span>
-                  )}
-                </span>
-              ))}
-            </p>
+                    <Link href="/contact">Get Free Consultation</Link>
+                  </Button>
+                  <Button
+                    asChild
+                    variant="outline"
+                    size="lg"
+                    className="border-text-light/20 text-text-light hover:border-text-light/35 hover:bg-glass-bg rounded-xl"
+                  >
+                    <Link href="/case-studies">View Case Studies</Link>
+                  </Button>
+                </div>
+                {/* Jump-to strip */}
+                <p className="text-sm text-text-subtle pt-6 border-t border-text-light/[0.12]">
+                  Jump to:{' '}
+                  {JUMP_TO.map((item, i) => (
+                    <span key={item.id}>
+                      <a
+                        href={`#${item.id}`}
+                        className="text-text-light/70 hover:text-text-light transition-colors underline-offset-2 hover:underline"
+                      >
+                        {item.label}
+                      </a>
+                      {i < JUMP_TO.length - 1 && (
+                        <span className="mx-2 text-text-subtle">·</span>
+                      )}
+                    </span>
+                  ))}
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -163,11 +191,11 @@ export default function ServicesPage() {
       {/* ── Sticky pillar nav ────────────────────────────────── */}
       <ServicesNavStrip />
 
-      {/* ── AI Solutions ─────────────────────────────────────── */}
+      {/* ── Automation & Intelligence ────────────────────────── */}
       <ServicePillarSection
-        id="ai-solutions"
-        title="AI Solutions"
-        description={NAVIGATION.aiMlMenu.description}
+        id="automation-intelligence"
+        title={NAVIGATION.aiMlMenu.groups[1].title}
+        description={NAVIGATION.aiMlMenu.groups[1].description}
         CategoryIcon={Brain}
         links={NAVIGATION.aiMlMenu.groups[1].links}
         builtOutSlugs={builtOutSlugs}
@@ -176,12 +204,12 @@ export default function ServicesPage() {
         bg="white"
       />
 
-      {/* ── Software Engineering ─────────────────────────────── */}
+      {/* ── Advisory ─────────────────────────────────────────── */}
       <ServicePillarSection
-        id="software-engineering"
+        id="advisory"
         title={NAVIGATION.servicesMenu[0].title}
         description={NAVIGATION.servicesMenu[0].description}
-        CategoryIcon={Code2}
+        CategoryIcon={MessageSquare}
         links={NAVIGATION.servicesMenu[0].links}
         builtOutSlugs={builtOutSlugs}
         iconMap={iconMap}
@@ -189,9 +217,9 @@ export default function ServicesPage() {
         bg="gray"
       />
 
-      {/* ── Enterprise Solutions ─────────────────────────────── */}
+      {/* ── Enterprise ───────────────────────────────────────── */}
       <ServicePillarSection
-        id="enterprise-solutions"
+        id="enterprise"
         title={NAVIGATION.servicesMenu[1].title}
         description={NAVIGATION.servicesMenu[1].description}
         CategoryIcon={Building2}
@@ -202,13 +230,26 @@ export default function ServicesPage() {
         bg="white"
       />
 
-      {/* ── Infrastructure ───────────────────────────────────── */}
+      {/* ── Software Engineering ─────────────────────────────── */}
       <ServicePillarSection
-        id="infrastructure"
+        id="software-engineering"
         title={NAVIGATION.servicesMenu[2].title}
         description={NAVIGATION.servicesMenu[2].description}
-        CategoryIcon={Server}
+        CategoryIcon={Code2}
         links={NAVIGATION.servicesMenu[2].links}
+        builtOutSlugs={builtOutSlugs}
+        iconMap={iconMap}
+        descriptions={SERVICE_DESCRIPTIONS}
+        bg="gray"
+      />
+
+      {/* ── Infrastructure Management ────────────────────────── */}
+      <ServicePillarSection
+        id="infrastructure-management"
+        title={NAVIGATION.servicesMenu[3].title}
+        description={NAVIGATION.servicesMenu[3].description}
+        CategoryIcon={Server}
+        links={NAVIGATION.servicesMenu[3].links}
         builtOutSlugs={builtOutSlugs}
         iconMap={iconMap}
         descriptions={SERVICE_DESCRIPTIONS}
@@ -313,31 +354,35 @@ export default function ServicesPage() {
       {/* ── CTA ──────────────────────────────────────────────── */}
       <section
         data-section="services-cta"
-        className="py-8 lg:py-12 bg-gradient-to-br from-surface-dark-from via-surface-dark-via to-surface-dark-to text-text-light"
+        className="py-12 bg-surface-white"
       >
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-4">Ready to Transform Your Business?</h2>
-          <p className="text-lg text-text-muted mb-8 max-w-2xl mx-auto">
-            Schedule a free consultation to discuss your project requirements. We&apos;ll provide
-            a detailed proposal within 48 hours.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              asChild
-              size="lg"
-              variant="secondary"
-              className="bg-surface-white text-brand-700 hover:bg-surface-light"
-            >
-              <Link href="/contact">Get Started Today</Link>
-            </Button>
-            <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="border-white text-white hover:bg-white/10"
-            >
-              <Link href="/case-studies">View Our Work</Link>
-            </Button>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="rounded-3xl bg-gradient-to-br from-surface-dark-from via-surface-dark-via to-surface-dark-to text-text-light px-6 sm:px-10 lg:px-14 py-12 lg:py-16 shadow-card text-center">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4">
+              Ready to Transform Your Business?
+            </h2>
+            <p className="text-base sm:text-lg text-text-muted mb-8 max-w-2xl mx-auto">
+              Schedule a free consultation to discuss your project requirements. We&apos;ll provide
+              a detailed proposal within 48 hours.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+              <Button
+                asChild
+                size="lg"
+                variant="secondary"
+                className="bg-surface-white text-brand-700 hover:bg-surface-light"
+              >
+                <Link href="/contact">Get Started Today</Link>
+              </Button>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="border-white text-white hover:bg-white/10"
+              >
+                <Link href="/case-studies">View Our Work</Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>

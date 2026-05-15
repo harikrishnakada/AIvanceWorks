@@ -57,6 +57,8 @@ import {
   ItConsultingHeroIllustration,
   WorkforceLifecycleSpine,
   WorkforceHeroIllustration,
+  DataPipelineBlueprint,
+  DataEngineeringHeroIllustration,
 
 } from '@/components/signature';
 import type { ReactNode } from 'react';
@@ -115,6 +117,7 @@ const SIGNATURE_COMPONENTS: Record<string, ReactNode> = {
   AiStrategyFrameworkBlueprint: <AiStrategyFrameworkBlueprint />,
   RegulatedItDecisionGauntlet: <RegulatedItDecisionGauntlet />,
   WorkforceLifecycleSpine: <WorkforceLifecycleSpine />,
+  DataPipelineBlueprint: <DataPipelineBlueprint />,
 
 };
 
@@ -144,6 +147,7 @@ const HERO_ILLUSTRATION_COMPONENTS: Record<string, ReactNode> = {
   AiStrategyHeroIllustration: <AiStrategyHeroIllustration />,
   ItConsultingHeroIllustration: <ItConsultingHeroIllustration />,
   WorkforceHeroIllustration: <WorkforceHeroIllustration />,
+  DataEngineeringHeroIllustration: <DataEngineeringHeroIllustration />,
 
 };
 
