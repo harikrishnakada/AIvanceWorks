@@ -59,10 +59,8 @@ export const NAVIGATION = {
         icon: 'Sparkles',
         description: 'AI-powered industry platforms',
         links: [
-          { label: 'C10 AI Fintech', href: '/solutions/ai-fintech', icon: 'CreditCard' },
           { label: 'C10 AI Pharma', href: '/solutions/ai-pharma', icon: 'Pill' },
           { label: 'C10 AI Healthcare', href: '/solutions/ai-healthcare', icon: 'Stethoscope' },
-          { label: 'C10 AI Retail', href: '/solutions/ai-retail', icon: 'ShoppingCart' },
           { label: 'C10 AI Infrastructure', href: '/solutions/ai-infrastructure', icon: 'Server' },
         ],
       },
@@ -135,16 +133,6 @@ export const NAVIGATION = {
   // Mega menu columns for "Solutions" dropdown
   solutionsMenu: [
      {
-      heading: 'Finance',
-      description: 'Banking, wealth & financial platforms',
-      icon: 'TrendingUp',
-      links: [
-        { label: 'Digital Banking & Wallets', href: '/solutions/digital-banking-wallets', icon: 'CreditCard' },
-        { label: 'Document Management', href: '/solutions/financial-document-management', icon: 'FileText' },
-        { label: 'Wealth & Investment Management', href: '/solutions/wealth-investment-management', icon: 'TrendingUp' },
-      ],
-    },
-    {
       heading: 'Insurance',
       description: 'Carrier & agency software systems',
       icon: 'Shield',

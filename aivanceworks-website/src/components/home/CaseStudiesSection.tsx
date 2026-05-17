@@ -7,17 +7,17 @@ import { getFeaturedCaseStudies } from '@/lib/content';
 // Fallback placeholder data for when no case studies exist in Sanity yet
 const placeholderCaseStudies = [
   {
-    title: 'AI-Powered Document Processing for FinTech Startup',
+    title: 'AI-Powered Document Processing for Enterprise',
     excerpt:
       'Implemented a RAG-based document intelligence system that automated 80% of manual document review, reducing processing time from days to minutes.',
-    industry: 'FinTech',
+    industry: 'Enterprise',
     services: ['AI Solutions', 'Azure Cloud'],
     metrics: [
       { label: 'Processing Time', value: '95%', suffix: 'Reduction' },
       { label: 'Cost Savings', value: '$2M', suffix: 'Annually' },
       { label: 'Accuracy', value: '99.2%', suffix: 'Rate' },
     ],
-    slug: 'fintech-document-processing',
+    slug: 'enterprise-document-processing',
     image: null,
   },
   {

@@ -194,11 +194,11 @@ const marketResearch: ServicePageData = {
       pageType: 'service',
     },
     {
-      title: 'Wealth & Investment Management',
+      title: 'Patient Portals',
       description:
-        'Entering the wealth-tech space? See how market research maps custodians, regulatory requirements, and buyer personas into a buildable product brief.',
-      href: '/solutions/wealth-investment-management',
-      icon: 'TrendingUp',
+        'Entering health-tech? See how market research maps clinician workflows, HIPAA constraints, and patient personas into a buildable product brief grounded in real care-delivery context.',
+      href: '/solutions/patient-portals',
+      icon: 'Heart',
       pageType: 'solution',
     },
     {

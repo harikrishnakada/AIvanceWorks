@@ -183,7 +183,7 @@ const FAQS = [
   },
   {
     question: `What industries does ${SITE_CONFIG.name} serve?`,
-    answer: `Mid-market enterprises across technology, healthcare, financial services, insurance, manufacturing, and pharma. Our cloud-native and AI solutions are industry-agnostic but incorporate domain-specific compliance expertise — HIPAA for healthcare, SOC 2 for technology, PCI for fintech, and GxP for pharma.`,
+    answer: `Mid-market enterprises across technology, healthcare, insurance, manufacturing, and pharma. Our cloud-native and AI solutions are industry-agnostic but incorporate domain-specific compliance expertise — HIPAA for healthcare, SOC 2 for technology, and GxP for pharma.`,
   },
   {
     question: 'What certifications do your consultants hold?',

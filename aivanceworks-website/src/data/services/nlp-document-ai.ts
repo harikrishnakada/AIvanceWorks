@@ -275,10 +275,10 @@ const nlpDocumentAi: ServicePageData = {
       pageType: 'solution',
     },
     {
-      title: 'Financial Document Management',
+      title: 'Document Management Software',
       description:
-        'Document AI is the gate that keeps a records platform clean. See the same OCR and classification stack applied to financial document management — KYC files, advisory agreements, trade confirms, and loan disclosures tagged correctly at ingestion so retention rules, search, and supervisory review work without a manual indexing pass.',
-      href: '/solutions/financial-document-management',
+        'Document AI is the gate that keeps a records platform clean. See the same OCR and classification stack applied to insurance document management — ACORD forms, claims correspondence, policy declarations, and producer agreements tagged correctly at ingestion so retention rules, search, and audit review work without a manual indexing pass.',
+      href: '/solutions/document-management-software',
       icon: 'ShieldCheck',
       pageType: 'solution',
     },

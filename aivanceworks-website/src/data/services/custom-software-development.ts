@@ -284,11 +284,11 @@ const customSoftwareDevelopment: ServicePageData = {
       pageType: 'service',
     },
     {
-      title: 'E-Commerce Websites',
+      title: 'Insurance Portals',
       description:
-        'See custom development applied to commerce — conversion-optimized platforms with tokenized checkout, inventory management, and AI-driven personalization.',
-      href: '/solutions/e-commerce-websites',
-      icon: 'ShoppingCart',
+        'See custom development applied to regulated industries — agent, broker, and policyholder portals built on a carrier-grade data model with SSO, SOC 2 controls, and policy-lifecycle integrations.',
+      href: '/solutions/insurance-portals',
+      icon: 'Shield',
       pageType: 'solution',
     },
   ],

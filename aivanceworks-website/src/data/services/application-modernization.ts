@@ -303,11 +303,11 @@ const applicationModernization: ServicePageData = {
       pageType: 'service',
     },
     {
-      title: 'Wealth & Investment Management',
+      title: 'Policy Administration Systems',
       description:
-        'Replacing a legacy advisor portal or back-office? See the strangler-fig approach applied to a wealth platform — trade flow, books-and-records archive, and the existing custodial book of business stay running while the new system takes over channel by channel.',
-      href: '/solutions/wealth-investment-management',
-      icon: 'TrendingUp',
+        'Replacing a legacy PAS or carrier back-office? See the strangler-fig approach applied to policy administration — quote, bind, issue, endorse, and renewal flows stay running while the new system takes over line of business by line of business.',
+      href: '/solutions/policy-administration-systems',
+      icon: 'Layers',
       pageType: 'solution',
     },
   ],

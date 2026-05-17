@@ -273,11 +273,11 @@ const mobileDevelopment: ServicePageData = {
       pageType: 'service',
     },
     {
-      title: 'Retail Websites',
+      title: 'Patient Portals',
       description:
-        'Building a store-associate or shopper app for an omnichannel retail brand? See how we tie native mobile experiences into the same commerce core that drives the website, POS, and loyalty — one customer, every surface.',
-      href: '/solutions/retail-websites',
-      icon: 'Store',
+        'Building a HIPAA-compliant mobile companion to a patient portal? See how we deliver native iOS/Android experiences that tie into the same FHIR/HL7 backbone as the web portal — appointments, secure messaging, and records access on every surface.',
+      href: '/solutions/patient-portals',
+      icon: 'Heart',
       pageType: 'solution',
     },
   ],

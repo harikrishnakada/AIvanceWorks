@@ -17,13 +17,12 @@ import { SolutionsNavStrip } from '@/components/solutions/SolutionsNavStrip';
 import { ServiceCard } from '@/components/services/ServiceCard';
 
 export const metadata: Metadata = constructMetadata({
-  title: 'Industry Solutions — Healthcare, Insurance, Finance & Pharma Software',
-  description: `${SITE_CONFIG.name} builds custom software solutions for healthcare, insurance, finance, and pharma. HIPAA-compliant portals, claims systems, banking platforms, and LIMS.`,
+  title: 'Industry Solutions — Healthcare, Insurance & Pharma Software',
+  description: `${SITE_CONFIG.name} builds custom software solutions for healthcare, insurance, and pharma. HIPAA-compliant portals, claims systems, and LIMS.`,
   canonical: `${SITE_CONFIG.url}/solutions`,
   keywords: [
     'healthcare software solutions',
     'insurance software development',
-    'fintech software development',
     'pharma software solutions',
     'patient portal development',
     'insurance portal',
@@ -41,15 +40,10 @@ const iconMap: Record<string, LucideIcon> = {
 // ─── Short descriptions (keyed by slug) ──────────────────────────────────────
 const SOLUTION_DESCRIPTIONS: Record<string, string> = {
   // AI Industry Solutions
-  'ai-fintech': 'AI-powered fintech platforms — fraud detection, intelligent underwriting, and personalized banking experiences.',
   'ai-pharma': 'AI for pharma — drug discovery acceleration, clinical trial intelligence, and regulatory automation.',
   'ai-healthcare': 'AI for healthcare — clinical decision support, diagnostic imaging, and patient engagement at scale.',
   'ai-retail': 'AI for retail — demand forecasting, hyper-personalization, and intelligent merchandising.',
   'ai-infrastructure': 'AI-ready infrastructure — GPU clusters, vector databases, and MLOps platforms built for scale.',
-  // Finance
-  'digital-banking-wallets': 'Modern banking experiences, wallets, and payment infrastructure built for scale and compliance.',
-  'financial-document-management': 'Secure document workflows for KYC, loan origination, and audit-ready financial records.',
-  'wealth-investment-management': 'Portfolio, advisor, and investor platforms with real-time analytics and reporting.',
   // Insurance
   'insurance-portals': 'Customer, agent, and broker portals that streamline policy servicing end-to-end.',
   'underwriting-software': 'Automated underwriting workbenches with rules engines and risk scoring.',
@@ -141,7 +135,7 @@ export default function SolutionsPage() {
                 </h1>
                 <p className="text-base md:text-lg text-text-subtle leading-relaxed max-w-[60ch] mb-6">
                   {SITE_CONFIG.name} designs and delivers custom software that solves real
-                  problems in finance, insurance, healthcare, and pharma — with deep domain
+                  problems in insurance, healthcare, and pharma — with deep domain
                   expertise, modern engineering, and compliance built in from day one.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 mb-8">
@@ -238,7 +232,7 @@ export default function SolutionsPage() {
           .toLowerCase()
           .replace(/[^a-z0-9]+/g, '-');
         const CategoryIcon = iconMap[category.icon] ?? Building2;
-        // AI Industry Solutions is white, so start Finance on gray.
+        // AI Industry Solutions is white, so start the first industry pillar on gray.
         const bgClass =
           catIdx % 2 === 0 ? 'bg-surface-light' : 'bg-surface-white';
 

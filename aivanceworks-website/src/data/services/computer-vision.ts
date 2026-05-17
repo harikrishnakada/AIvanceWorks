@@ -270,7 +270,7 @@ const computerVision: ServicePageData = {
   // Audience test: 3 cross-links covering the natural next steps from computer vision.
   // Generative AI: multimodal AI use cases (vision + LLM reasoning).
   // NLP & Document AI: document scanning overlap (camera-captured docs need vision preprocessing).
-  // E-commerce Websites: concrete solution where CV workloads (visual search, shelf monitoring) are embedded.
+  // Hospital Management Systems: concrete solution where CV workloads (diagnostic imaging, document scanning) are embedded.
   // Journey-aware descriptions are unique per source→destination pair (per v1.4).
   relatedPages: [
     {
@@ -290,11 +290,11 @@ const computerVision: ServicePageData = {
       pageType: 'service',
     },
     {
-      title: 'E-Commerce Websites',
+      title: 'Hospital Management Systems',
       description:
-        'Visual search, shelf monitoring, and automated catalog management are production computer vision workloads. See how we integrate vision intelligence into the commerce platforms we build.',
-      href: '/solutions/e-commerce-websites',
-      icon: 'ShoppingCart',
+        'Diagnostic imaging triage, radiology workflow assistance, and automated document scanning are production computer vision workloads in clinical settings. See how we integrate vision intelligence into the hospital systems we build.',
+      href: '/solutions/hospital-management-systems',
+      icon: 'Building2',
       pageType: 'solution',
     },
   ],

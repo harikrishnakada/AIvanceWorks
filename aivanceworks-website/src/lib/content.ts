@@ -101,7 +101,7 @@ const serviceCategories: ServiceCategory[] = [
     name: 'Data Engineering & Analytics',
     slug: 'data-engineering',
     shortDescription: 'ETL pipelines, data warehousing, and business intelligence solutions',
-    description: `Turn raw data into strategic insights with enterprise-grade data pipelines, warehousing, and business intelligence solutions. Our data engineers build ETL/ELT pipelines using Azure Data Factory, design scalable data warehouses with Azure Synapse and Snowflake, and create interactive Power BI dashboards that drive decision-making. We process millions of records daily for clients across healthcare, fintech, and SaaS industries.`,
+    description: `Turn raw data into strategic insights with enterprise-grade data pipelines, warehousing, and business intelligence solutions. Our data engineers build ETL/ELT pipelines using Azure Data Factory, design scalable data warehouses with Azure Synapse and Snowflake, and create interactive Power BI dashboards that drive decision-making. We process millions of records daily for clients across healthcare, insurance, and SaaS industries.`,
     icon: 'Database',
     gradient: 'from-orange-500 to-amber-600',
     capabilities: [

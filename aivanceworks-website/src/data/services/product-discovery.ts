@@ -193,19 +193,19 @@ const productDiscovery: ServicePageData = {
       pageType: 'service',
     },
     {
-      title: 'E-commerce Websites',
+      title: 'Patient Portals',
       description:
-        'See how discovery feeds into a custom storefront build — from conversion research to a headless commerce platform you own.',
-      href: '/solutions/e-commerce-websites',
-      icon: 'ShoppingCart',
+        'See how discovery feeds into a HIPAA-bound product build — clinician interviews, patient journey mapping, and FHIR data-model decisions captured before a line of code is written.',
+      href: '/solutions/patient-portals',
+      icon: 'Heart',
       pageType: 'solution',
     },
     {
-      title: 'Wealth & Investment Management',
+      title: 'Insurance Portals',
       description:
-        'Scoping a wealth platform overhaul? See how discovery maps custodians, OMS, the supervisory chain, and Reg BI / books-and-records obligations into a buildable backlog before a line of code is written.',
-      href: '/solutions/wealth-investment-management',
-      icon: 'TrendingUp',
+        'Scoping an agent or policyholder portal? See how discovery maps carrier systems, producer hierarchies, and policy-lifecycle obligations into a buildable backlog before development starts.',
+      href: '/solutions/insurance-portals',
+      icon: 'Shield',
       pageType: 'solution',
     },
   ],
