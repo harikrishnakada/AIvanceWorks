@@ -25,6 +25,7 @@ import {
   SampleLifecycleControlPlane,
   RegulatoryInformationSpine,
   AiInfrastructureStack,
+  HealthcareAiCarePathway,
 } from '@/components/signature';
 import type { ReactNode } from 'react';
 
@@ -75,6 +76,7 @@ const SIGNATURE_COMPONENTS: Record<string, ReactNode> = {
   SampleLifecycleControlPlane: <SampleLifecycleControlPlane />,
   RegulatoryInformationSpine: <RegulatoryInformationSpine />,
   AiInfrastructureStack: <AiInfrastructureStack />,
+  HealthcareAiCarePathway: <HealthcareAiCarePathway />,
 };
 
 export default async function SolutionPage({ params }: PageProps) {

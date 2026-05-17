@@ -1019,6 +1019,7 @@ const SERVICE_PAGE_MODULES: Record<string, () => Promise<{ default: ServicePageD
   'human-capital-management': () =>
     import('@/data/services/human-capital-management'),
   'data-engineering': () => import('@/data/services/data-engineering'),
+  'platform-engineering': () => import('@/data/services/platform-engineering'),
 
 };
 
@@ -1042,6 +1043,7 @@ const SOLUTION_PAGE_MODULES: Record<string, () => Promise<{ default: SolutionPag
   'regulatory-information-management': () =>
     import('@/data/solutions/regulatory-information-management'),
   'ai-infrastructure': () => import('@/data/solutions/ai-infrastructure'),
+  'ai-healthcare': () => import('@/data/solutions/ai-healthcare'),
 };
 
 export async function getServicePageData(slug: string): Promise<ServicePageData | null> {

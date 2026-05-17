@@ -437,11 +437,11 @@ const ehrEmrDevelopment: SolutionPageData = {
       pageType: 'service',
     },
     {
-      title: 'Document Management Software',
+      title: 'C10 AI Healthcare',
       description:
-        'Clinical documents from your EHR need a management layer that enforces HIPAA retention schedules and produces a complete audit trail. See how we build the DMS that manages what your EHR produces.',
-      href: '/solutions/document-management-software',
-      icon: 'FolderOpen',
+        'EHR platform in place and your CMIO is asking what AI to layer next? Our healthcare AI engagement adds ambient documentation, grounded decision-support, and RCM copilots — clinician-in-the-loop and inside the audit trail your EHR already enforces.',
+      href: '/solutions/ai-healthcare',
+      icon: 'Stethoscope',
       pageType: 'solution',
     },
     {

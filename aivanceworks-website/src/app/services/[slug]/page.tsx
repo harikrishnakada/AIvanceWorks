@@ -59,6 +59,8 @@ import {
   WorkforceHeroIllustration,
   DataPipelineBlueprint,
   DataEngineeringHeroIllustration,
+  PlatformEngineeringControlPlane,
+  PlatformEngineeringHeroIllustration,
 
 } from '@/components/signature';
 import type { ReactNode } from 'react';
@@ -118,6 +120,7 @@ const SIGNATURE_COMPONENTS: Record<string, ReactNode> = {
   RegulatedItDecisionGauntlet: <RegulatedItDecisionGauntlet />,
   WorkforceLifecycleSpine: <WorkforceLifecycleSpine />,
   DataPipelineBlueprint: <DataPipelineBlueprint />,
+  PlatformEngineeringControlPlane: <PlatformEngineeringControlPlane />,
 
 };
 
@@ -148,6 +151,7 @@ const HERO_ILLUSTRATION_COMPONENTS: Record<string, ReactNode> = {
   ItConsultingHeroIllustration: <ItConsultingHeroIllustration />,
   WorkforceHeroIllustration: <WorkforceHeroIllustration />,
   DataEngineeringHeroIllustration: <DataEngineeringHeroIllustration />,
+  PlatformEngineeringHeroIllustration: <PlatformEngineeringHeroIllustration />,
 
 };
 
