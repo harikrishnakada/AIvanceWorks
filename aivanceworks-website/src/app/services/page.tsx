@@ -72,7 +72,6 @@ const SERVICE_DESCRIPTIONS: Record<string, string> = {
   'devops': 'CI/CD pipelines and DevOps culture that ship 10× more with fewer incidents.',
   'platform-engineering': 'Internal developer platforms that accelerate engineering team productivity.',
   'data-engineering': 'ETL pipelines, data warehouses, and real-time analytics on Azure and AWS.',
-  'finops': 'Cloud cost optimization strategies that reduce spend by 30–50% without sacrificing performance.',
   'security-compliance': 'Zero Trust security architecture, IAM, and compliance for HIPAA, SOC 2, and GDPR.',
 };
 

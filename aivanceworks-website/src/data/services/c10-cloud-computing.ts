@@ -247,11 +247,11 @@ const cloudStrategy: ServicePageData = {
       pageType: 'service',
     },
     {
-      title: 'FinOps & Cloud Cost Optimization',
+      title: 'Cloud Infrastructure & Operations',
       description:
-        'Building a business case and worried about post-migration surprises? FinOps engagements pair with assessment work — so cost discipline is designed in before migration, not patched after the first bill.',
-      href: '/services/finops',
-      icon: 'DollarSign',
+        'Strategy decided? We translate the assessment into production-grade cloud foundations — landing zones, IaC modules, and an operational model engineered for the workloads and compliance posture you defined.',
+      href: '/services/cloud-infrastructure',
+      icon: 'Cloud',
       pageType: 'service',
     },
     {

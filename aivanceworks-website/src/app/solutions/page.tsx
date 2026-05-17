@@ -42,7 +42,6 @@ const SOLUTION_DESCRIPTIONS: Record<string, string> = {
   // AI Industry Solutions
   'ai-pharma': 'AI for pharma — drug discovery acceleration, clinical trial intelligence, and regulatory automation.',
   'ai-healthcare': 'AI for healthcare — clinical decision support, diagnostic imaging, and patient engagement at scale.',
-  'ai-retail': 'AI for retail — demand forecasting, hyper-personalization, and intelligent merchandising.',
   'ai-infrastructure': 'AI-ready infrastructure — GPU clusters, vector databases, and MLOps platforms built for scale.',
   // Insurance
   'insurance-portals': 'Customer, agent, and broker portals that streamline policy servicing end-to-end.',

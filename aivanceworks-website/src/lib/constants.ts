@@ -125,7 +125,6 @@ export const NAVIGATION = {
         { label: 'DevOps', href: '/services/devops', icon: 'GitBranch' },
         { label: 'Platform Engineering', href: '/services/platform-engineering', icon: 'Cpu' },
         { label: 'Data Engineering', href: '/services/data-engineering', icon: 'Database' },
-        { label: 'FinOps & Cloud Cost Optimization', href: '/services/finops', icon: 'TrendingUp' },
         { label: 'Security & Compliance', href: '/services/security-compliance', icon: 'Shield' },
       ],
     }  

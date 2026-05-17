@@ -291,11 +291,11 @@ const platformEngineering: ServicePageData = {
       pageType: 'service',
     },
     {
-      title: 'FinOps & Cloud Cost Optimization',
+      title: 'Security & Compliance',
       description:
-        'Self-service infrastructure without cost guardrails is how cloud bills go sideways. Our FinOps engagement wires budgets, chargeback, and anomaly detection into the platform so developer self-service stays predictable.',
-      href: '/services/finops',
-      icon: 'TrendingUp',
+        'A developer platform is only as trustworthy as the guardrails baked into it. Our Security & Compliance engagement wires identity, secrets, policy-as-code, and audit controls into the golden paths — so self-service speed and a defensible security posture come in the same release.',
+      href: '/services/security-compliance',
+      icon: 'Shield',
       pageType: 'service',
     },
   ],

@@ -361,11 +361,11 @@ const aiInfrastructure: SolutionPageData = {
       pageType: 'service',
     },
     {
-      title: 'FinOps & Cloud Cost Optimization',
+      title: 'Cloud Infrastructure & Operations',
       description:
-        'GPU spend is where AI infrastructure most often goes sideways. Our FinOps engagement instruments your cloud and AI workloads with budgets, chargeback, and anomaly detection so cost conversations happen before the invoice, not after.',
-      href: '/services/finops',
-      icon: 'TrendingUp',
+        'AI workloads run on the cloud operating model underneath them. Our Cloud Infrastructure & Operations engagement designs the landing zones, IaC patterns, and day-2 operational model that GPU clusters, vector stores, and inference services depend on — so the AI platform inherits cloud foundations you already trust.',
+      href: '/services/cloud-infrastructure',
+      icon: 'Cloud',
       pageType: 'service',
     },
     {
