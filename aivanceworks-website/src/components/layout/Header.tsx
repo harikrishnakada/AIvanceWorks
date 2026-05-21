@@ -492,7 +492,7 @@ export function Header() {
             <div className="max-w-[1400px] mx-auto px-4 md:px-6 pt-2 md:pt-3">
               <div className="bg-white rounded-xl md:rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.15)] border border-gray-200/80 overflow-hidden">
                 {/* Columns — one per solution group */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-gray-100">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-gray-100">
                   {NAVIGATION.solutionsMenu.map((group) => {
                     const GroupIcon = iconMap[group.icon] || Code2;
                     return (

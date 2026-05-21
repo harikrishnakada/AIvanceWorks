@@ -1044,6 +1044,9 @@ const SOLUTION_PAGE_MODULES: Record<string, () => Promise<{ default: SolutionPag
     import('@/data/solutions/regulatory-information-management'),
   'ai-infrastructure': () => import('@/data/solutions/ai-infrastructure'),
   'ai-healthcare': () => import('@/data/solutions/ai-healthcare'),
+  'ctms': () => import('@/data/solutions/ctms'),
+  'etmf': () => import('@/data/solutions/etmf'),
+  'rtsm': () => import('@/data/solutions/rtsm'),
 };
 
 export async function getServicePageData(slug: string): Promise<ServicePageData | null> {

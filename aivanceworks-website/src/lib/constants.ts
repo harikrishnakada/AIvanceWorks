@@ -171,6 +171,16 @@ export const NAVIGATION = {
         { label: 'Regulatory Information Management (RIM)', href: '/solutions/regulatory-information-management', icon: 'FileText' },
       ],
     },
+    {
+      heading: 'Clinical',
+      description: 'Clinical trial operations & technology',
+      icon: 'Stethoscope',
+      links: [
+        { label: 'CTMS', href: '/solutions/ctms', icon: 'Workflow' },
+        { label: 'ETMF', href: '/solutions/etmf', icon: 'FileText' },
+        { label: 'Randomization and Trial Supply Management', href: '/solutions/rtsm', icon: 'Package' },
+      ],
+    },
   ],
 } as const;
 

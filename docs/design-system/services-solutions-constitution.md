@@ -996,7 +996,22 @@ This rule applies to copy in the data file **and** any inline copy inside compon
 - **`ImageFeature` descriptions:** 15–30 words. One sentence, focused on what the buyer gets — not how it works.
 - **`ImageFeature` alt text:** must describe the visual content of the image, not repeat the heading. Example: "Clinician reviewing patient records on a tablet in a hospital corridor" — not "Patient Portal Dashboard."
 
-### 9.9 Cross-reference — content voice guide
+### 9.9 Audit / compliance language placement (hard)
+
+Audit, inspection, validation, and "QA team can read" framing belongs **inside the compliance sections** (`ComplianceSpotlight`, `ComplianceDeepDive`, and a single dedicated FAQ entry). It does **not** belong in:
+
+- **Hero headline or subhead** — these address the buyer's primary operational concern (running their business, hitting their KPI), not their secondary obligation to a regulator.
+- **Hero metrics or `MetricsStrip`** — these are buyer-outcome metrics (visibility, velocity, throughput, conversion), not engineering-posture statements like "audit-trail-aware" or "inspection-ready."
+- **`FeatureGrid` titles or descriptions** — features describe what the system does for the operating team, not what it produces for the audit team.
+- **`BenefitsGrid` titles or descriptions** — benefits are outcomes for the operating buyer (clinical ops director, VP underwriting, head of digital), not for the QA function.
+- **Signature section perimeter labels, footer disclaimers, or chip rows** — the signature carries the page's emotional argument for the operating buyer; compliance framing dilutes it.
+- **Liability disclaimers ("validation owned by your team")** — state once in the compliance FAQ entry and once in the `complianceDetail.auditNote`. Do not repeat in every metric, benefit, or feature description.
+
+**Why:** the Archetype C buyer (regulated solution) answers to *both* their P&L *and* a regulator. The constitution's audience test (§9.5) requires content to address what the buyer's primary role is measured on. A VP of Clinical Operations is measured on enrollment velocity and milestone hit-rate first; inspection-readiness is a hygiene factor they assume any serious vendor handles. Leading every section with audit framing flips that hierarchy and signals "we don't understand what you actually do."
+
+**How to apply:** when drafting or reviewing copy, ask "would the operating buyer (not their QA colleague) read this and feel the page understands their day?" If a hero metric, benefit, or signature label only makes sense to a QA reviewer, move it into `ComplianceSpotlight` / `ComplianceDeepDive` where it belongs.
+
+### 9.10 Cross-reference — content voice guide
 
 For detailed tone, voice, and copy-pattern guidance, see `docs/content-strategy/service-solution-content-voice-guide.md`. The voice guide and this constitution are complementary:
 

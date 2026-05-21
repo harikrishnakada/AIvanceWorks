@@ -22,7 +22,7 @@ const aiPharma: SolutionPageData = {
   slug: 'ai-pharma',
   title: 'C10 AI Pharma',
   shortDescription:
-    'Custom software for pharma and biotech — research workflows, clinical operations tooling, and AI-assisted analytics — designed with audit, validation, and security engineering practices that your QA team can build on.',
+    'Custom software for pharma and biotech — research workflows, clinical operations tooling, and AI-assisted analytics — built around the way your scientists, clinical operations, and diagnostic teams actually work.',
 
   metaTitle:
     'AI Software for Pharma & Biotech | Research, Clinical, and Diagnostic Tooling',
@@ -70,9 +70,9 @@ const aiPharma: SolutionPageData = {
     badge: 'AI Industry Solutions',
     // NOTE: this headline is a placeholder pending the headline-rewrite
     // conversation. Treat as TODO before publish.
-    headline: 'AI for pharma — built inside the audit trail, not on top of it.',
+    headline: 'AI for pharma — built around how your scientists and clinical teams actually work.',
     subhead:
-      'Custom software platforms for pharma and biotech — including research workflows, clinical operations tooling, and AI-assisted analytics. We engineer the platform with audit-trail awareness and security discipline; your QA and regulatory functions own validation and submission.',
+      'Custom software platforms for pharma and biotech — research workflows, clinical operations tooling, and AI-assisted analytics — engineered to sit alongside the systems your scientists, clinical operations, and diagnostic teams already run.',
     primaryCta: { label: 'Book a Discovery Call', href: '/contact' },
     secondaryCta: { label: 'See the research engine', href: '#signature' },
     heroImage: {
@@ -81,50 +81,50 @@ const aiPharma: SolutionPageData = {
     },
     metrics: [
       {
-        value: 'Audit-aware',
-        label: 'Engineering for audit-trail-aware systems',
-        description:
-          'Logging, lineage, and access controls treated as first-class engineering concerns from day one.',
-      },
-      {
-        value: 'Lifecycle aware',
-        label: 'ML lifecycle artifacts your QA team can use',
-        description:
-          'Model cards, evaluation reports, and change logs delivered as part of the build.',
-      },
-      {
         value: 'Three pillars',
-        label: 'One engineering foundation',
+        label: 'Discovery, clinical ops, and diagnostic software',
         description:
-          'Discovery, clinical operations, and diagnostic software sharing the same engineering core.',
+          'One engineering foundation supporting discovery, clinical operations tooling, and AI-assisted decision-support software.',
+      },
+      {
+        value: 'Faster R&D loop',
+        label: 'Search, analytics, and tooling in one place',
+        description:
+          'Workflows that compress the read–write–decide loop for scientists — literature, internal experiments, and analytics in one place.',
+      },
+      {
+        value: 'Built to coexist',
+        label: 'With the research and clinical systems you run',
+        description:
+          'Platforms designed to sit alongside the research and clinical systems you already run — your IT and integration teams own the connectors.',
       },
     ],
   },
 
   metricsStrip: [
     {
-      value: 'Audit-aware engineering',
-      label: 'Logging & lineage from day one',
+      value: 'Faster time-to-decision in R&D',
+      label: 'Literature, experiments, and analytics in one place',
       description:
-        'Audit-trail logging, data lineage, and approval gates designed as first-class features of the platform — not bolted on for an audit week.',
+        'Workflows that compress the read–write–decide loop for scientists, with data lineage preserved underneath.',
     },
     {
-      value: 'Data discipline',
-      label: 'Lineage, controlled vocabularies, immutable logs',
+      value: 'Clearer signals for clinical operations',
+      label: 'Enrollment, monitoring, and data quality dashboards',
       description:
-        'Engineering defaults that make research and operational data traceable: schema-level lineage, immutable audit records, and controlled-vocabulary support.',
+        'Dashboards that surface enrollment, monitoring, and data quality signals as they happen — supporting your trial team’s decisions, not replacing them.',
     },
     {
-      value: 'Lifecycle artifacts',
-      label: 'Model cards, evaluations, drift monitoring',
+      value: 'Transparent diagnostic AI',
+      label: 'Explainability, confidence, clinician-in-the-loop',
       description:
-        'ML lifecycle artifacts delivered with the build so your QA, IT, and regulatory teams can review what the model is and how it is changing.',
+        'Imaging and decision-support software built with explainability hooks, confidence reporting, and clinician-in-the-loop patterns from day one.',
     },
     {
       value: 'Built to coexist',
-      label: 'APIs your existing systems can consume',
+      label: 'APIs the systems you already run can consume',
       description:
-        'Platforms designed to coexist with the research and clinical systems you already run — your IT and integration teams own the actual connectors.',
+        'Designed to coexist with the research and clinical systems you already run, using documented APIs and standard data formats.',
     },
   ],
 
@@ -181,14 +181,14 @@ const aiPharma: SolutionPageData = {
         'Dashboards, alerts, and analytics that surface enrollment, monitoring, and data quality signals as they happen — supporting your trial team’s decisions instead of replacing them.',
     },
     {
-      icon: 'ShieldCheck',
-      title: 'Documentation Your QA Team Can Use',
+      icon: 'Microscope',
+      title: 'Transparent Diagnostic and Decision-Support AI',
       description:
-        'Validation-support artifacts — audit logs, model cards, data lineage, and change-control history — are produced as part of the build, so your QA function inherits an engineered evidence set rather than a research notebook.',
+        'Imaging and decision-support software built with explainability hooks, confidence reporting, and clinician-in-the-loop patterns — so your clinical teams understand what the model is suggesting and why.',
     },
     {
       icon: 'Lock',
-      title: 'PHI / PII Treated as a First-Class Engineering Concern',
+      title: 'PHI / PII Handled as a First-Class Engineering Concern',
       description:
         'Patient and subject data is segmented, tokenized, and access-scoped at the application layer by default. Training pipelines use de-identified or synthetic datasets wherever the work allows.',
     },
@@ -394,11 +394,11 @@ const aiPharma: SolutionPageData = {
       pageType: 'solution',
     },
     {
-      title: 'Laboratory Information Management Systems (LIMS)',
+      title: 'Clinical Trial Management Systems (CTMS)',
       description:
-        'Most pharma AI work eventually leans on a LIMS for sample, instrument, and result data. Our LIMS engagement builds the chain-of-custody and audit-trail foundation your research and clinical platforms can sit on top of.',
-      href: '/solutions/lims',
-      icon: 'Beaker',
+        'When pharma AI work moves from research into clinical operations, you need one operational source of truth for studies, sites, visits, and findings. Our CTMS engagement builds the audit-trail-aware control plane your clinical operations team can run on.',
+      href: '/solutions/ctms',
+      icon: 'Workflow',
       pageType: 'solution',
     },
     {

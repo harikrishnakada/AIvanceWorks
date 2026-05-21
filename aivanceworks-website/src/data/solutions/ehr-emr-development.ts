@@ -17,7 +17,7 @@ const ehrEmrDevelopment: SolutionPageData = {
   slug: 'ehr-emr-development',
   title: 'Custom EHR & EMR Development',
   shortDescription:
-    'Custom, HIPAA-compliant electronic health record systems built on Azure — interoperable via FHIR R4, designed around clinical workflows, and audit-ready from day one.',
+    'Custom, HIPAA-compliant electronic health record systems built on Azure — interoperable via FHIR R4 and designed around the clinical workflows your physicians, nurses, and front-desk teams actually run.',
 
   metaTitle: 'Custom EHR & EMR Development | HIPAA-Compliant Healthcare Software',
   metaDescription:

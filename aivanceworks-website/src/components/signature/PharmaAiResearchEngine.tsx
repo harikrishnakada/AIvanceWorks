@@ -107,10 +107,10 @@ const REGULATORY_FRAMEWORKS = [
 ];
 
 const FOUNDATION_PILLARS: PillarCapability[] = [
-  { icon: FileCheck, label: 'Validation-support artifacts your QA team can use' },
-  { icon: Activity, label: 'Audit-trail logging and data lineage as engineering defaults' },
+  { icon: Activity, label: 'Shared data layer with lineage and controlled vocabularies' },
+  { icon: GitBranch, label: 'Common MLOps practice: model cards, evaluation, drift monitoring' },
   { icon: Lock, label: 'Patient and subject data segmented and role-scoped at the application layer' },
-  { icon: GitBranch, label: 'ML lifecycle artifacts: model cards, drift monitoring, retraining gates' },
+  { icon: FileCheck, label: 'One engineering foundation across discovery, clinical, and diagnostic software' },
 ];
 
 interface Annotation {
@@ -121,15 +121,15 @@ interface Annotation {
 
 const LEFT_ANNOTATIONS: Annotation[] = [
   {
-    title: 'Audit-trail awareness from sprint one',
+    title: 'Faster read–write–decide for scientists',
     description:
-      'Logging, lineage, and approval gates are designed in as engineering defaults — not retrofitted before an audit week.',
+      'Search across literature, internal experiments, and analytics in one place — with the underlying data lineage preserved.',
     variant: 'brand',
   },
   {
-    title: 'Engineering artifacts your QA team can read',
+    title: 'Clearer signals for clinical operations',
     description:
-      'Model cards, training data lineage, evaluation reports, and change-control logs are produced as part of the build, not after.',
+      'Dashboards that surface enrollment, monitoring, and data quality signals as they happen — supporting your trial team’s decisions, not replacing them.',
     variant: 'accent',
   },
 ];
@@ -232,8 +232,8 @@ export const PharmaAiResearchEngine = () => (
         </h2>
         <p className="text-base md:text-lg text-text-subtle leading-relaxed">
           Discovery, clinical operations, and healthcare AI software — each
-          purpose-built — sharing the same engineering core, so your teams move
-          faster while your QA function inherits the artifacts it needs.
+          purpose-built — sharing the same engineering core, so your scientists,
+          trial teams, and clinical reviewers all work from the same foundation.
         </p>
       </div>
 
@@ -290,7 +290,7 @@ export const PharmaAiResearchEngine = () => (
                     The foundation
                   </div>
                   <h3 className="text-base md:text-lg font-bold text-text-light leading-tight">
-                    Audit, validation & lifecycle support, by design
+                    One engineering foundation, three software pillars
                   </h3>
                 </div>
               </div>

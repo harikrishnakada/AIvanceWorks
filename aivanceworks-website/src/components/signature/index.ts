@@ -72,3 +72,6 @@ export { DataPipelineBlueprint } from './DataPipelineBlueprint';
 export { DataEngineeringHeroIllustration } from './DataEngineeringHeroIllustration';
 export { PlatformEngineeringControlPlane } from './PlatformEngineeringControlPlane';
 export { PlatformEngineeringHeroIllustration } from './PlatformEngineeringHeroIllustration';
+export { ClinicalTrialControlPlane } from './ClinicalTrialControlPlane';
+export { EtmfEvidenceLifecycleSpine } from './EtmfEvidenceLifecycleSpine';
+export { RandomizationSupplyControlPlane } from './RandomizationSupplyControlPlane';

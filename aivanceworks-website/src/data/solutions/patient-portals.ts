@@ -4,7 +4,7 @@ const patientPortals: SolutionPageData = {
   slug: 'patient-portals',
   title: 'HIPAA-Compliant Patient Portal Development',
   shortDescription:
-    'Custom, HIPAA-compliant patient portals built on Azure — integrated with your EHR, designed for high adoption, audit-ready from day one.',
+    'Custom, HIPAA-compliant patient portals built on Azure — integrated with your EHR, designed for high adoption, and built around the way your patients and care teams actually work.',
 
   metaTitle: 'Custom Patient Portal Development | HIPAA-Compliant Solutions',
   metaDescription:
@@ -52,7 +52,7 @@ const patientPortals: SolutionPageData = {
 
   hero: {
     badge: 'Healthcare Solutions',
-    headline: 'Patient portals that patients actually use — and auditors actually approve.',
+    headline: 'Patient portals that patients actually use — and care teams actually trust.',
     subhead:
       'Secure, HIPAA-compliant portals built on Azure with deep EHR integration, designed around patient workflows to drive real adoption and measurably reduce administrative overhead.',
     primaryCta: { label: 'Book a Discovery Call', href: '/contact' },
