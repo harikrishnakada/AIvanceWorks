@@ -131,6 +131,25 @@ export const NAVIGATION = {
   ],
   // Mega menu columns for "Solutions" dropdown
   solutionsMenu: [
+        {
+      heading: 'Clinical',
+      description: 'Clinical trial operations & technology',
+      icon: 'Stethoscope',
+      links: [
+        { label: 'CTMS', href: '/solutions/ctms', icon: 'Workflow' },
+        { label: 'ETMF', href: '/solutions/etmf', icon: 'FileText' },
+        { label: 'Randomization and Trial Supply Management', href: '/solutions/rtsm', icon: 'Package' },
+      ],
+    },
+        {
+      heading: 'Pharma',
+      description: 'Pharmaceuticals and Biotechnology',
+      icon: 'Pill',
+      links: [
+        { label: 'Laboratory Information Management Systems (LIMS)', href: '/solutions/lims', icon: 'FlaskConical' },
+        { label: 'Regulatory Information Management (RIM)', href: '/solutions/regulatory-information-management', icon: 'FileText' },
+      ],
+    },
      {
       heading: 'Insurance',
       description: 'Carrier & agency software systems',
@@ -153,7 +172,7 @@ export const NAVIGATION = {
     //   ],
     // },
    {
-      heading: 'HealthCare',
+      heading: 'HealthCare Technologies',
       description: 'Clinical, patient & hospital systems',
       icon: 'Heart',
       links: [
@@ -162,25 +181,18 @@ export const NAVIGATION = {
         { label: 'Hospital Management Systems', href: '/solutions/hospital-management-systems', icon: 'Building2' },
       ],
     },
-    {
-      heading: 'Pharma',
-      description: 'Pharmaceuticals and Biotechnology',
-      icon: 'Pill',
+      {
+      heading: 'Manufacturing & Supply Chain',
+      description: 'Manufacturing and supply chain management systems',
+      icon: 'Truck',
       links: [
-        { label: 'Laboratory Information Management Systems (LIMS)', href: '/solutions/lims', icon: 'FlaskConical' },
-        { label: 'Regulatory Information Management (RIM)', href: '/solutions/regulatory-information-management', icon: 'FileText' },
+        { label: 'Manufacturing Operations Management (MOM)', href: '/solutions/manufacturing-operations-management', icon: 'Layers' },
+        { label: 'Manufacturing Execution Systems (MES)', href: '/solutions/mes', icon: 'Factory' },
+        { label: 'Electronic Batch Records (EBR)', href: '/solutions/electronic-batch-records', icon: 'FileSignature' },
+        { label: 'Supply Chain Management (SCM)', href: '/solutions/supply-chain-management', icon: 'Truck' },
       ],
     },
-    {
-      heading: 'Clinical',
-      description: 'Clinical trial operations & technology',
-      icon: 'Stethoscope',
-      links: [
-        { label: 'CTMS', href: '/solutions/ctms', icon: 'Workflow' },
-        { label: 'ETMF', href: '/solutions/etmf', icon: 'FileText' },
-        { label: 'Randomization and Trial Supply Management', href: '/solutions/rtsm', icon: 'Package' },
-      ],
-    },
+
   ],
 } as const;
 

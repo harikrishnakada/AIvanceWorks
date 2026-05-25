@@ -75,3 +75,7 @@ export { PlatformEngineeringHeroIllustration } from './PlatformEngineeringHeroIl
 export { ClinicalTrialControlPlane } from './ClinicalTrialControlPlane';
 export { EtmfEvidenceLifecycleSpine } from './EtmfEvidenceLifecycleSpine';
 export { RandomizationSupplyControlPlane } from './RandomizationSupplyControlPlane';
+export { MesShopFloorControlPlane } from './MesShopFloorControlPlane';
+export { SupplyChainControlTower } from './SupplyChainControlTower';
+export { MomOperationsPlatformMap } from './MomOperationsPlatformMap';
+export { EbrPaperlessTransition } from './EbrPaperlessTransition';

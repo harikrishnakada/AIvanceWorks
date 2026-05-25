@@ -29,6 +29,10 @@ import {
   ClinicalTrialControlPlane,
   EtmfEvidenceLifecycleSpine,
   RandomizationSupplyControlPlane,
+  MesShopFloorControlPlane,
+  SupplyChainControlTower,
+  MomOperationsPlatformMap,
+  EbrPaperlessTransition,
 } from '@/components/signature';
 import type { ReactNode } from 'react';
 
@@ -83,6 +87,10 @@ const SIGNATURE_COMPONENTS: Record<string, ReactNode> = {
   ClinicalTrialControlPlane: <ClinicalTrialControlPlane />,
   EtmfEvidenceLifecycleSpine: <EtmfEvidenceLifecycleSpine />,
   RandomizationSupplyControlPlane: <RandomizationSupplyControlPlane />,
+  MesShopFloorControlPlane: <MesShopFloorControlPlane />,
+  SupplyChainControlTower: <SupplyChainControlTower />,
+  MomOperationsPlatformMap: <MomOperationsPlatformMap />,
+  EbrPaperlessTransition: <EbrPaperlessTransition />,
 };
 
 export default async function SolutionPage({ params }: PageProps) {

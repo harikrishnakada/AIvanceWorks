@@ -1047,6 +1047,11 @@ const SOLUTION_PAGE_MODULES: Record<string, () => Promise<{ default: SolutionPag
   'ctms': () => import('@/data/solutions/ctms'),
   'etmf': () => import('@/data/solutions/etmf'),
   'rtsm': () => import('@/data/solutions/rtsm'),
+  'mes': () => import('@/data/solutions/mes'),
+  'supply-chain-management': () => import('@/data/solutions/supply-chain-management'),
+  'manufacturing-operations-management': () =>
+    import('@/data/solutions/manufacturing-operations-management'),
+  'electronic-batch-records': () => import('@/data/solutions/electronic-batch-records'),
 };
 
 export async function getServicePageData(slug: string): Promise<ServicePageData | null> {
