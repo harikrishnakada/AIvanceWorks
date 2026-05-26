@@ -146,7 +146,8 @@ export const NAVIGATION = {
       description: 'Pharmaceuticals and Biotechnology',
       icon: 'Pill',
       links: [
-        { label: 'Laboratory Information Management Systems (LIMS)', href: '/solutions/lims', icon: 'FlaskConical' },
+        { label: 'Drug Discovery', href: '/solutions/drug-discovery', icon: 'FlaskConical' },
+        { label: 'Laboratory Information Management Systems (LIMS)', href: '/solutions/lims', icon: 'Microscope' },
         { label: 'Regulatory Information Management (RIM)', href: '/solutions/regulatory-information-management', icon: 'FileText' },
       ],
     },

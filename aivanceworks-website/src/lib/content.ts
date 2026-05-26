@@ -1052,6 +1052,7 @@ const SOLUTION_PAGE_MODULES: Record<string, () => Promise<{ default: SolutionPag
   'manufacturing-operations-management': () =>
     import('@/data/solutions/manufacturing-operations-management'),
   'electronic-batch-records': () => import('@/data/solutions/electronic-batch-records'),
+  'drug-discovery': () => import('@/data/solutions/drug-discovery'),
 };
 
 export async function getServicePageData(slug: string): Promise<ServicePageData | null> {

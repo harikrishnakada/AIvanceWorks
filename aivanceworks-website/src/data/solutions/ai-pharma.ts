@@ -394,11 +394,11 @@ const aiPharma: SolutionPageData = {
       pageType: 'solution',
     },
     {
-      title: 'Clinical Trial Management Systems (CTMS)',
+      title: 'Drug Discovery Software',
       description:
-        'When pharma AI work moves from research into clinical operations, you need one operational source of truth for studies, sites, visits, and findings. Our CTMS engagement builds the audit-trail-aware control plane your clinical operations team can run on.',
-      href: '/solutions/ctms',
-      icon: 'Workflow',
+        'Pillar 01 in the engine on this page. When the focus narrows to your discovery teams — virtual screening, ADMET prediction, knowledge graphs, and chemistry ML — the drug discovery engagement is where that pillar gets built out, inside an IP boundary your security team configures.',
+      href: '/solutions/drug-discovery',
+      icon: 'FlaskConical',
       pageType: 'solution',
     },
     {

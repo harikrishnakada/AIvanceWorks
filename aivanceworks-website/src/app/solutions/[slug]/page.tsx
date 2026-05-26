@@ -33,6 +33,7 @@ import {
   SupplyChainControlTower,
   MomOperationsPlatformMap,
   EbrPaperlessTransition,
+  DiscoveryPipelineSpine,
 } from '@/components/signature';
 import type { ReactNode } from 'react';
 
@@ -91,6 +92,7 @@ const SIGNATURE_COMPONENTS: Record<string, ReactNode> = {
   SupplyChainControlTower: <SupplyChainControlTower />,
   MomOperationsPlatformMap: <MomOperationsPlatformMap />,
   EbrPaperlessTransition: <EbrPaperlessTransition />,
+  DiscoveryPipelineSpine: <DiscoveryPipelineSpine />,
 };
 
 export default async function SolutionPage({ params }: PageProps) {

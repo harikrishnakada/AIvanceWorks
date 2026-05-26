@@ -79,3 +79,4 @@ export { MesShopFloorControlPlane } from './MesShopFloorControlPlane';
 export { SupplyChainControlTower } from './SupplyChainControlTower';
 export { MomOperationsPlatformMap } from './MomOperationsPlatformMap';
 export { EbrPaperlessTransition } from './EbrPaperlessTransition';
+export { DiscoveryPipelineSpine } from './DiscoveryPipelineSpine';
