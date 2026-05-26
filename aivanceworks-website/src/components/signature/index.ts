@@ -5,7 +5,10 @@ export { MvpHeroIllustration } from './MvpHeroIllustration';
 export { PortalArchitectureMap } from './PortalArchitectureMap';
 export { ClaimsFlowComparison } from './ClaimsFlowComparison';
 export { EcommerceAiShowcase } from './EcommerceAiShowcase';
-export { ClinicalWorkflowOrchestrator } from './ClinicalWorkflowOrchestrator';
+export {
+  ClinicalWorkflowOrchestratorEhr,
+  ClinicalWorkflowOrchestratorEmr,
+} from './ClinicalWorkflowOrchestrator';
 export { HospitalOperationsHub } from './HospitalOperationsHub';
 export { SaasArchitectureBlueprint } from './SaasArchitectureBlueprint';
 export { SaasHeroIllustration } from './SaasHeroIllustration';

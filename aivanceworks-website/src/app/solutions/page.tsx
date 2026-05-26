@@ -52,7 +52,8 @@ const SOLUTION_DESCRIPTIONS: Record<string, string> = {
   'document-management-software': 'Compliant document storage, e-signature, and retention for insurance operations.',
   // Healthcare
   'patient-portals': 'HIPAA-compliant patient portals for scheduling, messaging, and medical records access.',
-  'ehr-emr-development': 'Custom EHR/EMR builds and integrations with HL7, FHIR, and major clinical systems.',
+  'ehr-development': 'Custom Electronic Health Record platforms for multi-facility health systems — FHIR R4, TEFCA-ready, and ONC HTI-1 aligned.',
+  'emr-development': 'Custom Electronic Medical Record software for ambulatory practices — specialty charting, integrated billing, and MIPS-ready reporting.',
   'hospital-management-systems': 'End-to-end HMS covering OPD, IPD, billing, pharmacy, labs, and analytics.',
   // Pharma
   'lims': 'Laboratory Information Management Systems for sample, instrument, and QA/QC workflows.',

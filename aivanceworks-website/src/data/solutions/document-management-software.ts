@@ -469,10 +469,10 @@ const documentManagementSoftware: SolutionPageData = {
       pageType: 'service',
     },
     {
-      title: 'EHR & EMR Development',
+      title: 'EHR Development',
       description:
         'Clinical documents originate in the EHR. If you are building or replacing your clinical record system, our DMS integrates directly — every document the EHR produces lands in the correct retention schedule and audit trail from day one.',
-      href: '/solutions/ehr-emr-development',
+      href: '/solutions/ehr-development',
       icon: 'Activity',
       pageType: 'solution',
     },

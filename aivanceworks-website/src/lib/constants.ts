@@ -178,7 +178,8 @@ export const NAVIGATION = {
       icon: 'Heart',
       links: [
         { label: 'Patient Portals', href: '/solutions/patient-portals', icon: 'Heart' },
-        { label: 'EHR & EMR Development', href: '/solutions/ehr-emr-development', icon: 'Activity' },
+        { label: 'EHR Development', href: '/solutions/ehr-development', icon: 'Activity' },
+        { label: 'EMR Development', href: '/solutions/emr-development', icon: 'ClipboardList' },
         { label: 'Hospital Management Systems', href: '/solutions/hospital-management-systems', icon: 'Building2' },
       ],
     },

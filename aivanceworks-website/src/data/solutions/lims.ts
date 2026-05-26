@@ -56,7 +56,7 @@ import type { SolutionPageData } from '@/types/pages';
 //     integrations" and the liability stance forbids naming instrument or LIS
 //     vendors. Integration capability is woven into feature prose instead.
 //   - ComplianceSpotlight placed before signature as trust gate (same
-//     pattern as ai-pharma, ehr-emr-development, hospital-management-systems).
+//     pattern as ai-pharma, ehr-development, hospital-management-systems).
 
 const lims: SolutionPageData = {
   slug: 'lims',

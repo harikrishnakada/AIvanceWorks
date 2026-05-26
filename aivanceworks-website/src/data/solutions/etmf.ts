@@ -70,7 +70,7 @@ import type { SolutionPageData } from '@/types/pages';
 //     EDC, safety, QMS, or finance vendors. Integration capability is
 //     woven into feature prose and the signature visual instead.
 //   - ComplianceSpotlight placed before signature as trust gate (same
-//     pattern as ctms, ai-pharma, lims, ehr-emr-development).
+//     pattern as ctms, ai-pharma, lims, ehr-development).
 
 const etmf: SolutionPageData = {
   slug: 'etmf',

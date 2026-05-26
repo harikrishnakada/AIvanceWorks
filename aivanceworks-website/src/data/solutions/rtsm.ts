@@ -72,7 +72,7 @@ import type { SolutionPageData } from '@/types/pages';
 //     eCOA, CTMS, eTMF, or depot vendors. Integration capability is
 //     woven into feature prose and the signature visual instead.
 //   - ComplianceSpotlight placed before signature as trust gate (same
-//     pattern as CTMS, ai-pharma, lims, ehr-emr-development).
+//     pattern as CTMS, ai-pharma, lims, ehr-development).
 
 const rtsm: SolutionPageData = {
   slug: 'rtsm',

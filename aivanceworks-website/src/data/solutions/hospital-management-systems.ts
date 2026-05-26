@@ -454,10 +454,10 @@ const hospitalManagementSystems: SolutionPageData = {
       pageType: 'service',
     },
     {
-      title: 'EHR & EMR Development',
+      title: 'EHR Development',
       description:
         'Need a clinical platform to sit alongside your HMS? Our custom EHR work delivers FHIR-native clinical documentation, ordering, and decision support — built to plug into the operational stack.',
-      href: '/solutions/ehr-emr-development',
+      href: '/solutions/ehr-development',
       icon: 'Activity',
       pageType: 'solution',
     },

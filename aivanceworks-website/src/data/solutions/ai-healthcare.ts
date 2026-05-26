@@ -397,10 +397,10 @@ const aiHealthcare: SolutionPageData = {
 
   relatedPages: [
     {
-      title: 'EHR / EMR Development',
+      title: 'EHR Development',
       description:
-        'Healthcare AI is only useful if it lands inside the system of record your clinicians actually work in. Our EHR / EMR engagement builds the underlying clinical platform your AI assists sit on top of.',
-      href: '/solutions/ehr-emr-development',
+        'Healthcare AI is only useful if it lands inside the system of record your clinicians actually work in. Our EHR engagement builds the underlying clinical platform your AI assists sit on top of.',
+      href: '/solutions/ehr-development',
       icon: 'HeartPulse',
       pageType: 'solution',
     },

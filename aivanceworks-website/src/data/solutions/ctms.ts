@@ -63,7 +63,7 @@ import type { SolutionPageData } from '@/types/pages';
 //     IRT, or safety vendors. Integration capability is woven into feature
 //     prose and the signature visual instead.
 //   - ComplianceSpotlight placed before signature as trust gate (same
-//     pattern as ai-pharma, lims, ehr-emr-development).
+//     pattern as ai-pharma, lims, ehr-development).
 
 const ctms: SolutionPageData = {
   slug: 'ctms',
