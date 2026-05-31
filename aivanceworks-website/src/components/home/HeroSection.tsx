@@ -111,10 +111,10 @@ export function HeroSection() {
                   font-black tracking-tight text-white
                   mb-2 sm:mb-3 md:mb-4"
               >
-                Founder's Products &{' '}
+                We Build Software for{' '}
                 <br className="hidden sm:block" />
-                <span className="bg-gradient-to-r from-brand-400 via-brand-300 to-accent-400 bg-clip-text text-transparent">
-                  Custom Software Development
+                <span className="bg-gradient-to-r from-brand-400 via-brand-300 to-accent-400 bg-clip-text text-transparent whitespace-nowrap">
+                  Life Sciences
                 </span>
               </h1>
 

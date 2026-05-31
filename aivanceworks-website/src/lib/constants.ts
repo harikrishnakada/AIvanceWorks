@@ -106,6 +106,7 @@ export const NAVIGATION = {
       links: [
         // Client-facing entry points (original)
         { label: 'Custom Software Development', href: '/services/custom-software-development', icon: 'Settings' },
+        { label: 'MVP Development', href: '/services/mvp-development', icon: 'Rocket' },
         { label: 'Market Research', href: '/services/market-research', icon: 'Search' },
         { label: 'SaaS Software Development', href: '/services/saas-development', icon: 'Layers' },
         { label: 'Web App Development', href: '/services/web-app-development', icon: 'Globe' },
@@ -131,39 +132,27 @@ export const NAVIGATION = {
   ],
   // Mega menu columns for "Solutions" dropdown
   solutionsMenu: [
-        {
+    {
+      heading: 'Life Sciences',
+      description: 'Solutions for pharma, biotech, and clinical research',
+      icon: 'FlaskConical',
+      links: [
+        { label: 'ETMF', href: '/solutions/etmf', icon: 'FileText' },
+        { label: 'Randomization and Trial Supply Management', href: '/solutions/rtsm', icon: 'Package' },
+        { label: 'Drug Discovery', href: '/solutions/drug-discovery', icon: 'FlaskConical' },
+        { label: 'Laboratory Information Management Systems (LIMS)', href: '/solutions/lims', icon: 'Microscope' }
+      ],
+    },
+    {
       heading: 'Clinical',
       description: 'Clinical trial operations & technology',
       icon: 'Stethoscope',
       links: [
         { label: 'CTMS', href: '/solutions/ctms', icon: 'Workflow' },
-        { label: 'ETMF', href: '/solutions/etmf', icon: 'FileText' },
-        { label: 'Randomization and Trial Supply Management', href: '/solutions/rtsm', icon: 'Package' },
-      ],
-    },
-        {
-      heading: 'Pharma',
-      description: 'Pharmaceuticals and Biotechnology',
-      icon: 'Pill',
-      links: [
-        { label: 'Drug Discovery', href: '/solutions/drug-discovery', icon: 'FlaskConical' },
-        { label: 'Laboratory Information Management Systems (LIMS)', href: '/solutions/lims', icon: 'Microscope' },
         { label: 'Regulatory Information Management (RIM)', href: '/solutions/regulatory-information-management', icon: 'FileText' },
       ],
     },
-     {
-      heading: 'Insurance',
-      description: 'Carrier & agency software systems',
-      icon: 'Shield',
-      links: [
-        { label: 'Insurance Portals', href: '/solutions/insurance-portals', icon: 'Shield' },
-        { label: 'Underwriting Software', href: '/solutions/underwriting-software', icon: 'TrendingUp' },
-        { label: 'Agency Management Software', href: '/solutions/agency-management-software', icon: 'Building2' },
-        { label: 'Policy Administration Systems', href: '/solutions/policy-administration-systems', icon: 'Layers' },
-        { label: 'Quoting Software', href: '/solutions/quoting-software', icon: 'Cpu' },
-        { label: 'Document Management Software', href: '/solutions/document-management-software', icon: 'Settings' },
-      ],
-    },
+
     // {
     //   heading: 'E-Commerce & Retail',
     //   icon: 'ShoppingCart',
@@ -174,7 +163,7 @@ export const NAVIGATION = {
     // },
    {
       heading: 'HealthCare Technologies',
-      description: 'Clinical, patient & hospital systems',
+      description: 'Patient & hospital systems',
       icon: 'Heart',
       links: [
         { label: 'Patient Portals', href: '/solutions/patient-portals', icon: 'Heart' },
@@ -188,12 +177,25 @@ export const NAVIGATION = {
       description: 'Manufacturing and supply chain management systems',
       icon: 'Truck',
       links: [
-        { label: 'Manufacturing Operations Management (MOM)', href: '/solutions/manufacturing-operations-management', icon: 'Layers' },
-        { label: 'Manufacturing Execution Systems (MES)', href: '/solutions/mes', icon: 'Factory' },
         { label: 'Electronic Batch Records (EBR)', href: '/solutions/electronic-batch-records', icon: 'FileSignature' },
-        { label: 'Supply Chain Management (SCM)', href: '/solutions/supply-chain-management', icon: 'Truck' },
+        { label: 'Manufacturing Execution Systems (MES)', href: '/solutions/mes', icon: 'Factory' },
+        { label: 'Manufacturing Operations Management (MOM)', href: '/solutions/manufacturing-operations-management', icon: 'Layers' },
+        { label: 'Supply Chain Management (SCM)', href: '/solutions/supply-chain-management', icon: 'Truck' }
       ],
     },
+         {
+      heading: 'Insurance',
+      description: 'Carrier & agency software systems',
+      icon: 'Shield',
+      links: [
+        { label: 'Insurance Portals', href: '/solutions/insurance-portals', icon: 'Shield' },
+        { label: 'Underwriting Software', href: '/solutions/underwriting-software', icon: 'TrendingUp' },
+        { label: 'Agency Management Software', href: '/solutions/agency-management-software', icon: 'Building2' },
+        { label: 'Policy Administration Systems', href: '/solutions/policy-administration-systems', icon: 'Layers' },
+        { label: 'Quoting Software', href: '/solutions/quoting-software', icon: 'Cpu' },
+        { label: 'Document Management Software', href: '/solutions/document-management-software', icon: 'Settings' },
+      ],
+    }
 
   ],
 } as const;

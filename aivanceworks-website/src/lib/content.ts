@@ -1020,6 +1020,7 @@ const SERVICE_PAGE_MODULES: Record<string, () => Promise<{ default: ServicePageD
     import('@/data/services/human-capital-management'),
   'data-engineering': () => import('@/data/services/data-engineering'),
   'platform-engineering': () => import('@/data/services/platform-engineering'),
+  'mvp-development': () => import('@/data/services/mvp-development'),
 
 };
 
