@@ -18,10 +18,13 @@ import type { SolutionPageData } from '@/types/pages';
 //   - ComplianceSpotlight placed before signature as trust gate (same as EHR/PatientPortals).
 //   - Joint Commission / CMS Conditions of Participation surfaced in compliance framing —
 //     HMS-specific, not in the other healthcare pages.
-//   - relatedPages mixes services + 1 same-vertical solution per task instruction ("mixed
-//     services/solutions"). Constitution §10 defaults to services-only for solutions; this
-//     is a deliberate, scoped deviation justified by shared buyer persona across healthcare
-//     solutions. See constitution changelog note.
+//   - relatedPages mixes 1 service + 2 same-vertical peer solutions (EHR Development +
+//     Hospital Information Systems). Constitution §10 defaults to services-only for
+//     solutions with a single same-vertical peer exception; the healthcare cluster
+//     cross-links peers more liberally (see EHR page) because the CIO/CMIO buyer persona
+//     is shared across these solutions. HMS↔HIS is a deliberate symmetric pair: HMS is the
+//     operations/admin backbone, HIS is the clinical-information backbone — complementary,
+//     not competing. Replaced the prior application-modernization link with HIS.
 
 const hospitalManagementSystems: SolutionPageData = {
   slug: 'hospital-management-systems',
@@ -462,12 +465,12 @@ const hospitalManagementSystems: SolutionPageData = {
       pageType: 'solution',
     },
     {
-      title: 'Legacy Modernization',
+      title: 'Hospital Information Systems',
       description:
-        'Running a legacy HIS that is blocking your roadmap? Our modernisation practice uses the strangler-fig pattern to replace modules incrementally — without shutting down live hospital operations.',
-      href: '/services/application-modernization',
-      icon: 'Layers',
-      pageType: 'service',
+        'Operations covered, but clinical information still fragmented across the EHR, lab, pharmacy, and radiology? Our HIS engagement is the clinical-information backbone that complements this operations layer — one longitudinal record, connected departments, patient access built in.',
+      href: '/solutions/hospital-information-systems',
+      icon: 'Network',
+      pageType: 'solution',
     },
   ],
 

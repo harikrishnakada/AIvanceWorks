@@ -23,6 +23,7 @@ import type { ServicePageData } from '@/types/pages';
 //     same density as /services/cloud-strategy.
 
 const finops: ServicePageData = {
+  isEnabled: false, // set to false to remove from navigation and prevent access to the page
   slug: 'finops',
   title: 'FinOps & Cloud Cost Optimization',
   shortDescription:

@@ -61,6 +61,12 @@ import {
   DataEngineeringHeroIllustration,
   PlatformEngineeringControlPlane,
   PlatformEngineeringHeroIllustration,
+  ManagedOpsLifecycle,
+  ManagedInfraHeroIllustration,
+  PocFeasibilityVerdict,
+  PocHeroIllustration,
+  ApiRequestLifecycle,
+  ApiHeroIllustration,
 
 } from '@/components/signature';
 import type { ReactNode } from 'react';
@@ -121,6 +127,9 @@ const SIGNATURE_COMPONENTS: Record<string, ReactNode> = {
   WorkforceLifecycleSpine: <WorkforceLifecycleSpine />,
   DataPipelineBlueprint: <DataPipelineBlueprint />,
   PlatformEngineeringControlPlane: <PlatformEngineeringControlPlane />,
+  ManagedOpsLifecycle: <ManagedOpsLifecycle />,
+  PocFeasibilityVerdict: <PocFeasibilityVerdict />,
+  ApiRequestLifecycle: <ApiRequestLifecycle />,
 
 };
 
@@ -152,6 +161,9 @@ const HERO_ILLUSTRATION_COMPONENTS: Record<string, ReactNode> = {
   WorkforceHeroIllustration: <WorkforceHeroIllustration />,
   DataEngineeringHeroIllustration: <DataEngineeringHeroIllustration />,
   PlatformEngineeringHeroIllustration: <PlatformEngineeringHeroIllustration />,
+  ManagedInfraHeroIllustration: <ManagedInfraHeroIllustration />,
+  PocHeroIllustration: <PocHeroIllustration />,
+  ApiHeroIllustration: <ApiHeroIllustration />,
 
 };
 

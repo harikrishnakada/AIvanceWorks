@@ -459,11 +459,11 @@ const supplyChainManagement: SolutionPageData = {
 
   relatedPages: [
     {
-      title: 'Manufacturing Execution Systems (MES)',
+      title: 'Warehouse Management Systems (WMS)',
       description:
-        'Plant operations and supply chain share a chain of custody. Our MES practice builds the in-plant execution layer that feeds lot, genealogy, and batch-record data into the supply-chain platform — so the warehouse and the line read the same lot truth.',
-      href: '/solutions/mes',
-      icon: 'Factory',
+        'The DC is where chain of custody gets physical. Our WMS practice helps you decide build-vs-buy and then runs the building — directed picking, slotting, and labor — feeding the same lot and location truth the supply-chain platform reads upstream and downstream.',
+      href: '/solutions/warehouse-management-systems',
+      icon: 'Warehouse',
       pageType: 'solution',
     },
     {

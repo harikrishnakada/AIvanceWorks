@@ -168,6 +168,7 @@ export interface RoleBoundaryData {
 // ─── Base page data ─────────────────────────────────────
 
 export interface BasePageData {
+  isEnabled?: boolean; //default is true, set to false to hide page from navigation and prevent access to the page
   slug: string;
   title: string;
   shortDescription: string;

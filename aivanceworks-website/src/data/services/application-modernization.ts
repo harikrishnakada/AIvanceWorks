@@ -295,11 +295,11 @@ const applicationModernization: ServicePageData = {
       pageType: 'service',
     },
     {
-      title: 'Quality Engineering & Testing',
+      title: 'API Development',
       description:
-        'Modernizing without test automation is flying blind. We set up the test framework and CI quality gates that make incremental extraction safe — catch regressions before they reach production.',
-      href: '/services/quality-engineering',
-      icon: 'ShieldCheck',
+        'Modernizing API-first? We wrap the legacy system in a clean, versioned REST or GraphQL API — so new apps build against the API while the old core is replaced behind it.',
+      href: '/services/api-development',
+      icon: 'Webhook',
       pageType: 'service',
     },
     {

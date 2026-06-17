@@ -268,11 +268,11 @@ const customSoftwareDevelopment: ServicePageData = {
 
   relatedPages: [
     {
-      title: 'ERP Development',
+      title: 'API Development',
       description:
-        'Need custom modules that extend your ERP beyond what is available out of the box? We build bespoke extensions that integrate cleanly with your ERP data model.',
-      href: '/services/erp-development',
-      icon: 'Rocket',
+        'Need just the interface layer? We design and build the secure, versioned REST or GraphQL API your apps and partners call — contract-first, documented, and ready to build on.',
+      href: '/services/api-development',
+      icon: 'Webhook',
       pageType: 'service',
     },
     {

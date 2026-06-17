@@ -221,11 +221,11 @@ const mvpDevelopment: ServicePageData = {
       pageType: 'service',
     },
     {
-      title: 'SaaS Software Development',
+      title: 'Proof of Concept (PoC)',
       description:
-        'Ready to scale your MVP into a multi-tenant SaaS platform? See how we add subscription billing, tenant isolation, and enterprise features to a proven product.',
-      href: '/services/saas-development',
-      icon: 'Layers',
+        'Not sure the riskiest part is even buildable? A 2–4 week proof of concept tests that one assumption against measurable criteria before you commit to a 12-week MVP.',
+      href: '/services/proof-of-concept',
+      icon: 'FlaskConical',
       pageType: 'service',
     },
   ],

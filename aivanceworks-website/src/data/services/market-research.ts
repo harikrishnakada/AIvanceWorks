@@ -186,11 +186,11 @@ const marketResearch: ServicePageData = {
 
   relatedPages: [
     {
-      title: 'ERP Development',
+      title: 'Proof of Concept (PoC)',
       description:
-        'Research done? We translate your validated business requirements into a structured ERP implementation — the right platform, configured for your processes.',
-      href: '/services/erp-development',
-      icon: 'Rocket',
+        'Market looks real, but is the hard part buildable? A proof of concept tests your riskiest technical assumption against measurable criteria before you fund the full build.',
+      href: '/services/proof-of-concept',
+      icon: 'FlaskConical',
       pageType: 'service',
     },
     {

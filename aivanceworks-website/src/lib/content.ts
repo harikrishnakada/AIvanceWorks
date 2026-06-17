@@ -1021,6 +1021,9 @@ const SERVICE_PAGE_MODULES: Record<string, () => Promise<{ default: ServicePageD
   'data-engineering': () => import('@/data/services/data-engineering'),
   'platform-engineering': () => import('@/data/services/platform-engineering'),
   'mvp-development': () => import('@/data/services/mvp-development'),
+  'managed-infrastructure': () => import('@/data/services/managed-infrastructure'),
+  'proof-of-concept': () => import('@/data/services/proof-of-concept'),
+  'api-development': () => import('@/data/services/api-development'),
 
 };
 
@@ -1031,6 +1034,7 @@ const SOLUTION_PAGE_MODULES: Record<string, () => Promise<{ default: SolutionPag
   'ehr-development': () => import('@/data/solutions/ehr-development'),
   'emr-development': () => import('@/data/solutions/emr-development'),
   'hospital-management-systems': () => import('@/data/solutions/hospital-management-systems'),
+  'hospital-information-systems': () => import('@/data/solutions/hospital-information-systems'),
   'underwriting-software': () => import('@/data/solutions/underwriting-software'),
   'agency-management-software': () => import('@/data/solutions/agency-management-software'),
   'quoting-software': () => import('@/data/solutions/quoting-software'),
@@ -1051,6 +1055,8 @@ const SOLUTION_PAGE_MODULES: Record<string, () => Promise<{ default: SolutionPag
   'rtsm': () => import('@/data/solutions/rtsm'),
   'mes': () => import('@/data/solutions/mes'),
   'supply-chain-management': () => import('@/data/solutions/supply-chain-management'),
+  'warehouse-management-systems': () =>
+    import('@/data/solutions/warehouse-management-systems'),
   'manufacturing-operations-management': () =>
     import('@/data/solutions/manufacturing-operations-management'),
   'electronic-batch-records': () => import('@/data/solutions/electronic-batch-records'),

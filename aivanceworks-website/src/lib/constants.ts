@@ -106,6 +106,8 @@ export const NAVIGATION = {
       links: [
         // Client-facing entry points (original)
         { label: 'Custom Software Development', href: '/services/custom-software-development', icon: 'Settings' },
+        { label: 'API Development', href: '/services/api-development', icon: 'Webhook' },
+        { label: 'Proof of Concept (PoC)', href: '/services/proof-of-concept', icon: 'FlaskConical' },
         { label: 'MVP Development', href: '/services/mvp-development', icon: 'Rocket' },
         { label: 'Market Research', href: '/services/market-research', icon: 'Search' },
         { label: 'SaaS Software Development', href: '/services/saas-development', icon: 'Layers' },
@@ -123,6 +125,7 @@ export const NAVIGATION = {
       links: [
         { label: 'Cloud Migration & Modernization', href: '/services/cloud-migration', icon: 'Cloud' },
         { label: 'Cloud Infrastructure & Operations', href: '/services/cloud-infrastructure', icon: 'Server' },
+        { label: 'Managed Infrastructure Services', href: '/services/managed-infrastructure', icon: 'ServerCog' },
         { label: 'DevOps', href: '/services/devops', icon: 'GitBranch' },
         { label: 'Platform Engineering', href: '/services/platform-engineering', icon: 'Cpu' },
         { label: 'Data Engineering', href: '/services/data-engineering', icon: 'Database' },
@@ -132,17 +135,6 @@ export const NAVIGATION = {
   ],
   // Mega menu columns for "Solutions" dropdown
   solutionsMenu: [
-    {
-      heading: 'Life Sciences',
-      description: 'Solutions for pharma, biotech, and clinical research',
-      icon: 'FlaskConical',
-      links: [
-        { label: 'ETMF', href: '/solutions/etmf', icon: 'FileText' },
-        { label: 'Randomization and Trial Supply Management', href: '/solutions/rtsm', icon: 'Package' },
-        { label: 'Drug Discovery', href: '/solutions/drug-discovery', icon: 'FlaskConical' },
-        { label: 'Laboratory Information Management Systems (LIMS)', href: '/solutions/lims', icon: 'Microscope' }
-      ],
-    },
     {
       heading: 'Clinical',
       description: 'Clinical trial operations & technology',
@@ -170,6 +162,18 @@ export const NAVIGATION = {
         { label: 'EHR Development', href: '/solutions/ehr-development', icon: 'Activity' },
         { label: 'EMR Development', href: '/solutions/emr-development', icon: 'ClipboardList' },
         { label: 'Hospital Management Systems', href: '/solutions/hospital-management-systems', icon: 'Building2' },
+        { label: 'Hospital Information Systems', href: '/solutions/hospital-information-systems', icon: 'Network' },
+      ],
+    },
+     {
+      heading: 'Life Sciences',
+      description: 'Solutions for pharma, biotech, and clinical research',
+      icon: 'FlaskConical',
+      links: [
+        { label: 'ETMF', href: '/solutions/etmf', icon: 'FileText' },
+        { label: 'Randomization and Trial Supply Management', href: '/solutions/rtsm', icon: 'Package' },
+        { label: 'Drug Discovery', href: '/solutions/drug-discovery', icon: 'FlaskConical' },
+        { label: 'Laboratory Information Management Systems (LIMS)', href: '/solutions/lims', icon: 'Microscope' }
       ],
     },
       {
@@ -180,7 +184,8 @@ export const NAVIGATION = {
         { label: 'Electronic Batch Records (EBR)', href: '/solutions/electronic-batch-records', icon: 'FileSignature' },
         { label: 'Manufacturing Execution Systems (MES)', href: '/solutions/mes', icon: 'Factory' },
         { label: 'Manufacturing Operations Management (MOM)', href: '/solutions/manufacturing-operations-management', icon: 'Layers' },
-        { label: 'Supply Chain Management (SCM)', href: '/solutions/supply-chain-management', icon: 'Truck' }
+        { label: 'Supply Chain Management (SCM)', href: '/solutions/supply-chain-management', icon: 'Truck' },
+        { label: 'Warehouse Management Systems (WMS)', href: '/solutions/warehouse-management-systems', icon: 'Warehouse' }
       ],
     },
          {

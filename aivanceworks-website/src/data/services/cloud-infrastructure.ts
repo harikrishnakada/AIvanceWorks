@@ -261,11 +261,11 @@ const cloudInfrastructure: ServicePageData = {
       pageType: 'service',
     },
     {
-      title: 'Platform Engineering',
+      title: 'Managed Infrastructure Services',
       description:
-        'Infrastructure in place? A developer platform gives your teams self-service provisioning, golden paths, and standardized toolchains on top of it.',
-      href: '/services/platform-engineering',
-      icon: 'Layers',
+        'Infrastructure built — now who runs it? We operate your environment 24/7: monitoring, incident response, patching, scaling, and cost control.',
+      href: '/services/managed-infrastructure',
+      icon: 'ServerCog',
       pageType: 'service',
     },
     {

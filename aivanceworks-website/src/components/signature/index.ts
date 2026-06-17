@@ -10,6 +10,7 @@ export {
   ClinicalWorkflowOrchestratorEmr,
 } from './ClinicalWorkflowOrchestrator';
 export { HospitalOperationsHub } from './HospitalOperationsHub';
+export { ClinicalInformationFlow } from './ClinicalInformationFlow';
 export { SaasArchitectureBlueprint } from './SaasArchitectureBlueprint';
 export { SaasHeroIllustration } from './SaasHeroIllustration';
 export { UnderwritingDecisionEngine } from './UnderwritingDecisionEngine';
@@ -80,6 +81,13 @@ export { EtmfEvidenceLifecycleSpine } from './EtmfEvidenceLifecycleSpine';
 export { RandomizationSupplyControlPlane } from './RandomizationSupplyControlPlane';
 export { MesShopFloorControlPlane } from './MesShopFloorControlPlane';
 export { SupplyChainControlTower } from './SupplyChainControlTower';
+export { WmsBuildVsBuyDecision } from './WmsBuildVsBuyDecision';
 export { MomOperationsPlatformMap } from './MomOperationsPlatformMap';
 export { EbrPaperlessTransition } from './EbrPaperlessTransition';
 export { DiscoveryPipelineSpine } from './DiscoveryPipelineSpine';
+export { ManagedOpsLifecycle } from './ManagedOpsLifecycle';
+export { ManagedInfraHeroIllustration } from './ManagedInfraHeroIllustration';
+export { PocFeasibilityVerdict } from './PocFeasibilityVerdict';
+export { PocHeroIllustration } from './PocHeroIllustration';
+export { ApiRequestLifecycle } from './ApiRequestLifecycle';
+export { ApiHeroIllustration } from './ApiHeroIllustration';

@@ -247,11 +247,11 @@ const saasDevelopment: ServicePageData = {
 
   relatedPages: [
     {
-      title: 'ERP Development',
+      title: 'API Development',
       description:
-        'Adding enterprise customers? ERP integration is often a requirement. We implement and connect ERP systems so your SaaS platform fits neatly into your clients\' back-office stack.',
-      href: '/services/erp-development',
-      icon: 'Rocket',
+        'A public or partner API is how customers extend your SaaS. We build the secure, versioned, well-documented API layer they integrate against — so your platform becomes something others build on.',
+      href: '/services/api-development',
+      icon: 'Webhook',
       pageType: 'service',
     },
     {
