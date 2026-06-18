@@ -161,8 +161,8 @@ export function Header() {
                 </button>
               </div>
 
-              {/* Solutions Dropdown */}
-              <div
+              {/* Solutions Dropdown — hidden from UI (content preserved) */}
+              {/* <div
                 data-dropdown="solutions"
                 className="relative"
                 onMouseEnter={() => handleDropdownEnter('solutions')}
@@ -181,7 +181,7 @@ export function Header() {
                     }`}
                   />
                 </button>
-              </div>
+              </div> */}
 
               {/* Other Nav Links (Industry, Case Studies, Blog, About) */}
               {NAVIGATION.main.filter((item) => !['Services', 'Solutions', 'AI & ML'].includes(item.label)).map((item) => (
@@ -241,8 +241,8 @@ export function Header() {
                 </button>
               </div>
 
-              {/* Solutions Dropdown */}
-              <div
+              {/* Solutions Dropdown — hidden from UI (content preserved) */}
+              {/* <div
                 data-dropdown="solutions"
                 className="relative"
                 onMouseEnter={() => handleDropdownEnter('solutions')}
@@ -261,7 +261,7 @@ export function Header() {
                     }`}
                   />
                 </button>
-              </div>
+              </div> */}
 
               {/* Other Nav Links */}
               {NAVIGATION.main.filter((item) => !['Services', 'Solutions', 'AI & ML'].includes(item.label)).map((item) => (
@@ -318,10 +318,10 @@ export function Header() {
           />
 
           <div className="relative animate-in fade-in slide-in-from-top-2 duration-200">
-            <div className="max-w-4xl mx-auto px-4 md:px-6 pt-2 md:pt-3">
+            <div className="max-w-md mx-auto px-4 md:px-6 pt-2 md:pt-3">
               <div className="bg-white rounded-xl md:rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.15)] border border-gray-200/80 overflow-hidden">
-                {/* Columns — Solutions + Services */}
-                <div className="grid grid-cols-2 divide-x divide-gray-100">
+                {/* Columns — Automation & Intelligence */}
+                <div className="grid grid-cols-1 divide-x divide-gray-100">
                   {NAVIGATION.aiMlMenu.groups.map((group) => {
                     const CategoryIcon = iconMap[group.icon] || Code2;
                     return (

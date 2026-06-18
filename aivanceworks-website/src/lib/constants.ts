@@ -35,7 +35,7 @@ export const NAVIGATION = {
   main: [
     //{ label: 'AI', href: '/services/ai-machine-learning' },
     { label: 'Services', href: '/services' },
-    { label: 'Solutions', href: '/solutions' },
+    // { label: 'Solutions', href: '/solutions' }, // hidden from UI (content preserved)
     { label: 'Industry', href: '/industry' },
     // { label: 'Case Studies', href: '/case-studies' },
     { label: 'Blog', href: '/blog' },
@@ -54,18 +54,19 @@ export const NAVIGATION = {
     icon: 'Brain',
     description: 'Intelligent automation & agents',
     groups: [
+      // AI Industry Solutions group hidden from UI (content preserved)
+      // {
+      //   title: 'AI Industry Solutions',
+      //   icon: 'Sparkles',
+      //   description: 'AI-powered industry platforms',
+      //   links: [
+      //     { label: 'C10 AI Pharma', href: '/solutions/ai-pharma', icon: 'Pill' },
+      //     { label: 'C10 AI Healthcare', href: '/solutions/ai-healthcare', icon: 'Stethoscope' },
+      //     { label: 'C10 AI Infrastructure', href: '/solutions/ai-infrastructure', icon: 'Server' },
+      //   ],
+      // },
       {
-        title: 'AI Industry Solutions',
-        icon: 'Sparkles',
-        description: 'AI-powered industry platforms',
-        links: [
-          { label: 'C10 AI Pharma', href: '/solutions/ai-pharma', icon: 'Pill' },
-          { label: 'C10 AI Healthcare', href: '/solutions/ai-healthcare', icon: 'Stethoscope' },
-          { label: 'C10 AI Infrastructure', href: '/solutions/ai-infrastructure', icon: 'Server' },
-        ],
-      },
-      {
-        title: 'Automation & Intelligence',
+        title: 'AI Services',
         icon: 'Brain',
         description: 'AI capability building blocks',
         links: [

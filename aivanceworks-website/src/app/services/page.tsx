@@ -193,10 +193,10 @@ export default function ServicesPage() {
       {/* ── Automation & Intelligence ────────────────────────── */}
       <ServicePillarSection
         id="automation-intelligence"
-        title={NAVIGATION.aiMlMenu.groups[1].title}
-        description={NAVIGATION.aiMlMenu.groups[1].description}
+        title={NAVIGATION.aiMlMenu.groups[0].title}
+        description={NAVIGATION.aiMlMenu.groups[0].description}
         CategoryIcon={Brain}
-        links={NAVIGATION.aiMlMenu.groups[1].links}
+        links={NAVIGATION.aiMlMenu.groups[0].links}
         builtOutSlugs={builtOutSlugs}
         iconMap={iconMap}
         descriptions={SERVICE_DESCRIPTIONS}

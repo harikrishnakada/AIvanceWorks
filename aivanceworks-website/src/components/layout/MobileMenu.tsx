@@ -36,7 +36,7 @@ interface MobileMenuProps {
 export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isAiMlOpen, setIsAiMlOpen] = useState(false);
-  const [isSolutionsOpen, setIsSolutionsOpen] = useState(false);
+  const [isSolutionsOpen, setIsSolutionsOpen] = useState(false); // Solutions accordion hidden from UI (state retained for preserved code)
   const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
 
   const toggleCategory = (title: string) => {
@@ -208,7 +208,8 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 )}
               </div>
 
-              {/* Solutions Accordion */}
+              {/* Solutions Accordion — hidden from UI (content preserved, never rendered) */}
+              {false && (
               <div className="border-b border-gray-200 pb-1">
                 <button
                   onClick={() => setIsSolutionsOpen(!isSolutionsOpen)}
@@ -276,6 +277,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                   </div>
                 )}
               </div>
+              )}
 
               {/* Other Navigation Links (Industry, Case Studies, Blog, About) */}
               {NAVIGATION.main.filter((item) => !['Services', 'AI', 'Solutions'].includes(item.label)).map((item) => (
