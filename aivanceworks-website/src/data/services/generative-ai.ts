@@ -255,27 +255,27 @@ const generativeAi: ServicePageData = {
 
   relatedPages: [
     {
-      title: 'C10 AI Pharma',
+      title: 'Enterprise AI Development',
       description:
-        'Want to see generative AI inside a regulated industry? Our pharma platform applies the same RAG, agent, and grounding patterns to drug discovery, clinical trials, and diagnostics — built to live inside 21 CFR Part 11, GxP, and FDA SaMD guardrails.',
-      href: '/solutions/ai-pharma',
-      icon: 'Pill',
-      pageType: 'solution',
+        'Built the generative AI — now it has to survive a large organization? Our enterprise AI engagement wraps RAG, agents, and LLM features in the security, governance, scale, and operations needed to clear review and reach governed production.',
+      href: '/services/enterprise-ai-development',
+      icon: 'ShieldCheck',
+      pageType: 'service',
     },
     {
-      title: 'C10 AI Infrastructure',
+      title: 'Native AI Development',
       description:
-        'Shipping generative AI without the platform underneath it? Our AI infrastructure engagement builds the compute, data fabric, and cost-guardrail platform that RAG, agentic, and LLM workloads actually run on — engineered for portability and predictable spend.',
-      href: '/solutions/ai-infrastructure',
-      icon: 'Server',
-      pageType: 'solution',
+        'Adding a generative feature is one thing; building a product that is AI-native from day one is another. When the foundation model should be a core architectural layer — not a feature in an existing app — this is the broader engineering engagement.',
+      href: '/services/native-ai-development',
+      icon: 'Boxes',
+      pageType: 'service',
     },
     {
-      title: 'Conversational AI',
+      title: 'Agentic AI Development',
       description:
-        'The most common surface for generative AI is a conversational agent. We build production chatbots and virtual assistants powered by the same RAG pipelines, guardrails, and orchestration — deployed across web, mobile, Teams, and Slack.',
-      href: '/services/conversational-ai',
-      icon: 'MessageSquare',
+        'Generation is the first half; action is the second. When you need the model to actually do something — call tools, run multi-step tasks, act across your systems — our agentic AI engagement adds the autonomy levels and guardrails that make it safe.',
+      href: '/services/agentic-ai-development',
+      icon: 'Bot',
       pageType: 'service',
     },
   ],

@@ -70,67 +70,91 @@ export const NAVIGATION = {
         icon: 'Brain',
         description: 'AI capability building blocks',
         links: [
+          { label: 'AI Development', href: '/services/ai-development', icon: 'Compass' },
+          { label: 'ML Development', href: '/services/ml-development', icon: 'Workflow' },
+          { label: 'Native AI Development', href: '/services/native-ai-development', icon: 'Brain' },
           { label: 'Generative AI', href: '/services/generative-ai', icon: 'Sparkles' },
+          { label: 'Agentic AI Development', href: '/services/agentic-ai-development', icon: 'Bot' },
+          { label: 'Enterprise AI Development', href: '/services/enterprise-ai-development', icon: 'Building2' },
           { label: 'NLP & Document AI', href: '/services/nlp-document-ai', icon: 'FileText' },
-          { label: 'Custom AI Agents', href: '/services/conversational-ai', icon: 'MessageCircle' },
+          { label: 'Conversational AI', href: '/services/conversational-ai', icon: 'MessageCircle' },
           { label: 'Computer Vision', href: '/services/computer-vision', icon: 'Eye' },
+        ],
+      },
+    ],
+  },
+  // Advisory menu (standalone top-level dropdown — next to AI)
+  advisoryMenu: {
+    title: 'Advisory',
+    icon: 'MessageSquare',
+    description: 'Strategic guidance & consulting',
+    groups: [
+      {
+        title: 'Consulting',
+        icon: 'MessageSquare',
+        description: 'Strategic guidance & consulting',
+        links: [
+          { label: 'Product Discovery', href: '/services/product-discovery', icon: 'Lightbulb' },
+          { label: 'C10 AI Strategy', href: '/services/c10-ai-strategy', icon: 'Brain' },
+          { label: 'C10 IT Consulting', href: '/services/c10-it-consulting', icon: 'MessageSquare' },
+          { label: 'C10 Cloud Computing', href: '/services/c10-cloud-computing', icon: 'Cloud' },
+          { label: 'C10 Architecture Advisory', href: '/services/c10-architecture-advisory', icon: 'Layers' },
+        ],
+      },
+    ],
+  },
+  // Enterprise menu (standalone top-level dropdown — business platforms at scale)
+  enterpriseMenu: {
+    title: 'Enterprise',
+    icon: 'Building2',
+    description: 'Business platforms at scale',
+    groups: [
+      {
+        title: 'Enterprise',
+        icon: 'Building2',
+        description: 'Business platforms at scale',
+        links: [
+          { label: 'ERP', href: '/services/erp-development', icon: 'Rocket' },
+          { label: 'CRM', href: '/services/crm', icon: 'Lightbulb' },
+          // { label: 'HCM', href: '/services/human-capital-management', icon: 'Users' },
         ],
       },
     ],
   },
   // Mega menu columns for "Services" dropdown
   servicesMenu: [
-     {
-      title: 'Advisory',
-      icon: 'MessageSquare',
-      description: 'Strategic guidance & consulting',
-      links: [
-        { label: 'C10 IT Consulting', href: '/services/c10-it-consulting', icon: 'MessageSquare' },
-        { label: 'C10 Cloud Computing', href: '/services/c10-cloud-computing', icon: 'Cloud' },
-        { label: 'C10 Architecture Advisory', href: '/services/c10-architecture-advisory', icon: 'Layers' },
-      ],
-    },
-        {
-      title: 'Enterprise',
-      icon: 'Building2',
-      description: 'Business platforms at scale',
-      links: [
-        { label: 'ERP', href: '/services/erp-development', icon: 'Rocket' },
-        { label: 'CRM', href: '/services/crm', icon: 'Lightbulb' },
-        { label: 'HCM', href: '/services/human-capital-management', icon: 'Users' },
-      ],
-    },
     {
       title: 'Software Engineering',
       icon: 'Code2',
       description: 'End-to-end software solutions',
       links: [
         // Client-facing entry points (original)
-        { label: 'Custom Software Development', href: '/services/custom-software-development', icon: 'Settings' },
-        { label: 'API Development', href: '/services/api-development', icon: 'Webhook' },
-        { label: 'Proof of Concept (PoC)', href: '/services/proof-of-concept', icon: 'FlaskConical' },
         { label: 'MVP Development', href: '/services/mvp-development', icon: 'Rocket' },
-        { label: 'Market Research', href: '/services/market-research', icon: 'Search' },
+        { label: 'API Development', href: '/services/api-development', icon: 'Webhook' },
+        { label: 'Digital Transformation', href: '/services/digital-transformation', icon: 'Rocket' },
         { label: 'SaaS Software Development', href: '/services/saas-development', icon: 'Layers' },
+        { label: 'Custom Software Development', href: '/services/custom-software-development', icon: 'Settings' },
+        { label: 'Mobile App Development', href: '/services/mobile-development', icon: 'Smartphone' },
         { label: 'Web App Development', href: '/services/web-app-development', icon: 'Globe' },
-        { label: 'Mobile App & Cross-Platform Development', href: '/services/mobile-development', icon: 'Smartphone' },
+        { label: 'Proof of Concept (PoC)', href: '/services/proof-of-concept', icon: 'FlaskConical' },
         { label: 'Legacy Modernization', href: '/services/application-modernization', icon: 'RefreshCw' },
         { label: 'UI/UX Design', href: '/services/ui-ux-design', icon: 'Palette' },
         { label: 'Quality Engineering & Testing', href: '/services/quality-engineering', icon: 'CheckCircle' },
+        // { label: 'Market Research', href: '/services/market-research', icon: 'Search' }, // hidden from UI
       ],
-    },  
+    },
     {
       title: 'Infrastructure Management',
       icon: 'Server',
       description: 'Cloud & DevOps excellence',
       links: [
-        { label: 'Cloud Migration & Modernization', href: '/services/cloud-migration', icon: 'Cloud' },
-        { label: 'Cloud Infrastructure & Operations', href: '/services/cloud-infrastructure', icon: 'Server' },
-        { label: 'Managed Infrastructure Services', href: '/services/managed-infrastructure', icon: 'ServerCog' },
-        { label: 'DevOps', href: '/services/devops', icon: 'GitBranch' },
-        { label: 'Platform Engineering', href: '/services/platform-engineering', icon: 'Cpu' },
-        { label: 'Data Engineering', href: '/services/data-engineering', icon: 'Database' },
-        { label: 'Security & Compliance', href: '/services/security-compliance', icon: 'Shield' },
+        { label: 'C10 Data Engineering', href: '/services/data-engineering', icon: 'Database' },
+        { label: 'C10 Platform Engineering', href: '/services/platform-engineering', icon: 'Cpu' },
+        { label: 'C10 DevOps & Cloud Engineering', href: '/services/devops', icon: 'GitBranch' },
+        { label: 'C10 IaaS (Infrastructure as a Service)', href: '/services/managed-infrastructure', icon: 'ServerCog' },
+        { label: 'C10 Cloud Migration & Modernization', href: '/services/cloud-migration', icon: 'Cloud' },
+        { label: 'C10 Cloud Infrastructure & Operations', href: '/services/cloud-infrastructure', icon: 'Server' },
+        { label: 'C10 Security & Compliance', href: '/services/security-compliance', icon: 'Shield' },
       ],
     }  
   ],

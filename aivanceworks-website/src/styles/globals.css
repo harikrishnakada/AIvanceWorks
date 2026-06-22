@@ -143,6 +143,34 @@ body {
   }
 }
 
+/* ─── Infinite Marquee ─── */
+.marquee {
+  position: relative;
+  overflow: hidden;
+  /* Fade logos in/out at the edges */
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  flex-wrap: nowrap;
+  animation: marquee 38s linear infinite;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    /* Track holds two identical halves; -50% lands the second exactly
+       where the first began, so the loop is seamless. */
+    transform: translateX(-50%);
+  }
+}
+
 /* ─── Accessibility: Reduced Motion ─── */
 @media (prefers-reduced-motion: reduce) {
   .reveal,

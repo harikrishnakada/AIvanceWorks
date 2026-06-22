@@ -3,20 +3,36 @@
 import Image from 'next/image';
 import { Zap, Clock, TrendingUp } from 'lucide-react';
 
+// Badge PNGs are trimmed to their content bounding box (originals kept alongside)
+// so all three fill their square box identically. The Associate badges (AI-104,
+// AZ-204) and the Fundamentals badge (AZ-900) use different internal layouts:
+// the Fundamentals white title plate sits ~5.8% higher than the Associate ones.
+// `nudge` shifts a badge vertically so the (most salient) white plates align on
+// the same level — purely optical alignment, applied only where artwork differs.
 const certifications = [
   {
-    src: '/images/certifications/ai-104.png',
-    alt: 'Microsoft Certified: Azure AI Engineer Associate',
-    title: 'Azure AI Engineer',
-    level: 'Associate',
-    code: 'AI-104',
+    src: '/images/certifications/az-900-trim.png',
+    alt: 'Microsoft Certified: Azure Fundamentals',
+    title: 'Azure Fundamentals',
+    level: 'Fundamentals',
+    code: 'AZ-900',
+    nudge: 'translate-y-[3px] sm:translate-y-[4px] md:translate-y-[5px] lg:translate-y-[5px]',
   },
   {
-    src: '/images/certifications/AZ-204.png',
+    src: '/images/certifications/AZ-204-trim.png',
     alt: 'Microsoft Certified: Azure Developer Associate',
     title: 'Azure Developer',
     level: 'Associate',
     code: 'AZ-204',
+    nudge: '',
+  },
+  {
+    src: '/images/certifications/ai-104-trim.png',
+    alt: 'Microsoft Certified: Azure AI Engineer Associate',
+    title: 'Azure AI Engineer',
+    level: 'Associate',
+    code: 'AI-104',
+    nudge: '',
   },
 ];
 
@@ -93,7 +109,7 @@ export function ExperienceSection() {
                       src={cert.src}
                       alt={cert.alt}
                       fill
-                      className="object-contain"
+                      className={`object-contain ${cert.nudge}`}
                       sizes="(max-width: 640px) 55px, (max-width: 768px) 70px, (max-width: 1024px) 80px, 90px"
                     />
                   </div>

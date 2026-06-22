@@ -4,6 +4,7 @@ import { SITE_CONFIG } from '@/lib/constants';
 import {
   HeroSection,
   ExperienceSection,
+  PartnersSection,
   ChallengesSection,
   ServicesSection,
   WhyChooseUsSection,
@@ -29,14 +30,17 @@ export default function HomePage() {
       {/* Our Experience - Certifications and stats */}
       <ExperienceSection />
 
+      {/* Our Partners - Partner logos with tier names */}
+      <PartnersSection />
+
+      {/* Services Overview - 6 service cards */}
+      <ServicesSection />
+
       {/* Are You Facing These Challenges? - 3 challenge cards */}
       <ChallengesSection />
 
       {/* Why Companies Choose Us - 5 differentiator cards */}
       <WhyChooseUsSection />
-
-      {/* Services Overview - 6 service cards */}
-      <ServicesSection />
 
       {/* Case Studies Preview - 3 featured case studies */}
       {/* <CaseStudiesSection /> */}

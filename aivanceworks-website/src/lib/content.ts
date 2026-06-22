@@ -1016,6 +1016,7 @@ const SERVICE_PAGE_MODULES: Record<string, () => Promise<{ default: ServicePageD
   'security-compliance': () => import('@/data/services/security-compliance'),
   'ai-strategy-consulting': () => import('@/data/services/ai-strategy-consulting'),
   'c10-it-consulting': () => import('@/data/services/c10-it-consulting'),
+  'c10-ai-strategy': () => import('@/data/services/c10-ai-strategy'),
   'human-capital-management': () =>
     import('@/data/services/human-capital-management'),
   'data-engineering': () => import('@/data/services/data-engineering'),
@@ -1023,7 +1024,14 @@ const SERVICE_PAGE_MODULES: Record<string, () => Promise<{ default: ServicePageD
   'mvp-development': () => import('@/data/services/mvp-development'),
   'managed-infrastructure': () => import('@/data/services/managed-infrastructure'),
   'proof-of-concept': () => import('@/data/services/proof-of-concept'),
+  'product-discovery': () => import('@/data/services/product-discovery'),
   'api-development': () => import('@/data/services/api-development'),
+  'ml-development': () => import('@/data/services/ml-development'),
+  'ai-development': () => import('@/data/services/ai-development'),
+  'agentic-ai-development': () => import('@/data/services/agentic-ai-development'),
+  'enterprise-ai-development': () => import('@/data/services/enterprise-ai-development'),
+  'native-ai-development': () => import('@/data/services/native-ai-development'),
+  'digital-transformation': () => import('@/data/services/digital-transformation'),
 
 };
 

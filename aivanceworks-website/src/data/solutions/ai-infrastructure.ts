@@ -353,11 +353,11 @@ const aiInfrastructure: SolutionPageData = {
 
   relatedPages: [
     {
-      title: 'C10 Cloud Computing',
+      title: 'Enterprise AI Development',
       description:
-        'AI infrastructure rides on cloud foundations. Our C10 Cloud Computing engagement frames the cloud architecture, landing zones, and provider posture your AI platform will inherit — so the AI tier sits on cloud decisions you can stand behind.',
-      href: '/services/c10-cloud-computing',
-      icon: 'Cloud',
+        'Platform in place — now what gets built on it? Our Enterprise AI Development engagement delivers the AI workloads themselves, wrapped in the security, governance, and operations a large organization requires to take them from pilot to governed production.',
+      href: '/services/enterprise-ai-development',
+      icon: 'ShieldCheck',
       pageType: 'service',
     },
     {
@@ -369,11 +369,11 @@ const aiInfrastructure: SolutionPageData = {
       pageType: 'service',
     },
     {
-      title: 'Generative AI',
+      title: 'C10 AI Strategy',
       description:
-        'Once the infrastructure is in place, the next question is what AI workloads run on it. Our Generative AI practice ships RAG, agentic, and LLM-powered applications on top of platforms engineered exactly like this one.',
-      href: '/services/generative-ai',
-      icon: 'Sparkles',
+        'Building the platform before the portfolio is decided? Our C10 AI Strategy engagement prioritizes which AI use cases to fund and risk-tiers each one — so the infrastructure you stand up carries a roadmap your board already approved, not a guess.',
+      href: '/services/c10-ai-strategy',
+      icon: 'Brain',
       pageType: 'service',
     },
   ],

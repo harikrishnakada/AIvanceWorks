@@ -206,10 +206,10 @@ export default function ServicesPage() {
       {/* ── Advisory ─────────────────────────────────────────── */}
       <ServicePillarSection
         id="advisory"
-        title={NAVIGATION.servicesMenu[0].title}
-        description={NAVIGATION.servicesMenu[0].description}
+        title={NAVIGATION.advisoryMenu.groups[0].title}
+        description={NAVIGATION.advisoryMenu.groups[0].description}
         CategoryIcon={MessageSquare}
-        links={NAVIGATION.servicesMenu[0].links}
+        links={NAVIGATION.advisoryMenu.groups[0].links}
         builtOutSlugs={builtOutSlugs}
         iconMap={iconMap}
         descriptions={SERVICE_DESCRIPTIONS}
@@ -219,10 +219,10 @@ export default function ServicesPage() {
       {/* ── Enterprise ───────────────────────────────────────── */}
       <ServicePillarSection
         id="enterprise"
-        title={NAVIGATION.servicesMenu[1].title}
-        description={NAVIGATION.servicesMenu[1].description}
+        title={NAVIGATION.enterpriseMenu.groups[0].title}
+        description={NAVIGATION.enterpriseMenu.groups[0].description}
         CategoryIcon={Building2}
-        links={NAVIGATION.servicesMenu[1].links}
+        links={NAVIGATION.enterpriseMenu.groups[0].links}
         builtOutSlugs={builtOutSlugs}
         iconMap={iconMap}
         descriptions={SERVICE_DESCRIPTIONS}
@@ -232,10 +232,10 @@ export default function ServicesPage() {
       {/* ── Software Engineering ─────────────────────────────── */}
       <ServicePillarSection
         id="software-engineering"
-        title={NAVIGATION.servicesMenu[2].title}
-        description={NAVIGATION.servicesMenu[2].description}
+        title={NAVIGATION.servicesMenu[0].title}
+        description={NAVIGATION.servicesMenu[0].description}
         CategoryIcon={Code2}
-        links={NAVIGATION.servicesMenu[2].links}
+        links={NAVIGATION.servicesMenu[0].links}
         builtOutSlugs={builtOutSlugs}
         iconMap={iconMap}
         descriptions={SERVICE_DESCRIPTIONS}
@@ -245,10 +245,10 @@ export default function ServicesPage() {
       {/* ── Infrastructure Management ────────────────────────── */}
       <ServicePillarSection
         id="infrastructure-management"
-        title={NAVIGATION.servicesMenu[3].title}
-        description={NAVIGATION.servicesMenu[3].description}
+        title={NAVIGATION.servicesMenu[1].title}
+        description={NAVIGATION.servicesMenu[1].description}
         CategoryIcon={Server}
-        links={NAVIGATION.servicesMenu[3].links}
+        links={NAVIGATION.servicesMenu[1].links}
         builtOutSlugs={builtOutSlugs}
         iconMap={iconMap}
         descriptions={SERVICE_DESCRIPTIONS}

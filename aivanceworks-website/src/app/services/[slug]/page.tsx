@@ -67,6 +67,20 @@ import {
   PocHeroIllustration,
   ApiRequestLifecycle,
   ApiHeroIllustration,
+  ModelLifecycleLoop,
+  MlDevHeroIllustration,
+  AiApproachSelector,
+  AiDevHeroIllustration,
+  AgentAutonomySpectrum,
+  AgenticAiHeroIllustration,
+  EnterpriseAiDeliveryWrapper,
+  EnterpriseAiHeroIllustration,
+  AiNativeArchitectureContrast,
+  AiNativeHeroIllustration,
+  AiUseCasePortfolioMatrix,
+  AiStrategyAdvisoryHeroIllustration,
+  DigitalMaturityRoadmap,
+  DigitalTransformationHeroIllustration,
 
 } from '@/components/signature';
 import type { ReactNode } from 'react';
@@ -130,6 +144,13 @@ const SIGNATURE_COMPONENTS: Record<string, ReactNode> = {
   ManagedOpsLifecycle: <ManagedOpsLifecycle />,
   PocFeasibilityVerdict: <PocFeasibilityVerdict />,
   ApiRequestLifecycle: <ApiRequestLifecycle />,
+  ModelLifecycleLoop: <ModelLifecycleLoop />,
+  AiApproachSelector: <AiApproachSelector />,
+  AgentAutonomySpectrum: <AgentAutonomySpectrum />,
+  EnterpriseAiDeliveryWrapper: <EnterpriseAiDeliveryWrapper />,
+  AiNativeArchitectureContrast: <AiNativeArchitectureContrast />,
+  AiUseCasePortfolioMatrix: <AiUseCasePortfolioMatrix />,
+  DigitalMaturityRoadmap: <DigitalMaturityRoadmap />,
 
 };
 
@@ -164,6 +185,13 @@ const HERO_ILLUSTRATION_COMPONENTS: Record<string, ReactNode> = {
   ManagedInfraHeroIllustration: <ManagedInfraHeroIllustration />,
   PocHeroIllustration: <PocHeroIllustration />,
   ApiHeroIllustration: <ApiHeroIllustration />,
+  MlDevHeroIllustration: <MlDevHeroIllustration />,
+  AiDevHeroIllustration: <AiDevHeroIllustration />,
+  AgenticAiHeroIllustration: <AgenticAiHeroIllustration />,
+  EnterpriseAiHeroIllustration: <EnterpriseAiHeroIllustration />,
+  AiNativeHeroIllustration: <AiNativeHeroIllustration />,
+  AiStrategyAdvisoryHeroIllustration: <AiStrategyAdvisoryHeroIllustration />,
+  DigitalTransformationHeroIllustration: <DigitalTransformationHeroIllustration />,
 
 };
 

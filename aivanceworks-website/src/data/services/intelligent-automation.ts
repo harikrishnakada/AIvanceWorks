@@ -265,11 +265,11 @@ const intelligentAutomation: ServicePageData = {
 
   relatedPages: [
     {
-      title: 'Generative AI',
+      title: 'Agentic AI Development',
       description:
-        'Your automation workflows can leverage LLM reasoning for document understanding, content generation, and complex decision-making — GenAI powers the cognitive layer in your automation pipeline.',
-      href: '/services/generative-ai',
-      icon: 'Brain',
+        'The autonomous engine inside an automated workflow is an AI agent. When the process needs an agent that reasons, plans, and acts across multiple steps — with human-in-the-loop control and guardrails — our agentic AI engagement builds it.',
+      href: '/services/agentic-ai-development',
+      icon: 'Bot',
       pageType: 'service',
     },
     {

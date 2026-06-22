@@ -282,20 +282,20 @@ const aiStrategyConsulting: ServicePageData = {
       pageType: 'service',
     },
     {
-      title: 'Intelligent Automation',
+      title: 'Digital Transformation',
       description:
-        'Strategy surfaced workflow automation as a near-term win? We combine AI reasoning with process automation to handle the judgment-dependent tasks your RPA could not touch — cognitive automation with human-in-the-loop oversight.',
-      href: '/services/intelligent-automation',
-      icon: 'Workflow',
+        'Assessment revealed the data and systems are not ready for AI yet? Digital transformation modernizes that foundation first — processes, cloud, and data infrastructure — so the AI roadmap has something solid to build on.',
+      href: '/services/digital-transformation',
+      icon: 'Rocket',
       pageType: 'service',
     },
     {
-      title: 'C10 AI Healthcare',
+      title: 'Enterprise AI Development',
       description:
-        'Strategy roadmap pointing at clinical, RCM, or care-management AI? See the same playbook applied to a regulated vertical — ambient documentation, grounded decision-support, and clinician-in-the-loop patterns engineered with HIPAA-grade safeguards from day one.',
-      href: '/solutions/ai-healthcare',
-      icon: 'Stethoscope',
-      pageType: 'solution',
+        'Roadmap approved and the use case is enterprise-scale? We take the priority initiative into governed production — wrapping the AI in the security, data governance, scalable architecture, and operations a large organization requires before it goes live.',
+      href: '/services/enterprise-ai-development',
+      icon: 'ShieldCheck',
+      pageType: 'service',
     },
   ],
 

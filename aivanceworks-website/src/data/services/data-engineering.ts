@@ -304,12 +304,12 @@ const dataEngineering: ServicePageData = {
       pageType: 'service',
     },
     {
-      title: 'LIMS — Laboratory Information Management',
+      title: 'ML Development',
       description:
-        'Running a lab? Our LIMS solution is built on the same data engineering patterns — structured sample data, pipeline integrity, and audit-ready traceability designed for FDA 21 CFR Part 11 environments.',
-      href: '/solutions/lims',
-      icon: 'FlaskConical',
-      pageType: 'solution',
+        'Pipeline built and data trusted? Put it to work. We train custom models on your governed Gold layer — classification, forecasting, recommendation, anomaly detection — and ship them to production with drift monitoring, not a notebook that rots.',
+      href: '/services/ml-development',
+      icon: 'BrainCircuit',
+      pageType: 'service',
     },
   ],
 

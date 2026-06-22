@@ -303,12 +303,12 @@ const applicationModernization: ServicePageData = {
       pageType: 'service',
     },
     {
-      title: 'Policy Administration Systems',
+      title: 'Digital Transformation',
       description:
-        'Replacing a legacy PAS or carrier back-office? See the strangler-fig approach applied to policy administration — quote, bind, issue, endorse, and renewal flows stay running while the new system takes over line of business by line of business.',
-      href: '/solutions/policy-administration-systems',
-      icon: 'Layers',
-      pageType: 'solution',
+        'Modernizing one monolith is part of a bigger picture? Zoom out to the full transformation — process, data, security, and experience modernized in sequenced waves, with legacy re-platforming as one track inside the roadmap.',
+      href: '/services/digital-transformation',
+      icon: 'Rocket',
+      pageType: 'service',
     },
   ],
 

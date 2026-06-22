@@ -337,10 +337,10 @@ const itConsulting: ServicePageData = {
       pageType: 'service',
     },
     {
-      title: 'AI Strategy & Consulting',
+      title: 'C10 AI Strategy',
       description:
-        'IT strategy flagged AI as a priority investment area? A dedicated AI strategy engagement applies the same vendor-neutral assessment discipline to AI — maturity, use case prioritization, and governance — before any model or platform is funded.',
-      href: '/services/ai-strategy-consulting',
+        'IT strategy flagged AI as a priority investment area? Our C10 AI Strategy engagement applies the same vendor-neutral, audit-mapped discipline to AI — readiness, risk-tiered use case prioritization, and a responsible-AI governance framework — before any model or platform is funded.',
+      href: '/services/c10-ai-strategy',
       icon: 'Brain',
       pageType: 'service',
     },

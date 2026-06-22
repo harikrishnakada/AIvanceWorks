@@ -36,11 +36,28 @@ interface MobileMenuProps {
 export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isAiMlOpen, setIsAiMlOpen] = useState(false);
+  const [isAdvisoryOpen, setIsAdvisoryOpen] = useState(false);
+  const [isEnterpriseOpen, setIsEnterpriseOpen] = useState(false);
   const [isSolutionsOpen, setIsSolutionsOpen] = useState(false); // Solutions accordion hidden from UI (state retained for preserved code)
   const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
 
   const toggleCategory = (title: string) => {
     setExpandedCategory(expandedCategory === title ? null : title);
+  };
+
+  // Toggle a top-level accordion. When opening a menu that has a single
+  // subsection, auto-expand that subsection so its links are visible right
+  // away — the user can still collapse/re-open it via its chevron.
+  const openMenu = (
+    isOpen: boolean,
+    setOpen: (value: boolean) => void,
+    groups: readonly { title: string }[]
+  ) => {
+    const next = !isOpen;
+    setOpen(next);
+    if (next && groups.length === 1) {
+      setExpandedCategory(groups[0].title);
+    }
   };
 
   return (
@@ -73,7 +90,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               {/* AI Accordion — mirrors Services: nested expandable categories */}
               <div className="border-b border-gray-200 pb-1">
                 <button
-                  onClick={() => setIsAiMlOpen(!isAiMlOpen)}
+                  onClick={() => openMenu(isAiMlOpen, setIsAiMlOpen, NAVIGATION.aiMlMenu.groups)}
                   className="flex items-center justify-between w-full px-4 py-3 text-base font-medium text-gray-900 hover:bg-gray-50 rounded-lg transition-colors"
                   aria-expanded={isAiMlOpen}
                 >
@@ -88,6 +105,144 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 {isAiMlOpen && (
                   <div className="mt-1 space-y-1 animate-in slide-in-from-top-2 duration-200">
                     {NAVIGATION.aiMlMenu.groups.map((group) => {
+                      const CategoryIcon = iconMap[group.icon] || Code2;
+                      return (
+                        <div key={group.title}>
+                          {/* Category Header */}
+                          <button
+                            onClick={() => toggleCategory(group.title)}
+                            className="flex items-center justify-between w-full px-3 py-2.5 text-sm font-semibold text-gray-700 hover:bg-gray-50 rounded-lg transition-colors"
+                          >
+                            <div className="flex items-center gap-2.5">
+                              <div className="w-7 h-7 rounded-lg bg-brand-50 flex items-center justify-center flex-shrink-0">
+                                <CategoryIcon className="h-3.5 w-3.5 text-brand-600" />
+                              </div>
+                              <div className="text-left">
+                                <div className="text-sm font-semibold text-gray-800">{group.title}</div>
+                                <div className="text-[10px] text-gray-400 font-normal">{group.description}</div>
+                              </div>
+                            </div>
+                            <ChevronDown
+                              className={`h-4 w-4 text-gray-400 transition-transform duration-200 flex-shrink-0 ${
+                                expandedCategory === group.title ? 'rotate-180' : ''
+                              }`}
+                            />
+                          </button>
+
+                          {/* Category Links */}
+                          {expandedCategory === group.title && (
+                            <div className="pl-4 space-y-0.5 animate-in slide-in-from-top-1 duration-150">
+                              {group.links.map((link) => {
+                                const LinkIcon = iconMap[link.icon] || Code2;
+                                return (
+                                  <Link
+                                    key={link.href + link.label}
+                                    href={link.href}
+                                    onClick={onClose}
+                                    className="flex items-center gap-2 px-3 py-2 text-sm text-gray-600 hover:text-brand-600 hover:bg-brand-50/60 rounded-lg transition-colors"
+                                  >
+                                    <LinkIcon className="h-3.5 w-3.5 text-gray-400 flex-shrink-0" />
+                                    {link.label}
+                                  </Link>
+                                );
+                              })}
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
+
+
+              
+              {/* Advisory Accordion */}
+              <div className="border-b border-gray-200 pb-1">
+                <button
+                  onClick={() => openMenu(isAdvisoryOpen, setIsAdvisoryOpen, NAVIGATION.advisoryMenu.groups)}
+                  className="flex items-center justify-between w-full px-4 py-3 text-base font-medium text-gray-900 hover:bg-gray-50 rounded-lg transition-colors"
+                  aria-expanded={isAdvisoryOpen}
+                >
+                  Advisory
+                  <ChevronDown
+                    className={`h-5 w-5 text-gray-500 transition-transform duration-200 ${
+                      isAdvisoryOpen ? 'rotate-180' : ''
+                    }`}
+                  />
+                </button>
+
+                {isAdvisoryOpen && (
+                  <div className="mt-1 space-y-1 animate-in slide-in-from-top-2 duration-200">
+                    {NAVIGATION.advisoryMenu.groups.map((group) => {
+                      const CategoryIcon = iconMap[group.icon] || Code2;
+                      return (
+                        <div key={group.title}>
+                          {/* Category Header */}
+                          <button
+                            onClick={() => toggleCategory(group.title)}
+                            className="flex items-center justify-between w-full px-3 py-2.5 text-sm font-semibold text-gray-700 hover:bg-gray-50 rounded-lg transition-colors"
+                          >
+                            <div className="flex items-center gap-2.5">
+                              <div className="w-7 h-7 rounded-lg bg-brand-50 flex items-center justify-center flex-shrink-0">
+                                <CategoryIcon className="h-3.5 w-3.5 text-brand-600" />
+                              </div>
+                              <div className="text-left">
+                                <div className="text-sm font-semibold text-gray-800">{group.title}</div>
+                                <div className="text-[10px] text-gray-400 font-normal">{group.description}</div>
+                              </div>
+                            </div>
+                            <ChevronDown
+                              className={`h-4 w-4 text-gray-400 transition-transform duration-200 flex-shrink-0 ${
+                                expandedCategory === group.title ? 'rotate-180' : ''
+                              }`}
+                            />
+                          </button>
+
+                          {/* Category Links */}
+                          {expandedCategory === group.title && (
+                            <div className="pl-4 space-y-0.5 animate-in slide-in-from-top-1 duration-150">
+                              {group.links.map((link) => {
+                                const LinkIcon = iconMap[link.icon] || Code2;
+                                return (
+                                  <Link
+                                    key={link.href + link.label}
+                                    href={link.href}
+                                    onClick={onClose}
+                                    className="flex items-center gap-2 px-3 py-2 text-sm text-gray-600 hover:text-brand-600 hover:bg-brand-50/60 rounded-lg transition-colors"
+                                  >
+                                    <LinkIcon className="h-3.5 w-3.5 text-gray-400 flex-shrink-0" />
+                                    {link.label}
+                                  </Link>
+                                );
+                              })}
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
+
+              {/* Enterprise Accordion */}
+              <div className="border-b border-gray-200 pb-1">
+                <button
+                  onClick={() => openMenu(isEnterpriseOpen, setIsEnterpriseOpen, NAVIGATION.enterpriseMenu.groups)}
+                  className="flex items-center justify-between w-full px-4 py-3 text-base font-medium text-gray-900 hover:bg-gray-50 rounded-lg transition-colors"
+                  aria-expanded={isEnterpriseOpen}
+                >
+                  Enterprise
+                  <ChevronDown
+                    className={`h-5 w-5 text-gray-500 transition-transform duration-200 ${
+                      isEnterpriseOpen ? 'rotate-180' : ''
+                    }`}
+                  />
+                </button>
+
+                {isEnterpriseOpen && (
+                  <div className="mt-1 space-y-1 animate-in slide-in-from-top-2 duration-200">
+                    {NAVIGATION.enterpriseMenu.groups.map((group) => {
                       const CategoryIcon = iconMap[group.icon] || Code2;
                       return (
                         <div key={group.title}>

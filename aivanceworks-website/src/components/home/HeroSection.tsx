@@ -8,14 +8,9 @@ import { ArrowRight, Play } from 'lucide-react';
 import { SITE_CONFIG } from '@/lib/constants';
 
 const heroSlides = [
-  { src: '/images/home_hero/home_hero_slide1.jpg', alt: 'AIvanceWorks Cloud & AI Solutions' },
+  { src: '/images/home_hero/hero_slide_1a.jpg', alt: 'AIvanceWorks Cloud & AI Solutions' },
   { src: '/images/home_hero/home_hero_slide2.jpg', alt: 'AIvanceWorks Software Development' },
-  { src: '/images/home_hero/home_hero_slide3a.jpg', alt: 'AIvanceWorks Custom Engineering' },
-];
-
-const partners = [
-  { name: 'Google', logo: '/partners/google.svg', width: 'w-[70px] sm:w-[85px] md:w-[100px] lg:w-[120px]' },
-  { name: 'Microsoft', logo: '/partners/microsoft.svg', width: 'w-[80px] sm:w-[95px] md:w-[115px] lg:w-[135px]' },
+  { src: '/images/home_hero/home_hero_slide3b.jpg', alt: 'AIvanceWorks Custom Engineering' },
 ];
 
 export function HeroSection() {
@@ -49,6 +44,7 @@ export function HeroSection() {
         {/* Hero Card */}
         <div
           className="flex flex-col relative w-full
+            min-h-[450px] sm:min-h-[490px] md:min-h-[544px] lg:min-h-[604px]
             rounded-2xl lg:rounded-3xl
             border border-white/[0.06]
             shadow-brand-panel
@@ -96,40 +92,38 @@ export function HeroSection() {
 
           {/* Card body */}
           <div
-            className="relative flex flex-col
+            className="relative flex flex-1 flex-col
               px-4 sm:px-8 md:px-12 lg:px-20 xl:px-28
               pt-14 sm:pt-16 md:pt-18 lg:pt-20
               pb-4 sm:pb-5 md:pb-6 lg:pb-7"
           >
             {/* Hero content */}
             <div
-              className="flex flex-col items-center text-center max-w-5xl mx-auto w-full"
+              className="flex flex-1 flex-col items-center justify-evenly text-center max-w-5xl mx-auto w-full"
             >
               {/* Headline */}
               <h1
                 className="text-[28px] leading-[1.1] sm:text-[44px] md:text-[58px] lg:text-[72px] xl:text-[80px]
-                  font-black tracking-tight text-white
-                  mb-2 sm:mb-3 md:mb-4"
+                  font-black tracking-tight text-white"
               >
-                We Build Software for{' '}
+                We Build SaaS for{' '}
                 <br className="hidden sm:block" />
                 <span className="bg-gradient-to-r from-brand-400 via-brand-300 to-accent-400 bg-clip-text text-transparent whitespace-nowrap">
-                  Life Sciences
+                  Buisnesses
                 </span>
               </h1>
 
               {/* Subheadline */}
               <p
                 className="text-sm leading-relaxed sm:text-base md:text-lg lg:text-xl
-                  text-white/65 max-w-2xl mx-auto
-                  mb-3 sm:mb-4 md:mb-5"
+                  text-white/65 max-w-2xl mx-auto"
               >
                  {SITE_CONFIG.name} is a cloud computing software development company including services
                 in AI Development, SaaS Development and several other development services.
               </p>
 
               {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full max-w-xs sm:max-w-none sm:w-auto mx-auto">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full max-w-xs sm:max-w-none sm:w-auto mx-auto mt-4 sm:mt-6 md:mt-8">
                 <Button
                   size="lg"
                   asChild
@@ -140,8 +134,10 @@ export function HeroSection() {
                     justify-center"
                 >
                   <Link href="/book-consultation" className="inline-flex items-center justify-center w-full sm:w-auto">
-                    Book an Appointment
-                    <ArrowRight className="ml-2 h-4 w-4 shrink-0" />
+                    <span className="relative">
+                      Book an Appointment
+                      <ArrowRight className="absolute left-full top-1/2 -translate-y-1/2 ml-2 h-4 w-4 shrink-0" />
+                    </span>
                   </Link>
                 </Button>
                 <Button
@@ -154,50 +150,14 @@ export function HeroSection() {
                     h-11 sm:h-12 md:h-13 rounded-xl transition-all duration-300
                     justify-center"
                 >
-                  <Link href="/services" className="inline-flex items-center justify-center">
-                    <Play className="mr-2 h-3.5 w-3.5" />
-                    View Our Services
+                  <Link href="/services" className="inline-flex items-center justify-center w-full sm:w-auto">
+                    <span className="relative">
+                      <Play className="absolute right-full top-1/2 -translate-y-1/2 mr-2 h-3.5 w-3.5 shrink-0" />
+                      View Our Services
+                    </span>
                   </Link>
                 </Button>
               </div>
-            </div>
-
-            {/* Partners bar */}
-            <div className="mt-3 sm:mt-4 md:mt-5 pt-3 sm:pt-4 md:pt-5 border-t border-white/[0.08] shrink-0">
-              <p
-                className="text-[9px] sm:text-[10px] text-brand-400/60 text-center
-                  uppercase tracking-[0.2em] font-semibold mb-1"
-              >
-                Trusted Technology
-              </p>
-              <h2
-                className="text-center text-xs sm:text-sm md:text-base lg:text-lg
-                  font-black text-white mb-1.5 sm:mb-2"
-              >
-                Our Partners
-                {/* <span className="bg-gradient-to-r from-brand-400 via-brand-300 to-accent-400 bg-clip-text text-transparent">
-                  Technologies
-                </span> */}
-              </h2>
-              <div className="flex items-center justify-center gap-10 sm:gap-16 md:gap-20 lg:gap-28">
-                {partners.map((partner) => (
-                  <div
-                    key={partner.name}
-                    className={`relative h-5 sm:h-6 md:h-7 lg:h-8 ${partner.width}
-                      opacity-45 hover:opacity-85 transition-opacity duration-300`}
-                  >
-                    <Image
-                      src={partner.logo}
-                      alt={partner.name}
-                      fill
-                      className="object-contain brightness-0 invert"
-                    />
-                  </div>
-                ))}
-              </div>
-              <p className="text-center text-[8px] sm:text-[9px] md:text-[10px] text-white/75 mt-2 font-medium">
-                Building with the world&apos;s leading platforms
-              </p>
             </div>
           </div>
         </div>
