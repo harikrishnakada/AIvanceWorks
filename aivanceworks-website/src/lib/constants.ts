@@ -36,7 +36,7 @@ export const NAVIGATION = {
     //{ label: 'AI', href: '/services/ai-machine-learning' },
     { label: 'Services', href: '/services' },
     // { label: 'Solutions', href: '/solutions' }, // hidden from UI (content preserved)
-    { label: 'Industry', href: '/industry' },
+    { label: 'Industries', href: '/industry' },
     // { label: 'Case Studies', href: '/case-studies' },
     { label: 'Blog', href: '/blog' },
     { label: 'About', href: '/about' },
@@ -117,6 +117,24 @@ export const NAVIGATION = {
           { label: 'ERP', href: '/services/erp-development', icon: 'Rocket' },
           { label: 'CRM', href: '/services/crm', icon: 'Lightbulb' },
           // { label: 'HCM', href: '/services/human-capital-management', icon: 'Users' },
+        ],
+      },
+    ],
+  },
+  // Industries menu (standalone top-level dropdown — vertical landing pages)
+  industriesMenu: {
+    title: 'Industries',
+    icon: 'Heart',
+    description: 'Vertical-specific software & AI',
+    groups: [
+      {
+        title: 'Industries',
+        icon: 'Heart',
+        description: 'Built around your industry',
+        links: [
+          { label: 'Healthcare', href: '/industry/healthcare', icon: 'Stethoscope' },
+          { label: 'Travel & Hospitality', href: '/industry/travel-hospitality', icon: 'Plane' },
+          { label: 'Real Estate', href: '/industry/real-estate', icon: 'Building2' },
         ],
       },
     ],

@@ -1,4 +1,5 @@
 - [AI/ML service-page pattern](project_ai-ml-service-pattern.md) — Archetype B composition, model-to-prod trust issue, governance cherry-pick, and signature reuse for generative-ai/data-engineering/ml-development
 - [Manufacturing & Supply Chain house pattern](project_mfg-supply-chain-pattern.md) — established Archetype C composition, liability stance, and signature conventions for this vertical cluster
+- [Digital Transformation service pattern](project_digital-transformation-pattern.md) — B-brief→A resolution, DigitalMaturityRoadmap signature, CIO/CDO trust issue, imageFeatures-on-services gotcha, block-comment `*/` gotcha
 - [Solution page wiring checklist](reference_solution-wiring-points.md) — the exact files to touch to register a new solution page
 - [Greenfield auditNote brand-name convention](feedback_auditnote-brand-name.md) — literal "AIvanceWorks" in data-file legal disclaimers is intentional, not a token-hygiene violation

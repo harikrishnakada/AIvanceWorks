@@ -9,7 +9,7 @@
  */
 
 import { ServiceCategory, Service, BlogPost, CaseStudy, Author, FAQ } from '@/types';
-import type { ServicePageData, SolutionPageData } from '@/types/pages';
+import type { ServicePageData, SolutionPageData, IndustryPageData } from '@/types/pages';
 
 // ============================================================================
 // SERVICE CATEGORIES DATA
@@ -1071,11 +1071,28 @@ const SOLUTION_PAGE_MODULES: Record<string, () => Promise<{ default: SolutionPag
   'drug-discovery': () => import('@/data/solutions/drug-discovery'),
 };
 
+const INDUSTRY_PAGE_MODULES: Record<string, () => Promise<{ default: IndustryPageData }>> = {
+  'healthcare': () => import('@/data/industries/healthcare'),
+  'travel-hospitality': () => import('@/data/industries/travel-hospitality'),
+  'real-estate': () => import('@/data/industries/real-estate'),
+};
+
 export async function getServicePageData(slug: string): Promise<ServicePageData | null> {
   const loader = SERVICE_PAGE_MODULES[slug];
   if (!loader) return null;
   const mod = await loader();
   return mod.default;
+}
+
+export async function getIndustryPageData(slug: string): Promise<IndustryPageData | null> {
+  const loader = INDUSTRY_PAGE_MODULES[slug];
+  if (!loader) return null;
+  const mod = await loader();
+  return mod.default;
+}
+
+export function getAllIndustryPageSlugs(): string[] {
+  return Object.keys(INDUSTRY_PAGE_MODULES);
 }
 
 export async function getSolutionPageData(slug: string): Promise<SolutionPageData | null> {

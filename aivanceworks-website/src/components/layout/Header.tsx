@@ -30,7 +30,7 @@ const iconMap: Record<string, LucideIcon> = {
   CreditCard, Stethoscope, Eye, Pill, FlaskConical,
 };
 
-type DropdownType = 'services' | 'ai-ml' | 'advisory' | 'enterprise' | 'solutions' | null;
+type DropdownType = 'services' | 'ai-ml' | 'advisory' | 'enterprise' | 'solutions' | 'industries' | null;
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -161,27 +161,6 @@ export function Header() {
                 </button>
               </div>
 
-              {/* Enterprise Dropdown */}
-              <div
-                data-dropdown="enterprise"
-                className="relative"
-                onMouseEnter={() => handleDropdownEnter('enterprise')}
-                onMouseLeave={handleDropdownLeave}
-              >
-                <button
-                  onClick={() => toggleDropdown('enterprise')}
-                  className="flex items-center px-4 xl:px-5 py-2 text-base xl:text-lg font-medium text-gray-900 hover:text-black transition-colors rounded-lg hover:bg-gray-100"
-                  aria-expanded={activeDropdown === 'enterprise'}
-                  aria-haspopup="true"
-                >
-                  Enterprise
-                  <ChevronDown
-                    className={`ml-1.5 h-4 w-4 xl:h-5 xl:w-5 transition-transform duration-200 ${
-                      activeDropdown === 'enterprise' ? 'rotate-180' : ''
-                    }`}
-                  />
-                </button>
-              </div>
 
               {/* Services Dropdown */}
               <div
@@ -205,6 +184,51 @@ export function Header() {
                 </button>
               </div>
               
+              
+              {/* Enterprise Dropdown */}
+              <div
+                data-dropdown="enterprise"
+                className="relative"
+                onMouseEnter={() => handleDropdownEnter('enterprise')}
+                onMouseLeave={handleDropdownLeave}
+              >
+                <button
+                  onClick={() => toggleDropdown('enterprise')}
+                  className="flex items-center px-4 xl:px-5 py-2 text-base xl:text-lg font-medium text-gray-900 hover:text-black transition-colors rounded-lg hover:bg-gray-100"
+                  aria-expanded={activeDropdown === 'enterprise'}
+                  aria-haspopup="true"
+                >
+                  Enterprise
+                  <ChevronDown
+                    className={`ml-1.5 h-4 w-4 xl:h-5 xl:w-5 transition-transform duration-200 ${
+                      activeDropdown === 'enterprise' ? 'rotate-180' : ''
+                    }`}
+                  />
+                </button>
+              </div>
+
+              {/* Industries Dropdown */}
+              <div
+                data-dropdown="industries"
+                className="relative"
+                onMouseEnter={() => handleDropdownEnter('industries')}
+                onMouseLeave={handleDropdownLeave}
+              >
+                <button
+                  onClick={() => toggleDropdown('industries')}
+                  className="flex items-center px-4 xl:px-5 py-2 text-base xl:text-lg font-medium text-gray-900 hover:text-black transition-colors rounded-lg hover:bg-gray-100"
+                  aria-expanded={activeDropdown === 'industries'}
+                  aria-haspopup="true"
+                >
+                  Industries
+                  <ChevronDown
+                    className={`ml-1.5 h-4 w-4 xl:h-5 xl:w-5 transition-transform duration-200 ${
+                      activeDropdown === 'industries' ? 'rotate-180' : ''
+                    }`}
+                  />
+                </button>
+              </div>
+
               {/* Solutions Dropdown — hidden from UI (content preserved) */}
               {/* <div
                 data-dropdown="solutions"
@@ -228,7 +252,7 @@ export function Header() {
               </div> */}
 
               {/* Other Nav Links (Industry, Case Studies, Blog, About) */}
-              {NAVIGATION.main.filter((item) => !['Services', 'Solutions', 'AI & ML'].includes(item.label)).map((item) => (
+              {NAVIGATION.main.filter((item) => !['Services', 'Solutions', 'AI & ML', 'Industries'].includes(item.label)).map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
@@ -286,6 +310,30 @@ export function Header() {
                 </button>
               </div>
 
+
+              {/* Services Dropdown */}
+              <div
+                data-dropdown="services"
+                className="relative"
+                onMouseEnter={() => handleDropdownEnter('services')}
+                onMouseLeave={handleDropdownLeave}
+              >
+                <button
+                  onClick={() => toggleDropdown('services')}
+                  className="flex items-center px-3 py-2 text-sm font-medium text-gray-900 hover:text-black transition-colors rounded-md hover:bg-gray-100"
+                  aria-expanded={activeDropdown === 'services'}
+                  aria-haspopup="true"
+                >
+                  Services
+                  <ChevronDown
+                    className={`ml-1 h-3.5 w-3.5 transition-transform duration-200 ${
+                      activeDropdown === 'services' ? 'rotate-180' : ''
+                    }`}
+                  />
+                </button>
+              </div>
+
+
               {/* Enterprise Dropdown */}
               <div
                 data-dropdown="enterprise"
@@ -308,23 +356,23 @@ export function Header() {
                 </button>
               </div>
 
-              {/* Services Dropdown */}
+              {/* Industries Dropdown */}
               <div
-                data-dropdown="services"
+                data-dropdown="industries"
                 className="relative"
-                onMouseEnter={() => handleDropdownEnter('services')}
+                onMouseEnter={() => handleDropdownEnter('industries')}
                 onMouseLeave={handleDropdownLeave}
               >
                 <button
-                  onClick={() => toggleDropdown('services')}
+                  onClick={() => toggleDropdown('industries')}
                   className="flex items-center px-3 py-2 text-sm font-medium text-gray-900 hover:text-black transition-colors rounded-md hover:bg-gray-100"
-                  aria-expanded={activeDropdown === 'services'}
+                  aria-expanded={activeDropdown === 'industries'}
                   aria-haspopup="true"
                 >
-                  Services
+                  Industries
                   <ChevronDown
                     className={`ml-1 h-3.5 w-3.5 transition-transform duration-200 ${
-                      activeDropdown === 'services' ? 'rotate-180' : ''
+                      activeDropdown === 'industries' ? 'rotate-180' : ''
                     }`}
                   />
                 </button>
@@ -353,7 +401,7 @@ export function Header() {
               </div> */}
 
               {/* Other Nav Links */}
-              {NAVIGATION.main.filter((item) => !['Services', 'Solutions', 'AI & ML'].includes(item.label)).map((item) => (
+              {NAVIGATION.main.filter((item) => !['Services', 'Solutions', 'AI & ML', 'Industries'].includes(item.label)).map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
@@ -562,6 +610,93 @@ export function Header() {
         </div>
       )}
 
+
+      {/* Services Mega Menu Dropdown — visible from md */}
+      {activeDropdown === 'services' && (
+        <div
+          data-dropdown="services"
+          className="fixed top-16 md:top-18 lg:top-20 left-0 right-0 z-40 hidden md:block"
+          onMouseEnter={() => handleDropdownEnter('services')}
+          onMouseLeave={handleDropdownLeave}
+        >
+          {/* Backdrop */}
+          <div
+            className="fixed inset-0 top-16 md:top-18 lg:top-20 bg-black/30 backdrop-blur-[2px]"
+            onClick={closeDropdown}
+          />
+
+          <div className="relative animate-in fade-in slide-in-from-top-2 duration-200">
+            <div className="max-w-[1400px] mx-auto px-4 md:px-6 pt-2 md:pt-3">
+              <div className="bg-white rounded-xl md:rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.15)] border border-gray-200/80 overflow-hidden">
+                {/* Columns */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-gray-100">
+                  {NAVIGATION.servicesMenu.map((column) => {
+                    const CategoryIcon = iconMap[column.icon] || Code2;
+                    return (
+                      <div key={column.title} className="p-4 md:p-5 lg:p-6">
+                        {/* Column Header */}
+                        <div className="flex items-center gap-2 md:gap-3 mb-1">
+                          <div className="w-8 h-8 md:w-9 md:h-9 rounded-lg bg-brand-50 flex items-center justify-center">
+                            <CategoryIcon className="h-4 w-4 text-brand-600" />
+                          </div>
+                          <div>
+                            <h3 className="text-sm md:text-base font-bold text-gray-900">
+                              {column.title}
+                            </h3>
+                            <p className="text-[10px] md:text-xs text-gray-400">
+                              {column.description}
+                            </p>
+                          </div>
+                        </div>
+
+                        {/* Divider */}
+                        <div className="h-px bg-gradient-to-r from-gray-200 via-gray-100 to-transparent my-2 md:my-3" />
+
+                        {/* Links */}
+                        <ul className="space-y-0.5">
+                          {column.links.map((link) => {
+                            const LinkIcon = iconMap[link.icon] || Code2;
+                            return (
+                              <li key={link.href + link.label}>
+                                <Link
+                                  href={link.href}
+                                  onClick={closeDropdown}
+                                  className="group/link flex items-center gap-2 py-1.5 md:py-[7px] px-2 md:px-2.5 -mx-1 rounded-lg text-xs md:text-sm text-gray-600 hover:text-brand-700 hover:bg-brand-50/70 transition-all duration-150"
+                                >
+                                  <LinkIcon className="h-3 w-3 md:h-3.5 md:w-3.5 text-gray-400 group-hover/link:text-brand-500 transition-colors flex-shrink-0" />
+                                  <span className="flex-1 leading-snug">{link.label}</span>
+                                  <ArrowRight className="h-3 w-3 ml-auto text-gray-300 opacity-0 -translate-x-1 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all duration-150 flex-shrink-0" />
+                                </Link>
+                              </li>
+                            );
+                          })}
+                        </ul>
+
+                      </div>
+                    );
+                  })}
+                </div>
+
+                {/* Bottom CTA bar */}
+                <div className="bg-gray-50/80 border-t border-gray-100 px-4 md:px-6 py-3 flex items-center justify-between">
+                  <p className="text-[11px] md:text-xs text-gray-500">
+                    Not sure where to start?
+                  </p>
+                  <Link
+                    href="/book-consultation"
+                    onClick={closeDropdown}
+                    className="inline-flex items-center gap-1.5 text-[11px] md:text-xs font-semibold text-brand-600 hover:text-brand-700 transition-colors"
+                  >
+                    Book a free consultation
+                    <ArrowRight className="h-3 w-3" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Enterprise Mega Menu Dropdown — visible from md */}
       {activeDropdown === 'enterprise' && (
         <div
@@ -647,12 +782,13 @@ export function Header() {
         </div>
       )}
 
-      {/* Services Mega Menu Dropdown — visible from md */}
-      {activeDropdown === 'services' && (
+
+      {/* Industries Mega Menu Dropdown — visible from md */}
+      {activeDropdown === 'industries' && (
         <div
-          data-dropdown="services"
+          data-dropdown="industries"
           className="fixed top-16 md:top-18 lg:top-20 left-0 right-0 z-40 hidden md:block"
-          onMouseEnter={() => handleDropdownEnter('services')}
+          onMouseEnter={() => handleDropdownEnter('industries')}
           onMouseLeave={handleDropdownLeave}
         >
           {/* Backdrop */}
@@ -662,14 +798,14 @@ export function Header() {
           />
 
           <div className="relative animate-in fade-in slide-in-from-top-2 duration-200">
-            <div className="max-w-[1400px] mx-auto px-4 md:px-6 pt-2 md:pt-3">
+            <div className="max-w-md mx-auto px-4 md:px-6 pt-2 md:pt-3">
               <div className="bg-white rounded-xl md:rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.15)] border border-gray-200/80 overflow-hidden">
-                {/* Columns */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-gray-100">
-                  {NAVIGATION.servicesMenu.map((column) => {
-                    const CategoryIcon = iconMap[column.icon] || Code2;
+                {/* Columns — Industries */}
+                <div className="grid grid-cols-1 divide-x divide-gray-100">
+                  {NAVIGATION.industriesMenu.groups.map((group) => {
+                    const CategoryIcon = iconMap[group.icon] || Code2;
                     return (
-                      <div key={column.title} className="p-4 md:p-5 lg:p-6">
+                      <div key={group.title} className="p-4 md:p-5 lg:p-6">
                         {/* Column Header */}
                         <div className="flex items-center gap-2 md:gap-3 mb-1">
                           <div className="w-8 h-8 md:w-9 md:h-9 rounded-lg bg-brand-50 flex items-center justify-center">
@@ -677,10 +813,10 @@ export function Header() {
                           </div>
                           <div>
                             <h3 className="text-sm md:text-base font-bold text-gray-900">
-                              {column.title}
+                              {group.title}
                             </h3>
                             <p className="text-[10px] md:text-xs text-gray-400">
-                              {column.description}
+                              {group.description}
                             </p>
                           </div>
                         </div>
@@ -690,7 +826,7 @@ export function Header() {
 
                         {/* Links */}
                         <ul className="space-y-0.5">
-                          {column.links.map((link) => {
+                          {group.links.map((link) => {
                             const LinkIcon = iconMap[link.icon] || Code2;
                             return (
                               <li key={link.href + link.label}>
@@ -707,7 +843,6 @@ export function Header() {
                             );
                           })}
                         </ul>
-
                       </div>
                     );
                   })}
@@ -716,7 +851,7 @@ export function Header() {
                 {/* Bottom CTA bar */}
                 <div className="bg-gray-50/80 border-t border-gray-100 px-4 md:px-6 py-3 flex items-center justify-between">
                   <p className="text-[11px] md:text-xs text-gray-500">
-                    Not sure where to start?
+                    Don&apos;t see your industry?
                   </p>
                   <Link
                     href="/book-consultation"

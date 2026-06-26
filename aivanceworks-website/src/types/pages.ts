@@ -72,6 +72,8 @@ export interface SafeguardItem {
 }
 
 export interface ComplianceDetail {
+  title?: string;       // section heading override (industry pages)
+  statement?: string;   // thesis paragraph override (industry pages)
   frameworks: string[];
   safeguards: SafeguardItem[];
   auditNote: string;
@@ -165,6 +167,24 @@ export interface RoleBoundaryData {
   collaboration: string;
 }
 
+// A single category within the AI & Technology capability catalog
+// (e.g. "Clinical AI", "Patient Experience"). Rendered as one glass card
+// on the dark CapabilityGroups section.
+export interface CapabilityGroupItem {
+  icon: string;            // Lucide icon name
+  title: string;
+  description?: string;    // optional one-line framing under the title
+  items: string[];         // bulleted capabilities
+}
+
+export interface CapabilityGroupsData {
+  eyebrow?: string;
+  title?: string;
+  highlightText?: string;  // optional substring of title rendered in accent
+  subtitle?: string;
+  groups: CapabilityGroupItem[];
+}
+
 // ─── Base page data ─────────────────────────────────────
 
 export interface BasePageData {
@@ -247,4 +267,113 @@ export interface ServicePageData extends BasePageData {
   complianceDeepDive?: ComplianceDetail;
   signatureComponent: string;
   heroIllustrationComponent: string;
+}
+
+// ─── Industry page (standalone type — NOT a service/solution) ──────────
+// An industry page is a deep, standalone vertical landing surface (e.g.
+// Healthcare). It has its OWN bespoke section components and layout language
+// — it deliberately does not reuse the service/solution section library, so
+// it stands out while staying on the shared theme tokens. See the "Industry
+// hub" archetype in the Services & Solutions constitution.
+
+export type IndustryKey = 'healthcare' | 'insurance' | 'life-sciences' | 'manufacturing' | string;
+
+// Section dispatch keys unique to the Industry template.
+export type IndustrySectionKey =
+  | 'hero'
+  | 'pressures'
+  | 'capabilities'
+  | 'compliance'
+  | 'segments'
+  | 'techStandards'
+  | 'services'
+  | 'faq'
+  | 'cta';
+
+// A sub-vertical / buyer segment within the industry.
+export interface IndustrySegment {
+  icon: string;        // Lucide icon name
+  name: string;        // "Hospitals & Health Systems"
+  buyer: string;       // "CIO / CMIO / VP of Digital"
+  needs: string[];     // what this segment needs from us
+}
+
+// A cross-link from the industry page into a relevant service page.
+export interface IndustryServiceLink {
+  title: string;
+  description: string;
+  href: string;
+  icon: string;        // Lucide icon name
+}
+
+export interface IndustryPageData {
+  isEnabled?: boolean;
+  slug: string;
+  title: string;
+  shortDescription: string;
+
+  metaTitle: string;
+  metaDescription: string;
+  keywords: string[];
+  canonicalPath: string;
+
+  breadcrumb: BreadcrumbItem[];
+  composition: IndustrySectionKey[];
+  industry: IndustryKey;
+
+  hero: {
+    kicker?: string;                         // single industry label (not a per-section eyebrow)
+    headline: string;
+    subhead: string;
+    primaryCta: CTA;
+    secondaryCta?: CTA;
+    heroImage: { src: string; alt: string };
+    standards?: string[];                    // thin standards ribbon under the hero
+    standardsLabel?: string;                 // label that precedes the standards ribbon
+  };
+
+  pressures: {
+    title: string;
+    intro: string;
+    items: FeatureItem[];                    // the industry's pain points
+  };
+
+  capabilities: CapabilityGroupsData;        // the bento AI & technology catalog
+
+  complianceDetail: ComplianceDetail;        // prominent, non-negotiable
+
+  segments: {
+    title: string;
+    subtitle?: string;
+    items: IndustrySegment[];
+    footerNote?: string;
+  };
+
+  techStandards: {
+    title: string;
+    subtitle?: string;
+    systemsTitle: string;
+    systems: string[];
+    technologiesTitle: string;
+    technologies: string[];
+  };
+
+  services: {
+    title: string;
+    subtitle?: string;
+    items: IndustryServiceLink[];
+  };
+
+  faqTitle?: string;                         // FAQ section heading override
+  faqIntro?: string;                         // optional FAQ section intro
+  faqs: FAQItem[];
+
+  cta: {
+    title: string;
+    description: string;
+    primaryCta: CTA;
+    secondaryCta?: CTA;
+  };
+
+  _unverified?: string[];
 }
