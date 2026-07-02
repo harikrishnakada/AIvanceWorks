@@ -1075,6 +1075,9 @@ const INDUSTRY_PAGE_MODULES: Record<string, () => Promise<{ default: IndustryPag
   'healthcare': () => import('@/data/industries/healthcare'),
   'travel-hospitality': () => import('@/data/industries/travel-hospitality'),
   'real-estate': () => import('@/data/industries/real-estate'),
+  'manufacturing-supply-chain': () =>
+    import('@/data/industries/manufacturing-supply-chain'),
+  logistics: () => import('@/data/industries/logistics'),
 };
 
 export async function getServicePageData(slug: string): Promise<ServicePageData | null> {

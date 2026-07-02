@@ -135,6 +135,8 @@ export const NAVIGATION = {
           { label: 'Healthcare', href: '/industry/healthcare', icon: 'Stethoscope' },
           { label: 'Travel & Hospitality', href: '/industry/travel-hospitality', icon: 'Plane' },
           { label: 'Real Estate', href: '/industry/real-estate', icon: 'Building2' },
+          { label: 'Manufacturing & Supply Chain', href: '/industry/manufacturing-supply-chain', icon: 'Factory' },
+          { label: 'Logistics', href: '/industry/logistics', icon: 'Truck' },
         ],
       },
     ],

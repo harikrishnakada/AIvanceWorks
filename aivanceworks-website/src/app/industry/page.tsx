@@ -20,6 +20,8 @@ const INDUSTRY_ICONS: Record<string, string> = {
   healthcare: 'HeartPulse',
   'travel-hospitality': 'Plane',
   'real-estate': 'Building2',
+  'manufacturing-supply-chain': 'Factory',
+  logistics: 'Truck',
 };
 
 export default async function IndustryIndexPage() {
