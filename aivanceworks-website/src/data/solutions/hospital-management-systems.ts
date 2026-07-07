@@ -1,3 +1,4 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { SolutionPageData } from '@/types/pages';
 
 // Archetype C — Regulated Solution (Healthcare)
@@ -28,7 +29,7 @@ import type { SolutionPageData } from '@/types/pages';
 
 const hospitalManagementSystems: SolutionPageData = {
   slug: 'hospital-management-systems',
-  title: 'Custom Hospital Management Systems',
+  title: `${BRAND_PREFIX} Custom Hospital Management Systems`,
   shortDescription:
     'Custom hospital management systems that unify clinical, financial, and administrative operations — built on Azure, integrated with your existing EHR, and architected for HIPAA and Joint Commission readiness.',
 
@@ -54,7 +55,7 @@ const hospitalManagementSystems: SolutionPageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Solutions', href: '/solutions' },
-    { label: 'Hospital Management Systems', href: '/solutions/hospital-management-systems' },
+    { label: `${BRAND_PREFIX} Hospital Management Systems`, href: '/solutions/hospital-management-systems' },
   ],
 
   composition: [

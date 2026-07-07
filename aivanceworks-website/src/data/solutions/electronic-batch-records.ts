@@ -1,3 +1,4 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { SolutionPageData } from '@/types/pages';
 
 // Archetype C — Regulated Solution (Life Sciences / GMP Manufacturing)
@@ -90,7 +91,7 @@ import type { SolutionPageData } from '@/types/pages';
 
 const electronicBatchRecords: SolutionPageData = {
   slug: 'electronic-batch-records',
-  title: 'Electronic Batch Records (EBR) — Paperless Manufacturing Execution',
+  title: `${BRAND_PREFIX} Electronic Batch Records (EBR) — Paperless Manufacturing Execution`,
   shortDescription:
     'Electronic Batch Records (EBR) implementation for GMP manufacturers. We replace paper batch records with operator-guided electronic execution on Körber Werum PAS-X or Siemens Opcenter Execution Pharma — deployed on Microsoft Azure, configured to your master recipes, and rolled out one line or site at a time. Validation and GMP qualification stay with your team.',
 
@@ -120,7 +121,7 @@ const electronicBatchRecords: SolutionPageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Solutions', href: '/solutions' },
-    { label: 'Electronic Batch Records (EBR)', href: '/solutions/electronic-batch-records' },
+    { label: `${BRAND_PREFIX} Electronic Batch Records (EBR)`, href: '/solutions/electronic-batch-records' },
   ],
 
   composition: [

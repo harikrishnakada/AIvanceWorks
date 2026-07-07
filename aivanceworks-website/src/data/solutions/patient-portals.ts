@@ -1,8 +1,9 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { SolutionPageData } from '@/types/pages';
 
 const patientPortals: SolutionPageData = {
   slug: 'patient-portals',
-  title: 'HIPAA-Compliant Patient Portal Development',
+  title: `${BRAND_PREFIX} HIPAA-Compliant Patient Portal Development`,
   shortDescription:
     'Custom, HIPAA-compliant patient portals built on Azure — integrated with your EHR, designed for high adoption, and built around the way your patients and care teams actually work.',
 
@@ -28,7 +29,7 @@ const patientPortals: SolutionPageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Solutions', href: '/solutions' },
-    { label: 'Patient Portals', href: '/solutions/patient-portals' },
+    { label: `${BRAND_PREFIX} Patient Portals`, href: '/solutions/patient-portals' },
   ],
 
   composition: [

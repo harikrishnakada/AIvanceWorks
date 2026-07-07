@@ -1,3 +1,4 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { SolutionPageData } from '@/types/pages';
 
 // Archetype C — Regulated Solution (Life Sciences / Clinical Operations)
@@ -74,7 +75,7 @@ import type { SolutionPageData } from '@/types/pages';
 
 const etmf: SolutionPageData = {
   slug: 'etmf',
-  title: 'Custom Electronic Trial Master File (eTMF) Systems',
+  title: `${BRAND_PREFIX} Custom Electronic Trial Master File (eTMF) Systems`,
   shortDescription:
     'Custom Electronic Trial Master File (eTMF) systems for sponsors, biotechs, and CROs — one zone-aware, audit-trail-aware evidence spine across studies, sites, and vendors, built around the TMF Reference Model and the way your clinical documentation team actually runs.',
 
@@ -102,7 +103,7 @@ const etmf: SolutionPageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Solutions', href: '/solutions' },
-    { label: 'eTMF', href: '/solutions/etmf' },
+    { label: `${BRAND_PREFIX} eTMF`, href: '/solutions/etmf' },
   ],
 
   composition: [

@@ -1,3 +1,4 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { ServicePageData } from '@/types/pages';
 
 // Archetype B — Technical Service
@@ -18,7 +19,7 @@ import type { ServicePageData } from '@/types/pages';
 
 const crm: ServicePageData = {
   slug: 'crm',
-  title: 'CRM',
+  title: `${BRAND_PREFIX} CRM`,
   shortDescription:
     'Custom CRM development and platform customization — pipelines, automation, and integrations engineered around how your team actually sells. Salesforce, HubSpot, Dynamics, or fully custom.',
 
@@ -44,7 +45,7 @@ const crm: ServicePageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Services', href: '/services' },
-    { label: 'CRM', href: '/services/crm' },
+    { label: `${BRAND_PREFIX} CRM`, href: '/services/crm' },
   ],
 
   composition: [

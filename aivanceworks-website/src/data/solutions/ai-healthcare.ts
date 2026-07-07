@@ -1,3 +1,4 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { SolutionPageData } from '@/types/pages';
 
 // Archetype C — Regulated Solution (Healthcare Provider & Payor AI)
@@ -23,7 +24,7 @@ import type { SolutionPageData } from '@/types/pages';
 
 const aiHealthcare: SolutionPageData = {
   slug: 'ai-healthcare',
-  title: 'C10 AI Healthcare',
+  title: `${BRAND_PREFIX} AI Healthcare`,
   shortDescription:
     'Custom AI software for US health systems and payors — ambient documentation, grounded clinical knowledge, revenue cycle automation, and care-management copilots — engineered with HIPAA-grade safeguards, clinician-in-the-loop patterns, and audit-trail awareness.',
 
@@ -50,7 +51,7 @@ const aiHealthcare: SolutionPageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Solutions', href: '/solutions' },
-    { label: 'C10 AI Healthcare', href: '/solutions/ai-healthcare' },
+    { label: `${BRAND_PREFIX} AI Healthcare`, href: '/solutions/ai-healthcare' },
   ],
 
   composition: [

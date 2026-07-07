@@ -1,3 +1,4 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { ServicePageData } from '@/types/pages';
 
 // Archetype B — Technical Service ("I need this built. Prove you can.")
@@ -38,7 +39,7 @@ import type { ServicePageData } from '@/types/pages';
 
 const apiDevelopment: ServicePageData = {
   slug: 'api-development',
-  title: 'API Development',
+  title: `${BRAND_PREFIX} API Development`,
   shortDescription:
     'Design and build secure, versioned, well-documented REST and GraphQL APIs — contract-first, hardened by default, and ready for your own apps and partners to build on.',
 
@@ -61,7 +62,7 @@ const apiDevelopment: ServicePageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Services', href: '/services' },
-    { label: 'API Development', href: '/services/api-development' },
+    { label: `${BRAND_PREFIX} API Development`, href: '/services/api-development' },
   ],
 
   composition: [

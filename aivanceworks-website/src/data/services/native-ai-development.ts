@@ -1,3 +1,4 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { ServicePageData } from '@/types/pages';
 
 // Archetype B — Technical Service
@@ -85,7 +86,7 @@ import type { ServicePageData } from '@/types/pages';
 
 const nativeAiDevelopment: ServicePageData = {
   slug: 'native-ai-development',
-  title: 'Native AI Development',
+  title: `${BRAND_PREFIX} Native AI Development`,
   shortDescription:
     'AI-native software development — building products where a foundation model is a core architectural layer from day one, with prompt management, AI-native UX, and the serving, evaluation, and cost controls that keep it production-grade.',
 
@@ -111,7 +112,7 @@ const nativeAiDevelopment: ServicePageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Services', href: '/services' },
-    { label: 'Native AI Development', href: '/services/native-ai-development' },
+    { label: `${BRAND_PREFIX} Native AI Development`, href: '/services/native-ai-development' },
   ],
 
   composition: [

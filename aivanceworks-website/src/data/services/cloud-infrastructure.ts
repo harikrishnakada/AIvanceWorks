@@ -1,3 +1,4 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { ServicePageData } from '@/types/pages';
 
 // Archetype B — Technical Service
@@ -15,7 +16,7 @@ import type { ServicePageData } from '@/types/pages';
 
 const cloudInfrastructure: ServicePageData = {
   slug: 'cloud-infrastructure',
-  title: 'Cloud Infrastructure & Operations',
+  title: `${BRAND_PREFIX} Cloud Infrastructure & Operations`,
   shortDescription:
     'Production-grade cloud infrastructure designed with IaC, container orchestration, observability, and disaster recovery — built for your team to own and operate.',
 
@@ -39,7 +40,7 @@ const cloudInfrastructure: ServicePageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Services', href: '/services' },
-    { label: 'Cloud Infrastructure & Operations', href: '/services/cloud-infrastructure' },
+    { label: `${BRAND_PREFIX} Cloud Infrastructure & Operations`, href: '/services/cloud-infrastructure' },
   ],
 
   composition: [

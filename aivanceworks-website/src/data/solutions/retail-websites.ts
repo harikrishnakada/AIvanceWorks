@@ -1,3 +1,4 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { SolutionPageData } from '@/types/pages';
 
 // Archetype D — Commerce Solution (Retail).
@@ -32,7 +33,7 @@ import type { SolutionPageData } from '@/types/pages';
 
 const retailWebsites: SolutionPageData = {
   slug: 'retail-websites',
-  title: 'Custom Retail Website Development for Omnichannel Brands',
+  title: `${BRAND_PREFIX} Custom Retail Website Development for Omnichannel Brands`,
   shortDescription:
     'Custom retail websites that unify online storefronts with physical stores — BOPIS, endless aisle, POS-integrated inventory, and loyalty wallets architected into a single Next.js brand experience you own outright.',
 
@@ -58,7 +59,7 @@ const retailWebsites: SolutionPageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Solutions', href: '/solutions' },
-    { label: 'Retail Websites', href: '/solutions/retail-websites' },
+    { label: `${BRAND_PREFIX} Retail Websites`, href: '/solutions/retail-websites' },
   ],
 
   composition: [

@@ -1,3 +1,4 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { SolutionPageData } from '@/types/pages';
 
 // Archetype C — Regulated Solution (Healthcare). HealthCare Technologies.
@@ -92,7 +93,7 @@ import type { SolutionPageData } from '@/types/pages';
 
 const hospitalInformationSystems: SolutionPageData = {
   slug: 'hospital-information-systems',
-  title: 'Custom Hospital Information Systems (HIS)',
+  title: `${BRAND_PREFIX} Custom Hospital Information Systems (HIS)`,
   shortDescription:
     'Custom Hospital Information System (HIS) development for US hospitals and health systems — one longitudinal clinical record that connects your EHR, lab, pharmacy, radiology, and patient portal through HL7 and FHIR, so clinical information flows across every department without the gaps where errors and delays hide.',
 
@@ -121,7 +122,7 @@ const hospitalInformationSystems: SolutionPageData = {
     { label: 'Home', href: '/' },
     { label: 'Solutions', href: '/solutions' },
     {
-      label: 'Hospital Information Systems',
+      label: `${BRAND_PREFIX} Hospital Information Systems`,
       href: '/solutions/hospital-information-systems',
     },
   ],

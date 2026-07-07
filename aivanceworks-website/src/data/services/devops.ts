@@ -1,3 +1,4 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { ServicePageData } from '@/types/pages';
 
 // Archetype B — Technical Service
@@ -23,7 +24,7 @@ import type { ServicePageData } from '@/types/pages';
 
 const devops: ServicePageData = {
   slug: 'devops',
-  title: 'DevOps',
+  title: `${BRAND_PREFIX} DevOps`,
   shortDescription:
     'CI/CD pipeline design, deployment automation, and release management — built for your team to operate on day one, not depend on us indefinitely.',
 
@@ -47,7 +48,7 @@ const devops: ServicePageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Services', href: '/services' },
-    { label: 'DevOps', href: '/services/devops' },
+    { label: `${BRAND_PREFIX} DevOps`, href: '/services/devops' },
   ],
 
   composition: [

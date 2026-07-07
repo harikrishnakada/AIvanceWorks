@@ -1,8 +1,9 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { ServicePageData } from '@/types/pages';
 
 const marketResearch: ServicePageData = {
   slug: 'market-research',
-  title: 'Market Research',
+  title: `${BRAND_PREFIX} Market Research`,
   shortDescription:
     'Data-driven market intelligence that tells you exactly where to play, who to serve, and how to win before you write a line of code.',
 
@@ -23,7 +24,7 @@ const marketResearch: ServicePageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Services', href: '/services' },
-    { label: 'Market Research', href: '/services/market-research' },
+    { label: `${BRAND_PREFIX} Market Research`, href: '/services/market-research' },
   ],
 
   composition: [

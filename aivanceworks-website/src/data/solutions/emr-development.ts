@@ -1,3 +1,4 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { SolutionPageData } from '@/types/pages';
 
 // Archetype C — Regulated Solution (Healthcare)
@@ -17,7 +18,7 @@ import type { SolutionPageData } from '@/types/pages';
 
 const emrDevelopment: SolutionPageData = {
   slug: 'emr-development',
-  title: 'Custom EMR Software Development',
+  title: `${BRAND_PREFIX} Custom EMR Software Development`,
   shortDescription:
     'Custom, HIPAA-compliant Electronic Medical Record software for ambulatory practices and specialty clinics — purpose-built for faster charting, integrated scheduling and billing, and MIPS-ready quality reporting from day one.',
 
@@ -43,7 +44,7 @@ const emrDevelopment: SolutionPageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Solutions', href: '/solutions' },
-    { label: 'EMR Development', href: '/solutions/emr-development' },
+    { label: `${BRAND_PREFIX} EMR Development`, href: '/solutions/emr-development' },
   ],
 
   composition: [

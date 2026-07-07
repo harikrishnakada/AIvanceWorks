@@ -1,3 +1,4 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { ServicePageData } from '@/types/pages';
 
 // Archetype A — Strategic Service
@@ -16,7 +17,7 @@ import type { ServicePageData } from '@/types/pages';
 
 const architectureAdvisory: ServicePageData = {
   slug: 'c10-architecture-advisory',
-  title: 'C10 Architecture Advisory',
+  title: `${BRAND_PREFIX} Architecture Advisory`,
   shortDescription:
     'Independent architecture reviews that produce documented decisions, technology roadmaps, and actionable ADRs — not slide decks that gather dust.',
 
@@ -40,7 +41,7 @@ const architectureAdvisory: ServicePageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Services', href: '/services' },
-    { label: 'C10 Architecture Advisory', href: '/services/c10-architecture-advisory' },
+    { label: `${BRAND_PREFIX} Architecture Advisory`, href: '/services/c10-architecture-advisory' },
   ],
 
   composition: [

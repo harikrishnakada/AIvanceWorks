@@ -1,3 +1,4 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { ServicePageData } from '@/types/pages';
 
 // Archetype B — Technical Service
@@ -24,7 +25,7 @@ import type { ServicePageData } from '@/types/pages';
 
 const intelligentAutomation: ServicePageData = {
   slug: 'intelligent-automation',
-  title: 'Intelligent Automation',
+  title: `${BRAND_PREFIX} Intelligent Automation`,
   shortDescription:
     'AI-augmented workflow automation that handles judgment-dependent tasks — combining LLM reasoning with process orchestration to automate what RPA cannot.',
 
@@ -50,7 +51,7 @@ const intelligentAutomation: ServicePageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Services', href: '/services' },
-    { label: 'Intelligent Automation', href: '/services/intelligent-automation' },
+    { label: `${BRAND_PREFIX} Intelligent Automation`, href: '/services/intelligent-automation' },
   ],
 
   composition: [

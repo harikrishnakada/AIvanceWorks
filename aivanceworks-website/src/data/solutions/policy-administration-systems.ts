@@ -1,3 +1,4 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { SolutionPageData } from '@/types/pages';
 
 // Archetype C — Regulated Solution (Insurance, core system-of-record)
@@ -49,7 +50,7 @@ import type { SolutionPageData } from '@/types/pages';
 
 const policyAdministrationSystems: SolutionPageData = {
   slug: 'policy-administration-systems',
-  title: 'Custom Policy Administration System Development for Carriers & MGAs',
+  title: `${BRAND_PREFIX} Custom Policy Administration System Development for Carriers & MGAs`,
 
   shortDescription:
     'Custom policy administration systems for insurance carriers and MGAs on Azure — configurable product factory, end-to-end policy lifecycle, rating and filing integration, and a phased path off legacy core systems.',
@@ -77,7 +78,7 @@ const policyAdministrationSystems: SolutionPageData = {
     { label: 'Home', href: '/' },
     { label: 'Solutions', href: '/solutions' },
     {
-      label: 'Policy Administration Systems',
+      label: `${BRAND_PREFIX} Policy Administration Systems`,
       href: '/solutions/policy-administration-systems',
     },
   ],

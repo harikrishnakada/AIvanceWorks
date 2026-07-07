@@ -1,3 +1,4 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { SolutionPageData } from '@/types/pages';
 
 // Archetype C — Regulated Solution (Life Sciences / Clinical Operations)
@@ -67,7 +68,7 @@ import type { SolutionPageData } from '@/types/pages';
 
 const ctms: SolutionPageData = {
   slug: 'ctms',
-  title: 'Custom Clinical Trial Management Systems (CTMS)',
+  title: `${BRAND_PREFIX} Custom Clinical Trial Management Systems (CTMS)`,
   shortDescription:
     'Custom Clinical Trial Management Systems for sponsors, biotechs, and CROs — one operational source of truth across studies, sites, visits, monitoring, issues, and site payments, built around the way your clinical operations team actually runs trials.',
 
@@ -95,7 +96,7 @@ const ctms: SolutionPageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Solutions', href: '/solutions' },
-    { label: 'CTMS', href: '/solutions/ctms' },
+    { label: `${BRAND_PREFIX} CTMS`, href: '/solutions/ctms' },
   ],
 
   composition: [

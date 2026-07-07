@@ -1,8 +1,9 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { IndustryPageData } from '@/types/pages';
 
 const realEstate: IndustryPageData = {
   slug: 'real-estate',
-  title: 'Real Estate Software Development',
+  title: `${BRAND_PREFIX} Real Estate Software Development`,
   shortDescription:
     'Custom software and AI for brokerages, property managers, investors, and PropTech — built data-first to move listings, deals, and decisions faster, from the first listing to the final signature.',
 
@@ -28,7 +29,7 @@ const realEstate: IndustryPageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Industries', href: '/industry' },
-    { label: 'Real Estate', href: '/industry/real-estate' },
+    { label: `${BRAND_PREFIX} Real Estate`, href: '/industry/real-estate' },
   ],
 
   composition: [

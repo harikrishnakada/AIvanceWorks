@@ -1,3 +1,4 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { ServicePageData } from '@/types/pages';
 
 // Archetype B — Technical Service ("I need this built. Prove you can.")
@@ -103,7 +104,7 @@ import type { ServicePageData } from '@/types/pages';
 
 const enterpriseAiDevelopment: ServicePageData = {
   slug: 'enterprise-ai-development',
-  title: 'Enterprise AI Development',
+  title: `${BRAND_PREFIX} Enterprise AI Development`,
   shortDescription:
     'Enterprise AI development — models, generative AI, and agents wrapped in the security, governance, scale, and operations a large organization requires to take AI from pilot to governed production.',
 
@@ -129,7 +130,7 @@ const enterpriseAiDevelopment: ServicePageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Services', href: '/services' },
-    { label: 'Enterprise AI Development', href: '/services/enterprise-ai-development' },
+    { label: `${BRAND_PREFIX} Enterprise AI Development`, href: '/services/enterprise-ai-development' },
   ],
 
   composition: [

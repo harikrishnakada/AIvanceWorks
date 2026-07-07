@@ -1,3 +1,4 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { SolutionPageData } from '@/types/pages';
 
 // Archetype C — Regulated Solution (Healthcare & Insurance)
@@ -42,7 +43,7 @@ import type { SolutionPageData } from '@/types/pages';
 
 const documentManagementSoftware: SolutionPageData = {
   slug: 'document-management-software',
-  title: 'Custom Document Management Software for Healthcare & Insurance',
+  title: `${BRAND_PREFIX} Custom Document Management Software for Healthcare & Insurance`,
   shortDescription:
     'HIPAA-compliant document management systems built on Azure — automated retention schedules, e-discovery, legal hold capability, and EHR/AMS integration built around the way your records, claims, and clinical teams actually work.',
 
@@ -70,7 +71,7 @@ const documentManagementSoftware: SolutionPageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Solutions', href: '/solutions' },
-    { label: 'Document Management Software', href: '/solutions/document-management-software' },
+    { label: `${BRAND_PREFIX} Document Management Software`, href: '/solutions/document-management-software' },
   ],
 
   composition: [

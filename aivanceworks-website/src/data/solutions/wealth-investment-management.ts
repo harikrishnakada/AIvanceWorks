@@ -1,3 +1,4 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { SolutionPageData } from '@/types/pages';
 
 // Archetype B — Technical Solution (Wealth & Investment Management, US)
@@ -63,8 +64,7 @@ import type { SolutionPageData } from '@/types/pages';
 
 const wealthInvestmentManagement: SolutionPageData = {
   slug: 'wealth-investment-management',
-  title:
-    'Custom Wealth & Investment Management Software Development for Wealth Divisions, RIAs, Broker-Dealers & Family Offices',
+  title: `${BRAND_PREFIX} Custom Wealth & Investment Management Software Development for Wealth Divisions, RIAs, Broker-Dealers & Family Offices`,
 
   shortDescription:
     'Custom wealth and investment management platforms for wirehouses, regional bank wealth divisions, private banks, broker-dealers, RIAs, and family offices — a unified advisor workstation that holds every client\'s full picture across individual, household, trust, and institutional accounts, integrated IT-team-led with your core banking, custodian, CRM, and planning stack.',
@@ -95,7 +95,7 @@ const wealthInvestmentManagement: SolutionPageData = {
     { label: 'Home', href: '/' },
     { label: 'Solutions', href: '/solutions' },
     {
-      label: 'Wealth & Investment Management',
+      label: `${BRAND_PREFIX} Wealth & Investment Management`,
       href: '/solutions/wealth-investment-management',
     },
   ],

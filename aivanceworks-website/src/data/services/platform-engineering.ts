@@ -1,3 +1,4 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { ServicePageData } from '@/types/pages';
 
 // Archetype B — Technical Service.
@@ -73,7 +74,7 @@ import type { ServicePageData } from '@/types/pages';
 
 const platformEngineering: ServicePageData = {
   slug: 'platform-engineering',
-  title: 'Platform Engineering',
+  title: `${BRAND_PREFIX} Platform Engineering`,
   shortDescription:
     'Internal developer platforms, golden paths, and self-service infrastructure — engineered for engineer adoption, portability, and clean handoff to your platform team.',
 
@@ -100,7 +101,7 @@ const platformEngineering: ServicePageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Services', href: '/services' },
-    { label: 'Platform Engineering', href: '/services/platform-engineering' },
+    { label: `${BRAND_PREFIX} Platform Engineering`, href: '/services/platform-engineering' },
   ],
 
   composition: [

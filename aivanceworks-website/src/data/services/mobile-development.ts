@@ -1,3 +1,4 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { ServicePageData } from '@/types/pages';
 
 // Archetype B — Technical Service
@@ -17,7 +18,7 @@ import type { ServicePageData } from '@/types/pages';
 
 const mobileDevelopment: ServicePageData = {
   slug: 'mobile-development',
-  title: 'Mobile App & Cross-Platform Development',
+  title: `${BRAND_PREFIX} Mobile App & Cross-Platform Development`,
   shortDescription:
     'Native and cross-platform mobile development for iOS and Android. One shared codebase, native performance, deployed to both app stores — built by one team, not two.',
 
@@ -43,7 +44,7 @@ const mobileDevelopment: ServicePageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Services', href: '/services' },
-    { label: 'Mobile App Development', href: '/services/mobile-development' },
+    { label: `${BRAND_PREFIX} Mobile App Development`, href: '/services/mobile-development' },
   ],
 
   composition: [

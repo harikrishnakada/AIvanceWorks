@@ -1,8 +1,9 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { IndustryPageData } from '@/types/pages';
 
 const travelHospitality: IndustryPageData = {
   slug: 'travel-hospitality',
-  title: 'Travel & Hospitality Software Development',
+  title: `${BRAND_PREFIX} Travel & Hospitality Software Development`,
   shortDescription:
     'Custom software and AI for hotels, airlines, travel agencies, and restaurants — built journey-first to run the guest experience, not just the back office, from the first search to a loyal returning guest.',
 
@@ -28,7 +29,7 @@ const travelHospitality: IndustryPageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Industries', href: '/industry' },
-    { label: 'Travel & Hospitality', href: '/industry/travel-hospitality' },
+    { label: `${BRAND_PREFIX} Travel & Hospitality`, href: '/industry/travel-hospitality' },
   ],
 
   composition: [

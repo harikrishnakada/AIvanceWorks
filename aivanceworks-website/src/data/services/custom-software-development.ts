@@ -1,3 +1,4 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { ServicePageData } from '@/types/pages';
 
 // Archetype B — Technical Service
@@ -25,7 +26,7 @@ import type { ServicePageData } from '@/types/pages';
 
 const customSoftwareDevelopment: ServicePageData = {
   slug: 'custom-software-development',
-  title: 'Custom Software Development',
+  title: `${BRAND_PREFIX} Custom Software Development`,
   shortDescription:
     'End-to-end custom software development — from architecture through production. Full-stack web applications, APIs, microservices, and enterprise systems built on modern frameworks with full code ownership.',
 
@@ -51,7 +52,7 @@ const customSoftwareDevelopment: ServicePageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Services', href: '/services' },
-    { label: 'Custom Software Development', href: '/services/custom-software-development' },
+    { label: `${BRAND_PREFIX} Custom Software Development`, href: '/services/custom-software-development' },
   ],
 
   composition: [

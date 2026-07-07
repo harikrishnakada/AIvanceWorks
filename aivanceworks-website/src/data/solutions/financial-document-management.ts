@@ -1,3 +1,4 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { SolutionPageData } from '@/types/pages';
 
 // Archetype B (Technical Service) with cherry-pick from C: roleBoundary section.
@@ -65,8 +66,7 @@ import type { SolutionPageData } from '@/types/pages';
 
 const financialDocumentManagement: SolutionPageData = {
   slug: 'financial-document-management',
-  title:
-    'Document Management Engineering for Financial Firms & Financial SaaS Vendors',
+  title: `${BRAND_PREFIX} Document Management Engineering for Financial Firms & Financial SaaS Vendors`,
 
   shortDescription:
     "Engineering services for financial firms modernizing document operations and SaaS vendors embedding records into their products. Three offerings: DMS Modernization (extend M365/Purview, iManage, NetDocuments, M-Files, Box, Laserfiche, Hyland OnBase, or run a strangler-fig migration off SharePoint sprawl); Embedded Document Management for Financial SaaS (cloud-native build on Azure Blob immutable / S3 Object Lock / GCS Bucket Lock); and Intelligent Document Processing & Capture (OCR, classification, extraction).",
@@ -98,7 +98,7 @@ const financialDocumentManagement: SolutionPageData = {
     { label: 'Home', href: '/' },
     { label: 'Solutions', href: '/solutions' },
     {
-      label: 'Document Management',
+      label: `${BRAND_PREFIX} Document Management`,
       href: '/solutions/financial-document-management',
     },
   ],

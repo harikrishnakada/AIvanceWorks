@@ -1,3 +1,4 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { ServicePageData } from '@/types/pages';
 
 // Archetype B — Technical Service ("I need to know it can be built. Prove it.")
@@ -34,7 +35,7 @@ import type { ServicePageData } from '@/types/pages';
 
 const proofOfConcept: ServicePageData = {
   slug: 'proof-of-concept',
-  title: 'Proof of Concept (PoC) Development',
+  title: `${BRAND_PREFIX} Proof of Concept (PoC) Development`,
   shortDescription:
     'A focused, time-boxed experiment that tests your riskiest technical assumption against measurable success criteria — so you get a clear build, pivot, or stop decision before committing a full build budget.',
 
@@ -57,7 +58,7 @@ const proofOfConcept: ServicePageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Services', href: '/services' },
-    { label: 'Proof of Concept (PoC) Development', href: '/services/proof-of-concept' },
+    { label: `${BRAND_PREFIX} Proof of Concept (PoC) Development`, href: '/services/proof-of-concept' },
   ],
 
   composition: [

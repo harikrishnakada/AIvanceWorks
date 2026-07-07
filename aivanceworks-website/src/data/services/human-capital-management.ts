@@ -1,3 +1,4 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { ServicePageData } from '@/types/pages';
 
 // Archetype C — Regulated Solution rhythm applied to an Enterprise Service.
@@ -99,7 +100,7 @@ import type { ServicePageData } from '@/types/pages';
 
 const humanCapitalManagement: ServicePageData = {
   slug: 'human-capital-management',
-  title: 'Human Capital Management',
+  title: `${BRAND_PREFIX} Human Capital Management`,
   shortDescription:
     'Custom human capital management platforms — recruiting, onboarding, core HR, payroll-ready data, time and absence, benefits, performance, learning, and offboarding — engineered on one workforce record so US employers can run hire-to-retire on a single system.',
 
@@ -127,7 +128,7 @@ const humanCapitalManagement: ServicePageData = {
     { label: 'Home', href: '/' },
     { label: 'Services', href: '/services' },
     {
-      label: 'Human Capital Management',
+      label: `${BRAND_PREFIX} Human Capital Management`,
       href: '/services/human-capital-management',
     },
   ],

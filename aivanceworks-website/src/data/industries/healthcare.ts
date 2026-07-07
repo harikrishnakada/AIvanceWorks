@@ -1,8 +1,9 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { IndustryPageData } from '@/types/pages';
 
 const healthcare: IndustryPageData = {
   slug: 'healthcare',
-  title: 'Healthcare Software Development',
+  title: `${BRAND_PREFIX} Healthcare Software Development`,
   shortDescription:
     'AI and software engineering for hospitals, payers, pharma, and digital health — built compliance-first to ease clinician burden, unify fragmented data, and turn activity into outcomes.',
 
@@ -28,7 +29,7 @@ const healthcare: IndustryPageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Industries', href: '/industry' },
-    { label: 'Healthcare', href: '/industry/healthcare' },
+    { label: `${BRAND_PREFIX} Healthcare`, href: '/industry/healthcare' },
   ],
 
   composition: [

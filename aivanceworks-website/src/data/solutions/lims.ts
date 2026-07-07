@@ -1,3 +1,4 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { SolutionPageData } from '@/types/pages';
 
 // Archetype C — Regulated Solution (Life Sciences / Clinical Laboratory)
@@ -60,7 +61,7 @@ import type { SolutionPageData } from '@/types/pages';
 
 const lims: SolutionPageData = {
   slug: 'lims',
-  title: 'Custom Laboratory Information Management Systems (LIMS)',
+  title: `${BRAND_PREFIX} Custom Laboratory Information Management Systems (LIMS)`,
   shortDescription:
     'Custom Laboratory Information Management Systems for clinical, research, R&D, CRO, and industrial QC labs — barcoded sample tracking, configurable workflows, live operational visibility, and trusted data, built around the way your lab actually runs.',
 
@@ -88,7 +89,7 @@ const lims: SolutionPageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Solutions', href: '/solutions' },
-    { label: 'LIMS', href: '/solutions/lims' },
+    { label: `${BRAND_PREFIX} LIMS`, href: '/solutions/lims' },
   ],
 
   composition: [

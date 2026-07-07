@@ -1,3 +1,4 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { ServicePageData } from '@/types/pages';
 
 // Archetype B — Technical Service
@@ -16,7 +17,7 @@ import type { ServicePageData } from '@/types/pages';
 
 const generativeAi: ServicePageData = {
   slug: 'generative-ai',
-  title: 'Generative AI',
+  title: `${BRAND_PREFIX} Generative AI`,
   shortDescription:
     'Production generative AI systems — RAG pipelines, AI agents, and LLM integrations built with retrieval quality, guardrails, and monitoring from the first sprint.',
 
@@ -42,7 +43,7 @@ const generativeAi: ServicePageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Services', href: '/services' },
-    { label: 'Generative AI', href: '/services/generative-ai' },
+    { label: `${BRAND_PREFIX} Generative AI`, href: '/services/generative-ai' },
   ],
 
   composition: [

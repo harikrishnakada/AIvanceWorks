@@ -1,3 +1,4 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { ServicePageData } from '@/types/pages';
 
 // Archetype A — Strategic Service
@@ -14,7 +15,7 @@ import type { ServicePageData } from '@/types/pages';
 
 const cloudStrategy: ServicePageData = {
   slug: 'c10-cloud-computing',
-  title: 'C10 Cloud Computing',
+  title: `${BRAND_PREFIX} Cloud Computing`,
   shortDescription:
     'A structured cloud readiness assessment that produces a board-ready business case, a workload-by-workload migration roadmap, and a clear operating model — before you commit to any infrastructure work.',
 
@@ -38,7 +39,7 @@ const cloudStrategy: ServicePageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Services', href: '/services' },
-    { label: 'C10 Cloud Computing', href: '/services/c10-cloud-computing' },
+    { label: `${BRAND_PREFIX} Cloud Computing`, href: '/services/c10-cloud-computing' },
   ],
 
   composition: [

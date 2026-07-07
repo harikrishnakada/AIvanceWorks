@@ -1,3 +1,4 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { ServicePageData } from '@/types/pages';
 
 // Archetype A — Strategic Service
@@ -32,7 +33,7 @@ import type { ServicePageData } from '@/types/pages';
 
 const aiStrategyConsulting: ServicePageData = {
   slug: 'ai-strategy-consulting',
-  title: 'AI Strategy & Consulting',
+  title: `${BRAND_PREFIX} AI Strategy & Consulting`,
   shortDescription:
     'Vendor-neutral AI strategy consulting — maturity assessments, use case prioritization, and governance frameworks that produce a roadmap your organization can fund and execute.',
 
@@ -58,7 +59,7 @@ const aiStrategyConsulting: ServicePageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Services', href: '/services' },
-    { label: 'AI Strategy & Consulting', href: '/services/ai-strategy-consulting' },
+    { label: `${BRAND_PREFIX} AI Strategy & Consulting`, href: '/services/ai-strategy-consulting' },
   ],
 
   composition: [

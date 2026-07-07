@@ -1,3 +1,4 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { SolutionPageData } from '@/types/pages';
 
 // Archetype C — Regulated Solution (Pharma / Biotech / Medical Device)
@@ -72,7 +73,7 @@ import type { SolutionPageData } from '@/types/pages';
 
 const regulatoryInformationManagement: SolutionPageData = {
   slug: 'regulatory-information-management',
-  title: 'Custom Regulatory Information Management (RIM) Platforms',
+  title: `${BRAND_PREFIX} Custom Regulatory Information Management (RIM) Platforms`,
   shortDescription:
     'Custom Regulatory Information Management platforms for pharma, biotech, and medical device companies — product, dossier, submission, correspondence, and commitment data unified in one connected record, with live portfolio visibility, built around the way your regulatory team actually works.',
 
@@ -102,7 +103,7 @@ const regulatoryInformationManagement: SolutionPageData = {
     { label: 'Home', href: '/' },
     { label: 'Solutions', href: '/solutions' },
     {
-      label: 'Regulatory Information Management',
+      label: `${BRAND_PREFIX} Regulatory Information Management`,
       href: '/solutions/regulatory-information-management',
     },
   ],

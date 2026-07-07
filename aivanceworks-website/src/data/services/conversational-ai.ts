@@ -1,3 +1,4 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { ServicePageData } from '@/types/pages';
 
 // Archetype B — Technical Service
@@ -21,7 +22,7 @@ import type { ServicePageData } from '@/types/pages';
 
 const conversationalAi: ServicePageData = {
   slug: 'conversational-ai',
-  title: 'Conversational AI',
+  title: `${BRAND_PREFIX} Conversational AI`,
   shortDescription:
     'AI-powered chatbots, virtual assistants, and voice interfaces that resolve customer questions — with knowledge retrieval, dialogue management, and human handoff built in.',
 
@@ -47,7 +48,7 @@ const conversationalAi: ServicePageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Services', href: '/services' },
-    { label: 'Conversational AI', href: '/services/conversational-ai' },
+    { label: `${BRAND_PREFIX} Conversational AI`, href: '/services/conversational-ai' },
   ],
 
   composition: [

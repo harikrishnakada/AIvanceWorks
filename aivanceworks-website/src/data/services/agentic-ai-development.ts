@@ -1,3 +1,4 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { ServicePageData } from '@/types/pages';
 
 // Archetype B — Technical Service
@@ -91,7 +92,7 @@ import type { ServicePageData } from '@/types/pages';
 
 const agenticAiDevelopment: ServicePageData = {
   slug: 'agentic-ai-development',
-  title: 'Agentic AI Development',
+  title: `${BRAND_PREFIX} Agentic AI Development`,
   shortDescription:
     'Autonomous and semi-autonomous AI agents that reason, plan, use your tools, and complete multi-step work — with human oversight and guardrails built in from the first sprint.',
 
@@ -117,7 +118,7 @@ const agenticAiDevelopment: ServicePageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Services', href: '/services' },
-    { label: 'Agentic AI Development', href: '/services/agentic-ai-development' },
+    { label: `${BRAND_PREFIX} Agentic AI Development`, href: '/services/agentic-ai-development' },
   ],
 
   composition: [

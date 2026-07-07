@@ -1,8 +1,9 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { SolutionPageData } from '@/types/pages';
 
 const eCommerceWebsites: SolutionPageData = {
   slug: 'e-commerce-websites',
-  title: 'Custom E-commerce Development with AI-Powered Personalization',
+  title: `${BRAND_PREFIX} Custom E-commerce Development with AI-Powered Personalization`,
   shortDescription:
     'Custom Next.js storefronts and platform migrations with AI personalization, tokenized checkout, and headless architecture — built for performance, owned by you.',
 
@@ -28,7 +29,7 @@ const eCommerceWebsites: SolutionPageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Solutions', href: '/solutions' },
-    { label: 'E-commerce Websites', href: '/solutions/e-commerce-websites' },
+    { label: `${BRAND_PREFIX} E-commerce Websites`, href: '/solutions/e-commerce-websites' },
   ],
 
   // Archetype D (commerce) with two deliberate drops:

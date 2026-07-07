@@ -1,3 +1,4 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { ServicePageData } from '@/types/pages';
 
 // Archetype B — Technical Service (catch-all / general-purpose AI development)
@@ -84,7 +85,7 @@ import type { ServicePageData } from '@/types/pages';
 
 const aiDevelopment: ServicePageData = {
   slug: 'ai-development',
-  title: 'AI Development',
+  title: `${BRAND_PREFIX} AI Development`,
   shortDescription:
     'Custom AI development for teams that have a problem, not a predetermined technology — we determine the right AI approach (or whether you need one), then build and ship it to production.',
 
@@ -110,7 +111,7 @@ const aiDevelopment: ServicePageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Services', href: '/services' },
-    { label: 'AI Development', href: '/services/ai-development' },
+    { label: `${BRAND_PREFIX} AI Development`, href: '/services/ai-development' },
   ],
 
   composition: [

@@ -1,3 +1,4 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { ServicePageData } from '@/types/pages';
 
 // ─── Archetype: A (Strategic) base + featureGrid & benefitsGrid cherry-picked
@@ -60,7 +61,7 @@ import type { ServicePageData } from '@/types/pages';
 
 const digitalTransformation: ServicePageData = {
   slug: 'digital-transformation',
-  title: 'Digital Transformation',
+  title: `${BRAND_PREFIX} Digital Transformation`,
   shortDescription:
     'End-to-end digital transformation that modernizes your processes, technology, and data in sequenced waves — with the business live throughout and your team owning the result.',
 
@@ -86,7 +87,7 @@ const digitalTransformation: ServicePageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Services', href: '/services' },
-    { label: 'Digital Transformation', href: '/services/digital-transformation' },
+    { label: `${BRAND_PREFIX} Digital Transformation`, href: '/services/digital-transformation' },
   ],
 
   composition: [

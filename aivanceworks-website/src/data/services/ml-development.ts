@@ -1,3 +1,4 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { ServicePageData } from '@/types/pages';
 
 // Archetype B — Technical Service
@@ -71,7 +72,7 @@ import type { ServicePageData } from '@/types/pages';
 
 const mlDevelopment: ServicePageData = {
   slug: 'ml-development',
-  title: 'ML Development',
+  title: `${BRAND_PREFIX} ML Development`,
   shortDescription:
     'Custom machine learning development — model training, fine-tuning, feature pipelines, and evaluation built to reach production and stay accurate after your data shifts.',
 
@@ -97,7 +98,7 @@ const mlDevelopment: ServicePageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Services', href: '/services' },
-    { label: 'ML Development', href: '/services/ml-development' },
+    { label: `${BRAND_PREFIX} ML Development`, href: '/services/ml-development' },
   ],
 
   composition: [

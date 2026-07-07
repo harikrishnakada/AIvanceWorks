@@ -1,3 +1,4 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { SolutionPageData } from '@/types/pages';
 
 // Archetype C — Regulated Solution (Manufacturing & Life Sciences supply chain)
@@ -74,7 +75,7 @@ import type { SolutionPageData } from '@/types/pages';
 
 const supplyChainManagement: SolutionPageData = {
   slug: 'supply-chain-management',
-  title: 'Custom Supply Chain Management (SCM) Software',
+  title: `${BRAND_PREFIX} Custom Supply Chain Management (SCM) Software`,
   shortDescription:
     'Custom Supply Chain Management software for pharmaceutical, biologics, medical device, food & beverage, and specialty manufacturers — one chain of custody from supplier to customer, with cold-chain visibility, lot-level trace, and disruption alerts built around the way your network actually runs.',
 
@@ -103,7 +104,7 @@ const supplyChainManagement: SolutionPageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Solutions', href: '/solutions' },
-    { label: 'Supply Chain Management', href: '/solutions/supply-chain-management' },
+    { label: `${BRAND_PREFIX} Supply Chain Management`, href: '/solutions/supply-chain-management' },
   ],
 
   composition: [

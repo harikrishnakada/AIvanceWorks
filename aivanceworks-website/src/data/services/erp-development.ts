@@ -1,8 +1,9 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { ServicePageData } from '@/types/pages';
 
 const erpDevelopment: ServicePageData = {
   slug: 'erp-development',
-  title: 'ERP Development & Implementation',
+  title: `${BRAND_PREFIX} ERP Development & Implementation`,
   shortDescription:
     'End-to-end ERP implementation, customization, and integration. We unify your finance, operations, HR, and supply chain on a single platform — on time and within scope.',
 
@@ -23,7 +24,7 @@ const erpDevelopment: ServicePageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Services', href: '/services' },
-    { label: 'ERP Development', href: '/services/erp-development' },
+    { label: `${BRAND_PREFIX} ERP Development`, href: '/services/erp-development' },
   ],
 
   composition: [

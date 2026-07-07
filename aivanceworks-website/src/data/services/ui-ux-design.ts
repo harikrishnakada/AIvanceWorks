@@ -1,3 +1,4 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { ServicePageData } from '@/types/pages';
 
 // Archetype A — Strategic Service
@@ -16,7 +17,7 @@ import type { ServicePageData } from '@/types/pages';
 
 const uiUxDesign: ServicePageData = {
   slug: 'ui-ux-design',
-  title: 'UI/UX Design',
+  title: `${BRAND_PREFIX} UI/UX Design`,
   shortDescription:
     'User experience research, interface design, and design system creation that produces buildable, engineer-ready artifacts — not slide decks that gather dust.',
 
@@ -42,7 +43,7 @@ const uiUxDesign: ServicePageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Services', href: '/services' },
-    { label: 'UI/UX Design', href: '/services/ui-ux-design' },
+    { label: `${BRAND_PREFIX} UI/UX Design`, href: '/services/ui-ux-design' },
   ],
 
   composition: [

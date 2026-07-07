@@ -1,3 +1,4 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { ServicePageData } from '@/types/pages';
 
 // Archetype B — Technical Service
@@ -45,7 +46,7 @@ import type { ServicePageData } from '@/types/pages';
 
 const dataEngineering: ServicePageData = {
   slug: 'data-engineering',
-  title: 'Data Engineering',
+  title: `${BRAND_PREFIX} Data Engineering`,
   shortDescription:
     'Reliable data pipelines, lakehouse architecture, and governed data warehouses — built for your team to operate, extend, and trust.',
 
@@ -71,7 +72,7 @@ const dataEngineering: ServicePageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Services', href: '/services' },
-    { label: 'Data Engineering', href: '/services/data-engineering' },
+    { label: `${BRAND_PREFIX} Data Engineering`, href: '/services/data-engineering' },
   ],
 
   composition: [

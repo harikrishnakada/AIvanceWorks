@@ -1,3 +1,4 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { ServicePageData } from '@/types/pages';
 
 // Archetype B — Technical Service
@@ -18,7 +19,7 @@ import type { ServicePageData } from '@/types/pages';
 
 const webAppDevelopment: ServicePageData = {
   slug: 'web-app-development',
-  title: 'Web App Development',
+  title: `${BRAND_PREFIX} Web App Development`,
   shortDescription:
     'Modern web application development — responsive frontends, robust APIs, production-grade infrastructure. From requirements to a running system your team can maintain and scale.',
 
@@ -44,7 +45,7 @@ const webAppDevelopment: ServicePageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Services', href: '/services' },
-    { label: 'Web App Development', href: '/services/web-app-development' },
+    { label: `${BRAND_PREFIX} Web App Development`, href: '/services/web-app-development' },
   ],
 
   composition: [

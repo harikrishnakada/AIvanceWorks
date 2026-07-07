@@ -1,3 +1,4 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { ServicePageData } from '@/types/pages';
 
 // Archetype B — Technical Service
@@ -18,7 +19,7 @@ import type { ServicePageData } from '@/types/pages';
 
 const applicationModernization: ServicePageData = {
   slug: 'application-modernization',
-  title: 'Legacy Modernization',
+  title: `${BRAND_PREFIX} Legacy Modernization`,
   shortDescription:
     'Incremental legacy system transformation that keeps production live. Module-by-module decomposition, strangler fig migration, and cloud-native re-architecture — without the big-bang rewrite risk.',
 
@@ -44,7 +45,7 @@ const applicationModernization: ServicePageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Services', href: '/services' },
-    { label: 'Legacy Modernization', href: '/services/application-modernization' },
+    { label: `${BRAND_PREFIX} Legacy Modernization`, href: '/services/application-modernization' },
   ],
 
   composition: [

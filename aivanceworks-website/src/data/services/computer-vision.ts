@@ -1,3 +1,4 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { ServicePageData } from '@/types/pages';
 
 // Archetype B — Technical Service
@@ -32,7 +33,7 @@ import type { ServicePageData } from '@/types/pages';
 
 const computerVision: ServicePageData = {
   slug: 'computer-vision',
-  title: 'Computer Vision',
+  title: `${BRAND_PREFIX} Computer Vision`,
   shortDescription:
     'Production computer vision systems — defect detection, object recognition, video analytics, and custom model training built for your real-world images, not controlled demo conditions.',
 
@@ -58,7 +59,7 @@ const computerVision: ServicePageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Services', href: '/services' },
-    { label: 'Computer Vision', href: '/services/computer-vision' },
+    { label: `${BRAND_PREFIX} Computer Vision`, href: '/services/computer-vision' },
   ],
 
   composition: [

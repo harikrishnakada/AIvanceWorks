@@ -1,3 +1,4 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { ServicePageData } from '@/types/pages';
 
 // Archetype B — Technical Service
@@ -21,7 +22,7 @@ import type { ServicePageData } from '@/types/pages';
 
 const cloudMigration: ServicePageData = {
   slug: 'cloud-migration',
-  title: 'Cloud Migration & Modernization',
+  title: `${BRAND_PREFIX} Cloud Migration & Modernization`,
   shortDescription:
     'End-to-end cloud migration execution — from on-premises to Azure or AWS — using a wave-based approach that validates every workload before cutover. Your systems move to the cloud without disrupting the business.',
 
@@ -47,7 +48,7 @@ const cloudMigration: ServicePageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Services', href: '/services' },
-    { label: 'Cloud Migration & Modernization', href: '/services/cloud-migration' },
+    { label: `${BRAND_PREFIX} Cloud Migration & Modernization`, href: '/services/cloud-migration' },
   ],
 
   composition: [

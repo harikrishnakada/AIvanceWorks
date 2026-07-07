@@ -1,3 +1,4 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { ServicePageData } from '@/types/pages';
 
 // Archetype B — Technical Service
@@ -20,7 +21,7 @@ import type { ServicePageData } from '@/types/pages';
 
 const nlpDocumentAi: ServicePageData = {
   slug: 'nlp-document-ai',
-  title: 'NLP & Document AI',
+  title: `${BRAND_PREFIX} NLP & Document AI`,
   shortDescription:
     'Intelligent document processing, text analytics, and semantic search — extraction, classification, and structuring of unstructured data from PDFs, scans, emails, and forms at production scale.',
 
@@ -46,7 +47,7 @@ const nlpDocumentAi: ServicePageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Services', href: '/services' },
-    { label: 'NLP & Document AI', href: '/services/nlp-document-ai' },
+    { label: `${BRAND_PREFIX} NLP & Document AI`, href: '/services/nlp-document-ai' },
   ],
 
   composition: [

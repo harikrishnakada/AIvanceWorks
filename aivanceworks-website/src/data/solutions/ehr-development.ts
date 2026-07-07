@@ -1,3 +1,4 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { SolutionPageData } from '@/types/pages';
 
 // Archetype C — Regulated Solution (Healthcare)
@@ -17,7 +18,7 @@ import type { SolutionPageData } from '@/types/pages';
 
 const ehrDevelopment: SolutionPageData = {
   slug: 'ehr-development',
-  title: 'Custom EHR Development',
+  title: `${BRAND_PREFIX} Custom EHR Development`,
   shortDescription:
     'Custom, HIPAA-compliant Electronic Health Record platforms built on Azure — designed for health systems that need to exchange data across facilities, specialists, labs, and HIEs through FHIR R4 and TEFCA-ready interoperability.',
 
@@ -43,7 +44,7 @@ const ehrDevelopment: SolutionPageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Solutions', href: '/solutions' },
-    { label: 'EHR Development', href: '/solutions/ehr-development' },
+    { label: `${BRAND_PREFIX} EHR Development`, href: '/solutions/ehr-development' },
   ],
 
   composition: [

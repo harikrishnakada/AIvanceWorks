@@ -1,3 +1,4 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { SolutionPageData } from '@/types/pages';
 
 // Archetype B (Technical) adapted for an "AI Industry Solution" page —
@@ -71,7 +72,7 @@ import type { SolutionPageData } from '@/types/pages';
 
 const aiInfrastructure: SolutionPageData = {
   slug: 'ai-infrastructure',
-  title: 'C10 AI Infrastructure',
+  title: `${BRAND_PREFIX} AI Infrastructure`,
   shortDescription:
     'Custom AI infrastructure platforms — GPU compute, data fabric, orchestration, networking, and cost guardrails — engineered for training, fine-tuning, inference, and agentic workloads. Built for portability, observability, and predictable spend.',
 
@@ -98,7 +99,7 @@ const aiInfrastructure: SolutionPageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Solutions', href: '/solutions' },
-    { label: 'C10 AI Infrastructure', href: '/solutions/ai-infrastructure' },
+    { label: `${BRAND_PREFIX} AI Infrastructure`, href: '/solutions/ai-infrastructure' },
   ],
 
   composition: [

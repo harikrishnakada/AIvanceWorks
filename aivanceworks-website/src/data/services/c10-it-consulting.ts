@@ -1,3 +1,4 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { ServicePageData } from '@/types/pages';
 
 // Archetype C — Regulated (adapted for an advisory service engagement)
@@ -58,7 +59,7 @@ import type { ServicePageData } from '@/types/pages';
 
 const itConsulting: ServicePageData = {
   slug: 'c10-it-consulting',
-  title: 'C10 IT Consulting',
+  title: `${BRAND_PREFIX} IT Consulting`,
   shortDescription:
     'Vendor-neutral IT strategy, vendor selection, and technology due diligence for regulated industries — every recommendation audited against regulatory, vendor-risk, and board-defensibility gates before it lands in your roadmap.',
 
@@ -86,7 +87,7 @@ const itConsulting: ServicePageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Services', href: '/services' },
-    { label: 'C10 IT Consulting', href: '/services/c10-it-consulting' },
+    { label: `${BRAND_PREFIX} IT Consulting`, href: '/services/c10-it-consulting' },
   ],
 
   composition: [

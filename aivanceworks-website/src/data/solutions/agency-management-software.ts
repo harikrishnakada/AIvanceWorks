@@ -1,3 +1,4 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { SolutionPageData } from '@/types/pages';
 
 // Archetype C — Regulated Solution (Insurance), lighter compliance posture
@@ -33,7 +34,7 @@ import type { SolutionPageData } from '@/types/pages';
 
 const agencyManagementSoftware: SolutionPageData = {
   slug: 'agency-management-software',
-  title: 'Custom Agency Management Software for Independent Insurance Agencies',
+  title: `${BRAND_PREFIX} Custom Agency Management Software for Independent Insurance Agencies`,
   shortDescription:
     'Custom agency management software built on Azure — producer pipeline tools, IVANS carrier download, commission tracking, and client self-service, designed around how your agency actually operates.',
 
@@ -59,7 +60,7 @@ const agencyManagementSoftware: SolutionPageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Solutions', href: '/solutions' },
-    { label: 'Agency Management Software', href: '/solutions/agency-management-software' },
+    { label: `${BRAND_PREFIX} Agency Management Software`, href: '/solutions/agency-management-software' },
   ],
 
   composition: [

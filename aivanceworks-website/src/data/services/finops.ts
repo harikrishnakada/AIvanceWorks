@@ -1,3 +1,4 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { ServicePageData } from '@/types/pages';
 
 // Archetype A — Strategic Service
@@ -25,7 +26,7 @@ import type { ServicePageData } from '@/types/pages';
 const finops: ServicePageData = {
   isEnabled: false, // set to false to remove from navigation and prevent access to the page
   slug: 'finops',
-  title: 'FinOps & Cloud Cost Optimization',
+  title: `${BRAND_PREFIX} FinOps & Cloud Cost Optimization`,
   shortDescription:
     'A structured cloud cost engagement that audits your spend, eliminates waste, and establishes the governance practices that keep savings permanent — not a one-time report that gathers dust.',
 
@@ -51,7 +52,7 @@ const finops: ServicePageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Services', href: '/services' },
-    { label: 'FinOps & Cloud Cost Optimization', href: '/services/finops' },
+    { label: `${BRAND_PREFIX} FinOps & Cloud Cost Optimization`, href: '/services/finops' },
   ],
 
   composition: [

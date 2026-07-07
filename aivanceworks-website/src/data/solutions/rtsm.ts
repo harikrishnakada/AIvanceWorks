@@ -1,3 +1,4 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { SolutionPageData } from '@/types/pages';
 
 // Archetype C — Regulated Solution (Life Sciences / Clinical Supply)
@@ -76,8 +77,7 @@ import type { SolutionPageData } from '@/types/pages';
 
 const rtsm: SolutionPageData = {
   slug: 'rtsm',
-  title:
-    'Custom Randomization & Trial Supply Management (RTSM / IRT) Software',
+  title: `${BRAND_PREFIX} Custom Randomization & Trial Supply Management (RTSM / IRT) Software`,
   shortDescription:
     'Custom Randomization and Trial Supply Management (RTSM / IRT) software for US sponsors, biotechs, and CROs — randomization, kit dispensation, depot and site inventory, expiry and resupply forecasting, and emergency unblinding on a single role-aware platform built around your protocol.',
 
@@ -106,7 +106,7 @@ const rtsm: SolutionPageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Solutions', href: '/solutions' },
-    { label: 'RTSM', href: '/solutions/rtsm' },
+    { label: `${BRAND_PREFIX} RTSM`, href: '/solutions/rtsm' },
   ],
 
   composition: [

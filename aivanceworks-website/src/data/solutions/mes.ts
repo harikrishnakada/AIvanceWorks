@@ -1,3 +1,4 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { SolutionPageData } from '@/types/pages';
 
 // Archetype C — Regulated Solution (Life Sciences / Manufacturing)
@@ -88,7 +89,7 @@ import type { SolutionPageData } from '@/types/pages';
 
 const mes: SolutionPageData = {
   slug: 'mes',
-  title: 'Manufacturing Execution Systems (MES) — PAS-X on Microsoft Cloud for Manufacturing',
+  title: `${BRAND_PREFIX} Manufacturing Execution Systems (MES) — PAS-X on Microsoft Cloud for Manufacturing`,
   shortDescription:
     'Körber Werum PAS-X MES Suite implementation, configuration, and integration — delivered on Microsoft Cloud for Manufacturing. Electronic batch records, material genealogy, in-process review-by-exception, and live shop-floor visibility, configured to the way your line actually runs and rolled out one line or site at a time.',
 
@@ -118,7 +119,7 @@ const mes: SolutionPageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Solutions', href: '/solutions' },
-    { label: 'MES', href: '/solutions/mes' },
+    { label: `${BRAND_PREFIX} MES`, href: '/solutions/mes' },
   ],
 
   composition: [

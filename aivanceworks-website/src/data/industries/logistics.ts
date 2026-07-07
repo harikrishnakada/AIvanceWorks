@@ -1,8 +1,9 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { IndustryPageData } from '@/types/pages';
 
 const logistics: IndustryPageData = {
   slug: 'logistics',
-  title: 'Logistics & Delivery Software Development',
+  title: `${BRAND_PREFIX} Logistics & Delivery Software Development`,
   shortDescription:
     'Custom software and AI that give logistics operators visibility and control across every mile — TMS, fleet and telematics dashboards, route optimization, carrier integrations, fulfillment software, and operational analytics — built on top of the systems you already run, not in place of them.',
 
@@ -28,7 +29,7 @@ const logistics: IndustryPageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Industries', href: '/industry' },
-    { label: 'Logistics', href: '/industry/logistics' },
+    { label: `${BRAND_PREFIX} Logistics`, href: '/industry/logistics' },
   ],
 
   composition: [

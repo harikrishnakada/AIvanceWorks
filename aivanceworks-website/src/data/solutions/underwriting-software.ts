@@ -1,3 +1,4 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { SolutionPageData } from '@/types/pages';
 
 // Archetype C — Regulated Solution (Insurance)
@@ -20,7 +21,7 @@ import type { SolutionPageData } from '@/types/pages';
 
 const underwritingSoftware: SolutionPageData = {
   slug: 'underwriting-software',
-  title: 'Custom Underwriting Software Development for Carriers & MGAs',
+  title: `${BRAND_PREFIX} Custom Underwriting Software Development for Carriers & MGAs`,
   shortDescription:
     'Custom underwriting platforms for insurance carriers and MGAs on Azure — automated data enrichment, configurable risk scoring, rating engine integration, and regulatory-compliant decision workflows.',
 
@@ -46,7 +47,7 @@ const underwritingSoftware: SolutionPageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Solutions', href: '/solutions' },
-    { label: 'Underwriting Software', href: '/solutions/underwriting-software' },
+    { label: `${BRAND_PREFIX} Underwriting Software`, href: '/solutions/underwriting-software' },
   ],
 
   composition: [

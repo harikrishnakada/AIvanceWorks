@@ -1,3 +1,4 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { SolutionPageData } from '@/types/pages';
 
 // Archetype B — Technical Service (Embedded Finance Engineering)
@@ -75,8 +76,7 @@ import type { SolutionPageData } from '@/types/pages';
 const digitalBankingWallets: SolutionPageData = {
   slug: 'digital-banking-wallets',
 
-  title:
-    'Digital Banking & Wallet Platform Engineering for Embedded Finance Operators',
+  title: `${BRAND_PREFIX} Digital Banking & Wallet Platform Engineering for Embedded Finance Operators`,
 
   shortDescription:
     'Engineering services for vertical-SaaS companies, non-financial brands, and fintech operators embedding finance via BaaS. We integrate the BaaS provider, sponsor bank, core banking platform, KYC/AML vendors, and card-issuing stack into three coherent offerings: Digital Wallet Platform Development, Neobank Platform Engineering, and Embedded Finance & BaaS Integration.',
@@ -113,7 +113,7 @@ const digitalBankingWallets: SolutionPageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Solutions', href: '/solutions' },
-    { label: 'Digital Banking & Wallets', href: '/solutions/digital-banking-wallets' },
+    { label: `${BRAND_PREFIX} Digital Banking & Wallets`, href: '/solutions/digital-banking-wallets' },
   ],
 
   composition: [

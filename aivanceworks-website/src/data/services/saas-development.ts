@@ -1,3 +1,4 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { ServicePageData } from '@/types/pages';
 
 // Archetype B — Technical Service
@@ -13,7 +14,7 @@ import type { ServicePageData } from '@/types/pages';
 
 const saasDevelopment: ServicePageData = {
   slug: 'saas-development',
-  title: 'SaaS Software Development',
+  title: `${BRAND_PREFIX} SaaS Software Development`,
   shortDescription:
     'End-to-end SaaS product development — multi-tenant architecture, subscription billing, user management, and scalable cloud infrastructure. From first commit to paying customers.',
 
@@ -39,7 +40,7 @@ const saasDevelopment: ServicePageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Services', href: '/services' },
-    { label: 'SaaS Software Development', href: '/services/saas-development' },
+    { label: `${BRAND_PREFIX} SaaS Software Development`, href: '/services/saas-development' },
   ],
 
   composition: [

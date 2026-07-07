@@ -1,3 +1,4 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { ServicePageData } from '@/types/pages';
 
 // Archetype B — Technical Service (with strategic lean)
@@ -17,7 +18,7 @@ import type { ServicePageData } from '@/types/pages';
 
 const qualityEngineering: ServicePageData = {
   slug: 'quality-engineering',
-  title: 'Quality Engineering & Testing',
+  title: `${BRAND_PREFIX} Quality Engineering & Testing`,
   shortDescription:
     'Standalone quality engineering — test strategy design, automation framework setup, CI-integrated quality gates, and performance testing for existing codebases. Your team owns everything we build.',
 
@@ -43,7 +44,7 @@ const qualityEngineering: ServicePageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Services', href: '/services' },
-    { label: 'Quality Engineering & Testing', href: '/services/quality-engineering' },
+    { label: `${BRAND_PREFIX} Quality Engineering & Testing`, href: '/services/quality-engineering' },
   ],
 
   composition: [

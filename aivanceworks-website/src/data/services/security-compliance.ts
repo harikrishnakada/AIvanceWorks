@@ -1,3 +1,4 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { ServicePageData } from '@/types/pages';
 
 // Archetype C — Regulated (adapted for a service engagement)
@@ -24,7 +25,7 @@ import type { ServicePageData } from '@/types/pages';
 
 const securityCompliance: ServicePageData = {
   slug: 'security-compliance',
-  title: 'Security & Compliance Consulting',
+  title: `${BRAND_PREFIX} Security & Compliance Consulting`,
   shortDescription:
     'Security architecture, identity, and compliance engineering for HIPAA, SOC 2, PCI-DSS, and ISO 27001 — one control set, one evidence package, audit-ready by design.',
 
@@ -52,7 +53,7 @@ const securityCompliance: ServicePageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Services', href: '/services' },
-    { label: 'Security & Compliance', href: '/services/security-compliance' },
+    { label: `${BRAND_PREFIX} Security & Compliance`, href: '/services/security-compliance' },
   ],
 
   composition: [

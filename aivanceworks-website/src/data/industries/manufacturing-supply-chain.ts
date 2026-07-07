@@ -1,8 +1,9 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { IndustryPageData } from '@/types/pages';
 
 const manufacturingSupplyChain: IndustryPageData = {
   slug: 'manufacturing-supply-chain',
-  title: 'Manufacturing & Supply Chain Software Development',
+  title: `${BRAND_PREFIX} Manufacturing & Supply Chain Software Development`,
   shortDescription:
     'Custom software and AI that connect the shop floor to the decision layer — MES dashboards, supply-chain visibility, WMS, predictive maintenance, ERP integration, and operational analytics — built on top of the systems you already run, not in place of them.',
 
@@ -28,7 +29,7 @@ const manufacturingSupplyChain: IndustryPageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Industries', href: '/industry' },
-    { label: 'Manufacturing & Supply Chain', href: '/industry/manufacturing-supply-chain' },
+    { label: `${BRAND_PREFIX} Manufacturing & Supply Chain`, href: '/industry/manufacturing-supply-chain' },
   ],
 
   composition: [

@@ -1,3 +1,4 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { SolutionPageData } from '@/types/pages';
 
 // Archetype C — Regulated Solution (Insurance) with Commerce-flavored benefits.
@@ -30,7 +31,7 @@ import type { SolutionPageData } from '@/types/pages';
 
 const quotingSoftware: SolutionPageData = {
   slug: 'quoting-software',
-  title: 'Custom Insurance Quoting Software Development for Carriers & MGAs',
+  title: `${BRAND_PREFIX} Custom Insurance Quoting Software Development for Carriers & MGAs`,
   shortDescription:
     'Custom insurance quoting platforms for carriers, MGAs, and agencies on Azure — multi-channel intake, rating engine integration, filed-rate verification, and bind-ready quotes built for state DOI compliance.',
 
@@ -56,7 +57,7 @@ const quotingSoftware: SolutionPageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Solutions', href: '/solutions' },
-    { label: 'Quoting Software', href: '/solutions/quoting-software' },
+    { label: `${BRAND_PREFIX} Quoting Software`, href: '/solutions/quoting-software' },
   ],
 
   composition: [

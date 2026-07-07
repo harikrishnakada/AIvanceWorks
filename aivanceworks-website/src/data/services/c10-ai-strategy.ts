@@ -1,3 +1,4 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { ServicePageData } from '@/types/pages';
 
 // Archetype C — Regulated/governed (adapted for an advisory service engagement)
@@ -68,7 +69,7 @@ import type { ServicePageData } from '@/types/pages';
 
 const c10AiStrategy: ServicePageData = {
   slug: 'c10-ai-strategy',
-  title: 'C10 AI Strategy',
+  title: `${BRAND_PREFIX} AI Strategy`,
   shortDescription:
     'Vendor-neutral AI strategy for governed enterprises — AI readiness assessment, risk-tiered use case prioritization, a phased roadmap, and a responsible-AI governance framework your board and risk committee can stand behind.',
 
@@ -95,7 +96,7 @@ const c10AiStrategy: ServicePageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Services', href: '/services' },
-    { label: 'C10 AI Strategy', href: '/services/c10-ai-strategy' },
+    { label: `${BRAND_PREFIX} AI Strategy`, href: '/services/c10-ai-strategy' },
   ],
 
   composition: [

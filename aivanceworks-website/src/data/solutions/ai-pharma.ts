@@ -1,3 +1,4 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { SolutionPageData } from '@/types/pages';
 
 // Archetype C — Regulated Solution (Pharma / Biotech)
@@ -20,7 +21,7 @@ import type { SolutionPageData } from '@/types/pages';
 
 const aiPharma: SolutionPageData = {
   slug: 'ai-pharma',
-  title: 'C10 AI Pharma',
+  title: `${BRAND_PREFIX} AI Pharma`,
   shortDescription:
     'Custom software for pharma and biotech — research workflows, clinical operations tooling, and AI-assisted analytics — built around the way your scientists, clinical operations, and diagnostic teams actually work.',
 
@@ -45,7 +46,7 @@ const aiPharma: SolutionPageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Solutions', href: '/solutions' },
-    { label: 'C10 AI Pharma', href: '/solutions/ai-pharma' },
+    { label: `${BRAND_PREFIX} AI Pharma`, href: '/solutions/ai-pharma' },
   ],
 
   composition: [

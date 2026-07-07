@@ -1,3 +1,4 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { SolutionPageData } from '@/types/pages';
 
 // Archetype C — Regulated Solution (Pharma / Biotech — Drug Discovery)
@@ -73,7 +74,7 @@ import type { SolutionPageData } from '@/types/pages';
 
 const drugDiscovery: SolutionPageData = {
   slug: 'drug-discovery',
-  title: 'Drug Discovery Software',
+  title: `${BRAND_PREFIX} Drug Discovery Software`,
   shortDescription:
     'Custom software for drug discovery — in-silico screening platforms, ADMET and property-prediction tooling, cheminformatics data foundations, knowledge graphs, and AI-assisted analytics — engineered to sit alongside the ELN, LIMS, and chemistry stack your scientists already rely on.',
 
@@ -102,7 +103,7 @@ const drugDiscovery: SolutionPageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Solutions', href: '/solutions' },
-    { label: 'Drug Discovery', href: '/solutions/drug-discovery' },
+    { label: `${BRAND_PREFIX} Drug Discovery`, href: '/solutions/drug-discovery' },
   ],
 
   composition: [

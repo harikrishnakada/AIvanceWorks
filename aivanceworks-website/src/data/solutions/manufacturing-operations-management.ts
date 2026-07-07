@@ -1,3 +1,4 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { SolutionPageData } from '@/types/pages';
 
 // Archetype C — Regulated Solution (Discrete & Process Manufacturing)
@@ -100,8 +101,7 @@ import type { SolutionPageData } from '@/types/pages';
 
 const manufacturingOperationsManagement: SolutionPageData = {
   slug: 'manufacturing-operations-management',
-  title:
-    'Manufacturing Operations Management (MOM) — Siemens Opcenter on Microsoft Azure',
+  title: `${BRAND_PREFIX} Manufacturing Operations Management (MOM) — Siemens Opcenter on Microsoft Azure`,
   shortDescription:
     'Siemens Opcenter MOM Suite implementation, configuration, and integration — delivered on Microsoft Azure. Execution (MES), Advanced Planning & Scheduling, Quality, Manufacturing Intelligence, and R&D / NPI on one digital thread, configured to your work centers and rolled out one line or plant at a time.',
 
@@ -135,7 +135,7 @@ const manufacturingOperationsManagement: SolutionPageData = {
     { label: 'Home', href: '/' },
     { label: 'Solutions', href: '/solutions' },
     {
-      label: 'Manufacturing Operations Management',
+      label: `${BRAND_PREFIX} Manufacturing Operations Management`,
       href: '/solutions/manufacturing-operations-management',
     },
   ],

@@ -1,3 +1,4 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { SolutionPageData } from '@/types/pages';
 
 // Archetype C base, B-leaning narrative — Warehouse Management Systems (WMS)
@@ -101,7 +102,7 @@ import type { SolutionPageData } from '@/types/pages';
 
 const warehouseManagementSystems: SolutionPageData = {
   slug: 'warehouse-management-systems',
-  title: 'Warehouse Management Systems (WMS) — Build vs. Buy, Done Right',
+  title: `${BRAND_PREFIX} Warehouse Management Systems (WMS) — Build vs. Buy, Done Right`,
   shortDescription:
     'Warehouse Management System (WMS) software for US distributors, 3PLs, manufacturers, and omnichannel retailers. We help you make the build-vs-buy call honestly — select and integrate a scalable SaaS WMS, or engineer a custom WMS around a complex supply-chain operation that no off-the-shelf platform fits — optimizing inventory accuracy, order picking, and labor planning either way.',
 
@@ -135,7 +136,7 @@ const warehouseManagementSystems: SolutionPageData = {
     { label: 'Home', href: '/' },
     { label: 'Solutions', href: '/solutions' },
     {
-      label: 'Warehouse Management Systems',
+      label: `${BRAND_PREFIX} Warehouse Management Systems`,
       href: '/solutions/warehouse-management-systems',
     },
   ],

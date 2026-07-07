@@ -1,8 +1,9 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { SolutionPageData } from '@/types/pages';
 
 const insurancePortals: SolutionPageData = {
   slug: 'insurance-portals',
-  title: 'Custom Insurance Portal Development for Carriers & Agencies',
+  title: `${BRAND_PREFIX} Custom Insurance Portal Development for Carriers & Agencies`,
   shortDescription:
     'Custom insurance portals for carriers, MGAs, and agencies on Azure — policy, claims, quoting, and agent workflows integrated with your core systems.',
 
@@ -28,7 +29,7 @@ const insurancePortals: SolutionPageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Solutions', href: '/solutions' },
-    { label: 'Insurance Portals', href: '/solutions/insurance-portals' },
+    { label: `${BRAND_PREFIX} Insurance Portals`, href: '/solutions/insurance-portals' },
   ],
 
   composition: [

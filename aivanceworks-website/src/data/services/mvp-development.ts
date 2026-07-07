@@ -1,8 +1,9 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { ServicePageData } from '@/types/pages';
 
 const mvpDevelopment: ServicePageData = {
   slug: 'mvp-development',
-  title: 'MVP Development',
+  title: `${BRAND_PREFIX} MVP Development`,
   shortDescription:
     '12 weeks from kickoff to a production V1 with real paying customers. Weekly demos, real users by week 5, zero black-box phases.',
 
@@ -22,7 +23,7 @@ const mvpDevelopment: ServicePageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Services', href: '/services' },
-    { label: 'MVP Development', href: '/services/mvp-development' },
+    { label: `${BRAND_PREFIX} MVP Development`, href: '/services/mvp-development' },
   ],
 
   composition: [

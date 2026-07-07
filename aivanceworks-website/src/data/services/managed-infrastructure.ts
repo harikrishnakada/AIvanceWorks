@@ -1,3 +1,4 @@
+import { BRAND_PREFIX } from '@/lib/constants';
 import type { ServicePageData } from '@/types/pages';
 
 // Archetype B — Technical Service (reliability/operations-trust lean)
@@ -22,7 +23,7 @@ import type { ServicePageData } from '@/types/pages';
 
 const managedInfrastructure: ServicePageData = {
   slug: 'managed-infrastructure',
-  title: 'Managed Infrastructure Services',
+  title: `${BRAND_PREFIX} Managed Infrastructure Services`,
   shortDescription:
     'Always-on cloud operations — monitoring, incident response, patching, scaling, cost optimization, and DR — run inside your own cloud accounts with full visibility and no lock-in.',
 
@@ -49,7 +50,7 @@ const managedInfrastructure: ServicePageData = {
   breadcrumb: [
     { label: 'Home', href: '/' },
     { label: 'Services', href: '/services' },
-    { label: 'Managed Infrastructure Services', href: '/services/managed-infrastructure' },
+    { label: `${BRAND_PREFIX} Managed Infrastructure Services`, href: '/services/managed-infrastructure' },
   ],
 
   composition: [
