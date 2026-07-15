@@ -3,6 +3,7 @@ import type { IndustryPageData } from '@/types/pages';
 
 const healthcare: IndustryPageData = {
   slug: 'healthcare',
+  name: 'Healthcare',
   title: `${BRAND_PREFIX} Healthcare Software Development`,
   shortDescription:
     'AI and software engineering for hospitals, payers, pharma, and digital health — built compliance-first to ease clinician burden, unify fragmented data, and turn activity into outcomes.',
@@ -45,6 +46,16 @@ const healthcare: IndustryPageData = {
   ],
 
   industry: 'healthcare',
+
+  icon: 'HeartPulse',
+  homeCard: {
+    tagline:
+      'HIPAA-first AI and software for hospitals, payers, pharma, and digital health — engineered to lift the burden without ever breaking compliance.',
+    short: 'HIPAA-first AI and software for hospitals, payers, pharma, and digital health.',
+    image: '/images/industries/healthcare/category-card.jpg',
+    alt: 'Grid of patient heart-rate monitors glowing in a clinical setting',
+    proof: ['HIPAA-First', 'HL7 / FHIR', 'Clinical AI'],
+  },
 
   hero: {
     kicker: 'Industries · Healthcare',

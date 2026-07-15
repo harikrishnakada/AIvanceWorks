@@ -1,6 +1,7 @@
 import { Award, Clock, Shield, Users, Code2 } from 'lucide-react';
 import { SITE_CONFIG } from '@/lib/constants';
 import { IconTile } from '@/components/shared/primitives';
+import { SECTION_Y } from '@/lib/section-spacing';
 
 const differentiators = [
   {
@@ -47,7 +48,7 @@ const differentiators = [
 
 export function WhyChooseUsSection() {
   return (
-    <section data-section="home-why-choose-us" className="py-7 sm:py-8 lg:py-10 relative overflow-hidden">
+    <section data-section="home-why-choose-us" className={`${SECTION_Y} relative overflow-hidden`}>
       <div className="absolute inset-0 bg-gradient-to-b from-white via-brand-50/20 to-white" />
 
       <div className="relative w-full px-4 sm:px-6 md:px-8 lg:px-12">

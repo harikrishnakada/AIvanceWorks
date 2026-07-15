@@ -4,6 +4,7 @@ import { useState, useCallback, useEffect } from 'react';
 import Link from 'next/link';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Bot, Cloud, Code2, Database, Globe, Settings, ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
+import { SECTION_Y } from '@/lib/section-spacing';
 
 const services = [
   {
@@ -112,7 +113,7 @@ export function ServicesSection() {
   const totalDots = maxIndex + 1;
 
   return (
-    <section data-section="home-services" className="py-7 sm:py-8 lg:py-10 bg-white">
+    <section data-section="home-services" className={`${SECTION_Y} bg-white`}>
       <div className="w-full px-4 sm:px-6 md:px-8 lg:px-12">
         {/* Section Header */}
         <div className="flex flex-col items-center gap-2 sm:gap-3 mb-3 sm:mb-4 lg:mb-5">

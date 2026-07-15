@@ -1,10 +1,12 @@
 import { JsonLd } from '@/components/seo/JsonLd';
 import { generateWebPageSchema } from '@/lib/schema';
 import { SITE_CONFIG } from '@/lib/constants';
+import { getHomeIndustries } from '@/lib/content';
 import {
   HeroSection,
   ExperienceSection,
   PartnersSection,
+  IndustriesSection,
   ChallengesSection,
   ServicesSection,
   WhyChooseUsSection,
@@ -12,9 +14,14 @@ import {
   TestimonialsSection,
   FAQSection,
   CTASection,
+  IndustriesSectionExpanding,
+  IndustriesSectionShowcase,
+  IndustriesSectionCatalog,
 } from '@/components/home';
 
-export default function HomePage() {
+export default async function HomePage() {
+  const industries = await getHomeIndustries();
+
   return (
     <>
       <JsonLd
@@ -38,6 +45,9 @@ export default function HomePage() {
 
       {/* Are You Facing These Challenges? - 3 challenge cards */}
       <ChallengesSection />
+
+      {/* Industries - Expanding category cards for vertical landing pages */}
+      <IndustriesSectionCatalog industries={industries} />
 
       {/* Why Companies Choose Us - 5 differentiator cards */}
       <WhyChooseUsSection />

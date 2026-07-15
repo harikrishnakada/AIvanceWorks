@@ -10,6 +10,7 @@
 
 import { ServiceCategory, Service, BlogPost, CaseStudy, Author, FAQ } from '@/types';
 import type { ServicePageData, SolutionPageData, IndustryPageData } from '@/types/pages';
+import type { HomeIndustry } from '@/data/home/industries';
 
 // ============================================================================
 // SERVICE CATEGORIES DATA
@@ -1096,6 +1097,41 @@ export async function getIndustryPageData(slug: string): Promise<IndustryPageDat
 
 export function getAllIndustryPageSlugs(): string[] {
   return Object.keys(INDUSTRY_PAGE_MODULES);
+}
+
+// Explicit display order for the homepage Industries section. The bento layout
+// (IndustriesSectionCatalog) assigns position-dependent column spans — two wide
+// feature tiles, then three balanced panels — so order is a homepage concern,
+// not derivable from the registry key order.
+const HOME_INDUSTRY_ORDER = [
+  'healthcare',
+  'travel-hospitality',
+  'real-estate',
+  'logistics',
+  'manufacturing-supply-chain',
+];
+
+// Build the homepage Industries cards from the canonical industry data files.
+// The industry files are the single source of truth: `name`/`icon` and the
+// `homeCard` block are read straight off each IndustryPageData — nothing about
+// an industry is restated here. Industries without a `homeCard` are skipped.
+export async function getHomeIndustries(): Promise<HomeIndustry[]> {
+  const entries = await Promise.all(
+    HOME_INDUSTRY_ORDER.map((slug) => getIndustryPageData(slug))
+  );
+
+  return entries
+    .filter((d): d is IndustryPageData => Boolean(d && d.homeCard))
+    .map((d) => ({
+      name: d.name,
+      tagline: d.homeCard!.tagline,
+      short: d.homeCard!.short,
+      proof: d.homeCard!.proof,
+      href: d.canonicalPath,
+      image: d.homeCard!.image,
+      alt: d.homeCard!.alt,
+      icon: d.icon,
+    }));
 }
 
 export async function getSolutionPageData(slug: string): Promise<SolutionPageData | null> {

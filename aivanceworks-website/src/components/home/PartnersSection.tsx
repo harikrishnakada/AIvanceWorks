@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { SECTION_Y_AFTER_TIGHT } from '@/lib/section-spacing';
 
 // Logos are sized by display HEIGHT (w-auto) using whitespace-trimmed assets,
 // with per-logo heights tuned to each mark's cap-height so the letterforms read
@@ -51,7 +52,7 @@ const marqueeLogos = Array.from({ length: HALF_REPEAT }).flatMap(() => partners)
 
 export function PartnersSection() {
   return (
-    <section data-section="home-partners" className="py-7 sm:py-8 lg:py-10 bg-white">
+    <section data-section="home-partners" className={`${SECTION_Y_AFTER_TIGHT} bg-white`}>
       <div className="w-full px-4 sm:px-6 md:px-8 lg:px-12">
         {/* Heading */}
         <div className="text-center mb-5 sm:mb-6 lg:mb-8 max-w-3xl mx-auto">

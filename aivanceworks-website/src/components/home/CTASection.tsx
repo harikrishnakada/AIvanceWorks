@@ -2,10 +2,11 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Calendar, Mail } from 'lucide-react';
 import { SITE_CONFIG, NAVIGATION } from '@/lib/constants';
+import { SECTION_Y } from '@/lib/section-spacing';
 
 export function CTASection() {
   return (
-    <section data-section="home-cta" className="py-7 sm:py-8 lg:py-10 relative overflow-hidden">
+    <section data-section="home-cta" className={`${SECTION_Y} relative overflow-hidden`}>
       {/* Subtle background */}
       <div className="absolute inset-0 bg-gradient-to-b from-white via-brand-50/20 to-white" />
 

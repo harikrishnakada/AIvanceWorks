@@ -2,6 +2,7 @@
 
 import { Rocket, DollarSign, ShieldCheck } from 'lucide-react';
 import { IconTile } from '@/components/shared/primitives';
+import { SECTION_Y } from '@/lib/section-spacing';
 
 const challenges = [
   {
@@ -26,7 +27,7 @@ const challenges = [
 
 export function ChallengesSection() {
   return (
-    <section data-section="home-challenges" className="py-7 sm:py-8 lg:py-10 relative overflow-hidden">
+    <section data-section="home-challenges" className={`${SECTION_Y} relative overflow-hidden`}>
       <div className="absolute inset-0 bg-gradient-to-b from-white via-brand-50/20 to-white" />
 
       <div className="relative w-full px-4 sm:px-6 md:px-8 lg:px-12">

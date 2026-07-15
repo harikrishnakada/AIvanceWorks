@@ -3,6 +3,7 @@ import type { IndustryPageData } from '@/types/pages';
 
 const logistics: IndustryPageData = {
   slug: 'logistics',
+  name: 'Logistics',
   title: `${BRAND_PREFIX} Logistics & Delivery Software Development`,
   shortDescription:
     'Custom software and AI that give logistics operators visibility and control across every mile — TMS, fleet and telematics dashboards, route optimization, carrier integrations, fulfillment software, and operational analytics — built on top of the systems you already run, not in place of them.',
@@ -45,6 +46,16 @@ const logistics: IndustryPageData = {
   ],
 
   industry: 'logistics',
+
+  icon: 'Truck',
+  homeCard: {
+    tagline:
+      'Visibility and control across every mile — the software layer on top of your TMS, telematics, and carrier systems.',
+    short: 'Visibility and control across every mile — from TMS to telematics.',
+    image: '/images/industries/logistics/category-card.jpg',
+    alt: 'Towering warehouse racking aisle in a distribution center',
+    proof: ['TMS', 'Fleet Telematics', 'Route Optimization'],
+  },
 
   hero: {
     kicker: 'Industries · Logistics',

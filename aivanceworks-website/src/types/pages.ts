@@ -306,10 +306,25 @@ export interface IndustryServiceLink {
   icon: string;        // Lucide icon name
 }
 
+// Homepage-card-only presentation for an industry. The card image is distinct
+// from the industry hero image (a purpose-shot category card), and the tagline
+// and proof chips are card-length copy that differs from the SEO
+// shortDescription. Optional: an industry without a homeCard simply does not
+// appear in the homepage Industries section.
+export interface IndustryHomeCard {
+  tagline: string;      // full-sentence card message
+  short: string;        // concise line for tight layouts / aria-labels
+  image: string;        // /images/industries/<folder>/category-card.jpg
+  alt: string;          // alt text for the card image
+  proof: string[];      // concrete capability chips in the buyer's vocabulary
+}
+
 export interface IndustryPageData {
   isEnabled?: boolean;
   slug: string;
   title: string;
+  /** Plain display name — e.g. "Healthcare", "Travel & Hospitality". */
+  name: string;
   shortDescription: string;
 
   metaTitle: string;
@@ -320,6 +335,11 @@ export interface IndustryPageData {
   breadcrumb: BreadcrumbItem[];
   composition: IndustrySectionKey[];
   industry: IndustryKey;
+
+  /** Lucide icon name — the industry's visual identity across the site. */
+  icon: string;
+  /** Homepage Industries section card presentation (optional). */
+  homeCard?: IndustryHomeCard;
 
   hero: {
     kicker?: string;                         // single industry label (not a per-section eyebrow)

@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
+import { SECTION_Y } from '@/lib/section-spacing';
 
 const testimonials = [
   {
@@ -63,7 +64,7 @@ export function TestimonialsSection() {
   }, [isAutoPlaying, nextSlide]);
 
   return (
-    <section data-section="home-testimonials" className="py-6 sm:py-8 lg:py-12 relative overflow-hidden">
+    <section data-section="home-testimonials" className={`${SECTION_Y} relative overflow-hidden`}>
       {/* Clean white bg with subtle blue wash */}
       <div className="absolute inset-0 bg-gradient-to-br from-brand-50/50 via-white to-accent-50/30" />
       <div className="hidden md:block absolute top-0 right-0 w-[600px] h-[600px] bg-brand-100/30 rounded-full blur-[150px]" />

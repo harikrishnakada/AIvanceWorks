@@ -3,6 +3,7 @@ import type { IndustryPageData } from '@/types/pages';
 
 const travelHospitality: IndustryPageData = {
   slug: 'travel-hospitality',
+  name: 'Travel & Hospitality',
   title: `${BRAND_PREFIX} Travel & Hospitality Software Development`,
   shortDescription:
     'Custom software and AI for hotels, airlines, travel agencies, and restaurants — built journey-first to run the guest experience, not just the back office, from the first search to a loyal returning guest.',
@@ -45,6 +46,16 @@ const travelHospitality: IndustryPageData = {
   ],
 
   industry: 'travel-hospitality',
+
+  icon: 'Plane',
+  homeCard: {
+    tagline:
+      'Journey-first platforms for hotels, airlines, agencies, and restaurants — one seamless guest experience from first search to loyal return.',
+    short: 'Journey-first platforms for hotels, airlines, agencies, and restaurants.',
+    image: '/images/industries/travel-hospitality/category-card.jpg',
+    alt: 'Vintage map and travel ephemera arranged on a desk',
+    proof: ['Booking Engines', 'PMS / POS', 'Guest Loyalty'],
+  },
 
   hero: {
     kicker: 'Industries · Travel & Hospitality',

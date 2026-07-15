@@ -3,6 +3,7 @@ import type { IndustryPageData } from '@/types/pages';
 
 const realEstate: IndustryPageData = {
   slug: 'real-estate',
+  name: 'Real Estate',
   title: `${BRAND_PREFIX} Real Estate Software Development`,
   shortDescription:
     'Custom software and AI for brokerages, property managers, investors, and PropTech — built data-first to move listings, deals, and decisions faster, from the first listing to the final signature.',
@@ -45,6 +46,16 @@ const realEstate: IndustryPageData = {
   ],
 
   industry: 'real-estate',
+
+  icon: 'Building2',
+  homeCard: {
+    tagline:
+      'Data-first software that moves listings, deals, and decisions faster — from the first listing to the final signature.',
+    short: 'Data-first software that moves listings, deals, and decisions faster.',
+    image: '/images/industries/realestate/category-card.jpg',
+    alt: 'City skyline of high-rise real estate at dusk',
+    proof: ['MLS / IDX Data', 'Deal Pipeline', 'Property Analytics'],
+  },
 
   hero: {
     kicker: 'Industries · Real Estate',

@@ -16,14 +16,6 @@ export const metadata: Metadata = constructMetadata({
   canonical: `${SITE_CONFIG.url}/industry`,
 });
 
-const INDUSTRY_ICONS: Record<string, string> = {
-  healthcare: 'HeartPulse',
-  'travel-hospitality': 'Plane',
-  'real-estate': 'Building2',
-  'manufacturing-supply-chain': 'Factory',
-  logistics: 'Truck',
-};
-
 export default async function IndustryIndexPage() {
   const slugs = getAllIndustryPageSlugs();
   const industries = (
@@ -72,7 +64,7 @@ export default async function IndustryIndexPage() {
         <Container>
           <div className="grid gap-6 md:gap-8 md:grid-cols-2 lg:grid-cols-3">
             {industries.map((industry) => {
-              const Icon = getLucideIcon(INDUSTRY_ICONS[industry.slug] ?? 'Building2');
+              const Icon = getLucideIcon(industry.icon ?? 'Building2');
               return (
                 <Link
                   key={industry.slug}

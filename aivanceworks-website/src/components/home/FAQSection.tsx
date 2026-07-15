@@ -5,6 +5,7 @@ import { ChevronDown } from 'lucide-react';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { generateFAQSchema } from '@/lib/schema';
 import { SITE_CONFIG } from '@/lib/constants';
+import { SECTION_Y } from '@/lib/section-spacing';
 
 export function FAQSection() {
   const faqs = [
@@ -46,7 +47,7 @@ export function FAQSection() {
   };
 
   return (
-    <section data-section="home-faq" className="py-7 sm:py-8 lg:py-10 bg-white">
+    <section data-section="home-faq" className={`${SECTION_Y} bg-white`}>
       {/* FAQ Schema */}
       <JsonLd data={generateFAQSchema(faqs)} />
 

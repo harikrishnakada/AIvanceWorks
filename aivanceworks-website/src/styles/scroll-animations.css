@@ -42,6 +42,47 @@
   transform: scaleX(1);
 }
 
+/* Image plates that unmask horizontally when their row reveals.
+   `plate-wipe` opens left→right (image sits right of its text);
+   `plate-wipe-rtl` opens right→left (image sits left). */
+.plate-wipe {
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 1s cubic-bezier(0.16, 1, 0.3, 1) 0.15s;
+}
+
+.plate-wipe-rtl {
+  clip-path: inset(0 0 0 100%);
+  transition: clip-path 1s cubic-bezier(0.16, 1, 0.3, 1) 0.15s;
+}
+
+.revealed .plate-wipe,
+.revealed .plate-wipe-rtl {
+  clip-path: inset(0 0 0 0);
+}
+
+/* ─── Industry Showcase (auto-advancing stage) ───
+   `industry-fill` drives the per-tab progress track; its duration is set
+   inline via --fill-duration so the JS timer and the bar stay in lockstep.
+   `industry-content-in` re-runs on each slide change (keyed remount). */
+.industry-fill {
+  transform-origin: left;
+  animation: industry-fill var(--fill-duration, 5500ms) linear forwards;
+}
+
+@keyframes industry-fill {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+.industry-content-in {
+  animation: industry-content-in 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes industry-content-in {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .scroll-step,
   .scroll-stagger > *,
@@ -50,5 +91,20 @@
     transform: none !important;
     animation: none !important;
     transition: none !important;
+  }
+
+  .plate-wipe,
+  .plate-wipe-rtl {
+    clip-path: none !important;
+    transition: none !important;
+  }
+
+  .industry-fill {
+    animation: none !important;
+    transform: scaleX(1);
+  }
+
+  .industry-content-in {
+    animation: none !important;
   }
 }

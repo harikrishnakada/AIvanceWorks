@@ -3,6 +3,7 @@ import type { IndustryPageData } from '@/types/pages';
 
 const manufacturingSupplyChain: IndustryPageData = {
   slug: 'manufacturing-supply-chain',
+  name: 'Manufacturing & Supply Chain',
   title: `${BRAND_PREFIX} Manufacturing & Supply Chain Software Development`,
   shortDescription:
     'Custom software and AI that connect the shop floor to the decision layer — MES dashboards, supply-chain visibility, WMS, predictive maintenance, ERP integration, and operational analytics — built on top of the systems you already run, not in place of them.',
@@ -45,6 +46,16 @@ const manufacturingSupplyChain: IndustryPageData = {
   ],
 
   industry: 'manufacturing',
+
+  icon: 'Factory',
+  homeCard: {
+    tagline:
+      'Connecting the shop floor to the decision layer — built on top of SAP, Oracle, and the plant systems you already run.',
+    short: 'Connecting the shop floor to the decision layer, on the systems you already run.',
+    image: '/images/industries/msc/category-card.jpg',
+    alt: 'Automated production line on a modern factory floor',
+    proof: ['MES Dashboards', 'ERP Integration', 'Predictive Maintenance'],
+  },
 
   hero: {
     kicker: 'Industries · Manufacturing & Supply Chain',
