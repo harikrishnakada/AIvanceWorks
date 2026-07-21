@@ -17,17 +17,29 @@ import type { HomeIndustry } from '@/data/home/industries';
 // /industry page, with an image header band fading into the dark surface —
 // giving the homepage its imagery while keeping the catalog's checklist read.
 //
-// Five industries map exactly onto the bento rhythm IndustryCapabilities was
-// designed for: two wide feature tiles on top, three balanced panels below.
+// Eight industries map onto a symmetric bento rhythm on a 6-column grid:
+// three balanced panels on top (2+2+2), two wide feature tiles across the
+// centre (3+3), and three balanced panels to close (2+2+2) — every row fills
+// the full width. The wide (col-span-3) tiles carry the taller image band and
+// anchor the eye on the middle row.
 
-const BENTO_SPANS = ['lg:col-span-3', 'lg:col-span-3', 'lg:col-span-2', 'lg:col-span-2', 'lg:col-span-2'];
+const BENTO_SPANS = [
+  'lg:col-span-2',
+  'lg:col-span-2',
+  'lg:col-span-2',
+  'lg:col-span-3',
+  'lg:col-span-3',
+  'lg:col-span-2',
+  'lg:col-span-2',
+  'lg:col-span-2',
+];
 
 export function IndustriesSectionCatalog({ industries }: { industries: HomeIndustry[] }) {
   const headerRef = useScrollReveal<HTMLDivElement>();
   const gridRef = useScrollReveal<HTMLDivElement>({ threshold: 0.1 });
 
   return (
-    <Section data-section="home-industries-catalog" tone="dark" size="lg" withGrid>
+    <Section data-section="home-industries-catalog" tone="dark" size="md" withGrid>
       <div
         aria-hidden="true"
         className="pointer-events-none absolute top-0 left-1/3 w-[620px] h-72 bg-brand-500/[0.09] rounded-full blur-[130px]"
@@ -41,14 +53,14 @@ export function IndustriesSectionCatalog({ industries }: { industries: HomeIndus
         {/* Header */}
         <div
           ref={headerRef}
-          className="scroll-step flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 sm:gap-6 mb-10 md:mb-12"
+          className="scroll-step flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 sm:gap-6 mb-6 md:mb-8"
         >
           <div className="max-w-3xl">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-text-light tracking-tight text-balance mb-4">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-text-light tracking-tight text-balance mb-3">
               Software Built Around Your{' '}
               <span className="text-brand-400">Industry</span>
             </h2>
-            <p className="text-base md:text-lg text-text-light/70 leading-relaxed text-pretty">
+            <p className="text-sm md:text-base text-text-light/70 leading-relaxed text-pretty">
               Vertical-specific software and AI, engineered for the way your industry actually
               operates — from the first patient record to the final mile.
             </p>
@@ -70,7 +82,7 @@ export function IndustriesSectionCatalog({ industries }: { industries: HomeIndus
           {industries.map((industry, idx) => {
             const Icon = getLucideIcon(industry.icon ?? 'HelpCircle');
             const span = BENTO_SPANS[idx] ?? 'lg:col-span-2';
-            const featured = idx < 2;
+            const featured = span.endsWith('span-3');
             return (
               <Link
                 key={industry.href}
@@ -84,7 +96,7 @@ export function IndustriesSectionCatalog({ industries }: { industries: HomeIndus
                 )}
               >
                 {/* Image header band — fades into the dark card surface */}
-                <div className={cn('relative w-full overflow-hidden', featured ? 'h-44 md:h-52' : 'h-36 md:h-40')}>
+                <div className={cn('relative w-full overflow-hidden', featured ? 'h-28 md:h-36' : 'h-24 md:h-28')}>
                   <Image
                     src={industry.image}
                     alt={industry.alt}
@@ -99,9 +111,9 @@ export function IndustriesSectionCatalog({ industries }: { industries: HomeIndus
                 </div>
 
                 {/* Body */}
-                <div className="flex flex-1 flex-col p-6 md:p-7 -mt-8 relative">
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-brand-500/[0.12] border border-brand-400/20 text-brand-300 transition-colors group-hover:bg-brand-500/20">
+                <div className="flex flex-1 flex-col p-5 md:p-6 -mt-6 relative">
+                  <div className="flex items-center gap-3 mb-3">
+                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-brand-500/[0.12] border border-brand-400/20 text-brand-300 transition-colors group-hover:bg-brand-500/20">
                       <Icon className="h-5 w-5" aria-hidden="true" />
                     </span>
                     <h3 className="text-lg md:text-xl font-semibold text-text-light leading-tight">
@@ -109,11 +121,11 @@ export function IndustriesSectionCatalog({ industries }: { industries: HomeIndus
                     </h3>
                   </div>
 
-                  <p className="text-sm text-text-light/55 leading-relaxed mb-5 -mt-1">
+                  <p className="text-sm text-text-light/55 leading-relaxed mb-4 -mt-1">
                     {industry.tagline}
                   </p>
 
-                  <ul className="grid gap-2.5 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 mb-6">
+                  <ul className="grid gap-2 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 mb-4">
                     {industry.proof.map((item) => (
                       <li key={item} className="flex items-start gap-2.5">
                         <CheckCircle2 className="h-4 w-4 mt-0.5 shrink-0 text-brand-400" aria-hidden="true" />

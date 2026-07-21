@@ -132,17 +132,32 @@ export const NAVIGATION = {
         icon: 'Heart',
         description: 'Built around your industry',
         links: [
-          { label: `${BRAND_PREFIX} Healthcare`, href: '/industry/healthcare', icon: 'Stethoscope' },
-          { label: `${BRAND_PREFIX} Travel & Hospitality`, href: '/industry/travel-hospitality', icon: 'Plane' },
+          //{ label: `${BRAND_PREFIX} Banking`, href: '/industry/banking', icon: 'Landmark' },
           { label: `${BRAND_PREFIX} Real Estate`, href: '/industry/real-estate', icon: 'Building2' },
-          { label: `${BRAND_PREFIX} Manufacturing & Supply Chain`, href: '/industry/manufacturing-supply-chain', icon: 'Factory' },
+          { label: `${BRAND_PREFIX} Hospitality`, href: '/industry/travel-hospitality', icon: 'Plane' },
+         // { label: `${BRAND_PREFIX} Healthcare`, href: '/industry/healthcare', icon: 'Stethoscope' },
+          { label: `${BRAND_PREFIX} Retail`, href: '/industry/retail', icon: 'ShoppingBag' },
           { label: `${BRAND_PREFIX} Logistics`, href: '/industry/logistics', icon: 'Truck' },
+          { label: `${BRAND_PREFIX} Food & Beverage`, href: '/industry/food-beverage', icon: 'Utensils' },
+          { label: `${BRAND_PREFIX} Manufacturing & Supply Chain`, href: '/industry/manufacturing-supply-chain', icon: 'Factory' },
         ],
       },
     ],
   },
   // Mega menu columns for "Services" dropdown
   servicesMenu: [
+    {
+      title: 'Advisory',
+      icon: 'MessageSquare',
+      description: 'Strategic guidance & consulting',
+      links: [
+        { label: `${BRAND_PREFIX} Product Discovery`, href: '/services/product-discovery', icon: 'Lightbulb' },
+        { label: `${BRAND_PREFIX} AI Strategy`, href: '/services/c10-ai-strategy', icon: 'Brain' },
+        { label: `${BRAND_PREFIX} IT Consulting`, href: '/services/c10-it-consulting', icon: 'MessageSquare' },
+        { label: `${BRAND_PREFIX} Cloud Computing`, href: '/services/c10-cloud-computing', icon: 'Cloud' },
+        { label: `${BRAND_PREFIX} Architecture Advisory`, href: '/services/c10-architecture-advisory', icon: 'Layers' },
+      ],
+    },
     {
       title: 'Software Engineering',
       icon: 'Code2',
@@ -176,7 +191,7 @@ export const NAVIGATION = {
         { label: `${BRAND_PREFIX} Cloud Infrastructure & Operations`, href: '/services/cloud-infrastructure', icon: 'Server' },
         { label: `${BRAND_PREFIX} Security & Compliance`, href: '/services/security-compliance', icon: 'Shield' },
       ],
-    }  
+    }
   ],
   // Mega menu columns for "Solutions" dropdown
   solutionsMenu: [

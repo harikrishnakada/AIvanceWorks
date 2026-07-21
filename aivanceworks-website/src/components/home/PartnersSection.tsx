@@ -10,14 +10,14 @@ import { SECTION_Y_AFTER_TIGHT } from '@/lib/section-spacing';
 // (smile below), so AWS renders taller to match the others' letter height.
 // intrinsicW/H are the trimmed pixel dimensions and only set the aspect ratio.
 const partners = [
-  {
-    name: 'Google',
-    logo: '/partners/google-trim.png',
-    tier: '',
-    intrinsicW: 2182,
-    intrinsicH: 719,
-    height: 'h-[22px] sm:h-[24px] md:h-[28px] lg:h-[33px]',
-  },
+  // {
+  //   name: 'Google',
+  //   logo: '/partners/google-trim.png',
+  //   tier: '',
+  //   intrinsicW: 2182,
+  //   intrinsicH: 719,
+  //   height: 'h-[22px] sm:h-[24px] md:h-[28px] lg:h-[33px]',
+  // },
   {
     name: 'Microsoft',
     logo: '/partners/ms-trim.png',
@@ -33,15 +33,15 @@ const partners = [
     intrinsicW: 2378,
     intrinsicH: 1423,
     height: 'h-[28px] sm:h-[32px] md:h-[37px] lg:h-[43px]',
-  },
-  {
-    name: 'Oracle',
-    logo: '/partners/oracle-trim.png',
-    tier: '',
-    intrinsicW: 3554,
-    intrinsicH: 734,
-    height: 'h-[18px] sm:h-[20px] md:h-[23px] lg:h-[27px]',
-  },
+  }
+  // {
+  //   name: 'Oracle',
+  //   logo: '/partners/oracle-trim.png',
+  //   tier: '',
+  //   intrinsicW: 3554,
+  //   intrinsicH: 734,
+  //   height: 'h-[18px] sm:h-[20px] md:h-[23px] lg:h-[27px]',
+  // },
 ];
 
 // One half of the marquee track. With only a few partners the base set is too

@@ -175,6 +175,8 @@ export interface CapabilityGroupItem {
   title: string;
   description?: string;    // optional one-line framing under the title
   items: string[];         // bulleted capabilities
+  aiAngle?: string;        // optional AI-layer line, surfaced in the solutions detail box
+  note?: string;           // optional scope / realism note (e.g. "not a Tier-1 core replacement")
 }
 
 export interface CapabilityGroupsData {
@@ -281,14 +283,28 @@ export type IndustryKey = 'healthcare' | 'insurance' | 'life-sciences' | 'manufa
 // Section dispatch keys unique to the Industry template.
 export type IndustrySectionKey =
   | 'hero'
+  | 'whoWeServe'
   | 'pressures'
   | 'capabilities'
+  | 'solutions'
   | 'compliance'
   | 'segments'
   | 'techStandards'
   | 'services'
   | 'faq'
   | 'cta';
+
+// "Who we serve" — the explicit list of business types within an industry,
+// presented as an expandable dropdown. Distinct from `segments` (rich buyer
+// personas with pains + needs); this is the plain, scannable roster of
+// institution types, with an optional honest note on who is out of scope.
+export interface WhoWeServeData {
+  title: string;
+  subtitle?: string;
+  summary?: string;      // one-line count/summary shown on the toggle (e.g. "13 institution types")
+  types: string[];       // the business types served
+  excludedNote?: string; // who we explicitly do NOT serve, and why
+}
 
 // A sub-vertical / buyer segment within the industry.
 export interface IndustrySegment {
@@ -340,6 +356,12 @@ export interface IndustryPageData {
   icon: string;
   /** Homepage Industries section card presentation (optional). */
   homeCard?: IndustryHomeCard;
+
+  /**
+   * Explicit "who we serve" roster (optional). Rendered as an expandable
+   * dropdown via the `whoWeServe` composition key. Independent of `segments`.
+   */
+  whoWeServe?: WhoWeServeData;
 
   hero: {
     kicker?: string;                         // single industry label (not a per-section eyebrow)

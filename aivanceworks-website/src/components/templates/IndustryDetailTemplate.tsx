@@ -3,8 +3,10 @@ import type { IndustryPageData, IndustrySectionKey } from '@/types/pages';
 import { Breadcrumbs } from '@/components/shared/primitives';
 import {
   IndustryHero,
+  IndustryWhoWeServe,
   IndustryPressures,
   IndustryCapabilities,
+  IndustrySolutions,
   IndustryCompliance,
   IndustrySegments,
   IndustryTechStandards,
@@ -37,6 +39,17 @@ export const IndustryDetailTemplate = ({ data }: IndustryDetailTemplateProps) =>
         standardsLabel={data.hero.standardsLabel}
       />
     ),
+    whoWeServe: () =>
+      data.whoWeServe ? (
+        <IndustryWhoWeServe
+          title={data.whoWeServe.title}
+          subtitle={data.whoWeServe.subtitle}
+          summary={data.whoWeServe.summary}
+          types={data.whoWeServe.types}
+          excludedNote={data.whoWeServe.excludedNote}
+          icon={data.icon}
+        />
+      ) : null,
     pressures: () => (
       <IndustryPressures
         title={data.pressures.title}
@@ -46,6 +59,14 @@ export const IndustryDetailTemplate = ({ data }: IndustryDetailTemplateProps) =>
     ),
     capabilities: () => (
       <IndustryCapabilities
+        title={data.capabilities.title}
+        highlightText={data.capabilities.highlightText}
+        subtitle={data.capabilities.subtitle}
+        groups={data.capabilities.groups}
+      />
+    ),
+    solutions: () => (
+      <IndustrySolutions
         title={data.capabilities.title}
         highlightText={data.capabilities.highlightText}
         subtitle={data.capabilities.subtitle}

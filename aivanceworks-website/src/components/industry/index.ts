@@ -1,6 +1,8 @@
 export { IndustryHero, type IndustryHeroProps } from './IndustryHero';
+export { IndustryWhoWeServe, type IndustryWhoWeServeProps } from './IndustryWhoWeServe';
 export { IndustryPressures, type IndustryPressuresProps, type PressureItem } from './IndustryPressures';
 export { IndustryCapabilities, type IndustryCapabilitiesProps, type CapabilityGroup } from './IndustryCapabilities';
+export { IndustrySolutions, type IndustrySolutionsProps, type SolutionGroup } from './IndustrySolutions';
 export { IndustryCompliance, type IndustryComplianceProps, type ComplianceSafeguard } from './IndustryCompliance';
 export { IndustrySegments, type IndustrySegmentsProps, type Segment } from './IndustrySegments';
 export { IndustryTechStandards, type IndustryTechStandardsProps } from './IndustryTechStandards';

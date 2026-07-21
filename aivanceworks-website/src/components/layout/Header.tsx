@@ -102,11 +102,10 @@ export function Header() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
             ? 'bg-white/95 backdrop-blur-md shadow-[0_2px_15px_rgba(0,0,0,0.08)] border-b border-gray-200'
             : 'bg-white border-b border-gray-100'
-        }`}
+          }`}
       >
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Main navigation">
           <div className="flex items-center justify-between h-20 md:h-18 lg:h-20">
@@ -132,35 +131,55 @@ export function Header() {
                 >
                   AI
                   <ChevronDown
-                    className={`ml-1.5 h-4 w-4 xl:h-5 xl:w-5 transition-transform duration-200 ${
-                      activeDropdown === 'ai-ml' ? 'rotate-180' : ''
-                    }`}
+                    className={`ml-1.5 h-4 w-4 xl:h-5 xl:w-5 transition-transform duration-200 ${activeDropdown === 'ai-ml' ? 'rotate-180' : ''
+                      }`}
                   />
                 </button>
               </div>
 
-                            {/* Advisory Dropdown */}
+              {/* Advisory Dropdown */}
+              {false && (
+                <div
+                  data-dropdown="advisory"
+                  className="relative"
+                  onMouseEnter={() => handleDropdownEnter('advisory')}
+                  onMouseLeave={handleDropdownLeave}
+                >
+                  <button
+                    onClick={() => toggleDropdown('advisory')}
+                    className="flex items-center px-4 xl:px-5 py-2 text-base xl:text-lg font-medium text-gray-900 hover:text-black transition-colors rounded-lg hover:bg-gray-100"
+                    aria-expanded={activeDropdown === 'advisory'}
+                    aria-haspopup="true"
+                  >
+                    Advisory
+                    <ChevronDown
+                      className={`ml-1.5 h-4 w-4 xl:h-5 xl:w-5 transition-transform duration-200 ${activeDropdown === 'advisory' ? 'rotate-180' : ''
+                        }`}
+                    />
+                  </button>
+                </div>
+              )}
+
+              {/* Enterprise Dropdown */}
               <div
-                data-dropdown="advisory"
+                data-dropdown="enterprise"
                 className="relative"
-                onMouseEnter={() => handleDropdownEnter('advisory')}
+                onMouseEnter={() => handleDropdownEnter('enterprise')}
                 onMouseLeave={handleDropdownLeave}
               >
                 <button
-                  onClick={() => toggleDropdown('advisory')}
+                  onClick={() => toggleDropdown('enterprise')}
                   className="flex items-center px-4 xl:px-5 py-2 text-base xl:text-lg font-medium text-gray-900 hover:text-black transition-colors rounded-lg hover:bg-gray-100"
-                  aria-expanded={activeDropdown === 'advisory'}
+                  aria-expanded={activeDropdown === 'enterprise'}
                   aria-haspopup="true"
                 >
-                  Advisory
+                  Enterprise
                   <ChevronDown
-                    className={`ml-1.5 h-4 w-4 xl:h-5 xl:w-5 transition-transform duration-200 ${
-                      activeDropdown === 'advisory' ? 'rotate-180' : ''
-                    }`}
+                    className={`ml-1.5 h-4 w-4 xl:h-5 xl:w-5 transition-transform duration-200 ${activeDropdown === 'enterprise' ? 'rotate-180' : ''
+                      }`}
                   />
                 </button>
               </div>
-
 
               {/* Services Dropdown */}
               <div
@@ -177,32 +196,8 @@ export function Header() {
                 >
                   Services
                   <ChevronDown
-                    className={`ml-1.5 h-4 w-4 xl:h-5 xl:w-5 transition-transform duration-200 ${
-                      activeDropdown === 'services' ? 'rotate-180' : ''
-                    }`}
-                  />
-                </button>
-              </div>
-              
-              
-              {/* Enterprise Dropdown */}
-              <div
-                data-dropdown="enterprise"
-                className="relative"
-                onMouseEnter={() => handleDropdownEnter('enterprise')}
-                onMouseLeave={handleDropdownLeave}
-              >
-                <button
-                  onClick={() => toggleDropdown('enterprise')}
-                  className="flex items-center px-4 xl:px-5 py-2 text-base xl:text-lg font-medium text-gray-900 hover:text-black transition-colors rounded-lg hover:bg-gray-100"
-                  aria-expanded={activeDropdown === 'enterprise'}
-                  aria-haspopup="true"
-                >
-                  Enterprise
-                  <ChevronDown
-                    className={`ml-1.5 h-4 w-4 xl:h-5 xl:w-5 transition-transform duration-200 ${
-                      activeDropdown === 'enterprise' ? 'rotate-180' : ''
-                    }`}
+                    className={`ml-1.5 h-4 w-4 xl:h-5 xl:w-5 transition-transform duration-200 ${activeDropdown === 'services' ? 'rotate-180' : ''
+                      }`}
                   />
                 </button>
               </div>
@@ -222,9 +217,8 @@ export function Header() {
                 >
                   Industries
                   <ChevronDown
-                    className={`ml-1.5 h-4 w-4 xl:h-5 xl:w-5 transition-transform duration-200 ${
-                      activeDropdown === 'industries' ? 'rotate-180' : ''
-                    }`}
+                    className={`ml-1.5 h-4 w-4 xl:h-5 xl:w-5 transition-transform duration-200 ${activeDropdown === 'industries' ? 'rotate-180' : ''
+                      }`}
                   />
                 </button>
               </div>
@@ -280,9 +274,8 @@ export function Header() {
                 >
                   AI
                   <ChevronDown
-                    className={`ml-1 h-3.5 w-3.5 transition-transform duration-200 ${
-                      activeDropdown === 'ai-ml' ? 'rotate-180' : ''
-                    }`}
+                    className={`ml-1 h-3.5 w-3.5 transition-transform duration-200 ${activeDropdown === 'ai-ml' ? 'rotate-180' : ''
+                      }`}
                   />
                 </button>
               </div>
@@ -303,9 +296,8 @@ export function Header() {
                 >
                   Advisory
                   <ChevronDown
-                    className={`ml-1 h-3.5 w-3.5 transition-transform duration-200 ${
-                      activeDropdown === 'advisory' ? 'rotate-180' : ''
-                    }`}
+                    className={`ml-1 h-3.5 w-3.5 transition-transform duration-200 ${activeDropdown === 'advisory' ? 'rotate-180' : ''
+                      }`}
                   />
                 </button>
               </div>
@@ -326,9 +318,8 @@ export function Header() {
                 >
                   Services
                   <ChevronDown
-                    className={`ml-1 h-3.5 w-3.5 transition-transform duration-200 ${
-                      activeDropdown === 'services' ? 'rotate-180' : ''
-                    }`}
+                    className={`ml-1 h-3.5 w-3.5 transition-transform duration-200 ${activeDropdown === 'services' ? 'rotate-180' : ''
+                      }`}
                   />
                 </button>
               </div>
@@ -349,9 +340,8 @@ export function Header() {
                 >
                   Enterprise
                   <ChevronDown
-                    className={`ml-1 h-3.5 w-3.5 transition-transform duration-200 ${
-                      activeDropdown === 'enterprise' ? 'rotate-180' : ''
-                    }`}
+                    className={`ml-1 h-3.5 w-3.5 transition-transform duration-200 ${activeDropdown === 'enterprise' ? 'rotate-180' : ''
+                      }`}
                   />
                 </button>
               </div>
@@ -371,9 +361,8 @@ export function Header() {
                 >
                   Industries
                   <ChevronDown
-                    className={`ml-1 h-3.5 w-3.5 transition-transform duration-200 ${
-                      activeDropdown === 'industries' ? 'rotate-180' : ''
-                    }`}
+                    className={`ml-1 h-3.5 w-3.5 transition-transform duration-200 ${activeDropdown === 'industries' ? 'rotate-180' : ''
+                      }`}
                   />
                 </button>
               </div>
@@ -526,7 +515,7 @@ export function Header() {
       )}
 
       {/* Advisory Mega Menu Dropdown — visible from md */}
-      {activeDropdown === 'advisory' && (
+      {activeDropdown === 'advisory' && false && (
         <div
           data-dropdown="advisory"
           className="fixed top-16 md:top-18 lg:top-20 left-0 right-0 z-40 hidden md:block"
