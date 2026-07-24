@@ -3,7 +3,7 @@
 
 // Standard section — used by most homepage sections (services, challenges,
 // why-choose-us, CTA, FAQ, industries, partners, etc.)
-export const SECTION_Y = 'py-4 sm:py-5 lg:py-7';
+export const SECTION_Y = 'py-5 sm:py-6 lg:py-8';
 
 // Tight section — used by the dark "panel" sections (experience, industries
 // spotlight) that already carry their own internal padding via the card shell.

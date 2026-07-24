@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { NAVIGATION } from '@/lib/constants';
 import { Button } from '@/components/ui/button';
 import {
-  ChevronDown,
+  ChevronDown, ArrowRight, LayoutGrid,
   Code2, Server, Brain,
   Bot, Rocket, Layers, Lightbulb, Building2, Globe, Smartphone,
   Settings, Palette, MessageSquare, MessageCircle, Headphones,
@@ -158,7 +158,8 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
 
 
               
-              {/* Advisory Accordion */}
+              {/* Advisory Accordion — hidden (set to false); Advisory now lives under Services */}
+              {false && (
               <div className="border-b border-gray-200 pb-1">
                 <button
                   onClick={() => openMenu(isAdvisoryOpen, setIsAdvisoryOpen, NAVIGATION.advisoryMenu.groups)}
@@ -225,6 +226,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                   </div>
                 )}
               </div>
+              )}
 
 
               {/* Services Accordion */}
@@ -298,7 +300,8 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               </div>
 
 
-              {/* Enterprise Accordion */}
+              {/* Enterprise Accordion — hidden (set to false) */}
+              {false && (
               <div className="border-b border-gray-200 pb-1">
                 <button
                   onClick={() => openMenu(isEnterpriseOpen, setIsEnterpriseOpen, NAVIGATION.enterpriseMenu.groups)}
@@ -365,7 +368,8 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                   </div>
                 )}
               </div>
-              
+              )}
+
               {/* Industries Accordion */}
               <div className="border-b border-gray-200 pb-1">
                 <button
@@ -385,6 +389,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                   <div className="mt-1 space-y-1 animate-in slide-in-from-top-2 duration-200">
                     {NAVIGATION.industriesMenu.groups.map((group) => {
                       const CategoryIcon = iconMap[group.icon] || Code2;
+                      const visibleLinks = group.links.filter((link) => link.showInNavigationMenu);
                       return (
                         <div key={group.title}>
                           {/* Category Header */}
@@ -411,7 +416,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                           {/* Category Links */}
                           {expandedCategory === group.title && (
                             <div className="pl-4 space-y-0.5 animate-in slide-in-from-top-1 duration-150">
-                              {group.links.map((link) => {
+                              {visibleLinks.map((link) => {
                                 const LinkIcon = iconMap[link.icon] || Code2;
                                 return (
                                   <Link
@@ -430,6 +435,17 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                         </div>
                       );
                     })}
+
+                    {/* See all Industries */}
+                    <Link
+                      href="/industry"
+                      onClick={onClose}
+                      className="flex items-center gap-2 px-3 py-2.5 text-sm font-semibold text-brand-600 hover:text-brand-700 hover:bg-brand-50/60 rounded-lg transition-colors"
+                    >
+                      <LayoutGrid className="h-4 w-4 text-brand-500 flex-shrink-0" />
+                      <span className="flex-1">See all Industries</span>
+                      <ArrowRight className="h-4 w-4 ml-auto text-brand-400 flex-shrink-0" />
+                    </Link>
                   </div>
                 )}
               </div>

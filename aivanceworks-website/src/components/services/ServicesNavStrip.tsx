@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 const PILLARS = [
   { id: 'automation-intelligence', label: 'Automation & Intelligence' },
   { id: 'advisory', label: 'Advisory' },
-  { id: 'enterprise', label: 'Enterprise' },
+  // { id: 'enterprise', label: 'Enterprise' }, // hidden (set to false)
   { id: 'software-engineering', label: 'Software Engineering' },
   { id: 'infrastructure-management', label: 'Infrastructure Management' },
   { id: 'technologies', label: 'Technologies' },

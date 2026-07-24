@@ -6,6 +6,7 @@ import {
   HeroSection,
   ExperienceSection,
   PartnersSection,
+  StatementSection,
   IndustriesSection,
   ChallengesSection,
   ServicesSection,
@@ -34,14 +35,20 @@ export default async function HomePage() {
       {/* Hero Section - Headline, subheadline, dual CTA, Partners */}
       <HeroSection />
 
-      {/* Our Experience - Certifications and stats */}
-      <ExperienceSection />
-
       {/* Our Partners - Partner logos with tier names */}
-      <PartnersSection />
+      {/* <PartnersSection /> */}
+
+      {/* Company Statement - Brand promise to customers */}
+      <StatementSection />
 
       {/* Services Overview - 6 service cards */}
       <ServicesSection />
+
+      {/* Why Companies Choose Us - 5 differentiator cards */}
+      <WhyChooseUsSection />
+
+      {/* Our Experience - Certifications and stats */}
+      <ExperienceSection />
 
       {/* Are You Facing These Challenges? - 3 challenge cards */}
       <ChallengesSection />
@@ -49,8 +56,7 @@ export default async function HomePage() {
       {/* Industries - Expanding category cards for vertical landing pages */}
       <IndustriesSectionCatalog industries={industries} />
 
-      {/* Why Companies Choose Us - 5 differentiator cards */}
-      <WhyChooseUsSection />
+
 
       {/* Case Studies Preview - 3 featured case studies */}
       {/* <CaseStudiesSection /> */}
@@ -58,12 +64,12 @@ export default async function HomePage() {
       {/* Testimonials Carousel */}
       {/* <TestimonialsSection /> */}
 
-       {/* Final CTA Section */}
+      {/* Final CTA Section */}
       <CTASection />
 
       {/* FAQ Section with Schema Markup */}
       <FAQSection />
-     
+
     </>
   );
 }

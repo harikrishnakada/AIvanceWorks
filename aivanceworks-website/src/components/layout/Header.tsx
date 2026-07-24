@@ -14,7 +14,7 @@ import {
   Cpu, Activity, Zap, TrendingUp, Heart,
   Search, ShoppingCart, Store,
   Target, Package, Sparkles, FileText, Workflow,
-  CreditCard, Stethoscope, Eye, Pill, FlaskConical,
+  CreditCard, Stethoscope, Eye, Pill, FlaskConical, LayoutGrid,
 } from 'lucide-react';
 import { MobileMenu } from './MobileMenu';
 import type { LucideIcon } from 'lucide-react';
@@ -160,26 +160,28 @@ export function Header() {
                 </div>
               )}
 
-              {/* Enterprise Dropdown */}
-              <div
-                data-dropdown="enterprise"
-                className="relative"
-                onMouseEnter={() => handleDropdownEnter('enterprise')}
-                onMouseLeave={handleDropdownLeave}
-              >
-                <button
-                  onClick={() => toggleDropdown('enterprise')}
-                  className="flex items-center px-4 xl:px-5 py-2 text-base xl:text-lg font-medium text-gray-900 hover:text-black transition-colors rounded-lg hover:bg-gray-100"
-                  aria-expanded={activeDropdown === 'enterprise'}
-                  aria-haspopup="true"
+              {/* Enterprise Dropdown — hidden (set to false) */}
+              {false && (
+                <div
+                  data-dropdown="enterprise"
+                  className="relative"
+                  onMouseEnter={() => handleDropdownEnter('enterprise')}
+                  onMouseLeave={handleDropdownLeave}
                 >
-                  Enterprise
-                  <ChevronDown
-                    className={`ml-1.5 h-4 w-4 xl:h-5 xl:w-5 transition-transform duration-200 ${activeDropdown === 'enterprise' ? 'rotate-180' : ''
-                      }`}
-                  />
-                </button>
-              </div>
+                  <button
+                    onClick={() => toggleDropdown('enterprise')}
+                    className="flex items-center px-4 xl:px-5 py-2 text-base xl:text-lg font-medium text-gray-900 hover:text-black transition-colors rounded-lg hover:bg-gray-100"
+                    aria-expanded={activeDropdown === 'enterprise'}
+                    aria-haspopup="true"
+                  >
+                    Enterprise
+                    <ChevronDown
+                      className={`ml-1.5 h-4 w-4 xl:h-5 xl:w-5 transition-transform duration-200 ${activeDropdown === 'enterprise' ? 'rotate-180' : ''
+                        }`}
+                    />
+                  </button>
+                </div>
+              )}
 
               {/* Services Dropdown */}
               <div
@@ -203,6 +205,7 @@ export function Header() {
               </div>
 
               {/* Industries Dropdown */}
+              {false && (
               <div
                 data-dropdown="industries"
                 className="relative"
@@ -222,6 +225,14 @@ export function Header() {
                   />
                 </button>
               </div>
+              )}
+               {/* <Link
+                  key="industries"
+                  href="industries"
+                  className="px-4 xl:px-5 py-2 text-base xl:text-lg font-medium text-gray-900 hover:text-black transition-colors rounded-lg hover:bg-gray-100"
+                >
+                  Industries
+                </Link> */}
 
               {/* Solutions Dropdown — hidden from UI (content preserved) */}
               {/* <div
@@ -246,7 +257,7 @@ export function Header() {
               </div> */}
 
               {/* Other Nav Links (Industry, Case Studies, Blog, About) */}
-              {NAVIGATION.main.filter((item) => !['Services', 'Solutions', 'AI & ML', 'Industries'].includes(item.label)).map((item) => (
+              {NAVIGATION.main.filter((item) => !['Services', 'Solutions', 'AI & ML'].includes(item.label)).map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
@@ -325,26 +336,28 @@ export function Header() {
               </div>
 
 
-              {/* Enterprise Dropdown */}
-              <div
-                data-dropdown="enterprise"
-                className="relative"
-                onMouseEnter={() => handleDropdownEnter('enterprise')}
-                onMouseLeave={handleDropdownLeave}
-              >
-                <button
-                  onClick={() => toggleDropdown('enterprise')}
-                  className="flex items-center px-3 py-2 text-sm font-medium text-gray-900 hover:text-black transition-colors rounded-md hover:bg-gray-100"
-                  aria-expanded={activeDropdown === 'enterprise'}
-                  aria-haspopup="true"
+              {/* Enterprise Dropdown — hidden (set to false) */}
+              {false && (
+                <div
+                  data-dropdown="enterprise"
+                  className="relative"
+                  onMouseEnter={() => handleDropdownEnter('enterprise')}
+                  onMouseLeave={handleDropdownLeave}
                 >
-                  Enterprise
-                  <ChevronDown
-                    className={`ml-1 h-3.5 w-3.5 transition-transform duration-200 ${activeDropdown === 'enterprise' ? 'rotate-180' : ''
-                      }`}
-                  />
-                </button>
-              </div>
+                  <button
+                    onClick={() => toggleDropdown('enterprise')}
+                    className="flex items-center px-3 py-2 text-sm font-medium text-gray-900 hover:text-black transition-colors rounded-md hover:bg-gray-100"
+                    aria-expanded={activeDropdown === 'enterprise'}
+                    aria-haspopup="true"
+                  >
+                    Enterprise
+                    <ChevronDown
+                      className={`ml-1 h-3.5 w-3.5 transition-transform duration-200 ${activeDropdown === 'enterprise' ? 'rotate-180' : ''
+                        }`}
+                    />
+                  </button>
+                </div>
+              )}
 
               {/* Industries Dropdown */}
               <div
@@ -686,8 +699,8 @@ export function Header() {
         </div>
       )}
 
-      {/* Enterprise Mega Menu Dropdown — visible from md */}
-      {activeDropdown === 'enterprise' && (
+      {/* Enterprise Mega Menu Dropdown — visible from md — hidden (set to false) */}
+      {activeDropdown === 'enterprise' && false && (
         <div
           data-dropdown="enterprise"
           className="fixed top-16 md:top-18 lg:top-20 left-0 right-0 z-40 hidden md:block"
@@ -815,7 +828,9 @@ export function Header() {
 
                         {/* Links */}
                         <ul className="space-y-0.5">
-                          {group.links.map((link) => {
+                          {group.links
+                            .filter((link) => link.showInNavigationMenu)
+                            .map((link) => {
                             const LinkIcon = iconMap[link.icon] || Code2;
                             return (
                               <li key={link.href + link.label}>
@@ -831,6 +846,19 @@ export function Header() {
                               </li>
                             );
                           })}
+
+                          {/* See all Industries — emphasized view-all row, aligned with the list */}
+                          <li className="mt-1">
+                            <Link
+                              href="/industry"
+                              onClick={closeDropdown}
+                              className="group/all flex items-center gap-2 py-1.5 md:py-[7px] px-2 md:px-2.5 -mx-1 rounded-lg text-xs md:text-sm font-semibold text-brand-600 hover:text-brand-700 hover:bg-brand-50/70 transition-all duration-150"
+                            >
+                              <LayoutGrid className="h-3 w-3 md:h-3.5 md:w-3.5 text-brand-500 flex-shrink-0" />
+                              <span className="flex-1 leading-snug">See all Industries</span>
+                              <ArrowRight className="h-3.5 w-3.5 ml-auto text-brand-400 transition-transform duration-150 group-hover/all:translate-x-0.5 flex-shrink-0" />
+                            </Link>
+                          </li>
                         </ul>
                       </div>
                     );

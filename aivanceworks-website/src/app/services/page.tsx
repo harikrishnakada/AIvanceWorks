@@ -216,7 +216,8 @@ export default function ServicesPage() {
         bg="gray"
       />
 
-      {/* ── Enterprise ───────────────────────────────────────── */}
+      {/* ── Enterprise ─────────────────────────────────── hidden (set to false) */}
+      {false && (
       <ServicePillarSection
         id="enterprise"
         title={NAVIGATION.enterpriseMenu.groups[0].title}
@@ -228,6 +229,7 @@ export default function ServicesPage() {
         descriptions={SERVICE_DESCRIPTIONS}
         bg="white"
       />
+      )}
 
       {/* ── Software Engineering ─────────────────────────────── */}
       <ServicePillarSection

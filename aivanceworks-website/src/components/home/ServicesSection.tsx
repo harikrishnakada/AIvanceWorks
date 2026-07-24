@@ -119,7 +119,10 @@ export function ServicesSection() {
         <div className="flex flex-col items-center gap-2 sm:gap-3 mb-3 sm:mb-4 lg:mb-5">
           <div className="w-full text-center max-w-3xl mx-auto">
             <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-black text-gray-900 mb-1 sm:mb-2">
-              End-to-End Software Development Services
+              <span className="bg-gradient-to-r from-brand-500 via-brand-600 to-accent-500 bg-clip-text text-transparent">
+                Custom {' '}
+              </span>
+              Software Development Services
             </h2>
             <p className="text-xs sm:text-sm md:text-base text-gray-500 leading-relaxed">
               From AI strategy to production deployment, we deliver the full spectrum of software development services your business needs to thrive.

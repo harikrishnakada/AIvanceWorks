@@ -1073,7 +1073,7 @@ const SOLUTION_PAGE_MODULES: Record<string, () => Promise<{ default: SolutionPag
 };
 
 const INDUSTRY_PAGE_MODULES: Record<string, () => Promise<{ default: IndustryPageData }>> = {
-  'healthcare': () => import('@/data/industries/healthcare'),
+ // 'healthcare': () => import('@/data/industries/healthcare'),
   'travel-hospitality': () => import('@/data/industries/travel-hospitality'),
   'real-estate': () => import('@/data/industries/real-estate'),
   'manufacturing-supply-chain': () =>
@@ -1081,7 +1081,7 @@ const INDUSTRY_PAGE_MODULES: Record<string, () => Promise<{ default: IndustryPag
   logistics: () => import('@/data/industries/logistics'),
   retail: () => import('@/data/industries/retail'),
   'food-beverage': () => import('@/data/industries/food-beverage'),
-  banking: () => import('@/data/industries/banking'),
+  //banking: () => import('@/data/industries/banking'),
 };
 
 export async function getServicePageData(slug: string): Promise<ServicePageData | null> {
@@ -1107,8 +1107,8 @@ export function getAllIndustryPageSlugs(): string[] {
 // feature tiles, then three balanced panels — so order is a homepage concern,
 // not derivable from the registry key order.
 const HOME_INDUSTRY_ORDER = [
-  'retail',
   'real-estate',
+  'retail',
   'travel-hospitality',
  // 'banking',
   //'healthcare',

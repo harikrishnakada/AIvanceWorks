@@ -2,6 +2,7 @@ export { HeroSection } from './HeroSection';
 export { ExperienceSection } from './ExperienceSection';
 export { ChallengesSection } from './ChallengesSection';
 export { PartnersSection } from './PartnersSection';
+export { StatementSection } from './StatementSection';
 export { IndustriesSection } from './IndustriesSection';
 export { IndustriesSectionExpanding } from './IndustriesSectionExpanding';
 export { IndustriesSectionShowcase } from './IndustriesSectionShowcase';

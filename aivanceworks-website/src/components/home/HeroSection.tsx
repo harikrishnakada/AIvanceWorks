@@ -8,9 +8,13 @@ import { ArrowRight, Play } from 'lucide-react';
 import { SITE_CONFIG } from '@/lib/constants';
 
 const heroSlides = [
-  { src: '/images/home_hero/hero_slide_1a.jpg', alt: 'AIvanceWorks Cloud & AI Solutions' },
-  { src: '/images/home_hero/home_hero_slide2.jpg', alt: 'AIvanceWorks Software Development' },
-  { src: '/images/home_hero/home_hero_slide3b.jpg', alt: 'AIvanceWorks Custom Engineering' },
+  { src: '/images/home_hero/home_hero_slide3b.jpg', alt: 'C10 Software Development' },
+  { src: '/images/home_hero/office_working.jpg', alt: 'C10 Software Development' },
+  { src: '/images/industries/msc/hero.jpg', alt: 'C10 Custom Engineering' },
+  // { src: '/images/home_hero/home_villa.jpg', alt: 'C10 Cloud & AI Solutions' },
+  // { src: '/images/home_hero/resort_pool.jpg', alt: 'C10 Software Development' },
+  { src: '/images/home_hero/planes_parked.jpg', alt: 'C10 Cloud & AI Solutions' },
+  { src: '/images/home_hero/twisted_build.jpg', alt: 'C10 Cloud & AI Solutions' },
 ];
 
 export function HeroSection() {
@@ -38,7 +42,7 @@ export function HeroSection() {
       <div
         className="relative flex-1 flex flex-col w-full
           px-4 sm:px-6 md:px-8 lg:px-12
-          pt-4 sm:pt-5 md:pt-6 lg:pt-8
+          pt-2 sm:pt-2 md:pt-2.5 lg:pt-4
           pb-2 sm:pb-2 md:pb-3 lg:pb-3"
       >
         {/* Hero Card */}
@@ -86,7 +90,7 @@ export function HeroSection() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-brand-400" />
               </span>
-              AI-Powered Cloud Computing
+              AI-Powered Software
             </div>
           </div>
 
@@ -104,26 +108,28 @@ export function HeroSection() {
               {/* Headline */}
               <h1
                 className="text-[28px] leading-[1.1] sm:text-[44px] md:text-[58px] lg:text-[72px] xl:text-[80px]
-                  font-black tracking-tight text-white"
+                  font-black tracking-tight text-white
+                  mt-4 sm:mt-5 md:mt-6"
               >
-                We Build SaaS for{' '}
-                <br className="hidden sm:block" />
+                We Build Enterprise {' '}
+                <br />
                 <span className="bg-gradient-to-r from-brand-400 via-brand-300 to-accent-400 bg-clip-text text-transparent whitespace-nowrap">
-                  Buisnesses
+                  B2B SaaS
                 </span>
               </h1>
 
-              {/* Subheadline */}
+              {/* Subheadline — pushed down toward the CTA buttons */}
               <p
                 className="text-sm leading-relaxed sm:text-base md:text-lg lg:text-xl
-                  text-white/65 max-w-2xl mx-auto"
+                  text-white/65 max-w-2xl mx-auto
+                  mt-auto mb-9 sm:mb-8 md:mb-9"
               >
                  {SITE_CONFIG.name} is a cloud computing software development company including services
                 in AI Development, SaaS Development and several other development services.
               </p>
 
               {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full max-w-xs sm:max-w-none sm:w-auto mx-auto mt-4 sm:mt-6 md:mt-8">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full max-w-xs sm:max-w-none sm:w-auto mx-auto">
                 <Button
                   size="lg"
                   asChild
