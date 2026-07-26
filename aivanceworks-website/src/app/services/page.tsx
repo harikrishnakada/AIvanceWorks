@@ -8,6 +8,7 @@ import {
   GitBranch, Cloud, RefreshCw, Shield,
   Activity, Zap, TrendingUp, Database,
   Search, CheckCircle, Eye, Building2,
+  BarChart3,
 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { constructMetadata } from '@/lib/seo';
@@ -40,7 +41,8 @@ const iconMap: Record<string, LucideIcon> = {
   Settings, Palette, MessageSquare,
   GitBranch, Cloud, RefreshCw, Shield,
   Activity, Zap, TrendingUp, Database,
-  Search, CheckCircle, Eye,
+  Search, CheckCircle, Eye, Building2,
+  BarChart3,
 };
 
 // ─── Short descriptions (keyed by slug) ──────────────────────────────────────
@@ -53,6 +55,7 @@ const SERVICE_DESCRIPTIONS: Record<string, string> = {
   'computer-vision': 'Automate visual inspection, recognition, and analysis with deep learning models.',
   'intelligent-automation': 'Orchestrate complex workflows with autonomous AI agents that reason and act.',
    // Software Engineering
+  'enterprise-software-development': 'Custom enterprise systems built around how your business actually operates — applications, integrations, modernization, data, and AI you own.',
   'market-research': 'Data-driven market sizing, competitive intelligence, and buyer persona research — before you build.',
   'erp-development': 'Unify finance, operations, HR, and supply chain on a single ERP platform.',
   'saas-development': 'Build scalable multi-tenant SaaS platforms designed for growth.',
@@ -72,6 +75,7 @@ const SERVICE_DESCRIPTIONS: Record<string, string> = {
   'devops': 'CI/CD pipelines and DevOps culture that ship 10× more with fewer incidents.',
   'platform-engineering': 'Internal developer platforms that accelerate engineering team productivity.',
   'data-engineering': 'ETL pipelines, data warehouses, and real-time analytics on Azure and AWS.',
+  'data-analytics': 'BI dashboards, analytics engineering, and self-service reporting — a governed intelligence layer on data your team trusts.',
   'security-compliance': 'Zero Trust security architecture, IAM, and compliance for HIPAA, SOC 2, and GDPR.',
 };
 

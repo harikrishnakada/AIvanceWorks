@@ -3,3 +3,5 @@
 - [Digital Transformation service pattern](project_digital-transformation-pattern.md) — B-brief→A resolution, DigitalMaturityRoadmap signature, CIO/CDO trust issue, imageFeatures-on-services gotcha, block-comment `*/` gotcha
 - [Solution page wiring checklist](reference_solution-wiring-points.md) — the exact files to touch to register a new solution page
 - [Greenfield auditNote brand-name convention](feedback_auditnote-brand-name.md) — literal "AIvanceWorks" in data-file legal disclaimers is intentional, not a token-hygiene violation
+- [Cross-vertical industryDirectory section](project_industry-directory-section.md) — how a flagship SERVICE page links down into /industry/* verticals (new SectionKey + shared section, v2.13)
+- [Real app root vs reported cwd](reference_project_root.md) — reported cwd is a double-nested dead-end containing only public/; real Next.js app is one level up

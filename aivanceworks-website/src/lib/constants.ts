@@ -169,6 +169,7 @@ export const NAVIGATION = {
         { label: `${BRAND_PREFIX} Digital Transformation`, href: '/services/digital-transformation', icon: 'Rocket' },
         { label: `${BRAND_PREFIX} SaaS Software Development`, href: '/services/saas-development', icon: 'Layers' },
         { label: `${BRAND_PREFIX} Custom Software Development`, href: '/services/custom-software-development', icon: 'Settings' },
+        { label: `${BRAND_PREFIX} Enterprise Software Development`, href: '/services/enterprise-software-development', icon: 'Building2' },
         { label: `${BRAND_PREFIX} Mobile App Development`, href: '/services/mobile-development', icon: 'Smartphone' },
         { label: `${BRAND_PREFIX} Web App Development`, href: '/services/web-app-development', icon: 'Globe' },
         { label: `${BRAND_PREFIX} Proof of Concept (PoC)`, href: '/services/proof-of-concept', icon: 'FlaskConical' },
@@ -184,6 +185,7 @@ export const NAVIGATION = {
       description: 'Cloud & DevOps excellence',
       links: [
         { label: `${BRAND_PREFIX} Data Engineering`, href: '/services/data-engineering', icon: 'Database' },
+        { label: `${BRAND_PREFIX} Data Analytics`, href: '/services/data-analytics', icon: 'BarChart3' },
         { label: `${BRAND_PREFIX} Platform Engineering`, href: '/services/platform-engineering', icon: 'Cpu' },
         { label: `${BRAND_PREFIX} DevOps & Cloud Engineering`, href: '/services/devops', icon: 'GitBranch' },
         { label: `${BRAND_PREFIX} IaaS (Infrastructure as a Service)`, href: '/services/managed-infrastructure', icon: 'ServerCog' },

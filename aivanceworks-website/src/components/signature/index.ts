@@ -105,3 +105,7 @@ export { AiUseCasePortfolioMatrix } from './AiUseCasePortfolioMatrix';
 export { AiStrategyAdvisoryHeroIllustration } from './AiStrategyAdvisoryHeroIllustration';
 export { DigitalMaturityRoadmap } from './DigitalMaturityRoadmap';
 export { DigitalTransformationHeroIllustration } from './DigitalTransformationHeroIllustration';
+export { EnterpriseDeliveryModel } from './EnterpriseDeliveryModel';
+export { EnterpriseSoftwareHeroIllustration } from './EnterpriseSoftwareHeroIllustration';
+export { SemanticLayerModel } from './SemanticLayerModel';
+export { DataAnalyticsHeroIllustration } from './DataAnalyticsHeroIllustration';

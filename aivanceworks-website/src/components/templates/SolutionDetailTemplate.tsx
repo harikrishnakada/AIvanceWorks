@@ -46,7 +46,14 @@ export const SolutionDetailTemplate = ({
     featureGrid: () =>
       data.features ? <FeatureGrid features={data.features} /> : null,
     benefitsGrid: () =>
-      data.benefits ? <BenefitsGrid benefits={data.benefits} /> : null,
+      data.benefits ? (
+        <BenefitsGrid
+          benefits={data.benefits}
+          eyebrow={data.benefitsHeading?.eyebrow}
+          title={data.benefitsHeading?.title}
+          subtitle={data.benefitsHeading?.subtitle}
+        />
+      ) : null,
     processTimeline: () =>
       data.processSteps ? <ProcessTimeline steps={data.processSteps} /> : null,
     techStackBlock: () =>
@@ -103,6 +110,7 @@ export const SolutionDetailTemplate = ({
       ) : null,
     discoveryMethodology: () => null,
     engagementModels: () => null,
+    industryDirectory: () => null, // service-only section; not used by solutions
     imageFeatures: () =>
       data.imageFeatures && data.imageFeatures.length > 0 ? (
         <ImageFeature features={data.imageFeatures} />

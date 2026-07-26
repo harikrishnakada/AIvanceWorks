@@ -269,7 +269,7 @@ const customSoftwareDevelopment: ServicePageData = {
 
   relatedPages: [
     {
-      title: 'API Development',
+      title: `${BRAND_PREFIX} API Development`,
       description:
         'Need just the interface layer? We design and build the secure, versioned REST or GraphQL API your apps and partners call — contract-first, documented, and ready to build on.',
       href: '/services/api-development',
@@ -277,7 +277,7 @@ const customSoftwareDevelopment: ServicePageData = {
       pageType: 'service',
     },
     {
-      title: 'Legacy Modernization',
+      title: `${BRAND_PREFIX} Legacy Modernization`,
       description:
         'Have a legacy system holding you back? We assess, plan, and execute the transformation — monolith to microservices, on-prem to cloud, technical debt to clean architecture.',
       href: '/services/application-modernization',
@@ -285,12 +285,12 @@ const customSoftwareDevelopment: ServicePageData = {
       pageType: 'service',
     },
     {
-      title: 'Insurance Portals',
+      title: `${BRAND_PREFIX} Enterprise Software Development`,
       description:
-        'See custom development applied to regulated industries — agent, broker, and policyholder portals built on a carrier-grade data model with SSO, SOC 2 controls, and policy-lifecycle integrations.',
-      href: '/solutions/insurance-portals',
-      icon: 'Shield',
-      pageType: 'solution',
+        'Building at enterprise scale — multiple systems, integrations, data, and AI, not just one app? Zoom out to the flagship view of how these builds fit together into the platform your business runs on.',
+      href: '/services/enterprise-software-development',
+      icon: 'Building2',
+      pageType: 'service',
     },
   ],
 

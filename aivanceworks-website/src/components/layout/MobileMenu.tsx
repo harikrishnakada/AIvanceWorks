@@ -371,84 +371,55 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               )}
 
               {/* Industries Accordion */}
-              <div className="border-b border-gray-200 pb-1">
-                <button
-                  onClick={() => openMenu(isIndustriesOpen, setIsIndustriesOpen, NAVIGATION.industriesMenu.groups)}
-                  className="flex items-center justify-between w-full px-4 py-3 text-base font-medium text-gray-900 hover:bg-gray-50 rounded-lg transition-colors"
-                  aria-expanded={isIndustriesOpen}
-                >
-                  Industries
-                  <ChevronDown
-                    className={`h-5 w-5 text-gray-500 transition-transform duration-200 ${
-                      isIndustriesOpen ? 'rotate-180' : ''
-                    }`}
-                  />
-                </button>
+              {false && (
+                <div className="border-b border-gray-200 pb-1">
+                  <button
+                    onClick={() => openMenu(isIndustriesOpen, setIsIndustriesOpen, NAVIGATION.industriesMenu.groups)}
+                    className="flex items-center justify-between w-full px-4 py-3 text-base font-medium text-gray-900 hover:bg-gray-50 rounded-lg transition-colors"
+                    aria-expanded={isIndustriesOpen}
+                  >
+                    Industries
+                    <ChevronDown
+                      className={`h-5 w-5 text-gray-500 transition-transform duration-200 ${isIndustriesOpen ? 'rotate-180' : ''
+                        }`}
+                    />
+                  </button>
 
-                {isIndustriesOpen && (
-                  <div className="mt-1 space-y-1 animate-in slide-in-from-top-2 duration-200">
-                    {NAVIGATION.industriesMenu.groups.map((group) => {
-                      const CategoryIcon = iconMap[group.icon] || Code2;
-                      const visibleLinks = group.links.filter((link) => link.showInNavigationMenu);
-                      return (
-                        <div key={group.title}>
-                          {/* Category Header */}
-                          <button
-                            onClick={() => toggleCategory(group.title)}
-                            className="flex items-center justify-between w-full px-3 py-2.5 text-sm font-semibold text-gray-700 hover:bg-gray-50 rounded-lg transition-colors"
-                          >
-                            <div className="flex items-center gap-2.5">
-                              <div className="w-7 h-7 rounded-lg bg-brand-50 flex items-center justify-center flex-shrink-0">
-                                <CategoryIcon className="h-3.5 w-3.5 text-brand-600" />
-                              </div>
-                              <div className="text-left">
-                                <div className="text-sm font-semibold text-gray-800">{group.title}</div>
-                                <div className="text-[10px] text-gray-400 font-normal">{group.description}</div>
-                              </div>
-                            </div>
-                            <ChevronDown
-                              className={`h-4 w-4 text-gray-400 transition-transform duration-200 flex-shrink-0 ${
-                                expandedCategory === group.title ? 'rotate-180' : ''
-                              }`}
-                            />
-                          </button>
+                  {isIndustriesOpen && (
+                    <div className="mt-1 space-y-1 animate-in slide-in-from-top-2 duration-200">
+                      {/* Industry links shown flat (mirrors the desktop dropdown) */}
+                      {NAVIGATION.industriesMenu.groups
+                        .flatMap((group) => group.links)
+                        .filter((link) => link.showInNavigationMenu)
+                        .map((link) => {
+                          const LinkIcon = iconMap[link.icon] || Code2;
+                          return (
+                            <Link
+                              key={link.href + link.label}
+                              href={link.href}
+                              onClick={onClose}
+                              className="flex items-center gap-2 px-3 py-2 text-sm text-gray-600 hover:text-brand-600 hover:bg-brand-50/60 rounded-lg transition-colors"
+                            >
+                              <LinkIcon className="h-3.5 w-3.5 text-gray-400 flex-shrink-0" />
+                              {link.label}
+                            </Link>
+                          );
+                        })}
 
-                          {/* Category Links */}
-                          {expandedCategory === group.title && (
-                            <div className="pl-4 space-y-0.5 animate-in slide-in-from-top-1 duration-150">
-                              {visibleLinks.map((link) => {
-                                const LinkIcon = iconMap[link.icon] || Code2;
-                                return (
-                                  <Link
-                                    key={link.href + link.label}
-                                    href={link.href}
-                                    onClick={onClose}
-                                    className="flex items-center gap-2 px-3 py-2 text-sm text-gray-600 hover:text-brand-600 hover:bg-brand-50/60 rounded-lg transition-colors"
-                                  >
-                                    <LinkIcon className="h-3.5 w-3.5 text-gray-400 flex-shrink-0" />
-                                    {link.label}
-                                  </Link>
-                                );
-                              })}
-                            </div>
-                          )}
-                        </div>
-                      );
-                    })}
-
-                    {/* See all Industries */}
-                    <Link
-                      href="/industry"
-                      onClick={onClose}
-                      className="flex items-center gap-2 px-3 py-2.5 text-sm font-semibold text-brand-600 hover:text-brand-700 hover:bg-brand-50/60 rounded-lg transition-colors"
-                    >
-                      <LayoutGrid className="h-4 w-4 text-brand-500 flex-shrink-0" />
-                      <span className="flex-1">See all Industries</span>
-                      <ArrowRight className="h-4 w-4 ml-auto text-brand-400 flex-shrink-0" />
-                    </Link>
-                  </div>
-                )}
-              </div>
+                      {/* See all Industries */}
+                      <Link
+                        href="/industry"
+                        onClick={onClose}
+                        className="flex items-center gap-2 px-3 py-2.5 text-sm font-semibold text-brand-600 hover:text-brand-700 hover:bg-brand-50/60 rounded-lg transition-colors"
+                      >
+                        <LayoutGrid className="h-4 w-4 text-brand-500 flex-shrink-0" />
+                        <span className="flex-1">See all Industries</span>
+                        <ArrowRight className="h-4 w-4 ml-auto text-brand-400 flex-shrink-0" />
+                      </Link>
+                    </div>
+                  )}
+                </div>
+              )}
 
               {/* Solutions Accordion — hidden from UI (content preserved, never rendered) */}
               {false && (
@@ -522,7 +493,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               )}
 
               {/* Other Navigation Links (Case Studies, Blog, About) */}
-              {NAVIGATION.main.filter((item) => !['Services', 'AI', 'Solutions', 'Industries'].includes(item.label)).map((item) => (
+              {NAVIGATION.main.filter((item) => !['Services', 'AI', 'Solutions'].includes(item.label)).map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}

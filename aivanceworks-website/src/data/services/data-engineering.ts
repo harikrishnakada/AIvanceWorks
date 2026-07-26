@@ -297,11 +297,11 @@ const dataEngineering: ServicePageData = {
       pageType: 'service',
     },
     {
-      title: 'Generative AI',
+      title: 'Data Analytics',
       description:
-        'Pipeline built and data trusted? The next step is putting it to work. We build RAG systems and AI features that read from your curated Gold layer — so your LLM answers are grounded in verified data, not hallucinations.',
-      href: '/services/generative-ai',
-      icon: 'Sparkles',
+        'Foundation built and the Gold layer trusted? The next step is insight. We build the dashboards, governed semantic layer, and self-service reporting that turn your curated data into decisions the business actually acts on.',
+      href: '/services/data-analytics',
+      icon: 'BarChart3',
       pageType: 'service',
     },
     {

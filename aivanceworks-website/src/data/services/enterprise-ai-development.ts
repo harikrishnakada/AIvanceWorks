@@ -364,7 +364,7 @@ const enterpriseAiDevelopment: ServicePageData = {
 
   relatedPages: [
     {
-      title: 'C10 AI Strategy',
+      title: `${BRAND_PREFIX} AI Strategy`,
       description:
         'Not sure which use cases justify a full enterprise build — or which ones your risk committee will allow? A vendor-neutral, risk-tiered assessment prioritizes by value, feasibility, and AI-risk tier, and produces the governed roadmap we then deliver against.',
       href: '/services/c10-ai-strategy',
@@ -372,7 +372,7 @@ const enterpriseAiDevelopment: ServicePageData = {
       pageType: 'service',
     },
     {
-      title: 'Generative AI',
+      title: `${BRAND_PREFIX} Generative AI`,
       description:
         'Already know the capability is generative — RAG, agents, or LLM features? See the engineering we wrap in this enterprise delivery layer: retrieval quality, guardrails, and monitoring from the first sprint.',
       href: '/services/generative-ai',
@@ -380,12 +380,12 @@ const enterpriseAiDevelopment: ServicePageData = {
       pageType: 'service',
     },
     {
-      title: 'AI Infrastructure',
+      title: `${BRAND_PREFIX} Enterprise Software Development`,
       description:
-        'Need the platform underneath enterprise AI? Our AI infrastructure engagement builds the compute, data fabric, and cost guardrails your AI workloads run on — engineered for portability and predictable spend.',
-      href: '/solutions/ai-infrastructure',
-      icon: 'Server',
-      pageType: 'solution',
+        'AI is one piece of a larger enterprise build — applications, integrations, and data? Step up to the flagship view, where AI is embedded into the custom systems your business actually runs on.',
+      href: '/services/enterprise-software-development',
+      icon: 'Building2',
+      pageType: 'service',
     },
   ],
 

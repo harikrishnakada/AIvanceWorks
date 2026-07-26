@@ -1003,6 +1003,7 @@ const SERVICE_PAGE_MODULES: Record<string, () => Promise<{ default: ServicePageD
   'web-app-development': () => import('@/data/services/web-app-development'),
   'application-modernization': () => import('@/data/services/application-modernization'),
   'custom-software-development': () => import('@/data/services/custom-software-development'),
+  'enterprise-software-development': () => import('@/data/services/enterprise-software-development'),
   'ui-ux-design': () => import('@/data/services/ui-ux-design'),
   'quality-engineering': () => import('@/data/services/quality-engineering'),
   'c10-architecture-advisory': () => import('@/data/services/c10-architecture-advisory'),
@@ -1021,6 +1022,7 @@ const SERVICE_PAGE_MODULES: Record<string, () => Promise<{ default: ServicePageD
   'human-capital-management': () =>
     import('@/data/services/human-capital-management'),
   'data-engineering': () => import('@/data/services/data-engineering'),
+  'data-analytics': () => import('@/data/services/data-analytics'),
   'platform-engineering': () => import('@/data/services/platform-engineering'),
   'mvp-development': () => import('@/data/services/mvp-development'),
   'managed-infrastructure': () => import('@/data/services/managed-infrastructure'),

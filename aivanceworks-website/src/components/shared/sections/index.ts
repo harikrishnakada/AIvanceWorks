@@ -14,3 +14,4 @@ export { ComplianceDeepDive, type ComplianceDeepDiveProps, type SafeguardItem } 
 export { ComplianceSpotlight, type ComplianceSpotlightProps, type CompliancePillar } from './ComplianceSpotlight';
 export { PersonaComparison, type PersonaComparisonProps, type PersonaCard, type PersonaAccent } from './PersonaComparison';
 export { ImageFeature, type ImageFeatureProps } from './ImageFeature';
+export { IndustryDirectory, type IndustryDirectoryProps } from './IndustryDirectory';

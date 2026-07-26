@@ -122,6 +122,25 @@ export interface RelatedPageItem {
   pageType: 'service' | 'solution';      // enables type badge + future auto-matching
 }
 
+// A single cross-link from a flagship SERVICE page into an industry vertical
+// page (/industry/<slug>). Distinct from RelatedPageItem (which links
+// services/solutions and carries a pageType badge) — this routes the "how we
+// build" flagship down into the "who we build for" vertical surfaces.
+export interface IndustryDirectoryLink {
+  name: string;         // vertical name, e.g. "Real Estate & PropTech"
+  connector: string;    // one-line "Building for X? See our Y page." connector
+  href: string;         // /industry/<slug>
+  icon: string;         // Lucide icon name
+}
+
+export interface IndustryDirectoryData {
+  eyebrow?: string;
+  title: string;
+  highlightText?: string;   // optional substring of title rendered in accent
+  subtitle?: string;
+  items: IndustryDirectoryLink[];
+}
+
 export interface CaseStudyRef {
   slug: string;
   clientName: string;
@@ -151,6 +170,7 @@ export type SectionKey =
   | 'relatedPages'
   | 'imageFeatures'
   | 'roleBoundary'
+  | 'industryDirectory'
   | 'signature';
 
 export interface ImageFeatureData {
@@ -218,6 +238,11 @@ export interface BasePageData {
   metricsStrip?: HeroMetric[];
   features?: FeatureItem[];
   benefits?: BenefitItem[];
+  benefitsHeading?: {                // optional header for the BenefitsGrid section
+    eyebrow?: string;
+    title?: string;
+    subtitle?: string;
+  };
   processSteps?: ProcessStepData[];
   capabilities?: string[];
   technologies?: string[];
@@ -267,6 +292,11 @@ export interface ServicePageData extends BasePageData {
   // product need the full safeguards + frameworks + audit-note detail, not
   // just the lighter ComplianceSpotlight. Optional — most services ignore it.
   complianceDeepDive?: ComplianceDetail;
+  // Cross-vertical navigation into /industry/<slug> pages. Rendered via the
+  // 'industryDirectory' composition key by the IndustryDirectory shared
+  // section. Driven by the flagship /services/enterprise-software-development
+  // page (the "how we build" surface that sits above the industry verticals).
+  industryDirectory?: IndustryDirectoryData;
   signatureComponent: string;
   heroIllustrationComponent: string;
 }

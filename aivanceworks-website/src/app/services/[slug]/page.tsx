@@ -81,6 +81,10 @@ import {
   AiStrategyAdvisoryHeroIllustration,
   DigitalMaturityRoadmap,
   DigitalTransformationHeroIllustration,
+  EnterpriseDeliveryModel,
+  EnterpriseSoftwareHeroIllustration,
+  SemanticLayerModel,
+  DataAnalyticsHeroIllustration,
 
 } from '@/components/signature';
 import type { ReactNode } from 'react';
@@ -151,6 +155,8 @@ const SIGNATURE_COMPONENTS: Record<string, ReactNode> = {
   AiNativeArchitectureContrast: <AiNativeArchitectureContrast />,
   AiUseCasePortfolioMatrix: <AiUseCasePortfolioMatrix />,
   DigitalMaturityRoadmap: <DigitalMaturityRoadmap />,
+  EnterpriseDeliveryModel: <EnterpriseDeliveryModel />,
+  SemanticLayerModel: <SemanticLayerModel />,
 
 };
 
@@ -192,6 +198,8 @@ const HERO_ILLUSTRATION_COMPONENTS: Record<string, ReactNode> = {
   AiNativeHeroIllustration: <AiNativeHeroIllustration />,
   AiStrategyAdvisoryHeroIllustration: <AiStrategyAdvisoryHeroIllustration />,
   DigitalTransformationHeroIllustration: <DigitalTransformationHeroIllustration />,
+  EnterpriseSoftwareHeroIllustration: <EnterpriseSoftwareHeroIllustration />,
+  DataAnalyticsHeroIllustration: <DataAnalyticsHeroIllustration />,
 
 };
 

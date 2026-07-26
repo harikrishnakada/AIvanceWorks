@@ -17,6 +17,7 @@ import {
   ComplianceSpotlight,
   PersonaComparison,
   RelatedPages,
+  IndustryDirectory,
 } from '@/components/shared/sections';
 import { RoleBoundary } from '@/components/signature';
 
@@ -58,7 +59,14 @@ export const ServiceDetailTemplate = ({
     featureGrid: () =>
       data.features ? <FeatureGrid features={data.features} /> : null,
     benefitsGrid: () =>
-      data.benefits ? <BenefitsGrid benefits={data.benefits} /> : null,
+      data.benefits ? (
+        <BenefitsGrid
+          benefits={data.benefits}
+          eyebrow={data.benefitsHeading?.eyebrow}
+          title={data.benefitsHeading?.title}
+          subtitle={data.benefitsHeading?.subtitle}
+        />
+      ) : null,
     processTimeline: () =>
       data.processSteps ? <ProcessTimeline steps={data.processSteps} /> : null,
     techStackBlock: () =>
@@ -123,6 +131,16 @@ export const ServiceDetailTemplate = ({
         />
       ) : null,
     imageFeatures: () => null, // not used by services (wired in Task 5)
+    industryDirectory: () =>
+      data.industryDirectory ? (
+        <IndustryDirectory
+          eyebrow={data.industryDirectory.eyebrow}
+          title={data.industryDirectory.title}
+          highlightText={data.industryDirectory.highlightText}
+          subtitle={data.industryDirectory.subtitle}
+          items={data.industryDirectory.items}
+        />
+      ) : null,
     relatedPages: () =>
       data.relatedPages ? (
         <RelatedPages
