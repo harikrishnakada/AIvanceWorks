@@ -52,8 +52,8 @@ const realEstate: IndustryPageData = {
     tagline:
       'Data-first software that moves listings, deals, and decisions faster — from the first listing to the final signature.',
     short: 'Data-first software that moves listings, deals, and decisions faster.',
-    image: '/images/industries/realestate/category-card.jpg',
-    alt: 'City skyline of high-rise real estate at dusk',
+    image: '/images/industries/realestate/category-card-1.jpg',
+    alt: 'Aerial view of a residential neighborhood of homes and winding streets',
     proof: ['MLS / IDX Data', 'Deal Pipeline', 'Property Analytics'],
   },
 

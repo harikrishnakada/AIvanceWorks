@@ -52,8 +52,8 @@ const retail: IndustryPageData = {
     tagline:
       'The software layer that connects how people shop with how retailers operate — from browse to buy to reorder.',
     short: 'Both sides of the retail experience layer — storefront to back office.',
-    image: '/images/industries/retail/hero.jpg',
-    alt: 'A modern retail storefront and checkout counter with connected screens',
+    image: '/images/industries/retail/category-card-1.jpg',
+    alt: 'A retail executive in a tailored suit on the shop floor',
     proof: ['E-Commerce & POS', 'Inventory & OMS', 'Retail CRM & Loyalty'],
   },
 

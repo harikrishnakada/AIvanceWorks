@@ -18,6 +18,7 @@ import {
   IndustriesSectionExpanding,
   IndustriesSectionShowcase,
   IndustriesSectionCatalog,
+  IndustriesSectionCarousel,
 } from '@/components/home';
 
 export default async function HomePage() {
@@ -41,20 +42,21 @@ export default async function HomePage() {
       {/* Company Statement - Brand promise to customers */}
       <StatementSection />
 
+      {/* Are You Facing These Challenges? - 3 challenge cards */}
+      <ChallengesSection />
+
+
       {/* Services Overview - 6 service cards */}
       <ServicesSection />
-
-      {/* Why Companies Choose Us - 5 differentiator cards */}
-      <WhyChooseUsSection />
 
       {/* Our Experience - Certifications and stats */}
       <ExperienceSection />
 
-      {/* Are You Facing These Challenges? - 3 challenge cards */}
-      <ChallengesSection />
+      {/* Why Companies Choose Us - 5 differentiator cards */}
+      <WhyChooseUsSection />
 
-      {/* Industries - Expanding category cards for vertical landing pages */}
-      <IndustriesSectionCatalog industries={industries} />
+      {/* Industries - Category card slideshow into vertical landing pages */}
+      <IndustriesSectionCarousel industries={industries} />
 
 
 

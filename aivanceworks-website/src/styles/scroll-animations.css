@@ -83,6 +83,66 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* ─── Industry Reveal Cards (coarse-pointer fallback) ───
+   The card's panel and supporting copy are revealed by :hover / :focus-within.
+   On a touch device there is no hover to give, so the copy must rest visible.
+
+   But the desktop reveal defocuses the photograph, and that only reads as an
+   effect because there is a sharp state to contrast against. Resting in it
+   would leave every mobile card a permanent 40px smear — the photo present but
+   unrecognisable — and six always-on backdrop-filters is real scroll cost on a
+   phone. So touch gets its own treatment: photo sharp, copy seated on a
+   bottom-up gradient. Same card, different substrate.
+
+   Kept here rather than as a Tailwind arbitrary variant because
+   `[@media(hover:none)]:` does not compile in this project's Tailwind setup,
+   and a silently-dropped rule ships a card with no description or CTA.
+   Tailwind v4 emits `translate-*` as the standalone `translate` property, so
+   these resets target `translate`, not `transform`. */
+@media (hover: none) {
+  /* Copy is permanently on-card here rather than revealed, so the card needs
+     the extra height or the photograph is squeezed to a sliver. */
+  .reveal-card {
+    height: 23rem;
+  }
+
+  .reveal-card-panel {
+    translate: none !important;
+    /* Standard property only — writing the -webkit- alias alongside it makes
+       Lightning CSS collapse the pair down to the prefixed one, which Firefox
+       ignores, and the blur survives there. Let the build add the prefix. */
+    backdrop-filter: none !important;
+    /* Dense enough to hold body copy by ~65% height, where the description's
+       first line lands once the block is bottom-anchored. Above that it opens
+       up fast so the photograph still reads as a photograph. */
+    background-image: linear-gradient(
+      to top,
+      rgb(0 0 0 / 0.95) 0%,
+      rgb(0 0 0 / 0.92) 42%,
+      rgb(0 0 0 / 0.80) 62%,
+      rgb(0 0 0 / 0.42) 78%,
+      transparent 97%
+    ) !important;
+  }
+
+  /* Copy drops to the floor, into the dense end of the gradient. */
+  .reveal-card-body {
+    justify-content: flex-end;
+    padding-top: 1.25rem;
+  }
+
+  .reveal-card-body > * {
+    translate: none !important;
+    opacity: 1 !important;
+    transition: none !important;
+  }
+
+  /* The CTA row's `mt-auto` would push everything back apart. */
+  .reveal-card-body > :last-child {
+    margin-top: 0 !important;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .scroll-step,
   .scroll-stagger > *,

@@ -1,13 +1,11 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
 import { constructMetadata } from '@/lib/seo';
 import { generateWebPageSchema } from '@/lib/schema';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { SITE_CONFIG } from '@/lib/constants';
 import { getAllIndustryPageSlugs, getIndustryPageData } from '@/lib/content';
-import { Section, Container, IconTile, Breadcrumbs } from '@/components/shared/primitives';
-import { getLucideIcon } from '@/lib/icons';
+import { Section, Container, Breadcrumbs } from '@/components/shared/primitives';
+import { IndustryRevealGrid, type IndustryRevealCard } from '@/components/industry';
 
 export const metadata: Metadata = constructMetadata({
   title: 'Industries We Serve | AIvanceWorks',
@@ -21,6 +19,21 @@ export default async function IndustryIndexPage() {
   const industries = (
     await Promise.all(slugs.map((slug) => getIndustryPageData(slug)))
   ).filter((d): d is NonNullable<typeof d> => Boolean(d));
+
+  // Card projection. The industry data files stay the single source of truth;
+  // `homeCard` carries the category-card image + chips, with the hero as the
+  // fallback for any industry that hasn't had one shot yet.
+  const cards: IndustryRevealCard[] = industries.map((industry) => ({
+    slug: industry.slug,
+    name: industry.name,
+    description: industry.homeCard?.tagline ?? industry.shortDescription,
+    proof: industry.homeCard?.proof ?? [],
+    image: industry.homeCard?.image ?? industry.hero.heroImage.src,
+    alt: industry.homeCard?.alt ?? industry.hero.heroImage.alt,
+    icon: industry.icon,
+    href: industry.canonicalPath,
+    bookHref: `/book-consultation?industry=${industry.slug}`,
+  }));
 
   const schema = {
     '@context': 'https://schema.org',
@@ -60,39 +73,17 @@ export default async function IndustryIndexPage() {
         </Container>
       </Section>
 
-      <Section tone="light" size="lg">
+      <Section tone="dark" size="lg" withGrid>
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute bottom-0 right-1/4 w-[520px] h-64 bg-accent-500/[0.07] rounded-full blur-[130px]"
+        />
         <Container>
-          <div className="grid gap-6 md:gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {industries.map((industry) => {
-              const Icon = getLucideIcon(industry.icon ?? 'Building2');
-              return (
-                <Link
-                  key={industry.slug}
-                  href={industry.canonicalPath}
-                  className="group rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2"
-                >
-                  <div className="h-full bg-surface-white border border-border-light rounded-2xl shadow-card-sm hover:shadow-card hover:border-brand-300 transition-all p-7 md:p-8">
-                    <IconTile
-                      icon={Icon}
-                      size="lg"
-                      variant="brand"
-                      className="mb-6 group-hover:scale-110 transition-transform"
-                    />
-                    <h2 className="text-xl md:text-2xl font-semibold text-text-heading mb-3 group-hover:text-brand-600 transition-colors">
-                      {industry.title}
-                    </h2>
-                    <p className="text-sm md:text-base text-text-body leading-relaxed mb-5">
-                      {industry.shortDescription}
-                    </p>
-                    <div className="flex items-center text-brand-600 font-medium text-sm">
-                      Explore {industry.breadcrumb[industry.breadcrumb.length - 1].label}
-                      <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                    </div>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
+          <p className="max-w-2xl text-sm md:text-base text-text-light/70 leading-relaxed text-pretty mb-6 md:mb-8">
+            Pick the vertical closest to yours and we&apos;ll walk your stack, your compliance
+            bar, and your roadmap on a 30-minute call.
+          </p>
+          <IndustryRevealGrid industries={cards} />
         </Container>
       </Section>
     </>

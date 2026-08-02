@@ -171,6 +171,28 @@ body {
   }
 }
 
+/* ─── Hero Scroll Cue ─────────────────────────────────────────────
+   The full-height hero fills the viewport, so the page can read as if
+   it ends at the fold. The rail is always visible on its own; the
+   travelling dot is the enhancement layer (reduced-motion parks it). */
+.hero-scroll-dot {
+  animation: hero-scroll-drift 2.6s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+@keyframes hero-scroll-drift {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  25%,
+  60% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(280%);
+    opacity: 0;
+  }
+}
+
 /* ─── Accessibility: Reduced Motion ─── */
 @media (prefers-reduced-motion: reduce) {
   .reveal,

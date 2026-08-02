@@ -30,28 +30,16 @@ export function HeroSection() {
   return (
     <section
       data-section="home-hero"
-      className="relative bg-gradient-to-b from-gray-50 via-brand-50/30 to-white overflow-hidden
-        flex flex-col"
+      className="relative bg-gray-950 overflow-hidden
+        flex flex-col
+        min-h-[calc(100svh-5rem)] md:min-h-[calc(100svh-4.5rem)] lg:min-h-[calc(100svh-5rem)]"
     >
-      {/* Background grid */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--brand-grid)_1px,transparent_1px),linear-gradient(to_bottom,var(--brand-grid)_1px,transparent_1px)] bg-[size:32px_32px]" />
-      <div className="hidden md:block absolute top-0 right-1/4 w-[400px] h-[400px] bg-brand-100/30 rounded-full blur-[120px] pointer-events-none" />
-      <div className="hidden md:block absolute bottom-0 left-1/4 w-[300px] h-[300px] bg-brand-50/30 rounded-full blur-[100px] pointer-events-none" />
-
       {/* Outer wrapper */}
-      <div
-        className="relative flex-1 flex flex-col w-full
-          px-4 sm:px-6 md:px-8 lg:px-12
-          pt-2 sm:pt-2 md:pt-2.5 lg:pt-4
-          pb-2 sm:pb-2 md:pb-3 lg:pb-3"
-      >
-        {/* Hero Card */}
+      <div className="relative flex-1 flex flex-col w-full">
+        {/* Hero stage — full-bleed, no frame */}
         <div
-          className="flex flex-col relative w-full
+          className="flex flex-1 flex-col relative w-full
             min-h-[450px] sm:min-h-[490px] md:min-h-[544px] lg:min-h-[604px]
-            rounded-2xl lg:rounded-3xl
-            border border-white/[0.06]
-            shadow-brand-panel
             overflow-hidden"
         >
           {/* Sliding background images */}
@@ -72,6 +60,9 @@ export function HeroSection() {
           ))}
           {/* Dark overlay to keep text readable */}
           <div className="absolute inset-0 bg-black/60 pointer-events-none" />
+          {/* Center scrim — the slides vary a lot in brightness; this holds
+              body-text contrast on the light ones without flattening the photo */}
+          <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,rgba(0,0,0,0.45),transparent_75%)]" />
 
           {/* Glow orbs */}
           <div className="absolute top-0 left-1/3 w-[500px] h-56 bg-brand-500/[0.07] rounded-full blur-[100px] pointer-events-none" />
@@ -99,17 +90,16 @@ export function HeroSection() {
             className="relative flex flex-1 flex-col
               px-4 sm:px-8 md:px-12 lg:px-20 xl:px-28
               pt-14 sm:pt-16 md:pt-18 lg:pt-20
-              pb-4 sm:pb-5 md:pb-6 lg:pb-7"
+              pb-14 sm:pb-16 md:pb-18 lg:pb-20"
           >
             {/* Hero content */}
             <div
-              className="flex flex-1 flex-col items-center justify-evenly text-center max-w-5xl mx-auto w-full"
+              className="flex flex-1 flex-col items-center justify-center text-center max-w-5xl mx-auto w-full"
             >
               {/* Headline */}
               <h1
                 className="text-[28px] leading-[1.1] sm:text-[44px] md:text-[58px] lg:text-[72px] xl:text-[80px]
-                  font-black tracking-tight text-white
-                  mt-4 sm:mt-5 md:mt-6"
+                  font-black tracking-tight text-white text-balance"
               >
                 We Build Enterprise {' '}
                 <br />
@@ -121,8 +111,8 @@ export function HeroSection() {
               {/* Subheadline — pushed down toward the CTA buttons */}
               <p
                 className="text-sm leading-relaxed sm:text-base md:text-lg lg:text-xl
-                  text-white/65 max-w-2xl mx-auto
-                  mt-auto mb-9 sm:mb-8 md:mb-9"
+                  text-white/75 max-w-2xl mx-auto text-pretty
+                  mt-5 sm:mt-6 md:mt-7 mb-9 sm:mb-9 md:mb-10"
               >
                  {SITE_CONFIG.name} is a cloud computing software development company including services
                 in AI Development, SaaS Development and several other development services.
@@ -166,8 +156,26 @@ export function HeroSection() {
               </div>
             </div>
           </div>
+
+          {/* Scroll cue — the hero now owns the full fold, so signal there's more below */}
+          <a
+            href="#below-hero"
+            aria-label="Scroll to page content"
+            className="absolute bottom-5 md:bottom-7 left-1/2 -translate-x-1/2 z-20
+              hidden sm:flex flex-col items-center gap-2 group
+              focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50
+              focus-visible:ring-offset-2 focus-visible:ring-offset-transparent rounded-full p-1"
+          >
+            <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/60 transition-colors duration-300 group-hover:text-white/90">
+              Scroll
+            </span>
+            <span className="relative block h-9 w-px overflow-hidden bg-gradient-to-b from-white/35 to-transparent">
+              <span className="hero-scroll-dot absolute inset-x-0 top-0 block h-2.5 w-px bg-white/90" />
+            </span>
+          </a>
         </div>
       </div>
+      <span id="below-hero" className="sr-only scroll-mt-20" />
     </section>
   );
 }

@@ -8,6 +8,7 @@ export { IndustriesSectionExpanding } from './IndustriesSectionExpanding';
 export { IndustriesSectionShowcase } from './IndustriesSectionShowcase';
 export { IndustriesSectionReveal } from './IndustriesSectionReveal';
 export { IndustriesSectionCatalog } from './IndustriesSectionCatalog';
+export { IndustriesSectionCarousel } from './IndustriesSectionCarousel';
 export { ServicesSection } from './ServicesSection';
 export { WhyChooseUsSection } from './WhyChooseUsSection';
 export { CaseStudiesSection } from './CaseStudiesSection';

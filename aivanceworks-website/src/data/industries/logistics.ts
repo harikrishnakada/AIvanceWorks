@@ -52,7 +52,7 @@ const logistics: IndustryPageData = {
     tagline:
       'Visibility and control across every mile — the software layer on top of your TMS, telematics, and carrier systems.',
     short: 'Visibility and control across every mile — from TMS to telematics.',
-    image: '/images/industries/logistics/category-card.jpg',
+    image: '/images/industries/logistics/category-card-1.jpg',
     alt: 'Towering warehouse racking aisle in a distribution center',
     proof: ['TMS', 'Fleet Telematics', 'Route Optimization'],
   },

@@ -36,7 +36,7 @@ export function ChallengesSection() {
           <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-gray-900 mb-2 leading-tight">
             Are You Facing These{' '}
             <span className="bg-gradient-to-r from-brand-600 to-brand-400 bg-clip-text text-transparent">
-              Challenges?
+              Obstacles?
             </span>
           </h2>
           <p className="text-xs sm:text-sm md:text-base text-gray-500 leading-relaxed">

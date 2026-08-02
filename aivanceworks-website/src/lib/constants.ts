@@ -1,18 +1,18 @@
-export const CONTACT_EMAIL = 'serpentsoftware@gmail.com';
-export const SUPPORT_EMAIL = 'serpentsoftware@gmail.com';
-export const FROM_EMAIL = 'notifications@serpentsoftware.com';
-export const BRAND_PREFIX = 'C10';
-export const sitename = 'C10 Software';
+export const CONTACT_EMAIL = 'devsolve@gmail.com';
+export const SUPPORT_EMAIL = 'devsolve@gmail.com';
+export const FROM_EMAIL = 'notifications@devsolve.io';
+export const BRAND_PREFIX = 'DS';
+export const sitename = 'DS Software';
 export const SITE_CONFIG = {
   name: sitename,
   description:
     'AI-first software development for startups. Expert teams in AI agents, RAG frameworks, Azure cloud, and custom development.',
-  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://serpentsoftware.com',
+  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://devsolve.io',
   ogImage: '/og-default.jpg',
   links: {
-    twitter: 'https://twitter.com/serpentsoftware',
-    linkedin: 'https://linkedin.com/company/serpentsoftware',
-    github: 'https://github.com/serpentsoftware',
+    twitter: 'https://twitter.com/devsolve',
+    linkedin: 'https://linkedin.com/company/devsolve',
+    github: 'https://github.com/devsolve',
   },
   creator: `${sitename} Team`,
   company: {

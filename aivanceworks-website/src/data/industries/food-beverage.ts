@@ -53,8 +53,8 @@ const foodBeverage: IndustryPageData = {
     tagline:
       'The software layer that runs modern food businesses — from the kitchen to the customer, from the supplier to the shelf.',
     short: 'Ops-first F&B software — food service, distribution, and the data in between.',
-    image: '/images/industries/food-beverage/barrels.jpg',
-    alt: 'A busy commercial kitchen pass connected to ordering and inventory screens',
+    image: '/images/industries/food-beverage/category-card.jpg',
+    alt: 'A guest enjoying a plated dish at a restaurant table',
     proof: ['Restaurant & POS', 'Food Costing & Menu', 'Distribution & Traceability'],
   },
 

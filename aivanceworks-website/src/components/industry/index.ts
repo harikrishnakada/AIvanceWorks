@@ -9,3 +9,4 @@ export { IndustryTechStandards, type IndustryTechStandardsProps } from './Indust
 export { IndustryServices, type IndustryServicesProps, type ServiceLink } from './IndustryServices';
 export { IndustryFaq, type IndustryFaqProps } from './IndustryFaq';
 export { IndustryCta, type IndustryCtaProps } from './IndustryCta';
+export { IndustryRevealGrid, type IndustryRevealCard } from './IndustryRevealGrid';

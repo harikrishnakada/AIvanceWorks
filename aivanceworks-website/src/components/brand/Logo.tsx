@@ -15,8 +15,11 @@ export function Logo({ asLink = true, className }: LogoProps) {
   const gradBg = `logo-bg-${id}`;
   const gradShine = `logo-shine-${id}`;
 
-  const [primaryName, ...rest] = SITE_CONFIG.name.split(' ');
-  const secondaryName = rest.join(' ');
+  let [primaryName, ...rest] = SITE_CONFIG.name.split(' ');
+  let secondaryName = rest.join(' ');
+
+  primaryName = "DevSolve";
+  secondaryName = "";
 
   const mark = (
     <div className={`flex items-center gap-3 md:gap-3 lg:gap-3.5 group ${className ?? ''}`}>
@@ -45,9 +48,9 @@ export function Logo({ asLink = true, className }: LogoProps) {
           transform="rotate(45 21 21)"
         />
         <text x="13" y="28" fill="white" fontSize="20" fontWeight="800"
-          fontFamily="system-ui, -apple-system, sans-serif" letterSpacing="-0.5">C</text>
+          fontFamily="system-ui, -apple-system, sans-serif" letterSpacing="-0.5">DS</text>
         <text x="27" y="22" fill="white" fontSize="11" fontWeight="700"
-          fontFamily="system-ui, -apple-system, sans-serif" fillOpacity="0.85">10</text>
+          fontFamily="system-ui, -apple-system, sans-serif" fillOpacity="0.85"></text>
       </svg>
 
       {/* Wordmark */}
