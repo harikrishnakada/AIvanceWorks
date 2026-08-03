@@ -147,6 +147,9 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
 
         {/* Posts Grid */}
         <section data-section="blog-category-posts-grid" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          {/* Post titles are <h3>; without this they follow the page <h1>
+              directly and skip a level (heading-order). */}
+          <h2 className="sr-only">Articles in this category</h2>
           <PostList
             posts={posts}
             currentPage={currentPage}

@@ -548,7 +548,7 @@ const hospitalInformationSystems: SolutionPageData = {
       title: 'Enterprise Integration & Migration',
       description:
         'The hard part of any HIS is the seams between the EHR, lab, pharmacy, and radiology. Our integration practice builds and owns the HL7 v2 / FHIR R4 / DICOM interface surface that lets clinical information move without re-keying.',
-      href: '/services/enterprise-integration',
+      href: '/services/enterprise-software-development',
       icon: 'ArrowLeftRight',
       pageType: 'service',
     },

@@ -56,7 +56,6 @@ const realEstate: IndustryPageData = {
     alt: 'Aerial view of a residential neighborhood of homes and winding streets',
     proof: ['MLS / IDX Data', 'Deal Pipeline', 'Property Analytics'],
   },
-
   hero: {
     kicker: 'Industries · Real Estate',
     headline: 'Software that moves real estate — from first listing to final close.',

@@ -117,7 +117,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                   alt={author.name}
                   width={48}
                   height={48}
-                  className="rounded-full"
+                  // object-cover: width/height force a square box, so a
+                  // non-square source is distorted without it.
+                  className="rounded-full object-cover"
                 />
                 <div>
                   <div className="font-medium text-gray-900">{author.name}</div>

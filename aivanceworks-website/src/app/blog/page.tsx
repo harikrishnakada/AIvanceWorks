@@ -80,6 +80,9 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
 
         {/* Posts Grid */}
         <section data-section="blog-posts-grid" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          {/* The post titles are <h3>. Without a heading here they followed the
+              page <h1> directly and skipped a level (heading-order). */}
+          <h2 className="sr-only">Latest articles</h2>
           <PostList
             posts={posts}
             currentPage={currentPage}

@@ -7,7 +7,10 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/api/', '/admin/', '/_next/'],
+        // Do NOT disallow /_next/ — it serves every JS chunk, stylesheet and
+        // optimized image. Blocking it stops crawlers rendering the site and
+        // keeps /_next/image results out of Google Images.
+        disallow: ['/api/', '/admin/'],
       },
       // Allow AI crawlers explicitly
       {
@@ -23,6 +26,8 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
       },
       {
+        // 'anthropic-ai' and 'Claude-Web' are the legacy agent names;
+        // 'ClaudeBot' is the current one. Keep all three.
         userAgent: 'anthropic-ai',
         allow: '/',
       },
@@ -31,7 +36,23 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
       },
       {
+        userAgent: 'ClaudeBot',
+        allow: '/',
+      },
+      {
+        userAgent: 'OAI-SearchBot',
+        allow: '/',
+      },
+      {
         userAgent: 'PerplexityBot',
+        allow: '/',
+      },
+      {
+        userAgent: 'Applebot-Extended',
+        allow: '/',
+      },
+      {
+        userAgent: 'meta-externalagent',
         allow: '/',
       },
     ],

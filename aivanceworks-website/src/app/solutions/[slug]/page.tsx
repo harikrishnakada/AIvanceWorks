@@ -61,6 +61,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   return constructMetadata({
+    // noindex while the section is unreachable — see the note in
+    // src/app/solutions/page.tsx. Remove here, there and in sitemap.ts together.
+    noIndex: true,
     title: pilotData.metaTitle,
     description: pilotData.metaDescription,
     canonical: `${SITE_CONFIG.url}${pilotData.canonicalPath}`,

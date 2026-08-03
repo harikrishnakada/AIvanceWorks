@@ -8,21 +8,49 @@ import { ArrowRight, Play } from 'lucide-react';
 import { SITE_CONFIG } from '@/lib/constants';
 
 const heroSlides = [
-  { src: '/images/home_hero/home_hero_slide3b.jpg', alt: 'C10 Software Development' },
-  { src: '/images/home_hero/office_working.jpg', alt: 'C10 Software Development' },
-  { src: '/images/industries/msc/hero.jpg', alt: 'C10 Custom Engineering' },
-  // { src: '/images/home_hero/home_villa.jpg', alt: 'C10 Cloud & AI Solutions' },
-  // { src: '/images/home_hero/resort_pool.jpg', alt: 'C10 Software Development' },
-  { src: '/images/home_hero/planes_parked.jpg', alt: 'C10 Cloud & AI Solutions' },
-  { src: '/images/home_hero/twisted_build.jpg', alt: 'C10 Cloud & AI Solutions' },
+  {
+    src: '/images/home_hero/home_hero_slide3b.jpg',
+    alt: 'Engineering team collaborating on enterprise software architecture',
+  },
+  {
+    src: '/images/home_hero/office_working.jpg',
+    alt: 'Developers building cloud applications in a modern office',
+  },
+  {
+    src: '/images/industries/msc/hero.jpg',
+    alt: 'Automated manufacturing and supply chain operations',
+  },
+  {
+    src: '/images/home_hero/planes_parked.jpg',
+    alt: 'Commercial aircraft on an airport apron at dawn',
+  },
+  {
+    src: '/images/home_hero/twisted_build.jpg',
+    alt: 'Contemporary high-rise office tower seen from below',
+  },
 ];
 
 export function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  // Only slides that have actually been shown get mounted. All five slides are
+  // stacked at `inset-0`, so mounting them up front puts five full-viewport
+  // images in the viewport at once — the browser fetches every one of them and
+  // they starve the LCP image of bandwidth on mobile connections.
+  const [mountedSlides, setMountedSlides] = useState<number[]>([0]);
 
   useEffect(() => {
+    // An auto-advancing background is decorative motion; honour the OS setting.
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (reduceMotion.matches) return;
+
     const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+      setCurrentSlide((prev) => {
+        const next = (prev + 1) % heroSlides.length;
+        setMountedSlides((mounted) =>
+          mounted.includes(next) ? mounted : [...mounted, next]
+        );
+        return next;
+      });
     }, 4000);
     return () => clearInterval(timer);
   }, []);
@@ -42,22 +70,31 @@ export function HeroSection() {
             min-h-[450px] sm:min-h-[490px] md:min-h-[544px] lg:min-h-[604px]
             overflow-hidden"
         >
-          {/* Sliding background images */}
-          {heroSlides.map((slide, index) => (
-            <div
-              key={slide.src}
-              className="absolute inset-0 transition-opacity duration-1000 pointer-events-none"
-              style={{ opacity: index === currentSlide ? 1 : 0 }}
-            >
-              <Image
-                src={slide.src}
-                alt={slide.alt}
-                fill
-                className="object-cover"
-                priority={index === 0}
-              />
-            </div>
-          ))}
+          {/* Sliding background images — only slides that have been reached are
+              mounted, so the first paint downloads exactly one hero image. */}
+          {heroSlides.map((slide, index) =>
+            mountedSlides.includes(index) ? (
+              <div
+                key={slide.src}
+                className="absolute inset-0 transition-opacity duration-1000 pointer-events-none"
+                style={{ opacity: index === currentSlide ? 1 : 0 }}
+              >
+                <Image
+                  src={slide.src}
+                  alt={index === 0 ? slide.alt : ''}
+                  aria-hidden={index === 0 ? undefined : true}
+                  fill
+                  // Without `sizes`, Next picks the 3840px srcset candidate for
+                  // a `fill` image even on a 412px-wide phone.
+                  sizes="100vw"
+                  quality={70}
+                  className="object-cover"
+                  priority={index === 0}
+                  fetchPriority={index === 0 ? 'high' : 'auto'}
+                />
+              </div>
+            ) : null
+          )}
           {/* Dark overlay to keep text readable */}
           <div className="absolute inset-0 bg-black/60 pointer-events-none" />
           {/* Center scrim — the slides vary a lot in brightness; this holds

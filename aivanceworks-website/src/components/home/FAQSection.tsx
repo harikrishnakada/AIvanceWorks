@@ -1,6 +1,11 @@
-'use client';
-
-import { useState } from 'react';
+// Server component. The accordion is native <details>/<summary>, so the whole
+// section — prose, markup and its FAQPage JSON-LD — renders on the server with
+// no hydration and no JavaScript. The previous version used useState purely to
+// toggle a max-height class, which made the entire FAQ a client component.
+//
+// `name="home-faq"` gives the exclusive-accordion behaviour the useState version
+// had (opening one closes the others) where supported, and degrades to
+// independently-openable panels where it is not — no JS fallback needed.
 import { ChevronDown } from 'lucide-react';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { generateFAQSchema } from '@/lib/schema';
@@ -40,11 +45,6 @@ export function FAQSection() {
         `${SITE_CONFIG.name} works with both startups and mid-market enterprises (50-5000 employees). Our boutique model means startups get enterprise-quality expertise at accessible pricing, while larger organizations benefit from our agility and personalized service. We've helped Series A startups build MVPs and scaled systems for established companies with millions of users.`,
     },
   ];
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
-
-  const toggleFAQ = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
 
   return (
     <section data-section="home-faq" className={`${SECTION_Y} bg-white`}>
@@ -65,44 +65,24 @@ export function FAQSection() {
         {/* FAQ List */}
         <div className="space-y-2 sm:space-y-3">
           {faqs.map((faq, index) => (
-            <div
+            <details
               key={index}
-              className={`bg-white rounded-2xl border overflow-hidden transition-all duration-300 ${
-                openIndex === index
-                  ? 'border-brand-200 shadow-glow-faint'
-                  : 'border-gray-100 hover:border-gray-200'
-              }`}
+              name="home-faq"
+              open={index === 0}
+              className="group bg-white rounded-2xl border border-gray-100 overflow-hidden transition-all duration-300 hover:border-gray-200 open:border-brand-200 open:shadow-glow-faint"
             >
-              <button
-                onClick={() => toggleFAQ(index)}
-                className="w-full flex items-center justify-between p-3.5 sm:p-5 text-left hover:bg-brand-50/30 transition-colors"
-                aria-expanded={openIndex === index}
-                aria-controls={`faq-answer-${index}`}
-              >
+              <summary className="flex cursor-pointer list-none items-center justify-between p-3.5 sm:p-5 text-left transition-colors hover:bg-brand-50/30 [&::-webkit-details-marker]:hidden">
                 <span className="font-bold text-gray-900 pr-6 text-xs sm:text-sm md:text-base">
                   {faq.question}
                 </span>
-                <div className={`flex-shrink-0 w-6 h-6 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl flex items-center justify-center transition-all duration-300 ${
-                  openIndex === index ? 'bg-brand-100 rotate-180' : 'bg-gray-100'
-                }`}>
-                  <ChevronDown
-                    className={`h-4 w-4 transition-colors ${
-                      openIndex === index ? 'text-brand-600' : 'text-gray-400'
-                    }`}
-                  />
+                <div className="flex-shrink-0 w-6 h-6 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl flex items-center justify-center transition-all duration-300 bg-gray-100 group-open:bg-brand-100 group-open:rotate-180">
+                  <ChevronDown className="h-4 w-4 text-gray-400 transition-colors group-open:text-brand-600" />
                 </div>
-              </button>
-              <div
-                id={`faq-answer-${index}`}
-                className={`overflow-hidden transition-all duration-300 ${
-                  openIndex === index ? 'max-h-96' : 'max-h-0'
-                }`}
-              >
-                <div className="px-3.5 sm:px-5 pb-3.5 sm:pb-5 text-gray-500 leading-relaxed text-xs sm:text-sm md:text-base">
-                  {faq.answer}
-                </div>
+              </summary>
+              <div className="px-3.5 sm:px-5 pb-3.5 sm:pb-5 text-gray-500 leading-relaxed text-xs sm:text-sm md:text-base">
+                {faq.answer}
               </div>
-            </div>
+            </details>
           ))}
         </div>
       </div>

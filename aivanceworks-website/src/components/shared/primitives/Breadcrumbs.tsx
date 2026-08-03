@@ -32,9 +32,12 @@ export const Breadcrumbs = ({ items, className }: BreadcrumbsProps) => (
               {isLast ? (
                 <span className="text-text-heading font-medium">{item.label}</span>
               ) : (
+                // text-text-muted (#64748b) on bg-surface-warm (#f1f5f9) is
+                // 4.34:1 — just under the 4.5:1 minimum. text-text-body
+                // (#475569) is 6.9:1 on the same background.
                 <Link
                   href={item.href}
-                  className="text-text-muted hover:text-text-heading transition-colors"
+                  className="text-text-body hover:text-text-heading transition-colors"
                 >
                   {item.label}
                 </Link>

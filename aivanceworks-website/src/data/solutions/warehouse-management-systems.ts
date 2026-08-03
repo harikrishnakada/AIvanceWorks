@@ -509,7 +509,7 @@ const warehouseManagementSystems: SolutionPageData = {
       title: 'Enterprise Integration & Migration',
       description:
         'Whether you buy a SaaS WMS or build one, the hard part is the seams — ERP, OMS, TMS, carrier, EDI, and automation. Our enterprise integration practice builds and owns the integration surface that lets the WMS orchestrate the floor without disturbing your systems of record.',
-      href: '/services/enterprise-integration',
+      href: '/services/enterprise-software-development',
       icon: 'ArrowLeftRight',
       pageType: 'service',
     },

@@ -1,5 +1,7 @@
-'use client';
-
+// No hooks, handlers or browser APIs here — this renders a static header and a
+// map over a module-level array, so it stays on the server. Marking it
+// 'use client' shipped the component and its three icons to the browser and
+// added it to the homepage hydration pass for nothing.
 import { Rocket, DollarSign, ShieldCheck } from 'lucide-react';
 import { IconTile } from '@/components/shared/primitives';
 import { SECTION_Y } from '@/lib/section-spacing';

@@ -66,7 +66,12 @@ export const Hero = ({
                 alt={heroImage.alt}
                 fill
                 priority
+                fetchPriority="high"
                 sizes="100vw"
+                // Rendered at 40% opacity behind a gradient scrim, so quality
+                // headroom is invisible here. This is the LCP element on every
+                // service and solution page.
+                quality={50}
                 className="object-cover opacity-40"
               />
               {/* Gradient scrim — dark on left for text readability, transparent on right to show image */}

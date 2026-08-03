@@ -82,7 +82,9 @@ export function WhyChooseUsSection() {
                 <span className="text-lg sm:text-xl font-black text-brand-600">
                   {item.stat}
                 </span>
-                <span className="text-[11px] sm:text-xs text-gray-400 font-medium">
+                {/* gray-400 on white is 2.6:1 — below the 4.5:1 minimum for
+                    text this size. gray-600 clears it at ~7:1. */}
+                <span className="text-[11px] sm:text-xs text-gray-600 font-medium">
                   {item.statLabel}
                 </span>
               </div>

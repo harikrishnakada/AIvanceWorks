@@ -5,14 +5,22 @@ import Link from 'next/link';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Bot, Cloud, Code2, Database, Globe, Settings, ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
 import { SECTION_Y } from '@/lib/section-spacing';
+import { useCarouselAutoplay } from '@/hooks/useCarouselAutoplay';
+import { AutoplayToggle } from '@/components/shared/primitives';
 
+// NOTE: five of these six cards pointed at slugs that do not exist
+// (/services/ai-machine-learning, /cloud-engineering, /full-stack-development,
+// /enterprise-integration, /devops-automation) and 404'd straight from the
+// homepage. Each now targets the closest registered page in src/data/services.
+// The card titles are unchanged — retitle them if you'd rather they match the
+// destination pages exactly.
 const services = [
   {
     title: 'AI & Machine Learning',
     description:
       'Deploy production-ready AI agents, RAG frameworks, and LLM integrations that automate workflows and enhance decision-making with Azure AI Foundry.',
     icon: Bot,
-    href: '/services/ai-machine-learning',
+    href: '/services/ai-development',
     iconBg: 'bg-brand-50',
     iconColor: 'text-brand-600',
   },
@@ -21,7 +29,7 @@ const services = [
     description:
       'Migrate and optimize your infrastructure on Azure or AWS. Our certified architects design scalable systems that reduce cloud costs by up to 50%.',
     icon: Cloud,
-    href: '/services/cloud-engineering',
+    href: '/services/cloud-infrastructure',
     iconBg: 'bg-sky-50',
     iconColor: 'text-sky-600',
   },
@@ -30,7 +38,7 @@ const services = [
     description:
       'Build enterprise applications with .NET, React, and Next.js. From MVPs to complex platforms, we deliver production-grade software on schedule.',
     icon: Code2,
-    href: '/services/full-stack-development',
+    href: '/services/custom-software-development',
     iconBg: 'bg-emerald-50',
     iconColor: 'text-emerald-600',
   },
@@ -48,7 +56,7 @@ const services = [
     description:
       'Modernize legacy systems and integrate disparate applications with minimal disruption. API integrations, migrations, and service bus implementations.',
     icon: Globe,
-    href: '/services/enterprise-integration',
+    href: '/services/enterprise-software-development',
     iconBg: 'bg-rose-50',
     iconColor: 'text-rose-600',
   },
@@ -57,7 +65,7 @@ const services = [
     description:
       'Accelerate deployments with Azure DevOps, GitHub Actions, and Kubernetes. Automate testing, reduce errors, and ship features faster.',
     icon: Settings,
-    href: '/services/devops-automation',
+    href: '/services/devops',
     iconBg: 'bg-violet-50',
     iconColor: 'text-violet-600',
   },
@@ -82,7 +90,6 @@ function useVisibleCount() {
 
 export function ServicesSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const visibleCount = useVisibleCount();
   const maxIndex = services.length - visibleCount;
 
@@ -90,21 +97,20 @@ export function ServicesSection() {
     setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
   }, [maxIndex]);
 
+  const { containerRef, isPaused, setPaused, pause } = useCarouselAutoplay<HTMLElement>({
+    onTick: nextSlide,
+    intervalMs: 4000,
+  });
+
   const prevSlide = () => {
     setCurrentIndex((prev) => (prev <= 0 ? maxIndex : prev - 1));
-    setIsAutoPlaying(false);
+    pause();
   };
 
   const handleNext = () => {
     nextSlide();
-    setIsAutoPlaying(false);
+    pause();
   };
-
-  useEffect(() => {
-    if (!isAutoPlaying) return;
-    const interval = setInterval(nextSlide, 4000);
-    return () => clearInterval(interval);
-  }, [isAutoPlaying, nextSlide]);
 
   useEffect(() => {
     setCurrentIndex((prev) => Math.min(prev, maxIndex));
@@ -113,7 +119,7 @@ export function ServicesSection() {
   const totalDots = maxIndex + 1;
 
   return (
-    <section data-section="home-services" className={`${SECTION_Y} bg-white`}>
+    <section ref={containerRef} data-section="home-services" className={`${SECTION_Y} bg-white`}>
       <div className="w-full px-4 sm:px-6 md:px-8 lg:px-12">
         {/* Section Header */}
         <div className="flex flex-col items-center gap-2 sm:gap-3 mb-3 sm:mb-4 lg:mb-5">
@@ -159,8 +165,11 @@ export function ServicesSection() {
             {services.map((service) => (
               <div
                 key={service.href}
-                className="flex-shrink-0 px-1.5 sm:px-2"
-                style={{ width: `${100 / visibleCount}%` }}
+                // CSS-driven width, not `visibleCount`: the hook starts at 1 on the
+                // server and corrects after hydration, so an inline width shifted
+                // the layout on every tablet/desktop load. Keep these breakpoints
+                // in sync with useVisibleCount().
+                className="w-full flex-shrink-0 px-1.5 sm:w-1/2 sm:px-2 lg:w-1/3"
               >
                 <Link href={service.href} className="group block h-full">
                   <Card className="h-full border-gray-100 bg-white rounded-xl sm:rounded-2xl hover:shadow-brand-card hover:border-brand-200 transition-all duration-300">
@@ -193,21 +202,34 @@ export function ServicesSection() {
         {/* Bottom Controls */}
         <div className="flex items-center justify-between mt-4 sm:mt-5">
           {/* Dots */}
-          <div className="flex gap-1.5">
+          {/* 24px hit area around a small visual dot — see target-size (WCAG 2.5.8). */}
+          <div className="flex items-center">
+            <AutoplayToggle
+              isPaused={isPaused}
+              onToggle={setPaused}
+              label="services carousel"
+              className="mr-1 text-gray-400 hover:text-brand-600"
+            />
             {Array.from({ length: totalDots }).map((_, index) => (
               <button
                 key={index}
+                type="button"
                 onClick={() => {
                   setCurrentIndex(index);
-                  setIsAutoPlaying(false);
+                  pause();
                 }}
-                className={`h-1.5 sm:h-2 rounded-full transition-all duration-300 ${
-                  index === currentIndex
-                    ? 'bg-brand-600 w-5 sm:w-7'
-                    : 'bg-gray-200 w-1.5 sm:w-2 hover:bg-gray-300'
-                }`}
+                className="group flex h-6 min-w-6 items-center justify-center px-1"
                 aria-label={`Go to slide ${index + 1}`}
-              />
+                aria-current={index === currentIndex ? 'true' : undefined}
+              >
+                <span
+                  className={`block h-1.5 sm:h-2 rounded-full transition-all duration-300 ${
+                    index === currentIndex
+                      ? 'bg-brand-600 w-5 sm:w-7'
+                      : 'bg-gray-200 w-1.5 sm:w-2 group-hover:bg-gray-300'
+                  }`}
+                />
+              </button>
             ))}
           </div>
 

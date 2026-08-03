@@ -11,12 +11,20 @@ import { constructMetadata } from '@/lib/seo';
 import { generateWebPageSchema } from '@/lib/schema';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { getAllSolutionPageSlugs } from '@/lib/content';
-import { SITE_CONFIG, NAVIGATION } from '@/lib/constants';
+import { SITE_CONFIG } from '@/lib/constants';
+import { NAVIGATION } from '@/lib/navigation';
 import { Button } from '@/components/ui/button';
 import { SolutionsNavStrip } from '@/components/solutions/SolutionsNavStrip';
 import { ServiceCard } from '@/components/services/ServiceCard';
 
+// The /solutions section is built but has no navigation entry (its Header item is
+// commented out), so it is unreachable by users. Indexing 31 orphan pages invites
+// them to be judged as thin or doorway content and dilutes crawl budget, so the
+// whole section is noindex until it ships. Reverse this and the sitemap exclusion
+// in src/app/sitemap.ts together — a noindex URL listed in the sitemap is
+// reported as an error in Search Console.
 export const metadata: Metadata = constructMetadata({
+  noIndex: true,
   title: 'Industry Solutions — Healthcare, Insurance & Pharma Software',
   description: `${SITE_CONFIG.name} builds custom software solutions for healthcare, insurance, and pharma. HIPAA-compliant portals, claims systems, and LIMS.`,
   canonical: `${SITE_CONFIG.url}/solutions`,

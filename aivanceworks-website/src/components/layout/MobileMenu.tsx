@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
-import { NAVIGATION } from '@/lib/constants';
+import { NAVIGATION } from '@/lib/navigation';
 import { Button } from '@/components/ui/button';
 import {
   ChevronDown, ArrowRight, LayoutGrid,

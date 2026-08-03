@@ -93,6 +93,10 @@ export async function CaseStudiesSection() {
                     src={study.image}
                     alt={study.title}
                     fill
+                    // Without `sizes`, `fill` makes the browser assume 100vw and
+                    // pick a 3840px candidate for a card that is at most ~1/3 of
+                    // the container — roughly a 5x over-fetch.
+                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                     className="object-cover"
                   />
                 ) : (

@@ -20,7 +20,7 @@ export function AuthorBio({ author, showFull = false }: AuthorBioProps) {
           alt={name}
           width={48}
           height={48}
-          className="rounded-full"
+          className="rounded-full object-cover"
         />
         <div>
           <div className="font-medium text-gray-900">{name}</div>
@@ -41,7 +41,7 @@ export function AuthorBio({ author, showFull = false }: AuthorBioProps) {
             alt={name}
             width={120}
             height={120}
-            className="rounded-full"
+            className="rounded-full object-cover"
           />
         </div>
 

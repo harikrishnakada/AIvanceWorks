@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import { GoogleTagManager } from '@next/third-parties/google';
+import { DeferredGoogleTagManager } from '@/components/analytics/DeferredGoogleTagManager';
 import '@/styles/globals.css';
 import { constructMetadata } from '@/lib/seo';
 import { JsonLd } from '@/components/seo/JsonLd';
@@ -30,18 +30,28 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" data-theme={process.env.NEXT_PUBLIC_THEME || 'black'} className={inter.variable}>
-       {process.env.NEXT_PUBLIC_GTM_ID && (
-          <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID} />
-        )}
       <head>
         <JsonLd
           data={[generateOrganizationSchema(), generateWebSiteSchema()]}
         />
       </head>
       <body className="antialiased flex flex-col min-h-screen">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100]
+            focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:text-gray-900
+            focus:outline-none focus:ring-2 focus:ring-brand-600"
+        >
+          Skip to main content
+        </a>
         <Header />
-        <main className="flex-1">{children}</main>
+        <main id="main-content" className="flex-1">
+          {children}
+        </main>
         <Footer />
+        {process.env.NEXT_PUBLIC_GTM_ID && (
+          <DeferredGoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID} />
+        )}
       </body>
     </html>
   );

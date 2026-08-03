@@ -79,7 +79,8 @@ export function PostCard({ post, featured = false }: PostCardProps) {
               alt={author.name}
               width={40}
               height={40}
-              className="rounded-full"
+              // object-cover so a non-square avatar is cropped, not stretched.
+              className="rounded-full object-cover"
             />
             <div className="text-sm">
               <div className="font-medium text-gray-900">{author.name}</div>

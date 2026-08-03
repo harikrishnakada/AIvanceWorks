@@ -89,6 +89,9 @@ export default async function CaseStudiesPage() {
                           src={study.image}
                           alt={study.title}
                           fill
+                          // See CaseStudiesSection: `fill` with no `sizes`
+                          // defaults to 100vw and over-fetches ~5x.
+                          sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                           className="object-cover"
                         />
                       ) : (

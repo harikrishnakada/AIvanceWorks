@@ -90,7 +90,9 @@ export const IndustryCompliance = ({
         </div>
         {partnerAgreements && partnerAgreements.length > 0 && (
           <div className="flex flex-col gap-2 lg:border-l lg:border-border-light lg:pl-12">
-            <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-text-subtle">
+            {/* text-subtle (#94a3b8) is 2.56:1 on white; at 11px this is small text
+                and needs 4.5:1. text-muted is 4.8:1. */}
+            <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-text-muted">
               Agreements in place
             </span>
             <div className="flex flex-wrap gap-2">

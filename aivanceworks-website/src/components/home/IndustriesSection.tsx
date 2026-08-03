@@ -12,15 +12,10 @@ import { SECTION_Y_TIGHT } from '@/lib/section-spacing';
 // from each industry's data file — the chips are concrete evidence of
 // vertical depth, not decoration.
 const industries = [
-  {
-    name: 'Healthcare',
-    tagline:
-      'HIPAA-first AI and software for hospitals, payers, pharma, and digital health — engineered to lift the burden without ever breaking compliance.',
-    proof: ['HIPAA-First', 'HL7 / FHIR', 'Clinical AI'],
-    href: '/industry/healthcare',
-    image: '/images/industries/healthcare/category-card.jpg',
-    alt: 'Grid of patient heart-rate monitors glowing in a clinical setting',
-  },
+  // Healthcare is intentionally absent: 'healthcare' (and 'banking') are
+  // commented out of INDUSTRY_PAGE_MODULES in src/lib/content.ts, so
+  // /industry/healthcare 404s. The card linked there regardless. Restore this
+  // entry at the same time as re-enabling the route in that registry.
   {
     name: 'Travel & Hospitality',
     tagline:

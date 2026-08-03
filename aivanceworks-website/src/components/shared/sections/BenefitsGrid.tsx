@@ -25,7 +25,12 @@ export const BenefitsGrid = ({
   benefits,
   tone = 'warm',
   className,
-}: BenefitsGridProps) => (
+}: BenefitsGridProps) => {
+  // The section heading is optional. When it is omitted, hardcoded <h3> cards
+  // followed the page <h1> directly and skipped a level (heading-order, WCAG
+  // 1.3.1). Promote the cards to <h2> in that case.
+  const CardHeading = title ? 'h3' : 'h2';
+  return (
   <Section data-section="benefits-grid" tone={tone} size="md" className={className}>
     <Container>
       {(title || subtitle || eyebrow) && (
@@ -61,9 +66,9 @@ export const BenefitsGrid = ({
               <div className="flex items-start gap-4 md:gap-5">
                 <IconTile icon={Icon} size="md" variant="brand" />
                 <div className="flex-1 min-w-0">
-                  <h3 className="text-lg md:text-xl font-semibold text-text-heading mb-2">
+                  <CardHeading className="text-lg md:text-xl font-semibold text-text-heading mb-2">
                     {benefit.title}
-                  </h3>
+                  </CardHeading>
                   <p className="text-sm md:text-base text-text-body leading-relaxed">
                     {benefit.description}
                   </p>
@@ -88,3 +93,4 @@ export const BenefitsGrid = ({
     </Container>
   </Section>
 );
+};

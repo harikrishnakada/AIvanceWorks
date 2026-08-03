@@ -42,7 +42,13 @@ export const IndustryPressures = ({ title, intro, items }: IndustryPressuresProp
                 className="group grid grid-cols-[auto_1fr] gap-x-5 md:gap-x-7 py-6 md:py-7 border-b border-border-light transition-colors hover:bg-surface-warm/60"
               >
                 <div className="flex items-baseline gap-3 pt-1">
-                  <span className="text-2xl md:text-3xl font-bold text-brand-200 tabular-nums group-hover:text-brand-500 transition-colors">
+                  {/* brand-200 (#bfdbfe) on white is 1.42:1. These numerals are content,
+                      not decoration, so they need 3:1 at large-text size. In the
+                      active "black" theme the whole light end of the ramp is
+                      shifted brighter — brand-400 is 1.80:1 and even brand-500 is
+                      only 2.54:1 — so brand-600 (5.17:1) is the first passing
+                      tier. This does make the numerals notably darker. */}
+                  <span className="text-2xl md:text-3xl font-bold text-brand-600 tabular-nums group-hover:text-brand-700 transition-colors">
                     {String(idx + 1).padStart(2, '0')}
                   </span>
                 </div>

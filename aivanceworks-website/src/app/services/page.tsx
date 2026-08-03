@@ -15,7 +15,8 @@ import { constructMetadata } from '@/lib/seo';
 import { generateWebPageSchema } from '@/lib/schema';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { getAllServicePageSlugs } from '@/lib/content';
-import { NAVIGATION, SITE_CONFIG, TECHNOLOGIES } from '@/lib/constants';
+import { SITE_CONFIG, TECHNOLOGIES } from '@/lib/constants';
+import { NAVIGATION } from '@/lib/navigation';
 import { Button } from '@/components/ui/button';
 import { ServicesNavStrip } from '@/components/services/ServicesNavStrip';
 import { ServicePillarSection } from '@/components/services/ServicePillarSection';
@@ -236,12 +237,18 @@ export default function ServicesPage() {
       )}
 
       {/* ── Software Engineering ─────────────────────────────── */}
+      {/* servicesMenu is [Advisory, Software Engineering, Infrastructure
+          Management]. These two sections were indexed [0] and [1], so the
+          "software-engineering" section rendered Advisory (already shown above
+          from advisoryMenu) and "infrastructure-management" rendered Software
+          Engineering — leaving all 8 Infrastructure Management service pages
+          with no link from anywhere on the site. */}
       <ServicePillarSection
         id="software-engineering"
-        title={NAVIGATION.servicesMenu[0].title}
-        description={NAVIGATION.servicesMenu[0].description}
+        title={NAVIGATION.servicesMenu[1].title}
+        description={NAVIGATION.servicesMenu[1].description}
         CategoryIcon={Code2}
-        links={NAVIGATION.servicesMenu[0].links}
+        links={NAVIGATION.servicesMenu[1].links}
         builtOutSlugs={builtOutSlugs}
         iconMap={iconMap}
         descriptions={SERVICE_DESCRIPTIONS}
@@ -251,10 +258,10 @@ export default function ServicesPage() {
       {/* ── Infrastructure Management ────────────────────────── */}
       <ServicePillarSection
         id="infrastructure-management"
-        title={NAVIGATION.servicesMenu[1].title}
-        description={NAVIGATION.servicesMenu[1].description}
+        title={NAVIGATION.servicesMenu[2].title}
+        description={NAVIGATION.servicesMenu[2].description}
         CategoryIcon={Server}
-        links={NAVIGATION.servicesMenu[1].links}
+        links={NAVIGATION.servicesMenu[2].links}
         builtOutSlugs={builtOutSlugs}
         iconMap={iconMap}
         descriptions={SERVICE_DESCRIPTIONS}

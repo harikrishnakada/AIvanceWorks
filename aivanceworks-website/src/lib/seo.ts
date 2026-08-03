@@ -16,12 +16,22 @@ export function constructMetadata({
   canonical?: string;
   keywords?: string[];
 } = {}): Metadata {
-  const metaTitle = title ? `${title} | ${SITE_CONFIG.name}` : SITE_CONFIG.name;
+   // Several pages already embed a brand name in their own title. Appending
+  // unconditionally produced titles like "FAQ | AIvanceWorks | DS Software".
+  const metaTitle = !title
+    ? SITE_CONFIG.name
+    : title.includes(SITE_CONFIG.name)
+      ? title
+      : `${title} | ${SITE_CONFIG.name}`;
   const metaDescription = description || SITE_CONFIG.description;
   const safeImage = typeof image === 'string' && image.length > 0 ? image : SITE_CONFIG.ogImage;
   const metaImage = safeImage.startsWith('http') ? safeImage : `${SITE_CONFIG.url}${safeImage}`;
 
   return {
+    // Without metadataBase, Next resolves every relative OG/Twitter image and
+    // canonical against localhost and logs a build warning. Setting it here
+    // makes relative values in per-page metadata resolve to the live origin.
+    metadataBase: new URL(SITE_CONFIG.url),
     title: metaTitle,
     description: metaDescription,
     keywords: keywords.join(', '),
@@ -48,7 +58,7 @@ export function constructMetadata({
       title: metaTitle,
       description: metaDescription,
       images: [metaImage],
-      creator: '@aivanceworks',
+      creator: SITE_CONFIG.twitterHandle,
     },
     robots: {
       index: !noIndex,

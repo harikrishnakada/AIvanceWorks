@@ -1,53 +1,28 @@
-'use client';
-
-import { useEffect } from 'react';
+// Server component. Only the Cal.com embed needs the client — see BookingEmbed.
 import Link from 'next/link';
-import Cal, { getCalApi } from '@calcom/embed-react';
 import { Calendar, Video, Users, CheckCircle, Mail } from 'lucide-react';
 import { SITE_CONFIG } from '@/lib/constants';
+import { constructMetadata } from '@/lib/seo';
+import { BookingEmbed } from './BookingEmbed';
 
-// Cal.com configuration
-const CALCOM_USERNAME = process.env.NEXT_PUBLIC_CALCOM_USERNAME || 'aivanceworks';
-const CALCOM_EVENT_TYPE = 'discovery-call';
-const CAL_LINK = `${CALCOM_USERNAME}/${CALCOM_EVENT_TYPE}`;
+const DESCRIPTION =
+  'Schedule a free 30-minute discovery call to discuss your software development needs. Get expert advice on AI solutions, cloud migration, and custom development.';
+
+// As a 'use client' page this could not export metadata, so it rendered
+// <title>/<meta> from the body and shipped no canonical and no OG tags at all —
+// on a priority-0.9 conversion page.
+export const metadata = constructMetadata({
+  title: `Book a Free Consultation - 30-Minute Strategy Session | ${SITE_CONFIG.name}`,
+  description: DESCRIPTION,
+  canonical: `${SITE_CONFIG.url}/book-consultation`,
+});
 
 export default function BookConsultationPage() {
-  useEffect(() => {
-    // Track page view
-    if (typeof window !== 'undefined' && (window as any).gtag) {
-      (window as any).gtag('event', 'booking_initiated', {
-        event_category: 'Conversion',
-        event_label: 'Consultation Booking Page Visit',
-      });
-    }
-
-    // Initialize Cal.com embed with proper API
-    (async function () {
-      const cal = await getCalApi();
-      cal('ui', {
-        theme: 'light',
-        styles: {
-          branding: {
-            brandColor: '#2563eb',
-          },
-        },
-        hideEventTypeDetails: false,
-        layout: 'month_view',
-      });
-    })();
-  }, []);
-
   return (
     <>
-      {/* SEO Metadata (can't use export metadata with 'use client') */}
-      <title>Book a Free Consultation - 30-Minute Strategy Session | {SITE_CONFIG.name}</title>
-      <meta
-        name="description"
-        content="Schedule a free 30-minute discovery call to discuss your software development needs. Get expert advice on AI solutions, cloud migration, and custom development."
-      />
-
-      <main className="min-h-screen py-20">
-        {/* Schema Markup - Would be better in a Server Component wrapper */}
+      {/* A plain div, not <main> — the root layout already renders this page's
+          single <main id="main-content">, and nesting a second one is invalid. */}
+      <div className="min-h-screen py-20">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -116,15 +91,9 @@ export default function BookConsultationPage() {
             </div>
           </div>
 
-          {/* Cal.com Embed - Using official component */}
+          {/* Cal.com Embed - the only client-side island on this page */}
           <div className="mb-12 rounded-lg bg-muted/30 p-8">
-            <Cal
-              calLink={CAL_LINK}
-              style={{ width: '100%', height: 'auto', overflow: 'scroll', minHeight: '630px' }}
-              config={{
-                layout: 'month_view',
-              }}
-            />
+            <BookingEmbed />
           </div>
 
           {/* Benefits Section */}
@@ -238,7 +207,7 @@ export default function BookConsultationPage() {
             </Link>
           </div>
         </div>
-      </main>
+      </div>
     </>
   );
 }

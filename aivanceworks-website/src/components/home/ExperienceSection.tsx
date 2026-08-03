@@ -1,9 +1,11 @@
 'use client';
 
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Zap, Clock, TrendingUp, Check } from 'lucide-react';
 import { SECTION_Y_TIGHT } from '@/lib/section-spacing';
+import { useCarouselAutoplay } from '@/hooks/useCarouselAutoplay';
+import { AutoplayToggle } from '@/components/shared/primitives';
 
 // Badge PNGs are trimmed to their content bounding box (originals kept alongside)
 // so all three fill their square box identically. The Associate badges (AI-104,
@@ -216,12 +218,25 @@ export function ExperienceSection() {
   // Mobile auto-sliding carousel state (0 = certifications, 1 = stats)
   const [active, setActive] = useState(0);
 
+  // The carousel is `lg:hidden` — on desktop both panels render side by side and
+  // the timer had nothing to animate, yet it still ticked and re-rendered the
+  // section every 4.5 s. Gate on the same 1024px breakpoint as the layout.
+  const [isNarrow, setIsNarrow] = useState(false);
   useEffect(() => {
-    const id = setInterval(() => {
-      setActive((prev) => (prev === 0 ? 1 : 0));
-    }, 4500);
-    return () => clearInterval(id);
+    const mq = window.matchMedia('(max-width: 1023.98px)');
+    setIsNarrow(mq.matches);
+    const onChange = (e: MediaQueryListEvent) => setIsNarrow(e.matches);
+    mq.addEventListener('change', onChange);
+    return () => mq.removeEventListener('change', onChange);
   }, []);
+
+  const advance = useCallback(() => setActive((prev) => (prev === 0 ? 1 : 0)), []);
+
+  const { containerRef, isPaused, setPaused, pause } = useCarouselAutoplay<HTMLDivElement>({
+    onTick: advance,
+    intervalMs: 4500,
+    enabled: isNarrow,
+  });
 
   const slides = ['Certifications', 'Impact'];
 
@@ -241,7 +256,7 @@ export function ExperienceSection() {
         </div>
 
         {/* ── Mobile / tablet: auto-sliding carousel of the two cards ────── */}
-        <div className="lg:hidden">
+        <div ref={containerRef} className="lg:hidden">
           <div className="overflow-hidden">
             <div
               className="flex transition-transform duration-700 ease-in-out"
@@ -260,28 +275,45 @@ export function ExperienceSection() {
             </div>
           </div>
 
-          {/* Dots indicator */}
-          <div className="flex items-center justify-center gap-2 mt-4">
+          {/* Dots indicator. These sit outside the dark <Card>, i.e. on the
+              white page background — the previous bg-white/25 was invisible,
+              and a 6px dot fails target-size. */}
+          <div className="flex items-center justify-center mt-4">
+            <AutoplayToggle
+              isPaused={isPaused}
+              onToggle={setPaused}
+              label="certifications and impact carousel"
+              className="mr-1 text-gray-400 hover:text-brand-600"
+            />
             {slides.map((label, i) => (
               <button
                 key={label}
                 type="button"
-                onClick={() => setActive(i)}
+                onClick={() => {
+                  setActive(i);
+                  pause();
+                }}
                 aria-label={`Show ${label}`}
                 aria-current={active === i}
-                className={`h-1.5 rounded-full transition-all duration-300 ${
-                  active === i
-                    ? 'w-6 bg-brand-400'
-                    : 'w-1.5 bg-white/25 hover:bg-white/40'
-                }`}
-              />
+                className="group flex h-6 min-w-6 items-center justify-center px-1"
+              >
+                <span
+                  className={`block h-1.5 rounded-full transition-all duration-300 ${
+                    active === i
+                      ? 'w-6 bg-brand-600'
+                      : 'w-1.5 bg-gray-300 group-hover:bg-gray-400'
+                  }`}
+                />
+              </button>
             ))}
           </div>
         </div>
 
         {/* Footer note */}
         <div className="mt-4 sm:mt-5 lg:mt-6 text-center">
-          <p className="text-[9px] sm:text-[10px] text-white/50 font-medium tracking-wide">
+          {/* This note is outside the dark <Card>, so text-white/50 rendered
+              white-on-white — invisible. gray-500 is 4.84:1 on white. */}
+          <p className="text-[11px] sm:text-xs text-gray-500 font-medium tracking-wide">
             Verified credentials issued by Microsoft · Building enterprise solutions on Azure
           </p>
         </div>

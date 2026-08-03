@@ -1,25 +1,32 @@
-'use client';
-
+// Server component. This renders in the Header and Footer on every route, so
+// keeping it off the client saves it from the bundle and the hydration pass.
+// `useId()` was the only thing forcing 'use client'; callers now pass an
+// `idPrefix` to keep the SVG gradient ids unique between instances.
 import Link from 'next/link';
-import { useId } from 'react';
 import { SITE_CONFIG } from '@/lib/constants';
 
 interface LogoProps {
   /** Wrap in a homepage link. Default: true */
   asLink?: boolean;
   className?: string;
+  /**
+   * Disambiguates the SVG gradient ids when more than one Logo is on the page.
+   * Duplicate ids make later instances reference the first one's gradients.
+   */
+  idPrefix?: string;
 }
 
-export function Logo({ asLink = true, className }: LogoProps) {
-  const id = useId().replace(/:/g, '-');
-  const gradBg = `logo-bg-${id}`;
-  const gradShine = `logo-shine-${id}`;
+export function Logo({ asLink = true, className, idPrefix = 'logo' }: LogoProps) {
+  const gradBg = `${idPrefix}-bg`;
+  const gradShine = `${idPrefix}-shine`;
 
-  let [primaryName, ...rest] = SITE_CONFIG.name.split(' ');
-  let secondaryName = rest.join(' ');
-
-  primaryName = "DevSolve";
-  secondaryName = "";
+  // Wordmark is derived from SITE_CONFIG.name, which is env-driven. The first
+  // word is the primary mark and any remainder becomes the tracked-out subtitle,
+  // so "DS Software" renders as "DS" over "SOFTWARE" and a single-word brand
+  // renders alone. This used to be overwritten with a hardcoded "DevSolve"
+  // immediately after being computed, so the logo ignored the configured brand.
+  const [primaryName, ...rest] = SITE_CONFIG.name.split(' ');
+  const secondaryName = rest.join(' ');
 
   const mark = (
     <div className={`flex items-center gap-3 md:gap-3 lg:gap-3.5 group ${className ?? ''}`}>
@@ -47,10 +54,11 @@ export function Logo({ asLink = true, className }: LogoProps) {
           fill="none" stroke="white" strokeWidth="1.5" strokeOpacity="0.3"
           transform="rotate(45 21 21)"
         />
-        <text x="13" y="28" fill="white" fontSize="20" fontWeight="800"
-          fontFamily="system-ui, -apple-system, sans-serif" letterSpacing="-0.5">DS</text>
-        <text x="27" y="22" fill="white" fontSize="11" fontWeight="700"
-          fontFamily="system-ui, -apple-system, sans-serif" fillOpacity="0.85"></text>
+        {/* Abbreviation comes from NEXT_PUBLIC_BRAND_PREFIX, not a literal. */}
+        <text x="2" y="27" fill="white" fontSize="18" fontWeight="800"
+          fontFamily="system-ui, -apple-system, sans-serif" letterSpacing="-0.5">
+          {SITE_CONFIG.abbreviation}
+        </text>
       </svg>
 
       {/* Wordmark */}
@@ -58,8 +66,11 @@ export function Logo({ asLink = true, className }: LogoProps) {
         <span className="text-[32px] md:text-[28px] lg:text-[32px] font-black tracking-tight text-gray-900">
           {primaryName}
         </span>
+        {/* gray-400 (#99a1af) is 2.6:1 on white and fails at this size. This was
+            latent: the subtitle was blanked out by the old hardcoded wordmark, so
+            it never rendered. gray-600 is ~7:1. */}
         {secondaryName && (
-          <span className="text-[11px] md:text-[10px] lg:text-[11px] font-semibold tracking-[0.22em] md:tracking-[0.28em] text-gray-400 uppercase">
+          <span className="text-[11px] md:text-[10px] lg:text-[11px] font-semibold tracking-[0.22em] md:tracking-[0.28em] text-gray-600 uppercase">
             {secondaryName}
           </span>
         )}
@@ -70,8 +81,12 @@ export function Logo({ asLink = true, className }: LogoProps) {
   if (!asLink) return mark;
 
   return (
-    <Link href="/" aria-label={`${SITE_CONFIG.name} homepage`}>
+    // No aria-label: an explicit one overrode the visible wordmark and tripped
+    // axe's label-content-name-mismatch. The link's accessible name now comes
+    // from the rendered wordmark itself, with "homepage" added for context.
+    <Link href="/">
       {mark}
+      <span className="sr-only">homepage</span>
     </Link>
   );
 }

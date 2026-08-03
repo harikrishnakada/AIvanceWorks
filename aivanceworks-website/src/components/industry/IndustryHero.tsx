@@ -44,7 +44,11 @@ export const IndustryHero = ({
           alt={heroImage.alt}
           fill
           priority
+          fetchPriority="high"
           sizes="100vw"
+          // Rendered at 35% opacity behind a gradient scrim — quality headroom
+          // is invisible. This is the LCP element on every industry page.
+          quality={50}
           className="object-cover opacity-35"
         />
         {/* Scrim — readable on the left, image breathes on the right */}

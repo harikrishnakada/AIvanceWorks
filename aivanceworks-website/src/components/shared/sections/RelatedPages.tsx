@@ -59,7 +59,9 @@ export const RelatedPages = ({
                     variant="brand"
                     className="group-hover:scale-110 transition-transform"
                   />
-                  <span className="text-[11px] font-medium uppercase tracking-wider text-text-muted bg-surface-warm px-2 py-0.5 rounded-full">
+                  {/* text-text-muted on bg-surface-warm is 4.34:1 — under the
+                      4.5:1 minimum. text-text-body is 6.9:1. */}
+                  <span className="text-[11px] font-medium uppercase tracking-wider text-text-body bg-surface-warm px-2 py-0.5 rounded-full">
                     {page.pageType}
                   </span>
                 </div>

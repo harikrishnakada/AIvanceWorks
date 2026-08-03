@@ -2,7 +2,8 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
-import { SITE_CONFIG, NAVIGATION } from '@/lib/constants';
+import { SITE_CONFIG } from '@/lib/constants';
+import { NAVIGATION } from '@/lib/navigation';
 import { Logo } from '@/components/brand/Logo';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -91,7 +92,7 @@ export function Footer() {
             {/* Brand & Newsletter */}
             <div className="lg:col-span-2">
               {/* Logo */}
-              <Logo />
+              <Logo idPrefix="logo-footer" />
 
               <p className="mt-4 text-sm text-gray-600 leading-relaxed max-w-sm">
                 {SITE_CONFIG.description}
@@ -115,7 +116,9 @@ export function Footer() {
                     <Button
                       type="submit"
                       disabled={status === 'loading' || status === 'success'}
-                      className="bg-brand-600 hover:bg-brand-700 whitespace-nowrap"
+                      // The default button variant's foreground is near-black,
+                      // which is only 3.87:1 on brand-600. White is 8.6:1.
+                      className="bg-brand-600 text-white hover:bg-brand-700 whitespace-nowrap"
                       size="default"
                     >
                       {status === 'loading' ? (
@@ -173,7 +176,9 @@ export function Footer() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm text-gray-600 hover:text-brand-600 transition-colors"
+                      // inline-block + py-1 gives a ~25px tall tap target;
+                      // bare 14px text is only 17px and fails target-size.
+                      className="inline-block py-1 text-sm text-gray-600 hover:text-brand-600 transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -192,7 +197,9 @@ export function Footer() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm text-gray-600 hover:text-brand-600 transition-colors"
+                      // inline-block + py-1 gives a ~25px tall tap target;
+                      // bare 14px text is only 17px and fails target-size.
+                      className="inline-block py-1 text-sm text-gray-600 hover:text-brand-600 transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -211,7 +218,9 @@ export function Footer() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm text-gray-600 hover:text-brand-600 transition-colors"
+                      // inline-block + py-1 gives a ~25px tall tap target;
+                      // bare 14px text is only 17px and fails target-size.
+                      className="inline-block py-1 text-sm text-gray-600 hover:text-brand-600 transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -230,7 +239,9 @@ export function Footer() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm text-gray-600 hover:text-brand-600 transition-colors"
+                      // inline-block + py-1 gives a ~25px tall tap target;
+                      // bare 14px text is only 17px and fails target-size.
+                      className="inline-block py-1 text-sm text-gray-600 hover:text-brand-600 transition-colors"
                     >
                       {link.label}
                     </Link>

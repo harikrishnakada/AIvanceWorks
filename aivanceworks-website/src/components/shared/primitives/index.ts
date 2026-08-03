@@ -7,3 +7,4 @@ export { ChipRow, type ChipRowProps, type ChipVariant } from './ChipRow';
 export { StepBadge, type StepBadgeProps } from './StepBadge';
 export { MetricsCard, type MetricsCardProps, type Metric } from './MetricsCard';
 export { Breadcrumbs, type BreadcrumbsProps, type BreadcrumbItem } from './Breadcrumbs';
+export { AutoplayToggle, type AutoplayToggleProps } from './AutoplayToggle';

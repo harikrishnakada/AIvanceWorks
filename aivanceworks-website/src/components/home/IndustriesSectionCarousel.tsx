@@ -4,10 +4,11 @@ import { useState, useCallback, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowUpRight, ArrowRight, CheckCircle2, ChevronLeft, ChevronRight } from 'lucide-react';
-import { Section, Container } from '@/components/shared/primitives';
+import { Section, Container, AutoplayToggle } from '@/components/shared/primitives';
 import { getLucideIcon } from '@/lib/icons';
 import { cn } from '@/lib/utils';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
+import { useCarouselAutoplay } from '@/hooks/useCarouselAutoplay';
 import type { HomeIndustry } from '@/data/home/industries';
 
 // ── Variant: Category-card carousel ──
@@ -43,7 +44,6 @@ export function IndustriesSectionCarousel({ industries }: { industries: HomeIndu
   const trackRef = useScrollReveal<HTMLDivElement>({ threshold: 0.1 });
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const visibleCount = useVisibleCount();
   const maxIndex = Math.max(0, industries.length - visibleCount);
 
@@ -51,21 +51,20 @@ export function IndustriesSectionCarousel({ industries }: { industries: HomeIndu
     setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
   }, [maxIndex]);
 
+  const { containerRef, isPaused, setPaused, pause } = useCarouselAutoplay<HTMLDivElement>({
+    onTick: nextSlide,
+    intervalMs: AUTOPLAY_MS,
+  });
+
   const prevSlide = () => {
     setCurrentIndex((prev) => (prev <= 0 ? maxIndex : prev - 1));
-    setIsAutoPlaying(false);
+    pause();
   };
 
   const handleNext = () => {
     nextSlide();
-    setIsAutoPlaying(false);
+    pause();
   };
-
-  useEffect(() => {
-    if (!isAutoPlaying) return;
-    const interval = setInterval(nextSlide, AUTOPLAY_MS);
-    return () => clearInterval(interval);
-  }, [isAutoPlaying, nextSlide]);
 
   useEffect(() => {
     setCurrentIndex((prev) => Math.min(prev, maxIndex));
@@ -108,15 +107,17 @@ export function IndustriesSectionCarousel({ industries }: { industries: HomeIndu
           </Link>
         </div>
 
-        {/* Carousel track */}
+        {/* Carousel track. The outer div is the autoplay visibility target —
+            `trackRef` is already taken by the scroll-reveal observer. */}
+        <div ref={containerRef}>
         <div
           ref={trackRef}
           className="scroll-step overflow-hidden"
           role="region"
           aria-roledescription="carousel"
           aria-label="Industries we serve"
-          onMouseEnter={() => setIsAutoPlaying(false)}
-          onFocusCapture={() => setIsAutoPlaying(false)}
+          onMouseEnter={pause}
+          onFocusCapture={pause}
         >
           <div
             className="flex items-stretch transition-transform duration-500 ease-in-out motion-reduce:transition-none"
@@ -128,8 +129,12 @@ export function IndustriesSectionCarousel({ industries }: { industries: HomeIndu
               return (
                 <div
                   key={industry.href}
-                  className="flex-shrink-0 px-2 md:px-2.5"
-                  style={{ width: `${100 / visibleCount}%` }}
+                  // Width is CSS-driven, not derived from `visibleCount`. SSR has no
+                  // viewport, so the hook starts at 1 and only corrects after
+                  // hydration — an inline width guaranteed a post-hydration layout
+                  // shift on every tablet and desktop load. These breakpoints must
+                  // stay in sync with useVisibleCount().
+                  className="w-full flex-shrink-0 px-2 sm:w-1/2 md:px-2.5 lg:w-1/3"
                   role="group"
                   aria-roledescription="slide"
                   aria-label={`${idx + 1} of ${industries.length}`}
@@ -198,28 +203,41 @@ export function IndustriesSectionCarousel({ industries }: { industries: HomeIndu
             })}
           </div>
         </div>
+        </div>
 
         {/* Controls */}
         <div className="flex items-center justify-between gap-4 mt-5 md:mt-6">
           {/* Dots */}
-          <div className="flex gap-1.5">
+          {/* The visible dot stays small, but the button itself is a 24px-tall
+              hit area — an 8px target fails WCAG 2.5.8 / Lighthouse target-size. */}
+          <div className="flex items-center">
+            <AutoplayToggle
+              isPaused={isPaused}
+              onToggle={setPaused}
+              label="industries carousel"
+              className="mr-1 text-text-light/50 hover:text-brand-400"
+            />
             {Array.from({ length: totalDots }).map((_, index) => (
               <button
                 key={index}
                 type="button"
                 onClick={() => {
                   setCurrentIndex(index);
-                  setIsAutoPlaying(false);
+                  pause();
                 }}
-                className={cn(
-                  'h-1.5 sm:h-2 rounded-full transition-all duration-300',
-                  index === currentIndex
-                    ? 'bg-brand-400 w-5 sm:w-7'
-                    : 'bg-text-light/20 w-1.5 sm:w-2 hover:bg-text-light/40'
-                )}
+                className="group flex h-6 min-w-6 items-center justify-center px-1"
                 aria-label={`Go to slide ${index + 1}`}
                 aria-current={index === currentIndex ? 'true' : undefined}
-              />
+              >
+                <span
+                  className={cn(
+                    'block h-1.5 sm:h-2 rounded-full transition-all duration-300',
+                    index === currentIndex
+                      ? 'bg-brand-400 w-5 sm:w-7'
+                      : 'bg-text-light/20 w-1.5 sm:w-2 group-hover:bg-text-light/40'
+                  )}
+                />
+              </button>
             ))}
           </div>
 

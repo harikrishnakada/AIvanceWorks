@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Calendar, Mail } from 'lucide-react';
-import { SITE_CONFIG, NAVIGATION } from '@/lib/constants';
+import { SITE_CONFIG } from '@/lib/constants';
+import { NAVIGATION } from '@/lib/navigation';
 import { SECTION_Y } from '@/lib/section-spacing';
 
 export function CTASection() {

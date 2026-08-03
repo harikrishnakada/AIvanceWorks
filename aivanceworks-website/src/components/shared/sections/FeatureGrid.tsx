@@ -31,7 +31,13 @@ export const FeatureGrid = ({
   columns = 3,
   tone = 'light',
   className,
-}: FeatureGridProps) => (
+}: FeatureGridProps) => {
+  // The section heading is optional. When it is omitted — as it is on every
+  // service and solution page's capabilities grid — hardcoded <h3> cards
+  // followed the page <h1> directly and skipped a level (heading-order,
+  // WCAG 1.3.1). Promote the cards to <h2> in that case.
+  const CardHeading = title ? 'h3' : 'h2';
+  return (
   <Section data-section="feature-grid" tone={tone} size="md" className={className}>
     <Container>
       {(title || subtitle || eyebrow) && (
@@ -63,9 +69,9 @@ export const FeatureGrid = ({
               className="bg-surface-white border border-border-light rounded-xl shadow-card-sm hover:shadow-card transition-shadow p-6 md:p-7"
             >
               <IconTile icon={Icon} size="md" variant="brand" className="mb-5" />
-              <h3 className="text-lg md:text-xl font-semibold text-text-heading mb-2">
+              <CardHeading className="text-lg md:text-xl font-semibold text-text-heading mb-2">
                 {feature.title}
-              </h3>
+              </CardHeading>
               <p className="text-sm md:text-base text-text-body leading-relaxed">
                 {feature.description}
               </p>
@@ -76,3 +82,4 @@ export const FeatureGrid = ({
     </Container>
   </Section>
 );
+};
