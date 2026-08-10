@@ -56,18 +56,23 @@ export function HeroSection() {
   }, []);
 
   return (
+    // The hero owns no height of its own: `flex-1` makes it absorb whatever the
+    // "Our Promise" statement leaves over inside the one-viewport fold wrapper
+    // in app/page.tsx. That is what keeps hero + statement — and nothing past
+    // them — in the landing view at every device height. A fixed height or a
+    // viewport fraction here breaks it in one direction or the other: too tall
+    // and the statement is cut off, too short and the next section leaks in.
     <section
       data-section="home-hero"
       className="relative bg-gray-950 overflow-hidden
-        flex flex-col
-        min-h-[calc(100svh-5rem)] md:min-h-[calc(100svh-4.5rem)] lg:min-h-[calc(100svh-5rem)]"
+        flex flex-1 flex-col"
     >
       {/* Outer wrapper */}
       <div className="relative flex-1 flex flex-col w-full">
         {/* Hero stage — full-bleed, no frame */}
         <div
           className="flex flex-1 flex-col relative w-full
-            min-h-[450px] sm:min-h-[490px] md:min-h-[544px] lg:min-h-[604px]
+            sm:min-h-[320px] md:min-h-[360px] lg:min-h-[400px]
             overflow-hidden"
         >
           {/* Sliding background images — only slides that have been reached are
@@ -122,41 +127,51 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Card body */}
+          {/* Card body — the data-hero-* hooks below are targeted by the
+              short-viewport compaction rules in styles/first-fold.css, which
+              key off viewport HEIGHT (a 1280x720 laptop and a 375x667 phone
+              have the same problem and no width breakpoint can express it). */}
           <div
+            data-hero-body
             className="relative flex flex-1 flex-col
               px-4 sm:px-8 md:px-12 lg:px-20 xl:px-28
-              pt-14 sm:pt-16 md:pt-18 lg:pt-20
-              pb-14 sm:pb-16 md:pb-18 lg:pb-20"
+              pt-12 sm:pt-14 md:pt-16 lg:pt-16
+              pb-9 sm:pb-14 md:pb-16 lg:pb-16"
           >
             {/* Hero content */}
             <div
               className="flex flex-1 flex-col items-center justify-center text-center max-w-5xl mx-auto w-full"
             >
-              {/* Headline */}
+              {/* Headline — no forced <br />; the copy is long enough that a hard
+                  break overflows narrow viewports. `text-balance` splits it
+                  evenly at every width instead. */}
               <h1
-                className="text-[28px] leading-[1.1] sm:text-[44px] md:text-[58px] lg:text-[72px] xl:text-[80px]
+                className="text-[28px] leading-[1.1] sm:text-[40px] md:text-[52px] lg:text-[58px] xl:text-[64px]
                   font-black tracking-tight text-white text-balance"
               >
-                We Build Enterprise {' '}
-                <br />
-                <span className="bg-gradient-to-r from-brand-400 via-brand-300 to-accent-400 bg-clip-text text-transparent whitespace-nowrap">
-                  B2B SaaS
+                Our software serves{' '}
+                <span className="text-brand-300">
+                  Founders and Businesses
                 </span>
               </h1>
 
               {/* Subheadline — pushed down toward the CTA buttons */}
               <p
-                className="text-sm leading-relaxed sm:text-base md:text-lg lg:text-xl
+                data-hero-sub
+                className="text-sm leading-snug sm:text-base sm:leading-relaxed md:text-lg lg:text-xl
                   text-white/75 max-w-2xl mx-auto text-pretty
-                  mt-5 sm:mt-6 md:mt-7 mb-9 sm:mb-9 md:mb-10"
+                  mt-4 sm:mt-6 md:mt-7 mb-6 sm:mb-9 md:mb-10"
               >
-                 {SITE_CONFIG.name} is a cloud computing software development company including services
-                in AI Development, SaaS Development and several other development services.
+                {SITE_CONFIG.name} is a custom software development company launched in 2026,
+                offering services and packages in Product Development, AI Development,
+                SaaS Development and several other development services.
               </p>
 
               {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full max-w-xs sm:max-w-none sm:w-auto mx-auto">
+              <div
+                data-hero-cta
+                className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full max-w-xs sm:max-w-none sm:w-auto mx-auto"
+              >
                 <Button
                   size="lg"
                   asChild

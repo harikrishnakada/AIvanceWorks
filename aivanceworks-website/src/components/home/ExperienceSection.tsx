@@ -3,7 +3,6 @@
 import Image from 'next/image';
 import { useState, useEffect, useCallback } from 'react';
 import { Zap, Clock, TrendingUp, Check } from 'lucide-react';
-import { SECTION_Y_TIGHT } from '@/lib/section-spacing';
 import { useCarouselAutoplay } from '@/hooks/useCarouselAutoplay';
 import { AutoplayToggle } from '@/components/shared/primitives';
 
@@ -241,9 +240,14 @@ export function ExperienceSection() {
   const slides = ['Certifications', 'Impact'];
 
   return (
-    <section data-section="home-experience" className={`relative overflow-hidden ${SECTION_Y_TIGHT}`}>
+    // Breathing room above (the section above ends tight), narrow gutters:
+    // the two cards are the widest element on the page and want the width.
+    <section
+      data-section="home-experience"
+      className="relative overflow-hidden pt-4 sm:pt-5 md:pt-6 pb-1 sm:pb-1.5 md:pb-2"
+    >
 
-      <div className="relative w-full px-4 sm:px-6 md:px-8 lg:px-12">
+      <div className="relative w-full px-1 sm:px-1.5 md:px-2 lg:px-2 xl:px-2">
 
         {/* ── Desktop: two separate cards side by side ──────────────────── */}
         <div className="hidden lg:grid lg:grid-cols-2 lg:gap-3 xl:gap-4 lg:items-stretch">

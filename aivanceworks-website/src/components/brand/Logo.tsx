@@ -25,7 +25,8 @@ export function Logo({ asLink = true, className, idPrefix = 'logo' }: LogoProps)
   // so "DS Software" renders as "DS" over "SOFTWARE" and a single-word brand
   // renders alone. This used to be overwritten with a hardcoded "DevSolve"
   // immediately after being computed, so the logo ignored the configured brand.
-  const [primaryName, ...rest] = SITE_CONFIG.name.split(' ');
+  const [first1, first2, ...rest] = SITE_CONFIG.name.split(' ');
+  const primaryName = `${first1} ${first2}`;
   const secondaryName = rest.join(' ');
 
   const mark = (

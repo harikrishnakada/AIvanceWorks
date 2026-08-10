@@ -365,6 +365,31 @@ export interface IndustryHomeCard {
   proof: string[];      // concrete capability chips in the buyer's vocabulary
 }
 
+/**
+ * A "card-only" industry — one we present as a category card on the homepage
+ * and the /industry index without a detail page behind it.
+ *
+ * Full industries (`IndustryPageData`) carry the same information across
+ * `slug`/`name`/`icon`/`homeCard`/`canonicalPath`. Both shapes are flattened to
+ * a single card projection by `getIndustryCards()` in `src/lib/content.ts`, so
+ * card consumers never need to know which kind they're rendering.
+ */
+export interface IndustryCardData {
+  slug: string;
+  /** Plain display name — e.g. "Construction", "Industrial". */
+  name: string;
+  /** Sentence used wherever the card copy isn't available. */
+  shortDescription: string;
+  /** Lucide icon name — the industry's visual identity across the site. */
+  icon: string;
+  /**
+   * Where the card links. There is no `/industry/<slug>` page for these, so
+   * they route into the booking flow instead of a dead route.
+   */
+  href: string;
+  homeCard: IndustryHomeCard;
+}
+
 export interface IndustryPageData {
   isEnabled?: boolean;
   slug: string;

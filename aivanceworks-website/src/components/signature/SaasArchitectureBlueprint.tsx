@@ -87,34 +87,28 @@ const LAYERS: ArchitectureLayer[] = [
   },
 ];
 
-export const SaasArchitectureBlueprint = () => {
+export interface SaasArchitectureBlueprintProps {
+  /**
+   * `true` when the diagram is hosted inside another section (the homepage
+   * BlueprintShowcase). Drops this component's own <Section>/<Container> shell
+   * and its <h2> header — the host already owns the section chrome and the
+   * heading level — and renders only the layer stack. Default `false` keeps the
+   * standalone service-page rendering untouched.
+   */
+  embedded?: boolean;
+}
+
+export const SaasArchitectureBlueprint = ({
+  embedded = false,
+}: SaasArchitectureBlueprintProps = {}) => {
   const [focusedLayer, setFocusedLayer] = useState<string | null>(null);
 
   const handleLayerClick = (id: string) => {
     setFocusedLayer((prev) => (prev === id ? null : id));
   };
 
-  return (
-    <Section tone="dark" id="signature">
-      <Container>
-        {/* Header */}
-        <div className="text-center mb-10 lg:mb-14">
-          <p className="text-sm font-semibold uppercase tracking-wider text-brand-400 mb-3">
-            Platform Architecture
-          </p>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-light mb-4">
-            Every layer, purpose-built for SaaS
-          </h2>
-          <p className="text-text-light/70 max-w-2xl mx-auto text-base lg:text-lg">
-            Not a web app with billing bolted on. A platform architecture
-            designed from the data layer up for multi-tenancy, subscription
-            monetisation, and horizontal scale.
-          </p>
-          <p className="text-text-light/40 text-sm mt-3">
-            Click any layer to explore its components
-          </p>
-        </div>
-
+  const diagram = (
+    <>
         {/* Architecture stack */}
         <div className="relative max-w-3xl mx-auto space-y-3 lg:space-y-4">
           {LAYERS.map((layer, idx) => {
@@ -240,6 +234,33 @@ export const SaasArchitectureBlueprint = () => {
             </p>
           </div>
         </div>
+    </>
+  );
+
+  if (embedded) return diagram;
+
+  return (
+    <Section tone="dark" id="signature">
+      <Container>
+        {/* Header */}
+        <div className="text-center mb-10 lg:mb-14">
+          <p className="text-sm font-semibold uppercase tracking-wider text-brand-400 mb-3">
+            Platform Architecture
+          </p>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-light mb-4">
+            Every layer, purpose-built for SaaS
+          </h2>
+          <p className="text-text-light/70 max-w-2xl mx-auto text-base lg:text-lg">
+            Not a web app with billing bolted on. A platform architecture
+            designed from the data layer up for multi-tenancy, subscription
+            monetisation, and horizontal scale.
+          </p>
+          <p className="text-text-light/40 text-sm mt-3">
+            Click any layer to explore its components
+          </p>
+        </div>
+
+        {diagram}
       </Container>
     </Section>
   );

@@ -193,7 +193,9 @@ export function IndustriesSectionCarousel({ industries }: { industries: HomeIndu
                       </ul>
 
                       <span className="mt-auto inline-flex items-center gap-1.5 text-text-light font-semibold text-sm">
-                        Explore {industry.name}
+                        {industry.hasPage
+                          ? `Explore ${industry.name}`
+                          : `Talk to us about ${industry.name}`}
                         <ArrowUpRight className="h-4 w-4 text-brand-300 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 motion-reduce:transition-none" />
                       </span>
                     </div>

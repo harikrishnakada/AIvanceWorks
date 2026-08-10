@@ -1,6 +1,8 @@
 export { HeroSection } from './HeroSection';
 export { ExperienceSection } from './ExperienceSection';
 export { ChallengesSection } from './ChallengesSection';
+export { BlueprintShowcase } from './BlueprintShowcase';
+export { OurDelivery } from './OurDelivery';
 export { PartnersSection } from './PartnersSection';
 export { StatementSection } from './StatementSection';
 export { IndustriesSection } from './IndustriesSection';

@@ -55,7 +55,9 @@ export function WhyChooseUsSection() {
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-4 sm:mb-5 lg:mb-6">
           <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-black text-gray-900 mb-2 leading-tight">
-            Why Companies Choose C10 Software
+            <span className="bg-gradient-to-r from-brand-500 via-brand-600 to-accent-500 bg-clip-text text-transparent">
+               Who we are
+              </span>
           </h2>
           <p className="text-xs sm:text-sm md:text-base text-gray-500 leading-relaxed">
             We combine deep technical expertise with a partnership mindset to deliver measurable business outcomes.

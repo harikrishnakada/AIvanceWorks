@@ -32,6 +32,31 @@
   }
 }
 
+/* ─── Week-one delivery rail ───
+   Deliberately NOT a hidden-until-revealed pattern: `.delivery-step` has no
+   resting opacity of its own, so the rows are fully visible from first paint
+   (server render, no-JS, headless screenshotters). The `revealed` class only
+   replays them as a staggered entrance; if it never lands, nothing is lost.
+   Per-item delay comes from an inline `animation-delay`. */
+.delivery-rail.revealed .delivery-step {
+  animation: delivery-step-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.delivery-rail.revealed .delivery-spine {
+  animation: delivery-spine-draw 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+  transform-origin: top;
+}
+
+@keyframes delivery-step-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes delivery-spine-draw {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
+
 .scroll-connector {
   transform: scaleX(0);
   transform-origin: left;
@@ -80,6 +105,62 @@
 
 @keyframes industry-content-in {
   from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Blueprint Showcase (auto-advancing exhibit stage) ───
+   `blueprint-ring` draws the countdown around the stage's play/pause control,
+   so the timing indicator and the control are one object rather than a progress
+   bar sitting next to a stray media button. Duration comes from an inline
+   --fill-duration so the JS timer and the ring stay in lockstep, and the
+   element is keyed on slide index so the ring restarts on each advance.
+
+   The circle is authored at r=15.9155 — circumference 2πr = 100 — so the sweep
+   is a plain 100 → 0 dashoffset and needs no computed length.
+
+   `blueprint-panel-in` is an entrance only — the panel's resting styles are
+   fully visible, so a headless render or a background tab (where animations
+   never run) still shows the diagram rather than a blank stage. */
+.blueprint-ring {
+  stroke-dasharray: 100;
+  animation: blueprint-ring var(--fill-duration, 11000ms) linear forwards;
+}
+
+@keyframes blueprint-ring {
+  from { stroke-dashoffset: 100; }
+  to { stroke-dashoffset: 0; }
+}
+
+.blueprint-panel-in {
+  animation: blueprint-panel-in 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes blueprint-panel-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Signature diagram expand-on-click detail ───
+   Entrance for detail blocks that are MOUNTED on focus rather than collapsed
+   with `max-h-0 + opacity-0`.
+
+   Why mounting instead of collapsing: the collapse pattern kept the detail in
+   the DOM at `max-height: 0` inside a `<button>`, and iOS Safari did not honour
+   that clamp — the block held its natural ~200px height while `opacity-0` kept
+   it invisible, so every lane in a five-lane diagram grew ~200px of blank space.
+   It also left invisible text in the accessibility tree. Rendering nothing when
+   collapsed removes both problems, and there is no height for a browser to get
+   wrong.
+
+   Animates opacity and transform only — never height — so it cannot reintroduce
+   a layout-animation dependency. The detail is visible at rest, so if the
+   animation never runs the content is still there. */
+.signature-detail-in {
+  animation: signature-detail-in 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes signature-detail-in {
+  from { opacity: 0; transform: translateY(-4px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
@@ -144,6 +225,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .delivery-rail.revealed .delivery-step,
+  .delivery-rail.revealed .delivery-spine,
   .scroll-step,
   .scroll-stagger > *,
   .scroll-connector {
@@ -165,6 +248,18 @@
   }
 
   .industry-content-in {
+    animation: none !important;
+  }
+
+  /* Reduced motion also stops the autoplay timer itself, so the ring is not
+     rendered at all — this is belt-and-braces. */
+  .blueprint-ring {
+    animation: none !important;
+    stroke-dashoffset: 0;
+  }
+
+  .blueprint-panel-in,
+  .signature-detail-in {
     animation: none !important;
   }
 }

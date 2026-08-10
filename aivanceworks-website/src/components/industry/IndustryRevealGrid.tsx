@@ -39,8 +39,12 @@ export interface IndustryRevealCard {
   alt: string;
   /** Lucide icon name — the industry's identity across the site. */
   icon: string;
-  /** Deep link to the industry's own page (secondary affordance). */
-  href: string;
+  /**
+   * Deep link to the industry's own page (secondary affordance). Omitted for
+   * card-only industries, where the whole card already goes to the booking flow
+   * and a second link would only lead back to the same place.
+   */
+  href?: string;
   /** Where the card itself goes — the booking flow. */
   bookHref: string;
 }
@@ -227,18 +231,21 @@ export function IndustryRevealGrid({ industries }: { industries: IndustryRevealC
                 </span>
 
                 {/* Sibling link (not nested) so the industry page keeps an
-                    entry point from its own index. */}
-                <Link
-                  href={industry.href}
-                  className={cn(
-                    'pointer-events-auto relative shrink-0 rounded-sm text-xs font-medium',
-                    'text-text-light/75 underline underline-offset-4 decoration-white/30',
-                    'transition-colors hover:text-text-light hover:decoration-white',
-                    'outline-none focus-visible:ring-2 focus-visible:ring-white/70'
-                  )}
-                >
-                  Industry overview
-                </Link>
+                    entry point from its own index. Absent for card-only
+                    industries — see the `href` note on IndustryRevealCard. */}
+                {industry.href && (
+                  <Link
+                    href={industry.href}
+                    className={cn(
+                      'pointer-events-auto relative shrink-0 rounded-sm text-xs font-medium',
+                      'text-text-light/75 underline underline-offset-4 decoration-white/30',
+                      'transition-colors hover:text-text-light hover:decoration-white',
+                      'outline-none focus-visible:ring-2 focus-visible:ring-white/70'
+                    )}
+                  >
+                    Industry overview
+                  </Link>
+                )}
               </div>
             </div>
           </li>

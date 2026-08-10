@@ -12,6 +12,8 @@ import {
   ExperienceSection,
   StatementSection,
   ChallengesSection,
+  BlueprintShowcase,
+  OurDelivery,
   ServicesSection,
   WhyChooseUsSection,
   FAQSection,
@@ -39,21 +41,43 @@ export default async function HomePage() {
     <>
       <JsonLd data={generateWebPageSchema(HOME_TITLE, SITE_CONFIG.url)} />
 
-      {/* Hero Section - Headline, subheadline, dual CTA, Partners */}
-      <HeroSection />
+      {/* First fold — the hero plus the Challenges heading, and nothing else.
+          This wrapper is exactly one viewport tall (minus the fixed header) and
+          the hero inside it is `flex-1`, so the hero absorbs whatever height the
+          heading doesn't use. Both stay fully visible on landing without the
+          challenge cards leaking in, on a 667px phone and a 1080px desktop
+          alike — neither piece needs a hardcoded height for it to work. */}
+      <div
+        className="flex flex-col
+          min-h-[calc(100svh-5rem)] md:min-h-[calc(100svh-4.5rem)] lg:min-h-[calc(100svh-5rem)]"
+      >
+        {/* Hero Section - Headline, subheadline, dual CTA, Partners */}
+        <HeroSection />
+
+        {/* Company Statement - Brand promise to customers */}
+        <StatementSection />
+
+        {/* Challenges title only — its subtitle and cards render below the
+            fold and come into view on scroll. */}
+        {/* <ChallengesSection part="title" /> */}
+      </div>
+
+      {/* Are You Facing These Challenges? - subtitle + cards, titled by the
+          `part="title"` render above (linked via aria-labelledby). */}
+      <ChallengesSection />
 
       {/* Our Partners - Partner logos with tier names */}
       {/* <PartnersSection /> */}
 
-      {/* Company Statement - Brand promise to customers */}
-      <StatementSection />
+      {/* Our Delivery - What we deliver in week one, as a numbered rail */}
+      <OurDelivery />
 
-      {/* Are You Facing These Challenges? - 3 challenge cards */}
-      <ChallengesSection />
-
-
+      
       {/* Services Overview - 6 service cards */}
       <ServicesSection />
+      {/* Before We Build, We Draw It - rotating stage of two engineering
+          blueprints (AI approach routing, SaaS layer stack) */}
+      <BlueprintShowcase />
 
       {/* Our Experience - Certifications and stats */}
       <ExperienceSection />

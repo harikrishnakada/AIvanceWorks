@@ -15,8 +15,13 @@ export interface HomeIndustry {
   short: string;
   /** Concrete capability chips in the buyer's own vocabulary. */
   proof: string[];
-  /** Link into the industry's /industry page. */
+  /** Link into the industry's /industry page — or the booking flow when it has none. */
   href: string;
+  /**
+   * False for card-only industries (no `/industry/<slug>` page). Card CTAs read
+   * as an invitation to talk rather than "Explore …", which would promise a page.
+   */
+  hasPage: boolean;
   /** Purpose-shot category-card image (distinct from the industry hero). */
   image: string;
   alt: string;

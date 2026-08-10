@@ -7,15 +7,37 @@
 
 import { BRAND_PREFIX } from './constants';
 
+// AI capability services. Shared by `aiMlMenu` (still consumed by the /services
+// and /solutions pillar sections) and by the first column of the Services mega
+// menu, which is where these now surface in the header — the standalone "AI"
+// top-level dropdown is hidden. Defined once so the two stay in sync.
+const AI_SERVICES_GROUP = {
+  title: 'Artificial Intelligence',
+  icon: 'Brain',
+  description: 'AI capability building blocks',
+  links: [
+    { label: `${BRAND_PREFIX} AI Development`, href: '/services/ai-development', icon: 'Compass' },
+    { label: `${BRAND_PREFIX} ML Development`, href: '/services/ml-development', icon: 'Workflow' },
+    { label: `${BRAND_PREFIX} Native AI Development`, href: '/services/native-ai-development', icon: 'Brain' },
+    { label: `${BRAND_PREFIX} Generative AI`, href: '/services/generative-ai', icon: 'Sparkles' },
+    { label: `${BRAND_PREFIX} Agentic AI Development`, href: '/services/agentic-ai-development', icon: 'Bot' },
+    { label: `${BRAND_PREFIX} Enterprise AI Development`, href: '/services/enterprise-ai-development', icon: 'Building2' },
+    { label: `${BRAND_PREFIX} NLP & Document AI`, href: '/services/nlp-document-ai', icon: 'FileText' },
+    { label: `${BRAND_PREFIX} Conversational AI`, href: '/services/conversational-ai', icon: 'MessageCircle' },
+    { label: `${BRAND_PREFIX} Computer Vision`, href: '/services/computer-vision', icon: 'Eye' },
+  ],
+} as const;
+
 export const NAVIGATION = {
   main: [
     //{ label: 'AI', href: '/services/ai-machine-learning' },
-    { label: 'Services', href: '/services' },
+    // { label: 'Services', href: '/services' },
+    { label: 'How We Work', href: '/services' },
     // { label: 'Solutions', href: '/solutions' }, // hidden from UI (content preserved)
     { label: 'Industries', href: '/industry' },
     // { label: 'Case Studies', href: '/case-studies' },
-    { label: 'Blog', href: '/blog' },
     { label: 'About', href: '/about' },
+    { label: 'Blog', href: '/blog' }
   ],
   // Service pillars (used by footer, services page, etc.)
   // AI & ML is NOT listed here — it has its own top-level menu (aiMlMenu)
@@ -30,7 +52,10 @@ export const NAVIGATION = {
     { label: 'Cloud & Infrastructure', href: '/services#infrastructure-management' },
     { label: 'Security & Compliance', href: '/services/security-compliance' },
   ],
-  // AI menu (standalone top-level dropdown — grouped: Solutions + Services)
+  // AI menu — HIDDEN from the header (desktop, tablet and mobile triggers are
+  // commented out). Kept because the /services and /solutions pages still read
+  // `groups[0]` for their "Automation & Intelligence" pillar section. The links
+  // now reach the header via the first column of `servicesMenu`.
   aiMlMenu: {
     title: 'AI',
     icon: 'Brain',
@@ -47,22 +72,7 @@ export const NAVIGATION = {
       //     { label: 'C10 AI Infrastructure', href: '/solutions/ai-infrastructure', icon: 'Server' },
       //   ],
       // },
-      {
-        title: 'AI Services',
-        icon: 'Brain',
-        description: 'AI capability building blocks',
-        links: [
-          { label: `${BRAND_PREFIX} AI Development`, href: '/services/ai-development', icon: 'Compass' },
-          { label: `${BRAND_PREFIX} ML Development`, href: '/services/ml-development', icon: 'Workflow' },
-          { label: `${BRAND_PREFIX} Native AI Development`, href: '/services/native-ai-development', icon: 'Brain' },
-          { label: `${BRAND_PREFIX} Generative AI`, href: '/services/generative-ai', icon: 'Sparkles' },
-          { label: `${BRAND_PREFIX} Agentic AI Development`, href: '/services/agentic-ai-development', icon: 'Bot' },
-          { label: `${BRAND_PREFIX} Enterprise AI Development`, href: '/services/enterprise-ai-development', icon: 'Building2' },
-          { label: `${BRAND_PREFIX} NLP & Document AI`, href: '/services/nlp-document-ai', icon: 'FileText' },
-          { label: `${BRAND_PREFIX} Conversational AI`, href: '/services/conversational-ai', icon: 'MessageCircle' },
-          { label: `${BRAND_PREFIX} Computer Vision`, href: '/services/computer-vision', icon: 'Eye' },
-        ],
-      },
+      AI_SERVICES_GROUP,
     ],
   },
   // Advisory menu (standalone top-level dropdown — next to AI)
@@ -126,7 +136,7 @@ export const NAVIGATION = {
       },
     ],
   },
-  // Mega menu columns for "Services" dropdown
+  // Mega menu columns for "Services" dropdown — AI Services leads the row.
   servicesMenu: [
     {
       title: 'Advisory',
@@ -140,6 +150,7 @@ export const NAVIGATION = {
         { label: `${BRAND_PREFIX} Architecture Advisory`, href: '/services/c10-architecture-advisory', icon: 'Layers' },
       ],
     },
+    AI_SERVICES_GROUP,
     {
       title: 'Software Engineering',
       icon: 'Code2',

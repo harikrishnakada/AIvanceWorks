@@ -18,6 +18,17 @@
  * Interactive: click/tap any approach to focus it. Matches the ModelLifecycleLoop /
  *   DataPipelineBlueprint interaction pattern (useState focus, dim siblings, aria-expanded).
  *
+ * Collapse pattern — deliberately NOT `max-h-0 + opacity-0`. That approach kept
+ *   each lane's detail in the DOM at `max-height: 0` inside a <button>, and iOS
+ *   Safari did not honour the clamp: the block held its natural ~200px height
+ *   while `opacity-0` kept it invisible, so on a real iPhone every lane carried
+ *   ~200px of blank space (five lanes ≈ 1000px of dead scroll) while Chrome
+ *   DevTools rendered it correctly. The detail is now mounted only when focused,
+ *   so there is no height for a browser to get wrong, and no invisible text left
+ *   in the accessibility tree. Entrance comes from `.signature-detail-in`, which
+ *   animates opacity/transform only. Sibling signature components still use the
+ *   max-height pattern and have the same latent bug.
+ *
  * Visualization pattern: comparison / decision + convergent flow (catalog #4 + #3).
  * Emotional argument: "You bring the problem, not the technology. We pick the AI approach that
  *   fits — or tell you when you don't need AI — then build and ship the one that does."
@@ -164,31 +175,27 @@ function VerticalConnector({ tone = 'brand' }: { tone?: 'brand' | 'accent' }) {
   );
 }
 
-export function AiApproachSelector() {
+export interface AiApproachSelectorProps {
+  /**
+   * `true` when the diagram is hosted inside another section (the homepage
+   * BlueprintShowcase). Drops this component's own <Section>/<Container> shell
+   * and its <h2> header — the host already owns the section chrome and the
+   * heading level — and renders only the diagram. Default `false` keeps the
+   * standalone service-page rendering untouched.
+   */
+  embedded?: boolean;
+}
+
+export function AiApproachSelector({ embedded = false }: AiApproachSelectorProps = {}) {
   const [focusedId, setFocusedId] = useState<string | null>(null);
 
   const handleToggle = (id: string) => {
     setFocusedId((prev) => (prev === id ? null : id));
   };
 
-  return (
-    <Section tone="dark">
-      <Container>
-        {/* Section header */}
-        <div className="text-center mb-10 lg:mb-14">
-          <p className="text-sm font-semibold tracking-wider uppercase text-brand-300 mb-3">
-            How We Choose
-          </p>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-light mb-4">
-            One problem in. The right approach out.
-          </h2>
-          <p className="text-text-light/80 max-w-2xl mx-auto text-lg">
-            You don&apos;t need to know which kind of AI you need. Bring the problem — we weigh the
-            approaches against it and build the one that fits, even when that means no AI at all.
-          </p>
-        </div>
-
-        {/* ─── Desktop: problem → approaches → production (lg+) ─── */}
+  const diagram = (
+    <>
+      {/* ─── Desktop: problem → approaches → production (lg+) ─── */}
         <div className="hidden lg:flex items-stretch justify-center gap-0 max-w-6xl mx-auto">
           {/* Problem node */}
           <div className="w-56 flex-shrink-0 self-center">
@@ -243,13 +250,10 @@ export function AiApproachSelector() {
                     )}
                   </div>
 
-                  <div
-                    className={cn(
-                      'overflow-hidden transition-all duration-300',
-                      isFocused ? 'max-h-72 opacity-100 mt-3' : 'max-h-0 opacity-0',
-                    )}
-                  >
-                    <div className="pt-3 border-t border-brand-400/20 space-y-3">
+                  {/* Mounted only while focused — see the note on the collapse
+                      pattern at the top of this file. */}
+                  {isFocused && (
+                    <div className="signature-detail-in mt-3 pt-3 border-t border-brand-400/20 space-y-3">
                       <div>
                         <p className="text-[11px] font-semibold tracking-wider uppercase text-brand-300 mb-1">
                           When it fits
@@ -263,7 +267,7 @@ export function AiApproachSelector() {
                         <p className="text-xs text-text-light/75 leading-relaxed">{a.whatWeBuild}</p>
                       </div>
                     </div>
-                  </div>
+                  )}
                 </button>
               );
             })}
@@ -335,13 +339,8 @@ export function AiApproachSelector() {
                     )}
                   </div>
 
-                  <div
-                    className={cn(
-                      'overflow-hidden transition-all duration-300',
-                      isFocused ? 'max-h-80 opacity-100 mt-3' : 'max-h-0 opacity-0',
-                    )}
-                  >
-                    <div className="pt-3 border-t border-brand-400/20 space-y-3">
+                  {isFocused && (
+                    <div className="signature-detail-in mt-3 pt-3 border-t border-brand-400/20 space-y-3">
                       <div>
                         <p className="text-[11px] font-semibold tracking-wider uppercase text-brand-300 mb-1">
                           When it fits
@@ -355,7 +354,7 @@ export function AiApproachSelector() {
                         <p className="text-xs text-text-light/75 leading-relaxed">{a.whatWeBuild}</p>
                       </div>
                     </div>
-                  </div>
+                  )}
                 </button>
               );
             })}
@@ -374,7 +373,32 @@ export function AiApproachSelector() {
           </div>
         </div>
 
-        {/* Interaction hint */}
+    </>
+  );
+
+  if (embedded) return diagram;
+
+  return (
+    <Section tone="dark">
+      <Container>
+        {/* Section header */}
+        <div className="text-center mb-10 lg:mb-14">
+          <p className="text-sm font-semibold tracking-wider uppercase text-brand-300 mb-3">
+            How We Choose
+          </p>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-light mb-4">
+            One problem in. The right approach out.
+          </h2>
+          <p className="text-text-light/80 max-w-2xl mx-auto text-lg">
+            You don&apos;t need to know which kind of AI you need. Bring the problem — we weigh the
+            approaches against it and build the one that fits, even when that means no AI at all.
+          </p>
+        </div>
+
+        {diagram}
+
+        {/* Interaction hint. Lives in the standalone branch only — an embedding
+            host supplies its own, so keeping it here avoided a duplicate. */}
         <p className="text-center text-xs text-text-light/35 mt-8">
           Click any approach to see when it fits and what we build.
         </p>

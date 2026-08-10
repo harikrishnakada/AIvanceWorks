@@ -3,6 +3,7 @@
 @import "./themes/purple.css";
 @import "./themes/black.css";
 @import './scroll-animations.css';
+@import './first-fold.css';
 
 html {
   scroll-behavior: smooth;

@@ -3,7 +3,7 @@ import { constructMetadata } from '@/lib/seo';
 import { generateWebPageSchema } from '@/lib/schema';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { SITE_CONFIG } from '@/lib/constants';
-import { getAllIndustryPageSlugs, getIndustryPageData } from '@/lib/content';
+import { getIndustryCards } from '@/lib/content';
 import { Section, Container, Breadcrumbs } from '@/components/shared/primitives';
 import { IndustryRevealGrid, type IndustryRevealCard } from '@/components/industry';
 
@@ -15,23 +15,21 @@ export const metadata: Metadata = constructMetadata({
 });
 
 export default async function IndustryIndexPage() {
-  const slugs = getAllIndustryPageSlugs();
-  const industries = (
-    await Promise.all(slugs.map((slug) => getIndustryPageData(slug)))
-  ).filter((d): d is NonNullable<typeof d> => Boolean(d));
+  // The industry data files stay the single source of truth; `getIndustryCards`
+  // flattens both full-page and card-only industries into one card shape, so
+  // this page never has to know which kind it is rendering. `href` already
+  // points at the detail page, or at the booking flow where there isn't one.
+  const industries = await getIndustryCards();
 
-  // Card projection. The industry data files stay the single source of truth;
-  // `homeCard` carries the category-card image + chips, with the hero as the
-  // fallback for any industry that hasn't had one shot yet.
   const cards: IndustryRevealCard[] = industries.map((industry) => ({
     slug: industry.slug,
     name: industry.name,
-    description: industry.homeCard?.tagline ?? industry.shortDescription,
-    proof: industry.homeCard?.proof ?? [],
-    image: industry.homeCard?.image ?? industry.hero.heroImage.src,
-    alt: industry.homeCard?.alt ?? industry.hero.heroImage.alt,
+    description: industry.tagline,
+    proof: industry.proof,
+    image: industry.image,
+    alt: industry.alt,
     icon: industry.icon,
-    href: industry.canonicalPath,
+    href: industry.hasPage ? industry.href : undefined,
     bookHref: `/book-consultation?industry=${industry.slug}`,
   }));
 

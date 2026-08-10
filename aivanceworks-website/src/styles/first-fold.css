@@ -1,0 +1,127 @@
+/* ─── First-fold compaction ───────────────────────────────────────────────
+   The homepage hero and the "Our Promise" statement share a single viewport:
+   app/page.tsx wraps the pair in a `100svh - header` box and the hero is
+   `flex-1`, so the hero absorbs whatever height the statement doesn't use and
+   the section after them starts exactly at the fold.
+
+   That wrapper handles every viewport where the pair is SHORTER than the fold
+   budget. It cannot help where the content is intrinsically TALLER — a 375x667
+   phone and a 1280x720 laptop both overflow on content height alone, and the
+   statement gets clipped. The rules below trim type and spacing until it fits.
+
+   Keyed to viewport HEIGHT, not width, deliberately: the 375px phone and the
+   1280px laptop have identical symptoms and nothing in Tailwind's width
+   breakpoints can express "short screen". Specificity is one attribute
+   selector above the utilities being overridden, so no !important is needed.
+
+   The three tiers are deliberately staggered rather than merged. At 1440x900
+   the overflow came entirely from the statement (305px) — the hero's intrinsic
+   height already fit — so compacting hero type there would shrink the headline
+   for no reason. The statement tier therefore starts higher than the hero one.
+   All thresholds below are measured, not guessed. */
+
+/* Tier 1 — the fold's lower block only (≤920px tall). Trimming its padding is
+   usually enough on its own, and it costs nothing visually, so it starts at the
+   highest threshold. */
+@media (max-height: 920px) {
+  [data-section='home-challenges-intro'] {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+
+  /* Kept for StatementSection, which shares the fold slot with the challenges
+     heading and is swapped in and out of app/page.tsx. */
+  [data-section='home-statement'] {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  [data-statement-eyebrow] {
+    margin-bottom: 0.5rem;
+  }
+
+  [data-statement-quote] {
+    font-size: clamp(1rem, 2.1vw, 1.5rem);
+  }
+
+  [data-statement-divider] {
+    margin-top: 0.75rem;
+  }
+}
+
+/* Tier 2 — hero as well (≤800px tall): 720p laptops and most phones, where the
+   hero copy on its own is taller than the fold leaves room for. */
+@media (max-height: 800px) {
+  [data-hero-body] {
+    padding-top: 2.75rem;
+    padding-bottom: 2rem;
+  }
+
+  [data-section='home-hero'] h1 {
+    font-size: clamp(1.625rem, 3.6vw, 2.5rem);
+    line-height: 1.12;
+  }
+
+  [data-hero-sub] {
+    font-size: clamp(0.8125rem, 1.2vw, 1rem);
+    line-height: 1.45;
+    margin-top: 0.75rem;
+    margin-bottom: 1.25rem;
+  }
+
+  /* Button renders as an <a> via asChild, so height lands on the child. */
+  [data-hero-cta] a {
+    height: 2.75rem;
+    font-size: 0.9375rem;
+  }
+}
+
+/* Tier 3 — genuinely short viewports (≤700px tall): iPhone SE, landscape
+   phones, browsers with several toolbars open. */
+@media (max-height: 700px) {
+  [data-hero-body] {
+    padding-top: 2.25rem;
+    padding-bottom: 1.5rem;
+  }
+
+  [data-section='home-hero'] h1 {
+    font-size: clamp(1.375rem, 3.1vw, 2rem);
+  }
+
+  [data-hero-sub] {
+    font-size: 0.8125rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  [data-hero-cta] a {
+    height: 2.5rem;
+    font-size: 0.875rem;
+  }
+
+  [data-hero-cta] {
+    gap: 0.625rem;
+  }
+
+  [data-section='home-challenges-intro'] {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+
+  [data-challenges-intro] h2 {
+    font-size: clamp(1.125rem, 2.6vw, 1.75rem);
+  }
+
+  [data-section='home-statement'] {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+
+  [data-statement-quote] {
+    font-size: clamp(0.9375rem, 1.9vw, 1.25rem);
+  }
+
+  [data-statement-divider] {
+    margin-top: 0.5rem;
+  }
+}

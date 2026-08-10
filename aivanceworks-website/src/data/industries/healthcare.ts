@@ -52,7 +52,7 @@ const healthcare: IndustryPageData = {
     tagline:
       'HIPAA-first AI and software for hospitals, payers, pharma, and digital health — engineered to lift the burden without ever breaking compliance.',
     short: 'HIPAA-first AI and software for hospitals, payers, pharma, and digital health.',
-    image: '/images/industries/healthcare/category-card-1.jpg',
+    image: '/images/industries/healthcare/category-card-2.jpg',
     alt: 'Grid of patient heart-rate monitors glowing in a clinical setting',
     proof: ['HIPAA-First', 'HL7 / FHIR', 'Clinical AI'],
   },

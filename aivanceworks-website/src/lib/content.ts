@@ -9,7 +9,12 @@
  */
 
 import { ServiceCategory, Service, BlogPost, CaseStudy, Author, FAQ } from '@/types';
-import type { ServicePageData, SolutionPageData, IndustryPageData } from '@/types/pages';
+import type {
+  ServicePageData,
+  SolutionPageData,
+  IndustryPageData,
+  IndustryCardData,
+} from '@/types/pages';
 import type { HomeIndustry } from '@/data/home/industries';
 
 // ============================================================================
@@ -1074,8 +1079,10 @@ const SOLUTION_PAGE_MODULES: Record<string, () => Promise<{ default: SolutionPag
   'drug-discovery': () => import('@/data/solutions/drug-discovery'),
 };
 
-const INDUSTRY_PAGE_MODULES: Record<string, () => Promise<{ default: IndustryPageData }>> = {
- // 'healthcare': () => import('@/data/industries/healthcare'),
+// Industries with a full `/industry/<slug>` detail page. Everything routed,
+// sitemapped, or statically generated for the industry section comes from here.
+const INDUSTRY_PAGE_MODULES: Record<string, () => Promise<{ default: IndustryPageData | null }>> = {
+  'healthcare': () => import('@/data/industries/healthcare'),
   'travel-hospitality': () => import('@/data/industries/travel-hospitality'),
   'real-estate': () => import('@/data/industries/real-estate'),
   'manufacturing-supply-chain': () =>
@@ -1083,7 +1090,17 @@ const INDUSTRY_PAGE_MODULES: Record<string, () => Promise<{ default: IndustryPag
   logistics: () => import('@/data/industries/logistics'),
   retail: () => import('@/data/industries/retail'),
   'food-beverage': () => import('@/data/industries/food-beverage'),
-  //banking: () => import('@/data/industries/banking'),
+  'banking': () => import('@/data/industries/banking'),
+};
+
+// Card-only industries — presented as category cards on the homepage and the
+// /industry index, with no detail page behind them. Deliberately kept out of
+// INDUSTRY_PAGE_MODULES so routing, sitemap, and generateStaticParams never
+// emit a `/industry/<slug>` URL that would 404. To promote one to a full page,
+// rewrite its data file as `IndustryPageData` and move its entry above.
+const INDUSTRY_CARD_MODULES: Record<string, () => Promise<{ default: IndustryCardData }>> = {
+  construction: () => import('@/data/industries/construction'),
+  industrial: () => import('@/data/industries/industrial'),
 };
 
 export async function getServicePageData(slug: string): Promise<ServicePageData | null> {
@@ -1104,42 +1121,105 @@ export function getAllIndustryPageSlugs(): string[] {
   return Object.keys(INDUSTRY_PAGE_MODULES);
 }
 
+/**
+ * Fully-resolved category card for an industry — the one shape every card
+ * surface consumes, whether the industry has a detail page or not.
+ */
+export interface IndustryCard {
+  slug: string;
+  name: string;
+  /** Full sentence — carries the message on the card. */
+  tagline: string;
+  /** Short line for tight layouts (panels, collapsed states, aria-labels). */
+  short: string;
+  proof: string[];
+  image: string;
+  alt: string;
+  /** Lucide icon name — resolved via getLucideIcon. */
+  icon: string;
+  /** Detail page for full industries; the booking flow for card-only ones. */
+  href: string;
+  /** False for card-only industries — there is no `/industry/<slug>` to link to. */
+  hasPage: boolean;
+}
+
+
 // Explicit display order for the homepage Industries section. The bento layout
 // (IndustriesSectionCatalog) assigns position-dependent column spans — two wide
 // feature tiles, then three balanced panels — so order is a homepage concern,
 // not derivable from the registry key order.
-const HOME_INDUSTRY_ORDER = [
+const INDUSTRY_ORDER = [
+  'healthcare',
+  'food-beverage',
+  'travel-hospitality',
   'real-estate',
   'retail',
-  'travel-hospitality',
- // 'banking',
-  //'healthcare',
-  'food-beverage',
+  'banking',
+
   'logistics',
   'manufacturing-supply-chain',
+  'construction',
+  'industrial',
 ];
+
+/**
+ * Resolve one industry to its card projection. Checks the full-page registry
+ * first, then the card-only one. Returns null for an unknown slug, or for a
+ * full industry that hasn't been given a `homeCard` block yet — in which case
+ * the hero image stands in for the card shot.
+ */
+async function getIndustryCard(slug: string): Promise<IndustryCard | null> {
+  const page = await getIndustryPageData(slug);
+  if (page) {
+    if (!page.homeCard) return null;
+    return {
+      slug: page.slug,
+      name: page.name,
+      tagline: page.homeCard.tagline,
+      short: page.homeCard.short,
+      proof: page.homeCard.proof,
+      image: page.homeCard.image || page.hero.heroImage.src,
+      alt: page.homeCard.alt || page.hero.heroImage.alt,
+      icon: page.icon,
+      href: page.canonicalPath,
+      hasPage: true,
+    };
+  }
+
+  const loader = INDUSTRY_CARD_MODULES[slug];
+  if (!loader) return null;
+  const { default: card } = await loader();
+  return {
+    slug: card.slug,
+    name: card.name,
+    tagline: card.homeCard.tagline,
+    short: card.homeCard.short,
+    proof: card.homeCard.proof,
+    image: card.homeCard.image,
+    alt: card.homeCard.alt,
+    icon: card.icon,
+    href: card.href,
+    hasPage: false,
+  };
+}
+
+/** Every industry we present as a card, in display order. */
+export async function getIndustryCards(): Promise<IndustryCard[]> {
+  const cards = await Promise.all(INDUSTRY_ORDER.map(getIndustryCard));
+  return cards.filter((c): c is IndustryCard => Boolean(c));
+}
+
 
 // Build the homepage Industries cards from the canonical industry data files.
 // The industry files are the single source of truth: `name`/`icon` and the
-// `homeCard` block are read straight off each IndustryPageData — nothing about
-// an industry is restated here. Industries without a `homeCard` are skipped.
+// `homeCard` block are read straight off each file — nothing about an industry
+// is restated here. Industries without a `homeCard` are skipped.
 export async function getHomeIndustries(): Promise<HomeIndustry[]> {
-  const entries = await Promise.all(
-    HOME_INDUSTRY_ORDER.map((slug) => getIndustryPageData(slug))
-  );
+  const cards = await Promise.all(INDUSTRY_ORDER.map(getIndustryCard));
 
-  return entries
-    .filter((d): d is IndustryPageData => Boolean(d && d.homeCard))
-    .map((d) => ({
-      name: d.name,
-      tagline: d.homeCard!.tagline,
-      short: d.homeCard!.short,
-      proof: d.homeCard!.proof,
-      href: d.canonicalPath,
-      image: d.homeCard!.image,
-      alt: d.homeCard!.alt,
-      icon: d.icon,
-    }));
+  return cards
+    .filter((c): c is IndustryCard => Boolean(c))
+    .map(({ slug: _slug, ...card }) => card);
 }
 
 export async function getSolutionPageData(slug: string): Promise<SolutionPageData | null> {

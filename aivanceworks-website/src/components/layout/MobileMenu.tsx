@@ -88,7 +88,9 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           {/* Menu Content */}
           <div className="flex-1 overflow-y-auto px-6 py-6 mt-16">
             <nav className="space-y-1" aria-label="Mobile navigation">
-              {/* AI Accordion — mirrors Services: nested expandable categories */}
+              {/* AI Accordion — hidden (set to false). AI Services is now the first
+                  category inside the Services accordion. */}
+              {false && (
               <div className="border-b border-gray-200 pb-1">
                 <button
                   onClick={() => openMenu(isAiMlOpen, setIsAiMlOpen, NAVIGATION.aiMlMenu.groups)}
@@ -155,9 +157,10 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                   </div>
                 )}
               </div>
+              )}
 
 
-              
+
               {/* Advisory Accordion — hidden (set to false); Advisory now lives under Services */}
               {false && (
               <div className="border-b border-gray-200 pb-1">
@@ -236,7 +239,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                   className="flex items-center justify-between w-full px-4 py-3 text-base font-medium text-gray-900 hover:bg-gray-50 rounded-lg transition-colors"
                   aria-expanded={isServicesOpen}
                 >
-                  Services
+                  What We Do
                   <ChevronDown
                     className={`h-5 w-5 text-gray-500 transition-transform duration-200 ${
                       isServicesOpen ? 'rotate-180' : ''

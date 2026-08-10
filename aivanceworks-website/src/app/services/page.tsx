@@ -87,6 +87,15 @@ const TECH_BADGES = TECHNOLOGIES.links.map((link) => ({
   icon: link.icon,
 }));
 
+// Look up a Services mega-menu column by title. These sections used to index
+// `servicesMenu` positionally, which silently rendered the wrong pillar the last
+// time a column was inserted — resolve by title so column order stays free to change.
+function servicesColumn(title: string) {
+  const column = NAVIGATION.servicesMenu.find((c) => c.title === title);
+  if (!column) throw new Error(`No servicesMenu column titled "${title}"`);
+  return column;
+}
+
 // Jump-to anchors shown in hero — mirrors the header's Services mega menu
 const JUMP_TO = [
   { label: 'Automation & Intelligence', id: 'automation-intelligence' },
@@ -237,18 +246,12 @@ export default function ServicesPage() {
       )}
 
       {/* ── Software Engineering ─────────────────────────────── */}
-      {/* servicesMenu is [Advisory, Software Engineering, Infrastructure
-          Management]. These two sections were indexed [0] and [1], so the
-          "software-engineering" section rendered Advisory (already shown above
-          from advisoryMenu) and "infrastructure-management" rendered Software
-          Engineering — leaving all 8 Infrastructure Management service pages
-          with no link from anywhere on the site. */}
       <ServicePillarSection
         id="software-engineering"
-        title={NAVIGATION.servicesMenu[1].title}
-        description={NAVIGATION.servicesMenu[1].description}
+        title={servicesColumn('Software Engineering').title}
+        description={servicesColumn('Software Engineering').description}
         CategoryIcon={Code2}
-        links={NAVIGATION.servicesMenu[1].links}
+        links={servicesColumn('Software Engineering').links}
         builtOutSlugs={builtOutSlugs}
         iconMap={iconMap}
         descriptions={SERVICE_DESCRIPTIONS}
@@ -258,10 +261,10 @@ export default function ServicesPage() {
       {/* ── Infrastructure Management ────────────────────────── */}
       <ServicePillarSection
         id="infrastructure-management"
-        title={NAVIGATION.servicesMenu[2].title}
-        description={NAVIGATION.servicesMenu[2].description}
+        title={servicesColumn('Infrastructure Management').title}
+        description={servicesColumn('Infrastructure Management').description}
         CategoryIcon={Server}
-        links={NAVIGATION.servicesMenu[2].links}
+        links={servicesColumn('Infrastructure Management').links}
         builtOutSlugs={builtOutSlugs}
         iconMap={iconMap}
         descriptions={SERVICE_DESCRIPTIONS}

@@ -15,6 +15,10 @@ import {
   Search, ShoppingCart, Store,
   Target, Package, Sparkles, FileText, Workflow,
   CreditCard, Stethoscope, Eye, Pill, FlaskConical, LayoutGrid,
+  // Icons the Services mega-menu columns ask for but iconMap didn't carry, so those
+  // rows rendered the Code2 `</>` fallback instead: AI Development, API Development,
+  // Data Engineering, Data Analytics, IaaS, Quality Engineering.
+  Compass, Webhook, Database, BarChart3, ServerCog, CheckCircle,
 } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import type { LucideIcon } from 'lucide-react';
@@ -37,6 +41,7 @@ const iconMap: Record<string, LucideIcon> = {
   Search, ShoppingCart, Store,
   Target, Package, Sparkles, FileText, Workflow,
   CreditCard, Stethoscope, Eye, Pill, FlaskConical,
+  Compass, Webhook, Database, BarChart3, ServerCog, CheckCircle,
 };
 
 type DropdownType = 'services' | 'ai-ml' | 'advisory' | 'enterprise' | 'solutions' | 'industries' | null;
@@ -128,17 +133,36 @@ export function Header() {
             : 'bg-white border-b border-gray-100'
           }`}
       >
-        <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Main navigation">
-          <div className="flex items-center justify-between h-20 md:h-18 lg:h-20">
-            {/* Logo */}
-            <div className="flex-shrink-0">
+        {/* Full-bleed, not `max-w-7xl mx-auto`: the centred container held the logo
+            104px in from the viewport edge at 1440 and centred the nav on the
+            container rather than the screen. The row now spans the full width and
+            only the gutter padding insets it, so the logo sits hard left, the CTA
+            hard right, and the nav track lands on the true viewport centre. */}
+        <nav className="px-4 sm:px-6 lg:px-8" aria-label="Main navigation">
+          {/* Three-track row. From lg the outer tracks are `flex-1` (basis 0), so the
+              free space splits evenly and the nav lands on the true horizontal centre
+              instead of wherever `justify-between` happened to drop it.
+
+              Centring is lg-only on purpose. At md the tablet nav carries four
+              dropdowns and the row is already ~76px wider than the container, so it
+              survives only by shrinking below max-content (the dropdown labels wrap).
+              Basis-0 outer tracks there make the flex algorithm measure free space
+              against a 0 basis, "find" room that isn't there, and grow both tracks
+              into ~180px of overflow. Below lg the row stays on `justify-between`
+              with `flex: 0 0 auto` tracks — the previous behaviour exactly. The nav
+              tracks deliberately keep the default `shrink: 1`; pinning them to
+              `shrink-0` re-breaks md by blocking that same wrap. */}
+          <div className="flex items-center justify-between lg:justify-normal h-20 md:h-18 lg:h-20">
+            {/* Left track — logo + wordmark, pinned to the container's left edge */}
+            <div className="flex flex-none items-center justify-start lg:flex-1">
               <Logo idPrefix="logo-header" />
             </div>
 
-            {/* Desktop Navigation — visible from lg (1024px) */}
-            <div className="hidden lg:flex lg:items-center lg:space-x-0.5 xl:space-x-1">
-              {/* AI Dropdown */}
-              <div
+            {/* Desktop Navigation — visible from lg (1024px). Gaps opened up a step now
+                that the row carries 4 items instead of 5; it was tight to fit AI. */}
+            <div className="hidden lg:flex lg:items-center lg:space-x-1 xl:space-x-2">
+              {/* AI Dropdown — hidden from UI (AI Services now leads the Services mega menu) */}
+              {/* <div
                 data-dropdown="ai-ml"
                 className="relative"
                 onMouseEnter={() => handleDropdownEnter('ai-ml')}
@@ -156,7 +180,7 @@ export function Header() {
                       }`}
                   />
                 </button>
-              </div>
+              </div> */}
 
               {/* Services Dropdown */}
               <div
@@ -171,7 +195,7 @@ export function Header() {
                   aria-expanded={activeDropdown === 'services'}
                   aria-haspopup="true"
                 >
-                  Services
+                  What We Do
                   <ChevronDown
                     className={`ml-1.5 h-4 w-4 xl:h-5 xl:w-5 transition-transform duration-200 ${activeDropdown === 'services' ? 'rotate-180' : ''
                       }`}
@@ -223,8 +247,8 @@ export function Header() {
 
             {/* Tablet Navigation — visible only at md (768-1023px) */}
             <div className="hidden md:flex md:items-center md:space-x-0.5 lg:hidden">
-              {/* AI Dropdown */}
-              <div
+              {/* AI Dropdown — hidden from UI (AI Services now leads the Services mega menu) */}
+              {/* <div
                 data-dropdown="ai-ml"
                 className="relative"
                 onMouseEnter={() => handleDropdownEnter('ai-ml')}
@@ -242,7 +266,7 @@ export function Header() {
                       }`}
                   />
                 </button>
-              </div>
+              </div> */}
 
 
               {/* Advisory Dropdown */}
@@ -280,7 +304,7 @@ export function Header() {
                   aria-expanded={activeDropdown === 'services'}
                   aria-haspopup="true"
                 >
-                  Services
+                  What We Do
                   <ChevronDown
                     className={`ml-1 h-3.5 w-3.5 transition-transform duration-200 ${activeDropdown === 'services' ? 'rotate-180' : ''
                       }`}
@@ -344,33 +368,38 @@ export function Header() {
               ))}
             </div>
 
-            {/* CTA Buttons — visible from md */}
-            <div className="hidden md:flex md:items-center md:space-x-1.5 lg:space-x-3">
-              <Button
-                size="sm"
-                asChild
-                className="bg-brand-600 text-white hover:bg-brand-700 text-sm lg:text-base h-9 lg:h-10 px-4 lg:px-5 font-semibold shadow-sm"
-              >
-                <Link href="/contact">Contact</Link>
-              </Button>
-            </div>
+            {/* Right track — mirrors the left track's `lg:flex-1` so the nav sits
+                centred. Holds both the desktop CTA and the mobile toggle, which
+                are mutually exclusive by breakpoint. */}
+            <div className="flex flex-none items-center justify-end lg:flex-1">
+              {/* CTA Buttons — visible from md */}
+              <div className="hidden md:flex md:items-center md:space-x-1.5 lg:space-x-3">
+                <Button
+                  size="sm"
+                  asChild
+                  className="bg-brand-600 text-white hover:bg-brand-700 text-sm lg:text-base h-9 lg:h-10 px-4 lg:px-5 font-semibold shadow-sm"
+                >
+                  <Link href="/contact">Contact Us</Link>
+                </Button>
+              </div>
 
-            {/* Mobile Menu Button — hidden from md */}
-            <button
-              onClick={() => {
-                setHasOpenedMobileMenu(true);
-                setIsMobileMenuOpen(!isMobileMenuOpen);
-              }}
-              className="md:hidden p-2 rounded-lg text-brand-700 hover:bg-brand-50 transition-colors shrink-0"
-              aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
-              aria-expanded={isMobileMenuOpen}
-            >
-              {isMobileMenuOpen ? (
-                <X className="h-6 w-6" />
-              ) : (
-                <Menu className="h-6 w-6" />
-              )}
-            </button>
+              {/* Mobile Menu Button — hidden from md */}
+              <button
+                onClick={() => {
+                  setHasOpenedMobileMenu(true);
+                  setIsMobileMenuOpen(!isMobileMenuOpen);
+                }}
+                className="md:hidden p-2 rounded-lg text-brand-700 hover:bg-brand-50 transition-colors shrink-0"
+                aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+                aria-expanded={isMobileMenuOpen}
+              >
+                {isMobileMenuOpen ? (
+                  <X className="h-6 w-6" />
+                ) : (
+                  <Menu className="h-6 w-6" />
+                )}
+              </button>
+            </div>
           </div>
         </nav>
       </header>
@@ -387,8 +416,10 @@ export function Header() {
 
           `display:none` also keeps them out of the tab order while closed, so no
           `inert` handling is needed. */}
-      {/* AI Mega Menu Dropdown — visible from md */}
-      {(
+      {/* AI Mega Menu Dropdown — disabled (set to false). Its trigger is hidden and
+          every link it held now renders in the Services mega menu, so keeping this
+          panel mounted would only duplicate those links in the crawlable HTML. */}
+      {false && (
         <div
           data-dropdown="ai-ml"
           className={`fixed top-16 md:top-18 lg:top-20 left-0 right-0 z-40 ${
@@ -492,14 +523,22 @@ export function Header() {
           />
 
           <div className="relative animate-in fade-in slide-in-from-top-2 duration-200">
-            <div className="max-w-[1400px] mx-auto px-4 md:px-6 pt-2 md:pt-3">
-              <div className="bg-white rounded-xl md:rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.15)] border border-gray-200/80 overflow-hidden">
-                {/* Columns */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-gray-100">
+            <div className="max-w-[1600px] mx-auto px-4 md:px-6 pt-2 md:pt-3">
+              {/* Four columns of 5-12 links each can outgrow a laptop viewport once the
+                  grid drops to 2-up, so the card is height-capped and scrolls its own
+                  overflow instead of running off the bottom of the screen. */}
+              <div className="bg-white rounded-xl md:rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.15)] border border-gray-200/80 overflow-hidden flex flex-col max-h-[calc(100vh-6rem)]">
+                {/* Columns — 4 across from lg (AI Services, Advisory, Software Engineering,
+                    Infrastructure), 2×2 below that. Separators are per-child rather than
+                    `divide-*`: on a wrapped grid, `divide-y` puts a rule above every child
+                    but the first, which lands a stray rule mid-row. These target the real
+                    edges — right edge of each non-final column, bottom edge of each
+                    non-final row. */}
+                <div className="overflow-y-auto overscroll-contain grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 [&>*]:border-gray-100 [&>*:not(:last-child)]:border-b sm:[&>*]:border-b-0 sm:[&>*:nth-child(-n+2)]:border-b sm:[&>*:nth-child(odd)]:border-r lg:[&>*]:border-b-0 lg:[&>*:not(:last-child)]:border-r">
                   {NAVIGATION.servicesMenu.map((column) => {
                     const CategoryIcon = iconMap[column.icon] || Code2;
                     return (
-                      <div key={column.title} className="p-4 md:p-5 lg:p-6">
+                      <div key={column.title} className="p-4 md:p-5 lg:p-5">
                         {/* Column Header */}
                         <div className="flex items-center gap-2 md:gap-3 mb-1">
                           <div className="w-8 h-8 md:w-9 md:h-9 rounded-lg bg-brand-50 flex items-center justify-center">
@@ -543,8 +582,8 @@ export function Header() {
                   })}
                 </div>
 
-                {/* Bottom CTA bar */}
-                <div className="bg-gray-50/80 border-t border-gray-100 px-4 md:px-6 py-3 flex items-center justify-between">
+                {/* Bottom CTA bar — stays pinned below the scroll area, not scrolled away with it */}
+                <div className="shrink-0 bg-gray-50/80 border-t border-gray-100 px-4 md:px-6 py-3 flex items-center justify-between">
                   <p className="text-[11px] md:text-xs text-gray-500">
                     Not sure where to start?
                   </p>
