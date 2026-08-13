@@ -19,6 +19,7 @@ import {
   FAQSection,
   CTASection,
   IndustriesSectionCarousel,
+  FeaturedArticlesSection,
 } from '@/components/home';
 
 // One title for both the <title> tag and the WebPage schema. The homepage had no
@@ -88,7 +89,8 @@ export default async function HomePage() {
       {/* Industries - Category card slideshow into vertical landing pages */}
       <IndustriesSectionCarousel industries={industries} />
 
-
+      {/* Featured Articles - curated in src/data/home/featured-articles.ts */}
+      <FeaturedArticlesSection />
 
       {/* Case Studies Preview - 3 featured case studies */}
       {/* <CaseStudiesSection /> */}

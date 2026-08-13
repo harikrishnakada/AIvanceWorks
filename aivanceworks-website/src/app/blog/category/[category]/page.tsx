@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 import { getAllPosts, getPostsByCategory } from '@/lib/content';
+import { BLOG_CATEGORY_NAME_BY_SLUG } from '@/lib/blog-categories';
 import { constructMetadata } from '@/lib/seo';
 import { generateWebPageSchema } from '@/lib/schema';
 import { JsonLd } from '@/components/seo/JsonLd';
@@ -18,14 +19,8 @@ interface CategoryPageProps {
   };
 }
 
-// Map of category slugs to display names
-const categoryMap: Record<string, string> = {
-  'ai-development': 'AI Development',
-  'cloud-architecture': 'Cloud Architecture',
-  'software-engineering': 'Software Engineering',
-  'case-studies': 'Case Studies',
-  'industry-insights': 'Industry Insights',
-};
+// Slug → display name, from the shared category source of truth.
+const categoryMap = BLOG_CATEGORY_NAME_BY_SLUG;
 
 // Generate static params for all categories
 export async function generateStaticParams() {
@@ -44,8 +39,10 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
   }
 
   return constructMetadata({
-    title: `${categoryName} - Blog | AIvanceWorks`,
-    description: `Expert articles and insights on ${categoryName.toLowerCase()} from the AIvanceWorks team.`,
+    // constructMetadata already appends the site name — the old hardcoded
+    // `| AIvanceWorks` suffix rendered a stale brand next to the real one.
+    title: `${categoryName} - Blog`,
+    description: `Expert articles and insights on ${categoryName.toLowerCase()} from the ${SITE_CONFIG.name} team.`,
     canonical: `${SITE_CONFIG.url}/blog/category/${category}`,
     keywords: [categoryName, 'blog', 'technical articles', 'software development'],
   });

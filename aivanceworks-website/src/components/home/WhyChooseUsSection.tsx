@@ -1,7 +1,7 @@
 import { Award, Clock, Shield, Users, Code2 } from 'lucide-react';
 import { SITE_CONFIG } from '@/lib/constants';
 import { IconTile } from '@/components/shared/primitives';
-import { SECTION_Y } from '@/lib/section-spacing';
+import { SECTION_Y, CARD_GRID_GAP } from '@/lib/section-spacing';
 
 const differentiators = [
   {
@@ -65,7 +65,7 @@ export function WhyChooseUsSection() {
         </div>
 
         {/* Cards grid — 3 cols desktop, 2 cols tablet, 1 col mobile */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ${CARD_GRID_GAP}`}>
           {differentiators.map((item) => (
             <div
               key={item.title}

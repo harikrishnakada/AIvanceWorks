@@ -5,7 +5,7 @@
 import { Zap, CalendarCheck, DollarSign, LifeBuoy, Rocket, BadgeCheck } from 'lucide-react';
 import { IconTile } from '@/components/shared/primitives';
 import { SITE_CONFIG } from '@/lib/constants';
-import { SECTION_Y, SECTION_Y_TIGHT } from '@/lib/section-spacing';
+import { SECTION_Y, SECTION_Y_TIGHT, CARD_GRID_GAP } from '@/lib/section-spacing';
 
 const challenges = [
   {
@@ -115,7 +115,7 @@ export function ChallengesSection({ part = 'full' }: { part?: ChallengesPart } =
         </div>
 
         {/* Cards grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ${CARD_GRID_GAP}`}>
           {challenges.map((challenge) => (
             <div
               key={challenge.title}

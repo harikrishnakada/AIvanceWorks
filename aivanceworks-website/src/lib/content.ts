@@ -16,6 +16,11 @@ import type {
   IndustryCardData,
 } from '@/types/pages';
 import type { HomeIndustry } from '@/data/home/industries';
+import {
+  HOME_FEATURED_ARTICLE_SLUGS,
+  HOME_FEATURED_ARTICLE_LIMIT,
+  HOME_FEATURED_FILL_WITH_LATEST,
+} from '@/data/home/featured-articles';
 
 // ============================================================================
 // SERVICE CATEGORIES DATA
@@ -819,6 +824,42 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | undefined>
     updatedAt: post.updatedAt || post.publishedAt,
     readingTime: calculateReadingTime(post.content),
   };
+}
+
+/**
+ * Articles featured on the homepage, in the order set by
+ * `src/data/home/featured-articles.ts`.
+ *
+ * Curation is data, not code: editing that array changes the homepage. A slug
+ * listed there that no longer exists in the CMS is skipped rather than
+ * rendered as a broken card, which is the failure mode that matters — the
+ * homepage must not break because someone unpublished a post.
+ */
+export async function getHomeFeaturedPosts(): Promise<BlogPost[]> {
+  const slugs = HOME_FEATURED_ARTICLE_SLUGS;
+  const limit = HOME_FEATURED_ARTICLE_LIMIT;
+  const fillWithLatest = HOME_FEATURED_FILL_WITH_LATEST;
+  // `getAllPosts` is already ordered by publishedAt desc, which is exactly the
+  // order `fillWithLatest` needs.
+  const allPosts = await getAllPosts();
+  const bySlug = new Map(allPosts.map((post) => [post.slug, post]));
+
+  const curated = slugs
+    .map((slug) => bySlug.get(slug))
+    .filter((post): post is BlogPost => Boolean(post));
+
+  const featured = curated.slice(0, limit);
+
+  if (fillWithLatest && featured.length < limit) {
+    const alreadyShown = new Set(featured.map((post) => post.slug));
+    for (const post of allPosts) {
+      if (featured.length >= limit) break;
+      if (alreadyShown.has(post.slug)) continue;
+      featured.push(post);
+    }
+  }
+
+  return featured;
 }
 
 export async function getPostsByCategory(category: string): Promise<BlogPost[]> {

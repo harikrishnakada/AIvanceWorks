@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import { getFeaturedCaseStudies } from '@/lib/content';
-import { SECTION_Y } from '@/lib/section-spacing';
+import { SECTION_Y, CARD_GRID_GAP } from '@/lib/section-spacing';
 
 // Fallback placeholder data for when no case studies exist in Sanity yet
 const placeholderCaseStudies = [
@@ -79,7 +79,7 @@ export async function CaseStudiesSection() {
         </div>
 
         {/* Case Studies Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-5">
+        <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 ${CARD_GRID_GAP}`}>
           {caseStudies.map((study, index) => (
             <Link
               key={study.slug || index}

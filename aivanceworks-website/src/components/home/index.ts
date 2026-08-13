@@ -15,5 +15,6 @@ export { ServicesSection } from './ServicesSection';
 export { WhyChooseUsSection } from './WhyChooseUsSection';
 export { CaseStudiesSection } from './CaseStudiesSection';
 export { TestimonialsSection } from './TestimonialsSection';
+export { FeaturedArticlesSection } from './FeaturedArticlesSection';
 export { FAQSection } from './FAQSection';
 export { CTASection } from './CTASection';

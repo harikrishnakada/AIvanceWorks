@@ -47,7 +47,9 @@ export function PostCard({ post, featured = false }: PostCardProps) {
       {/* Content */}
       <div className={`flex flex-col p-6 ${featured ? 'lg:w-1/2 lg:py-8' : ''}`}>
         {/* Category Badge */}
-        <CategoryBadge category={category} size="sm" className="mb-3" />
+        {/* self-start: the badge is inline-block, but as a flex-column child it
+            stretches to the full card width without it. */}
+        <CategoryBadge category={category} size="sm" className="mb-3 self-start" />
 
         {/* Title */}
         <Link
@@ -57,7 +59,7 @@ export function PostCard({ post, featured = false }: PostCardProps) {
           <h3
             className={`
               font-bold text-gray-900 line-clamp-2 mb-3
-              group-hover/title:text-blue-600 transition-colors
+              group-hover/title:text-brand-600 transition-colors
               ${featured ? 'text-2xl lg:text-3xl' : 'text-xl'}
             `}
           >

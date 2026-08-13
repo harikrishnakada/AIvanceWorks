@@ -4,11 +4,13 @@ import { constructMetadata } from '@/lib/seo';
 import { generateWebPageSchema } from '@/lib/schema';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { PostList } from '@/components/blog/PostList';
+import { BlogCategoryCards } from '@/components/blog/BlogCategoryCards';
+import { countPostsByCategory } from '@/lib/blog-categories';
 import { SITE_CONFIG } from '@/lib/constants';
 
 export const metadata: Metadata = constructMetadata({
   title: 'Blog - AI & Cloud Development Insights',
-  description: 'Expert insights on AI agents, RAG frameworks, Azure cloud, and modern software development from the AIvanceWorks team.',
+  description: `Expert insights on AI agents, RAG frameworks, Azure cloud, and modern software development from the ${SITE_CONFIG.name} team.`,
   canonical: `${SITE_CONFIG.url}/blog`,
   keywords: [
     'AI development blog',
@@ -90,30 +92,13 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
           />
         </section>
 
-        {/* Categories Section */}
+        {/* Categories Section — same cards the homepage renders, via
+            BlogCategoryCards. The previous inline grid built its gradient
+            classes as `from-${color}-50`, which Tailwind's scanner never
+            emits, so those washes never rendered. */}
         <section data-section="blog-categories" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">Browse by Category</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-            {[
-              { name: 'AI Development', count: allPosts.filter(p => p.category === 'AI Development').length, color: 'purple' },
-              { name: 'Cloud Architecture', count: allPosts.filter(p => p.category === 'Cloud Architecture').length, color: 'blue' },
-              { name: 'Software Engineering', count: allPosts.filter(p => p.category === 'Software Engineering').length, color: 'green' },
-              { name: 'Case Studies', count: allPosts.filter(p => p.category === 'Case Studies').length, color: 'orange' },
-              { name: 'Industry Insights', count: allPosts.filter(p => p.category === 'Industry Insights').length, color: 'indigo' },
-            ].map((category) => (
-              <a
-                key={category.name}
-                href={`/blog/category/${category.name.toLowerCase().replace(/\s+/g, '-')}`}
-                className={`
-                  block p-4 rounded-lg border border-gray-200 hover:shadow-md transition-shadow
-                  bg-gradient-to-br from-${category.color}-50 to-white
-                `}
-              >
-                <div className="font-semibold text-gray-900">{category.name}</div>
-                <div className="text-sm text-gray-600 mt-1">{category.count} articles</div>
-              </a>
-            ))}
-          </div>
+          <BlogCategoryCards counts={countPostsByCategory(allPosts)} />
         </section>
       </main>
     </>

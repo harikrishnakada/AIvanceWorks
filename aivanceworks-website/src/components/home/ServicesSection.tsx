@@ -4,7 +4,7 @@ import { useState, useCallback, useEffect } from 'react';
 import Link from 'next/link';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Bot, Cloud, Code2, Database, Globe, Settings, ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
-import { SECTION_Y } from '@/lib/section-spacing';
+import { SECTION_Y, CARD_SLIDE_X } from '@/lib/section-spacing';
 import { useCarouselAutoplay } from '@/hooks/useCarouselAutoplay';
 import { AutoplayToggle } from '@/components/shared/primitives';
 
@@ -169,25 +169,32 @@ export function ServicesSection() {
                 // server and corrects after hydration, so an inline width shifted
                 // the layout on every tablet/desktop load. Keep these breakpoints
                 // in sync with useVisibleCount().
-                className="w-full flex-shrink-0 px-1.5 sm:w-1/2 sm:px-2 lg:w-1/3"
+                className={`w-full flex-shrink-0 sm:w-1/2 lg:w-1/3 ${CARD_SLIDE_X}`}
               >
                 <Link href={service.href} className="group block h-full">
-                  <Card className="h-full border-gray-100 bg-white rounded-xl sm:rounded-2xl hover:shadow-brand-card hover:border-brand-200 transition-all duration-300">
-                    <CardHeader className="p-4 sm:p-5 pb-2 sm:pb-3">
+                  {/* Card shell, icon tile and type scale match the challenges
+                      and why-choose-us cards — same padding, same 48px tile,
+                      same title/body sizes — so the three sections read as one
+                      card system rather than three. */}
+                  <Card className="h-full border-border-light bg-surface-white rounded-xl shadow-card-sm hover:shadow-brand-card hover:border-brand-200 transition-all duration-300">
+                    <CardHeader className="space-y-0 p-6 md:p-7 pb-0">
                       <div
-                        className={`w-9 h-9 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl ${service.iconBg} flex items-center justify-center mb-2.5 sm:mb-3 group-hover:scale-110 transition-transform duration-300`}
+                        className={`w-12 h-12 rounded-xl ${service.iconBg} flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300`}
                       >
-                        <service.icon className={`h-4 w-4 sm:h-5 sm:w-5 ${service.iconColor}`} />
+                        <service.icon className={`h-6 w-6 ${service.iconColor}`} />
                       </div>
-                      <CardTitle className="text-sm sm:text-base font-bold text-gray-900 group-hover:text-brand-600 transition-colors">
+                      <CardTitle className="text-lg md:text-xl font-semibold text-text-heading leading-snug text-balance group-hover:text-brand-600 transition-colors">
                         {service.title}
                       </CardTitle>
                     </CardHeader>
-                    <CardContent className="px-4 sm:px-5 pb-4 sm:pb-5">
-                      <CardDescription className="text-gray-500 text-xs sm:text-sm leading-relaxed">
+                    {/* Slightly deeper bottom padding than the top: the last
+                        line here is the hover-only "Learn more" row, so without
+                        it the card reads bottom-tight whenever it isn't hovered. */}
+                    <CardContent className="px-6 md:px-7 pb-8 md:pb-9 pt-2">
+                      <CardDescription className="text-text-body text-sm md:text-base leading-relaxed">
                         {service.description}
                       </CardDescription>
-                      <div className="mt-3 flex items-center text-brand-600 font-semibold text-xs sm:text-sm opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-1 group-hover:translate-y-0">
+                      <div className="mt-4 flex items-center text-brand-600 font-semibold text-sm opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-1 group-hover:translate-y-0">
                         Learn more
                         <ArrowRight className="ml-1 h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
                       </div>
