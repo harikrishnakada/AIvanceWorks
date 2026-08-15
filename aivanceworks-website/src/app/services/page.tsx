@@ -20,6 +20,8 @@ import { NAVIGATION } from '@/lib/navigation';
 import { Button } from '@/components/ui/button';
 import { ServicesNavStrip } from '@/components/services/ServicesNavStrip';
 import { ServicePillarSection } from '@/components/services/ServicePillarSection';
+import { TeamStructureSection } from '@/components/services/TeamStructureSection';
+import { ChallengesSection } from '@/components/home/ChallengesSection';
 
 export const metadata: Metadata = constructMetadata({
   title: 'Enterprise Software Consulting Services',
@@ -98,6 +100,7 @@ function servicesColumn(title: string) {
 
 // Jump-to anchors shown in hero — mirrors the header's Services mega menu
 const JUMP_TO = [
+  { label: 'Our Teams', id: 'our-teams' },
   { label: 'Automation & Intelligence', id: 'automation-intelligence' },
   { label: 'Advisory', id: 'advisory' },
   { label: 'Enterprise', id: 'enterprise' },
@@ -154,12 +157,9 @@ export default function ServicesPage() {
                   </span>
                 </h1>
                 <p className="text-base md:text-lg text-text-subtle leading-relaxed max-w-[60ch] mb-6">
-                  {SITE_CONFIG.name} delivers end-to-end software consulting services for US-based
-                  startups and mid-market companies. Our expertise spans cloud engineering, AI/ML
-                  solutions, full-stack development, data analytics, DevOps automation, enterprise
-                  integration, and security compliance. With projects starting at $5,000 and senior
-                  teams averaging 10+ years of experience, we transform complex business challenges
-                  into production-ready software solutions.
+                  {SITE_CONFIG.name} delivers end-to-end software development and consulting services for US/UK-based startups and enterprise companies. 
+                  Our dedicated development team specializes in cloud engineering, AI/ML services, full-stack development, data analytics, DevOps automation, enterprise integration, and security compliance. 
+                  With projects starting at $5,000 and senior teams averaging 10+ years of experience, we transform complex business challenges into production-ready software.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 mb-8">
                   <Button
@@ -169,7 +169,8 @@ export default function ServicesPage() {
                   >
                     <Link href="/contact">Get Free Consultation</Link>
                   </Button>
-                  <Button
+                  {/*
+                   <Button
                     asChild
                     variant="outline"
                     size="lg"
@@ -177,6 +178,7 @@ export default function ServicesPage() {
                   >
                     <Link href="/case-studies">View Case Studies</Link>
                   </Button>
+                  */}
                 </div>
                 {/* Jump-to strip */}
                 <p className="text-sm text-text-subtle pt-6 border-t border-text-light/[0.12]">
@@ -203,6 +205,9 @@ export default function ServicesPage() {
 
       {/* ── Sticky pillar nav ────────────────────────────────── */}
       <ServicesNavStrip />
+
+      {/* ── Our Teams ────────────────────────────────────────── */}
+      <TeamStructureSection />
 
       {/* ── Automation & Intelligence ────────────────────────── */}
       <ServicePillarSection
@@ -305,7 +310,12 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      {/* Are You Facing These Challenges? - subtitle + cards, titled by the
+          `part="title"` render above (linked via aria-labelledby). */}
+      <ChallengesSection />
+
       {/* ── Why Choose Us ────────────────────────────────────── */}
+      {false && (
       <section data-section="services-why-choose-us" className="py-8 lg:py-12 bg-surface-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -365,6 +375,7 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
+      )}
 
       {/* ── CTA ──────────────────────────────────────────────── */}
       <section

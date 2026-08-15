@@ -54,7 +54,7 @@
 @media (max-height: 800px) {
   [data-hero-body] {
     padding-top: 2.75rem;
-    padding-bottom: 2rem;
+    padding-bottom: 2.25rem;
   }
 
   [data-section='home-hero'] h1 {
@@ -66,13 +66,31 @@
     font-size: clamp(0.8125rem, 1.2vw, 1rem);
     line-height: 1.45;
     margin-top: 0.75rem;
-    margin-bottom: 1.25rem;
+    margin-bottom: 0;
+  }
+
+  /* The CTA is bottom-anchored, so its top margin is the headline-to-CTA gap
+     floor; the sub no longer carries it. */
+  [data-hero-cta] {
+    margin-top: 1.25rem;
   }
 
   /* Button renders as an <a> via asChild, so height lands on the child. */
   [data-hero-cta] a {
     height: 2.75rem;
     font-size: 0.9375rem;
+  }
+
+  /* The cue is shrunk rather than given more room: the body's bottom padding
+     has to clear it, and on a fold this tight every rem of padding comes out
+     of the statement below. Label off, line halved — cue drops ~66px to ~28px,
+     so 2.25rem of padding clears it. */
+  [data-hero-scroll-label] {
+    display: none;
+  }
+
+  [data-hero-scroll-line] {
+    height: 1.25rem;
   }
 }
 
@@ -91,7 +109,7 @@
   [data-hero-sub] {
     font-size: 0.8125rem;
     margin-top: 0.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0;
   }
 
   [data-hero-cta] a {
@@ -101,6 +119,13 @@
 
   [data-hero-cta] {
     gap: 0.625rem;
+    margin-top: 1rem;
+  }
+
+  /* At this height the fold has no room to spare and the CTA is already the
+     last thing above it — the cue is decoration competing for the same pixels. */
+  [data-hero-scroll-cue] {
+    display: none;
   }
 
   [data-section='home-challenges-intro'] {
@@ -123,5 +148,58 @@
 
   [data-statement-divider] {
     margin-top: 0.5rem;
+  }
+}
+
+/* ─── Desktop short-viewport type ─────────────────────────────────────────
+   The tiers above are height-only by design, so a 1280x720 laptop and a
+   375x667 phone hit the same rules. For the headline and sub that's too
+   blunt: the laptop has horizontal room the phone doesn't, and the compacted
+   type read far smaller than the desktop scale it drops out of. These blocks
+   re-raise it for md+ widths only — phone rendering keeps the original
+   measured clamps above, untouched.
+
+   The extra height the larger type costs is bought back from padding HERE
+   rather than in the shared tiers, so the phone fold budget is unaffected.
+
+   CTA sizing and the scroll cue stay shared — those are genuinely height
+   problems and apply at any width. */
+@media (max-height: 800px) and (min-width: 768px) {
+  [data-hero-body] {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  [data-section='home-hero'] h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1.08;
+  }
+
+  [data-hero-sub] {
+    font-size: clamp(1.0625rem, 1.7vw, 1.375rem);
+    line-height: 1.45;
+  }
+
+  [data-hero-cta] {
+    margin-top: 1rem;
+  }
+}
+
+@media (max-height: 700px) and (min-width: 768px) {
+  [data-hero-body] {
+    padding-top: 1.5rem;
+    padding-bottom: 1.25rem;
+  }
+
+  [data-section='home-hero'] h1 {
+    font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+  }
+
+  [data-hero-sub] {
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+  }
+
+  [data-hero-cta] {
+    margin-top: 0.75rem;
   }
 }

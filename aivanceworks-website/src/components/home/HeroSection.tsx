@@ -136,41 +136,50 @@ export function HeroSection() {
             className="relative flex flex-1 flex-col
               px-4 sm:px-8 md:px-12 lg:px-20 xl:px-28
               pt-12 sm:pt-14 md:pt-16 lg:pt-16
-              pb-9 sm:pb-14 md:pb-16 lg:pb-16"
+              pb-9 sm:pb-[4.75rem] md:pb-20 lg:pb-20"
           >
-            {/* Hero content */}
+            {/* Hero content — two blocks, not one centred stack: the headline
+                group takes the free space and centres inside it, while the CTA
+                is the column's last child and therefore sits on the body's
+                bottom padding edge, directly above the scroll cue. The body's
+                pb on sm+ is sized to clear that cue (~66px tall). */}
             <div
-              className="flex flex-1 flex-col items-center justify-center text-center max-w-5xl mx-auto w-full"
+              className="flex flex-1 flex-col items-center text-center max-w-5xl mx-auto w-full"
             >
-              {/* Headline — no forced <br />; the copy is long enough that a hard
-                  break overflows narrow viewports. `text-balance` splits it
-                  evenly at every width instead. */}
-              <h1
-                className="text-[28px] leading-[1.1] sm:text-[40px] md:text-[52px] lg:text-[58px] xl:text-[64px]
-                  font-black tracking-tight text-white text-balance"
-              >
-                Our software serves{' '}
-                <span className="text-brand-300">
-                  Founders and Businesses
-                </span>
-              </h1>
+              <div className="flex flex-1 flex-col items-center justify-center w-full">
+                {/* Headline — no forced <br />; the copy is long enough that a
+                    hard break overflows narrow viewports. `text-balance` splits
+                    it evenly at every width instead. */}
+                <h1
+                  className="text-[32px] leading-[1.08] sm:text-[46px] md:text-[60px] lg:text-[68px] xl:text-[76px]
+                    font-black tracking-tight text-white text-balance"
+                >
+                  Our software serves{' '}
+                  <span className="text-brand-300">
+                    Founders and Businesses
+                  </span>
+                </h1>
 
-              {/* Subheadline — pushed down toward the CTA buttons */}
-              <p
-                data-hero-sub
-                className="text-sm leading-snug sm:text-base sm:leading-relaxed md:text-lg lg:text-xl
-                  text-white/75 max-w-2xl mx-auto text-pretty
-                  mt-4 sm:mt-6 md:mt-7 mb-6 sm:mb-9 md:mb-10"
-              >
-                {SITE_CONFIG.name} is a custom software development company launched in 2026,
-                offering services and packages in Product Development, AI Development,
-                SaaS Development and several other development services.
-              </p>
+                {/* Subheadline */}
+                <p
+                  data-hero-sub
+                  className="text-base leading-snug sm:text-lg sm:leading-relaxed md:text-xl lg:text-2xl
+                    text-white/80 max-w-3xl mx-auto text-pretty
+                    mt-4 sm:mt-6 md:mt-7 mb-0"
+                >
+                  {SITE_CONFIG.name} is a custom software development company launched in 2026,
+                  offering services and packages in Product Development, AI Development,
+                  SaaS Development and several other development services.
+                </p>
+              </div>
 
-              {/* CTA Buttons */}
+              {/* CTA Buttons — anchored to the bottom of the hero body. The top
+                  margin is a floor, not the spacing: the headline group above
+                  absorbs the slack, so on tall viewports the gap is larger. */}
               <div
                 data-hero-cta
-                className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full max-w-xs sm:max-w-none sm:w-auto mx-auto"
+                className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full max-w-xs sm:max-w-none sm:w-auto mx-auto
+                  mt-6 sm:mt-9 md:mt-10 shrink-0"
               >
                 <Button
                   size="lg"
@@ -213,15 +222,22 @@ export function HeroSection() {
           <a
             href="#below-hero"
             aria-label="Scroll to page content"
-            className="absolute bottom-5 md:bottom-7 left-1/2 -translate-x-1/2 z-20
+            data-hero-scroll-cue
+            className="absolute bottom-0.5 md:bottom-1 left-1/2 -translate-x-1/2 z-20
               hidden sm:flex flex-col items-center gap-2 group
               focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50
               focus-visible:ring-offset-2 focus-visible:ring-offset-transparent rounded-full p-1"
           >
-            <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/60 transition-colors duration-300 group-hover:text-white/90">
+            <span
+              data-hero-scroll-label
+              className="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/60 transition-colors duration-300 group-hover:text-white/90"
+            >
               Scroll
             </span>
-            <span className="relative block h-9 w-px overflow-hidden bg-gradient-to-b from-white/35 to-transparent">
+            <span
+              data-hero-scroll-line
+              className="relative block h-9 w-px overflow-hidden bg-gradient-to-b from-white/35 to-transparent"
+            >
               <span className="hero-scroll-dot absolute inset-x-0 top-0 block h-2.5 w-px bg-white/90" />
             </span>
           </a>

@@ -224,7 +224,67 @@
   }
 }
 
+/* ─── Engagement flow tree (services / How We Work) ───
+   Same contract as `.delivery-rail`: nothing here has a resting opacity, so the
+   whole tree — nodes and connector lines — is painted on the server render and
+   stays visible with JS off or in a headless capture. `.revealed` only replays
+   it as a staggered entrance, with per-element delays set inline. */
+.flow-tree.revealed .flow-node {
+  animation: flow-node-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.flow-tree.revealed .flow-line {
+  animation: flow-line-draw-y 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+  transform-origin: top;
+}
+
+.flow-tree.revealed .flow-line-h {
+  animation: flow-line-draw-x 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Each half of the fork's crossbar draws outward from the trunk, so the two
+   halves must grow away from the centre — not both left-to-right. */
+.flow-line-h-l {
+  transform-origin: right;
+}
+
+.flow-line-h-r {
+  transform-origin: left;
+}
+
+@keyframes flow-node-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes flow-line-draw-y {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes flow-line-draw-x {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .flow-tree.revealed .flow-node,
+  .flow-tree.revealed .flow-line,
+  .flow-tree.revealed .flow-line-h,
   .delivery-rail.revealed .delivery-step,
   .delivery-rail.revealed .delivery-spine,
   .scroll-step,

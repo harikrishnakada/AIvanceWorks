@@ -16,6 +16,7 @@ import {
   OurDelivery,
   ServicesSection,
   WhyChooseUsSection,
+  WhyChooseUsServicesSection,
   FAQSection,
   CTASection,
   IndustriesSectionCarousel,
@@ -63,9 +64,7 @@ export default async function HomePage() {
         {/* <ChallengesSection part="title" /> */}
       </div>
 
-      {/* Are You Facing These Challenges? - subtitle + cards, titled by the
-          `part="title"` render above (linked via aria-labelledby). */}
-      <ChallengesSection />
+      <WhyChooseUsServicesSection />
 
       {/* Our Partners - Partner logos with tier names */}
       {/* <PartnersSection /> */}

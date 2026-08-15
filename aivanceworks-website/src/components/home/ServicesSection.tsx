@@ -1,12 +1,13 @@
 'use client';
 
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Bot, Cloud, Code2, Database, Globe, Settings, ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
 import { SECTION_Y, CARD_SLIDE_X } from '@/lib/section-spacing';
 import { useCarouselAutoplay } from '@/hooks/useCarouselAutoplay';
 import { AutoplayToggle } from '@/components/shared/primitives';
+import { cn } from '@/lib/utils';
 
 // NOTE: five of these six cards pointed at slugs that do not exist
 // (/services/ai-machine-learning, /cloud-engineering, /full-stack-development,
@@ -16,7 +17,7 @@ import { AutoplayToggle } from '@/components/shared/primitives';
 // destination pages exactly.
 const services = [
   {
-    title: 'AI & Machine Learning',
+    title: 'AI & ML Development',
     description:
       'Deploy production-ready AI agents, RAG frameworks, and LLM integrations that automate workflows and enhance decision-making with Azure AI Foundry.',
     icon: Bot,
@@ -33,12 +34,21 @@ const services = [
     iconBg: 'bg-sky-50',
     iconColor: 'text-sky-600',
   },
+  // {
+  //   title: 'Full-Stack Development',
+  //   description:
+  //     'Build enterprise applications with .NET, React, and Next.js. From MVPs to complex platforms, we deliver production-grade software on schedule.',
+  //   icon: Code2,
+  //   href: '/services/custom-software-development',
+  //   iconBg: 'bg-emerald-50',
+  //   iconColor: 'text-emerald-600',
+  // },
   {
-    title: 'Full-Stack Development',
+    title: 'SaaS Development',
     description:
-      'Build enterprise applications with .NET, React, and Next.js. From MVPs to complex platforms, we deliver production-grade software on schedule.',
+      'Multi-tenant architecture, subscription billing, and scalable infrastructure — engineered as a platform, not patched onto a web app after launch.',
     icon: Code2,
-    href: '/services/custom-software-development',
+    href: '/services/saas-development',
     iconBg: 'bg-emerald-50',
     iconColor: 'text-emerald-600',
   },
@@ -88,6 +98,9 @@ function useVisibleCount() {
   return count;
 }
 
+/** Drag distance, in px, that commits to a slide change instead of snapping back. */
+const SWIPE_COMMIT_PX = 48;
+
 export function ServicesSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const visibleCount = useVisibleCount();
@@ -102,21 +115,115 @@ export function ServicesSection() {
     intervalMs: 4000,
   });
 
-  const prevSlide = () => {
+  // Every manual control routes through these two, so "the user took over"
+  // is expressed in exactly one place: touching the carousel stops autoplay
+  // for good. Re-starting it is the toggle's job, not an implicit timeout —
+  // content that resumes moving under you is the thing WCAG 2.2.2 is about.
+  const goPrev = useCallback(() => {
     setCurrentIndex((prev) => (prev <= 0 ? maxIndex : prev - 1));
     pause();
-  };
+  }, [maxIndex, pause]);
 
-  const handleNext = () => {
+  const goNext = useCallback(() => {
     nextSlide();
     pause();
-  };
+  }, [nextSlide, pause]);
+
+  const goTo = useCallback(
+    (index: number) => {
+      setCurrentIndex(index);
+      pause();
+    },
+    [pause]
+  );
 
   useEffect(() => {
     setCurrentIndex((prev) => Math.min(prev, maxIndex));
   }, [maxIndex]);
 
   const totalDots = maxIndex + 1;
+
+  /* ---- Drag / swipe -------------------------------------------------- */
+  // Pointer events rather than touch events, so a mouse drag works too. No
+  // `setPointerCapture`: capturing retargets the subsequent `click`, which on
+  // this carousel lands on a card `<Link>` — capture would break navigation.
+  // Window listeners give the same "keep tracking outside the element"
+  // behaviour without touching the click target.
+  const viewportRef = useRef<HTMLDivElement>(null);
+  const dragStartX = useRef<number | null>(null);
+  const suppressClick = useRef(false);
+  const [dragOffset, setDragOffset] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+
+  const handlePointerDown = (event: React.PointerEvent) => {
+    // Primary button only; let the browser own right-click and middle-click.
+    if (event.pointerType === 'mouse' && event.button !== 0) return;
+    dragStartX.current = event.clientX;
+    setIsDragging(true);
+  };
+
+  useEffect(() => {
+    if (!isDragging) return;
+
+    const handleMove = (event: PointerEvent) => {
+      if (dragStartX.current === null) return;
+      const dx = event.clientX - dragStartX.current;
+      // Past ~4px this is a drag, not a click. Latch it now so the flag is
+      // already set by the time the click fires on release.
+      if (Math.abs(dx) > 4) suppressClick.current = true;
+      setDragOffset(dx);
+    };
+
+    const handleEnd = (event: PointerEvent) => {
+      const startX = dragStartX.current;
+      dragStartX.current = null;
+      setIsDragging(false);
+      setDragOffset(0);
+      if (startX === null) return;
+
+      const dx = event.clientX - startX;
+      if (dx <= -SWIPE_COMMIT_PX) goNext();
+      else if (dx >= SWIPE_COMMIT_PX) goPrev();
+    };
+
+    const handleCancel = () => {
+      dragStartX.current = null;
+      setIsDragging(false);
+      setDragOffset(0);
+    };
+
+    window.addEventListener('pointermove', handleMove);
+    window.addEventListener('pointerup', handleEnd);
+    window.addEventListener('pointercancel', handleCancel);
+    return () => {
+      window.removeEventListener('pointermove', handleMove);
+      window.removeEventListener('pointerup', handleEnd);
+      window.removeEventListener('pointercancel', handleCancel);
+    };
+  }, [isDragging, goNext, goPrev]);
+
+  // Runs in the capture phase, so it beats the `<Link>`'s own handler: a drag
+  // that happens to end over a card must not navigate.
+  const handleClickCapture = (event: React.MouseEvent) => {
+    if (!suppressClick.current) return;
+    suppressClick.current = false;
+    event.preventDefault();
+    event.stopPropagation();
+  };
+
+  /* ---- Keyboard ------------------------------------------------------ */
+  // No `tabIndex` on the region: the arrow buttons and card links are already
+  // in the tab order, and this fires whenever focus is anywhere inside. Adding
+  // a focusable wrapper would only buy an extra empty tab stop.
+  const handleKeyDown = (event: React.KeyboardEvent) => {
+    if (event.key === 'ArrowLeft') {
+      event.preventDefault();
+      goPrev();
+    } else if (event.key === 'ArrowRight') {
+      event.preventDefault();
+      goNext();
+    }
+  };
 
   return (
     <section ref={containerRef} data-section="home-services" className={`${SECTION_Y} bg-white`}>
@@ -134,35 +241,37 @@ export function ServicesSection() {
               From AI strategy to production deployment, we deliver the full spectrum of software development services your business needs to thrive.
             </p>
           </div>
-
-          {/* Desktop Navigation Arrows */}
-          {/* <div className="hidden sm:flex items-center gap-1.5 shrink-0">
-            <button
-              onClick={prevSlide}
-              className="p-2 rounded-lg border border-gray-200 hover:border-brand-300 hover:bg-brand-50 text-gray-400 hover:text-brand-600 transition-all duration-200"
-              aria-label="Previous services"
-            >
-              <ChevronLeft className="h-4 w-4" />
-            </button>
-            <button
-              onClick={handleNext}
-              className="p-2 rounded-lg border border-gray-200 hover:border-brand-300 hover:bg-brand-50 text-gray-400 hover:text-brand-600 transition-all duration-200"
-              aria-label="Next services"
-            >
-              <ChevronRight className="h-4 w-4" />
-            </button>
-          </div> */}
         </div>
 
         {/* Carousel */}
-        <div className="overflow-hidden">
+        <div
+          ref={viewportRef}
+          className="overflow-hidden touch-pan-y select-none"
+          role="region"
+          aria-roledescription="carousel"
+          aria-label="Software development services"
+          onPointerDown={handlePointerDown}
+          onClickCapture={handleClickCapture}
+          onKeyDown={handleKeyDown}
+        >
           <div
-            className="flex transition-transform duration-500 ease-in-out"
+            // Polite only once autoplay has stopped. While the timer is running
+            // this would announce a new slide every four seconds, which is noise,
+            // not information — the APG carousel pattern calls for exactly this swap.
+            aria-live={isPaused ? 'polite' : 'off'}
+            className={cn(
+              'flex',
+              isDragging
+                ? 'transition-none'
+                : 'transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] motion-reduce:transition-none'
+            )}
             style={{
-              transform: `translateX(-${currentIndex * (100 / visibleCount)}%)`,
+              transform: `translateX(calc(-${currentIndex * (100 / visibleCount)}% + ${dragOffset}px))`,
             }}
           >
-            {services.map((service) => (
+            {services.map((service, index) => {
+              const isSlideVisible = index >= currentIndex && index < currentIndex + visibleCount;
+              return (
               <div
                 key={service.href}
                 // CSS-driven width, not `visibleCount`: the hook starts at 1 on the
@@ -170,8 +279,23 @@ export function ServicesSection() {
                 // the layout on every tablet/desktop load. Keep these breakpoints
                 // in sync with useVisibleCount().
                 className={`w-full flex-shrink-0 sm:w-1/2 lg:w-1/3 ${CARD_SLIDE_X}`}
+                role="group"
+                aria-roledescription="slide"
+                aria-label={`${index + 1} of ${services.length}`}
+                aria-hidden={isSlideVisible ? undefined : true}
               >
-                <Link href={service.href} className="group block h-full">
+                {/* Off-screen cards leave the tab order. Otherwise tabbing into
+                    one scrolls the overflow-hidden viewport sideways, which
+                    desyncs it from the translate and leaves the track stranded
+                    mid-slide. */}
+                <Link
+                  href={service.href}
+                  tabIndex={isSlideVisible ? undefined : -1}
+                  className="group block h-full"
+                  // A drag that starts on a card must not also start a native
+                  // image/link drag — that hijacks the pointer stream mid-swipe.
+                  draggable={false}
+                >
                   {/* Card shell, icon tile and type scale match the challenges
                       and why-choose-us cards — same padding, same 48px tile,
                       same title/body sizes — so the three sections read as one
@@ -202,7 +326,8 @@ export function ServicesSection() {
                   </Card>
                 </Link>
               </div>
-            ))}
+              );
+            })}
           </div>
         </div>
 
@@ -215,17 +340,14 @@ export function ServicesSection() {
               isPaused={isPaused}
               onToggle={setPaused}
               label="services carousel"
-              className="mr-1 text-gray-400 hover:text-brand-600"
+              className="mr-1 text-gray-500 hover:text-brand-600"
             />
             {Array.from({ length: totalDots }).map((_, index) => (
               <button
                 key={index}
                 type="button"
-                onClick={() => {
-                  setCurrentIndex(index);
-                  pause();
-                }}
-                className="group flex h-6 min-w-6 items-center justify-center px-1"
+                onClick={() => goTo(index)}
+                className="group flex h-6 min-w-6 items-center justify-center px-1 rounded-md outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2"
                 aria-label={`Go to slide ${index + 1}`}
                 aria-current={index === currentIndex ? 'true' : undefined}
               >
@@ -240,22 +362,32 @@ export function ServicesSection() {
             ))}
           </div>
 
-          {/* Mobile Arrows + View All */}
+          {/* Arrows + View All. One cluster at every breakpoint — the arrows
+              used to be `sm:hidden`, which left tablet and desktop with dots as
+              the only way to drive the carousel by hand. */}
           <div className="flex items-center gap-2 sm:gap-3">
-            <div className="flex sm:hidden gap-1.5">
+            <div className="flex gap-1.5">
               <button
-                onClick={prevSlide}
-                className="p-1.5 rounded-lg border border-gray-200 hover:border-brand-300 text-gray-400 hover:text-brand-600 transition-all"
+                type="button"
+                onClick={goPrev}
+                // gray-500, not gray-400: these chevrons are the primary manual
+                // control on desktop, and gray-400 on white is ~2.6:1 — under the
+                // 3:1 that WCAG 1.4.11 asks of meaningful non-text controls.
+                className="p-1.5 sm:p-2 rounded-lg border border-gray-300 hover:border-brand-300 hover:bg-brand-50 text-gray-500 hover:text-brand-600 transition-all duration-200 outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2"
                 aria-label="Previous services"
               >
-                <ChevronLeft className="h-3.5 w-3.5" />
+                <ChevronLeft className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
               </button>
               <button
-                onClick={handleNext}
-                className="p-1.5 rounded-lg border border-gray-200 hover:border-brand-300 text-gray-400 hover:text-brand-600 transition-all"
+                type="button"
+                onClick={goNext}
+                // gray-500, not gray-400: these chevrons are the primary manual
+                // control on desktop, and gray-400 on white is ~2.6:1 — under the
+                // 3:1 that WCAG 1.4.11 asks of meaningful non-text controls.
+                className="p-1.5 sm:p-2 rounded-lg border border-gray-300 hover:border-brand-300 hover:bg-brand-50 text-gray-500 hover:text-brand-600 transition-all duration-200 outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2"
                 aria-label="Next services"
               >
-                <ChevronRight className="h-3.5 w-3.5" />
+                <ChevronRight className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
               </button>
             </div>
 

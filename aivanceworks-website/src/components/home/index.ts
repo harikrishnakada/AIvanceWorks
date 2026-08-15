@@ -13,6 +13,7 @@ export { IndustriesSectionCatalog } from './IndustriesSectionCatalog';
 export { IndustriesSectionCarousel } from './IndustriesSectionCarousel';
 export { ServicesSection } from './ServicesSection';
 export { WhyChooseUsSection } from './WhyChooseUsSection';
+export { WhyChooseUsServicesSection } from './WhyChooseUsServicesSection';
 export { CaseStudiesSection } from './CaseStudiesSection';
 export { TestimonialsSection } from './TestimonialsSection';
 export { FeaturedArticlesSection } from './FeaturedArticlesSection';
