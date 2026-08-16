@@ -54,7 +54,8 @@ const EXHIBITS = [
     id: 'ai-approach',
     icon: GitBranch,
     label: 'Choosing the AI approach',
-    /** Phone-width name. See the note at the pager label for why this exists. */
+    /** The name shown in the pager at every width — `label` is the long form
+     *  that only ever reaches assistive tech. See the note at the pager label. */
     shortLabel: 'AI Development',
     kind: 'Decision routing',
     lede: '',
@@ -226,15 +227,20 @@ export function BlueprintShowcase() {
                   auto-advancing region set to `polite` would interrupt a screen
                   reader every 5 seconds, which is why WAI's carousel guidance
                   wants `off` until the user takes control. */}
-              {/* The name has to hold one line. On mobile it gives up the
-                  leading icon (the ring already anchors that edge) and drops to
-                  13px — but measurement showed that still isn't enough: at 360px
-                  "Architecting a SaaS platform" cleared the space by 1px, and at
-                  320px it overflowed by 39px. Twenty-eight characters do not fit
-                  ~140px at a readable size, so phone width gets a shorter name
-                  and `whitespace-nowrap` makes the single line a guarantee
+              {/* The name has to hold one line. Phone width can't take the long
+                  form — at 360px "Architecting a SaaS platform" cleared the
+                  space by 1px and at 320px it overflowed by 39px — so the short
+                  name is what ships at EVERY width rather than swapping
+                  vocabulary at 640px and describing the exhibit two different
+                  ways. `whitespace-nowrap` makes the single line a guarantee
                   rather than a hope. The full name still reaches screen readers
-                  through the arrows' labels and the slide's aria-label. */}
+                  through the arrows' labels and the slide's aria-label.
+
+                  The second line is the exhibit's kind at every width too. Run
+                  state used to live here on mobile, but the play/pause glyph and
+                  the countdown ring already carry that — spending the only
+                  descriptive line on it cost phone visitors the one label that
+                  says what they're looking at. */}
               <p className="min-w-0 sm:flex-none" aria-live={isPaused ? 'polite' : 'off'}>
                 <span className="flex items-center gap-2">
                   <ActiveIcon
@@ -242,13 +248,11 @@ export function BlueprintShowcase() {
                     aria-hidden="true"
                   />
                   <span className="whitespace-nowrap text-[13px] font-semibold leading-tight text-text-light sm:text-sm">
-                    <span className="sm:hidden">{active.shortLabel}</span>
-                    <span className="hidden sm:inline">{active.label}</span>
+                    {active.shortLabel}
                   </span>
                 </span>
-                <span className="mt-0.5 block text-xs leading-tight text-text-light/45">
-                  <span className="sm:hidden">{isPaused ? 'Paused' : 'Auto-advancing'}</span>
-                  <span className="hidden sm:inline">{active.kind}</span>
+                <span className="mt-0.5 block whitespace-nowrap text-xs leading-tight text-text-light/45">
+                  {active.kind}
                 </span>
               </p>
 

@@ -6,6 +6,7 @@
 import { Handshake, ClipboardList, Code2, UsersRound } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { EngagementFlowTree } from './EngagementFlowTree';
+import { SECTION_Y } from '@/lib/section-spacing';
 
 /**
  * TeamStructureSection — "Our Teams" on the How We Work (/services) page.
@@ -90,14 +91,14 @@ export function TeamStructureSection() {
       id="our-teams"
       data-section="services-our-teams"
       aria-labelledby={TEAMS_HEADING_ID}
-      className="scroll-mt-32 py-10 sm:py-12 lg:py-14 bg-surface-light"
+      className={`scroll-mt-28 md:scroll-mt-32 ${SECTION_Y} bg-surface-light`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* ── Header ── */}
-        <div className="max-w-3xl mb-8 sm:mb-10">
+        <div className="max-w-3xl mb-5 sm:mb-6 lg:mb-7">
           <h2
             id={TEAMS_HEADING_ID}
-            className="text-2xl sm:text-3xl lg:text-4xl font-bold text-text-heading leading-tight text-balance mb-3"
+            className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-text-heading leading-tight text-balance mb-2 sm:mb-3"
           >
             Four dedicated teams, and one path through them
           </h2>
@@ -110,12 +111,12 @@ export function TeamStructureSection() {
         </div>
 
         {/* ── Four teams, in two meaningful pairs ── */}
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-10">
+        <div className="grid lg:grid-cols-2 gap-5 sm:gap-6 lg:gap-8">
           {GROUPS.map((group) => {
             const tone = GROUP_TONE[group.tone];
             return (
               <div key={group.label}>
-                <div className="flex items-center gap-3 mb-4">
+                <div className="flex items-center gap-3 mb-3">
                   <h3 className={`text-xs font-bold uppercase tracking-wider ${tone.label}`}>
                     {group.label}
                   </h3>
@@ -129,10 +130,10 @@ export function TeamStructureSection() {
                     return (
                       <div
                         key={team.title}
-                        className="flex flex-col bg-surface-white border border-border-light rounded-xl shadow-card-sm hover:shadow-card transition-shadow p-5 md:p-6"
+                        className="flex flex-col bg-surface-white border border-border-light rounded-xl shadow-card-sm hover:shadow-card transition-shadow p-4 sm:p-5"
                       >
                         <span
-                          className={`inline-flex items-center justify-center w-11 h-11 rounded-xl mb-4 ${tone.tile}`}
+                          className={`inline-flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 rounded-xl mb-3 ${tone.tile}`}
                         >
                           <Icon className="w-5 h-5" aria-hidden="true" />
                         </span>
@@ -142,7 +143,7 @@ export function TeamStructureSection() {
                         <p className="text-sm text-text-body leading-relaxed">
                           {team.description}
                         </p>
-                        <p className="mt-4 pt-3 border-t border-border-light text-xs font-medium text-text-muted">
+                        <p className="mt-3 pt-2.5 border-t border-border-light text-xs font-medium text-text-muted">
                           {team.meta}
                         </p>
                       </div>
@@ -155,7 +156,7 @@ export function TeamStructureSection() {
         </div>
 
         {/* ── The flow, as a tree ── */}
-        <div className="mt-10 sm:mt-12">
+        <div className="mt-6 sm:mt-7 lg:mt-8">
           <div
             className="relative overflow-hidden rounded-2xl lg:rounded-3xl
               bg-gradient-to-br from-surface-dark-from via-surface-dark-via to-surface-dark-to
@@ -170,8 +171,8 @@ export function TeamStructureSection() {
               className="pointer-events-none absolute -top-10 left-1/2 -translate-x-1/2 w-[520px] h-52 bg-brand-500/[0.07] rounded-full blur-[100px]"
             />
 
-            <div className="relative z-10 px-5 sm:px-8 lg:px-12 py-8 sm:py-10 lg:py-12">
-              <div className="max-w-2xl mx-auto text-center mb-7 sm:mb-9">
+            <div className="relative z-10 px-4 sm:px-8 lg:px-12 py-6 sm:py-8 lg:py-10">
+              <div className="max-w-2xl mx-auto text-center mb-5 sm:mb-6">
                 <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-text-light text-balance">
                   How an engagement moves between them
                 </h3>

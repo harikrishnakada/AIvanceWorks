@@ -1,4 +1,4 @@
-import { Award, Clock, Shield, Users, Code2 } from 'lucide-react';
+import { Award, Clock, Shield, Users, Code2, FileCheck } from 'lucide-react';
 import { SITE_CONFIG } from '@/lib/constants';
 import { IconTile } from '@/components/shared/primitives';
 import { SECTION_Y, CARD_GRID_GAP } from '@/lib/section-spacing';
@@ -43,6 +43,14 @@ const differentiators = [
     stat: '100%',
     statLabel: 'On-Time Delivery',
     icon: Clock,
+  },
+  {
+    title: 'Regulatory & Compliance',
+    description:
+      'Security and compliance built into the delivery lifecycle, not bolted on at the end. We design to SOC 2, HIPAA, and GDPR controls with audit-ready documentation.',
+    stat: '100%',
+    statLabel: 'Audit-Ready Delivery',
+    icon: FileCheck,
   },
 ];
 

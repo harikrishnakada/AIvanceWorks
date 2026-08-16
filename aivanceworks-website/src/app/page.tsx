@@ -82,7 +82,7 @@ export default async function HomePage() {
       {/* Our Experience - Certifications and stats */}
       <ExperienceSection />
 
-      {/* Why Companies Choose Us - 5 differentiator cards */}
+      {/* Why Companies Choose Us - 6 differentiator cards */}
       <WhyChooseUsSection />
 
       {/* Industries - Category card slideshow into vertical landing pages */}

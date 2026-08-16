@@ -98,7 +98,7 @@ function Trunk({ delay }: { delay: number }) {
   return (
     <div className="flex justify-center" aria-hidden="true">
       <span
-        className={cn('flow-line block w-px h-7 sm:h-9', LINE)}
+        className={cn('flow-line block w-px h-5 sm:h-7', LINE)}
         style={{ animationDelay: `${delay}ms` }}
       />
     </div>
@@ -193,7 +193,7 @@ export function EngagementFlowTree() {
       <div className="hidden sm:block" aria-hidden="true">
         <div className="flex justify-center">
           <span
-            className={cn('flow-line block w-px h-7', LINE)}
+            className={cn('flow-line block w-px h-5', LINE)}
             style={{ animationDelay: '700ms' }}
           />
         </div>
@@ -203,7 +203,7 @@ export function EngagementFlowTree() {
             hence the negative inset on its inner edge. */}
         <div className="grid grid-cols-2">
           <div className={BRANCH_CELL_X[0]}>
-            <div className="relative h-8">
+            <div className="relative h-6">
               <span
                 className={cn(
                   'flow-line-h flow-line-h-l absolute top-0 left-1/2 -right-3 h-px',
@@ -218,7 +218,7 @@ export function EngagementFlowTree() {
             </div>
           </div>
           <div className={BRANCH_CELL_X[1]}>
-            <div className="relative h-8">
+            <div className="relative h-6">
               <span
                 className={cn(
                   'flow-line-h flow-line-h-r absolute top-0 -left-3 right-1/2 h-px',
