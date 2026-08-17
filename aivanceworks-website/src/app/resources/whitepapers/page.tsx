@@ -6,9 +6,9 @@ import { Button } from '@/components/ui/button';
 import { FileText, ArrowRight, Mail, Download } from 'lucide-react';
 
 export const metadata: Metadata = constructMetadata({
-  title: 'Whitepapers & Research - Coming Soon | AIvanceWorks',
+  title: `Whitepapers & Research - Coming Soon | ${SITE_CONFIG.name}`,
   description:
-    'AIvanceWorks whitepapers and industry research coming soon. Download comprehensive guides on AI/ML, cloud architecture, and enterprise software.',
+    `${SITE_CONFIG.name} whitepapers and industry research coming soon. Download comprehensive guides on AI/ML, cloud architecture, and enterprise software.`,
   canonical: `${SITE_CONFIG.url}/resources/whitepapers`,
   noIndex: true, // Don't index placeholder pages
 });

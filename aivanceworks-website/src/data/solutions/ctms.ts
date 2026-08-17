@@ -1,4 +1,4 @@
-import { BRAND_PREFIX } from '@/lib/constants';
+import { BRAND_PREFIX, SITE_CONFIG } from '@/lib/constants';
 import type { SolutionPageData } from '@/types/pages';
 
 // Archetype C — Regulated Solution (Life Sciences / Clinical Operations)
@@ -407,7 +407,7 @@ const ctms: SolutionPageData = {
       },
     ],
     auditNote:
-      'Every component is engineered with audit-trail logging, role-scoped access, traceability, and lifecycle artifacts your QA, clinical operations, IT, and regulatory teams can use as inputs into their own computer-systems validation (CSV) and inspection-readiness work. Final validation execution, IQ/OQ/PQ authoring, sponsor acceptance, and any regulatory submission remain solely the customer’s responsibility, executed by the customer’s QA and regulatory functions. AIvanceWorks does not represent, attest, or warrant compliance with ICH-GCP, 21 CFR Part 11, EU Annex 11, HIPAA, GDPR, or any other regulatory framework on behalf of any customer.',
+      `Every component is engineered with audit-trail logging, role-scoped access, traceability, and lifecycle artifacts your QA, clinical operations, IT, and regulatory teams can use as inputs into their own computer-systems validation (CSV) and inspection-readiness work. Final validation execution, IQ/OQ/PQ authoring, sponsor acceptance, and any regulatory submission remain solely the customer’s responsibility, executed by the customer’s QA and regulatory functions. ${SITE_CONFIG.name} does not represent, attest, or warrant compliance with ICH-GCP, 21 CFR Part 11, EU Annex 11, HIPAA, GDPR, or any other regulatory framework on behalf of any customer.`,
     partnerAgreements: ['BAA', 'DPA', 'SLA'],
   },
 

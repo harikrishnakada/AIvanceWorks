@@ -1,4 +1,4 @@
-import { BRAND_PREFIX } from '@/lib/constants';
+import { BRAND_PREFIX, SITE_CONFIG } from '@/lib/constants';
 import type { SolutionPageData } from '@/types/pages';
 
 // Archetype C — Regulated Solution (Life Sciences / Clinical Laboratory)
@@ -409,7 +409,7 @@ const lims: SolutionPageData = {
       },
     ],
     auditNote:
-      'Every component is engineered with audit-trail logging, chain-of-custody capture, role-scoped access, and lifecycle artifacts your QA, accreditation, and IT teams can use as inputs into their own validation, accreditation, and audit-readiness work. Final regulatory submission, validation execution, IQ/OQ/PQ authoring, and any accreditation outcome (CAP, CLIA, ISO/IEC 17025, ISO 15189, GLP, etc.) remain solely the customer’s responsibility, executed by the customer’s QA, regulatory, or quality function. AIvanceWorks does not represent, attest, or warrant compliance with any regulatory or accreditation framework on behalf of any customer.',
+      `Every component is engineered with audit-trail logging, chain-of-custody capture, role-scoped access, and lifecycle artifacts your QA, accreditation, and IT teams can use as inputs into their own validation, accreditation, and audit-readiness work. Final regulatory submission, validation execution, IQ/OQ/PQ authoring, and any accreditation outcome (CAP, CLIA, ISO/IEC 17025, ISO 15189, GLP, etc.) remain solely the customer’s responsibility, executed by the customer’s QA, regulatory, or quality function. ${SITE_CONFIG.name} does not represent, attest, or warrant compliance with any regulatory or accreditation framework on behalf of any customer.`,
     partnerAgreements: ['BAA (clinical labs handling PHI)', 'DPA', 'SLA'],
   },
 

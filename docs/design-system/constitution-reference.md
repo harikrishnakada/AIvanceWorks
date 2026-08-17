@@ -12,12 +12,22 @@
 
 ## Table of contents
 
-- [§2 — Design philosophy (full narrative)](#2--design-philosophy-full-narrative)
-- [§3.6 — Where existing components violate theming rules](#36--where-existing-components-violate-theming-rules)
-- [§5.3 — Section primitive reference implementation](#53--section-primitive-reference-implementation)
-- [§7.3 — Why integrations is a typed shape](#73--why-integrations-is-a-typed-shape)
-- [§9.5 — Audience test rationale](#95--audience-test-rationale)
-- [§9.6 — Self-challenge protocol rationale](#96--self-challenge-protocol-rationale)
+- [Services \& Solutions Design Constitution — Reference](#services--solutions-design-constitution--reference)
+  - [Table of contents](#table-of-contents)
+  - [§2 — Design philosophy (full narrative)](#2--design-philosophy-full-narrative)
+    - [2.1 Shared skeleton, two template variants](#21-shared-skeleton-two-template-variants)
+    - [2.2 Per-page editorial composition, not rigid ordering](#22-per-page-editorial-composition-not-rigid-ordering)
+    - [2.3 Services and solutions serve different audiences](#23-services-and-solutions-serve-different-audiences)
+    - [2.4 Content, imagery, icons, and signature sections are the differentiation levers](#24-content-imagery-icons-and-signature-sections-are-the-differentiation-levers)
+    - [2.5 Single brand palette](#25-single-brand-palette)
+    - [2.6 Theme-token discipline](#26-theme-token-discipline)
+    - [2.7 Audience-driven storytelling](#27-audience-driven-storytelling)
+    - [2.8 Content integrity over marketing velocity](#28-content-integrity-over-marketing-velocity)
+  - [§3.6 — Where existing components violate theming rules](#36--where-existing-components-violate-theming-rules)
+  - [§5.3 — Section primitive reference implementation](#53--section-primitive-reference-implementation)
+  - [§7.3 — Why integrations is a typed shape](#73--why-integrations-is-a-typed-shape)
+  - [§9.5 — Audience test rationale](#95--audience-test-rationale)
+  - [§9.6 — Self-challenge protocol rationale](#96--self-challenge-protocol-rationale)
 
 ---
 
@@ -98,7 +108,7 @@ Exploration of per-industry palettes was explicitly rejected during the design c
 
 **What.** No fabricated statistics. No invented case studies. No unauthorized logos. Every public claim is verified, ranged-with-source, or omitted. See [Section 9](services-solutions-constitution.md#9-content-integrity-rules-hard).
 
-**Why.** AIvanceWorks sells trust to risk-averse buyers (especially in regulated industries). A single fabricated stat discovered by a prospective client destroys years of trust-building. The `_unverified` list and human review gate exist so that marketing velocity can never outrun reality.
+**Why.** ${SITE_CONFIG.name} sells trust to risk-averse buyers (especially in regulated industries). A single fabricated stat discovered by a prospective client destroys years of trust-building. The `_unverified` list and human review gate exist so that marketing velocity can never outrun reality.
 
 ---
 

@@ -1,4 +1,4 @@
-import { BRAND_PREFIX } from '@/lib/constants';
+import { BRAND_PREFIX, SITE_CONFIG } from '@/lib/constants';
 import type { SolutionPageData } from '@/types/pages';
 
 // Archetype C — Regulated Solution (Manufacturing & Life Sciences supply chain)
@@ -433,7 +433,7 @@ const supplyChainManagement: SolutionPageData = {
       },
     ],
     auditNote:
-      'Every component is engineered with audit-trail logging, lot and serial genealogy capture, cold-chain event recording, role-scoped access, and lifecycle artifacts your Quality, GDP, Trade Compliance, and Regulatory teams can use as inputs into their own DSCSA, FDA FSMA 204, GDP, USP <1079>, IATA CEIV Pharma, ISO 28000, and customs work. DSCSA Authorized Trading Partner status, FSMA 204 traceability filings, GDP / GxP qualification, carrier qualification, customs and export filings, and any inspection or audit outcome (FDA, CBP, EMA, MHRA, or other authority) remain solely the customer’s responsibility, executed by the customer’s Quality, Trade Compliance, or Regulatory function. AIvanceWorks does not represent, attest, or warrant compliance with any regulatory framework on behalf of any customer.',
+      `Every component is engineered with audit-trail logging, lot and serial genealogy capture, cold-chain event recording, role-scoped access, and lifecycle artifacts your Quality, GDP, Trade Compliance, and Regulatory teams can use as inputs into their own DSCSA, FDA FSMA 204, GDP, USP <1079>, IATA CEIV Pharma, ISO 28000, and customs work. DSCSA Authorized Trading Partner status, FSMA 204 traceability filings, GDP / GxP qualification, carrier qualification, customs and export filings, and any inspection or audit outcome (FDA, CBP, EMA, MHRA, or other authority) remain solely the customer’s responsibility, executed by the customer’s Quality, Trade Compliance, or Regulatory function. ${SITE_CONFIG.name} does not represent, attest, or warrant compliance with any regulatory framework on behalf of any customer.`,
     partnerAgreements: ['DPA', 'SLA', 'Quality / Technical Agreement (where required by the customer)'],
   },
 

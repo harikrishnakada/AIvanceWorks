@@ -1,4 +1,4 @@
-import { BRAND_PREFIX } from '@/lib/constants';
+import { BRAND_PREFIX, SITE_CONFIG } from '@/lib/constants';
 import type { SolutionPageData } from '@/types/pages';
 
 // Archetype C — Regulated Solution (Life Sciences / GMP Manufacturing)
@@ -83,7 +83,7 @@ import type { SolutionPageData } from '@/types/pages';
 //   ctaBlock (accent)
 //
 // Deviations from Archetype C recipe:
-//   - No CaseStudySpotlight — no vendor-approved EBR case yet for AIvanceWorks.
+//   - No CaseStudySpotlight — no vendor-approved EBR case yet for ${SITE_CONFIG.name}.
 //   - No IntegrationsPanel — surrounding ERP / automation / historian / LIMS /
 //     QMS stack named by category, not by product, per liability stance.
 //   - ComplianceSpotlight placed before signature as trust gate (same pattern
@@ -450,7 +450,7 @@ const electronicBatchRecords: SolutionPageData = {
       },
     ],
     auditNote:
-      'Our implementation engineering — EBR configuration on PAS-X or Opcenter Execution Pharma, ISA-95-aligned integration, Microsoft Azure landing zone, and lifecycle ops — is designed with audit-trail, electronic-record, material-genealogy, role-scoped-access, and Azure-platform awareness so your QA, Validation, and Regulatory teams have the artifacts they need to execute their own CSV, IQ/OQ/PQ, GMP qualification, and inspection-readiness work. Final regulatory submission, validation execution, IQ/OQ/PQ authoring, GMP qualification, and any inspection outcome (FDA, EMA, MHRA, PMDA, ANVISA, Health Canada, or other authority) remain solely the customer’s responsibility, executed by the customer’s QA, Validation, or Regulatory function. PAS-X and Opcenter Execution Pharma are supplied and licensed by Körber and Siemens respectively under the customer’s direct contract with each vendor; AIvanceWorks does not resell licenses, does not author vendor-supplied validation packages on the vendor’s behalf, and does not represent, attest, or warrant compliance with any regulatory framework on behalf of any customer.',
+      `Our implementation engineering — EBR configuration on PAS-X or Opcenter Execution Pharma, ISA-95-aligned integration, Microsoft Azure landing zone, and lifecycle ops — is designed with audit-trail, electronic-record, material-genealogy, role-scoped-access, and Azure-platform awareness so your QA, Validation, and Regulatory teams have the artifacts they need to execute their own CSV, IQ/OQ/PQ, GMP qualification, and inspection-readiness work. Final regulatory submission, validation execution, IQ/OQ/PQ authoring, GMP qualification, and any inspection outcome (FDA, EMA, MHRA, PMDA, ANVISA, Health Canada, or other authority) remain solely the customer’s responsibility, executed by the customer’s QA, Validation, or Regulatory function. PAS-X and Opcenter Execution Pharma are supplied and licensed by Körber and Siemens respectively under the customer’s direct contract with each vendor; ${SITE_CONFIG.name} does not resell licenses, does not author vendor-supplied validation packages on the vendor’s behalf, and does not represent, attest, or warrant compliance with any regulatory framework on behalf of any customer.`,
     partnerAgreements: ['DPA', 'SLA', 'Quality / Technical Agreement (where required by the customer)'],
   },
 
@@ -556,11 +556,11 @@ const electronicBatchRecords: SolutionPageData = {
   },
 
   _unverified: [
-    'Page positions AIvanceWorks as an EBR delivery / integration partner with capability framing only — no "Körber Solution Partner / Körber-certified" claim, no "Siemens Partner / Siemens authorized" claim, no Körber, Werum, or Siemens logo. Legal review recommended pre-publish to confirm capability framing is acceptable for both vendors and does not require Körber or Siemens sign-off.',
+    `Page positions ${SITE_CONFIG.name} as an EBR delivery / integration partner with capability framing only — no "Körber Solution Partner / Körber-certified" claim, no "Siemens Partner / Siemens authorized" claim, no Körber, Werum, or Siemens logo. Legal review recommended pre-publish to confirm capability framing is acceptable for both vendors and does not require Körber or Siemens sign-off.`,
     'Microsoft Azure / Microsoft Cloud for Manufacturing referenced as the cloud landing zone we build on; no "Microsoft Solutions Partner" badge claim on this page. Confirm with marketing whether to add an explicit Microsoft Partner badge in a future revision.',
     'complianceSpotlight.badges and complianceDetail.frameworks — framework names retained for SEO and audience signaling; pre-publish, confirm legal accepts framing as "implementation / design awareness" rather than certification.',
     'processSteps — durations replaced with "scoped during discovery" / "phased per engagement." Confirm no internal estimates leak into copy.',
-    'No third-party ERP, automation, PLC, SCADA, historian, LIMS, or QMS vendor names on the page (only PAS-X, Opcenter Execution Pharma, and Microsoft / Azure are named). Verify by grep before publish.',
+    `No third-party ERP, automation, PLC, SCADA, historian, LIMS, or QMS vendor names on the page (only PAS-X, Opcenter Execution Pharma, and Microsoft / Azure are named). Verify by grep before publish.`,
     'No fixed pricing or duration quoted on the page; all FAQs route timing and cost questions back to discovery.',
     'hero.heroImage, imageFeatures[0].image, imageFeatures[1].image — placeholder photos sourced from neighboring MES solution folder. Replace with EBR-specific Unsplash imagery (operator with shop-floor terminal entering eMBR step, QA reviewer signing off exception queue) before publish per §11.3 / §11.5.',
   ],

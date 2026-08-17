@@ -1,4 +1,4 @@
-import { BRAND_PREFIX } from '@/lib/constants';
+import { BRAND_PREFIX, SITE_CONFIG } from '@/lib/constants';
 import type { ServicePageData } from '@/types/pages';
 
 const marketResearch: ServicePageData = {
@@ -7,7 +7,7 @@ const marketResearch: ServicePageData = {
   shortDescription:
     'Data-driven market intelligence that tells you exactly where to play, who to serve, and how to win before you write a line of code.',
 
-  metaTitle: 'Market Research Services | AIvanceWorks',
+  metaTitle: `${BRAND_PREFIX} Market Research Services | ${SITE_CONFIG.name} | TAM/SAM/SOM, Competitive Intelligence, Customer Segmentation`,
   metaDescription:
     'AI-powered market research: TAM/SAM/SOM analysis, competitive intelligence, customer segmentation, and go-to-market readiness reports. Turn market signals into a validated product strategy.',
   keywords: [

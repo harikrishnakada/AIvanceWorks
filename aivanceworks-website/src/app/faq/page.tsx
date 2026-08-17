@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { HelpCircle, ArrowRight, MessageCircle } from 'lucide-react';
 
 export const metadata: Metadata = constructMetadata({
-  title: 'FAQ - Coming Soon | AIvanceWorks',
+  title: `FAQ - Coming Soon | ${SITE_CONFIG.name}`,
   description:
     'Our comprehensive FAQ page is coming soon. In the meantime, check our homepage FAQ section or contact us directly with your questions.',
   canonical: `${SITE_CONFIG.url}/faq`,

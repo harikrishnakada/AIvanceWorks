@@ -1,6 +1,6 @@
 # Service & Solution Page Content Voice Guide
 
-> **Purpose:** Reference guide for writing all service and solution page copy for AIvanceWorks. Based on competitive research across Accenture, Deloitte, Thoughtworks, Slalom, Nerdery, Cognizant, Infosys, Stripe, and WP Engine (April 2026).
+> **Purpose:** Reference guide for writing all service and solution page copy for ${SITE_CONFIG.name}. Based on competitive research across Accenture, Deloitte, Thoughtworks, Slalom, Nerdery, Cognizant, Infosys, Stripe, and WP Engine (April 2026).
 
 ---
 
@@ -16,9 +16,9 @@ Infosys  Accenture  Cognizant  Deloitte  Thoughtworks  Slalom  Nerdery  Stripe
  Catalog    Manifesto  Polished    Formal     Expert       Warm    Casual   Product
 ```
 
-**AIvanceWorks sits between Thoughtworks and Slalom**, with Nerdery's concreteness and Stripe's metric discipline.
+**${SITE_CONFIG.name} sits between Thoughtworks and Slalom**, with Nerdery's concreteness and Stripe's metric discipline.
 
-### The AIvanceWorks Voice in One Sentence
+### The ${SITE_CONFIG.name} Voice in One Sentence
 
 > "A smart, experienced colleague who explains complex technology in terms of business outcomes, leads with the client's problem, and backs every claim with evidence."
 
@@ -350,7 +350,7 @@ Every sentence of service/solution page copy should pass these three tests:
 
 ### DON'T
 
-1. Don't open with your company name. "AIvanceWorks provides..." is narcissistic. Open with the client's world.
+1. Don't open with your company name. "${SITE_CONFIG.name} provides..." is narcissistic. Open with the client's world.
 2. Don't use unprovable superlatives. "World-class," "best-in-class," "industry-leading" -- unless you have the analyst report to prove it.
 3. Don't list capabilities without outcomes. Every capability needs a "so that" clause.
 4. Don't hide behind passive voice. "Digital transformation is delivered" -- by whom? Say "We deliver" or "You get."

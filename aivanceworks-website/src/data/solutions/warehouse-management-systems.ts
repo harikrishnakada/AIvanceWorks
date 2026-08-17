@@ -1,4 +1,4 @@
-import { BRAND_PREFIX } from '@/lib/constants';
+import { BRAND_PREFIX, SITE_CONFIG } from '@/lib/constants';
 import type { SolutionPageData } from '@/types/pages';
 
 // Archetype C base, B-leaning narrative — Warehouse Management Systems (WMS)
@@ -463,7 +463,7 @@ const warehouseManagementSystems: SolutionPageData = {
       },
     ],
     auditNote:
-      'Every component is engineered with audit-trail logging, lot / serial / FEFO traceability capture, inventory-integrity controls, role-scoped access, and lifecycle artifacts your Quality, Regulatory, and security teams can use as inputs into their own FSMA 204, cGMP / GDP, OSHA, GS1 / EPCIS, NIST CSF, or SOC 2 work. FSMA 204 traceability filings, cGMP / GDP qualification, OSHA compliance, SOC 2 attestation, and any inspection or audit outcome (FDA, OSHA, customer audit, or other authority) remain solely the customer’s responsibility, executed by the customer’s Quality, Regulatory, Safety, or Security function. AIvanceWorks is a software engineering and integration partner, does not resell any packaged WMS product, and does not represent, attest, or warrant compliance with any regulatory or industry framework on behalf of any customer.',
+      `Every component is engineered with audit-trail logging, lot / serial / FEFO traceability capture, inventory-integrity controls, role-scoped access, and lifecycle artifacts your Quality, Regulatory, and security teams can use as inputs into their own FSMA 204, cGMP / GDP, OSHA, GS1 / EPCIS, NIST CSF, or SOC 2 work. FSMA 204 traceability filings, cGMP / GDP qualification, OSHA compliance, SOC 2 attestation, and any inspection or audit outcome (FDA, OSHA, customer audit, or other authority) remain solely the customer’s responsibility, executed by the customer’s Quality, Regulatory, Safety, or Security function. ${SITE_CONFIG.name} is a software engineering and integration partner, does not resell any packaged WMS product, and does not represent, attest, or warrant compliance with any regulatory or industry framework on behalf of any customer.`,
     partnerAgreements: ['DPA', 'SLA', 'Quality / Technical Agreement (where required by the customer)'],
   },
 

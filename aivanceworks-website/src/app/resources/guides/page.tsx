@@ -6,9 +6,9 @@ import { Button } from '@/components/ui/button';
 import { BookOpen, ArrowRight, Mail } from 'lucide-react';
 
 export const metadata: Metadata = constructMetadata({
-  title: 'Technical Guides - Coming Soon | AIvanceWorks',
+  title: `Technical Guides - Coming Soon | ${SITE_CONFIG.name}`,
   description:
-    'AIvanceWorks technical guides and tutorials coming soon. Visit our blog for detailed guides on AI, cloud architecture, and development.',
+    `${SITE_CONFIG.name} technical guides and tutorials coming soon. Visit our blog for detailed guides on AI, cloud architecture, and development.`,
   canonical: `${SITE_CONFIG.url}/resources/guides`,
   noIndex: true, // Don't index placeholder pages
 });

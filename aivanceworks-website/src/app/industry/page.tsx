@@ -8,7 +8,7 @@ import { Section, Container, Breadcrumbs } from '@/components/shared/primitives'
 import { IndustryRevealGrid, type IndustryRevealCard } from '@/components/industry';
 
 export const metadata: Metadata = constructMetadata({
-  title: 'Industries We Serve | AIvanceWorks',
+  title: `Industries We Serve | ${SITE_CONFIG.name}`,
   description:
     'Deep, compliance-first software and AI expertise built around the realities of each industry — from healthcare to travel and hospitality.',
   canonical: `${SITE_CONFIG.url}/industry`,

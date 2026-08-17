@@ -462,7 +462,7 @@ const logistics: IndustryPageData = {
 
   _unverified: [
     'All content uses capability framing only — no client names, case studies, testimonials, or measured outcome metrics are claimed.',
-    'complianceDetail.frameworks — "SOC 2" and "ISO 27001" listed; confirm whether AIvanceWorks holds these attestations or is in progress. PCI DSS, FMCSA / HOS (ELD), and C-TPAT framing describes payment-handling and data-integrity design practices, not held certifications or a legal compliance guarantee.',
+    'complianceDetail.frameworks — "SOC 2" and "ISO 27001" listed; confirm whether {SITE_CONFIG.name} holds these attestations or is in progress. PCI DSS, FMCSA / HOS (ELD), and C-TPAT framing describes payment-handling and data-integrity design practices, not held certifications or a legal compliance guarantee.',
     'techStandards.systems & capabilities — integration names (McLeod, MercuryGate, Project44, Samsara, Geotab, Verizon Connect, Motive, FedEx, UPS, USPS, DHL, LTL networks, Shopify, WooCommerce, Amazon, NetSuite, SAP, QuickBooks, EDI X12/EDIFACT) describe competencies; confirm which have actually shipped before implying delivered volume.',
     'services — cross-links point to live /services/* pages. hero.secondaryCta / cta.secondaryCta anchor to #services.',
     'Cross-vertical bridges to Manufacturing & Supply Chain and Fintech are referenced in segments.footerNote and FAQ; confirm a Fintech industry/solution page exists (or is planned) before adding a hard cross-link.',

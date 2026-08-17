@@ -1,4 +1,4 @@
-import { BRAND_PREFIX } from '@/lib/constants';
+import { BRAND_PREFIX, SITE_CONFIG } from '@/lib/constants';
 import type { SolutionPageData } from '@/types/pages';
 
 // Archetype C — Regulated Solution (Pharma / Biotech)
@@ -360,7 +360,7 @@ const aiPharma: SolutionPageData = {
       },
     ],
     auditNote:
-      'Every component is engineered with audit-trail logging, role-scoped access, lineage tracking, and lifecycle artifacts your QA, IT, and regulatory teams can use as inputs into their own validation work. Final regulatory submission, validation execution, and any clearance pathway (e.g., SaMD classification, 510(k), De Novo, PMA) remain solely the customer’s responsibility, executed by the customer’s regulatory function. AIvanceWorks does not represent, attest, or warrant compliance with any regulatory framework on behalf of any customer.',
+      `Every component is engineered with audit-trail logging, role-scoped access, lineage tracking, and lifecycle artifacts your QA, IT, and regulatory teams can use as inputs into their own validation work. Final regulatory submission, validation execution, and any clearance pathway (e.g., SaMD classification, 510(k), De Novo, PMA) remain solely the customer’s responsibility, executed by the customer’s regulatory function. ${SITE_CONFIG.name} does not represent, attest, or warrant compliance with any regulatory framework on behalf of any customer.`,
     partnerAgreements: ['BAA', 'DPA', 'SLA'],
   },
 

@@ -1,4 +1,4 @@
-import { BRAND_PREFIX } from '@/lib/constants';
+import { BRAND_PREFIX, SITE_CONFIG } from '@/lib/constants';
 import type { SolutionPageData } from '@/types/pages';
 
 // Archetype C — Regulated Solution (Discrete & Process Manufacturing)
@@ -91,7 +91,7 @@ import type { SolutionPageData } from '@/types/pages';
 //
 // Deviations from Archetype C recipe:
 //   - No CaseStudySpotlight — no Siemens-approved Opcenter case yet for
-//     AIvanceWorks.
+//     ${SITE_CONFIG.name}.
 //   - No IntegrationsPanel — the customer's existing ERP / automation /
 //     historian / QMS / PLM stack is named by category, not by product, per
 //     liability stance. Opcenter (named in prose) is the MOM, not an
@@ -467,7 +467,7 @@ const manufacturingOperationsManagement: SolutionPageData = {
       },
     ],
     auditNote:
-      'Our implementation engineering — Opcenter configuration across the MOM disciplines in scope (Execution, APS, Quality, Intelligence, R&D), ISA-95-aligned integration, Microsoft Azure landing zone, BI layer, and lifecycle ops — is designed with audit-trail, electronic-record, as-built-genealogy, role-scoped-access, and Azure-platform awareness so your Quality, Validation, and Regulatory teams have the artifacts they need to execute their own CSV, IQ/OQ/PQ, IATF 16949, AS9100, ISO 9001, ISO 13485, GMP, or FSMA audit-readiness work. Final regulatory submission, validation execution, IQ/OQ/PQ authoring, certification / audit qualification, and any inspection outcome (FDA, EMA, IATF, AS, ISO, customer audit, or other authority) remain solely the customer’s responsibility, executed by the customer’s Quality, Validation, or Regulatory function. Siemens Opcenter is supplied and licensed by Siemens under the customer’s contract with Siemens; AIvanceWorks does not resell Opcenter licenses, does not author Siemens-supplied validation packages on Siemens’ behalf, and does not represent, attest, or warrant compliance with any regulatory or industry framework on behalf of any customer.',
+      `Our implementation engineering — Opcenter configuration across the MOM disciplines in scope (Execution, APS, Quality, Intelligence, R&D), ISA-95-aligned integration, Microsoft Azure landing zone, BI layer, and lifecycle ops — is designed with audit-trail, electronic-record, as-built-genealogy, role-scoped-access, and Azure-platform awareness so your Quality, Validation, and Regulatory teams have the artifacts they need to execute their own CSV, IQ/OQ/PQ, IATF 16949, AS9100, ISO 9001, ISO 13485, GMP, or FSMA audit-readiness work. Final regulatory submission, validation execution, IQ/OQ/PQ authoring, certification / audit qualification, and any inspection outcome (FDA, EMA, IATF, AS, ISO, customer audit, or other authority) remain solely the customer’s responsibility, executed by the customer’s Quality, Validation, or Regulatory function. Siemens Opcenter is supplied and licensed by Siemens under the customer’s contract with Siemens; ${SITE_CONFIG.name} does not resell Opcenter licenses, does not author Siemens-supplied validation packages on Siemens’ behalf, and does not represent, attest, or warrant compliance with any regulatory or industry framework on behalf of any customer.`,
     partnerAgreements: ['DPA', 'SLA', 'Quality / Technical Agreement (where required by the customer)'],
   },
 
@@ -580,7 +580,7 @@ const manufacturingOperationsManagement: SolutionPageData = {
   },
 
   _unverified: [
-    'Page positions AIvanceWorks as an Opcenter delivery / integration partner with capability framing only (no Siemens-certified partner badge claim, no Siemens or Opcenter logo). Legal review recommended pre-publish to confirm capability framing is acceptable and does not require Siemens sign-off, mirroring the MES + PAS-X stance.',
+    'Page positions ${SITE_CONFIG.name} as an Opcenter delivery / integration partner with capability framing only (no Siemens-certified partner badge claim, no Siemens or Opcenter logo). Legal review recommended pre-publish to confirm capability framing is acceptable and does not require Siemens sign-off, mirroring the MES + PAS-X stance.',
     'Microsoft Azure referenced as the cloud landing zone we build on; no "Microsoft Solutions Partner" / "Microsoft Cloud for Manufacturing partner" badge claim on this page. Confirm with marketing whether to add an explicit Microsoft Partner badge in a future revision.',
     'complianceSpotlight.badges and complianceDetail.frameworks — standards and reference-model names retained for SEO and audience signaling; pre-publish, confirm legal accepts framing as "implementation / design awareness" rather than certification.',
     'processSteps — durations replaced with "scoped during discovery" / "phased per engagement." Confirm no internal estimates leak into copy.',

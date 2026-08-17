@@ -5,9 +5,9 @@
 
 ## 1. Introduction
 
-AIvance Works ("we," "us," "our," or "Company") respects your privacy and is committed to protecting your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or engage our services.
+Blue Clover Software ("we," "us," "our," or "Company") respects your privacy and is committed to protecting your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or engage our services.
 
-This policy applies to all visitors, users, and clients of AIvance Works services and website.
+This policy applies to all visitors, users, and clients of Blue Clover Software services and website.
 
 **By using our website or services, you agree to the collection and use of information in accordance with this Privacy Policy.**
 
@@ -148,7 +148,7 @@ We may share your information for any other purpose with your explicit consent.
 
 ## 6. International Data Transfers
 
-AIvance Works is based in the United States. Your information may be transferred to, stored, and processed in:
+Blue Clover Software is based in the United States. Your information may be transferred to, stored, and processed in:
 
 - **United States** (our primary operations)
 - **India** (team members and operations)
@@ -263,7 +263,7 @@ If you are in India, you have rights under the Digital Personal Data Protection 
 
 To exercise any of these rights, please contact us at:
 
-**Email**: privacy@aivanceworks.com  
+**Email**: privacy@Blue Clover Software.com  
 **Subject Line**: "Privacy Rights Request"
 
 Please include:
@@ -310,10 +310,10 @@ Your continued use of our services after changes become effective constitutes ac
 
 If you have questions, concerns, or requests regarding this Privacy Policy or our privacy practices, please contact us:
 
-**AIvance Works**
+**Blue Clover Software**
 
-**Email**: privacy@aivanceworks.com  
-**Website**: [www.aivanceworks.com]  
+**Email**: privacy@Blue Clover Software.com  
+**Website**: [www.Blue Clover Software.com]  
 **Mailing Address**: [Your Business Address]
 
 **Data Protection Officer** (if applicable): [Name and contact information]
@@ -384,7 +384,7 @@ If you do not agree with this policy, please do not use our website or services.
 
 ---
 
-**AIvance Works**  
+**Blue Clover Software**  
 *Enterprise Software Engineering & AI Innovation Consultancy*
 
 **Last Updated:** February 2, 2026

@@ -6,7 +6,7 @@ import {schemaTypes} from './schemas'
 
 export default defineConfig({
   name: 'default',
-  title: 'AIvanceWorks Blog',
+  title: 'Blue Clover Software Blog',
 
   projectId: 'c3tmu94a',
   dataset: 'production',

@@ -1,4 +1,4 @@
-import { BRAND_PREFIX } from '@/lib/constants';
+import { BRAND_PREFIX, SITE_CONFIG } from '@/lib/constants';
 import type { SolutionPageData } from '@/types/pages';
 
 // Archetype C — Regulated Solution (Life Sciences / Clinical Supply)
@@ -426,7 +426,7 @@ const rtsm: SolutionPageData = {
       },
     ],
     auditNote:
-      'Every component is engineered with blinding-aware role scoping, audit-trail logging, traceability, and lifecycle artifacts your QA, biostatistics, clinical supply, IT, and regulatory teams can use as inputs into their own computer-systems validation (CSV) and inspection-readiness work. Statistical-randomization list generation, randomization-list QC, blinding-design sign-off, final validation execution, IQ/OQ/PQ authoring, sponsor acceptance, and any regulatory submission remain solely the customer’s responsibility, executed by the customer’s biostatistics, QA, clinical supply, and regulatory functions. AIvanceWorks does not represent, attest, or warrant compliance with ICH-GCP, 21 CFR Part 11, EU Annex 11, GAMP 5, HIPAA, GDPR, or any other regulatory framework on behalf of any customer.',
+      `Every component is engineered with blinding-aware role scoping, audit-trail logging, traceability, and lifecycle artifacts your QA, biostatistics, clinical supply, IT, and regulatory teams can use as inputs into their own computer-systems validation (CSV) and inspection-readiness work. Statistical-randomization list generation, randomization-list QC, blinding-design sign-off, final validation execution, IQ/OQ/PQ authoring, sponsor acceptance, and any regulatory submission remain solely the customer’s responsibility, executed by the customer’s biostatistics, QA, clinical supply, and regulatory functions. ${SITE_CONFIG.name} does not represent, attest, or warrant compliance with ICH-GCP, 21 CFR Part 11, EU Annex 11, GAMP 5, HIPAA, GDPR, or any other regulatory framework on behalf of any customer.`,
     partnerAgreements: ['BAA', 'DPA', 'SLA'],
   },
 

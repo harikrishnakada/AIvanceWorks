@@ -457,7 +457,7 @@ const manufacturingSupplyChain: IndustryPageData = {
 
   _unverified: [
     'All content uses capability framing only — no client names, case studies, testimonials, or measured outcome metrics are claimed.',
-    'complianceDetail.frameworks — "SOC 2" and "ISO 27001" listed; confirm whether AIvanceWorks holds these attestations or is in progress. IEC 62443, NIST CSF, and ITAR / EAR framing describes security-architecture and data-handling design practices, not held certifications or a legal compliance guarantee.',
+    'complianceDetail.frameworks — "SOC 2" and "ISO 27001" listed; confirm whether {SITE_CONFIG.name} holds these attestations or is in progress. IEC 62443, NIST CSF, and ITAR / EAR framing describes security-architecture and data-handling design practices, not held certifications or a legal compliance guarantee.',
     'techStandards.systems & capabilities — integration names (SAP, Oracle, Dynamics, Epicor, NetSuite, OSIsoft PI, Ignition, Maximo, Fiix, UpKeep, OPC-UA, MQTT/Sparkplug, Modbus, EDI) describe competencies; confirm which have actually shipped before implying delivered volume.',
     'services — cross-links point to live /services/* pages. hero.secondaryCta / cta.secondaryCta anchor to #services.',
     'Dedicated solution pages exist for MES, supply-chain-management, warehouse-management-systems, and manufacturing-operations-management; consider adding direct cross-links to those /solutions/* pages if the team wants tighter funnel coupling.',

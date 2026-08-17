@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ============================================================================
-# token-hygiene.sh — Automated design-token enforcement for AIvanceWorks
+# token-hygiene.sh — Automated design-token enforcement
 # ============================================================================
 #
 # PURPOSE
@@ -288,7 +288,7 @@ check_dark_mode_classes() {
 
 main() {
   echo -e "${BOLD}╔══════════════════════════════════════════════════════════╗${RESET}"
-  echo -e "${BOLD}║  Token Hygiene Check — AIvanceWorks Design Constitution ║${RESET}"
+  echo -e "${BOLD}║  Token Hygiene Check — Design Constitution ║${RESET}"
   echo -e "${BOLD}╚══════════════════════════════════════════════════════════╝${RESET}"
   echo -e "${DIM}Enforcing Section 3.3: No raw colors in shared/signature components${RESET}"
 

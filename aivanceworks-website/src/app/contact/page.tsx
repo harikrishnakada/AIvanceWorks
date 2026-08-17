@@ -8,9 +8,9 @@ import { Button } from '@/components/ui/button';
 import { SITE_CONFIG, CONTACT_CONFIG } from '@/lib/constants';
 
 export const metadata: Metadata = constructMetadata({
-  title: 'Contact Us - Get a Free Consultation',
+  title: `Contact Us - Get a Free Consultation | ${SITE_CONFIG.name}`,
   description:
-    'Contact AIvanceWorks for AI solutions, cloud migration, and custom development. Get a response within 24 hours or book a free 30-minute discovery call with our expert team.',
+    `Contact ${SITE_CONFIG.name} for AI solutions, cloud migration, and custom development. Get a response within 24 hours or book a free 30-minute discovery call with our expert team.`,
   canonical: `${SITE_CONFIG.url}/contact`,
   keywords: [
     'contact',
@@ -38,7 +38,7 @@ export default function ContactPage() {
         <div className="mx-auto mb-8 max-w-3xl text-center">
           <h1 className="mb-6 text-4xl font-bold tracking-tight md:text-5xl">Get in Touch</h1>
           <p className="text-xl text-muted-foreground">
-            Contact AIvanceWorks to discuss your AI, cloud, or custom development needs. We respond
+            Contact {SITE_CONFIG.name} to discuss your AI, cloud, or custom development needs. We respond
             within 24 hours, or you can book a free 30-minute discovery call to get started
             immediately.
           </p>

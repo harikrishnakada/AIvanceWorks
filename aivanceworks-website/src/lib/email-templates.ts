@@ -19,7 +19,7 @@ function emailWrapper(content: string): string {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AIvanceWorks</title>
+  <title>${SITE_CONFIG.name}</title>
   <style>
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -101,13 +101,13 @@ function emailWrapper(content: string): string {
 <body>
   <div class="email-container">
     <div class="header">
-      <div class="logo">AIvanceWorks</div>
+      <div class="logo">${SITE_CONFIG.name}</div>
       <p style="margin: 5px 0 0 0; color: #64748b; font-size: 14px;">Transform Your Ideas Into Intelligent Solutions</p>
     </div>
     ${content}
     <div class="footer">
       <p>
-        <strong>AIvanceWorks</strong><br>
+        <strong>${SITE_CONFIG.name}</strong><br>
         ${SITE_CONFIG.company.email} | ${SITE_CONFIG.company.phone}<br>
         <a href="${SITE_CONFIG.url}">${SITE_CONFIG.url}</a>
       </p>
@@ -153,7 +153,7 @@ export function contactFormNotificationTemplate(data: ContactFormData): string {
 
     <p><strong>⏰ Action Required:</strong> Please respond within 24 hours to maintain our response time guarantee.</p>
 
-    <a href="mailto:${escapeHtml(data.email)}?subject=Re: Your Inquiry to AIvanceWorks" class="button">Reply to ${escapeHtml(data.name)}</a>
+    <a href="mailto:${escapeHtml(data.email)}?subject=Re: Your Inquiry to ${SITE_CONFIG.name}" class="button">Reply to ${escapeHtml(data.name)}</a>
   `;
 
   return emailWrapper(content);
@@ -165,7 +165,7 @@ export function contactFormNotificationTemplate(data: ContactFormData): string {
  */
 export function contactFormConfirmationTemplate(data: ContactFormData): string {
   const content = `
-    <h1>Thank you for contacting AIvanceWorks!</h1>
+    <h1>Thank you for contacting ${SITE_CONFIG.name}!</h1>
     <p>Hi ${escapeHtml(data.name)},</p>
 
     <p>We've received your inquiry and appreciate you reaching out to us. Our team will review your message and respond within 24 hours.</p>
@@ -192,7 +192,7 @@ export function contactFormConfirmationTemplate(data: ContactFormData): string {
 
     <p>
       Best regards,<br>
-      <strong>The AIvanceWorks Team</strong>
+      <strong>The ${SITE_CONFIG.name} Team</strong>
     </p>
   `;
 
@@ -205,7 +205,7 @@ export function contactFormConfirmationTemplate(data: ContactFormData): string {
  */
 export function newsletterWelcomeTemplate(email: string): string {
   const content = `
-    <h1>Welcome to AIvanceWorks Insights!</h1>
+    <h1>Welcome to ${SITE_CONFIG.name} Insights!</h1>
     <p>Thank you for subscribing to our newsletter.</p>
 
     <p>You'll now receive:</p>
@@ -224,7 +224,7 @@ export function newsletterWelcomeTemplate(email: string): string {
 
     <p>
       Best regards,<br>
-      <strong>The AIvanceWorks Team</strong>
+      <strong>The ${SITE_CONFIG.name} Team</strong>
     </p>
 
     <p style="font-size: 12px; color: #64748b; margin-top: 30px;">
@@ -250,7 +250,7 @@ export function bookingConfirmationTemplate(data: {
     <h1>Your Consultation is Confirmed! 🎉</h1>
     <p>Hi ${escapeHtml(data.name)},</p>
 
-    <p>Your free 30-minute discovery call with AIvanceWorks is confirmed.</p>
+    <p>Your free 30-minute discovery call with ${SITE_CONFIG.name} is confirmed.</p>
 
     <div class="info-box">
       <p><span class="info-label">Date:</span> ${escapeHtml(data.date)}</p>
@@ -275,7 +275,7 @@ export function bookingConfirmationTemplate(data: {
 
     <p>
       Best regards,<br>
-      <strong>The AIvanceWorks Team</strong>
+      <strong>The ${SITE_CONFIG.name} Team</strong>
     </p>
   `;
 

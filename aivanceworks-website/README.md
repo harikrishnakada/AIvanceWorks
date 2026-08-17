@@ -1,4 +1,4 @@
-# AIvanceWorks Website
+# ${SITE_CONFIG.name} Website
 
 AI-first software consulting website built with Next.js 15, TypeScript, and Tailwind CSS.
 
@@ -94,7 +94,7 @@ This website is optimized for:
 Create a `.env.local` file:
 
 ```env
-NEXT_PUBLIC_SITE_URL=https://aivanceworks.com
+NEXT_PUBLIC_SITE_URL=https://bluecloversoftware.com
 NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
 ```
 
@@ -138,4 +138,4 @@ npm start
 
 ## License
 
-Private - AIvanceWorks LLC
+Private - ${SITE_CONFIG.name} LLC

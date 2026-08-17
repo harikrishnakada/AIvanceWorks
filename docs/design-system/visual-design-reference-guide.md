@@ -1,6 +1,6 @@
 # Visual Design Reference Guide
 
-> **Purpose:** Reference guide for all visual design decisions across AIvanceWorks service and solution pages. Based on competitive research across 20+ companies including Accenture, Deloitte Digital, Thoughtworks, Slalom, Toptal, Cognizant, Infosys, WP Engine, Vercel, Linear, Stripe, Figma, HashiCorp/Terraform, Netlify, Datadog, Cloudflare, Twilio, MongoDB, Notion, and Contentful (April 2026).
+> **Purpose:** Reference guide for all visual design decisions across ${SITE_CONFIG.name} service and solution pages. Based on competitive research across 20+ companies including Accenture, Deloitte Digital, Thoughtworks, Slalom, Toptal, Cognizant, Infosys, WP Engine, Vercel, Linear, Stripe, Figma, HashiCorp/Terraform, Netlify, Datadog, Cloudflare, Twilio, MongoDB, Notion, and Contentful (April 2026).
 
 ---
 
@@ -10,7 +10,7 @@
 
 > **"Modern professional, not corporate. Technical, not generic. Distinctive, not eccentric."**
 
-AIvanceWorks should feel like a company founded by engineers who care deeply about design -- the visual equivalent of Stripe's documentation meets Slalom's creative confidence. Not the sterile corporate look of Cognizant, not the minimal austerity of Vercel, but the considered, polished middle ground that says "we build excellent software and we pay attention to details."
+${SITE_CONFIG.name} should feel like a company founded by engineers who care deeply about design -- the visual equivalent of Stripe's documentation meets Slalom's creative confidence. Not the sterile corporate look of Cognizant, not the minimal austerity of Vercel, but the considered, polished middle ground that says "we build excellent software and we pay attention to details."
 
 ### The Visual Design Spectrum
 
@@ -27,7 +27,7 @@ Minimal    Moderate     Bold         Moderate  Bold      Refined   Playful  Prem
 spacing    spacing      spacing      spacing   spacing   spacing   spacing  spacing   spacing
 ```
 
-**AIvanceWorks sits between Slalom and Stripe.** Modern enough to signal technical competence, distinctive enough to avoid generic corporate, but not so cutting-edge that risk-averse enterprise buyers feel uncomfortable.
+**${SITE_CONFIG.name} sits between Slalom and Stripe.** Modern enough to signal technical competence, distinctive enough to avoid generic corporate, but not so cutting-edge that risk-averse enterprise buyers feel uncomfortable.
 
 ---
 
@@ -65,7 +65,7 @@ spacing    spacing      spacing      spacing   spacing   spacing   spacing  spac
 | Netlify | Teal/cyan (#00AD9F) | White bg, teal accents throughout | White | Developer-focused, clean |
 | Notion | Blue (#2F80ED) | Off-white/cream bg, warm and approachable | Off-white | Product UI as hero visual |
 
-### Recommended Palette Structure for AIvanceWorks
+### Recommended Palette Structure for ${SITE_CONFIG.name}
 
 ```
 ROLE               TOKEN           PURPOSE                         USAGE %
@@ -104,7 +104,7 @@ light -> light -> light -> light -> light -> light
 (subtle bg variation: #fff -> #f6f9fc -> #fff -> #f6f9fc)
 ```
 
-**AIvanceWorks:** Between both -- dark for emphasis, light for majority
+**${SITE_CONFIG.name}:** Between both -- dark for emphasis, light for majority
 ```
 dark -> light -> warm -> dark -> light -> warm -> light -> accent
 ```

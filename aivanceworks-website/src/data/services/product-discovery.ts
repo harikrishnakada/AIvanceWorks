@@ -1,4 +1,4 @@
-import { BRAND_PREFIX } from '@/lib/constants';
+import { BRAND_PREFIX, SITE_CONFIG } from '@/lib/constants';
 import type { ServicePageData } from '@/types/pages';
 
 const productDiscovery: ServicePageData = {
@@ -7,7 +7,7 @@ const productDiscovery: ServicePageData = {
   shortDescription:
     'Turn a fuzzy idea into a prioritized, de-risked plan your team can build against on Monday morning.',
 
-  metaTitle: 'Product Discovery Sprints | AIvanceWorks',
+  metaTitle: `${BRAND_PREFIX} Product Discovery Sprints | ${SITE_CONFIG.name}`,
   metaDescription:
     'Two-week product discovery sprints that produce validated personas, a prioritized MVP backlog, technical spike results, and a risk register. De-risked plans, fixed scope, ready to build.',
   keywords: [

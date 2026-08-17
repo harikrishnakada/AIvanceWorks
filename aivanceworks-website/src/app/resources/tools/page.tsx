@@ -6,9 +6,9 @@ import { Button } from '@/components/ui/button';
 import { Wrench, ArrowRight, BookOpen, Mail } from 'lucide-react';
 
 export const metadata: Metadata = constructMetadata({
-  title: 'Developer Tools & Resources - Coming Soon | AIvanceWorks',
+  title: `Developer Tools & Resources - Coming Soon | ${SITE_CONFIG.name}`,
   description:
-    'AIvanceWorks developer tools and resources coming soon. Explore our blog for technical insights on AI, cloud, and software development.',
+    `${SITE_CONFIG.name} developer tools and resources coming soon. Explore our blog for technical insights on AI, cloud, and software development.`,
   canonical: `${SITE_CONFIG.url}/resources/tools`,
   noIndex: true, // Don't index placeholder pages
 });

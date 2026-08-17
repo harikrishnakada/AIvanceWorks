@@ -446,7 +446,7 @@ const realEstate: IndustryPageData = {
 
   _unverified: [
     'All content uses capability framing only — no client names, case studies, testimonials, or measured outcome metrics are claimed.',
-    'complianceDetail.frameworks — "SOC 2" listed; confirm whether AIvanceWorks holds a SOC 2 attestation or is in progress. PCI DSS framing describes architecting client applications to reduce PCI scope, not a held QSA certification. Fair Housing Act / ECOA framing describes design practices for algorithmic fairness, not a legal compliance guarantee.',
+    'complianceDetail.frameworks — "SOC 2" listed; confirm whether {SITE_CONFIG.name} holds a SOC 2 attestation or is in progress. PCI DSS framing describes architecting client applications to reduce PCI scope, not a held QSA certification. Fair Housing Act / ECOA framing describes design practices for algorithmic fairness, not a legal compliance guarantee.',
     'techStandards.systems & capabilities — integration names (RESO, RETS, CoStar, Zillow, Redfin, Walk Score, DocuSign, Dotloop, Stripe, Plaid, Yardi, QuickBooks, Mapbox) describe competencies; confirm which have actually shipped before implying delivered volume.',
     'services — cross-links point to live /services/* pages. hero.secondaryCta / cta.secondaryCta anchor to #services.',
   ],

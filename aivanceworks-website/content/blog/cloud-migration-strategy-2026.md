@@ -2,7 +2,7 @@
 title: "How Do You Build a Cloud Migration Strategy in 2026?"
 description: "Master cloud migration with this complete strategy guide. Learn the 6 Rs, assessment frameworks, cost optimization, and proven patterns for Azure and AWS migrations."
 author: "Dr. Sarah Chen"
-authorRole: "Lead AI Architect at AIvanceWorks"
+authorRole: "Lead AI Architect at Blue Clover Software"
 date: "2026-02-01"
 category: "Cloud Architecture"
 tags: ["Cloud Migration", "Azure", "AWS", "Cloud Strategy", "Infrastructure", "FinOps"]
@@ -107,7 +107,7 @@ Choosing between Azure and AWS significantly impacts your migration strategy, to
 
 **The Reality in 2026:** [AWS and Azure are more similar than different](https://www.netcomlearning.com/blog/aws-vs-azure). Your choice should be driven by your existing technology investments, team expertise, and specific workload requirements rather than capabilities alone.
 
-For AIvanceWorks clients, we typically recommend Azure for Microsoft-centric enterprises seeking hybrid capabilities and AWS for cloud-native greenfield projects or organizations prioritizing maximum service breadth and control.
+For Blue Clover Software clients, we typically recommend Azure for Microsoft-centric enterprises seeking hybrid capabilities and AWS for cloud-native greenfield projects or organizations prioritizing maximum service breadth and control.
 
 ## What Are the Critical Steps in Cloud Migration Planning?
 
@@ -211,9 +211,9 @@ Organizations that view migration as a discrete project with a definite end date
 
 **Solution:** Embrace continuous improvement. Establish cloud centers of excellence, implement regular cost and architecture reviews, and refactor applications as cloud capabilities evolve.
 
-## How Does AIvanceWorks Approach Cloud Migration?
+## How Does Blue Clover Software Approach Cloud Migration?
 
-At AIvanceWorks, we've guided dozens of enterprises through successful cloud migrations. Our approach combines strategic planning, technical excellence, and pragmatic execution.
+At Blue Clover Software, we've guided dozens of enterprises through successful cloud migrations. Our approach combines strategic planning, technical excellence, and pragmatic execution.
 
 ### Discovery-First Methodology
 
@@ -273,7 +273,7 @@ Failed migrations usually result from inadequate planning, rushed execution, or 
 
 Cloud migration done right transforms business operations, reduces costs, and enables innovation. Done poorly, it wastes resources and creates new technical debt.
 
-AIvanceWorks has migrated hundreds of applications across Azure, AWS, and hybrid environments. Our teams bring deep technical expertise, proven methodologies, and hands-on implementation experience that ensures your migration succeeds.
+Blue Clover Software has migrated hundreds of applications across Azure, AWS, and hybrid environments. Our teams bring deep technical expertise, proven methodologies, and hands-on implementation experience that ensures your migration succeeds.
 
 Whether you're planning your first cloud migration or optimizing an existing cloud environment, we'll help you navigate complexity and achieve measurable business outcomes.
 
@@ -285,7 +285,7 @@ Whether you're planning your first cloud migration or optimizing an existing clo
 
 ## About the Author
 
-Dr. Sarah Chen is Lead AI Architect at AIvanceWorks, specializing in cloud-native architectures and enterprise AI platforms. She holds a Ph.D. in Distributed Systems from MIT and has led cloud transformations for Fortune 500 companies across financial services, healthcare, and technology sectors. Sarah's expertise spans Azure, AWS, and hybrid cloud architectures, with particular focus on AI/ML workload optimization and FinOps practices.
+Dr. Sarah Chen is Lead AI Architect at Blue Clover Software, specializing in cloud-native architectures and enterprise AI platforms. She holds a Ph.D. in Distributed Systems from MIT and has led cloud transformations for Fortune 500 companies across financial services, healthcare, and technology sectors. Sarah's expertise spans Azure, AWS, and hybrid cloud architectures, with particular focus on AI/ML workload optimization and FinOps practices.
 
 ---
 

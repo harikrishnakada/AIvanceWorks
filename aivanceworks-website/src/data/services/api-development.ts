@@ -1,4 +1,4 @@
-import { BRAND_PREFIX } from '@/lib/constants';
+import { BRAND_PREFIX, SITE_CONFIG } from '@/lib/constants';
 import type { ServicePageData } from '@/types/pages';
 
 // Archetype B — Technical Service ("I need this built. Prove you can.")
@@ -43,7 +43,7 @@ const apiDevelopment: ServicePageData = {
   shortDescription:
     'Design and build secure, versioned, well-documented REST and GraphQL APIs — contract-first, hardened by default, and ready for your own apps and partners to build on.',
 
-  metaTitle: 'API Development Services | REST & GraphQL APIs | AIvanceWorks',
+  metaTitle: `${SITE_CONFIG.name} API Development Services | REST & GraphQL APIs`,
   metaDescription:
     'API development services that design and build secure, versioned, well-documented REST and GraphQL APIs. Contract-first design, OAuth 2.0 auth, rate limiting, and interactive docs your apps and partners can build on.',
   keywords: [

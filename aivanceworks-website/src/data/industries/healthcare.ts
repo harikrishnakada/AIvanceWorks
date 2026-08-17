@@ -424,7 +424,7 @@ const healthcare: IndustryPageData = {
   _unverified: [
     'All content uses capability framing only — no client names, case studies, testimonials, or measured outcome metrics are claimed.',
     'complianceDetail.frameworks — "HITRUST" and "FedRAMP" are alignment/architecture targets, not held certifications. Confirm framing ("alignment", "architect toward") before publishing.',
-    'complianceDetail.frameworks — "SOC 2" listed; confirm whether AIvanceWorks holds a SOC 2 attestation or is in progress.',
+    'complianceDetail.frameworks — "SOC 2" listed; confirm whether {SITE_CONFIG.name} holds a SOC 2 attestation or is in progress.',
     'techStandards.systems — EHR integration patterns describe competencies; confirm which have actually shipped before implying delivered volume.',
     'services — cross-links point to live /services/* pages (solution pages are inactive/not surfaced anywhere on the site). hero.secondaryCta / cta.secondaryCta anchor to #services.',
   ],

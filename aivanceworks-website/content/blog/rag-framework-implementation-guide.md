@@ -1,7 +1,7 @@
 ---
 title: "RAG Framework Development: Complete Implementation Guide for 2026"
 description: "Learn how to implement RAG framework development with best practices, architecture patterns, and proven strategies for enterprise AI applications."
-author: "AIvanceWorks Team"
+author: "Blue Clover Software Team"
 date: "2026-02-01"
 category: "AI & Machine Learning"
 tags: ["RAG", "LLM", "Vector Database", "Enterprise AI", "Retrieval-Augmented Generation", "AI Development"]
@@ -18,7 +18,7 @@ Enterprise AI adoption has reached a critical inflection point. **RAG now domina
 
 The reasons are compelling: organizations implementing RAG report **25-30% reductions in operational costs** and **40% faster information discovery** compared to traditional search systems. With the global RAG market projected to grow from $1.3 billion in 2024 to $74.5 billion by 2034 at a 49.9% CAGR, RAG framework development has become essential for competitive AI strategy.
 
-However, building production-ready RAG systems requires more than connecting an LLM to a database. It demands careful architecture design, optimization of retrieval accuracy, and implementation of enterprise-grade security and compliance measures. This guide provides the comprehensive framework AIvanceWorks uses to deliver reliable RAG solutions for enterprise clients.
+However, building production-ready RAG systems requires more than connecting an LLM to a database. It demands careful architecture design, optimization of retrieval accuracy, and implementation of enterprise-grade security and compliance measures. This guide provides the comprehensive framework Blue Clover Software uses to deliver reliable RAG solutions for enterprise clients.
 
 ## Understanding RAG: Architecture and Core Components
 
@@ -108,7 +108,7 @@ Document Collection → Text Extraction → Chunking → Metadata Tagging → Em
 - **Hybrid approaches**: Combine multiple chunk sizes for different retrieval scenarios
 - **Maintain document structure**: Preserve headings, tables, and lists that provide context
 
-AIvanceWorks implements **adaptive chunking** that analyzes document structure and adjusts chunk boundaries to preserve semantic coherence, improving retrieval accuracy by 15-20% compared to fixed-character splits.
+Blue Clover Software implements **adaptive chunking** that analyzes document structure and adjusts chunk boundaries to preserve semantic coherence, improving retrieval accuracy by 15-20% compared to fixed-character splits.
 
 ### Phase 3: Configure Vector Database and Indexing
 
@@ -219,7 +219,7 @@ AI agents can choose between vector search, SQL databases, APIs, and web search 
 **GraphRAG for complex reasoning:**
 Graph-based approaches like **GraphRAG** represent relationships between entities (people, organizations, concepts) to improve performance on complex reasoning tasks. Instead of retrieving isolated text chunks, GraphRAG traverses knowledge graphs to assemble comprehensive context.
 
-These advanced techniques require frameworks like **LangGraph**, **Semantic Kernel**, or **LangChain's agent modules**—all core components of AIvanceWorks' RAG implementation toolkit.
+These advanced techniques require frameworks like **LangGraph**, **Semantic Kernel**, or **LangChain's agent modules**—all core components of Blue Clover Software' RAG implementation toolkit.
 
 ## Security, Compliance, and Governance for Enterprise RAG
 
@@ -237,7 +237,7 @@ RAG systems may inadvertently expose sensitive information if documents contain:
 - Proprietary business data
 - Confidential customer records
 
-Implement **document-level security filtering** where retrieval respects the same access permissions as source systems. AIvanceWorks integrates with **Azure AD B2C** and **Entra External Identity** to ensure RAG responses honor enterprise identity and access management policies.
+Implement **document-level security filtering** where retrieval respects the same access permissions as source systems. Blue Clover Software integrates with **Azure AD B2C** and **Entra External Identity** to ensure RAG responses honor enterprise identity and access management policies.
 
 ### Responsible AI and Bias Mitigation
 Monitor RAG outputs for:
@@ -286,9 +286,9 @@ Establish **human-in-the-loop review** for high-stakes decisions (medical diagno
 - Use constrained generation or structured outputs
 - Add citation requirements forcing the model to reference specific chunks
 
-## How AIvanceWorks Implements Production RAG Systems
+## How Blue Clover Software Implements Production RAG Systems
 
-AIvanceWorks delivers enterprise-grade RAG solutions built on **Azure AI Foundry**, **LangChain**, **LangGraph**, and **Semantic Kernel**. Our RAG framework development methodology includes:
+Blue Clover Software delivers enterprise-grade RAG solutions built on **Azure AI Foundry**, **LangChain**, **LangGraph**, and **Semantic Kernel**. Our RAG framework development methodology includes:
 
 ### Discovery and Architecture Design
 We analyze your use case, data sources, and success metrics to design RAG architecture optimized for your requirements. This includes:
@@ -315,7 +315,7 @@ For complex use cases, we implement:
 - **Conversational RAG** with chat history and context management
 
 ### Security and Governance Integration
-All AIvanceWorks RAG implementations include:
+All Blue Clover Software RAG implementations include:
 - Azure AD B2C integration for identity and access management
 - Document-level security filtering respecting source permissions
 - Audit logging and compliance reporting
@@ -385,7 +385,7 @@ Success requires more than assembling components—it demands expertise in chunk
 
 ### Ready to Implement RAG for Your Organization?
 
-AIvanceWorks specializes in production-ready RAG framework development for enterprises that need reliable, secure, and scalable AI solutions. Our team brings deep expertise in:
+Blue Clover Software specializes in production-ready RAG framework development for enterprises that need reliable, secure, and scalable AI solutions. Our team brings deep expertise in:
 
 - Azure AI Foundry and Azure OpenAI Service
 - LangChain, LangGraph, and Semantic Kernel frameworks
@@ -403,9 +403,9 @@ We've helped organizations across healthcare, finance, manufacturing, and profes
 
 ## About the Author
 
-This guide was developed by the **AIvanceWorks AI & Machine Learning team**, specialists in enterprise AI implementation with extensive experience deploying RAG systems for Fortune 500 companies and mid-market enterprises. Our expertise spans Azure AI Foundry, LangChain, vector databases, and production MLOps, ensuring RAG solutions that deliver reliable results at scale.
+This guide was developed by the **Blue Clover Software AI & Machine Learning team**, specialists in enterprise AI implementation with extensive experience deploying RAG systems for Fortune 500 companies and mid-market enterprises. Our expertise spans Azure AI Foundry, LangChain, vector databases, and production MLOps, ensuring RAG solutions that deliver reliable results at scale.
 
-**Learn more about AIvanceWorks AI/ML services:**
+**Learn more about Blue Clover Software AI/ML services:**
 - [AI & Machine Learning Solutions](/services/ai-machine-learning)
 - [LLM Integration & Development](/services/ai-machine-learning/llm-integration)
 - [Azure AI Foundry Implementation](/services/cloud-engineering)

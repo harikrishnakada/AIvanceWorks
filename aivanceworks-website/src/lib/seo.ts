@@ -17,7 +17,7 @@ export function constructMetadata({
   keywords?: string[];
 } = {}): Metadata {
    // Several pages already embed a brand name in their own title. Appending
-  // unconditionally produced titles like "FAQ | AIvanceWorks | DS Software".
+  // unconditionally produced titles like "FAQ | ${SITE_CONFIG.name} | DS Software".
   const metaTitle = !title
     ? SITE_CONFIG.name
     : title.includes(SITE_CONFIG.name)

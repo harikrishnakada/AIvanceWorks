@@ -8,14 +8,14 @@
  * Desktop: three horizontal bands stacked top-to-bottom.
  *   Band 1 (top) — Your operator product surface (5 input tiles: Mobile App,
  *     Web, Embedded SDK, Wallet, Partner channels)
- *   Band 2 (middle) — AIvanceWorks integration layer (centered core card with
+ *   Band 2 (middle) — {SITE_CONFIG.name} integration layer (centered core card with
  *     6 integration responsibilities: Identity orchestration, Funding flows,
  *     Transaction routing, AML/monitoring routing, Reconciliation, Examiner
  *     export)
  *   Band 3 (bottom) — Ecosystem partners (6 output tiles: Sponsor bank, BaaS
  *     provider, Core platform, KYC vendor, AML vendor, Card issuer)
  * Soft gradient connectors suggest the flow between bands — operator product
- * traffic flows down into AIvanceWorks integration responsibilities, vendor
+ * traffic flows down into {SITE_CONFIG.name} integration responsibilities, vendor
  * obligations flow up from the ecosystem partners.
  *
  * Mobile (< md): bands collapse to single-column stack. Tile grids reflow
@@ -60,6 +60,7 @@ import {
 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { Section, Container } from '@/components/shared/primitives';
+import { SITE_CONFIG } from '@/lib/constants';
 
 interface Node {
   icon: LucideIcon;
@@ -266,7 +267,7 @@ export const DigitalBankingTransactionFlow = () => (
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-5 md:mb-6">
               <div>
                 <div className="text-[11px] md:text-xs font-bold uppercase tracking-wider text-brand-200 mb-1">
-                  AIvanceWorks integration layer
+                  {SITE_CONFIG.name} integration layer
                 </div>
                 <div className="text-xl md:text-2xl lg:text-3xl font-bold text-text-light tracking-tight">
                   Identity. Funding. Transactions. Reconciliation. Evidence.

@@ -2,7 +2,7 @@
 title: "What Is Azure AI Foundry? Complete Getting Started Tutorial"
 description: "Learn Azure AI Foundry with this step-by-step tutorial. Discover enterprise AI features, model deployment, and security capabilities for production AI applications."
 author: "Dr. Sarah Chen"
-authorRole: "Lead AI Architect at AIvanceWorks"
+authorRole: "Lead AI Architect at Blue Clover Software"
 date: "2026-02-01"
 category: "AI & Machine Learning"
 tags: ["Azure AI Foundry", "Azure OpenAI", "Enterprise AI", "Microsoft AI", "LLM Deployment"]
@@ -880,7 +880,7 @@ def permission_aware_rag(user_question: str, user_email: str):
 
 This approach mirrors Foundry IQ's capability to respect source system permissions.
 
-## Next Steps: Building Production AI with AIvanceWorks
+## Next Steps: Building Production AI with Blue Clover Software
 
 Azure AI Foundry provides the enterprise foundation for AI, but successful production deployments require expertise in:
 
@@ -890,7 +890,7 @@ Azure AI Foundry provides the enterprise foundation for AI, but successful produ
 - **Performance Optimization**: Fine-tuning models, implementing caching, and scaling for production traffic
 - **Monitoring & Operations**: Setting up comprehensive observability and incident response
 
-**AIvanceWorks specializes in enterprise Azure AI implementations.** Our team has delivered production AI systems for Fortune 500 companies, handling everything from initial architecture to ongoing optimization.
+**Blue Clover Software specializes in enterprise Azure AI implementations.** Our team has delivered production AI systems for Fortune 500 companies, handling everything from initial architecture to ongoing optimization.
 
 ### Our Azure AI Foundry Services Include:
 
@@ -902,7 +902,7 @@ Azure AI Foundry provides the enterprise foundation for AI, but successful produ
 ✅ **Model Fine-Tuning**: Customize models on your proprietary data for domain-specific accuracy
 ✅ **Production Support**: Ongoing monitoring, optimization, and incident response
 
-[**Schedule a consultation**](https://aivanceworks.com/book-consultation) to discuss your Azure AI Foundry implementation.
+[**Schedule a consultation**](https://Blue Clover Software.com/book-consultation) to discuss your Azure AI Foundry implementation.
 
 ---
 
@@ -930,7 +930,7 @@ Migration is straightforward as Azure AI Foundry uses OpenAI-compatible APIs. St
 
 ---
 
-**About the Author**: Dr. Sarah Chen is the Lead AI Architect at AIvanceWorks, specializing in enterprise Azure AI implementations. With a Ph.D. in Machine Learning and 12 years of experience, she has architected AI solutions for Fortune 500 healthcare, financial services, and manufacturing companies. Her expertise includes Azure AI Foundry, LangChain, RAG systems, and AI governance frameworks.
+**About the Author**: Dr. Sarah Chen is the Lead AI Architect at Blue Clover Software, specializing in enterprise Azure AI implementations. With a Ph.D. in Machine Learning and 12 years of experience, she has architected AI solutions for Fortune 500 healthcare, financial services, and manufacturing companies. Her expertise includes Azure AI Foundry, LangChain, RAG systems, and AI governance frameworks.
 
 ---
 

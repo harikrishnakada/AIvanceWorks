@@ -85,7 +85,7 @@ const serviceCategories: ServiceCategory[] = [
     name: 'AI & Machine Learning Solutions',
     slug: 'ai-machine-learning',
     shortDescription: 'Production-ready AI solutions with LLMs, RAG, and agentic AI frameworks',
-    description: `AIvanceWorks delivers production-ready AI and machine learning solutions that transform how businesses process information, automate workflows, and serve customers. Our AI consulting services leverage Large Language Models (LLMs), Retrieval-Augmented Generation (RAG) frameworks, and agentic AI systems to solve complex business challenges. Unlike proof-of-concept experiments, we build enterprise-grade AI applications with 99.5% uptime, sub-second response times, and measurable ROI within 60 days.`,
+    description: `${SITE_CONFIG.name} delivers production-ready AI and machine learning solutions that transform how businesses process information, automate workflows, and serve customers. Our AI consulting services leverage Large Language Models (LLMs), Retrieval-Augmented Generation (RAG) frameworks, and agentic AI systems to solve complex business challenges. Unlike proof-of-concept experiments, we build enterprise-grade AI applications with 99.5% uptime, sub-second response times, and measurable ROI within 60 days.`,
     icon: 'Bot',
     gradient: 'from-violet-500 to-purple-600',
     capabilities: [
@@ -734,6 +734,7 @@ export function getServicesByCategorySlug(categorySlug: string): Service[] {
 // This is the ONLY file that imports the Sanity client (abstraction layer).
 
 import { client } from './sanity';
+import { SITE_CONFIG } from './constants';
 
 // Helper function to calculate reading time
 function calculateReadingTime(content: any[]): number {

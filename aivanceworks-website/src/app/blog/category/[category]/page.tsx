@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
 
   return constructMetadata({
     // constructMetadata already appends the site name — the old hardcoded
-    // `| AIvanceWorks` suffix rendered a stale brand next to the real one.
+    // `|` suffix rendered a stale brand next to the real one.
     title: `${categoryName} - Blog`,
     description: `Expert articles and insights on ${categoryName.toLowerCase()} from the ${SITE_CONFIG.name} team.`,
     canonical: `${SITE_CONFIG.url}/blog/category/${category}`,

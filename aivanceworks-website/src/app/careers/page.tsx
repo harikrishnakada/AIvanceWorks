@@ -6,9 +6,9 @@ import { Button } from '@/components/ui/button';
 import { Briefcase, Users, Award, TrendingUp, ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = constructMetadata({
-  title: 'Careers - Coming Soon | AIvanceWorks',
+  title: `Careers - Coming Soon | ${SITE_CONFIG.name}`,
   description:
-    'Join the AIvanceWorks team. Career opportunities for experienced software engineers, AI specialists, and cloud architects coming soon.',
+    `Join the ${SITE_CONFIG.name} team. Career opportunities for experienced software engineers, AI specialists, and cloud architects coming soon.`,
   canonical: `${SITE_CONFIG.url}/careers`,
   noIndex: true, // Don't index placeholder pages
 });
@@ -25,7 +25,7 @@ export default function CareersPlaceholderPage() {
 
           {/* Heading */}
           <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-            Careers at AIvanceWorks
+            Careers at {SITE_CONFIG.name}
           </h1>
 
           {/* Description */}

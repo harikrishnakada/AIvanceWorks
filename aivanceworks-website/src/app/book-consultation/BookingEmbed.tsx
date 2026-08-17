@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import dynamic from 'next/dynamic';
 
 // Cal.com configuration
-const CALCOM_USERNAME = process.env.NEXT_PUBLIC_CALCOM_USERNAME || 'aivanceworks';
+const CALCOM_USERNAME = process.env.NEXT_PUBLIC_CALCOM_USERNAME || '';
 const CALCOM_EVENT_TYPE = 'discovery-call';
 const CAL_LINK = `${CALCOM_USERNAME}/${CALCOM_EVENT_TYPE}`;
 const CAL_NAMESPACE = 'discovery-call';

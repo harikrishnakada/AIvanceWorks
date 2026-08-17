@@ -5,7 +5,7 @@
 
 ## 1. Agreement to Terms
 
-These Terms of Service ("Terms") constitute a legally binding agreement between you ("Client," "you," or "your") and AIvance Works ("Company," "we," "us," or "our") governing your use of our website and professional services.
+These Terms of Service ("Terms") constitute a legally binding agreement between you ("Client," "you," or "your") and Blue Clover Software ("Company," "we," "us," or "our") governing your use of our website and professional services.
 
 **By accessing our website or engaging our services, you agree to be bound by these Terms. If you do not agree to these Terms, do not use our website or services.**
 
@@ -15,7 +15,7 @@ These Terms of Service ("Terms") constitute a legally binding agreement between 
 
 ### 2.1 Professional Services
 
-AIvance Works provides professional software engineering and consulting services, including but not limited to:
+Blue Clover Software provides professional software engineering and consulting services, including but not limited to:
 
 - Cloud engineering and infrastructure services
 - Full-stack application development
@@ -622,8 +622,8 @@ Failure to enforce any provision does not waive our right to enforce it later. W
 
 Notices must be in writing and sent to:
 
-**To AIvance Works:**  
-Email: legal@aivanceworks.com  
+**To Blue Clover Software:**  
+Email: legal@Blue Clover Software.com  
 Address: [Your Business Address]
 
 **To You:**  
@@ -726,12 +726,12 @@ If you provide feedback, suggestions, or ideas about our services:
 
 For questions about these Terms or our services:
 
-**AIvance Works**
+**Blue Clover Software**
 
-**General Inquiries**: contact@aivanceworks.com  
-**Legal Matters**: legal@aivanceworks.com  
-**Billing**: billing@aivanceworks.com  
-**Website**: [www.aivanceworks.com]  
+**General Inquiries**: contact@Blue Clover Software.com  
+**Legal Matters**: legal@Blue Clover Software.com  
+**Billing**: billing@Blue Clover Software.com  
+**Website**: [www.Blue Clover Software.com]  
 **Address**: [Your Business Address]  
 **Phone**: [Phone Number]
 
@@ -747,7 +747,7 @@ For business clients, by signing a project agreement or SOW that references thes
 
 ---
 
-**AIvance Works**  
+**Blue Clover Software**  
 *Enterprise Software Engineering & AI Innovation Consultancy*
 
 **Last Updated:** February 2, 2026

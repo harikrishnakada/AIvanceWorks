@@ -1,4 +1,4 @@
-import { BRAND_PREFIX } from '@/lib/constants';
+import { BRAND_PREFIX, SITE_CONFIG } from '@/lib/constants';
 import type { SolutionPageData } from '@/types/pages';
 
 // Archetype C — Regulated Solution (Healthcare Provider & Payor AI)
@@ -10,7 +10,7 @@ import type { SolutionPageData } from '@/types/pages';
 //   creating a liability for us — or for the patient — that we cannot defend?"
 //
 // Liability stance (greenfield, explicit):
-//   - AIvanceWorks is a software engineering partner. The clinician makes the
+//   - {SITE_CONFIG.name} is a software engineering partner. The clinician makes the
 //     clinical decision. Validation, regulatory pathway, and clinical
 //     responsibility remain with the customer.
 //   - No vendor names anywhere on the page (no Epic, Cerner / Oracle Health,
@@ -371,7 +371,7 @@ const aiHealthcare: SolutionPageData = {
       },
     ],
     auditNote:
-      'Every component is engineered with PHI segmentation, audit-trail logging, role-scoped access, lineage tracking, and lifecycle artifacts your informatics, compliance, and (where applicable) regulatory reviewers can use as inputs into their own validation work. Final clinical decisions, validation execution, and any regulatory pathway (e.g., FDA SaMD classification, 510(k), De Novo, or PMA submissions) remain solely the customer’s responsibility, executed by the customer’s clinical and regulatory functions. AIvanceWorks does not provide medical advice, does not act as a clinician, and does not represent, attest, or warrant compliance with any regulatory framework on behalf of any customer.',
+      `Every component is engineered with PHI segmentation, audit-trail logging, role-scoped access, lineage tracking, and lifecycle artifacts your informatics, compliance, and (where applicable) regulatory reviewers can use as inputs into their own validation work. Final clinical decisions, validation execution, and any regulatory pathway (e.g., FDA SaMD classification, 510(k), De Novo, or PMA submissions) remain solely the customer’s responsibility, executed by the customer’s clinical and regulatory functions. ${SITE_CONFIG.name} does not provide medical advice, does not act as a clinician, and does not represent, attest, or warrant compliance with any regulatory framework on behalf of any customer.`,
     partnerAgreements: ['BAA', 'DPA', 'SLA'],
   },
 
@@ -426,9 +426,9 @@ const aiHealthcare: SolutionPageData = {
   faqs: [
     {
       question:
-        'Does AIvanceWorks make clinical decisions or replace clinicians?',
+        `Does ${SITE_CONFIG.name} make clinical decisions or replace clinicians?`,
       answer:
-        'No. We are a software engineering partner. Every AI assist we build is designed as a proposal: it surfaces confidence and citations, routes through a human reviewer, and is recorded in the audit trail. The clinician makes the clinical decision and signs the record. AIvanceWorks does not provide medical advice, does not act as a clinician, and does not assume clinical responsibility for any patient outcome.',
+        'No. We are a software engineering partner. Every AI assist we build is designed as a proposal: it surfaces confidence and citations, routes through a human reviewer, and is recorded in the audit trail. The clinician makes the clinical decision and signs the record. ${SITE_CONFIG.name} does not provide medical advice, does not act as a clinician, and does not assume clinical responsibility for any patient outcome.',
     },
     {
       question:

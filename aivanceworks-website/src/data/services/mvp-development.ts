@@ -1,4 +1,4 @@
-import { BRAND_PREFIX } from '@/lib/constants';
+import { BRAND_PREFIX, SITE_CONFIG } from '@/lib/constants';
 import type { ServicePageData } from '@/types/pages';
 
 const mvpDevelopment: ServicePageData = {
@@ -7,7 +7,7 @@ const mvpDevelopment: ServicePageData = {
   shortDescription:
     '12 weeks from kickoff to a production V1 with real paying customers. Weekly demos, real users by week 5, zero black-box phases.',
 
-  metaTitle: 'MVP Development | 12 Weeks to Production V1 | AIvanceWorks',
+  metaTitle: `${BRAND_PREFIX} MVP Development | 12 Weeks to Production V1 | ${SITE_CONFIG.name}`,
   metaDescription:
     'MVP development sprints that ship a production-ready V1 in 12 weeks. Weekly demos, real users by week 5, paying customers by launch. Dual-track roadmap with founder visibility at every phase.',
   keywords: [

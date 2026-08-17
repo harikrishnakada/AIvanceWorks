@@ -10,7 +10,7 @@ import type { SolutionPageData } from '@/types/pages';
 //   that survive the exam — SEC 17a-4(f) WORM-or-audit-trail, FINRA 4511,
 //   BSA/AML, SOX, GLBA compliant by design."
 //
-// New positioning: AIvanceWorks is an engineering services firm that builds,
+// New positioning: ${SITE_CONFIG.name} is an engineering services firm that builds,
 //   integrates, and embeds document management platforms across regulated
 //   industries — this page covers our financial-services practice. We do not
 //   act as a books-and-records vendor of record, do not provide regulatory

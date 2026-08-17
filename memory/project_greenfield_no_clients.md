@@ -1,10 +1,10 @@
 ---
-name: AIvanceWorks is a greenfield company with no real clients yet
+name: ${SITE_CONFIG.name} is a greenfield company with no real clients yet
 description: Greenfield status — every client-outcome claim on the website is fabricated by definition; content integrity rules are especially load-bearing
 type: project
 ---
 
-AIvanceWorks has no real clients or completed engagements yet. Every stat, percentage, metric, case study, testimonial, or "clients see" claim on the website is by definition NOT from real past work.
+${SITE_CONFIG.name} has no real clients or completed engagements yet. Every stat, percentage, metric, case study, testimonial, or "clients see" claim on the website is by definition NOT from real past work.
 
 **Why:** The company is in its go-to-market build phase. All website content is being authored before revenue exists. This means the constitution's content integrity rules (`no fabricated statistics`, `no invented case studies`, `no unauthorized logos`) are especially load-bearing — there are zero verified outcomes to draw from, only industry research, capability claims, and target/projected numbers.
 

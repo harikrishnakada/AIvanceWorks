@@ -21,15 +21,15 @@ function env(value: string | undefined, fallback: string): string {
   return value && value.trim().length > 0 ? value : fallback;
 }
 
-export const CONTACT_EMAIL = env(process.env.NEXT_PUBLIC_CONTACT_EMAIL, 'contact@hdssoftware.com');
+export const CONTACT_EMAIL = env(process.env.NEXT_PUBLIC_CONTACT_EMAIL, 'contact@bluecloversoftware.com');
 export const SUPPORT_EMAIL = env(process.env.NEXT_PUBLIC_SUPPORT_EMAIL, CONTACT_EMAIL);
-export const FROM_EMAIL = env(process.env.EMAIL_FROM_ADDRESS, 'notifications@hdssoftware.com');
+export const FROM_EMAIL = env(process.env.EMAIL_FROM_ADDRESS, 'notifications@bluecloversoftware.com');
 
 /** Short brand abbreviation used as a prefix throughout the navigation. */
-export const BRAND_PREFIX = env(process.env.NEXT_PUBLIC_BRAND_PREFIX, 'HDS');
+export const BRAND_PREFIX = env(process.env.NEXT_PUBLIC_BRAND_PREFIX, 'BCS');
 
 /** Public-facing brand / site name. */
-export const sitename = env(process.env.NEXT_PUBLIC_SITE_NAME, 'HDS Software');
+export const sitename = env(process.env.NEXT_PUBLIC_SITE_NAME, 'Blue Clover Software');
 
 export const SITE_CONFIG = {
   name: sitename,
@@ -47,7 +47,7 @@ export const SITE_CONFIG = {
     github: env(process.env.NEXT_PUBLIC_GITHUB_URL, 'https://github.com/devsolve'),
   },
   /** Twitter/X handle used in card metadata. */
-  twitterHandle: env(process.env.NEXT_PUBLIC_TWITTER_HANDLE, '@aivanceworks'),
+  twitterHandle: env(process.env.NEXT_PUBLIC_TWITTER_HANDLE, ''),
   creator: `${sitename} Team`,
   company: {
     name: sitename,

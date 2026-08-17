@@ -1,4 +1,4 @@
-import { BRAND_PREFIX } from '@/lib/constants';
+import { BRAND_PREFIX, SITE_CONFIG } from '@/lib/constants';
 import type { SolutionPageData } from '@/types/pages';
 
 // Archetype B — Technical Service (Embedded Finance Engineering)
@@ -12,7 +12,7 @@ import type { SolutionPageData } from '@/types/pages';
 //   "we build your integrated digital banking platform — BSA/AML compliant,
 //   exam-ready, FIS/Fiserv/Jack Henry integrated."
 //
-// New positioning: AIvanceWorks is an engineering services firm that integrates
+// New positioning: ${SITE_CONFIG.name} is an engineering services firm that integrates
 //   the BaaS + sponsor-bank + core + KYC + AML + card-issuer ecosystem on behalf
 //   of operators. We do not hold licenses, do not act as sponsor bank, do not
 //   issue cards as principal, do not hold customer funds, do not own the customer
@@ -530,7 +530,7 @@ const digitalBankingWallets: SolutionPageData = {
 
   roleBoundary: {
     eyebrow: 'Scope & posture',
-    heading: 'Where AIvanceWorks fits',
+    heading: `Where ${SITE_CONFIG.name} fits`,
     intro:
       'We are an engineering services firm for licensed institutions and embedded finance operators. We bring deep integration competence across the BaaS, sponsor-bank, core, KYC, AML, and card-issuer ecosystem — and the engineering discipline to make it compliance-aware and audit-ready.',
     bullets: [

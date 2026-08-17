@@ -1,4 +1,4 @@
-import { BRAND_PREFIX } from '@/lib/constants';
+import { BRAND_PREFIX, SITE_CONFIG } from '@/lib/constants';
 import type { ServicePageData } from '@/types/pages';
 
 const erpDevelopment: ServicePageData = {
@@ -7,7 +7,7 @@ const erpDevelopment: ServicePageData = {
   shortDescription:
     'End-to-end ERP implementation, customization, and integration. We unify your finance, operations, HR, and supply chain on a single platform — on time and within scope.',
 
-  metaTitle: 'ERP Development & Implementation | SAP, NetSuite, Dynamics 365 | AIvanceWorks',
+  metaTitle: `${BRAND_PREFIX} ERP Development & Implementation | SAP, NetSuite, Dynamics 365 | ${SITE_CONFIG.name}`,
   metaDescription:
     'ERP implementation, customization, and integration services for mid-market and enterprise. SAP, Oracle NetSuite, Microsoft Dynamics 365, and Odoo. Fixed-scope delivery with weekly milestones and no black-box phases.',
   keywords: [

@@ -5,7 +5,7 @@
  * positioned late on the page so it reads as honest disclosure to a buyer
  * who's already favorably disposed — not a defensive disclaimer up front.
  *
- * Heading is positively framed ("Where AIvanceWorks fits") so the bullets
+ * Heading is positively framed ("Where {SITE_CONFIG.name} fits") so the bullets
  * underneath can be plain negatives ("we do not hold licenses... we do
  * not act as sponsor bank...") without the section as a whole reading
  * defensively.

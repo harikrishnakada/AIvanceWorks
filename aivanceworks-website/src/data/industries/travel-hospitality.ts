@@ -448,7 +448,7 @@ const travelHospitality: IndustryPageData = {
 
   _unverified: [
     'All content uses capability framing only — no client names, case studies, testimonials, or measured outcome metrics are claimed.',
-    'complianceDetail.frameworks — "SOC 2" listed; confirm whether AIvanceWorks holds a SOC 2 attestation or is in progress. PCI DSS framing describes architecting client applications to reduce PCI scope, not a held QSA certification.',
+    'complianceDetail.frameworks — "SOC 2" listed; confirm whether {SITE_CONFIG.name} holds a SOC 2 attestation or is in progress. PCI DSS framing describes architecting client applications to reduce PCI scope, not a held QSA certification.',
     'techStandards.systems & capabilities — integration names (Opera, Cloudbeds, Mews, Amadeus, Sabre, Travelport, Expedia, Booking.com, Toast, Square, Oracle Micros, Stripe, Adyen, Braintree) describe competencies; confirm which have actually shipped before implying delivered volume.',
     'services — cross-links point to live /services/* pages. hero.secondaryCta / cta.secondaryCta anchor to #services.',
   ],

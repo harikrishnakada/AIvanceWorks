@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-**Genesis** is the website project for **AIvanceWorks**, a US-focused software consultancy specializing in cloud, AI/ML, and end-to-end software development.
+**Genesis** is the website project for **Blue Clover Software**, a US-focused software consultancy specializing in cloud, AI/ML, and end-to-end software development.
 
 **Current State**: Moving to implementation phase. Documentation complete, ready to code.
 
@@ -120,7 +120,7 @@ npx shadcn-ui@latest init
 Build sections in this order:
 1. Hero (headline, subheadline, dual CTA)
 2. Services overview (6 cards)
-3. Why Choose AIvanceWorks (differentiators)
+3. Why Choose Blue Clover Software (differentiators)
 4. Case studies preview (2-3 featured)
 5. Testimonials carousel
 6. FAQ with schema markup

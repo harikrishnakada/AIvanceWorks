@@ -8,7 +8,7 @@ import type { ServicePageData } from '@/types/pages';
 //   (B), but the content is entirely advisory artifacts (assessment, roadmap,
 //   governance framework) — there is no running system, so B is out. The
 //   buyer mindset in the brief ("knows they need AI but doesn't know where to
-//   start") reads as Archetype A, and AIvanceWorks already ships an
+//   start") reads as Archetype A, and {SITE_CONFIG.name} already ships an
 //   Archetype-A AI strategy page (/services/ai-strategy-consulting). Building
 //   a second Archetype-A AI strategy page would duplicate it. The audience
 //   test (§9.5) and the user's archetype guidance ("regulated → C; does the

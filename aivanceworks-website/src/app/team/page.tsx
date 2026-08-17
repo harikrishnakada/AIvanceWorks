@@ -22,9 +22,9 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { Button } from '@/components/ui/button';
 
 export const metadata: Metadata = constructMetadata({
-  title: 'AIvanceWorks Team | Azure, AWS & Certified AI & Software Engineers',
+  title: `${SITE_CONFIG.name} Team | Azure, AWS & Certified AI & Software Engineers`,
   description:
-    'AIvanceWorks employs US-based, Azure- and AWS-certified engineers with 10+ years experience. Team includes AI-102 certified AI specialists, AZ-204 developers, AZ-305 and AWS Solutions Architect Associates, CCNA, CSPO (Scrum Alliance), and CAPM (PMI). Senior-only policy—no junior developers on client projects.',
+    `${SITE_CONFIG.name} employs US-based, Azure- and AWS-certified engineers with 10+ years experience. Team includes AI-102 certified AI specialists, AZ-204 developers, AZ-305 and AWS Solutions Architect Associates, CCNA, CSPO (Scrum Alliance), and CAPM (PMI). Senior-only policy—no junior developers on client projects.`,
   canonical: `${SITE_CONFIG.url}/team`,
   keywords: [
     'AI consulting team',
@@ -220,34 +220,34 @@ const teamConfigurations = [
 // AEO-optimized FAQ data with direct answers in first sentence
 const faqs = [
   {
-    question: 'What certifications do AIvanceWorks team members hold?',
+    question: `What certifications do ${SITE_CONFIG.name} team members hold?`,
     answer:
-      'AIvanceWorks engineers hold 12+ professional certifications across Microsoft Azure, AWS, Cisco, Scrum Alliance, and PMI. Azure certifications include AI-102 (Azure AI Engineer Associate), AZ-204 (Azure Developer Associate), AZ-305 (Azure Solutions Architect Expert), AZ-400 (DevOps Engineer Expert), DP-203 (Azure Data Engineer Associate), DP-420 (Azure Cosmos DB Developer Specialty), AZ-104 (Azure Administrator Associate), and AZ-900 (Azure Fundamentals). We also hold AWS Solutions Architect Associate, CCNA (Cisco Certified Network Associate), Certified Scrum Product Owner (CSPO) from Scrum Alliance, and Certified Associate in Project Management (CAPM) from Project Management Institute. We maintain 100% certification compliance through quarterly recertification programs and continuous upskilling.',
+      `${SITE_CONFIG.name} engineers hold 12+ professional certifications across Microsoft Azure, AWS, Cisco, Scrum Alliance, and PMI. Azure certifications include AI-102 (Azure AI Engineer Associate), AZ-204 (Azure Developer Associate), AZ-305 (Azure Solutions Architect Expert), AZ-400 (DevOps Engineer Expert), DP-203 (Azure Data Engineer Associate), DP-420 (Azure Cosmos DB Developer Specialty), AZ-104 (Azure Administrator Associate), and AZ-900 (Azure Fundamentals). We also hold AWS Solutions Architect Associate, CCNA (Cisco Certified Network Associate), Certified Scrum Product Owner (CSPO) from Scrum Alliance, and Certified Associate in Project Management (CAPM) from Project Management Institute. We maintain 100% certification compliance through quarterly recertification programs and continuous upskilling.`,
   },
   {
-    question: 'How experienced are the team members at AIvanceWorks?',
+    question: `How experienced are the team members at ${SITE_CONFIG.name}?`,
     answer:
-      'All AIvanceWorks team members have 10+ years of experience in their respective domains, with Solutions Architects averaging 15+ years in enterprise architecture. We maintain a strict senior-only hiring policy—no junior developers are staffed on client projects. Engineers bring deep expertise in modern frameworks (React 21, Next.js, .NET 10), cloud platforms (Azure, AWS), and AI/ML technologies (Azure OpenAI, LangChain, RAG frameworks).',
+      `All ${SITE_CONFIG.name} team members have 10+ years of experience in their respective domains, with Solutions Architects averaging 15+ years in enterprise architecture. We maintain a strict senior-only hiring policy—no junior developers are staffed on client projects. Engineers bring deep expertise in modern frameworks (React 21, Next.js, .NET 10), cloud platforms (Azure, AWS), and AI/ML technologies (Azure OpenAI, LangChain, RAG frameworks).`,
   },
   {
-    question: 'What roles are available on AIvanceWorks teams?',
+    question: `What roles are available on ${SITE_CONFIG.name} teams?`,
     answer:
-      'AIvanceWorks provides 8 core team roles: Solutions Architect (system design, cloud strategy), Senior Full-Stack Engineer (end-to-end development), AI/ML Specialist (RAG, agentic AI, LLM orchestration), DevOps Engineer (CI/CD, infrastructure automation), Product Owner/Business Analyst (requirements, backlog management), QA Lead/Engineer (test automation, performance testing), UI/UX Designer (design systems, accessibility), and Data Engineer/Analyst (data pipelines, BI analytics).',
+      `${SITE_CONFIG.name} provides 8 core team roles: Solutions Architect (system design, cloud strategy), Senior Full-Stack Engineer (end-to-end development), AI/ML Specialist (RAG, agentic AI, LLM orchestration), DevOps Engineer (CI/CD, infrastructure automation), Product Owner/Business Analyst (requirements, backlog management), QA Lead/Engineer (test automation, performance testing), UI/UX Designer (design systems, accessibility), and Data Engineer/Analyst (data pipelines, BI analytics).`,
   },
   {
     question: 'Can I scale my team up or down during the project?',
     answer:
-      'Yes, AIvanceWorks provides flexible team scaling with 2-week notice for changes. You can increase team capacity during peak development periods or reduce allocation after launch. We offer both staff augmentation (individual specialist roles) and full delivery teams (complete end-to-end capability). Team changes include structured knowledge transfer to ensure minimal disruption to project momentum.',
+      `Yes, ${SITE_CONFIG.name} provides flexible team scaling with 2-week notice for changes. You can increase team capacity during peak development periods or reduce allocation after launch. We offer both staff augmentation (individual specialist roles) and full delivery teams (complete end-to-end capability). Team changes include structured knowledge transfer to ensure minimal disruption to project momentum.`,
   },
   {
-    question: 'Are AIvanceWorks teams based in the United States?',
+    question: 'Are ${SITE_CONFIG.name} teams based in the United States?',
     answer:
-      'Yes, 100% of AIvanceWorks team members are US-based. This ensures timezone alignment for real-time collaboration during business hours (9 AM - 6 PM EST), cultural compatibility for seamless stakeholder engagement, immediate response capability for urgent production issues, and enterprise-grade security compliance without international data transfer concerns.',
+      `Yes, 100% of ${SITE_CONFIG.name} team members are US-based. This ensures timezone alignment for real-time collaboration during business hours (9 AM - 6 PM EST), cultural compatibility for seamless stakeholder engagement, immediate response capability for urgent production issues, and enterprise-grade security compliance without international data transfer concerns.`,
   },
   {
-    question: 'How much does an AIvanceWorks team cost?',
+    question: 'How much does an ${SITE_CONFIG.name} team cost?',
     answer:
-      'AIvanceWorks team costs vary by configuration: Small Project teams (4-5 people, 8-12 weeks) cost $10,300-12,800/week, Medium Project teams (5-7 people, 12-24 weeks) cost $24,200-30,200/week, and Large Enterprise teams (10-15+ people, 6-12+ months) cost $73,600-92,600/week. Individual hourly rates range from $135-225 based on role and expertise level. All pricing is transparent with no hidden costs.',
+      `${SITE_CONFIG.name} team costs vary by configuration: Small Project teams (4-5 people, 8-12 weeks) cost $10,300-12,800/week, Medium Project teams (5-7 people, 12-24 weeks) cost $24,200-30,200/week, and Large Enterprise teams (10-15+ people, 6-12+ months) cost $73,600-92,600/week. Individual hourly rates range from $135-225 based on role and expertise level. All pricing is transparent with no hidden costs.`,
   },
 ];
 
@@ -259,7 +259,7 @@ export default function TeamPage() {
     '@context': 'https://schema.org',
     '@graph': [
       generateWebPageSchema(
-        'AIvanceWorks Team - Azure, AWS & Certified AI & Software Engineers',
+        `${SITE_CONFIG.name} Team - Azure, AWS & Certified AI & Software Engineers`,
         pageUrl
       ),
       generateFAQSchema(faqs),
@@ -281,11 +281,11 @@ export default function TeamPage() {
             </div>
             {/* Primary H1 with target keyword */}
             <h1 className="text-4xl sm:text-5xl font-bold mb-6">
-              AIvanceWorks Team: Azure, AWS & Certified AI & Software Engineers
+              {SITE_CONFIG.name} Team: Azure, AWS & Certified AI & Software Engineers
             </h1>
             {/* AEO-optimized paragraph - direct answer format */}
             <p className="text-xl text-gray-200 mb-4 leading-relaxed">
-              <strong>The AIvanceWorks team consists of US-based, Azure- and AWS-certified senior engineers</strong> with 10+ years of experience in AI/ML, cloud architecture, full-stack development, and DevOps automation.
+              <strong>The {SITE_CONFIG.name} team consists of US-based, Azure- and AWS-certified senior engineers</strong> with 10+ years of experience in AI/ML, cloud architecture, full-stack development, and DevOps automation.
             </p>
             {/* GEO-optimized stats paragraph */}
             <p className="text-lg text-gray-300 mb-8 leading-relaxed">
@@ -355,7 +355,7 @@ export default function TeamPage() {
           {/* GEO-optimized quotable statement */}
           <blockquote className="mt-8 max-w-3xl mx-auto p-6 bg-white border-l-4 border-blue-600 rounded-r-lg shadow-sm">
             <p className="text-lg text-gray-700 italic">
-              &ldquo;AIvanceWorks maintains a strict senior-only policy: every team member has 10+ years of domain experience and current certifications from Microsoft Azure, AWS, Cisco (CCNA), Scrum Alliance (CSPO), and PMI (CAPM). No junior developers are staffed on client projects—you get enterprise-grade expertise from day one.&rdquo;
+              &ldquo;{SITE_CONFIG.name} maintains a strict senior-only policy: every team member has 10+ years of domain experience and current certifications from Microsoft Azure, AWS, Cisco (CCNA), Scrum Alliance (CSPO), and PMI (CAPM). No junior developers are staffed on client projects—you get enterprise-grade expertise from day one.&rdquo;
             </p>
           </blockquote>
         </div>
@@ -369,7 +369,7 @@ export default function TeamPage() {
               How We Build High-Performance Teams
             </h2>
             <p className="text-lg text-gray-600 leading-relaxed">
-              AIvanceWorks follows a rigorous talent acquisition and team composition model designed
+              {SITE_CONFIG.name} follows a rigorous talent acquisition and team composition model designed
               to deliver enterprise-grade outcomes. We don&apos;t just staff projects—we assemble
               cohesive teams aligned to your technical requirements and business objectives.
             </p>
@@ -491,7 +491,7 @@ export default function TeamPage() {
               How We Scale Teams to Your Project Needs
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              AIvanceWorks tailors team composition based on project scope, timeline, and complexity.
+              {SITE_CONFIG.name} tailors team composition based on project scope, timeline, and complexity.
               Choose from pre-configured team models or build a custom configuration.
             </p>
           </div>
@@ -571,7 +571,7 @@ export default function TeamPage() {
               Multi-Vendor Certified Team
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Every AIvanceWorks team member holds current certifications from Microsoft Azure, AWS,
+              Every {SITE_CONFIG.name} team member holds current certifications from Microsoft Azure, AWS,
               Cisco, Scrum Alliance, and PMI—ensuring best practices, security compliance, and
               platform expertise across cloud, networking, agile, and project management.
             </p>
@@ -664,7 +664,7 @@ export default function TeamPage() {
               Frequently Asked Questions About Our Team
             </h2>
             <p className="text-lg text-gray-600">
-              Common questions about working with AIvanceWorks engineering teams
+              Common questions about working with {SITE_CONFIG.name} engineering teams
             </p>
           </div>
 

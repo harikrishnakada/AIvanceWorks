@@ -510,7 +510,7 @@ const hospitalInformationSystems: SolutionPageData = {
       },
     ],
     auditNote:
-      'Every module is architected to meet HIPAA technical-safeguard requirements, to support ONC Cures Act information-blocking and patient-access obligations, and to align with Joint Commission and CMS Conditions of Participation documentation expectations. We provide the audit trails, access-control matrices, interface-integrity evidence, and policy documentation your compliance officer, OCR reviewer, or surveyor will ask for. Accreditation submissions, information-blocking attestations, and final compliance sign-off remain the responsibility of the customer’s compliance and clinical-governance functions; AIvanceWorks is a software engineering and integration partner and does not attest compliance on a customer’s behalf.',
+      'Every module is architected to meet HIPAA technical-safeguard requirements, to support ONC Cures Act information-blocking and patient-access obligations, and to align with Joint Commission and CMS Conditions of Participation documentation expectations. We provide the audit trails, access-control matrices, interface-integrity evidence, and policy documentation your compliance officer, OCR reviewer, or surveyor will ask for. Accreditation submissions, information-blocking attestations, and final compliance sign-off remain the responsibility of the customer’s compliance and clinical-governance functions; ${SITE_CONFIG.name} is a software engineering and integration partner and does not attest compliance on a customer’s behalf.',
     partnerAgreements: ['BAA', 'DPA', 'SLA'],
   },
 

@@ -13,7 +13,7 @@ import { ArrowRight } from 'lucide-react';
 export const metadata: Metadata = constructMetadata({
   title: 'Case Studies - Real Results from Real Projects',
   description:
-    'Explore AIvanceWorks case studies showcasing AI implementations, cloud migrations, and custom software development projects with measurable business outcomes.',
+    `Explore ${SITE_CONFIG.name} case studies showcasing AI implementations, cloud migrations, and custom software development projects with measurable business outcomes.`,
   canonical: `${SITE_CONFIG.url}/case-studies`,
   keywords: [
     'software development case studies',
@@ -30,7 +30,7 @@ export default async function CaseStudiesPage() {
     <>
       <JsonLd
         data={generateWebPageSchema(
-          'Case Studies - Real Results',
+          `Case Studies - Real Results | ${SITE_CONFIG.name}`,
           `${SITE_CONFIG.url}/case-studies`
         )}
       />

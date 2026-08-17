@@ -94,8 +94,8 @@ const nextConfig: NextConfig = {
       // Redirect www to non-www (uncomment and adjust as needed)
       // {
       //   source: '/:path*',
-      //   has: [{ type: 'host', value: 'www.aivanceworks.com' }],
-      //   destination: 'https://aivanceworks.com/:path*',
+      //   has: [{ type: 'host', value: 'www.bluecloversoftware.com' }],
+      //   destination: 'https://bluecloversoftware.com/:path*',
       //   permanent: true,
       // },
     ];

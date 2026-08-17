@@ -12,9 +12,9 @@ export async function generateMetadata(): Promise<Metadata> {
   const metadata = extractMarkdownMetadata(content);
 
   return constructMetadata({
-    title: 'Terms of Service | AIvanceWorks',
+    title: `Terms of Service | ${SITE_CONFIG.name}`,
     description:
-      'AIvanceWorks Terms of Service: Review our service agreements, intellectual property rights, payment terms, and legal obligations. Professional software consulting terms.',
+      `${SITE_CONFIG.name} Terms of Service: Review our service agreements, intellectual property rights, payment terms, and legal obligations. Professional software consulting terms.`,
     canonical: `${SITE_CONFIG.url}/legal/terms-of-service`,
     keywords: [
       'terms of service',
@@ -22,7 +22,7 @@ export async function generateMetadata(): Promise<Metadata> {
       'consulting terms',
       'legal terms',
       'software development contract',
-      'AIvanceWorks terms',
+      `${SITE_CONFIG.name} terms`,
     ],
   });
 }
@@ -34,7 +34,7 @@ export default async function TermsOfServicePage() {
 
   // Generate schema markup
   const pageSchema = generateWebPageSchema(
-    'Terms of Service - AIvanceWorks',
+    `Terms of Service - ${SITE_CONFIG.name}`,
     `${SITE_CONFIG.url}/legal/terms-of-service`
   );
 

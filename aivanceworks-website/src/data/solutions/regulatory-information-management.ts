@@ -1,4 +1,4 @@
-import { BRAND_PREFIX } from '@/lib/constants';
+import { BRAND_PREFIX, SITE_CONFIG } from '@/lib/constants';
 import type { SolutionPageData } from '@/types/pages';
 
 // Archetype C — Regulated Solution (Pharma / Biotech / Medical Device)
@@ -354,7 +354,7 @@ const regulatoryInformationManagement: SolutionPageData = {
     highlightText:
       'audit-trail, e-signature, and controlled-vocabulary awareness',
     statusText:
-      'Engineering posture aligned with practices common in 21 CFR Part 11, ICH M2 / M4 / M8, eCTD, IDMP, xEVMPD, GxP, ICH Q9 / Q10, and HIPAA environments. AIvanceWorks does not certify, attest, or warrant compliance with any regulatory framework on a customer\'s behalf.',
+      `Engineering posture aligned with practices common in 21 CFR Part 11, ICH M2 / M4 / M8, eCTD, IDMP, xEVMPD, GxP, ICH Q9 / Q10, and HIPAA environments. ${SITE_CONFIG.name} does not certify, attest, or warrant compliance with any regulatory framework on a customer\'s behalf.`,
     pillars: [
       {
         icon: 'ShieldCheck',
@@ -437,7 +437,7 @@ const regulatoryInformationManagement: SolutionPageData = {
       },
     ],
     auditNote:
-      'Every component of the RIM platform is engineered with audit-trail logging, electronic-record and e-signature awareness, role-scoped access, controlled vocabularies, and lifecycle artifacts your QA, regulatory, and IT teams can use as inputs into their own validation, audit, and authority-readiness work. Validation execution, IQ/OQ/PQ authoring, any regulatory submission, any health-authority interaction, any product registration decision, and any approval-pathway outcome remain solely the customer\'s responsibility, executed by the customer\'s regulatory operations, regulatory affairs, and QA functions. AIvanceWorks does not represent, certify, attest, or warrant compliance with any regulatory framework on behalf of any customer, does not file submissions or correspond with health authorities on a customer\'s behalf, and does not provide regulatory or legal advice.',
+      `Every component of the RIM platform is engineered with audit-trail logging, electronic-record and e-signature awareness, role-scoped access, controlled vocabularies, and lifecycle artifacts your QA, regulatory, and IT teams can use as inputs into their own validation, audit, and authority-readiness work. Validation execution, IQ/OQ/PQ authoring, any regulatory submission, any health-authority interaction, any product registration decision, and any approval-pathway outcome remain solely the customer\'s responsibility, executed by the customer\'s regulatory operations, regulatory affairs, and QA functions. ${SITE_CONFIG.name} does not represent, certify, attest, or warrant compliance with any regulatory framework on behalf of any customer, does not file submissions or correspond with health authorities on a customer\'s behalf, and does not provide regulatory or legal advice.`,
     partnerAgreements: ['DPA', 'SLA', 'BAA (where regulated data crosses PHI)'],
   },
 
@@ -464,7 +464,7 @@ const regulatoryInformationManagement: SolutionPageData = {
 
   roleBoundary: {
     eyebrow: 'Scope & posture',
-    heading: 'Where AIvanceWorks fits',
+    heading: `Where ${SITE_CONFIG.name} fits`,
     intro:
       'We are an engineering services firm for the regulatory operations and regulatory affairs teams of pharma, biotech, and medical device companies. We bring deep engineering competence in audit-aware data models, electronic-record and e-signature workflows, controlled vocabularies, and submission-lifecycle structure — and the discipline to make the platform we build something your QA function and authorities can stand behind.',
     bullets: [

@@ -14,7 +14,7 @@ Both cases confirm: the user values the visible reasoning trail AND expects the 
 
 **How to apply:** On any non-trivial recommendation — architecture choice, design direction, scope call, tradeoff decision, what-to-include call — explicitly enumerate the challenges to the default position before concluding, and include these checks by default:
 1. **Audience test:** Who actually sees/uses this? Are they a business buyer or a technical evaluator? What do they care about? Will this element meaningfully move them toward our goal (trust, lead, clarity)?
-2. **Greenfield integrity test** (while AIvanceWorks has no clients): can this claim be backed without fabricated outcomes? If not, what's the capability-framed version?
+2. **Greenfield integrity test** (while ${SITE_CONFIG.name} has no clients): can this claim be backed without fabricated outcomes? If not, what's the capability-framed version?
 3. **Counter-cost test:** what do we lose by doing this — complexity, dilution, maintenance, brand coherence?
 
 Structure: "My first instinct was X because Y. Then I ran it through these challenges: [list, including audience test]. Verdict: [possibly different from X]." This applies even when I'm confident — the confidence has to be earned visibly.
