@@ -115,7 +115,7 @@ export function TeamStructureSection() {
           {GROUPS.map((group) => {
             const tone = GROUP_TONE[group.tone];
             return (
-              <div key={group.label}>
+              <div key={group.label} className="flex flex-col">
                 <div className="flex items-center gap-3 mb-3">
                   <h3 className={`text-xs font-bold uppercase tracking-wider ${tone.label}`}>
                     {group.label}
@@ -124,7 +124,7 @@ export function TeamStructureSection() {
                   <span className="text-xs text-text-muted hidden sm:inline">{group.note}</span>
                 </div>
 
-                <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
+                <div className="grid sm:grid-cols-2 gap-3 sm:gap-4 flex-1 items-stretch">
                   {group.teams.map((team) => {
                     const Icon = team.icon;
                     return (
@@ -140,7 +140,7 @@ export function TeamStructureSection() {
                         <h4 className="text-base md:text-lg font-semibold text-text-heading mb-2 leading-snug text-balance">
                           {team.title}
                         </h4>
-                        <p className="text-sm text-text-body leading-relaxed">
+                        <p className="flex-1 text-sm text-text-body leading-relaxed">
                           {team.description}
                         </p>
                         <p className="mt-3 pt-2.5 border-t border-border-light text-xs font-medium text-text-muted">

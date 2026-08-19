@@ -2,7 +2,7 @@
   "name": "aivanceworks-blog-studio",
   "private": true,
   "version": "1.0.0",
-  "description": "Sanity Studio for AIvanceWorks Blog",
+  "description": "Sanity Studio for Blue Clover Software Blog",
   "scripts": {
     "dev": "sanity dev",
     "start": "sanity start",

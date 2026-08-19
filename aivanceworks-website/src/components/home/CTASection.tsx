@@ -23,7 +23,7 @@ export function CTASection() {
           <div className="relative px-4 py-7 sm:px-8 sm:py-9 lg:px-14 lg:py-12">
             <div className="max-w-3xl mx-auto text-center">
               {/* Headline */}
-              <h2 className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-black text-white mb-2.5 sm:mb-4 leading-tight">
+              <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-black text-white mb-2.5 sm:mb-4 leading-tight">
                 Ready to Build Something{' '}
                 <span className="bg-gradient-to-r from-brand-400 to-accent-400 bg-clip-text text-transparent">
                   Intelligent?

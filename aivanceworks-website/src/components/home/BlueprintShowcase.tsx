@@ -131,7 +131,7 @@ export function BlueprintShowcase() {
             ref={headerRef}
             className="scroll-step max-w-3xl mb-6 md:mb-8"
           >
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight text-balance mb-3">
+            <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold tracking-tight text-balance mb-3">
               Before We Build, We{' '}
               <span className="text-brand-400">Draw It</span>
             </h2>

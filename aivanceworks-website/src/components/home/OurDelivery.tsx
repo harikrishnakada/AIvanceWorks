@@ -52,7 +52,7 @@ export function OurDelivery() {
 
           {/* ── Left: the claim ─────────────────────────────────────────── */}
           <div>
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-gray-900 leading-tight text-balance">
+            <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-black text-gray-900 leading-tight text-balance">
               What We Promise in{' '}
               <span className="text-brand-600">Week One</span>
             </h2>

@@ -54,7 +54,7 @@ export function WhyChooseUsServicesSection() {
                 gray-900 h2 would stay neutral while the h3s directly beneath it
                 shifted purple. Identical rendering on blue/black. */}
             <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-black text-text-heading mb-4 sm:mb-5 leading-tight text-balance">
-              Why Teams Choose{' '}
+              Why Clients Choose{' '}
               <span className="bg-gradient-to-r from-brand-500 via-brand-600 to-accent-500 bg-clip-text text-transparent">
                 {SITE_CONFIG.name}
               </span>
@@ -78,7 +78,7 @@ export function WhyChooseUsServicesSection() {
           </div>
 
           {/* ── Right: the conversion card ─────────────────────────────── */}
-          <div className="bg-surface-white border border-border-light rounded-xl shadow-card-sm p-6 md:p-7">
+          <div className="bg-surface-white border border-border-light rounded-xl shadow-card-sm px-6 py-8 md:px-7 md:py-10">
             <h3 className="text-lg md:text-xl font-semibold text-text-heading mb-5 leading-snug">
               Start Your Project
             </h3>

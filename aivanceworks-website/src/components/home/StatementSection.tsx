@@ -50,8 +50,7 @@ export function StatementSection() {
           >
             <span className="h-px w-8 bg-gradient-to-r from-transparent to-brand-500/60" />
             <figcaption className="text-sm sm:text-base font-medium text-gray-500">
-              We specialize in what we call{' '}
-              <span className="font-semibold text-gray-900">SaaS Nature</span>
+              HIPAA, SOC 2, GDPR complaint
             </figcaption>
             <span className="h-px w-8 bg-gradient-to-l from-transparent to-brand-500/60" />
           </div>

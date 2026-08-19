@@ -316,7 +316,9 @@ export default function ServicesPage() {
 
       {/* Are You Facing These Challenges? - subtitle + cards, titled by the
           `part="title"` render above (linked via aria-labelledby). */}
-      <ChallengesSection />
+      <div className="pt-8 sm:pt-10 lg:pt-14">
+        <ChallengesSection />
+      </div>
 
       {/* ── Why Choose Us ────────────────────────────────────── */}
       {false && (

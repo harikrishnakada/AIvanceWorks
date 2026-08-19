@@ -37,9 +37,9 @@ export function Footer() {
       title: 'Company',
       links: [
         { label: 'About', href: '/about' },
-        { label: 'Team', href: '/team' },
+        { label: 'Our Team', href: '/services#our-teams' },
         { label: 'Careers', href: '/careers' },
-        { label: 'Case Studies', href: '/case-studies' },
+        // { label: 'Case Studies', href: '/case-studies' },
         { label: 'Contact', href: '/contact' },
       ],
     },
@@ -48,7 +48,7 @@ export function Footer() {
       links: [
         { label: 'Blog', href: '/blog' },
         { label: 'Guides', href: '/resources/guides' },
-        { label: 'Whitepapers', href: '/resources/whitepapers' },
+        // { label: 'Whitepapers', href: '/resources/whitepapers' },
         { label: 'Tools', href: '/resources/tools' },
         { label: 'FAQ', href: '/faq' },
       ],

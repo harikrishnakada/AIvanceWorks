@@ -1131,8 +1131,8 @@ const INDUSTRY_PAGE_MODULES: Record<string, () => Promise<{ default: IndustryPag
     import('@/data/industries/manufacturing-supply-chain'),
   logistics: () => import('@/data/industries/logistics'),
   retail: () => import('@/data/industries/retail'),
-  'food-beverage': () => import('@/data/industries/food-beverage'),
-  'banking': () => import('@/data/industries/banking'),
+  'food-beverage': () => import('@/data/industries/food-beverage')
+  // 'banking': () => import('@/data/industries/banking'),
 };
 
 // Card-only industries — presented as category cards on the homepage and the

@@ -37,7 +37,7 @@ export default function FAQPlaceholderPage() {
           {/* Quick Links */}
           <div className="grid sm:grid-cols-2 gap-6 mb-12 max-w-2xl mx-auto">
             <Link
-              href="/#faq"
+              href="/#home-faq"
               className="p-6 bg-white rounded-lg border border-gray-200 hover:border-blue-300 hover:shadow-lg transition-all group"
             >
               <HelpCircle className="w-8 h-8 text-blue-600 mb-3 mx-auto" />

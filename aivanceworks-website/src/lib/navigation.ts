@@ -48,9 +48,10 @@ export const NAVIGATION = {
   // is what the labels actually describe. (Both anchors render; the
   // #infrastructure-management section was previously advertised but missing.)
   services: [
+    { label: 'Artificial Intelligence', href: '/services#automation-intelligence' },
+    { label: 'Consulting', href: '/services#advisoryg' },
     { label: 'Software Engineering', href: '/services#software-engineering' },
-    { label: 'Cloud & Infrastructure', href: '/services#infrastructure-management' },
-    { label: 'Security & Compliance', href: '/services/security-compliance' },
+    { label: 'Cloud & Infrastructure', href: '/services#infrastructure-management' }
   ],
   // AI menu — HIDDEN from the header (desktop, tablet and mobile triggers are
   // commented out). Kept because the /services and /solutions pages still read

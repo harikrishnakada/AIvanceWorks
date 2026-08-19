@@ -45,6 +45,7 @@ const services: Service[] = [
       'Deploy production-ready AI agents, RAG frameworks, and LLM integrations that automate workflows and enhance decision-making with Azure AI Foundry.',
     icon: Bot,
     href: '/services/ai-development',
+    image: '/images/services/ai-development/cateogry-card_AIML.jpg',
   },
   {
     title: 'Cloud Engineering',
@@ -52,6 +53,7 @@ const services: Service[] = [
       'Migrate and optimize your infrastructure on Azure or AWS. Our certified architects design scalable systems that reduce cloud costs by up to 50%.',
     icon: Cloud,
     href: '/services/cloud-infrastructure',
+    image: '/images/services/cloud-engineering/cateogry-card_CE.jpg',
   },
   {
     title: 'SaaS Development',
@@ -59,6 +61,7 @@ const services: Service[] = [
       'Multi-tenant architecture, subscription billing, and scalable infrastructure — engineered as a platform, not patched onto a web app after launch.',
     icon: Code2,
     href: '/services/saas-development',
+    image: '/images/services/SaaS-development/cateogry-card_SAAS.jpg',
   },
   {
     title: 'Data Engineering',
@@ -76,6 +79,7 @@ const services: Service[] = [
       'Modernize legacy systems and integrate disparate applications with minimal disruption. API integrations, migrations, and service bus implementations.',
     icon: Globe,
     href: '/services/enterprise-software-development',
+    image: '/images/services/enterprise-ai-development/cateogry-card_EI.jpg',
   },
   {
     title: 'DevOps & CI/CD',
@@ -83,6 +87,7 @@ const services: Service[] = [
       'Accelerate deployments with Azure DevOps, GitHub Actions, and Kubernetes. Automate testing, reduce errors, and ship features faster.',
     icon: Settings,
     href: '/services/devops',
+    image: '/images/services/cicd/cateogry-card.jpg',
   },
 ];
 

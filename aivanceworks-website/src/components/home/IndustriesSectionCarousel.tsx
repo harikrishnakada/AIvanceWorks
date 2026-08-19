@@ -90,7 +90,7 @@ export function IndustriesSectionCarousel({ industries }: { industries: HomeIndu
           className="scroll-step flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 sm:gap-6 mb-6 md:mb-8"
         >
           <div className="max-w-3xl">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-text-light tracking-tight text-balance mb-3">
+            <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-text-light tracking-tight text-balance mb-3">
               Software Built Around Your <span className="text-brand-400">Industry</span>
             </h2>
             <p className="text-sm md:text-base text-text-light/70 leading-relaxed text-pretty">
