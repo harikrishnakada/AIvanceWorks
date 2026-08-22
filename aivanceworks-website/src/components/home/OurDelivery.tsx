@@ -3,6 +3,7 @@
 import { Rocket } from 'lucide-react';
 import { SITE_CONFIG } from '@/lib/constants';
 import { SECTION_Y } from '@/lib/section-spacing';
+import { Container } from '@/components/shared/primitives';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 
 // Week-one delivery sequence. These are a real ordered flow (first contact →
@@ -34,29 +35,19 @@ export function OurDelivery() {
       data-section="home-delivery"
       className={`${SECTION_Y} relative overflow-hidden bg-surface-warm`}
     >
-      <div className="mx-auto max-w-4xl px-6 sm:px-8 lg:px-12 text-center ">
-        {/* Eyebrow and quote run tight on phones — this block has to clear the
-            fold alongside the hero, and mobile is where that budget is thinnest. */}
-        <p
-          data-statement-eyebrow
-          className="text-[10px] sm:text-xs text-brand-600 uppercase tracking-[0.2em] font-semibold mb-3 sm:mb-5"
-        >
-          Our Promise
-        </p>
-      </div>
-      <div className="relative w-full px-4 sm:px-6 md:px-8 lg:px-12">
+      <Container width="default" className="relative">
         {/* The rail is nine short rows, so at 1440px+ a stretched two-column
             grid leaves the claim stranded at the top of a tall empty column.
             Centering the claim against the rail keeps the two masses balanced. */}
-        <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,22rem)_minmax(0,1fr)] gap-6 lg:gap-12 xl:gap-16 lg:items-center lg:max-w-6xl lg:mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,26rem)_minmax(0,38rem)] xl:grid-cols-[minmax(0,30rem)_minmax(0,44rem)] gap-6 lg:gap-12 xl:gap-16 lg:items-start lg:justify-center">
 
           {/* ── Left: the claim ─────────────────────────────────────────── */}
           <div>
-            <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-black text-gray-900 leading-tight text-balance">
+            <h2 className="text-h2 font-black text-gray-900 leading-tight text-balance">
               What We Promise in{' '}
               <span className="text-brand-600">Week One</span>
             </h2>
-            <p className="mt-2 text-xs sm:text-sm md:text-base text-gray-600 leading-relaxed max-w-prose">
+            <p className="mt-2 text-copy text-gray-600 leading-relaxed max-w-prose">
               Most engagements spend the first month scheduling. Here is what
               {' '}{SITE_CONFIG.name} puts on the table in the first seven days.
             </p>
@@ -64,21 +55,24 @@ export function OurDelivery() {
             {/* Day 1 → Day 7 meter. Not a hero-metric tile — a scale label for
                 the rail beside it, so the nine steps have a horizon. */}
             <div className="mt-4 sm:mt-5 flex items-center gap-3 max-w-xs">
-              <span className="text-[11px] sm:text-xs font-semibold text-gray-600 tabular-nums">
+              <span className="text-label font-semibold text-gray-600 tabular-nums">
                 Day 1
               </span>
               <span
                 aria-hidden="true"
                 className="h-px flex-1 bg-gradient-to-r from-brand-600 to-brand-600/20"
               />
-              <span className="text-[11px] sm:text-xs font-semibold text-gray-600 tabular-nums">
+              <span className="text-label font-semibold text-gray-600 tabular-nums">
                 Day 7
               </span>
             </div>
           </div>
 
           {/* ── Right: the numbered rail ────────────────────────────────── */}
-          <ol ref={railRef} className="delivery-rail relative max-w-3xl">
+          <ol
+            ref={railRef}
+            className="delivery-rail relative"
+          >
             {/* Continuous spine behind the nodes. Sits under the row content
                 and stops short of the last node so the sequence reads as
                 arriving somewhere rather than trailing off. border-light
@@ -103,7 +97,7 @@ export function OurDelivery() {
                   <span
                     className={`relative z-10 flex-shrink-0 flex items-center justify-center
                       h-[31px] w-[31px] sm:h-[35px] sm:w-[35px] rounded-full
-                      text-[11px] sm:text-xs font-bold tabular-nums
+                      text-label font-bold tabular-nums
                       border transition-all duration-300
                       ${
                         isLast
@@ -120,7 +114,7 @@ export function OurDelivery() {
 
                   {/* Label */}
                   <span
-                    className={`text-sm sm:text-base leading-snug text-balance ${
+                    className={`text-copy-sm sm:text-copy leading-snug text-balance ${
                       isLast
                         ? 'font-bold text-gray-900'
                         : 'font-semibold text-text-heading'
@@ -133,7 +127,7 @@ export function OurDelivery() {
             })}
           </ol>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

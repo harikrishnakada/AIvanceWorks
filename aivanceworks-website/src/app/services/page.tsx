@@ -1,5 +1,7 @@
 // src/app/services/page.tsx
 import { Metadata } from 'next';
+import Image from 'next/image';
+import { Container } from '@/components/shared/primitives';
 import Link from 'next/link';
 import {
   Brain, Code2, Server, Cpu,
@@ -18,6 +20,7 @@ import { getAllServicePageSlugs } from '@/lib/content';
 import { SITE_CONFIG, TECHNOLOGIES } from '@/lib/constants';
 import { NAVIGATION } from '@/lib/navigation';
 import { SECTION_Y } from '@/lib/section-spacing';
+import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { ServicesNavStrip } from '@/components/services/ServicesNavStrip';
 import { ServicePillarSection } from '@/components/services/ServicePillarSection';
@@ -110,6 +113,167 @@ const JUMP_TO = [
   { label: 'Technologies', id: 'technologies' },
 ];
 
+// Hero background artwork. Matches the right-aligned image well the shared
+// `Hero` gives every service and solution detail page.
+const HERO_IMAGE = {
+  src: '/images/home_hero/office_working.jpg',
+  // Decorative — the H1 already carries the meaning.
+  alt: '',
+  focal: 'center',
+} as const;
+
+/**
+ * Services page hero.
+ *
+ * `fullBleed` runs the card edge to edge instead of seating it inside the page
+ * Container as a rounded panel. The copy still resolves to Container bounds
+ * either way, so a full-bleed hero keeps the same left edge as every section
+ * below it. Defaults to false — the panel treatment stays the norm, matching
+ * the shared `Hero` used by the service and solution detail pages.
+ */
+function ServicesHero({ fullBleed = false }: { fullBleed?: boolean }) {
+  const copy = (
+    <div className="max-w-3xl lg:max-w-[52%]">
+      <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-500/[0.12] border border-brand-400/[0.15] text-brand-300 text-label font-semibold tracking-wide mb-3 md:mb-4">
+        Our Services
+      </div>
+      <h1 className="text-2xl sm:text-h2 font-bold text-text-light mb-3 md:mb-4 leading-[1.15] tracking-tight text-balance">
+        Custom Software Development Services That{' '}
+        <span className="bg-gradient-to-r from-brand-400 to-indigo-400 bg-clip-text text-transparent">
+          Drive Growth
+        </span>
+      </h1>
+      <p className="text-copy-sm sm:text-lead text-text-subtle leading-relaxed max-w-[60ch] mb-5">
+        {SITE_CONFIG.name} delivers end-to-end software development and consulting services for US/UK-based startups and enterprise companies. 
+        Our dedicated development team specializes in cloud engineering, AI/ML services, full-stack development, data analytics, DevOps automation, enterprise integration, and security compliance. 
+        With projects starting at $5,000 and senior teams averaging 10+ years of experience, we transform complex business challenges into production-ready software.
+      </p>
+      <div className="flex flex-col sm:flex-row gap-3 mb-5 sm:mb-6">
+        <Button
+          asChild
+          size="lg"
+          className="bg-brand-600 hover:bg-brand-500 text-text-light shadow-glow-sm font-semibold rounded-xl"
+        >
+          <Link href="/contact">Get Free Consultation</Link>
+        </Button>
+        {/*
+         <Button
+          asChild
+          variant="outline"
+          size="lg"
+          className="border-text-light/20 text-text-light hover:border-text-light/35 hover:bg-glass-bg rounded-xl"
+        >
+          <Link href="/case-studies">View Case Studies</Link>
+        </Button>
+        */}
+      </div>
+      {/* Jump-to strip */}
+      <p className="text-label text-text-subtle pt-4 sm:pt-5 border-t border-text-light/[0.12]">
+        Jump to:{' '}
+        {JUMP_TO.map((item, i) => (
+          <span key={item.id}>
+            <a
+              href={`#${item.id}`}
+              className="text-text-light/70 hover:text-text-light transition-colors underline-offset-2 hover:underline"
+            >
+              {item.label}
+            </a>
+            {i < JUMP_TO.length - 1 && (
+              <span className="mx-2 text-text-subtle">·</span>
+            )}
+          </span>
+        ))}
+      </p>
+    </div>
+  );
+
+  const   card = (
+    <div
+      className={cn(
+        `relative w-full overflow-hidden
+          bg-gradient-to-br from-surface-dark-from via-surface-dark-via to-surface-dark-to`,
+        !fullBleed &&
+          'rounded-2xl lg:rounded-3xl border border-border-subtle shadow-brand-panel'
+      )}
+    >
+      {/* Glow orbs */}
+      <div className="absolute top-0 left-1/3 w-[500px] h-56 bg-brand-500/[0.07] rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-0 right-1/3 w-[400px] h-48 bg-accent-500/[0.06] rounded-full blur-[80px] pointer-events-none" />
+      {/* Grid overlay */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--brand-grid-light)_1px,transparent_1px),linear-gradient(to_bottom,var(--brand-grid-light)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
+
+      {/*
+        Right-aligned image well — same treatment as the shared `Hero` used by
+        the service and solution detail pages. Below lg the card is too narrow
+        to split, so the image fills it and the vertical scrim carries
+        legibility. From lg it occupies the right 56% and dissolves leftward via
+        a mask, keeping the subject out from behind the headline.
+      */}
+      <div
+        className="absolute inset-0 lg:left-auto lg:right-0 lg:w-[56%] xl:w-[54%]
+          lg:[mask-image:linear-gradient(to_right,transparent_0%,rgba(0,0,0,0.28)_16%,rgba(0,0,0,0.85)_44%,black_66%)]
+          pointer-events-none"
+      >
+        <Image
+          src={HERO_IMAGE.src}
+          alt={HERO_IMAGE.alt}
+          fill
+          priority
+          fetchPriority="high"
+          sizes="(min-width: 1024px) 56vw, 100vw"
+          quality={72}
+          style={{ objectPosition: HERO_IMAGE.focal }}
+          className="object-cover"
+        />
+        {/* Seats the artwork in the card's dark register. An overlay, not image
+            opacity — opacity blends the picture into the gradient behind it and
+            flattens the subject's contrast. */}
+        <div className="absolute inset-0 bg-surface-dark-from/25" />
+      </div>
+
+      {/* Copy-side scrim. Vertical below lg (copy sits over the image there);
+          horizontal from lg, where it only covers the handoff zone the mask is
+          already fading. */}
+      <div className="absolute inset-0 bg-gradient-to-t from-surface-dark-from/97 via-surface-dark-from/86 to-surface-dark-from/52 lg:hidden pointer-events-none" />
+      <div className="absolute inset-0 hidden lg:block bg-gradient-to-r from-surface-dark-from/90 from-0% via-surface-dark-via/45 via-40% to-transparent to-62% pointer-events-none" />
+      {/* Bottom edge fade into card background */}
+      <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-surface-dark-to/90 to-transparent pointer-events-none" />
+
+      {fullBleed ? (
+        <Container
+          width="default"
+          className="relative z-10 py-6 sm:py-8 md:py-10 lg:py-12"
+        >
+          {copy}
+        </Container>
+      ) : (
+        <div className="relative z-10 px-5 sm:px-8 md:px-10 lg:px-14 py-6 sm:py-8 md:py-10 lg:py-12">
+          {copy}
+        </div>
+      )}
+    </div>
+  );
+
+  return (
+    <section data-section="services-hero" className="relative overflow-hidden">
+      {fullBleed ? (
+        card
+      ) : (
+        <Container
+          // Panel mode runs one tier wider than the body Container. Below ~1400px
+          // both tiers are viewport-bound so nothing moves; from 1920px up the
+          // hero card gains ~64px of width per side, which is what stops it
+          // reading as a narrow slab floating in dead margin on a large display.
+          width="wide"
+          className="pt-3 sm:pt-4 lg:pt-5 pb-2 sm:pb-3 lg:pb-4"
+        >
+          {card}
+        </Container>
+      )}
+    </section>
+  );
+}
+
 export default function ServicesPage() {
   const builtOutSlugs = getAllServicePageSlugs();
 
@@ -128,81 +292,7 @@ export default function ServicesPage() {
       <JsonLd data={servicesListSchema} />
 
       {/* ── Hero ─────────────────────────────────────────────── */}
-      <section
-        data-section="services-hero"
-        className="relative overflow-hidden"
-      >
-        <div className="px-4 sm:px-6 md:px-8 lg:px-12 pt-3 sm:pt-4 lg:pt-5 pb-2 sm:pb-3 lg:pb-4">
-          <div
-            className="relative w-full overflow-hidden
-              bg-gradient-to-br from-surface-dark-from via-surface-dark-via to-surface-dark-to
-              rounded-2xl lg:rounded-3xl
-              border border-border-subtle
-              shadow-brand-panel"
-          >
-            {/* Glow orbs */}
-            <div className="absolute top-0 left-1/3 w-[500px] h-56 bg-brand-500/[0.07] rounded-full blur-[100px] pointer-events-none" />
-            <div className="absolute bottom-0 right-1/3 w-[400px] h-48 bg-accent-500/[0.06] rounded-full blur-[80px] pointer-events-none" />
-            {/* Grid overlay */}
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--brand-grid-light)_1px,transparent_1px),linear-gradient(to_bottom,var(--brand-grid-light)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
-
-            <div className="relative z-10 px-5 sm:px-8 md:px-10 lg:px-14 py-6 sm:py-8 md:py-10 lg:py-12">
-              <div className="max-w-3xl">
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-500/[0.12] border border-brand-400/[0.15] text-brand-300 text-xs sm:text-sm font-semibold tracking-wide mb-3 md:mb-4">
-                  Our Services
-                </div>
-                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-light mb-3 md:mb-4 leading-[1.15] tracking-tight text-balance">
-                  Custom Software Development Services That{' '}
-                  <span className="bg-gradient-to-r from-brand-400 to-indigo-400 bg-clip-text text-transparent">
-                    Drive Growth
-                  </span>
-                </h1>
-                <p className="text-sm sm:text-base md:text-lg text-text-subtle leading-relaxed max-w-[60ch] mb-5">
-                  {SITE_CONFIG.name} delivers end-to-end software development and consulting services for US/UK-based startups and enterprise companies. 
-                  Our dedicated development team specializes in cloud engineering, AI/ML services, full-stack development, data analytics, DevOps automation, enterprise integration, and security compliance. 
-                  With projects starting at $5,000 and senior teams averaging 10+ years of experience, we transform complex business challenges into production-ready software.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-3 mb-5 sm:mb-6">
-                  <Button
-                    asChild
-                    size="lg"
-                    className="bg-brand-600 hover:bg-brand-500 text-text-light shadow-glow-sm font-semibold rounded-xl"
-                  >
-                    <Link href="/contact">Get Free Consultation</Link>
-                  </Button>
-                  {/*
-                   <Button
-                    asChild
-                    variant="outline"
-                    size="lg"
-                    className="border-text-light/20 text-text-light hover:border-text-light/35 hover:bg-glass-bg rounded-xl"
-                  >
-                    <Link href="/case-studies">View Case Studies</Link>
-                  </Button>
-                  */}
-                </div>
-                {/* Jump-to strip */}
-                <p className="text-xs sm:text-sm text-text-subtle pt-4 sm:pt-5 border-t border-text-light/[0.12]">
-                  Jump to:{' '}
-                  {JUMP_TO.map((item, i) => (
-                    <span key={item.id}>
-                      <a
-                        href={`#${item.id}`}
-                        className="text-text-light/70 hover:text-text-light transition-colors underline-offset-2 hover:underline"
-                      >
-                        {item.label}
-                      </a>
-                      {i < JUMP_TO.length - 1 && (
-                        <span className="mx-2 text-text-subtle">·</span>
-                      )}
-                    </span>
-                  ))}
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ServicesHero />
 
       {/* ── Sticky pillar nav ────────────────────────────────── */}
       <ServicesNavStrip />
@@ -282,16 +372,16 @@ export default function ServicesPage() {
         id="technologies"
         className={`scroll-mt-28 md:scroll-mt-32 ${SECTION_Y} bg-surface-light`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Container width="default">
           <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-5 lg:mb-6">
             <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-brand-50 flex items-center justify-center flex-shrink-0">
               <Cpu className="h-5 w-5 sm:h-6 sm:w-6 text-brand-600" />
             </div>
             <div className="min-w-0">
-              <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-text-heading leading-tight text-balance">
+              <h2 className="text-h2 font-bold text-text-heading leading-tight text-balance">
                 {TECHNOLOGIES.title}
               </h2>
-              <p className="text-xs sm:text-sm text-text-muted mt-0.5">
+              <p className="text-label text-text-muted mt-0.5">
                 {TECHNOLOGIES.description}
               </p>
             </div>
@@ -303,7 +393,7 @@ export default function ServicesPage() {
                 <Link
                   key={tech.href + tech.label}
                   href={tech.href}
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border-light bg-surface-white text-sm font-medium text-text-secondary hover:border-brand-300 hover:text-brand-700 hover:shadow-sm transition-all duration-150"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border-light bg-surface-white text-copy-sm font-medium text-text-secondary hover:border-brand-300 hover:text-brand-700 hover:shadow-sm transition-all duration-150"
                 >
                   <Icon className="h-4 w-4 text-brand-500" />
                   {tech.label}
@@ -311,7 +401,7 @@ export default function ServicesPage() {
               );
             })}
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Are You Facing These Challenges? - subtitle + cards, titled by the
@@ -323,7 +413,7 @@ export default function ServicesPage() {
       {/* ── Why Choose Us ────────────────────────────────────── */}
       {false && (
       <section data-section="services-why-choose-us" className="py-8 lg:py-12 bg-surface-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Container width="default">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl font-bold text-text-heading mb-6">
@@ -379,7 +469,7 @@ export default function ServicesPage() {
               </Button>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
       )}
 
@@ -388,12 +478,12 @@ export default function ServicesPage() {
         data-section="services-cta"
         className={`${SECTION_Y} bg-surface-white`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Container width="default">
           <div className="rounded-2xl lg:rounded-3xl bg-gradient-to-br from-surface-dark-from via-surface-dark-via to-surface-dark-to text-text-light px-5 sm:px-10 lg:px-14 py-8 sm:py-10 lg:py-12 shadow-card text-center">
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 text-balance">
+            <h2 className="text-h2 font-bold mb-3 text-balance">
               Ready to Transform Your Business?
             </h2>
-            <p className="text-sm sm:text-base md:text-lg text-text-muted mb-6 max-w-2xl mx-auto">
+            <p className="text-copy-sm sm:text-lead text-text-muted mb-6 max-w-2xl mx-auto">
               Schedule a free consultation to discuss your project requirements. We&apos;ll provide
               a detailed proposal within 48 hours.
             </p>
@@ -416,7 +506,7 @@ export default function ServicesPage() {
               </Button>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
     </>
   );

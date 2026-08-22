@@ -90,17 +90,17 @@ export function IndustriesSectionCarousel({ industries }: { industries: HomeIndu
           className="scroll-step flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 sm:gap-6 mb-6 md:mb-8"
         >
           <div className="max-w-3xl">
-            <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-text-light tracking-tight text-balance mb-3">
+            <h2 className="text-h2 font-bold text-text-light tracking-tight text-balance mb-3">
               Software Built Around Your <span className="text-brand-400">Industry</span>
             </h2>
-            <p className="text-sm md:text-base text-text-light/70 leading-relaxed text-pretty">
+            <p className="text-copy-sm md:text-copy text-text-light/70 leading-relaxed text-pretty">
               Vertical-specific software and AI, engineered for the way your industry actually
               operates — from the first patient record to the final mile.
             </p>
           </div>
           <Link
             href="/industry"
-            className="group inline-flex items-center shrink-0 text-brand-300 hover:text-brand-200 font-semibold text-sm transition-colors duration-300"
+            className="group inline-flex items-center shrink-0 text-brand-300 hover:text-brand-200 font-semibold text-copy-sm transition-colors duration-300 py-1"
           >
             View all industries
             <ArrowUpRight className="ml-1 h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 motion-reduce:transition-none" />
@@ -176,7 +176,7 @@ export function IndustriesSectionCarousel({ industries }: { industries: HomeIndu
                         </h3>
                       </div>
 
-                      <p className="text-sm text-text-light/55 leading-relaxed mb-4 -mt-1">
+                      <p className="text-copy-sm text-text-light/55 leading-relaxed mb-4 -mt-1">
                         {industry.tagline}
                       </p>
 
@@ -187,12 +187,12 @@ export function IndustriesSectionCarousel({ industries }: { industries: HomeIndu
                               className="h-4 w-4 mt-0.5 shrink-0 text-brand-400"
                               aria-hidden="true"
                             />
-                            <span className="text-sm text-text-light/80 leading-snug">{item}</span>
+                            <span className="text-copy-sm text-text-light/80 leading-snug">{item}</span>
                           </li>
                         ))}
                       </ul>
 
-                      <span className="mt-auto inline-flex items-center gap-1.5 text-text-light font-semibold text-sm">
+                      <span className="mt-auto inline-flex items-center gap-1.5 text-text-light font-semibold text-copy-sm">
                         {industry.hasPage
                           ? `Explore ${industry.name}`
                           : `Talk to us about ${industry.name}`}
@@ -266,7 +266,7 @@ export function IndustriesSectionCarousel({ industries }: { industries: HomeIndu
 
             <Link
               href="/industry"
-              className="inline-flex items-center text-brand-300 hover:text-brand-200 font-semibold text-xs sm:text-sm"
+              className="inline-flex items-center text-brand-300 hover:text-brand-200 font-semibold text-label text-copy-sm"
             >
               View all
               <ArrowRight className="ml-1 h-3.5 w-3.5" />

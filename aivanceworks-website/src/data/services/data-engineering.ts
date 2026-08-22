@@ -99,6 +99,16 @@ const dataEngineering: ServicePageData = {
       'Lakehouse architecture, governed ELT pipelines, and tested transformations — designed for your team to operate independently and your analysts to trust on Monday morning.',
     primaryCta: { label: 'Book Data Engineering Call', href: '/contact' },
     secondaryCta: { label: 'See the pipeline architecture', href: '#signature' },
+    heroImage: {
+      // TODO(asset): this file ships at 640x360 — the only undersized card in
+      // the set (the other five are 3840x2160+). At 640px wide it upscales ~2x
+      // in the hero well, which is the softness visible today. Re-export at
+      // >=1600x900.
+      src: '/images/services/data-engineering/cateogry-card.jpg',
+      alt: '',
+      // Dark glowing render — already in register.
+      dim: 'soft',
+    },
   },
 
   // Audience test: Head of Data scanning the page in 8 seconds needs to see

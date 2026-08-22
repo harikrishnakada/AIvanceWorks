@@ -11,6 +11,7 @@ import { JsonLd } from '@/components/seo/JsonLd';
 import { generateFAQSchema } from '@/lib/schema';
 import { SITE_CONFIG } from '@/lib/constants';
 import { SECTION_Y } from '@/lib/section-spacing';
+import { Container } from '@/components/shared/primitives';
 
 export function FAQSection() {
   const faqs = [
@@ -51,13 +52,13 @@ export function FAQSection() {
       {/* FAQ Schema */}
       <JsonLd data={generateFAQSchema(faqs)} />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Container width="default">
         {/* Section Header */}
         <div className="text-center mb-4 sm:mb-6 lg:mb-8">
-          <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-black text-gray-900 mb-1.5 sm:mb-2 leading-tight">
+          <h2 className="text-h2 font-black text-gray-900 mb-1.5 sm:mb-2 leading-tight">
             Frequently Asked Questions
           </h2>
-          <p className="text-xs sm:text-sm md:text-base text-gray-500 leading-relaxed">
+          <p className="text-copy text-gray-500 leading-relaxed">
             Get answers to common questions about AI development, our process, and what to expect.
           </p>
         </div>
@@ -72,20 +73,20 @@ export function FAQSection() {
               className="group bg-white rounded-2xl border border-gray-100 overflow-hidden transition-all duration-300 hover:border-gray-200 open:border-brand-200 open:shadow-glow-faint"
             >
               <summary className="flex cursor-pointer list-none items-center justify-between p-3.5 sm:p-5 text-left transition-colors hover:bg-brand-50/30 [&::-webkit-details-marker]:hidden">
-                <span className="font-bold text-gray-900 pr-6 text-xs sm:text-sm md:text-base">
+                <span className="font-bold text-gray-900 pr-6 text-copy">
                   {faq.question}
                 </span>
                 <div className="flex-shrink-0 w-6 h-6 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl flex items-center justify-center transition-all duration-300 bg-gray-100 group-open:bg-brand-100 group-open:rotate-180">
                   <ChevronDown className="h-4 w-4 text-gray-400 transition-colors group-open:text-brand-600" />
                 </div>
               </summary>
-              <div className="px-3.5 sm:px-5 pb-3.5 sm:pb-5 text-gray-500 leading-relaxed text-xs sm:text-sm md:text-base">
+              <div className="px-3.5 sm:px-5 pb-3.5 sm:pb-5 text-gray-500 leading-relaxed text-copy">
                 {faq.answer}
               </div>
             </details>
           ))}
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

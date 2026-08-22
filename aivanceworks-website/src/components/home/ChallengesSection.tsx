@@ -3,6 +3,7 @@
 // 'use client' shipped the component and its three icons to the browser and
 // added it to the homepage hydration pass for nothing.
 import { Zap, CalendarCheck, DollarSign, LifeBuoy, Rocket, BadgeCheck } from 'lucide-react';
+import { Container } from '@/components/shared/primitives';
 import { IconTile } from '@/components/shared/primitives';
 import { SITE_CONFIG } from '@/lib/constants';
 import { SECTION_Y, SECTION_Y_TIGHT, CARD_GRID_GAP } from '@/lib/section-spacing';
@@ -73,7 +74,7 @@ export function ChallengesSection({ part = 'full' }: { part?: ChallengesPart } =
   const title = (
     <h2
       id={CHALLENGES_HEADING_ID}
-      className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-gray-900 leading-tight text-balance"
+      className="text-h2 lg:text-4xl font-black text-gray-900 leading-tight text-balance"
     >
       Are You Facing These <span className="text-brand-600">Obstacles?</span>
     </h2>
@@ -104,12 +105,12 @@ export function ChallengesSection({ part = 'full' }: { part?: ChallengesPart } =
       aria-labelledby={CHALLENGES_HEADING_ID}
       className={`${SECTION_Y_TIGHT} relative overflow-hidden`}
     >
-      <div className="relative w-full px-4 sm:px-6 md:px-8 lg:px-12">
+      <Container width="default" className="relative">
         <div className="text-center max-w-2xl mx-auto mb-4 sm:mb-5 lg:mb-6">
           {part === 'full' && <div className="mb-2">{title}</div>}
           {/* gray-500 clears 4.5:1 on white but only hits ~4.1:1 on the grey
               ground — gray-600 keeps the subhead readable at ~6.5:1. */}
-          <p className="text-xs sm:text-sm md:text-base text-gray-600 leading-relaxed">
+          <p className="text-label md:text-copy text-gray-600 leading-relaxed">
             We understand the obstacles that hold businesses back — and we solve them.
           </p>
         </div>
@@ -122,16 +123,16 @@ export function ChallengesSection({ part = 'full' }: { part?: ChallengesPart } =
               className="bg-surface-white border border-border-light rounded-xl shadow-card-sm hover:shadow-card transition-shadow p-6 md:p-7"
             >
               <IconTile icon={challenge.icon} size="md" variant="brand" className="mb-5" />
-              <h3 className="text-lg md:text-xl font-semibold text-text-heading mb-2 leading-snug text-balance">
+              <h3 className="text-h3 font-semibold text-text-heading mb-2 leading-snug text-balance">
                 {challenge.title}
               </h3>
-              <p className="text-sm md:text-base text-text-body leading-relaxed">
+              <p className="text-copy text-text-body leading-relaxed">
                 {challenge.description}
               </p>
             </div>
           ))}
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

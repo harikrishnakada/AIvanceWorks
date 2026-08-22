@@ -139,6 +139,14 @@ const aiDevelopment: ServicePageData = {
       'For teams who know AI can help but not which kind. We start with your problem, choose the right approach — or tell you when you don’t need AI — then build and ship it to production.',
     primaryCta: { label: 'Book an AI Scoping Call', href: '/contact' },
     secondaryCta: { label: 'See how we choose', href: '#signature' },
+    heroImage: {
+      src: '/images/services/ai-development/cateogry-card_AIML.jpg',
+      alt: '',
+      // Mid-tone silver render. 'strong' crushed the chip's "AI" face to
+      // near-black and the whole board went muddy; 'soft' keeps the chip
+      // readable without glaring.
+      dim: 'soft',
+    },
   },
 
   // Audience test: a Head of Product / VP Operations scanning in 8 seconds, no AI background.

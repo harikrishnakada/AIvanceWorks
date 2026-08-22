@@ -113,6 +113,12 @@ const enterpriseSoftwareDevelopment: ServicePageData = {
       'Off-the-shelf platforms solve yesterday’s problems. We build the custom systems that solve yours — designed around your workflows, your data, and how you actually operate.',
     primaryCta: { label: 'Book a Build Consultation', href: '/contact' },
     secondaryCta: { label: 'See how we build', href: '#signature' },
+    heroImage: {
+      src: '/images/services/enterprise-ai-development/cateogry-card_EI.jpg',
+      alt: '',
+      // Dark night-office photography — the one source that needs no help.
+      dim: 'none',
+    },
   },
 
   // Audience test: a CTO/CEO scans in 8 seconds. Every metric is capability-

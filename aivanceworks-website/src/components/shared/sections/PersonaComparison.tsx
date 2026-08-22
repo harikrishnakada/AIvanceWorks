@@ -68,15 +68,15 @@ export const PersonaComparison = ({
       <Container>
         <div className="text-center mb-12 md:mb-14 max-w-3xl mx-auto">
           {eyebrow && (
-            <div className="text-xs md:text-sm font-semibold uppercase tracking-wider text-brand-600 mb-3">
+            <div className="text-label font-semibold uppercase tracking-wider text-brand-600 mb-3">
               {eyebrow}
             </div>
           )}
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-text-heading mb-4 leading-tight">
+          <h2 className="text-h2 font-bold tracking-tight text-text-heading mb-4 leading-tight">
             {titleContent}
           </h2>
           {subtitle && (
-            <p className="text-base md:text-lg text-text-body leading-relaxed">
+            <p className="text-lead text-text-body leading-relaxed">
               {subtitle}
             </p>
           )}
@@ -107,10 +107,10 @@ export const PersonaComparison = ({
                     />
                   </div>
                   <div className="min-w-0">
-                    <h3 className="text-lg md:text-xl font-bold text-text-heading leading-tight">
+                    <h3 className="text-h3 font-bold text-text-heading leading-tight">
                       {persona.title}
                     </h3>
-                    <p className="text-sm text-text-muted mt-0.5">
+                    <p className="text-copy-sm text-text-muted mt-0.5">
                       {persona.subtitle}
                     </p>
                   </div>
@@ -120,7 +120,7 @@ export const PersonaComparison = ({
                   {persona.features.map((feature, fidx) => (
                     <li
                       key={fidx}
-                      className="flex items-start gap-2.5 text-sm text-text-body"
+                      className="flex items-start gap-2.5 text-copy-sm text-text-body"
                     >
                       <CheckCircle2
                         className="h-4 w-4 text-brand-500 flex-shrink-0 mt-0.5"
@@ -136,7 +136,7 @@ export const PersonaComparison = ({
         </div>
 
         {footerNote && (
-          <p className="text-center text-sm text-text-muted italic">
+          <p className="text-center text-copy-sm text-text-muted italic">
             {footerNote}
           </p>
         )}

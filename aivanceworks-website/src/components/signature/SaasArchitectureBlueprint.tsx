@@ -152,7 +152,7 @@ export const SaasArchitectureBlueprint = ({
                       <div className="flex items-center gap-3 mb-1">
                         <span
                           className={cn(
-                            'inline-flex items-center justify-center w-7 h-7 rounded-md text-xs font-bold',
+                            'inline-flex items-center justify-center w-7 h-7 rounded-md text-label font-bold',
                             layer.accent
                               ? 'bg-accent-500/20 text-accent-400'
                               : 'bg-brand-500/20 text-brand-400',
@@ -160,11 +160,11 @@ export const SaasArchitectureBlueprint = ({
                         >
                           {idx + 1}
                         </span>
-                        <h3 className="text-base lg:text-lg font-semibold text-text-light">
+                        <h3 className="text-copy lg:text-lg font-semibold text-text-light">
                           {layer.title}
                         </h3>
                       </div>
-                      <p className="text-sm text-text-light/50 ml-10">
+                      <p className="text-copy-sm text-text-light/50 ml-10">
                         {layer.subtitle}
                       </p>
                     </div>
@@ -198,12 +198,12 @@ export const SaasArchitectureBlueprint = ({
                             )}
                           >
                             <p className={cn(
-                              'text-sm font-medium mb-1',
+                              'text-copy-sm font-medium mb-1',
                               layer.accent ? 'text-accent-400' : 'text-brand-300',
                             )}>
                               {comp.name}
                             </p>
-                            <p className="text-xs text-text-light/50 leading-relaxed">
+                            <p className="text-label text-text-light/50 leading-relaxed">
                               {comp.detail}
                             </p>
                           </div>
@@ -219,7 +219,7 @@ export const SaasArchitectureBlueprint = ({
           {/* Side annotations — desktop only */}
           <div className="hidden lg:block absolute -left-20 top-1/2 -translate-y-1/2">
             <p
-              className="text-[10px] font-semibold uppercase tracking-[0.15em] text-brand-300/40"
+              className="text-label font-semibold uppercase tracking-[0.15em] text-brand-300/40"
               style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
             >
               Multi-Tenant Isolation
@@ -227,7 +227,7 @@ export const SaasArchitectureBlueprint = ({
           </div>
           <div className="hidden lg:block absolute -right-16 top-1/2 -translate-y-1/2">
             <p
-              className="text-[10px] font-semibold uppercase tracking-[0.15em] text-accent-300/40"
+              className="text-label font-semibold uppercase tracking-[0.15em] text-accent-300/40"
               style={{ writingMode: 'vertical-rl' }}
             >
               Horizontal Scale
@@ -244,18 +244,18 @@ export const SaasArchitectureBlueprint = ({
       <Container>
         {/* Header */}
         <div className="text-center mb-10 lg:mb-14">
-          <p className="text-sm font-semibold uppercase tracking-wider text-brand-400 mb-3">
+          <p className="text-copy-sm font-semibold uppercase tracking-wider text-brand-400 mb-3">
             Platform Architecture
           </p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-light mb-4">
             Every layer, purpose-built for SaaS
           </h2>
-          <p className="text-text-light/70 max-w-2xl mx-auto text-base lg:text-lg">
+          <p className="text-text-light/70 max-w-2xl mx-auto text-copy lg:text-lg">
             Not a web app with billing bolted on. A platform architecture
             designed from the data layer up for multi-tenancy, subscription
             monetisation, and horizontal scale.
           </p>
-          <p className="text-text-light/40 text-sm mt-3">
+          <p className="text-text-light/40 text-copy-sm mt-3">
             Click any layer to explore its components
           </p>
         </div>

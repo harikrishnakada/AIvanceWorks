@@ -1,5 +1,6 @@
 // src/app/solutions/page.tsx
 import { Metadata } from 'next';
+import { Container } from '@/components/shared/primitives';
 import Link from 'next/link';
 import {
   TrendingUp, Shield, Heart, Pill, Building2, Activity,
@@ -116,7 +117,7 @@ export default function SolutionsPage() {
         data-section="solutions-hero"
         className="relative overflow-hidden"
       >
-        <div className="px-4 sm:px-6 md:px-8 lg:px-12 pt-4 sm:pt-5 md:pt-6 lg:pt-8 pb-2 sm:pb-3 md:pb-4 lg:pb-5">
+        <Container width="default" className="pt-4 sm:pt-5 md:pt-6 lg:pt-8 pb-2 sm:pb-3 md:pb-4 lg:pb-5">
           <div
             className="relative w-full overflow-hidden
               bg-gradient-to-br from-surface-dark-from via-surface-dark-via to-surface-dark-to
@@ -132,7 +133,7 @@ export default function SolutionsPage() {
 
             <div className="relative z-10 px-6 sm:px-8 md:px-10 lg:px-14 py-8 sm:py-10 md:py-14 lg:py-16">
               <div className="max-w-3xl">
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-500/[0.12] border border-brand-400/[0.15] text-brand-300 text-xs sm:text-sm font-semibold tracking-wide mb-4 md:mb-5">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-500/[0.12] border border-brand-400/[0.15] text-brand-300 text-label font-semibold tracking-wide mb-4 md:mb-5">
                   Industry Solutions
                 </div>
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-bold text-text-light mb-4 md:mb-5 leading-[1.15] tracking-tight">
@@ -141,7 +142,7 @@ export default function SolutionsPage() {
                     Your Industry
                   </span>
                 </h1>
-                <p className="text-base md:text-lg text-text-subtle leading-relaxed max-w-[60ch] mb-6">
+                <p className="text-lead text-text-subtle leading-relaxed max-w-[60ch] mb-6">
                   {SITE_CONFIG.name} designs and delivers custom software that solves real
                   problems in insurance, healthcare, and pharma — with deep domain
                   expertise, modern engineering, and compliance built in from day one.
@@ -164,7 +165,7 @@ export default function SolutionsPage() {
                   </Button>
                 </div>
                 {/* Jump-to strip */}
-                <p className="text-sm text-text-subtle pt-6 border-t border-text-light/[0.12]">
+                <p className="text-copy-sm text-text-subtle pt-6 border-t border-text-light/[0.12]">
                   Jump to:{' '}
                   {JUMP_TO.map((item, i) => (
                     <span key={item.id}>
@@ -183,7 +184,7 @@ export default function SolutionsPage() {
               </div>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* ── Sticky pillar nav ────────────────────────────────── */}
@@ -196,7 +197,7 @@ export default function SolutionsPage() {
         data-category="AI Industry Solutions"
         className="scroll-mt-32 py-12 bg-surface-white"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Container width="default">
           <div className="flex items-center gap-4 mb-10">
             <div className="w-12 h-12 rounded-xl bg-brand-50 flex items-center justify-center flex-shrink-0">
               <Sparkles className="h-6 w-6 text-brand-600" />
@@ -205,7 +206,7 @@ export default function SolutionsPage() {
               <h2 className="text-2xl sm:text-3xl font-bold text-text-heading">
                 {NAVIGATION.aiMlMenu.groups[0].title}
               </h2>
-              <p className="text-sm text-text-muted mt-0.5">
+              <p className="text-copy-sm text-text-muted mt-0.5">
                 {NAVIGATION.aiMlMenu.groups[0].description}
               </p>
             </div>
@@ -231,7 +232,7 @@ export default function SolutionsPage() {
               );
             })}
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* ── Industry pillars ─────────────────────────────────── */}
@@ -252,7 +253,7 @@ export default function SolutionsPage() {
             data-category={category.heading}
             className={`scroll-mt-32 py-12 ${bgClass}`}
           >
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <Container width="default">
               {/* Section header */}
               <div className="flex items-center gap-4 mb-10">
                 <div className="w-12 h-12 rounded-xl bg-brand-50 flex items-center justify-center flex-shrink-0">
@@ -262,7 +263,7 @@ export default function SolutionsPage() {
                   <h2 className="text-2xl sm:text-3xl font-bold text-text-heading">
                     {category.heading}
                   </h2>
-                  <p className="text-sm text-text-muted mt-0.5">
+                  <p className="text-copy-sm text-text-muted mt-0.5">
                     {category.description}
                   </p>
                 </div>
@@ -289,7 +290,7 @@ export default function SolutionsPage() {
                   );
                 })}
               </div>
-            </div>
+            </Container>
           </section>
         );
       })}
@@ -299,7 +300,7 @@ export default function SolutionsPage() {
         data-section="solutions-why-choose-us"
         className="py-12 bg-surface-white"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Container width="default">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-2xl sm:text-3xl font-bold text-text-heading mb-6">
@@ -359,7 +360,7 @@ export default function SolutionsPage() {
               </Button>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* ── CTA ──────────────────────────────────────────────── */}
@@ -367,12 +368,12 @@ export default function SolutionsPage() {
         data-section="solutions-cta"
         className="py-12 bg-surface-white"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Container width="default">
           <div className="rounded-3xl bg-gradient-to-br from-surface-dark-from via-surface-dark-via to-surface-dark-to text-text-light px-6 sm:px-10 lg:px-14 py-12 lg:py-16 shadow-card text-center">
           <h2 className="text-2xl sm:text-3xl font-bold mb-4">
             Don&apos;t See Your Industry?
           </h2>
-          <p className="text-base sm:text-lg text-text-muted mb-8 max-w-2xl mx-auto">
+          <p className="text-h4 text-text-muted mb-8 max-w-2xl mx-auto">
             We build custom software for any regulated or specialized vertical. Tell us
             about your requirements and we&apos;ll show you how our team can deliver.
           </p>
@@ -395,7 +396,7 @@ export default function SolutionsPage() {
             </Button>
           </div>
           </div>
-        </div>
+        </Container>
       </section>
     </>
   );

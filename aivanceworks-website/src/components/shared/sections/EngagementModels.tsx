@@ -56,15 +56,15 @@ export const EngagementModels = ({
       <Container>
         <div className="text-center mb-12 md:mb-14 max-w-3xl mx-auto">
           {eyebrow && (
-            <div className="text-xs md:text-sm font-semibold uppercase tracking-wider text-brand-600 mb-3">
+            <div className="text-label font-semibold uppercase tracking-wider text-brand-600 mb-3">
               {eyebrow}
             </div>
           )}
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-text-heading mb-4 tracking-tight">
+          <h2 className="text-h2 font-bold text-text-heading mb-4 tracking-tight">
             {title}
           </h2>
           {subtitle && (
-            <p className="text-base md:text-lg text-text-body leading-relaxed">
+            <p className="text-lead text-text-body leading-relaxed">
               {subtitle}
             </p>
           )}
@@ -94,23 +94,23 @@ export const EngagementModels = ({
                 )}
               >
                 {model.featured && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-brand-600 text-text-light text-[10px] md:text-xs font-semibold uppercase tracking-wider whitespace-nowrap">
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-brand-600 text-text-light text-[10px] md:text-label font-semibold uppercase tracking-wider whitespace-nowrap">
                     Most popular
                   </div>
                 )}
                 <h3 className="text-xl md:text-2xl font-bold text-text-heading mb-2">
                   {model.name}
                 </h3>
-                <div className="text-sm text-text-muted mb-4">{model.duration}</div>
+                <div className="text-copy-sm text-text-muted mb-4">{model.duration}</div>
                 {model.priceFrom && (
                   <div className="mb-4">
-                    <span className="text-sm text-text-muted">Starting at</span>
+                    <span className="text-copy-sm text-text-muted">Starting at</span>
                     <div className="text-3xl md:text-4xl font-extrabold text-text-heading">
                       {model.priceFrom}
                     </div>
                   </div>
                 )}
-                <div className="text-sm text-text-body mb-4 italic">
+                <div className="text-copy-sm text-text-body mb-4 italic">
                   Best for: {model.suitableFor}
                 </div>
                 <div className="flex-1 mb-6">

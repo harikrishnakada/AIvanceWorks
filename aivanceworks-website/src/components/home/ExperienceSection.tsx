@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { useState, useEffect, useCallback } from 'react';
 import { Zap, Clock, TrendingUp, Check } from 'lucide-react';
 import { useCarouselAutoplay } from '@/hooks/useCarouselAutoplay';
-import { AutoplayToggle } from '@/components/shared/primitives';
+import { AutoplayToggle, Container } from '@/components/shared/primitives';
 
 // Badge PNGs are trimmed to their content bounding box (originals kept alongside)
 // so all three fill their square box identically. The Associate badges (AI-104,
@@ -56,7 +56,7 @@ function Eyebrow({ children }: { children: React.ReactNode }) {
   return (
     <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full
       bg-brand-500/[0.12] border border-brand-400/[0.15]
-      text-brand-300 text-[10px] sm:text-[11px] font-semibold tracking-wide mb-2 sm:mb-3">
+      text-brand-300 text-label font-semibold tracking-wide mb-2 sm:mb-3">
       <span className="relative flex h-1.5 w-1.5">
         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75" />
         <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-brand-400" />
@@ -97,21 +97,26 @@ function CertificationsPanel() {
       {/* Header */}
       <div className="text-center mb-5 sm:mb-6">
         <Eyebrow>Microsoft Certified Professional</Eyebrow>
-        <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-black tracking-tight text-white mb-1.5">
+        <h2 className="text-h2 font-black tracking-tight text-white mb-1.5">
           Our{' '}
           <span className="bg-gradient-to-r from-brand-400 via-brand-300 to-accent-400 bg-clip-text text-transparent">
             Experience
           </span>
         </h2>
-        <p className="text-[11px] sm:text-xs md:text-sm text-white/75 leading-relaxed max-w-md mx-auto">
+        <p className="text-label md:text-copy-sm text-white/75 leading-relaxed max-w-md mx-auto">
           Industry-recognized Microsoft certifications backed by hands-on Azure cloud and AI engineering.
         </p>
       </div>
 
       {/* Badges */}
-      <div className="flex flex-row items-start justify-center gap-4 sm:gap-8 md:gap-10 lg:gap-6 xl:gap-10">
+      {/* Stacked at base, 3-across from sm. Three columns at 375px gives each
+          badge ~90px, and a single word like "Fundamentals" is ~110px at the
+          16px label floor — so no wrapping strategy fits, the text simply
+          clipped. Raising the floor for legibility and keeping 3-across are
+          mutually exclusive on a phone; legibility wins. */}
+      <div className="flex flex-col items-center gap-6 sm:flex-row sm:items-start sm:justify-center sm:gap-8 md:gap-10 lg:gap-6 xl:gap-10">
         {certifications.map((cert) => (
-          <div key={cert.code} className="group flex flex-col items-center gap-2 sm:gap-3 flex-1 min-w-0 max-w-[120px]">
+          <div key={cert.code} className="group flex flex-col items-center gap-2 w-full max-w-[16rem] sm:w-auto sm:flex-1 sm:min-w-0 sm:max-w-[140px] md:max-w-[150px] lg:max-w-[130px] xl:max-w-[150px] sm:gap-3">
             {/* Badge image */}
             <div className="relative
               w-[55px] h-[55px]
@@ -133,20 +138,24 @@ function CertificationsPanel() {
             </div>
 
             {/* Label — fixed-height title reserves 2 lines so pills align across columns */}
-            <div className="text-center flex flex-col items-center">
-              <p className="text-[9px] sm:text-[10px] text-brand-400/70 font-semibold uppercase tracking-widest
-                mb-0.5 leading-tight min-h-[2.2em] flex items-start justify-center text-center">
+            {/* w-full + min-w-0 everywhere: the column is capped (120-150px) and
+                these labels are wider than that at their natural size. Without an
+                explicit full width they size to content inside the centring flex
+                context and spill into the neighbouring column. */}
+            <div className="text-center flex flex-col items-center w-full min-w-0">
+              <p className="w-full min-w-0 text-label text-brand-400/70 font-semibold uppercase tracking-normal sm:tracking-widest
+                mb-0.5 leading-tight sm:min-h-[2.2em] flex items-start justify-center text-center">
                 Microsoft Certified
               </p>
-              <h3 className="text-xs sm:text-sm font-bold text-white leading-tight
-                min-h-[2.6em] flex items-center justify-center">
+              <h3 className="w-full min-w-0 text-balance break-words text-label sm:text-copy-sm font-bold text-white leading-tight
+                sm:min-h-[2.6em] flex items-center justify-center text-center">
                 {cert.title}
               </h3>
-              <span className="block w-full text-center whitespace-nowrap mt-1
-                text-[8px] sm:text-[10px] font-semibold
+              <span className="block w-full min-w-0 break-words text-center mt-1
+                text-label font-semibold
                 px-1.5 py-0.5 rounded-full
                 bg-brand-500/[0.15] border border-brand-400/[0.2] text-brand-300 tracking-wide">
-                {cert.level} · {cert.code}
+                {cert.level} · <span className="whitespace-nowrap">{cert.code}</span>
               </span>
             </div>
           </div>
@@ -163,13 +172,13 @@ function StatsPanel() {
       {/* Header */}
       <div className="text-center mb-5 sm:mb-6">
         <Eyebrow>Proven Results</Eyebrow>
-        <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-black tracking-tight text-white mb-1.5">
+        <h2 className="text-h2 font-black tracking-tight text-white mb-1.5">
           Measurable{' '}
           <span className="bg-gradient-to-r from-brand-400 via-brand-300 to-accent-400 bg-clip-text text-transparent">
             Impact
           </span>
         </h2>
-        <p className="text-[11px] sm:text-xs md:text-sm text-white/75 leading-relaxed max-w-md mx-auto">
+        <p className="text-label md:text-copy-sm text-white/75 leading-relaxed max-w-md mx-auto">
           Outcomes our engineering consistently delivers for enterprise teams building on Azure.
         </p>
       </div>
@@ -184,10 +193,10 @@ function StatsPanel() {
               text-center hover:bg-white/[0.08] hover:border-brand-400/20 transition-all duration-300"
           >
             <stat.icon className="h-2.5 w-2.5 sm:h-3 sm:w-3 lg:h-3.5 lg:w-3.5 text-brand-400 mb-0.5 mx-auto" />
-            <div className="text-xs sm:text-sm lg:text-base font-black text-white leading-none mb-0.5">
+            <div className="text-label sm:text-copy-sm lg:text-copy font-black text-white leading-none mb-0.5">
               {stat.value}
             </div>
-            <div className="text-[7px] sm:text-[8px] lg:text-[9px] text-white/40 font-medium leading-tight">
+            <div className="text-label text-white/40 font-medium leading-tight">
               {stat.label}
             </div>
           </div>
@@ -203,7 +212,7 @@ function StatsPanel() {
               bg-brand-500/[0.15] border border-brand-400/[0.25]">
               <Check className="h-2.5 w-2.5 sm:h-3 sm:w-3 text-brand-300" strokeWidth={3} />
             </span>
-            <span className="text-[11px] sm:text-xs md:text-sm text-white/70 leading-snug">
+            <span className="text-label md:text-copy-sm text-white/70 leading-snug">
               {item}
             </span>
           </li>
@@ -247,7 +256,7 @@ export function ExperienceSection() {
       className="relative overflow-hidden pt-4 sm:pt-5 md:pt-6 pb-1 sm:pb-1.5 md:pb-2"
     >
 
-      <div className="relative w-full px-1 sm:px-1.5 md:px-2 lg:px-2 xl:px-2">
+      <Container width="default" className="relative">
 
         {/* ── Desktop: two separate cards side by side ──────────────────── */}
         <div className="hidden lg:grid lg:grid-cols-2 lg:gap-3 xl:gap-4 lg:items-stretch">
@@ -317,11 +326,11 @@ export function ExperienceSection() {
         <div className="mt-4 sm:mt-5 lg:mt-6 text-center">
           {/* This note is outside the dark <Card>, so text-white/50 rendered
               white-on-white — invisible. gray-500 is 4.84:1 on white. */}
-          <p className="text-[11px] sm:text-xs text-gray-500 font-medium tracking-wide">
+          <p className="text-label text-gray-500 font-medium tracking-wide">
             Verified credentials issued by Microsoft · Building enterprise solutions on Azure
           </p>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

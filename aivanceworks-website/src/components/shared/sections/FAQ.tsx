@@ -24,18 +24,18 @@ export const FAQ = ({
   className,
 }: FAQProps) => (
   <Section data-section="faq" tone={tone} size="md" className={className}>
-    <Container width="narrow">
+    <Container width="default">
       <div className="text-center mb-10 md:mb-12">
         {eyebrow && (
-          <div className="text-xs md:text-sm font-semibold uppercase tracking-wider text-brand-600 mb-3">
+          <div className="text-label font-semibold uppercase tracking-wider text-brand-600 mb-3">
             {eyebrow}
           </div>
         )}
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-text-heading mb-4 tracking-tight">
+        <h2 className="text-h2 font-bold text-text-heading mb-4 tracking-tight">
           {title}
         </h2>
         {subtitle && (
-          <p className="text-base md:text-lg text-text-body leading-relaxed">
+          <p className="text-lead text-text-body leading-relaxed max-w-[70ch] mx-auto">
             {subtitle}
           </p>
         )}
@@ -48,7 +48,7 @@ export const FAQ = ({
             className="group bg-surface-white border border-border-light rounded-xl overflow-hidden"
           >
             <summary className="flex items-center justify-between cursor-pointer p-5 md:p-6 hover:bg-surface-warm transition-colors list-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2 rounded-xl">
-              <h3 className="text-base md:text-lg font-semibold text-text-heading pr-4">
+              <h3 className="text-lead font-semibold text-text-heading pr-4">
                 {faq.question}
               </h3>
               <ChevronDown
@@ -57,7 +57,7 @@ export const FAQ = ({
               />
             </summary>
             <div className="px-5 md:px-6 pb-5 md:pb-6">
-              <p className="text-sm md:text-base text-text-body leading-relaxed">
+              <p className="text-copy text-text-body leading-relaxed">
                 {faq.answer}
               </p>
             </div>

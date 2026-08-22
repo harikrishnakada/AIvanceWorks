@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { Container } from '@/components/shared/primitives';
 import Link from 'next/link';
 import {
   CheckCircle,
@@ -222,10 +223,10 @@ export default function AboutPage() {
         data-section="about-hero"
         className="py-8 lg:py-12 bg-surface-light"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Container width="default">
           <div className="rounded-3xl bg-gradient-to-br from-surface-dark-from via-surface-dark-via to-surface-dark-to text-text-light px-6 sm:px-10 lg:px-14 py-10 lg:py-14 shadow-card">
             <div className="max-w-3xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/15 text-brand-300 text-xs font-medium mb-5">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/15 text-brand-300 text-label font-medium mb-5">
                 About {SITE_CONFIG.name}
               </div>
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-5 leading-tight">
@@ -235,12 +236,12 @@ export default function AboutPage() {
                 </span>{' '}
                 for mid-market enterprises
               </h1>
-              <p className="text-base sm:text-lg text-text-muted mb-4 leading-relaxed">
+              <p className="text-h4 text-text-muted mb-4 leading-relaxed">
                 {SITE_CONFIG.name} helps mid-market enterprises (50–5,000 employees)
                 modernize through cloud-native development, applied AI, and
                 disciplined digital transformation.
               </p>
-              <p className="text-sm sm:text-base text-text-subtle mb-8 leading-relaxed">
+              <p className="text-copy text-text-subtle mb-8 leading-relaxed">
                 8+ years of enterprise experience · 100% Microsoft Azure-certified
                 engineers · documented 50% performance improvements · transparent
                 pricing at $135–225/hour.
@@ -260,7 +261,7 @@ export default function AboutPage() {
               </div>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* ── Stats strip ──────────────────────────────────────── */}
@@ -269,7 +270,7 @@ export default function AboutPage() {
         aria-label={`${SITE_CONFIG.name} key statistics`}
         className="py-10 bg-surface-white"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Container width="default">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {STATS.map((s) => (
               <div
@@ -279,11 +280,11 @@ export default function AboutPage() {
                 <div className="text-3xl sm:text-4xl font-bold text-brand-600 mb-1">
                   {s.value}
                 </div>
-                <div className="text-sm text-text-muted">{s.label}</div>
+                <div className="text-copy-sm text-text-muted">{s.label}</div>
               </div>
             ))}
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* ── At a glance ──────────────────────────────────────── */}
@@ -291,7 +292,7 @@ export default function AboutPage() {
         data-section="about-at-a-glance"
         className="py-12 bg-surface-light"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Container width="default">
           <div className="flex items-center gap-4 mb-10">
             <div className="w-12 h-12 rounded-xl bg-brand-50 flex items-center justify-center flex-shrink-0">
               <Compass className="h-6 w-6 text-brand-600" />
@@ -300,7 +301,7 @@ export default function AboutPage() {
               <h2 className="text-2xl sm:text-3xl font-bold text-text-heading">
                 {SITE_CONFIG.name} at a glance
               </h2>
-              <p className="text-sm text-text-muted mt-0.5">
+              <p className="text-copy-sm text-text-muted mt-0.5">
                 Boutique agility, enterprise-grade expertise — at a glance.
               </p>
             </div>
@@ -312,10 +313,10 @@ export default function AboutPage() {
                 key={fact.label}
                 className="flex justify-between gap-4 py-3 border-b border-border-light"
               >
-                <span className="text-sm font-medium text-text-muted">
+                <span className="text-copy-sm font-medium text-text-muted">
                   {fact.label}
                 </span>
-                <span className="text-sm text-text-heading text-right">
+                <span className="text-copy-sm text-text-heading text-right">
                   {fact.value}
                 </span>
               </div>
@@ -323,14 +324,14 @@ export default function AboutPage() {
           </div>
 
           <blockquote className="mt-10 rounded-2xl border-l-4 border-brand-500 bg-surface-white px-6 py-5 shadow-sm">
-            <p className="text-base sm:text-lg text-text-body italic">
+            <p className="text-h4 text-text-body italic">
               &ldquo;{SITE_CONFIG.name} combines boutique consultancy agility with
               enterprise-grade expertise — delivering documented 50% performance
               improvements at transparent pricing, positioned between Big 4 firms
               and inconsistent offshore providers.&rdquo;
             </p>
           </blockquote>
-        </div>
+        </Container>
       </section>
 
       {/* ── Mission & Vision ─────────────────────────────────── */}
@@ -338,7 +339,7 @@ export default function AboutPage() {
         data-section="about-mission-vision"
         className="py-12 bg-surface-white"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Container width="default">
           <div className="flex items-center gap-4 mb-10">
             <div className="w-12 h-12 rounded-xl bg-brand-50 flex items-center justify-center flex-shrink-0">
               <Target className="h-6 w-6 text-brand-600" />
@@ -347,7 +348,7 @@ export default function AboutPage() {
               <h2 className="text-2xl sm:text-3xl font-bold text-text-heading">
                 What drives us
               </h2>
-              <p className="text-sm text-text-muted mt-0.5">
+              <p className="text-copy-sm text-text-muted mt-0.5">
                 Mission and vision behind every engagement.
               </p>
             </div>
@@ -383,7 +384,7 @@ export default function AboutPage() {
               </p>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* ── Core values ──────────────────────────────────────── */}
@@ -391,7 +392,7 @@ export default function AboutPage() {
         data-section="about-core-values"
         className="py-12 bg-surface-light"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Container width="default">
           <div className="flex items-center gap-4 mb-10">
             <div className="w-12 h-12 rounded-xl bg-brand-50 flex items-center justify-center flex-shrink-0">
               <Sparkles className="h-6 w-6 text-brand-600" />
@@ -400,7 +401,7 @@ export default function AboutPage() {
               <h2 className="text-2xl sm:text-3xl font-bold text-text-heading">
                 What we stand for
               </h2>
-              <p className="text-sm text-text-muted mt-0.5">
+              <p className="text-copy-sm text-text-muted mt-0.5">
                 Six values that guide every engagement.
               </p>
             </div>
@@ -418,11 +419,11 @@ export default function AboutPage() {
                 <h3 className="text-lg font-semibold text-text-heading mb-2">
                   {title}
                 </h3>
-                <p className="text-sm text-text-body leading-relaxed">{body}</p>
+                <p className="text-copy-sm text-text-body leading-relaxed">{body}</p>
               </div>
             ))}
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* ── Why choose us ────────────────────────────────────── */}
@@ -430,7 +431,7 @@ export default function AboutPage() {
         data-section="about-why-choose-us"
         className="py-12 bg-surface-white"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Container width="default">
           <div className="flex items-center gap-4 mb-10">
             <div className="w-12 h-12 rounded-xl bg-brand-50 flex items-center justify-center flex-shrink-0">
               <Award className="h-6 w-6 text-brand-600" />
@@ -439,7 +440,7 @@ export default function AboutPage() {
               <h2 className="text-2xl sm:text-3xl font-bold text-text-heading">
                 Why choose {SITE_CONFIG.name}
               </h2>
-              <p className="text-sm text-text-muted mt-0.5">
+              <p className="text-copy-sm text-text-muted mt-0.5">
                 Boutique agility, enterprise-grade outcomes.
               </p>
             </div>
@@ -460,7 +461,7 @@ export default function AboutPage() {
                     {item.bullets.map((b) => (
                       <li
                         key={b}
-                        className="flex items-start gap-2 text-sm text-text-body"
+                        className="flex items-start gap-2 text-copy-sm text-text-body"
                       >
                         <CheckCircle className="w-4 h-4 text-accent-500 flex-shrink-0 mt-0.5" />
                         <span>{b}</span>
@@ -471,7 +472,7 @@ export default function AboutPage() {
               </div>
             ))}
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* ── Approach ─────────────────────────────────────────── */}
@@ -479,7 +480,7 @@ export default function AboutPage() {
         data-section="about-approach"
         className="py-12 bg-surface-light"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Container width="default">
           <div className="flex items-center gap-4 mb-10">
             <div className="w-12 h-12 rounded-xl bg-brand-50 flex items-center justify-center flex-shrink-0">
               <Compass className="h-6 w-6 text-brand-600" />
@@ -488,7 +489,7 @@ export default function AboutPage() {
               <h2 className="text-2xl sm:text-3xl font-bold text-text-heading">
                 How we work with you
               </h2>
-              <p className="text-sm text-text-muted mt-0.5">
+              <p className="text-copy-sm text-text-muted mt-0.5">
                 A proven six-step delivery methodology.
               </p>
             </div>
@@ -504,23 +505,23 @@ export default function AboutPage() {
                   <div className="w-10 h-10 rounded-lg bg-brand-100 flex items-center justify-center">
                     <Icon className="w-5 h-5 text-brand-600" />
                   </div>
-                  <span className="text-xs font-semibold tracking-widest text-brand-600">
+                  <span className="text-label font-semibold tracking-widest text-brand-600">
                     STEP {n}
                   </span>
                 </div>
                 <h3 className="text-lg font-semibold text-text-heading mb-2">
                   {title}
                 </h3>
-                <p className="text-sm text-text-body leading-relaxed">{body}</p>
+                <p className="text-copy-sm text-text-body leading-relaxed">{body}</p>
               </div>
             ))}
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* ── FAQ ──────────────────────────────────────────────── */}
       <section data-section="about-faq" className="py-12 bg-surface-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Container width="default">
           <div className="text-center mb-10">
             <h2 className="text-2xl sm:text-3xl font-bold text-text-heading mb-3">
               Frequently asked questions
@@ -537,7 +538,7 @@ export default function AboutPage() {
                 className="group rounded-2xl border border-border-light bg-surface-white p-5 sm:p-6 shadow-sm open:shadow-card transition-shadow"
               >
                 <summary className="flex cursor-pointer items-start justify-between gap-4 list-none">
-                  <h3 className="text-base sm:text-lg font-semibold text-text-heading">
+                  <h3 className="text-h4 font-semibold text-text-heading">
                     {faq.question}
                   </h3>
                   <span
@@ -547,23 +548,23 @@ export default function AboutPage() {
                     +
                   </span>
                 </summary>
-                <p className="mt-3 text-sm sm:text-base text-text-body leading-relaxed">
+                <p className="mt-3 text-copy text-text-body leading-relaxed">
                   {faq.answer}
                 </p>
               </details>
             ))}
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* ── CTA ──────────────────────────────────────────────── */}
       <section data-section="about-cta" className="py-12 bg-surface-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Container width="default">
           <div className="rounded-3xl bg-gradient-to-br from-surface-dark-from via-surface-dark-via to-surface-dark-to text-text-light px-6 sm:px-10 lg:px-14 py-12 lg:py-16 shadow-card text-center">
             <h2 className="text-2xl sm:text-3xl font-bold mb-4">
               Ready to transform your enterprise technology?
             </h2>
-            <p className="text-base sm:text-lg text-text-muted mb-8 max-w-2xl mx-auto">
+            <p className="text-h4 text-text-muted mb-8 max-w-2xl mx-auto">
               Join the enterprises achieving documented 50% performance gains with
               AI-augmented development. Schedule a free 30-minute discovery call to
               discuss your challenges and explore the path forward.
@@ -606,13 +607,13 @@ export default function AboutPage() {
                   <CheckCircle className="w-5 h-5 text-brand-300 flex-shrink-0 mt-0.5" />
                   <div>
                     <div className="font-semibold mb-1">{item.title}</div>
-                    <div className="text-sm text-text-muted">{item.body}</div>
+                    <div className="text-copy-sm text-text-muted">{item.body}</div>
                   </div>
                 </div>
               ))}
             </div>
           </div>
-        </div>
+        </Container>
       </section>
     </>
   );

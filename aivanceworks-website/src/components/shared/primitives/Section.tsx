@@ -1,13 +1,19 @@
 import { cn } from '@/lib/utils';
+import { SECTION_PADDING } from '@/lib/section-spacing';
 import { HTMLAttributes, ReactNode } from 'react';
 
 export type SectionTone = 'dark' | 'light' | 'warm' | 'accent';
-export type SectionSize = 'sm' | 'md' | 'lg';
+export type SectionSize = 'flush' | 'sm' | 'md' | 'lg';
 
 export interface SectionProps extends HTMLAttributes<HTMLElement> {
   tone: SectionTone;
   size?: SectionSize;
   withGrid?: boolean;
+  /* Declares that this section's background or media intentionally spans the
+     viewport. Inner content must still pass through a Container. A bleed must be
+     DECLARED here — never achieved by omitting a max-width, which is exactly what
+     produced the eight-edge zigzag this scale exists to fix. */
+  bleed?: boolean;
   children: ReactNode;
 }
 
@@ -18,16 +24,16 @@ const TONE_CLASSES: Record<SectionTone, string> = {
   accent: 'bg-gradient-to-r from-brand-600 to-accent-500 text-text-light',
 };
 
-const SIZE_CLASSES: Record<SectionSize, string> = {
-  sm: 'py-6 md:py-8 lg:py-10',
-  md: 'py-8 md:py-10 lg:py-12',
-  lg: 'py-10 md:py-14 lg:py-16',
-};
+/* The padding scale lives in @/lib/section-spacing so that sections using this
+   primitive and the ~19 sections still applying SECTION_Y directly land on the
+   same rhythm. See that file for why the low end is deliberately restrained. */
+const SIZE_CLASSES: Record<SectionSize, string> = SECTION_PADDING;
 
 export const Section = ({
   tone,
   size = 'md',
   withGrid = false,
+  bleed = false,
   className,
   children,
   ...rest
@@ -36,6 +42,7 @@ export const Section = ({
 
   return (
     <section
+      data-bleed={bleed ? 'true' : undefined}
       className={cn(
         'relative overflow-hidden',
         TONE_CLASSES[tone],

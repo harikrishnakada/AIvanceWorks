@@ -34,13 +34,13 @@ export async function FeaturedArticlesSection() {
             lands on the cards rather than a centred stack of text. */}
         <div className="mb-5 flex flex-col gap-3 sm:mb-6 sm:flex-row sm:items-end sm:justify-between sm:gap-6 lg:mb-7">
           <div className="max-w-2xl">
-            <h2 className="mb-1 text-lg font-black text-gray-900 text-balance sm:mb-2 sm:text-xl md:text-2xl lg:text-3xl">
+            <h2 className="mb-1 text-h2 font-black text-gray-900 text-balance sm:mb-2">
               <span className="bg-gradient-to-r from-brand-500 via-brand-600 to-accent-500 bg-clip-text text-transparent">
                 What We&apos;re{' '}
               </span>
               Writing About
             </h2>
-            <p className="text-xs leading-relaxed text-gray-600 sm:text-sm md:text-base">
+            <p className="text-label leading-relaxed text-gray-600 sm:text-copy-sm md:text-copy">
               Field notes from the work — architecture decisions, delivery lessons, and the
               engineering behind what we ship.
             </p>
@@ -48,7 +48,7 @@ export async function FeaturedArticlesSection() {
 
           <Link
             href="/blog"
-            className="group inline-flex shrink-0 items-center gap-1.5 self-start rounded-lg text-sm font-semibold text-brand-700 transition-colors hover:text-brand-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 sm:self-auto"
+            className="group inline-flex shrink-0 items-center gap-1.5 self-start rounded-lg text-copy-sm font-semibold text-brand-700 transition-colors hover:text-brand-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 sm:self-auto py-1"
           >
             All articles
             <ArrowRight

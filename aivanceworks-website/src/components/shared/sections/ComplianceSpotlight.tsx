@@ -78,16 +78,16 @@ export const ComplianceSpotlight = ({
           <div className="relative">
             <div className="text-center mb-10 md:mb-12 max-w-3xl mx-auto">
               {eyebrow && (
-                <div className="inline-block text-xs md:text-sm font-semibold uppercase tracking-wider text-brand-400 mb-3">
+                <div className="inline-block text-label font-semibold uppercase tracking-wider text-brand-400 mb-3">
                   {eyebrow}
                 </div>
               )}
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-text-light mb-5 leading-tight">
+              <h2 className="text-h2 font-bold tracking-tight text-text-light mb-5 leading-tight">
                 {titleContent}
               </h2>
 
               {/* Animated status badge */}
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-500/20 border border-brand-400/30 text-brand-300 text-sm font-semibold tracking-wide">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-500/20 border border-brand-400/30 text-brand-300 text-copy-sm font-semibold tracking-wide">
                 <span className="relative flex h-2 w-2" aria-hidden="true">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-400" />
@@ -116,10 +116,10 @@ export const ComplianceSpotlight = ({
                       variant="glass"
                       className="mb-4"
                     />
-                    <h3 className="text-base md:text-lg font-bold text-text-light mb-2 leading-tight">
+                    <h3 className="text-lead font-bold text-text-light mb-2 leading-tight">
                       {pillar.title}
                     </h3>
-                    <p className="text-sm text-text-subtle leading-relaxed">
+                    <p className="text-copy-sm text-text-subtle leading-relaxed">
                       {pillar.description}
                     </p>
                   </div>
@@ -133,7 +133,7 @@ export const ComplianceSpotlight = ({
                 {badges.map((badge, idx) => (
                   <span
                     key={idx}
-                    className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold tracking-wide bg-brand-500/20 border border-brand-400/30 text-brand-300"
+                    className="inline-flex items-center px-3 py-1 rounded-full text-label font-semibold tracking-wide bg-brand-500/20 border border-brand-400/30 text-brand-300"
                   >
                     {badge}
                   </span>

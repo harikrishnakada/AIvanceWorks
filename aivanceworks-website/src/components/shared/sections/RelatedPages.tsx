@@ -32,15 +32,15 @@ export const RelatedPages = ({
     <Container>
       <div className="text-center mb-10 md:mb-12 max-w-3xl mx-auto">
         {eyebrow && (
-          <div className="text-xs md:text-sm font-semibold uppercase tracking-wider text-brand-600 mb-3">
+          <div className="text-label font-semibold uppercase tracking-wider text-brand-600 mb-3">
             {eyebrow}
           </div>
         )}
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-text-heading mb-4 tracking-tight">
+        <h2 className="text-h2 font-bold text-text-heading mb-4 tracking-tight">
           {title}
         </h2>
         {subtitle && (
-          <p className="text-base md:text-lg text-text-body leading-relaxed">
+          <p className="text-lead text-text-body leading-relaxed">
             {subtitle}
           </p>
         )}
@@ -65,10 +65,10 @@ export const RelatedPages = ({
                     {page.pageType}
                   </span>
                 </div>
-                <h3 className="text-lg md:text-xl font-semibold text-text-heading mb-2 group-hover:text-brand-600 transition-colors">
+                <h3 className="text-h3 font-semibold text-text-heading mb-2 group-hover:text-brand-600 transition-colors">
                   {page.title}
                 </h3>
-                <p className="text-sm md:text-base text-text-body leading-relaxed mb-4">
+                <p className="text-copy text-text-body leading-relaxed mb-4">
                   {page.description}
                 </p>
                 <div className="flex items-center text-brand-600 font-medium text-sm">

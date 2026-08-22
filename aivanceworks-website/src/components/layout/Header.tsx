@@ -5,6 +5,7 @@ import { useState, useEffect, useRef } from 'react';
 import { NAVIGATION } from '@/lib/navigation';
 import { Button } from '@/components/ui/button';
 import { Logo } from '@/components/brand/Logo';
+import { Container } from '@/components/shared/primitives';
 import {
   Menu, X, ChevronDown, ArrowRight,
   Code2, Server, Brain,
@@ -133,12 +134,23 @@ export function Header() {
             : 'bg-white border-b border-gray-100'
           }`}
       >
-        {/* Full-bleed, not `max-w-7xl mx-auto`: the centred container held the logo
-            104px in from the viewport edge at 1440 and centred the nav on the
-            container rather than the screen. The row now spans the full width and
-            only the gutter padding insets it, so the logo sits hard left, the CTA
-            hard right, and the nav track lands on the true viewport centre. */}
-        <nav className="px-4 sm:px-6 lg:px-8" aria-label="Main navigation">
+        {/* On the shared page Container, so the logo lines up with the content
+            below it rather than sitting on its own edge.
+
+            This REVERSES an earlier deliberate choice to run the row full-bleed.
+            That decision was made when Container capped at max-w-7xl (1280px),
+            where centring held the logo 104px in from the edge and read as too
+            inset. The container is now much wider — 1680px at 1920 and 2048px at
+            2560 — so full-bleed had the opposite problem: at 2560 the logo sat at
+            32px while every section's content started at 304px, and the header
+            read as belonging to a different page than the body.
+
+            The other original objection — that centring put the nav on the
+            container's centre rather than the screen's — does not apply: the
+            Container is `mx-auto`, so its centre IS the viewport centre, and the
+            three-track flex below centres the nav within it either way. */}
+        <nav aria-label="Main navigation">
+          <Container width="default">
           {/* Three-track row. From lg the outer tracks are `flex-1` (basis 0), so the
               free space splits evenly and the nav lands on the true horizontal centre
               instead of wherever `justify-between` happened to drop it.
@@ -170,7 +182,7 @@ export function Header() {
               >
                 <button
                   onClick={() => toggleDropdown('ai-ml')}
-                  className="flex items-center px-4 xl:px-5 py-2 text-base xl:text-lg font-medium text-gray-900 hover:text-black transition-colors rounded-lg hover:bg-gray-100"
+                  className="flex items-center px-4 xl:px-5 py-2 text-copy xl:text-lg font-medium text-gray-900 hover:text-black transition-colors rounded-lg hover:bg-gray-100"
                   aria-expanded={activeDropdown === 'ai-ml'}
                   aria-haspopup="true"
                 >
@@ -191,7 +203,7 @@ export function Header() {
               >
                 <button
                   onClick={() => toggleDropdown('services')}
-                  className="flex items-center px-4 xl:px-5 py-2 text-base xl:text-lg font-medium text-gray-900 hover:text-black transition-colors rounded-lg hover:bg-gray-100"
+                  className="flex items-center px-4 xl:px-5 py-2 text-copy xl:text-lg font-medium text-gray-900 hover:text-black transition-colors rounded-lg hover:bg-gray-100"
                   aria-expanded={activeDropdown === 'services'}
                   aria-haspopup="true"
                 >
@@ -206,7 +218,7 @@ export function Header() {
                {/* <Link
                   key="industries"
                   href="industries"
-                  className="px-4 xl:px-5 py-2 text-base xl:text-lg font-medium text-gray-900 hover:text-black transition-colors rounded-lg hover:bg-gray-100"
+                  className="px-4 xl:px-5 py-2 text-copy xl:text-lg font-medium text-gray-900 hover:text-black transition-colors rounded-lg hover:bg-gray-100"
                 >
                   Industries
                 </Link> */}
@@ -220,7 +232,7 @@ export function Header() {
               >
                 <button
                   onClick={() => toggleDropdown('solutions')}
-                  className="flex items-center px-4 xl:px-5 py-2 text-base xl:text-lg font-medium text-gray-900 hover:text-black transition-colors rounded-lg hover:bg-gray-100"
+                  className="flex items-center px-4 xl:px-5 py-2 text-copy xl:text-lg font-medium text-gray-900 hover:text-black transition-colors rounded-lg hover:bg-gray-100"
                   aria-expanded={activeDropdown === 'solutions'}
                   aria-haspopup="true"
                 >
@@ -238,7 +250,7 @@ export function Header() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="px-4 xl:px-5 py-2 text-base xl:text-lg font-medium text-gray-900 hover:text-black transition-colors rounded-lg hover:bg-gray-100"
+                  className="px-4 xl:px-5 py-2 text-copy xl:text-lg font-medium text-gray-900 hover:text-black transition-colors rounded-lg hover:bg-gray-100"
                 >
                   {item.label}
                 </Link>
@@ -256,7 +268,7 @@ export function Header() {
               >
                 <button
                   onClick={() => toggleDropdown('ai-ml')}
-                  className="flex items-center px-3 py-2 text-sm font-medium text-gray-900 hover:text-black transition-colors rounded-md hover:bg-gray-100"
+                  className="flex items-center px-3 py-2 text-copy-sm font-medium text-gray-900 hover:text-black transition-colors rounded-md hover:bg-gray-100"
                   aria-expanded={activeDropdown === 'ai-ml'}
                   aria-haspopup="true"
                 >
@@ -278,7 +290,7 @@ export function Header() {
               >
                 <button
                   onClick={() => toggleDropdown('advisory')}
-                  className="flex items-center px-3 py-2 text-sm font-medium text-gray-900 hover:text-black transition-colors rounded-md hover:bg-gray-100"
+                  className="flex items-center px-3 py-2 text-copy-sm font-medium text-gray-900 hover:text-black transition-colors rounded-md hover:bg-gray-100"
                   aria-expanded={activeDropdown === 'advisory'}
                   aria-haspopup="true"
                 >
@@ -300,7 +312,7 @@ export function Header() {
               >
                 <button
                   onClick={() => toggleDropdown('services')}
-                  className="flex items-center px-3 py-2 text-sm font-medium text-gray-900 hover:text-black transition-colors rounded-md hover:bg-gray-100"
+                  className="flex items-center px-3 py-2 text-copy-sm font-medium text-gray-900 hover:text-black transition-colors rounded-md hover:bg-gray-100"
                   aria-expanded={activeDropdown === 'services'}
                   aria-haspopup="true"
                 >
@@ -322,7 +334,7 @@ export function Header() {
               >
                 <button
                   onClick={() => toggleDropdown('industries')}
-                  className="flex items-center px-3 py-2 text-sm font-medium text-gray-900 hover:text-black transition-colors rounded-md hover:bg-gray-100"
+                  className="flex items-center px-3 py-2 text-copy-sm font-medium text-gray-900 hover:text-black transition-colors rounded-md hover:bg-gray-100"
                   aria-expanded={activeDropdown === 'industries'}
                   aria-haspopup="true"
                 >
@@ -343,7 +355,7 @@ export function Header() {
               >
                 <button
                   onClick={() => toggleDropdown('solutions')}
-                  className="flex items-center px-3 py-2 text-sm font-medium text-gray-900 hover:text-black transition-colors rounded-md hover:bg-gray-100"
+                  className="flex items-center px-3 py-2 text-copy-sm font-medium text-gray-900 hover:text-black transition-colors rounded-md hover:bg-gray-100"
                   aria-expanded={activeDropdown === 'solutions'}
                   aria-haspopup="true"
                 >
@@ -361,7 +373,7 @@ export function Header() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="px-3 py-2 text-sm font-medium text-gray-900 hover:text-black transition-colors rounded-md hover:bg-gray-100"
+                  className="px-3 py-2 text-copy-sm font-medium text-gray-900 hover:text-black transition-colors rounded-md hover:bg-gray-100"
                 >
                   {item.label}
                 </Link>
@@ -377,7 +389,7 @@ export function Header() {
                 <Button
                   size="sm"
                   asChild
-                  className="bg-brand-600 text-white hover:bg-brand-700 text-sm lg:text-base h-9 lg:h-10 px-4 lg:px-5 font-semibold shadow-sm"
+                  className="bg-brand-600 text-white hover:bg-brand-700 text-copy-sm lg:text-copy h-9 lg:h-10 px-4 lg:px-5 font-semibold shadow-sm"
                 >
                   <Link href="/contact">Contact Us</Link>
                 </Button>
@@ -389,7 +401,9 @@ export function Header() {
                   setHasOpenedMobileMenu(true);
                   setIsMobileMenuOpen(!isMobileMenuOpen);
                 }}
-                className="md:hidden p-2 rounded-lg text-brand-700 hover:bg-brand-50 transition-colors shrink-0"
+                /* min-h/w-11: p-2 around a 24px icon gave a 40x40 target, under the
+                   44px finger minimum. The icon is unchanged. */
+                className="md:hidden flex min-h-11 min-w-11 items-center justify-center rounded-lg text-brand-700 hover:bg-brand-50 transition-colors shrink-0"
                 aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
                 aria-expanded={isMobileMenuOpen}
               >
@@ -401,6 +415,7 @@ export function Header() {
               </button>
             </div>
           </div>
+          </Container>
         </nav>
       </header>
 
@@ -449,10 +464,10 @@ export function Header() {
                             <CategoryIcon className="h-4 w-4 text-brand-600" />
                           </div>
                           <div>
-                            <h3 className="text-sm md:text-base font-bold text-gray-900">
+                            <h3 className="text-copy-sm md:text-copy font-bold text-gray-900">
                               {group.title}
                             </h3>
-                            <p className="text-[10px] md:text-xs text-gray-400">
+                            <p className="text-[10px] md:text-label text-gray-400">
                               {group.description}
                             </p>
                           </div>
@@ -470,7 +485,7 @@ export function Header() {
                                 <Link
                                   href={link.href}
                                   onClick={closeDropdown}
-                                  className="group/link flex items-center gap-2 py-1.5 md:py-[7px] px-2 md:px-2.5 -mx-1 rounded-lg text-xs md:text-sm text-gray-600 hover:text-brand-700 hover:bg-brand-50/70 transition-all duration-150"
+                                  className="group/link flex items-center gap-2 py-1.5 md:py-[7px] px-2 md:px-2.5 -mx-1 rounded-lg text-label md:text-copy-sm text-gray-600 hover:text-brand-700 hover:bg-brand-50/70 transition-all duration-150"
                                 >
                                   <LinkIcon className="h-3 w-3 md:h-3.5 md:w-3.5 text-gray-400 group-hover/link:text-brand-500 transition-colors flex-shrink-0" />
                                   <span className="flex-1 leading-snug">{link.label}</span>
@@ -487,13 +502,13 @@ export function Header() {
 
                 {/* Bottom CTA bar */}
                 <div className="bg-gray-50/80 border-t border-gray-100 px-4 md:px-6 py-3 flex items-center justify-between">
-                  <p className="text-[11px] md:text-xs text-gray-500">
+                  <p className="text-[11px] md:text-label text-gray-500">
                     Explore AI capabilities
                   </p>
                   <Link
                     href="/book-consultation"
                     onClick={closeDropdown}
-                    className="inline-flex items-center gap-1.5 text-[11px] md:text-xs font-semibold text-brand-600 hover:text-brand-700 transition-colors"
+                    className="inline-flex items-center gap-1.5 text-[11px] md:text-label font-semibold text-brand-600 hover:text-brand-700 transition-colors"
                   >
                     Book a free consultation
                     <ArrowRight className="h-3 w-3" />
@@ -545,10 +560,10 @@ export function Header() {
                             <CategoryIcon className="h-4 w-4 text-brand-600" />
                           </div>
                           <div>
-                            <h3 className="text-sm md:text-base font-bold text-gray-900">
+                            <h3 className="text-copy-sm md:text-copy font-bold text-gray-900">
                               {column.title}
                             </h3>
-                            <p className="text-[10px] md:text-xs text-gray-400">
+                            <p className="text-[10px] md:text-label text-gray-400">
                               {column.description}
                             </p>
                           </div>
@@ -566,7 +581,7 @@ export function Header() {
                                 <Link
                                   href={link.href}
                                   onClick={closeDropdown}
-                                  className="group/link flex items-center gap-2 py-1.5 md:py-[7px] px-2 md:px-2.5 -mx-1 rounded-lg text-xs md:text-sm text-gray-600 hover:text-brand-700 hover:bg-brand-50/70 transition-all duration-150"
+                                  className="group/link flex items-center gap-2 py-1.5 md:py-[7px] px-2 md:px-2.5 -mx-1 rounded-lg text-label md:text-copy-sm text-gray-600 hover:text-brand-700 hover:bg-brand-50/70 transition-all duration-150"
                                 >
                                   <LinkIcon className="h-3 w-3 md:h-3.5 md:w-3.5 text-gray-400 group-hover/link:text-brand-500 transition-colors flex-shrink-0" />
                                   <span className="flex-1 leading-snug">{link.label}</span>
@@ -584,13 +599,13 @@ export function Header() {
 
                 {/* Bottom CTA bar — stays pinned below the scroll area, not scrolled away with it */}
                 <div className="shrink-0 bg-gray-50/80 border-t border-gray-100 px-4 md:px-6 py-3 flex items-center justify-between">
-                  <p className="text-[11px] md:text-xs text-gray-500">
+                  <p className="text-[11px] md:text-label text-gray-500">
                     Not sure where to start?
                   </p>
                   <Link
                     href="/book-consultation"
                     onClick={closeDropdown}
-                    className="inline-flex items-center gap-1.5 text-[11px] md:text-xs font-semibold text-brand-600 hover:text-brand-700 transition-colors"
+                    className="inline-flex items-center gap-1.5 text-[11px] md:text-label font-semibold text-brand-600 hover:text-brand-700 transition-colors"
                   >
                     Book a free consultation
                     <ArrowRight className="h-3 w-3" />
@@ -634,10 +649,10 @@ export function Header() {
                             <CategoryIcon className="h-4 w-4 text-brand-600" />
                           </div>
                           <div>
-                            <h3 className="text-sm md:text-base font-bold text-gray-900">
+                            <h3 className="text-copy-sm md:text-copy font-bold text-gray-900">
                               {group.title}
                             </h3>
-                            <p className="text-[10px] md:text-xs text-gray-400">
+                            <p className="text-[10px] md:text-label text-gray-400">
                               {group.description}
                             </p>
                           </div>
@@ -657,7 +672,7 @@ export function Header() {
                                 <Link
                                   href={link.href}
                                   onClick={closeDropdown}
-                                  className="group/link flex items-center gap-2 py-1.5 md:py-[7px] px-2 md:px-2.5 -mx-1 rounded-lg text-xs md:text-sm text-gray-600 hover:text-brand-700 hover:bg-brand-50/70 transition-all duration-150"
+                                  className="group/link flex items-center gap-2 py-1.5 md:py-[7px] px-2 md:px-2.5 -mx-1 rounded-lg text-label md:text-copy-sm text-gray-600 hover:text-brand-700 hover:bg-brand-50/70 transition-all duration-150"
                                 >
                                   <LinkIcon className="h-3 w-3 md:h-3.5 md:w-3.5 text-gray-400 group-hover/link:text-brand-500 transition-colors flex-shrink-0" />
                                   <span className="flex-1 leading-snug">{link.label}</span>
@@ -672,7 +687,7 @@ export function Header() {
                             <Link
                               href="/industry"
                               onClick={closeDropdown}
-                              className="group/all flex items-center gap-2 py-1.5 md:py-[7px] px-2 md:px-2.5 -mx-1 rounded-lg text-xs md:text-sm font-semibold text-brand-600 hover:text-brand-700 hover:bg-brand-50/70 transition-all duration-150"
+                              className="group/all flex items-center gap-2 py-1.5 md:py-[7px] px-2 md:px-2.5 -mx-1 rounded-lg text-label md:text-copy-sm font-semibold text-brand-600 hover:text-brand-700 hover:bg-brand-50/70 transition-all duration-150"
                             >
                               <LayoutGrid className="h-3 w-3 md:h-3.5 md:w-3.5 text-brand-500 flex-shrink-0" />
                               <span className="flex-1 leading-snug">See all Industries</span>
@@ -687,13 +702,13 @@ export function Header() {
 
                 {/* Bottom CTA bar */}
                 <div className="bg-gray-50/80 border-t border-gray-100 px-4 md:px-6 py-3 flex items-center justify-between">
-                  <p className="text-[11px] md:text-xs text-gray-500">
+                  <p className="text-[11px] md:text-label text-gray-500">
                     Don&apos;t see your industry?
                   </p>
                   <Link
                     href="/book-consultation"
                     onClick={closeDropdown}
-                    className="inline-flex items-center gap-1.5 text-[11px] md:text-xs font-semibold text-brand-600 hover:text-brand-700 transition-colors"
+                    className="inline-flex items-center gap-1.5 text-[11px] md:text-label font-semibold text-brand-600 hover:text-brand-700 transition-colors"
                   >
                     Book a free consultation
                     <ArrowRight className="h-3 w-3" />
@@ -736,10 +751,10 @@ export function Header() {
                             <GroupIcon className="h-4 w-4 text-brand-600" />
                           </div>
                           <div>
-                            <h3 className="text-sm md:text-base font-bold text-gray-900">
+                            <h3 className="text-copy-sm md:text-copy font-bold text-gray-900">
                               {group.heading}
                             </h3>
-                            <p className="text-[10px] md:text-xs text-gray-400">
+                            <p className="text-[10px] md:text-label text-gray-400">
                               {group.description}
                             </p>
                           </div>
@@ -757,7 +772,7 @@ export function Header() {
                                 <Link
                                   href={link.href}
                                   onClick={closeDropdown}
-                                  className="group/link flex items-center gap-2 py-1.5 md:py-[7px] px-2 md:px-2.5 -mx-1 rounded-lg text-xs md:text-sm text-gray-600 hover:text-brand-700 hover:bg-brand-50/70 transition-all duration-150"
+                                  className="group/link flex items-center gap-2 py-1.5 md:py-[7px] px-2 md:px-2.5 -mx-1 rounded-lg text-label md:text-copy-sm text-gray-600 hover:text-brand-700 hover:bg-brand-50/70 transition-all duration-150"
                                 >
                                   <LinkIcon className="h-3 w-3 md:h-3.5 md:w-3.5 text-gray-400 group-hover/link:text-brand-500 transition-colors flex-shrink-0" />
                                   <span className="flex-1 leading-snug">{link.label}</span>
@@ -774,13 +789,13 @@ export function Header() {
 
                 {/* Bottom CTA bar */}
                 <div className="bg-gray-50/80 border-t border-gray-100 px-4 md:px-6 py-3 flex items-center justify-between">
-                  <p className="text-[11px] md:text-xs text-gray-500">
+                  <p className="text-[11px] md:text-label text-gray-500">
                     Need a custom solution?
                   </p>
                   <Link
                     href="/book-consultation"
                     onClick={closeDropdown}
-                    className="inline-flex items-center gap-1.5 text-[11px] md:text-xs font-semibold text-brand-600 hover:text-brand-700 transition-colors"
+                    className="inline-flex items-center gap-1.5 text-[11px] md:text-label font-semibold text-brand-600 hover:text-brand-700 transition-colors"
                   >
                     Book a free consultation
                     <ArrowRight className="h-3 w-3" />

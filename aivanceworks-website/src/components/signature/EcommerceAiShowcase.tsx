@@ -74,7 +74,7 @@ const TILES: ReadonlyArray<Tile> = [
       'Every visitor sees a storefront adapted to their preferences — hero banners, category ordering, search results, and email campaigns driven by a unified customer profile shared across channels.',
     variant: 'C',
     spanClass: '',
-  },
+  }
 ];
 
 const VARIANT_CLASSES: Record<TileVariant, {

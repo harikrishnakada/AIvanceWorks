@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { Container } from '@/components/shared/primitives';
 import Link from 'next/link';
 import {
   CheckCircle2,
@@ -273,7 +274,7 @@ export default function TeamPage() {
 
       {/* Hero Section - AEO optimized with direct answer in first 40-60 words */}
       <section data-section="team-hero" className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white py-8 lg:py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Container width="default">
           <div className="max-w-4xl">
             <div className="flex items-center gap-3 mb-4">
               <Users className="h-8 w-8 text-blue-400" />
@@ -296,21 +297,21 @@ export default function TeamPage() {
                 <Award className="h-6 w-6 text-blue-400 mt-1 flex-shrink-0" />
                 <div>
                   <div className="font-semibold">10+ Years Experience</div>
-                  <div className="text-sm text-gray-400">Senior engineers only</div>
+                  <div className="text-copy-sm text-gray-400">Senior engineers only</div>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <CheckCircle2 className="h-6 w-6 text-green-400 mt-1 flex-shrink-0" />
                 <div>
                   <div className="font-semibold">Multi-Vendor Certified</div>
-                  <div className="text-sm text-gray-400">Azure, AWS, CCNA, CSPO, CAPM</div>
+                  <div className="text-copy-sm text-gray-400">Azure, AWS, CCNA, CSPO, CAPM</div>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <Users className="h-6 w-6 text-purple-400 mt-1 flex-shrink-0" />
                 <div>
                   <div className="font-semibold">US-Based Teams</div>
-                  <div className="text-sm text-gray-400">Timezone-aligned delivery</div>
+                  <div className="text-copy-sm text-gray-400">Timezone-aligned delivery</div>
                 </div>
               </div>
             </div>
@@ -328,12 +329,12 @@ export default function TeamPage() {
               </Button>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Team Summary Stats - GEO optimized with specific, quotable data */}
       <section data-section="team-stats" className="py-12 bg-gray-50 border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Container width="default">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
               <div className="text-3xl md:text-4xl font-bold text-blue-600 mb-2">12+</div>
@@ -358,12 +359,12 @@ export default function TeamPage() {
               &ldquo;{SITE_CONFIG.name} maintains a strict senior-only policy: every team member has 10+ years of domain experience and current certifications from Microsoft Azure, AWS, Cisco (CCNA), Scrum Alliance (CSPO), and PMI (CAPM). No junior developers are staffed on client projects—you get enterprise-grade expertise from day one.&rdquo;
             </p>
           </blockquote>
-        </div>
+        </Container>
       </section>
 
       {/* Team Philosophy Section */}
       <section data-section="team-philosophy" className="py-8 lg:py-12 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Container width="default">
           <div className="max-w-3xl mx-auto text-center mb-8">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
               How We Build High-Performance Teams
@@ -416,12 +417,12 @@ export default function TeamPage() {
               </p>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Core Roles & Expertise Section */}
       <section data-section="team-roles" className="py-8 lg:py-12 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Container width="default">
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Core Team Roles & Expertise</h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
@@ -450,12 +451,12 @@ export default function TeamPage() {
                   </CardHeader>
                   <CardContent>
                     <div className="mb-4">
-                      <h4 className="font-semibold text-gray-900 text-sm mb-2">
+                      <h4 className="font-semibold text-gray-900 text-copy-sm mb-2">
                         Key Responsibilities:
                       </h4>
                       <ul className="space-y-1.5">
                         {roleData.responsibilities.map((resp, i) => (
-                          <li key={i} className="flex items-start gap-2 text-sm text-gray-600">
+                          <li key={i} className="flex items-start gap-2 text-copy-sm text-gray-600">
                             <CheckCircle2 className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
                             <span>{resp}</span>
                           </li>
@@ -463,12 +464,12 @@ export default function TeamPage() {
                       </ul>
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-900 text-sm mb-2">Certifications:</h4>
+                      <h4 className="font-semibold text-gray-900 text-copy-sm mb-2">Certifications:</h4>
                       <div className="flex flex-wrap gap-2">
                         {roleData.certifications.map((cert, i) => (
                           <span
                             key={i}
-                            className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-700"
+                            className="inline-flex items-center px-3 py-1 rounded-full text-label font-medium bg-blue-100 text-blue-700"
                           >
                             {cert}
                           </span>
@@ -480,12 +481,12 @@ export default function TeamPage() {
               );
             })}
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Team Configurations Section */}
       <section data-section="team-configurations" className="py-8 lg:py-12 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Container width="default">
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
               How We Scale Teams to Your Project Needs
@@ -506,26 +507,26 @@ export default function TeamPage() {
               >
                 <CardHeader>
                   {idx === 1 && (
-                    <div className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-blue-100 text-blue-700 mb-2 w-fit">
+                    <div className="inline-flex items-center px-3 py-1 rounded-full text-label font-semibold bg-blue-100 text-blue-700 mb-2 w-fit">
                       Most Popular
                     </div>
                   )}
                   <CardTitle className="text-xl">{config.size}</CardTitle>
                   <CardDescription className="space-y-1">
-                    <span className="block text-sm text-gray-600">
+                    <span className="block text-copy-sm text-gray-600">
                       <strong>Team Size:</strong> {config.teamSize}
                     </span>
-                    <span className="block text-sm text-gray-600">
+                    <span className="block text-copy-sm text-gray-600">
                       <strong>Duration:</strong> {config.duration}
                     </span>
-                    <span className="block text-sm text-gray-600">
+                    <span className="block text-copy-sm text-gray-600">
                       <strong>Ideal For:</strong> {config.ideal}
                     </span>
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="mb-6">
-                    <h4 className="font-semibold text-gray-900 text-sm mb-3">Team Composition:</h4>
+                    <h4 className="font-semibold text-gray-900 text-copy-sm mb-3">Team Composition:</h4>
                     <ul className="space-y-2">
                       {config.roles.map((roleItem, i) => (
                         <li key={i} className="flex justify-between text-sm">
@@ -536,10 +537,10 @@ export default function TeamPage() {
                     </ul>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900 text-sm mb-2">Expected Outcomes:</h4>
+                    <h4 className="font-semibold text-gray-900 text-copy-sm mb-2">Expected Outcomes:</h4>
                     <ul className="space-y-1.5">
                       {config.outcomes.map((outcome, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm text-gray-600">
+                        <li key={i} className="flex items-start gap-2 text-copy-sm text-gray-600">
                           <CheckCircle2 className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
                           <span>{outcome}</span>
                         </li>
@@ -560,12 +561,12 @@ export default function TeamPage() {
               <Link href="/contact">Schedule Team Planning Call</Link>
             </Button>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Certifications & Credentials Section */}
       <section data-section="team-certifications" className="py-8 lg:py-12 bg-gradient-to-br from-blue-50 to-indigo-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Container width="default">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
               Multi-Vendor Certified Team
@@ -578,7 +579,7 @@ export default function TeamPage() {
           </div>
 
           <div className="mb-6">
-            <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-4">
+            <h3 className="text-copy-sm font-semibold text-gray-500 uppercase tracking-wider mb-4">
               Microsoft Azure
             </h3>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -600,7 +601,7 @@ export default function TeamPage() {
                   >
                     <Icon className="h-8 w-8 text-blue-600 mb-3" />
                     <div className="font-bold text-gray-900 mb-1">{item.cert}</div>
-                    <div className="text-sm text-gray-600">{item.name}</div>
+                    <div className="text-copy-sm text-gray-600">{item.name}</div>
                   </div>
                 );
               })}
@@ -608,7 +609,7 @@ export default function TeamPage() {
           </div>
 
           <div className="mb-12">
-            <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-4">
+            <h3 className="text-copy-sm font-semibold text-gray-500 uppercase tracking-wider mb-4">
               AWS, Cisco, Scrum Alliance & PMI
             </h3>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -626,7 +627,7 @@ export default function TeamPage() {
                   >
                     <Icon className="h-8 w-8 text-blue-600 mb-3" />
                     <div className="font-bold text-gray-900 mb-1">{item.cert}</div>
-                    <div className="text-sm text-gray-600">{item.name}</div>
+                    <div className="text-copy-sm text-gray-600">{item.name}</div>
                   </div>
                 );
               })}
@@ -653,12 +654,12 @@ export default function TeamPage() {
               </div>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* FAQ Section */}
       <section data-section="team-faq" className="py-8 lg:py-12 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Container width="default">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
               Frequently Asked Questions About Our Team
@@ -676,12 +677,12 @@ export default function TeamPage() {
               </div>
             ))}
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* CTA Section */}
       <section data-section="team-cta" className="py-8 lg:py-12 bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <Container width="default">
           <h2 className="text-3xl font-bold mb-4">Ready to Build Your Team?</h2>
           <p className="text-lg text-blue-100 mb-8 max-w-2xl mx-auto">
             Schedule a free consultation to discuss your project requirements. We'll recommend the
@@ -705,7 +706,7 @@ export default function TeamPage() {
               <Link href="/case-studies">View Case Studies</Link>
             </Button>
           </div>
-        </div>
+        </Container>
       </section>
     </>
   );

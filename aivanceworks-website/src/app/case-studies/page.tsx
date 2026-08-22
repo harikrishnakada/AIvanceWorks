@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { Container } from '@/components/shared/primitives';
 import Link from 'next/link';
 import Image from 'next/image';
 import { getAllCaseStudies } from '@/lib/content';
@@ -37,7 +38,7 @@ export default async function CaseStudiesPage() {
 
       {/* Hero Section */}
       <section data-section="case-studies-hero" className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white py-8 lg:py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Container width="default">
           <div className="max-w-3xl">
             <h1 className="text-4xl sm:text-5xl font-bold mb-6">
               Real Results from Real Projects
@@ -50,12 +51,12 @@ export default async function CaseStudiesPage() {
               <Link href="/contact">Start Your Project</Link>
             </Button>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Case Studies Grid */}
       <section data-section="case-studies-grid" className="py-8 lg:py-12 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Container width="default">
           {caseStudies.length === 0 ? (
             <div className="text-center py-12">
               <p className="text-gray-600 text-lg mb-4">
@@ -96,7 +97,7 @@ export default async function CaseStudiesPage() {
                         />
                       ) : (
                         <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-blue-100 to-indigo-100">
-                          <span className="text-sm font-medium text-blue-600 bg-white/80 px-3 py-1 rounded-full">
+                          <span className="text-copy-sm font-medium text-blue-600 bg-white/80 px-3 py-1 rounded-full">
                             {study.industry}
                           </span>
                         </div>
@@ -109,7 +110,7 @@ export default async function CaseStudiesPage() {
                         {study.services.slice(0, 2).map((service) => (
                           <span
                             key={service}
-                            className="text-xs font-medium text-gray-500 bg-gray-100 px-2 py-1 rounded"
+                            className="text-label font-medium text-gray-500 bg-gray-100 px-2 py-1 rounded"
                           >
                             {service}
                           </span>
@@ -120,7 +121,7 @@ export default async function CaseStudiesPage() {
                         {study.title}
                       </h3>
 
-                      <p className="text-gray-600 text-sm mb-4 line-clamp-2">
+                      <p className="text-gray-600 text-copy-sm mb-4 line-clamp-2">
                         {study.excerpt}
                       </p>
 
@@ -132,7 +133,7 @@ export default async function CaseStudiesPage() {
                               <div className="text-lg font-bold text-blue-600">
                                 {metric.value}
                               </div>
-                              <div className="text-xs text-gray-500">
+                              <div className="text-label text-gray-500">
                                 {metric.suffix}
                               </div>
                             </div>
@@ -140,7 +141,7 @@ export default async function CaseStudiesPage() {
                         </div>
                       )}
 
-                      <div className="mt-4 flex items-center text-blue-600 text-sm font-medium">
+                      <div className="mt-4 flex items-center text-blue-600 text-copy-sm font-medium">
                         Read case study
                         <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                       </div>
@@ -150,12 +151,12 @@ export default async function CaseStudiesPage() {
               ))}
             </div>
           )}
-        </div>
+        </Container>
       </section>
 
       {/* CTA Section */}
       <section data-section="case-studies-cta" className="py-8 lg:py-12 bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <Container width="default">
           <h2 className="text-3xl font-bold mb-4">Ready to Create Your Success Story?</h2>
           <p className="text-lg text-blue-100 mb-8">
             Let's discuss how we can help you achieve similar results.
@@ -168,7 +169,7 @@ export default async function CaseStudiesPage() {
           >
             <Link href="/contact">Schedule Consultation</Link>
           </Button>
-        </div>
+        </Container>
       </section>
     </>
   );

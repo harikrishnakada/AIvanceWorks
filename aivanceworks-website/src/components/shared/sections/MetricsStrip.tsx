@@ -17,7 +17,7 @@ export const MetricsStrip = ({
   <Section data-section="metrics-strip" tone={tone} size="sm" className={className}>
     <Container>
       {eyebrow && (
-        <div className="text-xs md:text-sm font-semibold uppercase tracking-wider text-brand-600 mb-4 md:mb-6">
+        <div className="text-label font-semibold uppercase tracking-wider text-brand-600 mb-4 md:mb-6">
           {eyebrow}
         </div>
       )}
@@ -30,11 +30,11 @@ export const MetricsStrip = ({
             <div className="text-3xl md:text-4xl font-extrabold leading-tight bg-gradient-to-r from-brand-500 to-accent-500 bg-clip-text text-transparent break-words">
               {metric.value}
             </div>
-            <div className="text-sm md:text-base font-semibold text-text-heading">
+            <div className="text-copy font-semibold text-text-heading">
               {metric.label}
             </div>
             {metric.description && (
-              <div className="text-xs md:text-sm text-text-muted max-w-[28ch]">
+              <div className="text-label text-text-muted max-w-[28ch]">
                 {metric.description}
               </div>
             )}

@@ -47,15 +47,15 @@ export const IndustryDirectory = ({
       <Container>
         <div className="max-w-3xl mb-10 md:mb-12">
           {eyebrow && (
-            <div className="text-xs md:text-sm font-semibold uppercase tracking-wider text-brand-600 mb-3">
+            <div className="text-label font-semibold uppercase tracking-wider text-brand-600 mb-3">
               {eyebrow}
             </div>
           )}
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-text-heading tracking-tight text-balance mb-4">
+          <h2 className="text-h2 font-bold text-text-heading tracking-tight text-balance mb-4">
             {titleContent}
           </h2>
           {subtitle && (
-            <p className="text-base md:text-lg text-text-body leading-relaxed text-pretty">
+            <p className="text-lead text-text-body leading-relaxed text-pretty">
               {subtitle}
             </p>
           )}
@@ -77,11 +77,11 @@ export const IndustryDirectory = ({
                   <h3 className="text-xl md:text-2xl font-bold text-text-heading tracking-tight transition-colors group-hover:text-brand-600">
                     {item.name}
                   </h3>
-                  <p className="text-sm md:text-base text-text-muted leading-relaxed mt-1 max-w-[68ch]">
+                  <p className="text-copy text-text-muted leading-relaxed mt-1 max-w-[68ch]">
                     {item.connector}
                   </p>
                 </div>
-                <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-text-muted transition-colors group-hover:text-brand-600 shrink-0">
+                <span className="inline-flex items-center gap-1.5 text-copy-sm font-semibold text-text-muted transition-colors group-hover:text-brand-600 shrink-0">
                   <span className="hidden sm:inline">Explore</span>
                   <ArrowUpRight className="h-5 w-5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </span>

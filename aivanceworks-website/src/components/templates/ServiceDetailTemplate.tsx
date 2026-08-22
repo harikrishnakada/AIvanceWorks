@@ -51,7 +51,9 @@ export const ServiceDetailTemplate = ({
         primaryCta={data.hero.primaryCta}
         secondaryCta={data.hero.secondaryCta}
         metrics={heroIllustration ? undefined : data.hero.metrics}
+        heroImage={data.hero.heroImage}
         heroIllustration={heroIllustration}
+        fullBleed={data.hero.fullBleed}
       />
     ),
     metricsStrip: () =>

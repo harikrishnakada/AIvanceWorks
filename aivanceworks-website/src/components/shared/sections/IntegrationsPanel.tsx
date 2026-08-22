@@ -29,15 +29,15 @@ export const IntegrationsPanel = ({
     <Container>
       <div className="text-center mb-12 md:mb-14 max-w-3xl mx-auto">
         {eyebrow && (
-          <div className="text-xs md:text-sm font-semibold uppercase tracking-wider text-brand-600 mb-3">
+          <div className="text-label font-semibold uppercase tracking-wider text-brand-600 mb-3">
             {eyebrow}
           </div>
         )}
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-text-heading mb-4 tracking-tight">
+        <h2 className="text-h2 font-bold text-text-heading mb-4 tracking-tight">
           {title}
         </h2>
         {subtitle && (
-          <p className="text-base md:text-lg text-text-body leading-relaxed">
+          <p className="text-lead text-text-body leading-relaxed">
             {subtitle}
           </p>
         )}
@@ -51,22 +51,22 @@ export const IntegrationsPanel = ({
           >
             <div className="flex items-start justify-between gap-3 mb-3">
               <div>
-                <h3 className="text-lg md:text-xl font-semibold text-text-heading leading-tight">
+                <h3 className="text-h3 font-semibold text-text-heading leading-tight">
                   {integration.name}
                 </h3>
-                <div className="text-xs md:text-sm text-text-muted uppercase tracking-wide mt-1">
+                <div className="text-label text-text-muted uppercase tracking-wide mt-1">
                   {integration.category}
                 </div>
               </div>
             </div>
-            <div className="text-xs md:text-sm font-medium text-brand-600 bg-brand-50 border border-brand-100 rounded-lg px-3 py-1.5 inline-block mb-4">
+            <div className="text-label font-medium text-brand-600 bg-brand-50 border border-brand-100 rounded-lg px-3 py-1.5 inline-block mb-4">
               {integration.connectionMethod}
             </div>
             <ul className="space-y-2">
               {integration.capabilities.map((capability, capIdx) => (
                 <li
                   key={capIdx}
-                  className="flex items-start gap-2 text-xs md:text-sm text-text-body"
+                  className="flex items-start gap-2 text-label text-text-body"
                 >
                   <CheckCircle2
                     className="h-4 w-4 text-brand-500 mt-0.5 flex-shrink-0"

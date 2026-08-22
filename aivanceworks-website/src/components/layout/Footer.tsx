@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { SITE_CONFIG } from '@/lib/constants';
 import { NAVIGATION } from '@/lib/navigation';
 import { Logo } from '@/components/brand/Logo';
+import { Container } from '@/components/shared/primitives';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Linkedin, Github, Twitter, Mail, ArrowRight } from 'lucide-react';
@@ -85,7 +86,7 @@ export function Footer() {
 
   return (
     <footer className="bg-gradient-to-b from-gray-50 to-white border-t border-gray-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Container width="default">
         {/* Main Footer Content */}
         <div className="py-8 lg:py-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 lg:gap-8">
@@ -94,13 +95,13 @@ export function Footer() {
               {/* Logo */}
               <Logo idPrefix="logo-footer" />
 
-              <p className="mt-4 text-sm text-gray-600 leading-relaxed max-w-sm">
+              <p className="mt-4 text-copy-sm text-gray-600 leading-relaxed max-w-sm">
                 {SITE_CONFIG.description}
               </p>
 
               {/* Newsletter Signup */}
               <div className="mt-6">
-                <h3 className="text-sm font-semibold text-gray-900 mb-3">Stay Updated</h3>
+                <h3 className="text-copy-sm font-semibold text-gray-900 mb-3">Stay Updated</h3>
                 <form onSubmit={handleNewsletterSubmit} className="space-y-3">
                   <div className="flex flex-col sm:flex-row gap-2">
                     <Input
@@ -134,12 +135,12 @@ export function Footer() {
                     </Button>
                   </div>
                   {status === 'success' && (
-                    <p className="text-sm text-green-600">
+                    <p className="text-copy-sm text-green-600">
                       Thanks for subscribing! Check your inbox.
                     </p>
                   )}
                   {status === 'error' && (
-                    <p className="text-sm text-red-600">
+                    <p className="text-copy-sm text-red-600">
                       Something went wrong. Please try again.
                     </p>
                   )}
@@ -148,7 +149,7 @@ export function Footer() {
 
               {/* Social Links */}
               <div className="mt-6">
-                <h3 className="text-sm font-semibold text-gray-900 mb-3">Follow Us</h3>
+                <h3 className="text-copy-sm font-semibold text-gray-900 mb-3">Follow Us</h3>
                 <div className="flex space-x-3">
                   {socialLinks.map((social) => (
                     <a
@@ -168,7 +169,7 @@ export function Footer() {
 
             {/* Services Links */}
             <div>
-              <h3 className="text-sm font-semibold text-gray-900 mb-4">
+              <h3 className="text-copy-sm font-semibold text-gray-900 mb-4">
                 {footerLinks.services.title}
               </h3>
               <ul className="space-y-3">
@@ -178,7 +179,7 @@ export function Footer() {
                       href={link.href}
                       // inline-block + py-1 gives a ~25px tall tap target;
                       // bare 14px text is only 17px and fails target-size.
-                      className="inline-block py-1 text-sm text-gray-600 hover:text-brand-600 transition-colors"
+                      className="inline-block py-1 text-copy-sm text-gray-600 hover:text-brand-600 transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -189,7 +190,7 @@ export function Footer() {
 
             {/* Company Links */}
             <div>
-              <h3 className="text-sm font-semibold text-gray-900 mb-4">
+              <h3 className="text-copy-sm font-semibold text-gray-900 mb-4">
                 {footerLinks.company.title}
               </h3>
               <ul className="space-y-3">
@@ -199,7 +200,7 @@ export function Footer() {
                       href={link.href}
                       // inline-block + py-1 gives a ~25px tall tap target;
                       // bare 14px text is only 17px and fails target-size.
-                      className="inline-block py-1 text-sm text-gray-600 hover:text-brand-600 transition-colors"
+                      className="inline-block py-1 text-copy-sm text-gray-600 hover:text-brand-600 transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -210,7 +211,7 @@ export function Footer() {
 
             {/* Resources Links */}
             <div>
-              <h3 className="text-sm font-semibold text-gray-900 mb-4">
+              <h3 className="text-copy-sm font-semibold text-gray-900 mb-4">
                 {footerLinks.resources.title}
               </h3>
               <ul className="space-y-3">
@@ -220,7 +221,7 @@ export function Footer() {
                       href={link.href}
                       // inline-block + py-1 gives a ~25px tall tap target;
                       // bare 14px text is only 17px and fails target-size.
-                      className="inline-block py-1 text-sm text-gray-600 hover:text-brand-600 transition-colors"
+                      className="inline-block py-1 text-copy-sm text-gray-600 hover:text-brand-600 transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -231,7 +232,7 @@ export function Footer() {
 
             {/* Legal & Contact */}
             <div>
-              <h3 className="text-sm font-semibold text-gray-900 mb-4">
+              <h3 className="text-copy-sm font-semibold text-gray-900 mb-4">
                 {footerLinks.legal.title}
               </h3>
               <ul className="space-y-3 mb-6">
@@ -241,7 +242,7 @@ export function Footer() {
                       href={link.href}
                       // inline-block + py-1 gives a ~25px tall tap target;
                       // bare 14px text is only 17px and fails target-size.
-                      className="inline-block py-1 text-sm text-gray-600 hover:text-brand-600 transition-colors"
+                      className="inline-block py-1 text-copy-sm text-gray-600 hover:text-brand-600 transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -249,14 +250,20 @@ export function Footer() {
                 ))}
               </ul>
 
-              <h3 className="text-sm font-semibold text-gray-900 mb-3">Contact</h3>
-              <div className="space-y-2 text-sm text-gray-600">
+              <h3 className="text-copy-sm font-semibold text-gray-900 mb-3">Contact</h3>
+              <div className="space-y-2 text-copy-sm text-gray-600">
+                {/* `inline-flex` sizes to its content and an email address has no
+                    break opportunity, so this link rendered 247px wide inside a
+                    176px grid column and pushed the whole document to 1319px —
+                    a horizontal scrollbar on the entire site at 1024px and 1280px.
+                    `flex` + `min-w-0` lets the column bound it; `break-all` gives
+                    the address somewhere to wrap. The icon must not shrink. */}
                 <a
                   href={`mailto:${SITE_CONFIG.company.email}`}
-                  className="inline-flex items-center hover:text-brand-600 transition-colors"
+                  className="flex items-start py-1 hover:text-brand-600 transition-colors"
                 >
-                  <Mail className="h-4 w-4 mr-2" />
-                  {SITE_CONFIG.company.email}
+                  <Mail className="h-4 w-4 mr-2 shrink-0 mt-0.5" />
+                  <span className="min-w-0 break-all">{SITE_CONFIG.company.email}</span>
                 </a>
               </div>
             </div>
@@ -266,15 +273,15 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-gray-200 py-6">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-            <p className="text-sm text-gray-500">
+            <p className="text-copy-sm text-gray-500">
               © {currentYear} {SITE_CONFIG.company.legalName}. All rights reserved.
             </p>
-            <p className="text-sm text-gray-500">
+            <p className="text-copy-sm text-gray-500">
               Built with precision. Powered by AI.
             </p>
           </div>
         </div>
-      </div>
+      </Container>
     </footer>
   );
 }

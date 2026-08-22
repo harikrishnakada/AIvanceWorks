@@ -200,11 +200,11 @@ export function AiApproachSelector({ embedded = false }: AiApproachSelectorProps
           {/* Problem node */}
           <div className="w-56 flex-shrink-0 self-center">
             <div className="rounded-xl p-5 border border-glass-border bg-glass-bg">
-              <p className="text-xs font-semibold tracking-wider uppercase text-brand-300/70 mb-2">
+              <p className="text-label font-semibold tracking-wider uppercase text-brand-300/70 mb-2">
                 You bring
               </p>
               <h3 className="text-lg font-bold text-text-light mb-2">Your problem</h3>
-              <p className="text-xs text-text-light/65 leading-relaxed">
+              <p className="text-label text-text-light/65 leading-relaxed">
                 A business problem and the data you have — not a chosen technology. We frame it and
                 set an honest baseline before recommending anything.
               </p>
@@ -215,7 +215,7 @@ export function AiApproachSelector({ embedded = false }: AiApproachSelectorProps
 
           {/* Approach lanes */}
           <div className="flex-1 max-w-xl space-y-2">
-            <p className="text-center text-xs font-semibold tracking-wider uppercase text-accent-300/80 mb-2">
+            <p className="text-center text-label font-semibold tracking-wider uppercase text-accent-300/80 mb-2">
               We weigh the candidate approaches
             </p>
             {APPROACHES.map((a) => {
@@ -240,11 +240,11 @@ export function AiApproachSelector({ embedded = false }: AiApproachSelectorProps
                       <ApproachIcon type={a.icon} />
                     </span>
                     <div className="min-w-0 flex-1">
-                      <h4 className="text-base font-bold text-text-light leading-tight">{a.title}</h4>
-                      <p className="text-xs text-brand-300/70">{a.tagline}</p>
+                      <h4 className="text-copy font-bold text-text-light leading-tight">{a.title}</h4>
+                      <p className="text-label text-brand-300/70">{a.tagline}</p>
                     </div>
                     {isFocused && (
-                      <span className="flex-shrink-0 inline-flex px-2 py-0.5 rounded text-[10px] font-bold tracking-wider uppercase bg-accent-500/15 text-accent-200 border border-accent-400/25">
+                      <span className="flex-shrink-0 inline-flex px-2 py-0.5 rounded text-label font-bold tracking-wider uppercase bg-accent-500/15 text-accent-200 border border-accent-400/25">
                         Chosen path
                       </span>
                     )}
@@ -255,16 +255,16 @@ export function AiApproachSelector({ embedded = false }: AiApproachSelectorProps
                   {isFocused && (
                     <div className="signature-detail-in mt-3 pt-3 border-t border-brand-400/20 space-y-3">
                       <div>
-                        <p className="text-[11px] font-semibold tracking-wider uppercase text-brand-300 mb-1">
+                        <p className="text-label font-semibold tracking-wider uppercase text-brand-300 mb-1">
                           When it fits
                         </p>
-                        <p className="text-xs text-text-light/75 leading-relaxed">{a.whenItFits}</p>
+                        <p className="text-label text-text-light/75 leading-relaxed">{a.whenItFits}</p>
                       </div>
                       <div>
-                        <p className="text-[11px] font-semibold tracking-wider uppercase text-accent-300 mb-1">
+                        <p className="text-label font-semibold tracking-wider uppercase text-accent-300 mb-1">
                           What we build
                         </p>
-                        <p className="text-xs text-text-light/75 leading-relaxed">{a.whatWeBuild}</p>
+                        <p className="text-label text-text-light/75 leading-relaxed">{a.whatWeBuild}</p>
                       </div>
                     </div>
                   )}
@@ -278,11 +278,11 @@ export function AiApproachSelector({ embedded = false }: AiApproachSelectorProps
           {/* Production node */}
           <div className="w-56 flex-shrink-0 self-center">
             <div className="rounded-xl p-5 border border-accent-400/30 bg-accent-500/10">
-              <p className="text-xs font-semibold tracking-wider uppercase text-accent-300/80 mb-2">
+              <p className="text-label font-semibold tracking-wider uppercase text-accent-300/80 mb-2">
                 You get
               </p>
               <h3 className="text-lg font-bold text-text-light mb-2">One built solution</h3>
-              <p className="text-xs text-text-light/70 leading-relaxed">
+              <p className="text-label text-text-light/70 leading-relaxed">
                 The chosen approach — built, deployed to production, monitored, and handed over as a
                 system you own. Not a demo, and not five options to choose between.
               </p>
@@ -293,17 +293,17 @@ export function AiApproachSelector({ embedded = false }: AiApproachSelectorProps
         {/* ─── Mobile: vertical problem → approaches → production (< lg) ─── */}
         <div className="lg:hidden max-w-md mx-auto">
           <div className="rounded-xl p-5 border border-glass-border bg-glass-bg">
-            <p className="text-xs font-semibold tracking-wider uppercase text-brand-300/70 mb-1">
+            <p className="text-label font-semibold tracking-wider uppercase text-brand-300/70 mb-1">
               You bring
             </p>
-            <h3 className="text-base font-bold text-text-light mb-1">Your problem</h3>
-            <p className="text-xs text-text-light/65 leading-relaxed">
+            <h3 className="text-copy font-bold text-text-light mb-1">Your problem</h3>
+            <p className="text-label text-text-light/65 leading-relaxed">
               A business problem and the data you have — not a chosen technology.
             </p>
           </div>
 
           <VerticalConnector />
-          <p className="text-center text-xs font-semibold tracking-wider uppercase text-accent-300/80 mb-2">
+          <p className="text-center text-label font-semibold tracking-wider uppercase text-accent-300/80 mb-2">
             We weigh the approaches
           </p>
 
@@ -329,11 +329,11 @@ export function AiApproachSelector({ embedded = false }: AiApproachSelectorProps
                       <ApproachIcon type={a.icon} className="w-5 h-5" />
                     </span>
                     <div className="min-w-0 flex-1">
-                      <h4 className="text-sm font-bold text-text-light leading-tight">{a.title}</h4>
-                      <p className="text-[11px] text-brand-300/70">{a.tagline}</p>
+                      <h4 className="text-copy-sm font-bold text-text-light leading-tight">{a.title}</h4>
+                      <p className="text-label text-brand-300/70">{a.tagline}</p>
                     </div>
                     {isFocused && (
-                      <span className="flex-shrink-0 inline-flex px-2 py-0.5 rounded text-[10px] font-bold tracking-wider uppercase bg-accent-500/15 text-accent-200 border border-accent-400/25">
+                      <span className="flex-shrink-0 inline-flex px-2 py-0.5 rounded text-label font-bold tracking-wider uppercase bg-accent-500/15 text-accent-200 border border-accent-400/25">
                         Chosen
                       </span>
                     )}
@@ -342,16 +342,16 @@ export function AiApproachSelector({ embedded = false }: AiApproachSelectorProps
                   {isFocused && (
                     <div className="signature-detail-in mt-3 pt-3 border-t border-brand-400/20 space-y-3">
                       <div>
-                        <p className="text-[11px] font-semibold tracking-wider uppercase text-brand-300 mb-1">
+                        <p className="text-label font-semibold tracking-wider uppercase text-brand-300 mb-1">
                           When it fits
                         </p>
-                        <p className="text-xs text-text-light/75 leading-relaxed">{a.whenItFits}</p>
+                        <p className="text-label text-text-light/75 leading-relaxed">{a.whenItFits}</p>
                       </div>
                       <div>
-                        <p className="text-[11px] font-semibold tracking-wider uppercase text-accent-300 mb-1">
+                        <p className="text-label font-semibold tracking-wider uppercase text-accent-300 mb-1">
                           What we build
                         </p>
-                        <p className="text-xs text-text-light/75 leading-relaxed">{a.whatWeBuild}</p>
+                        <p className="text-label text-text-light/75 leading-relaxed">{a.whatWeBuild}</p>
                       </div>
                     </div>
                   )}
@@ -363,11 +363,11 @@ export function AiApproachSelector({ embedded = false }: AiApproachSelectorProps
           <VerticalConnector tone="accent" />
 
           <div className="rounded-xl p-5 border border-accent-400/30 bg-accent-500/10">
-            <p className="text-xs font-semibold tracking-wider uppercase text-accent-300/80 mb-1">
+            <p className="text-label font-semibold tracking-wider uppercase text-accent-300/80 mb-1">
               You get
             </p>
-            <h3 className="text-base font-bold text-text-light mb-1">One built solution</h3>
-            <p className="text-xs text-text-light/70 leading-relaxed">
+            <h3 className="text-copy font-bold text-text-light mb-1">One built solution</h3>
+            <p className="text-label text-text-light/70 leading-relaxed">
               The chosen approach — built, deployed, monitored, and handed over as a system you own.
             </p>
           </div>
@@ -383,7 +383,7 @@ export function AiApproachSelector({ embedded = false }: AiApproachSelectorProps
       <Container>
         {/* Section header */}
         <div className="text-center mb-10 lg:mb-14">
-          <p className="text-sm font-semibold tracking-wider uppercase text-brand-300 mb-3">
+          <p className="text-copy-sm font-semibold tracking-wider uppercase text-brand-300 mb-3">
             How We Choose
           </p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-light mb-4">
@@ -399,7 +399,7 @@ export function AiApproachSelector({ embedded = false }: AiApproachSelectorProps
 
         {/* Interaction hint. Lives in the standalone branch only — an embedding
             host supplies its own, so keeping it here avoided a duplicate. */}
-        <p className="text-center text-xs text-text-light/35 mt-8">
+        <p className="text-center text-label text-text-light/35 mt-8">
           Click any approach to see when it fits and what we build.
         </p>
       </Container>

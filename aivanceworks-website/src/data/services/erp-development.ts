@@ -50,7 +50,7 @@ const erpDevelopment: ServicePageData = {
     subhead:
       'ERP implementation without the war stories. Fixed scope, weekly milestones, and a go-live date you can plan around. We handle SAP, Oracle NetSuite, Microsoft Dynamics 365, and Odoo.',
     primaryCta: { label: 'Book ERP Discovery Call', href: '/contact' },
-    secondaryCta: { label: 'See our roadmap', href: '#signature' },
+    secondaryCta: { label: 'See our roadmap', href: '#signature' }
   },
 
   metricsStrip: [

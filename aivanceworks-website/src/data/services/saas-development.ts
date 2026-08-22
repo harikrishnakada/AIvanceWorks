@@ -67,6 +67,16 @@ const saasDevelopment: ServicePageData = {
       'Multi-tenant architecture, subscription billing, and scalable infrastructure — engineered as a platform, not patched onto a web app after launch.',
     primaryCta: { label: 'Book a SaaS Strategy Call', href: '/contact' },
     secondaryCta: { label: 'See the architecture', href: '#signature' },
+    heroImage: {
+      src: '/images/services/SaaS-development/cateogry-card_SAAS.jpg',
+      alt: '',
+      // Only portrait source in the set (3996x6000). Cropped to the right-hand
+      // well it keeps almost no height, so bias the crop down onto the code
+      // monitors instead of the empty ceiling.
+      focal: '55% 68%',
+      // Already a dark photograph.
+      dim: 'soft',
+    },
   },
 
   // Audience test: SaaS founder/CTO evaluating a dev partner needs to see platform-grade capability

@@ -4,6 +4,7 @@
 @import "./themes/black.css";
 @import './scroll-animations.css';
 @import './first-fold.css';
+@import './page-hero-fold.css';
 
 html {
   scroll-behavior: smooth;
@@ -86,6 +87,72 @@ html {
   --radius-lg: 0.625rem;
   --radius-md: 0.585rem;
   --radius-sm: 0.565rem;
+
+  /* ─── Breakpoint ───
+     Tailwind v4 ships sm/md/lg/xl/2xl, so 2xl (1536px) was the ceiling — which is
+     why nothing on the site scaled past a 15" laptop. There were 0 uses of `2xl:`
+     and 46 of `xl:` in the whole app when this was added; everything froze at `lg`.
+     3xl is the desktop tier. */
+  --breakpoint-3xl: 120rem;                                       /* 1920px */
+  /* A 2560px monitor is a genuinely different canvas from a 1920px one: capping
+     both at the same width left ~480px of dead margin per side on the larger.
+     4xl gives it its own tier. */
+  --breakpoint-4xl: 160rem;                                       /* 2560px */
+
+  /* ─── Fluid type scale ───
+     clamp(min, intercept + slope*vw, max), solved so the min lands at a 375px
+     viewport and the max at 1920px. Growth is continuous, so nothing is ever
+     "frozen" the way text-3xl was, and there is no snap at a breakpoint.
+
+     Supersedes constitution §10.2, whose 60px h1 cap was written against a 1536px
+     ceiling and under-reads at 1920-2560 (approved 2026-08-19, spec §2.1). */
+  --text-display: clamp(2.125rem, 1.306rem + 3.5vw, 5.5rem);      /* 34 → 88 */
+  --text-display--line-height: 1.05;
+  --text-h1: clamp(2rem, 1.515rem + 2.07vw, 4rem);                /* 32 → 64 */
+  --text-h1--line-height: 1.08;
+  --text-h2: clamp(1.75rem, 1.447rem + 1.294vw, 3rem);            /* 28 → 48 */
+  --text-h2--line-height: 1.15;
+  --text-h3: clamp(1.25rem, 1.098rem + 0.65vw, 1.875rem);         /* 20 → 30 */
+  --text-h3--line-height: 1.25;
+  --text-h4: clamp(1.0625rem, 0.987rem + 0.32vw, 1.375rem);       /* 17 → 22 */
+  --text-h4--line-height: 1.3;
+  --text-lead: clamp(1.125rem, 1.034rem + 0.39vw, 1.5rem);        /* 18 → 24 */
+  --text-lead--line-height: 1.5;
+  /* NOT --text-body: the theme files already define --text-body, --text-heading,
+     --text-light, --text-muted, --text-secondary and --text-subtle as COLOURS, and
+     Tailwind v4's font-size namespace is also --text-*. Declaring --text-body here
+     overwrote the body-text colour with a clamp(), silently breaking every
+     text-text-body usage. `copy` is the size; `body` stays the colour. */
+  --text-copy: clamp(1.125rem, 1.095rem + 0.129vw, 1.25rem);      /* 18 → 20 */
+  --text-copy--line-height: 1.65;
+  /* Floor 16px, not 14px. Measured against gloriumtech.com at 375px: their
+     length-weighted body copy is 16.4px and their dominant size is 16px (74
+     elements) with 14px as the practical floor. Ours was 14.4px body with 121
+     elements at 14px and 61 at 12px — a full step down, which is exactly what
+     users reported as "font is small on mobile". Most of what landed on this
+     token is real card body copy, not secondary text, so it starts where theirs
+     does; it stays smaller than --text-copy only from tablet up. */
+  /* 17px floor. Measured: 52% of all body-copy characters on the mobile home
+     page render on THIS token, not --text-copy — the bulk text-sm -> copy-sm
+     conversion put real paragraphs on the "small" step. Raising the floor fixes
+     the reported complaint immediately; the cleaner fix is to move those ~21
+     paragraphs onto --text-copy, which is tracked as follow-up hygiene. */
+  --text-copy-sm: clamp(1.0625rem, 1.047rem + 0.065vw, 1.125rem);  /* 17 → 18 */
+  --text-copy-sm--line-height: 1.55;
+  /* Floor 14px. This token absorbed Tailwind text-xs (12px), but 53 elements
+     using it at 375px are full sentences, not micro-labels — 12px for a sentence
+     is the reported "small font" complaint. gloriumtech.com renders 12px exactly
+     once on its mobile home page and treats 14px as its floor; this matches. */
+  --text-label: clamp(0.9375rem, 0.922rem + 0.065vw, 1rem);       /* 15 → 16 */
+  --text-label--line-height: 1.4;
+  /* The step below --text-label, which was the scale's floor. Added because the
+     scale had no 14px step, and everything that wanted one — eyebrows, kickers,
+     compliance lines, badge text, table meta, figcaptions — was landing on
+     --text-label (15→16) instead. Mirrors the --text-copy / --text-copy-sm pair.
+     Tops out at exactly 14px; the 14px prose floor documented on --text-label
+     means this is the smallest step anything readable should ever use. */
+  --text-label-sm: clamp(0.8125rem, 0.797rem + 0.065vw, 0.875rem); /* 13 → 14 */
+  --text-label-sm--line-height: 1.45;
 }
 
 /* ─── Base Styles ─── */

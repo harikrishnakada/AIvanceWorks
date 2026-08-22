@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import { Container } from '@/components/shared/primitives';
 
 export interface CTABlockCta {
   label: string;
@@ -29,7 +30,7 @@ export const CTABlock = ({
     {/* Light backdrop bridges adjacent light sections */}
     <div className="absolute inset-0 bg-gradient-to-b from-white via-brand-50/20 to-white" />
 
-    <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <Container width="default" className="relative">
       <div className="relative bg-gradient-to-br from-surface-dark-from via-surface-dark-via to-surface-dark-to rounded-xl sm:rounded-2xl lg:rounded-3xl overflow-hidden shadow-brand-panel-lg">
         {/* Subtle grid pattern */}
         <div
@@ -49,10 +50,10 @@ export const CTABlock = ({
 
         <div className="relative px-5 py-10 sm:px-8 sm:py-12 lg:px-14 lg:py-16">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 sm:mb-4 leading-tight tracking-tight">
+            <h2 className="text-2xl sm:text-h2 font-bold text-white mb-3 sm:mb-4 leading-tight tracking-tight">
               {title}
             </h2>
-            <p className="text-sm sm:text-base md:text-lg text-white/75 mb-6 sm:mb-8 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-copy-sm sm:text-lead text-white/75 mb-6 sm:mb-8 leading-relaxed max-w-2xl mx-auto">
               {description}
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center">
@@ -77,6 +78,6 @@ export const CTABlock = ({
           </div>
         </div>
       </div>
-    </div>
+    </Container>
   </section>
 );

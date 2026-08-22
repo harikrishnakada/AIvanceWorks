@@ -4,6 +4,7 @@
 // section header never reach the client bundle. Only the flow tree below them
 // is a client component (it needs an IntersectionObserver for its entrance).
 import { Handshake, ClipboardList, Code2, UsersRound } from 'lucide-react';
+import { Container } from '@/components/shared/primitives';
 import type { LucideIcon } from 'lucide-react';
 import { EngagementFlowTree } from './EngagementFlowTree';
 import { SECTION_Y } from '@/lib/section-spacing';
@@ -93,16 +94,16 @@ export function TeamStructureSection() {
       aria-labelledby={TEAMS_HEADING_ID}
       className={`scroll-mt-28 md:scroll-mt-32 ${SECTION_Y} bg-surface-light`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Container width="default">
         {/* ── Header ── */}
         <div className="max-w-3xl mb-5 sm:mb-6 lg:mb-7">
           <h2
             id={TEAMS_HEADING_ID}
-            className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-text-heading leading-tight text-balance mb-2 sm:mb-3"
+            className="text-h2 lg:text-4xl font-bold text-text-heading leading-tight text-balance mb-2 sm:mb-3"
           >
             Four dedicated teams, and one path through them
           </h2>
-          <p className="text-sm sm:text-base text-text-body leading-relaxed max-w-[68ch]">
+          <p className="text-copy text-text-body leading-relaxed max-w-[68ch]">
             You start with sales and you always meet the administrative team. Between them they
             decide whether your build belongs with our dedicated development team or our dedicated
             outsource team — a call driven by the stage your company is at, not by what is
@@ -117,11 +118,11 @@ export function TeamStructureSection() {
             return (
               <div key={group.label} className="flex flex-col">
                 <div className="flex items-center gap-3 mb-3">
-                  <h3 className={`text-xs font-bold uppercase tracking-wider ${tone.label}`}>
+                  <h3 className={`text-label font-bold uppercase tracking-wider ${tone.label}`}>
                     {group.label}
                   </h3>
                   <span className="h-px flex-1 bg-border-light" />
-                  <span className="text-xs text-text-muted hidden sm:inline">{group.note}</span>
+                  <span className="text-label text-text-muted hidden sm:inline">{group.note}</span>
                 </div>
 
                 <div className="grid sm:grid-cols-2 gap-3 sm:gap-4 flex-1 items-stretch">
@@ -137,13 +138,13 @@ export function TeamStructureSection() {
                         >
                           <Icon className="w-5 h-5" aria-hidden="true" />
                         </span>
-                        <h4 className="text-base md:text-lg font-semibold text-text-heading mb-2 leading-snug text-balance">
+                        <h4 className="text-lead font-semibold text-text-heading mb-2 leading-snug text-balance">
                           {team.title}
                         </h4>
-                        <p className="flex-1 text-sm text-text-body leading-relaxed">
+                        <p className="flex-1 text-copy-sm text-text-body leading-relaxed">
                           {team.description}
                         </p>
-                        <p className="mt-3 pt-2.5 border-t border-border-light text-xs font-medium text-text-muted">
+                        <p className="mt-3 pt-2.5 border-t border-border-light text-label font-medium text-text-muted">
                           {team.meta}
                         </p>
                       </div>
@@ -176,7 +177,7 @@ export function TeamStructureSection() {
                 <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-text-light text-balance">
                   How an engagement moves between them
                 </h3>
-                <p className="text-xs sm:text-sm text-text-light/70 leading-relaxed mt-2">
+                <p className="text-label text-text-light/70 leading-relaxed mt-2">
                   Two steps everyone takes, then one placement.
                 </p>
               </div>
@@ -185,7 +186,7 @@ export function TeamStructureSection() {
             </div>
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

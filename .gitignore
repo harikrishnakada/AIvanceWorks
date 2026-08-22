@@ -11,3 +11,4 @@ playwright/**
 aivanceworks-website/.claude/settings.local.json
 dist
 .firecrawl
+.playwright

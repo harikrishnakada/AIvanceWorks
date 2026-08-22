@@ -67,6 +67,12 @@ const cloudInfrastructure: ServicePageData = {
       'Production-grade cloud environments built with Infrastructure as Code, full observability, and documented runbooks — so your team operates with confidence, not dependency.',
     primaryCta: { label: 'Book Infrastructure Call', href: '/contact' },
     secondaryCta: { label: 'See how we build', href: '#signature' },
+    heroImage: {
+      src: '/images/services/cloud-engineering/cateogry-card_CE.jpg',
+      alt: '',
+      // High-key light-blue render — the brightest source in the set.
+      dim: 'strong',
+    },
   },
 
   // Audience test: VP of Engineering evaluating an infrastructure partner needs to see

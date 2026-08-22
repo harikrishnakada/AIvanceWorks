@@ -26,12 +26,12 @@ export const TechStackBlock = ({
       {(title || eyebrow) && (
         <div className="text-center mb-12 md:mb-14 max-w-3xl mx-auto">
           {eyebrow && (
-            <div className="text-xs md:text-sm font-semibold uppercase tracking-wider text-brand-600 mb-3">
+            <div className="text-label font-semibold uppercase tracking-wider text-brand-600 mb-3">
               {eyebrow}
             </div>
           )}
           {title && (
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-text-heading mb-4 tracking-tight">
+            <h2 className="text-h2 font-bold text-text-heading mb-4 tracking-tight">
               {title}
             </h2>
           )}

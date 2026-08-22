@@ -131,11 +131,11 @@ export function BlueprintShowcase() {
             ref={headerRef}
             className="scroll-step max-w-3xl mb-6 md:mb-8"
           >
-            <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold tracking-tight text-balance mb-3">
+            <h2 className="text-h2 font-bold tracking-tight text-balance mb-3">
               Before We Build, We{' '}
               <span className="text-brand-400">Draw It</span>
             </h2>
-            <p className="text-sm md:text-base text-text-light/70 leading-relaxed text-pretty">
+            <p className="text-copy-sm md:text-copy text-text-light/70 leading-relaxed text-pretty">
               Two of the working diagrams our engineers take into a first
               engagement — the decision routing behind an AI build, and the layer
               stack behind a SaaS platform. Click through them the way a client
@@ -247,11 +247,11 @@ export function BlueprintShowcase() {
                     className="hidden h-4 w-4 shrink-0 text-brand-300 sm:block"
                     aria-hidden="true"
                   />
-                  <span className="whitespace-nowrap text-[13px] font-semibold leading-tight text-text-light sm:text-sm">
+                  <span className="whitespace-nowrap text-copy-sm font-semibold leading-tight text-text-light">
                     {active.shortLabel}
                   </span>
                 </span>
-                <span className="mt-0.5 block whitespace-nowrap text-xs leading-tight text-text-light/45">
+                <span className="mt-0.5 block whitespace-nowrap text-label leading-tight text-text-light/45">
                   {active.kind}
                 </span>
               </p>
@@ -260,7 +260,7 @@ export function BlueprintShowcase() {
                   centred name off-centre. Hidden on mobile, where the name needs
                   every pixel and two arrows already show there is more to see. */}
               <span
-                className="absolute right-3 top-1/2 hidden -translate-y-1/2 text-xs font-medium tabular-nums text-text-light/40 sm:block"
+                className="absolute right-3 top-1/2 hidden -translate-y-1/2 text-label font-medium tabular-nums text-text-light/40 sm:block"
                 aria-hidden="true"
               >
                 {index + 1}/{EXHIBITS.length}
@@ -301,12 +301,12 @@ export function BlueprintShowcase() {
               className="blueprint-panel-in rounded-2xl border border-border-dark bg-white/[0.02] px-4 py-6 sm:px-6 md:px-8 md:py-8"
             >
               <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between sm:gap-8 mb-6 md:mb-8">
-                <p className="max-w-2xl text-sm md:text-base text-text-light/75 leading-relaxed text-pretty">
+                <p className="max-w-2xl text-copy-sm md:text-copy text-text-light/75 leading-relaxed text-pretty">
                   {active.lede}
                 </p>
                 <Link
                   href={active.href}
-                  className="group inline-flex shrink-0 items-center text-sm font-semibold text-brand-300 hover:text-brand-200 transition-colors duration-300"
+                  className="group inline-flex shrink-0 items-center text-copy-sm font-semibold text-brand-300 hover:text-brand-200 transition-colors duration-300 py-1"
                 >
                   {active.linkLabel}
                   <ArrowUpRight className="ml-1 h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 motion-reduce:transition-none" />
@@ -315,7 +315,7 @@ export function BlueprintShowcase() {
 
               {active.render()}
 
-              <p className="text-center text-xs text-text-light/35 mt-6">
+              <p className="text-center text-label text-text-light/35 mt-6">
                 {active.hint}
               </p>
             </div>

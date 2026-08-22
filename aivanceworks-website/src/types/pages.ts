@@ -207,7 +207,36 @@ export interface CapabilityGroupsData {
   groups: CapabilityGroupItem[];
 }
 
-// ─── Base page data ─────────────────────────────────────
+// ─── Base page data ────────────────────────────────────
+
+/**
+ * Hero artwork, rendered full-bleed inside the hero card.
+ *
+ * The image is **right-aligned** — it occupies the right portion of the card
+ * and dissolves leftward into the card gradient via a mask, so the copy column
+ * sits on clean surface rather than on top of the picture. That geometry exists
+ * because the service/solution artwork is centre-composed: a card-wide
+ * `object-cover` puts the subject behind the H1 and leaves only the dull
+ * periphery visible. Below `lg` the card is too narrow to split, so the image
+ * fills it and a vertical scrim carries legibility instead.
+ */
+export interface HeroImage {
+  src: string;
+  /** Decorative background — pass `''` unless the image carries meaning the H1 doesn't. */
+  alt: string;
+  /**
+   * CSS `object-position` for the crop, e.g. `'50% 30%'`. Use it when the
+   * subject is not centred in the source. Defaults to `'center'`.
+   */
+  focal?: string;
+  /**
+   * How hard to seat the artwork into the hero's dark register. Bright,
+   * high-key sources (light-blue and lavender 3D renders) need `'strong'` or
+   * they glare against the dark card; dark editorial photography wants
+   * `'soft'`. Defaults to `'soft'`.
+   */
+  dim?: 'none' | 'soft' | 'strong';
+}
 
 export interface BasePageData {
   isEnabled?: boolean; //default is true, set to false to hide page from navigation and prevent access to the page
@@ -232,7 +261,9 @@ export interface BasePageData {
     primaryCta: CTA;
     secondaryCta?: CTA;
     metrics?: HeroMetric[];
-    heroImage?: { src: string; alt: string };
+    heroImage?: HeroImage;
+    /** Run the hero card edge to edge instead of as a Container-width panel. */
+    fullBleed?: boolean;
   };
 
   metricsStrip?: HeroMetric[];

@@ -8,6 +8,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "audit:responsive": "node scripts/responsive-audit.mjs",
+    "audit:hero-fold": "node scripts/hero-fold-audit.mjs",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
     "vercel:link": "vercel link",
     "vercel:pull": "vercel pull",

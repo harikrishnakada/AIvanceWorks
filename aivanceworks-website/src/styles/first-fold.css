@@ -20,6 +20,74 @@
    for no reason. The statement tier therefore starts higher than the hero one.
    All thresholds below are measured, not guessed. */
 
+/* ─── Hero headline: our line breaks, our fit cap ─────────────────────────
+   HeroSection.tsx sets `white-space: nowrap` on the h1 and forces its breaks
+   with zero-height block spans, so the headline renders a fixed set of lines at
+   each breakpoint rather than whatever the browser would wrap to:
+
+     < 640px   3 lines, widest segment "serves Founders"          8.04em
+     >= 640px  2 lines, widest segment "Founders and Businesses" 12.30em
+
+   (em widths measured in Chrome, Inter Black at -0.025em tracking.)
+
+   Nowrap means an over-wide segment overflows the viewport instead of wrapping,
+   so each mode gets a fit cap: content box / segment width, with ~2% margin for
+   fallback-font metrics. Content box is 100vw minus the Container gutter — 2 x
+   1.25rem below 640px, 2 x 1.5rem above.
+
+   Every height tier below sets `--hero-h1-size`, never `font-size`; this rule
+   takes the smaller of that and the cap. One `font-size` declaration for this
+   element in the whole file, so no tier can silently defeat the cap.
+
+   Neither cap binds in practice at any real viewport width — the 3-line mode
+   has ~6px of headroom at 320px and grows from there, and the 2-line mode has
+   ~4px at 640px and grows at 8vw against the type scale's 3.5vw. They exist to
+   turn a copy change that no longer fits into a visibly smaller headline rather
+   than a horizontally scrolling page. */
+[data-section='home-hero'] h1 {
+  --hero-h1-size: var(--text-display);
+  --hero-h1-fit: calc((100vw - 2.5rem) / 8.2);
+  font-size: min(var(--hero-h1-size), var(--hero-h1-fit));
+}
+
+@media (min-width: 640px) {
+  [data-section='home-hero'] h1 {
+    --hero-h1-fit: calc((100vw - 3rem) / 12.5);
+  }
+}
+
+/* ─── Hero description drop ───────────────────────────────────────────────
+   The description sits inside the centred headline group so the GROUP's height
+   — and with it the headline's vertical position — matches the original design
+   exactly. It is then pushed down the gap toward the CTA with a transform,
+   which is applied after layout and therefore moves nothing else. That is the
+   whole point: a margin here would shrink the flex-1 track the headline centres
+   in and drag the headline up with it, which is not allowed.
+
+   The value is height-relative because the gap it travels into is the hero's
+   flex slack, which itself scales with viewport height. The clamp ceilings are
+   set below the measured slack at each tier so the copy can never reach the
+   buttons. Never express this as margin, padding or a flex track. */
+[data-hero-sub] {
+  --hero-sub-drop: clamp(24px, 9vh, 88px);
+}
+
+/* ─── Hero CTA lift ──────────────────────────────────────────────────────
+   The CTA is the hero body's last child, so it sits on the body's bottom
+   padding edge. This pulls it UP off that edge with a transform for the same
+   reason the description uses one: margin here would shorten the flex-1 track
+   the headline group centres in, dragging the headline and copy up with it. A
+   transform is applied after layout, so the headline and description do not
+   move at all.
+
+   Height-relative, and capped below the slack the sub-drop above leaves so the
+   buttons can never climb into the description. Tightens per tier below and
+   goes to zero on genuinely short viewports, where there is no slack to spend.
+   Never express this as margin, padding or a flex track. */
+[data-hero-cta] {
+  --hero-cta-lift: clamp(16px, 4vh, 44px);
+}
+
 /* Tier 1 — the fold's lower block only (≤920px tall). Trimming its padding is
    usually enough on its own, and it costs nothing visually, so it starts at the
    highest threshold. */
@@ -40,9 +108,11 @@
     margin-bottom: 0.5rem;
   }
 
-  [data-statement-quote] {
-    font-size: clamp(1rem, 2.1vw, 1.5rem);
-  }
+  /* No type compaction for the statement any more. Its ladder is now
+     --text-label-sm / --text-label / --text-label-sm (14 / 16 / 14), so the
+     quote is already at 16px everywhere and there is nothing left to shrink —
+     any rule here would have to step the quote UP to compact it, which is
+     backwards. Padding compaction above is what closes the fold now. */
 
   [data-statement-divider] {
     margin-top: 0.75rem;
@@ -57,22 +127,35 @@
     padding-bottom: 2.25rem;
   }
 
+  /* 26px -> 32px floor. Same width-agnostic gap as the description: the
+     re-raise block below only applies from 768px, so phones kept the compacted
+     value and the headline read far smaller than on a taller phone. */
   [data-section='home-hero'] h1 {
-    font-size: clamp(1.625rem, 3.6vw, 2.5rem);
+    --hero-h1-size: clamp(2rem, 4.5vw + 0.5rem, 2.75rem);
     line-height: 1.12;
   }
 
+  /* Floor raised 13px -> 16px. The compaction tiers are width-agnostic, and the
+     re-raise block further down only applies from 768px, so a 375x667 phone kept
+     the 13px value — the hero description rendered 5px smaller than on a 390x844
+     phone, and users reported it as small. The hero is `flex-1` and was carrying
+     ~45px of slack at this height, which is exactly what the larger type
+     consumes; the fold still closes. */
   [data-hero-sub] {
-    font-size: clamp(0.8125rem, 1.2vw, 1rem);
+    font-size: clamp(1rem, 1.2vw + 0.5rem, 1.125rem);
     line-height: 1.45;
     margin-top: 0.75rem;
     margin-bottom: 0;
+    /* Less slack to travel into at this height than on a tall screen. */
+    --hero-sub-drop: clamp(16px, 7vh, 56px);
   }
 
   /* The CTA is bottom-anchored, so its top margin is the headline-to-CTA gap
      floor; the sub no longer carries it. */
   [data-hero-cta] {
     margin-top: 1.25rem;
+    /* Less slack below the copy at this height, so a shorter lift. */
+    --hero-cta-lift: clamp(8px, 2vh, 20px);
   }
 
   /* Button renders as an <a> via asChild, so height lands on the child. */
@@ -95,7 +178,15 @@
 }
 
 /* Tier 3 — genuinely short viewports (≤700px tall): iPhone SE, landscape
-   phones, browsers with several toolbars open. */
+   phones, browsers with several toolbars open.
+
+   KNOWN AND ACCEPTED: at 320x568 (iPhone SE 1st gen) the fold no longer closes —
+   hero + statement run ~97px past one viewport. With a 28px headline and 16px
+   description there is simply not enough room, and trimming the remaining
+   padding recovers only ~32px of it. Nothing is CLIPPED (verified: no element
+   has scrollHeight > clientHeight), the pair just needs a short scroll. That is
+   the deliberate trade — legible type over the one-viewport rule on the smallest
+   screen in use. Do not "fix" this by shrinking the type back. */
 @media (max-height: 700px) {
   [data-hero-body] {
     padding-top: 2.25rem;
@@ -103,13 +194,15 @@
   }
 
   [data-section='home-hero'] h1 {
-    font-size: clamp(1.375rem, 3.1vw, 2rem);
+    --hero-h1-size: clamp(1.75rem, 4vw + 0.25rem, 2.25rem);
   }
 
   [data-hero-sub] {
-    font-size: 0.8125rem;
+    font-size: 1rem;
     margin-top: 0.5rem;
     margin-bottom: 0;
+    /* Near-zero slack at this height — a bigger drop would reach the buttons. */
+    --hero-sub-drop: clamp(8px, 4vh, 26px);
   }
 
   [data-hero-cta] a {
@@ -120,6 +213,8 @@
   [data-hero-cta] {
     gap: 0.625rem;
     margin-top: 1rem;
+    /* No slack left at this height — the buttons stay on the padding edge. */
+    --hero-cta-lift: 0px;
   }
 
   /* At this height the fold has no room to spare and the CTA is already the
@@ -142,9 +237,8 @@
     padding-bottom: 0.75rem;
   }
 
-  [data-statement-quote] {
-    font-size: clamp(0.9375rem, 1.9vw, 1.25rem);
-  }
+  /* See the >=920px tier: the statement's own scale is already at the bottom of
+     the ladder, so it needs no type compaction at any height. */
 
   [data-statement-divider] {
     margin-top: 0.5rem;
@@ -171,7 +265,7 @@
   }
 
   [data-section='home-hero'] h1 {
-    font-size: clamp(2.5rem, 5vw, 4rem);
+    --hero-h1-size: clamp(2.5rem, 5vw, 4rem);
     line-height: 1.08;
   }
 
@@ -192,7 +286,7 @@
   }
 
   [data-section='home-hero'] h1 {
-    font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+    --hero-h1-size: clamp(2.25rem, 4.5vw, 3.5rem);
   }
 
   [data-hero-sub] {
@@ -201,5 +295,30 @@
 
   [data-hero-cta] {
     margin-top: 0.75rem;
+  }
+}
+
+/* ─── Phone headline: size is not negotiable ──────────────────────────────
+   The height tiers above compact the h1 to 32px (<=800px tall) and 28px
+   (<=700px tall) at ANY width, because a short laptop and a phone are the same
+   problem for the fold. For the headline on a phone that trade is now off the
+   table: reviewed on device, the compacted headline read too small, and the
+   3-line break pattern means the full display scale fits — 34px at 320-360px
+   rising to 43px at 639px, all inside the 8.2em cap above.
+
+   So phones keep the display scale at every height. Measured cost to the fold:
+   none. The 3-line headline is ~48px taller than the compacted 2-line one, and
+   the hero was carrying at least that much flex slack at every phone size
+   tested (320x568 through 414x896) — the hero still ends exactly at the fold
+   and nothing in it is clipped. The slack is finite though: if the hero grows
+   again, this is the first place to look.
+
+   Scoped to max-width so the md+ re-raise blocks above (which handle short
+   laptops) are untouched, and placed last so it wins the cascade over the
+   height tiers at equal specificity. */
+@media (max-width: 639px) {
+  [data-section='home-hero'] h1 {
+    --hero-h1-size: var(--text-display);
+    line-height: 1.06;
   }
 }

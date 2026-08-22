@@ -52,7 +52,7 @@ export const SITE_CONFIG = {
   company: {
     name: sitename,
     /** Registered entity name — appears in copyright and legal copy. */
-    legalName: env(process.env.NEXT_PUBLIC_COMPANY_LEGAL_NAME, 'C10 LLC'),
+    legalName: env(process.env.NEXT_PUBLIC_COMPANY_LEGAL_NAME, ''),
     slogan: env(
       process.env.NEXT_PUBLIC_COMPANY_SLOGAN,
       'Transform Your Ideas Into Intelligent Solutions'

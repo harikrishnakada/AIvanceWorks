@@ -75,6 +75,14 @@ const devops: ServicePageData = {
       'CI/CD pipelines, deployment automation, and release management — designed for your team to operate on day one, not depend on us indefinitely.',
     primaryCta: { label: 'Book DevOps Call', href: '/contact' },
     secondaryCta: { label: 'See the pipeline', href: '#signature' },
+    heroImage: {
+      src: '/images/services/cicd/cateogry-card.jpg',
+      alt: '',
+      // Pale lavender render. The cube sits right of centre, so pull the crop
+      // right to keep it in the well.
+      focal: '62% 50%',
+      dim: 'strong',
+    },
   },
 
   // Audience test: Engineering Manager scanning for immediate proof of relevance.

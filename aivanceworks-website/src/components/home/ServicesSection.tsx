@@ -10,7 +10,7 @@ import { Card } from '@/components/ui/card';
 import { Bot, Cloud, Code2, Database, Globe, Settings, ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
 import { SECTION_Y, CARD_SLIDE_X } from '@/lib/section-spacing';
 import { useCarouselAutoplay } from '@/hooks/useCarouselAutoplay';
-import { AutoplayToggle, IconTile } from '@/components/shared/primitives';
+import { AutoplayToggle, Container, IconTile } from '@/components/shared/primitives';
 import { cn } from '@/lib/utils';
 
 // Card titles are intentionally broader than the pages they link to — each one
@@ -237,17 +237,17 @@ export function ServicesSection() {
 
   return (
     <section ref={containerRef} data-section="home-services" className={`${SECTION_Y} bg-white`}>
-      <div className="w-full px-4 sm:px-6 md:px-8 lg:px-12">
+      <Container width="default">
         {/* Section Header */}
         <div className="flex flex-col items-center gap-2 sm:gap-3 mb-3 sm:mb-4 lg:mb-5">
-          <div className="w-full text-center max-w-3xl mx-auto">
-            <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-black text-gray-900 mb-1 sm:mb-2">
+          <div className="w-full text-center">
+            <h2 className="text-h2 font-black text-gray-900 mb-1 sm:mb-2">
               <span className="bg-gradient-to-r from-brand-500 via-brand-600 to-accent-500 bg-clip-text text-transparent">
                 Custom {' '}
               </span>
               Software Development Services
             </h2>
-            <p className="text-xs sm:text-sm md:text-base text-gray-500 leading-relaxed">
+            <p className="text-copy text-gray-500 leading-relaxed">
               From AI strategy to production deployment, we deliver the full spectrum of software development services your business needs to thrive.
             </p>
           </div>
@@ -470,7 +470,7 @@ export function ServicesSection() {
                           to, so this needs no per-breakpoint pixel value; where
                           the unit is unsupported the floor is simply ignored
                           and the layout falls back to today's behaviour. */}
-                      <p className="mt-1.5 min-h-[4lh] text-sm md:text-base text-text-light/85 leading-relaxed text-pretty">
+                      <p className="mt-1.5 min-h-[4lh] text-copy-sm md:text-copy text-text-light/85 leading-relaxed text-pretty">
                         {service.description}
                       </p>
                       {/* Always visible. It used to be opacity-0 until hover,
@@ -478,7 +478,7 @@ export function ServicesSection() {
                           was a link never appeared on a touch device or for a
                           keyboard user. Hover now moves the arrow, not the
                           row's existence. */}
-                      <span className="mt-4 inline-flex items-center text-brand-300 font-semibold text-sm">
+                      <span className="mt-4 inline-flex items-center text-brand-300 font-semibold text-copy-sm">
                         Learn more
                         <ArrowRight className="ml-1 h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transition-none motion-reduce:group-hover:translate-x-0" />
                       </span>
@@ -507,7 +507,12 @@ export function ServicesSection() {
                 key={index}
                 type="button"
                 onClick={() => goTo(index)}
-                className="group flex h-6 min-w-6 items-center justify-center px-1 rounded-md outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2"
+                /* h-11 on touch grows the hit area VERTICALLY only. Widening it to
+                   min-w-11 as well pushed the dot row plus the prev/next controls
+                   and the "View all" link past a 375px viewport — 426px of
+                   scrollWidth, i.e. a horizontal scrollbar on every phone. Width
+                   stays at 24px, which is the WCAG 2.5.8 AA minimum. */
+                className="group flex h-11 min-w-6 sm:h-6 items-center justify-center px-1 rounded-md outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2"
                 aria-label={`Go to slide ${index + 1}`}
                 aria-current={index === currentIndex ? 'true' : undefined}
               >
@@ -553,14 +558,14 @@ export function ServicesSection() {
 
             <Link
               href="/services"
-              className="inline-flex items-center text-brand-600 hover:text-brand-700 font-semibold text-xs sm:text-sm"
+              className="inline-flex items-center text-brand-600 hover:text-brand-700 font-semibold text-label sm:text-copy-sm"
             >
               View all
               <ArrowRight className="ml-1 h-3.5 w-3.5" />
             </Link>
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

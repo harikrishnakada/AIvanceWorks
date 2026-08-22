@@ -32,7 +32,7 @@ export const ImageFeature = ({
                 <h3 className="text-2xl md:text-3xl font-bold text-text-heading mb-4 tracking-tight">
                   {feature.heading}
                 </h3>
-                <p className="text-base md:text-lg text-text-body leading-relaxed">
+                <p className="text-lead text-text-body leading-relaxed">
                   {feature.description}
                 </p>
               </div>

@@ -36,17 +36,17 @@ export const BenefitsGrid = ({
       {(title || subtitle || eyebrow) && (
         <div className="text-center mb-12 md:mb-14 max-w-3xl mx-auto">
           {eyebrow && (
-            <div className="text-xs md:text-sm font-semibold uppercase tracking-wider text-brand-600 mb-3">
+            <div className="text-label font-semibold uppercase tracking-wider text-brand-600 mb-3">
               {eyebrow}
             </div>
           )}
           {title && (
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-text-heading mb-4 tracking-tight">
+            <h2 className="text-h2 font-bold text-text-heading mb-4 tracking-tight">
               {title}
             </h2>
           )}
           {subtitle && (
-            <p className="text-base md:text-lg text-text-body leading-relaxed">
+            <p className="text-lead text-text-body leading-relaxed max-w-[70ch] mx-auto">
               {subtitle}
             </p>
           )}
@@ -66,10 +66,10 @@ export const BenefitsGrid = ({
               <div className="flex items-start gap-4 md:gap-5">
                 <IconTile icon={Icon} size="md" variant="brand" />
                 <div className="flex-1 min-w-0">
-                  <CardHeading className="text-lg md:text-xl font-semibold text-text-heading mb-2">
+                  <CardHeading className="text-h3 font-semibold text-text-heading mb-2">
                     {benefit.title}
                   </CardHeading>
-                  <p className="text-sm md:text-base text-text-body leading-relaxed">
+                  <p className="text-copy text-text-body leading-relaxed">
                     {benefit.description}
                   </p>
                   {benefit.stat && (
@@ -78,7 +78,7 @@ export const BenefitsGrid = ({
                         {benefit.stat}
                       </span>
                       {benefit.statLabel && (
-                        <span className="text-sm text-text-muted">
+                        <span className="text-copy-sm text-text-muted">
                           {benefit.statLabel}
                         </span>
                       )}

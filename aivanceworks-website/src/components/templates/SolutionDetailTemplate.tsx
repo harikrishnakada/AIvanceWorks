@@ -39,6 +39,7 @@ export const SolutionDetailTemplate = ({
         secondaryCta={data.hero.secondaryCta}
         metrics={data.hero.metrics}
         heroImage={data.hero.heroImage}
+        fullBleed={data.hero.fullBleed}
       />
     ),
     metricsStrip: () =>

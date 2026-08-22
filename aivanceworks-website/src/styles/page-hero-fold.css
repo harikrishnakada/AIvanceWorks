@@ -1,0 +1,177 @@
+/* ─── Page hero fold ──────────────────────────────────────────────────────
+   The shared `Hero` (service and solution detail pages) fills the viewport that
+   is left under the header and the breadcrumb bar, so a cold load shows the
+   hero and nothing else. Same intent as first-fold.css, different geometry: the
+   homepage splits its fold between two sections, these pages give the whole
+   remainder to one card.
+
+   Expressed as a budget subtracted from 100svh rather than a fixed height,
+   because every term in it is a real element whose height is already fixed
+   elsewhere:
+
+     --hero-header-h   Header.tsx spacer: h-20 md:h-18 lg:h-20
+     --hero-crumbs-h   Breadcrumbs.tsx: py-3 (1.5rem) + text-sm line box
+                       (1.25rem) + 1px bottom border
+     --hero-gutter-y   the hero Container's own pt/pb ladder in Hero.tsx
+
+   svh, not vh or dvh: vh sizes to the LARGEST viewport on mobile, so the card
+   would run under the browser chrome and the fold would not close; dvh
+   reflows the card every time that chrome slides away. svh is the one that
+   makes the card fit what is actually on screen and then stay put.
+
+   Keep these four values in step with the components named above — this is the
+   only place the three heights are related to each other, so a padding change
+   in Hero.tsx that skips this file shows up as a fold that misses by that
+   exact amount. */
+[data-section='hero'] {
+  --hero-header-h: 5rem;
+  --hero-crumbs-h: 2.8125rem;
+  --hero-gutter-y: 1rem; /* pt-2 + pb-2 */
+
+  /* Below this the fold rule gives up and the card keeps its intrinsic size —
+     see the short-viewport note further down. Was the hard-coded
+     min-h-[400px] md:min-h-[440px] on the card itself. */
+  --hero-fold-floor: 25rem;
+
+  --hero-fold: calc(
+    100svh - var(--hero-header-h) - var(--hero-crumbs-h) - var(--hero-gutter-y)
+  );
+}
+
+/* Full-bleed heroes have no Container around the card, so there is no gutter to
+   subtract. Two attributes, so this beats the block above at any source order. */
+[data-section='hero'][data-hero-bleed='true'] {
+  --hero-gutter-y: 0rem;
+}
+
+@media (min-width: 640px) {
+  [data-section='hero'] {
+    --hero-gutter-y: 1.375rem; /* pt-2.5 + pb-3 */
+    --hero-fold-floor: 26rem;
+  }
+}
+
+@media (min-width: 768px) {
+  [data-section='hero'] {
+    --hero-header-h: 4.5rem; /* md:h-18 */
+    --hero-gutter-y: 1.75rem; /* pt-3 + pb-4 */
+    --hero-fold-floor: 27.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  [data-section='hero'] {
+    --hero-header-h: 5rem; /* lg:h-20 */
+    --hero-gutter-y: 2.25rem; /* pt-4 + pb-5 */
+  }
+}
+
+/* max(), not a plain calc: on a short viewport the fold budget goes below the
+   floor and the card would collapse to a letterbox. The floor wins there, the
+   hero runs past one viewport, and that is the accepted trade — the same call
+   first-fold.css makes for 320x568. Nothing is clipped either way; min-height
+   only ever grows the card, so copy that outgrows the fold pushes it taller. */
+[data-hero-card] {
+  min-height: max(var(--hero-fold-floor), var(--hero-fold));
+}
+
+/* ─── Short-viewport compaction ───────────────────────────────────────────
+   min-height alone closes the fold only where the copy already fits inside it.
+   On a short viewport the copy is the problem, not the card: measured before
+   these rules, /solutions/insurance-portals ran 319px past one viewport at
+   1024x768 and 283px past at 1280x720 — hero copy plus a metrics row is simply
+   taller than the ~570-610px the fold leaves there.
+
+   So the tiers below trim the hero's own padding and type until it fits. Keyed
+   to viewport HEIGHT for the same reason first-fold.css is: a 375x667 phone and
+   a 1280x720 laptop have identical symptoms, and no width breakpoint can say
+   "short screen". Both files therefore agree on the 800px/700px thresholds.
+
+   Scoped under [data-section='hero'] throughout. first-fold.css matches
+   [data-hero-sub] and [data-hero-cta] unscoped, which is why the lede here is
+   data-hero-lede — sharing the attribute would drop the homepage's transform
+   and its own clamps onto these heroes. */
+
+/* Tier 0 — ≤960px tall: the common 900px-tall laptop, and everything below it.
+   Padding and frame only, no type change. Measured across all 63 service and
+   solution pages at 1440x900: 19 heroes ran past the fold by a median 93px, and
+   the copy block's own py-16 is 128px of that — so trimming the frame closes the
+   median without shrinking a single headline. Costs nothing on the heroes that
+   already fit: their height comes from min-height, not from content, so the copy
+   just centres with more slack around it. */
+@media (max-height: 960px) {
+  [data-section='hero'] [data-hero-bounds] {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  [data-section='hero'] [data-hero-metrics] {
+    margin-top: 1.5rem;
+    padding-top: 1.25rem;
+  }
+}
+
+/* Tier 1 — ≤800px tall: 720p laptops, most phones. */
+@media (max-height: 800px) {
+  [data-section='hero'] [data-hero-bounds] {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  [data-section='hero'] h1 {
+    font-size: clamp(1.75rem, 3.2vw + 0.5rem, 2.5rem);
+    line-height: 1.12;
+    margin-bottom: 0.75rem;
+  }
+
+  [data-section='hero'] [data-hero-lede] {
+    font-size: clamp(1rem, 1.1vw + 0.5rem, 1.0625rem);
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
+  }
+
+  /* The rule and its gap cost ~56px between them, which is most of a metric's
+     own height — trimming the frame keeps the numbers at full size. */
+  [data-section='hero'] [data-hero-metrics] {
+    margin-top: 1.25rem;
+    padding-top: 1rem;
+    row-gap: 0.5rem;
+  }
+}
+
+/* Tier 2 — ≤700px tall: iPhone SE, landscape phones, several toolbars open.
+
+   KNOWN AND ACCEPTED, same trade first-fold.css documents: a hero carrying both
+   a long lede and a metrics row can still run past one viewport on the very
+   shortest screens. Nothing is clipped — min-height only grows the card — it
+   just needs a short scroll. Do not close the last of that gap by shrinking the
+   headline further; below 28px it stops reading as an h1. */
+@media (max-height: 700px) {
+  [data-section='hero'] [data-hero-bounds] {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  [data-section='hero'] h1 {
+    font-size: clamp(1.625rem, 2.8vw + 0.5rem, 2.125rem);
+    margin-bottom: 0.625rem;
+  }
+
+  [data-section='hero'] [data-hero-lede] {
+    font-size: 1rem;
+    line-height: 1.45;
+    margin-bottom: 1rem;
+  }
+
+  [data-section='hero'] [data-hero-metrics] {
+    margin-top: 1rem;
+    padding-top: 0.75rem;
+  }
+
+  /* Button renders as an <a> via asChild, so the height lands on the child —
+     hence the descendant selector rather than one on the wrapper. */
+  [data-section='hero'] [data-hero-actions] > a {
+    height: 2.5rem;
+    font-size: 0.9375rem;
+  }
+}

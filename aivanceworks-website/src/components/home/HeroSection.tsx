@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
+import { Container } from '@/components/shared/primitives';
 import { ArrowRight, Play } from 'lucide-react';
 import { SITE_CONFIG } from '@/lib/constants';
 
@@ -46,9 +47,7 @@ export function HeroSection() {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => {
         const next = (prev + 1) % heroSlides.length;
-        setMountedSlides((mounted) =>
-          mounted.includes(next) ? mounted : [...mounted, next]
-        );
+        setMountedSlides((mounted) => (mounted.includes(next) ? mounted : [...mounted, next]));
         return next;
       });
     }, 4000);
@@ -116,7 +115,7 @@ export function HeroSection() {
             <div
               className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full whitespace-nowrap
                 bg-brand-500/[0.12] border border-brand-400/[0.20]
-                text-brand-300 text-[10px] sm:text-xs md:text-sm font-semibold tracking-wide
+                text-brand-300 text-label md:text-copy-sm font-semibold tracking-wide
                 backdrop-blur-sm"
             >
               <span className="relative flex h-1.5 w-1.5 shrink-0">
@@ -134,7 +133,6 @@ export function HeroSection() {
           <div
             data-hero-body
             className="relative flex flex-1 flex-col
-              px-4 sm:px-8 md:px-12 lg:px-20 xl:px-28
               pt-12 sm:pt-14 md:pt-16 lg:pt-16
               pb-9 sm:pb-[4.75rem] md:pb-20 lg:pb-20"
           >
@@ -143,54 +141,108 @@ export function HeroSection() {
                 is the column's last child and therefore sits on the body's
                 bottom padding edge, directly above the scroll cue. The body's
                 pb on sm+ is sized to clear that cue (~66px tall). */}
-            <div
-              className="flex flex-1 flex-col items-center text-center max-w-5xl mx-auto w-full"
-            >
+            {/* Same Container as every other section, so the hero's text block
+                shares the page's left/right edge instead of sitting in its own
+                1024px island. The photograph behind it still bleeds full width. */}
+            <Container width="default" className="flex flex-1 flex-col items-center text-center">
               <div className="flex flex-1 flex-col items-center justify-center w-full">
-                {/* Headline — no forced <br />; the copy is long enough that a
-                    hard break overflows narrow viewports. `text-balance` splits
-                    it evenly at every width instead. */}
+                {/* Headline — the line breaks are OURS at every width, never
+                    the browser's: `whitespace-nowrap` on the h1 kills soft
+                    wrapping, and the two zero-height `block` spans below split
+                    the inline flow exactly where we want it. A block child
+                    inside inline content forces a line box to end, so it breaks
+                    without occupying a line of its own; the collapsible space
+                    that follows it is trimmed at the new line's start, so the
+                    breaks cost no stray leading indent under `text-center`.
+
+                    < 640px: three lines — "Our software / serves Founders / and
+                    Businesses". Widest of those is 8.04em, which fits the
+                    content box at full display scale all the way down to 320px,
+                    so the phone headline keeps its size (a forced two-line break
+                    there had to shrink to 26.8px to fit 12.3em — measurably
+                    smaller type, which is what this replaces).
+
+                    >= 640px: two lines — "Our software serves / Founders and
+                    Businesses" — where 12.3em fits with room to spare.
+
+                    Line widths are measured in Inter Black at -0.025em tracking,
+                    not estimated; the matching fit caps are in first-fold.css.
+                    Change the copy and you must re-measure both. */}
                 <h1
-                  className="text-[32px] leading-[1.08] sm:text-[46px] md:text-[60px] lg:text-[68px] xl:text-[76px]
-                    font-black tracking-tight text-white text-balance"
+                  data-hero-headline
+                  className="text-display whitespace-nowrap
+                    font-black tracking-tight text-white"
                 >
-                  Our software serves{' '}
+                  Our software
+                  {/* break after "Our software" — phones only */}
+                  <span className="block sm:hidden" aria-hidden="true" />
+                  {' serves '}
+                  {/* break after "serves" — sm and up */}
+                  <span className="hidden sm:block" aria-hidden="true" />
                   <span className="text-brand-300">
-                    Founders and Businesses
+                    Founders
+                    {/* break after "Founders" — phones only */}
+                    <span className="block sm:hidden" aria-hidden="true" />
+                    {' and Businesses'}
                   </span>
                 </h1>
 
-                {/* Subheadline */}
+                {/* Subheadline — stays INSIDE the centred headline group and
+                    keeps the original design's margins, so the group's height,
+                    and therefore the headline's vertical position, is exactly
+                    what the original layout computed. It is nudged down the gap
+                    toward the CTA with a TRANSFORM, never with margin: a
+                    transform is applied after layout, so moving this copy costs
+                    the headline group no height and the headline cannot drift.
+                    Tune the offset via --hero-sub-drop per height tier in
+                    styles/first-fold.css. Do NOT convert it back to margin. */}
                 <p
                   data-hero-sub
-                  className="text-base leading-snug sm:text-lg sm:leading-relaxed md:text-xl lg:text-2xl
-                    text-white/80 max-w-3xl mx-auto text-pretty
-                    mt-4 sm:mt-6 md:mt-7 mb-0"
+                  className="text-lead
+                    text-white/80 max-w-[70ch] mx-auto text-pretty
+                    mt-4 sm:mt-6 md:mt-7 mb-0
+                    [transform:translateY(var(--hero-sub-drop,0px))]"
                 >
                   {SITE_CONFIG.name} is a custom software development company launched in 2026,
-                  offering services and packages in Product Development, AI Development,
-                  SaaS Development and several other development services.
+                  offering services and packages in Product Development, AI Development, SaaS
+                  Development and several other development services.
                 </p>
               </div>
 
+
               {/* CTA Buttons — anchored to the bottom of the hero body. The top
                   margin is a floor, not the spacing: the headline group above
-                  absorbs the slack, so on tall viewports the gap is larger. */}
+                  absorbs the slack, so on tall viewports the gap is larger.
+                  NOTE: below 800px of viewport height styles/first-fold.css
+                  overrides this margin outright, so these utilities only govern
+                  tall viewports — change both places together.
+
+                  The buttons are pulled UP off that bottom edge with a
+                  TRANSFORM, never with margin — same rule as the description
+                  above: a margin here would shorten the flex-1 track the
+                  headline group centres in and drag the headline and copy up
+                  with it. A transform runs after layout, so the headline and
+                  description stay exactly where they are. Tune the distance via
+                  --hero-cta-lift per height tier in styles/first-fold.css. */}
               <div
                 data-hero-cta
                 className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full max-w-xs sm:max-w-none sm:w-auto mx-auto
-                  mt-6 sm:mt-9 md:mt-10 shrink-0"
+                  mt-6 sm:mt-9 md:mt-10 shrink-0
+                  [transform:translateY(calc(-1*var(--hero-cta-lift,0px)))]"
               >
                 <Button
                   size="lg"
                   asChild
                   className="w-full sm:w-auto bg-brand-600 text-white hover:bg-brand-500
                     shadow-glow-sm
-                    text-sm sm:text-base md:text-lg px-6 sm:px-8
+                    text-copy-sm sm:text-copy md:text-lg px-6 sm:px-8
                     h-11 sm:h-12 md:h-13 font-bold rounded-xl transition-all duration-300
                     justify-center"
                 >
-                  <Link href="/book-consultation" className="inline-flex items-center justify-center w-full sm:w-auto">
+                  <Link
+                    href="/book-consultation"
+                    className="inline-flex items-center justify-center w-full sm:w-auto"
+                  >
                     <span className="relative">
                       Book an Appointment
                       <ArrowRight className="absolute left-full top-1/2 -translate-y-1/2 ml-2 h-4 w-4 shrink-0" />
@@ -203,11 +255,14 @@ export function HeroSection() {
                   asChild
                   className="w-full sm:w-auto border-white/20 text-white
                     hover:border-white/35 hover:bg-white/[0.06]
-                    text-sm sm:text-base md:text-lg px-6 sm:px-8
+                    text-copy-sm sm:text-copy md:text-lg px-6 sm:px-8
                     h-11 sm:h-12 md:h-13 rounded-xl transition-all duration-300
                     justify-center"
                 >
-                  <Link href="/services" className="inline-flex items-center justify-center w-full sm:w-auto">
+                  <Link
+                    href="/services"
+                    className="inline-flex items-center justify-center w-full sm:w-auto"
+                  >
                     <span className="relative">
                       <Play className="absolute right-full top-1/2 -translate-y-1/2 mr-2 h-3.5 w-3.5 shrink-0" />
                       View Our Services
@@ -215,32 +270,34 @@ export function HeroSection() {
                   </Link>
                 </Button>
               </div>
-            </div>
+            </Container>
           </div>
 
           {/* Scroll cue — the hero now owns the full fold, so signal there's more below */}
-          <a
-            href="#below-hero"
-            aria-label="Scroll to page content"
-            data-hero-scroll-cue
-            className="absolute bottom-0.5 md:bottom-1 left-1/2 -translate-x-1/2 z-20
+          {false && (
+            <a
+              href="#below-hero"
+              aria-label="Scroll to page content"
+              data-hero-scroll-cue
+              className="absolute bottom-0.5 md:bottom-1 left-1/2 -translate-x-1/2 z-20
               hidden sm:flex flex-col items-center gap-2 group
               focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50
               focus-visible:ring-offset-2 focus-visible:ring-offset-transparent rounded-full p-1"
-          >
-            <span
-              data-hero-scroll-label
-              className="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/60 transition-colors duration-300 group-hover:text-white/90"
             >
-              Scroll
-            </span>
-            <span
-              data-hero-scroll-line
-              className="relative block h-9 w-px overflow-hidden bg-gradient-to-b from-white/35 to-transparent"
-            >
-              <span className="hero-scroll-dot absolute inset-x-0 top-0 block h-2.5 w-px bg-white/90" />
-            </span>
-          </a>
+              <span
+                data-hero-scroll-label
+                className="text-label font-semibold uppercase tracking-[0.18em] text-white/60 transition-colors duration-300 group-hover:text-white/90"
+              >
+                Scroll
+              </span>
+              <span
+                data-hero-scroll-line
+                className="relative block h-9 w-px overflow-hidden bg-gradient-to-b from-white/35 to-transparent"
+              >
+                <span className="hero-scroll-dot absolute inset-x-0 top-0 block h-2.5 w-px bg-white/90" />
+              </span>
+            </a>
+          )}
         </div>
       </div>
       <span id="below-hero" className="sr-only scroll-mt-20" />

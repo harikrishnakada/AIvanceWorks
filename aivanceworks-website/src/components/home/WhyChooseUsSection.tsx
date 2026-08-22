@@ -1,6 +1,6 @@
 import { Award, Clock, Shield, Users, Code2, FileCheck } from 'lucide-react';
 import { SITE_CONFIG } from '@/lib/constants';
-import { IconTile } from '@/components/shared/primitives';
+import { Container, IconTile, SectionHeader } from '@/components/shared/primitives';
 import { SECTION_Y, CARD_GRID_GAP } from '@/lib/section-spacing';
 
 const differentiators = [
@@ -59,49 +59,49 @@ export function WhyChooseUsSection() {
     <section data-section="home-why-choose-us" className={`${SECTION_Y} relative overflow-hidden`}>
       <div className="absolute inset-0 bg-gradient-to-b from-white via-brand-50/20 to-white" />
 
-      <div className="relative w-full px-4 sm:px-6 md:px-8 lg:px-12">
-        {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-4 sm:mb-5 lg:mb-6">
-          <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-black text-gray-900 mb-2 leading-tight">
+      {/* The header used to sit in its own `max-w-2xl` box while the card grid ran
+          the section's full width — at 2560px that put the label 936px in and the
+          cards at 58px, so the two read as unrelated blocks. Both now share this
+          one Container, so they share one left and right edge. */}
+      <Container width="default" className="relative">
+        <SectionHeader
+          className="mb-8 md:mb-10 lg:mb-12"
+          title={
             <span className="bg-gradient-to-r from-brand-500 via-brand-600 to-accent-500 bg-clip-text text-transparent">
-               Who we are
-              </span>
-          </h2>
-          <p className="text-xs sm:text-sm md:text-base text-gray-500 leading-relaxed">
-            We combine deep technical expertise with a partnership mindset to deliver measurable business outcomes.
-          </p>
-        </div>
+              Who we are
+            </span>
+          }
+          lead="We combine deep technical expertise with a partnership mindset to deliver measurable business outcomes."
+        />
 
-        {/* Cards grid — 3 cols desktop, 2 cols tablet, 1 col mobile */}
+        {/* Cards grid — 3 cols desktop, 2 cols tablet, 1 col mobile. 3 stays the
+            terminal count: 6 cards over 3 columns is two clean rows, where a 4th
+            column would leave an orphan. The extra width goes to card size. */}
         <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ${CARD_GRID_GAP}`}>
           {differentiators.map((item) => (
             <div
               key={item.title}
-              className="flex flex-col bg-surface-white border border-border-light rounded-xl shadow-card-sm hover:shadow-card transition-shadow p-6 md:p-7"
+              className="flex flex-col bg-surface-white border border-border-light rounded-xl shadow-card-sm hover:shadow-card transition-shadow p-6 md:p-7 xl:p-8"
             >
               <IconTile icon={item.icon} size="md" variant="brand" className="mb-5" />
-              <h3 className="text-lg md:text-xl font-semibold text-text-heading mb-2 leading-snug">
+              <h3 className="text-h3 font-semibold text-text-heading mb-2">
                 {item.title}
               </h3>
-              <p className="text-sm md:text-base text-text-body leading-relaxed mb-4">
-                {item.description}
-              </p>
+              <p className="text-copy text-text-body mb-4">{item.description}</p>
 
               {/* Stat — subtle, bottom of card */}
               <div className="mt-auto flex items-baseline gap-1.5">
-                <span className="text-lg sm:text-xl font-black text-brand-600">
-                  {item.stat}
-                </span>
+                <span className="text-h3 font-black text-brand-600">{item.stat}</span>
                 {/* gray-400 on white is 2.6:1 — below the 4.5:1 minimum for
                     text this size. gray-600 clears it at ~7:1. */}
-                <span className="text-[11px] sm:text-xs text-gray-600 font-medium">
+                <span className="text-label text-gray-600 font-medium">
                   {item.statLabel}
                 </span>
               </div>
             </div>
           ))}
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

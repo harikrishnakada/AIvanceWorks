@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { Container } from '@/components/shared/primitives';
 import { getAllPosts } from '@/lib/content';
 import { constructMetadata } from '@/lib/seo';
 import { generateWebPageSchema } from '@/lib/schema';
@@ -52,7 +53,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
       <main className="min-h-screen bg-white">
         {/* Header Section */}
         <section data-section="blog-hero" className="bg-gradient-to-br from-slate-50 to-blue-50/30 py-16 border-b border-gray-100">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Container width="default">
             <div className="max-w-3xl">
               <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
                 Blog & Insights
@@ -62,7 +63,9 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
               </p>
 
               {/* Stats */}
-              <div className="flex items-center gap-6 mt-8 text-sm text-gray-600">
+              {/* flex-wrap: three stat pairs in a non-wrapping row overflowed a
+                  320px viewport by 39px. */}
+              <div className="flex flex-wrap items-center gap-x-6 gap-y-3 mt-8 text-copy-sm text-gray-600">
                 <div>
                   <span className="font-bold text-2xl text-gray-900">{allPosts.length}</span>
                   <span className="ml-2">Articles</span>
@@ -77,7 +80,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                 </div>
               </div>
             </div>
-          </div>
+          </Container>
         </section>
 
         {/* Posts Grid */}

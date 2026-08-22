@@ -45,10 +45,10 @@ export function ServicePillarSection({
             <CategoryIcon className="h-5 w-5 sm:h-6 sm:w-6 text-brand-600" />
           </div>
           <div className="min-w-0">
-            <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-text-heading leading-tight text-balance">
+            <h2 className="text-h2 font-bold text-text-heading leading-tight text-balance">
               {title}
             </h2>
-            <p className="text-xs sm:text-sm text-text-muted mt-0.5">{description}</p>
+            <p className="text-label text-text-muted mt-0.5">{description}</p>
           </div>
         </div>
 
