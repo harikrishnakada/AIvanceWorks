@@ -88,6 +88,21 @@
   --hero-cta-lift: clamp(16px, 4vh, 44px);
 }
 
+/* ─── Statement drop ─────────────────────────────────────────────────────
+   Moves the "Our Promise" block down inside its OWN band: further from the
+   hero, closer to ServicesSection, with both neighbours frozen. It has to be a
+   transform for that to hold — see the note in StatementSection.tsx. Padding
+   would move the whole page below it; trading pb for pt would collapse the
+   shared band edge with the section underneath.
+
+   Ceilings sit under the section's bottom padding at every tier (md scale is
+   32px at base rising to 64px at 3xl) so the black band cannot clip the
+   caption, and the tiers below tighten it where that padding is compacted.
+   Never express this as margin, padding or a flex track. */
+[data-section='home-statement'] {
+  --statement-drop: clamp(12px, 2.2vh, 26px);
+}
+
 /* Tier 1 — the fold's lower block only (≤920px tall). Trimming its padding is
    usually enough on its own, and it costs nothing visually, so it starts at the
    highest threshold. */
@@ -102,6 +117,8 @@
   [data-section='home-statement'] {
     padding-top: 1rem;
     padding-bottom: 1rem;
+    /* Drop must stay under the 1rem bottom padding — see the base tier. */
+    --statement-drop: clamp(6px, 1.2vh, 12px);
   }
 
   [data-statement-eyebrow] {
@@ -235,6 +252,8 @@
   [data-section='home-statement'] {
     padding-top: 0.75rem;
     padding-bottom: 0.75rem;
+    /* 12px of bottom padding left — the drop all but disappears here. */
+    --statement-drop: 4px;
   }
 
   /* See the >=920px tier: the statement's own scale is already at the bottom of

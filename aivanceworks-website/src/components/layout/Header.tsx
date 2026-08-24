@@ -134,45 +134,99 @@ export function Header() {
             : 'bg-white border-b border-gray-100'
           }`}
       >
-        {/* On the shared page Container, so the logo lines up with the content
-            below it rather than sitting on its own edge.
+        {/* Full-bleed row: `width="full"` keeps the gutter ladder but drops the
+            max-width, so the logo sits on the VIEWPORT's left edge — 48px at both
+            1920 and 2560 — rather than on the content column's edge.
 
-            This REVERSES an earlier deliberate choice to run the row full-bleed.
-            That decision was made when Container capped at max-w-7xl (1280px),
-            where centring held the logo 104px in from the edge and read as too
-            inset. The container is now much wider — 1680px at 1920 and 2048px at
-            2560 — so full-bleed had the opposite problem: at 2560 the logo sat at
-            32px while every section's content started at 304px, and the header
-            read as belonging to a different page than the body.
+            This is the second reversal of this decision, so both sides are on the
+            record. Full-bleed was rejected once before because at 2560 the logo sat
+            at 32px while every section's content started at 304px, and the header
+            read as belonging to a different page than the body. That objection is
+            real and still applies; it was overridden deliberately — the logo being
+            visibly inset from the screen edge was the more noticeable of the two
+            problems in practice.
 
-            The other original objection — that centring put the nav on the
-            container's centre rather than the screen's — does not apply: the
-            Container is `mx-auto`, so its centre IS the viewport centre, and the
-            three-track flex below centres the nav within it either way. */}
+            The `full` width lives in Container rather than as a local override
+            because Container owns max-width everywhere (see its header comment).
+            An earlier attempt passed `className="max-w-none"`, which silently did
+            nothing: tailwind-merge dropped the unprefixed `max-w-[80rem]` but left
+            `xl:`/`2xl:`/`3xl:`/`4xl:max-w-*` standing, so every width above 1280
+            stayed capped. Body sections must not use `full`. */}
         <nav aria-label="Main navigation">
-          <Container width="default">
-          {/* Three-track row. From lg the outer tracks are `flex-1` (basis 0), so the
-              free space splits evenly and the nav lands on the true horizontal centre
-              instead of wherever `justify-between` happened to drop it.
+          <Container width="full">
+          {/* Logo on the viewport's left edge; the nav block centred.
 
-              Centring is lg-only on purpose. At md the tablet nav carries four
-              dropdowns and the row is already ~76px wider than the container, so it
-              survives only by shrinking below max-content (the dropdown labels wrap).
-              Basis-0 outer tracks there make the flex algorithm measure free space
-              against a 0 basis, "find" room that isn't there, and grow both tracks
-              into ~180px of overflow. Below lg the row stays on `justify-between`
-              with `flex: 0 0 auto` tracks — the previous behaviour exactly. The nav
-              tracks deliberately keep the default `shrink: 1`; pinning them to
-              `shrink-0` re-breaks md by blocking that same wrap. */}
-          <div className="flex items-center justify-between lg:justify-normal h-20 md:h-18 lg:h-20">
+              Centring is done TWO different ways on purpose, because one way alone
+              cannot cover the range:
+
+              • 2xl and up — `absolute left-1/2 -translate-x-1/2` against this
+                `relative` row. The row spans the full viewport minus gutters and is
+                `mx-auto`, so its centre IS the viewport centre: measured 0px off at
+                1536/1600/1920/2560. This is TRUE centring, unaffected by the logo.
+              • lg to just under 2xl — `mx-auto`, which centres the nav in the space
+                LEFT OVER after the logo, so it sits ~127px (half the logo) right of
+                true centre. Deliberate: true centring below 1536 walks the nav into
+                the logo. At 1280 a truly centred 805px nav would start at 237px
+                while the logo ends at 292px — a 55px overlap. `mx-auto` cannot
+                overlap, because auto margins only ever consume free space.
+
+              Worst-case clearance is 31px at exactly 1536, where absolute centring
+              first takes over. That width is common (a 1920 display at 125%), so if
+              it ever reads as too tight, move the absolute branch to `3xl` — the gap
+              there is 138px — and accept the ~127px offset up to 1920.
+
+              The right-hand slack (~390px at 2560, ~283px at 1536) is deliberately
+              LEFT EMPTY (confirmed 2026-08-24), as is the matching gap beside the
+              logo. Re-enabling the CTA below is what would fill it; that would also
+              need "Contact Us" dropped from NAVIGATION.main to avoid showing twice,
+              and the nav would then want `ml-auto` rather than centring.
+
+              Earlier layouts, so they aren't retried: `lg:ml-auto` anchored the nav
+              to the right edge and pushed ALL slack into one 527px gap beside the
+              logo; `lg:ml-4` tucked it against the logo and pushed all of it to the
+              right instead. Both were rejected in review.
+
+              The tracks keep `flex-none` and the default `shrink: 1`. At md the
+              tablet nav carries four dropdowns and the row is already ~76px wider
+              than the container, so it survives only by shrinking below max-content
+              (the dropdown labels wrap); basis-0 tracks or `shrink-0` both break
+              that — which is also why `justify-start` is lg-only. */}
+          <div className="relative flex items-center justify-between h-20 md:h-18 lg:h-20">
             {/* Left track — logo + wordmark, pinned to the container's left edge */}
-            <div className="flex flex-none items-center justify-start lg:flex-1">
+            <div className="flex flex-none items-center justify-start">
               <Logo idPrefix="logo-header" />
             </div>
 
-            {/* Desktop Navigation — visible from lg (1024px). Gaps opened up a step now
-                that the row carries 4 items instead of 5; it was tight to fit AI. */}
-            <div className="hidden lg:flex lg:items-center lg:space-x-1 xl:space-x-2">
+            {/* Desktop Navigation — visible from lg (1024px).
+
+                Item padding and gaps now scale all the way to 4xl instead of freezing
+                at xl. Two reasons, pulling in opposite directions:
+
+                WIDE — with the nav anchored right (see above) and the logo on the
+                container's left edge, everything left over lands in ONE gap between
+                them. At 1920 that gap was 527px and read as a hole. Widening the nav
+                itself is the only way to close it without re-opening a matching hole
+                on the right: the steps below take the nav from 825px to 1045px at
+                1920, cutting the gap to 319px. A 20px nav on a 1920 display was
+                undersized anyway, so `3xl:text-xl` earns its place twice.
+
+                NARROW — base padding DROPPED from px-4 to px-2.5 because at exactly
+                1024 the six items plus the logo needed ~780px of a 708px track, and
+                flex resolved that by wrapping every label onto two lines. That is
+                what the header actually looked like at 1024, not merely "tight".
+                px-2.5 gets max-content down to 684px with 34px to spare, and
+                `whitespace-nowrap` makes a future overflow show up as overflow rather
+                than silently wrapping again.
+
+                An earlier attempt gated the desktop nav at `min-[1180px]` and handed
+                1024–1180 to the tablet nav. Reverted twice over: Tailwind generated
+                `min-[1180px]:flex` but NOT `min-[1180px]:ml-auto` or
+                `min-[1180px]:hidden`, so the nav lost its right anchor and the tablet
+                nav rendered simultaneously at 1920 — and separately, the tablet nav
+                filters `Industries` out of its links, so that handover would have
+                silently dropped a nav item between 1024 and 1180. Use the named
+                breakpoints here. */}
+            <div className="hidden lg:mx-auto 2xl:absolute 2xl:left-1/2 2xl:mx-0 2xl:-translate-x-1/2 lg:flex lg:items-center lg:gap-x-1 xl:gap-x-2 2xl:gap-x-3 3xl:gap-x-4 4xl:gap-x-6">
               {/* AI Dropdown — hidden from UI (AI Services now leads the Services mega menu) */}
               {/* <div
                 data-dropdown="ai-ml"
@@ -182,7 +236,7 @@ export function Header() {
               >
                 <button
                   onClick={() => toggleDropdown('ai-ml')}
-                  className="flex items-center px-4 xl:px-5 py-2 text-copy xl:text-lg font-medium text-gray-900 hover:text-black transition-colors rounded-lg hover:bg-gray-100"
+                  className="flex items-center whitespace-nowrap px-2.5 xl:px-5 2xl:px-6 3xl:px-8 4xl:px-10 py-2 text-copy xl:text-lg 3xl:text-xl font-medium text-gray-900 hover:text-black transition-colors rounded-lg hover:bg-gray-100"
                   aria-expanded={activeDropdown === 'ai-ml'}
                   aria-haspopup="true"
                 >
@@ -203,7 +257,7 @@ export function Header() {
               >
                 <button
                   onClick={() => toggleDropdown('services')}
-                  className="flex items-center px-4 xl:px-5 py-2 text-copy xl:text-lg font-medium text-gray-900 hover:text-black transition-colors rounded-lg hover:bg-gray-100"
+                  className="flex items-center whitespace-nowrap px-2.5 xl:px-5 2xl:px-6 3xl:px-8 4xl:px-10 py-2 text-copy xl:text-lg 3xl:text-xl font-medium text-gray-900 hover:text-black transition-colors rounded-lg hover:bg-gray-100"
                   aria-expanded={activeDropdown === 'services'}
                   aria-haspopup="true"
                 >
@@ -218,7 +272,7 @@ export function Header() {
                {/* <Link
                   key="industries"
                   href="industries"
-                  className="px-4 xl:px-5 py-2 text-copy xl:text-lg font-medium text-gray-900 hover:text-black transition-colors rounded-lg hover:bg-gray-100"
+                  className="whitespace-nowrap px-2.5 xl:px-5 2xl:px-6 3xl:px-8 4xl:px-10 py-2 text-copy xl:text-lg 3xl:text-xl font-medium text-gray-900 hover:text-black transition-colors rounded-lg hover:bg-gray-100"
                 >
                   Industries
                 </Link> */}
@@ -232,7 +286,7 @@ export function Header() {
               >
                 <button
                   onClick={() => toggleDropdown('solutions')}
-                  className="flex items-center px-4 xl:px-5 py-2 text-copy xl:text-lg font-medium text-gray-900 hover:text-black transition-colors rounded-lg hover:bg-gray-100"
+                  className="flex items-center whitespace-nowrap px-2.5 xl:px-5 2xl:px-6 3xl:px-8 4xl:px-10 py-2 text-copy xl:text-lg 3xl:text-xl font-medium text-gray-900 hover:text-black transition-colors rounded-lg hover:bg-gray-100"
                   aria-expanded={activeDropdown === 'solutions'}
                   aria-haspopup="true"
                 >
@@ -250,7 +304,7 @@ export function Header() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="px-4 xl:px-5 py-2 text-copy xl:text-lg font-medium text-gray-900 hover:text-black transition-colors rounded-lg hover:bg-gray-100"
+                  className="whitespace-nowrap px-2.5 xl:px-5 2xl:px-6 3xl:px-8 4xl:px-10 py-2 text-copy xl:text-lg 3xl:text-xl font-medium text-gray-900 hover:text-black transition-colors rounded-lg hover:bg-gray-100"
                 >
                   {item.label}
                 </Link>
@@ -380,21 +434,22 @@ export function Header() {
               ))}
             </div>
 
-            {/* Right track — mirrors the left track's `lg:flex-1` so the nav sits
-                centred. Holds both the desktop CTA and the mobile toggle, which
-                are mutually exclusive by breakpoint. */}
-            <div className="flex flex-none items-center justify-end lg:flex-1">
+            {/* Right track — zero-width at lg and up (the CTA below is disabled), so
+                it exists to hold the mobile toggle and to give a re-enabled CTA a
+                place to land. The nav's `ml-auto` pushes past it either way. */}
+            <div className="flex flex-none items-center justify-end">
               {/* CTA Buttons — visible from md */}
-              <div className="hidden md:flex md:items-center md:space-x-1.5 lg:space-x-3">
-                <Button
-                  size="sm"
-                  asChild
-                  className="bg-brand-600 text-white hover:bg-brand-700 text-copy-sm lg:text-copy h-9 lg:h-10 px-4 lg:px-5 font-semibold shadow-sm"
-                >
-                  <Link href="/contact">Contact Us</Link>
-                </Button>
-              </div>
-
+                {false && (
+                  <div className="hidden md:flex md:items-center md:space-x-1.5 lg:space-x-3">
+                    <Button
+                      size="sm"
+                      asChild
+                      className="bg-brand-600 text-white hover:bg-brand-700 text-copy-sm lg:text-copy h-9 lg:h-10 px-4 lg:px-5 font-semibold shadow-sm"
+                    >
+                      <Link href="/contact">Contact Us</Link>
+                    </Button>
+                  </div>
+                )}
               {/* Mobile Menu Button — hidden from md */}
               <button
                 onClick={() => {

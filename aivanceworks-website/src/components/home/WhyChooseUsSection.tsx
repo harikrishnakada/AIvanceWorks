@@ -1,7 +1,7 @@
 import { Award, Clock, Shield, Users, Code2, FileCheck } from 'lucide-react';
 import { SITE_CONFIG } from '@/lib/constants';
 import { Container, IconTile, SectionHeader } from '@/components/shared/primitives';
-import { SECTION_Y, CARD_GRID_GAP } from '@/lib/section-spacing';
+import { SECTION_Y, CARD_GRID_GAP, SECTION_Y_TIGHT } from '@/lib/section-spacing';
 
 const differentiators = [
   {
@@ -56,7 +56,7 @@ const differentiators = [
 
 export function WhyChooseUsSection() {
   return (
-    <section data-section="home-why-choose-us" className={`${SECTION_Y} relative overflow-hidden`}>
+    <section data-section="home-why-choose-us" className={`${SECTION_Y_TIGHT} relative overflow-hidden`}>
       <div className="absolute inset-0 bg-gradient-to-b from-white via-brand-50/20 to-white" />
 
       {/* The header used to sit in its own `max-w-2xl` box while the card grid ran
@@ -71,7 +71,7 @@ export function WhyChooseUsSection() {
               Who we are
             </span>
           }
-          lead="We combine deep technical expertise with a partnership mindset to deliver measurable business outcomes."
+          lead="Technical expertise you can trust, partnership you can rely on, and results you can measure."
         />
 
         {/* Cards grid — 3 cols desktop, 2 cols tablet, 1 col mobile. 3 stays the

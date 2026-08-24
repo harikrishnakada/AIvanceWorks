@@ -36,13 +36,19 @@ export function OurDelivery() {
       className={`${SECTION_Y} relative overflow-hidden bg-surface-warm`}
     >
       <Container width="default" className="relative">
-        {/* The rail is nine short rows, so at 1440px+ a stretched two-column
-            grid leaves the claim stranded at the top of a tall empty column.
-            Centering the claim against the rail keeps the two masses balanced. */}
-        <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,26rem)_minmax(0,38rem)] xl:grid-cols-[minmax(0,30rem)_minmax(0,44rem)] gap-6 lg:gap-12 xl:gap-16 lg:items-start lg:justify-center">
+        {/* Two even columns spanning the full Container, matching the two-column
+            pattern the rest of the home page uses (WhyChooseUsServicesSection).
+            The previous fixed column caps plus `justify-center` floated both
+            masses inward, so this section's content edges did not line up with
+            the section above or below it — the rail in particular stopped well
+            short of the shared right edge. */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 xl:gap-16 lg:items-start">
 
           {/* ── Left: the claim ─────────────────────────────────────────── */}
-          <div>
+          {/* max-w-[34rem] caps the heading measure so the claim does not grow
+              to half of a 2048px container; the column itself still starts on
+              the Container's left edge. */}
+          <div className="max-w-[34rem]">
             <h2 className="text-h2 font-black text-gray-900 leading-tight text-balance">
               What We Promise in{' '}
               <span className="text-brand-600">Week One</span>
@@ -69,9 +75,13 @@ export function OurDelivery() {
           </div>
 
           {/* ── Right: the numbered rail ────────────────────────────────── */}
+          {/* The rail now fills its half of the grid, so every row's right edge
+              ends on the Container's right edge like the card grids elsewhere.
+              Labels are short, so the row keeps a max-w on the text rather than
+              stretching the sentence across the full column. */}
           <ol
             ref={railRef}
-            className="delivery-rail relative"
+            className="delivery-rail relative w-full"
           >
             {/* Continuous spine behind the nodes. Sits under the row content
                 and stops short of the last node so the sequence reads as
@@ -89,7 +99,7 @@ export function OurDelivery() {
                 <li
                   key={item}
                   className="delivery-step group relative flex items-center gap-3 sm:gap-4
-                    rounded-lg py-2 pl-0 pr-2 sm:py-2.5
+                    rounded-lg py-2 pl-0 pr-2 sm:py-2.5 sm:pr-4
                     transition-colors duration-300 hover:bg-surface-white"
                   style={{ animationDelay: `${Math.min(i, 8) * 60}ms` }}
                 >
@@ -114,7 +124,7 @@ export function OurDelivery() {
 
                   {/* Label */}
                   <span
-                    className={`text-copy-sm sm:text-copy leading-snug text-balance ${
+                    className={`text-copy-sm sm:text-copy leading-snug text-balance max-w-[38ch] ${
                       isLast
                         ? 'font-bold text-gray-900'
                         : 'font-semibold text-text-heading'

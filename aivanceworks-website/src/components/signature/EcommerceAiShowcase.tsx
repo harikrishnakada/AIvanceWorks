@@ -1,15 +1,15 @@
 /**
  * EcommerceAiShowcase — signature section for E-commerce Websites page.
  *
- * 5-tile asymmetric bento grid showcasing AI capabilities woven into the
+ * 7-tile asymmetric bento grid showcasing AI capabilities woven into the
  * shopper journey. Ported from the legacy `AiPoweredFeatures` component
  * into theme tokens. Tile content lives inline as a module-level TILES
  * constant, matching the prop-less pattern used by other signatures
  * (PortalArchitectureMap, ClaimsFlowComparison).
  *
  * Palette strategy: three theme-safe tile variants (A: light surface,
- * B: dark brand spotlight, C: warm accent) rotated across 5 cards as
- * A / B / C / A / C. All variants resolve through brand-*, accent-*,
+ * B: dark brand spotlight, C: warm accent) rotated across 7 cards as
+ * A / B / C / A / C / A / C. All variants resolve through brand-*, accent-*,
  * surface-*, text-*, border-* tokens, so data-theme swapping is automatic.
  *
  * Content integrity: every tile description is a capability claim. No
@@ -19,7 +19,7 @@
  * context.
  */
 
-import { Sparkles, Search, TrendingUp, Package, Users } from 'lucide-react';
+import { Sparkles, Search, TrendingUp, Package, Users, Zap } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { Section, Container } from '@/components/shared/primitives';
 
@@ -30,7 +30,7 @@ interface Tile {
   title: string;
   description: string;
   variant: TileVariant;
-  /** Tailwind `md:col-span-*` class for the asymmetric bento grid. */
+  /** Tailwind `md:col-span-*` class on the 6-column md grid (6 = full row). */
   spanClass: string;
 }
 
@@ -39,17 +39,17 @@ const TILES: ReadonlyArray<Tile> = [
     icon: Sparkles,
     title: 'Smart product recommendations',
     description:
-      'Recommendation engine analyses browsing behaviour, purchase history, and similar-customer profiles to surface the most relevant products at every stage of the journey — from landing page to checkout.',
+      'Recommendation engine analysis analyzes behaviour, purchase history, similar-customer profiles, and more to surface the most relevant products at every stage.',
     variant: 'A',
-    spanClass: 'md:col-span-2',
+    spanClass: 'md:col-span-4',
   },
   {
     icon: Search,
     title: 'Visual search',
     description:
-      'Shoppers snap a photo and find matching products instantly. Computer vision powered by Azure AI Vision, with a fallback to custom embedding models when catalogues need fine-tuning.',
+      'Users take a photo to be automated directly to matching products instantly. Computer vision powered by Azure AI Vision with endless capabilities built for you.',
     variant: 'B',
-    spanClass: '',
+    spanClass: 'md:col-span-2',
   },
   {
     icon: TrendingUp,
@@ -57,7 +57,7 @@ const TILES: ReadonlyArray<Tile> = [
     description:
       'Real-time price optimisation based on demand signals, competitor pricing, and inventory levels — with guardrails for margin floors and brand-safety rules.',
     variant: 'C',
-    spanClass: '',
+    spanClass: 'md:col-span-2',
   },
   {
     icon: Package,
@@ -65,15 +65,31 @@ const TILES: ReadonlyArray<Tile> = [
     description:
       'Forecast demand by SKU, prevent stockouts, and reduce carrying costs with ML-driven inventory planning tuned to your seasonality and promotional calendar.',
     variant: 'A',
-    spanClass: '',
+    spanClass: 'md:col-span-2',
   },
   {
     icon: Users,
-    title: 'Personalised shopping journeys',
+    title: 'Personalized journeys',
     description:
-      'Every visitor sees a storefront adapted to their preferences — hero banners, category ordering, search results, and email campaigns driven by a unified customer profile shared across channels.',
+      'Custom software built for your preferences. Hero banners, category ordering, and more features ready to be deployed.',
     variant: 'C',
-    spanClass: '',
+    spanClass: 'md:col-span-2',
+  },
+  {
+    icon: TrendingUp,
+    title: 'Conversion-First Architecture',
+      description:
+        'AI-First cloud based platforms ready to be adapted for any situation.  With CRO principles built at every page, from a product classification system to checkout friction, our software is custom designed for you.',
+    variant: 'A',
+    spanClass: 'md:col-span-3',
+  },
+    {
+     icon: Zap,
+      title: 'Performance Leadership',
+      description:
+        'Next.js App Router with server-side rendering, automatic image optimization, and global CDN delivery are architected to produce Core Web Vitals scores of the kind that Google rewards in organic search rankings and that typically correlate with lower bounce rates.',
+    variant: 'A',
+    spanClass: 'md:col-span-3',
   }
 ];
 
@@ -114,23 +130,21 @@ const VARIANT_CLASSES: Record<TileVariant, {
 };
 
 export const EcommerceAiShowcase = () => (
-  <Section tone="warm" size="lg">
+  <Section tone="warm" size="lg" className="pt-5 md:pt-6 lg:pt-6 xl:pt-7 3xl:pt-8">
     <Container>
       <div className="text-center mb-10 md:mb-12 max-w-3xl mx-auto">
         <div className="inline-block text-xs md:text-sm font-semibold uppercase tracking-wider text-brand-600 mb-3">
           AI, built in
         </div>
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-text-heading mb-4 tracking-tight">
-          AI woven into every step of the shopper&rsquo;s journey.
+          AI woven into every step of your journey.
         </h2>
         <p className="text-base md:text-lg text-text-body leading-relaxed">
-          Recommendation engines, visual search, pricing intelligence, and
-          personalisation designed into the storefront from day one — not
-          bolted on after launch.
+          Recommendation engines, visual search, pricing intelligence, and personalization designed from day one.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-6 gap-4 md:gap-5">
         {TILES.map((tile, idx) => {
           const v = VARIANT_CLASSES[tile.variant];
           const Icon = tile.icon;

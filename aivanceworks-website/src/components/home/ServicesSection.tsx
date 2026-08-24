@@ -8,7 +8,7 @@ import Link from 'next/link';
 // and this tile layers copy over a full-bleed image instead.
 import { Card } from '@/components/ui/card';
 import { Bot, Cloud, Code2, Database, Globe, Settings, ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
-import { SECTION_Y, CARD_SLIDE_X } from '@/lib/section-spacing';
+import { SECTION_Y, CARD_SLIDE_X, SECTION_Y_TIGHT } from '@/lib/section-spacing';
 import { useCarouselAutoplay } from '@/hooks/useCarouselAutoplay';
 import { AutoplayToggle, Container, IconTile } from '@/components/shared/primitives';
 import { cn } from '@/lib/utils';
@@ -74,7 +74,7 @@ const services: Service[] = [
     image: '/images/services/data-engineering/cateogry-card.jpg',
   },
   {
-    title: 'Enterprise Integration',
+    title: 'Enterprise Software Development',
     description:
       'Modernize legacy systems and integrate disparate applications with minimal disruption. API integrations, migrations, and service bus implementations.',
     icon: Globe,
@@ -236,18 +236,26 @@ export function ServicesSection() {
   };
 
   return (
-    <section ref={containerRef} data-section="home-services" className={`${SECTION_Y} bg-white`}>
+    // Dark tone applied inline rather than via the `Section` primitive: that
+    // primitive is not a forwardRef component and this section needs a DOM ref
+    // for the pointer/keyboard carousel. The classes below are byte-for-byte the
+    // primitive's `dark` tone, and SECTION_Y is the literal value its size="md"
+    // resolves to, so this stays on the same field and rhythm as
+    // IndustriesSectionCarousel.
+    <section
+      ref={containerRef}
+      data-section="home-services"
+      className={`${SECTION_Y_TIGHT} relative overflow-hidden bg-gradient-to-br from-surface-dark-from via-surface-dark-via to-surface-dark-to text-text-light`}
+    >
       <Container width="default">
         {/* Section Header */}
         <div className="flex flex-col items-center gap-2 sm:gap-3 mb-3 sm:mb-4 lg:mb-5">
           <div className="w-full text-center">
-            <h2 className="text-h2 font-black text-gray-900 mb-1 sm:mb-2">
-              <span className="bg-gradient-to-r from-brand-500 via-brand-600 to-accent-500 bg-clip-text text-transparent">
-                Custom {' '}
-              </span>
+            <h2 className="text-h2 font-black text-text-light tracking-tight text-balance mb-1 sm:mb-2">
+              <span className="text-brand-400">Custom{' '}</span>
               Software Development Services
             </h2>
-            <p className="text-copy text-gray-500 leading-relaxed">
+            <p className="text-copy text-text-light/70 leading-relaxed text-pretty">
               From AI strategy to production deployment, we deliver the full spectrum of software development services your business needs to thrive.
             </p>
           </div>
@@ -303,14 +311,11 @@ export function ServicesSection() {
                   tabIndex={isSlideVisible ? undefined : -1}
                   // Before this the card fell back to the UA outline — a
                   // sub-1px hairline that all but vanished against the card
-                  // border. brand-600, not the brand-500 the dots and arrows
-                  // use: the shipping `black` theme lifts brand-500 to #60a5fa,
-                  // which is 2.54:1 on a white card and misses the 3:1 WCAG
-                  // 1.4.11 asks of a focus indicator. brand-600 clears it in
-                  // every theme (5.17:1 blue/black). Focus rings are never
-                  // visible two at a time, so the one-step difference from the
-                  // neighbouring controls cannot be perceived.
-                  className="group block h-full rounded-xl outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2 focus-visible:ring-offset-surface-white"
+                  // border. The ring now has to punch out of the dark section
+                  // field rather than a white one, so both the ring and its
+                  // offset moved: brand-600 is only 4.06:1 on black, brand-400
+                  // is 11.6:1, and the offset takes the section's own surface.
+                  className="group block h-full rounded-xl outline-none focus-visible:ring-2 focus-visible:ring-brand-400 focus-visible:ring-offset-2 focus-visible:ring-offset-surface-dark"
                   // A drag that starts on a card must not also start a native
                   // image/link drag — that hijacks the pointer stream mid-swipe.
                   draggable={false}
@@ -500,7 +505,7 @@ export function ServicesSection() {
               isPaused={isPaused}
               onToggle={setPaused}
               label="services carousel"
-              className="mr-1 text-gray-500 hover:text-brand-600"
+              className="mr-1 text-text-light/50 hover:text-brand-400"
             />
             {Array.from({ length: totalDots }).map((_, index) => (
               <button
@@ -512,15 +517,15 @@ export function ServicesSection() {
                    and the "View all" link past a 375px viewport — 426px of
                    scrollWidth, i.e. a horizontal scrollbar on every phone. Width
                    stays at 24px, which is the WCAG 2.5.8 AA minimum. */
-                className="group flex h-11 min-w-6 sm:h-6 items-center justify-center px-1 rounded-md outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2"
+                className="group flex h-11 min-w-6 sm:h-6 items-center justify-center px-1 rounded-md outline-none focus-visible:ring-2 focus-visible:ring-brand-400 focus-visible:ring-offset-2 focus-visible:ring-offset-surface-dark"
                 aria-label={`Go to slide ${index + 1}`}
                 aria-current={index === currentIndex ? 'true' : undefined}
               >
                 <span
                   className={`block h-1.5 sm:h-2 rounded-full transition-all duration-300 ${
                     index === currentIndex
-                      ? 'bg-brand-600 w-5 sm:w-7'
-                      : 'bg-gray-200 w-1.5 sm:w-2 group-hover:bg-gray-300'
+                      ? 'bg-brand-400 w-5 sm:w-7'
+                      : 'bg-text-light/40 w-1.5 sm:w-2 group-hover:bg-text-light/60'
                   }`}
                 />
               </button>
@@ -535,10 +540,11 @@ export function ServicesSection() {
               <button
                 type="button"
                 onClick={goPrev}
-                // gray-500, not gray-400: these chevrons are the primary manual
-                // control on desktop, and gray-400 on white is ~2.6:1 — under the
-                // 3:1 that WCAG 1.4.11 asks of meaningful non-text controls.
-                className="p-1.5 sm:p-2 rounded-lg border border-gray-300 hover:border-brand-300 hover:bg-brand-50 text-gray-500 hover:text-brand-600 transition-all duration-200 outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2"
+                // text-light/50, not /30: these chevrons are the primary manual
+                // control on desktop. /50 composites to ~5:1 on the black field,
+                // clearing the 3:1 that WCAG 1.4.11 asks of meaningful non-text
+                // controls; /30 would land at 2.4:1.
+                className="p-1.5 sm:p-2 rounded-lg border border-border-dark hover:border-brand-400/50 hover:bg-brand-500/10 text-text-light/50 hover:text-brand-300 transition-all duration-200 outline-none focus-visible:ring-2 focus-visible:ring-brand-400 focus-visible:ring-offset-2 focus-visible:ring-offset-surface-dark"
                 aria-label="Previous services"
               >
                 <ChevronLeft className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
@@ -546,10 +552,11 @@ export function ServicesSection() {
               <button
                 type="button"
                 onClick={goNext}
-                // gray-500, not gray-400: these chevrons are the primary manual
-                // control on desktop, and gray-400 on white is ~2.6:1 — under the
-                // 3:1 that WCAG 1.4.11 asks of meaningful non-text controls.
-                className="p-1.5 sm:p-2 rounded-lg border border-gray-300 hover:border-brand-300 hover:bg-brand-50 text-gray-500 hover:text-brand-600 transition-all duration-200 outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2"
+                // text-light/50, not /30: these chevrons are the primary manual
+                // control on desktop. /50 composites to ~5:1 on the black field,
+                // clearing the 3:1 that WCAG 1.4.11 asks of meaningful non-text
+                // controls; /30 would land at 2.4:1.
+                className="p-1.5 sm:p-2 rounded-lg border border-border-dark hover:border-brand-400/50 hover:bg-brand-500/10 text-text-light/50 hover:text-brand-300 transition-all duration-200 outline-none focus-visible:ring-2 focus-visible:ring-brand-400 focus-visible:ring-offset-2 focus-visible:ring-offset-surface-dark"
                 aria-label="Next services"
               >
                 <ChevronRight className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
@@ -558,7 +565,7 @@ export function ServicesSection() {
 
             <Link
               href="/services"
-              className="inline-flex items-center text-brand-600 hover:text-brand-700 font-semibold text-label sm:text-copy-sm"
+              className="inline-flex items-center text-brand-300 hover:text-brand-200 font-semibold text-label sm:text-copy-sm"
             >
               View all
               <ArrowRight className="ml-1 h-3.5 w-3.5" />

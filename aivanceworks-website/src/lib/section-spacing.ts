@@ -22,7 +22,7 @@ export const SECTION_PADDING = {
       wrapper in app/page.tsx rather than from their own padding. */
   flush: 'py-0',
   /** Tight — sections that already carry internal padding via a card shell. */
-  sm: 'py-6 md:py-8 lg:py-10 xl:py-10 3xl:py-12',
+  sm: 'py-4 md:py-5 lg:py-6 xl:py-7 3xl:py-8',
   /** Standard — most sections. */
   md: 'py-8 md:py-10 lg:py-12 xl:py-14 3xl:py-16',
   /** Generous — sections that need to feel like a chapter break. */

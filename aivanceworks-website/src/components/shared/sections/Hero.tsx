@@ -58,6 +58,29 @@ export const Hero = ({
   const hasMetrics = !!(metrics && metrics.length > 0);
   const hasImage = !!heroImage;
   const hasIllustration = !!heroIllustration;
+  // The bare hero (no image, no illustration, no metrics) centres its copy —
+  // the badge has to follow it, or it reads as a stray tag in the corner.
+  const centeredCopy = !hasImage && !hasIllustration && !hasMetrics;
+
+  /**
+   * The eyebrow badge is a page-level label (service category, solution
+   * family), not part of the headline stack — so it rides at the top of the
+   * card rather than travelling with the vertically-centred copy. Rendered
+   * once here so every hero variant, and therefore every service and solution
+   * page, gets the same placement.
+   */
+  const badgeNode = badge ? (
+    <div
+      data-hero-badge
+      className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-500/[0.12] border border-brand-400/[0.15] text-brand-300 text-label sm:text-copy-sm font-semibold tracking-wide backdrop-blur-sm"
+    >
+      {badgeHref ? (
+        <Link href={badgeHref} className="hover:text-brand-200 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent rounded-full">
+          {badge}
+        </Link>
+      ) : badge}
+    </div>
+  ) : null;
 
   /**
    * Copy bounds. In panel mode the card is already Container-width, so the copy
@@ -66,23 +89,35 @@ export const Hero = ({
    * headline would start at x=20 on a 2560px screen while every section below it
    * starts at 256.
    */
-  const ContentBounds = ({ children }: { children: React.ReactNode }) =>
-    fullBleed ? (
+  const ContentBounds = ({ children }: { children: React.ReactNode }) => {
+    // Badge sits above the centred block; the copy still centres against
+    // whatever height is left, so the fold reads the same as before.
+    const inner = (
+      <>
+        {badgeNode && (
+          <div className={cn('mb-6 md:mb-8', centeredCopy && 'text-center')}>{badgeNode}</div>
+        )}
+        <div className="flex flex-1 flex-col justify-center">{children}</div>
+      </>
+    );
+
+    return fullBleed ? (
       <Container
         width="default"
         data-hero-bounds
-        className="relative z-10 flex flex-1 flex-col justify-center py-8 sm:py-10 md:py-14 lg:py-16"
+        className="relative z-10 flex flex-1 flex-col py-8 sm:py-10 md:py-14 lg:py-16"
       >
-        {children}
+        {inner}
       </Container>
     ) : (
       <div
         data-hero-bounds
-        className="relative z-10 flex flex-1 flex-col justify-center px-6 sm:px-8 md:px-10 lg:px-14 py-8 sm:py-10 md:py-14 lg:py-16"
+        className="relative z-10 flex flex-1 flex-col px-6 sm:px-8 md:px-10 lg:px-14 py-8 sm:py-10 md:py-14 lg:py-16"
       >
-        {children}
+        {inner}
       </div>
     );
+  };
 
   const card = (
     <div
@@ -152,15 +187,6 @@ export const Hero = ({
           {/* Content overlay */}
           <ContentBounds>
             <div className="max-w-3xl lg:max-w-[52%]">
-              {badge && (
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-500/[0.12] border border-brand-400/[0.15] text-brand-300 text-label sm:text-copy-sm font-semibold tracking-wide mb-4 md:mb-5 backdrop-blur-sm">
-                  {badgeHref ? (
-                    <Link href={badgeHref} className="hover:text-brand-200 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent rounded-full">
-                      {badge}
-                    </Link>
-                  ) : badge}
-                </div>
-              )}
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-bold text-text-light mb-4 md:mb-5 leading-[1.15] tracking-tight text-balance">
                 {headline}
               </h1>
@@ -208,15 +234,6 @@ export const Hero = ({
             )}
           >
             <div>
-              {badge && (
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-500/[0.12] border border-brand-400/[0.15] text-brand-300 text-label sm:text-copy-sm font-semibold tracking-wide mb-4 md:mb-5">
-                  {badgeHref ? (
-                    <Link href={badgeHref} className="hover:text-brand-200 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent rounded-full">
-                      {badge}
-                    </Link>
-                  ) : badge}
-                </div>
-              )}
               <h1 className={cn(
                 "text-3xl sm:text-4xl md:text-5xl font-bold text-text-light mb-4 md:mb-5 leading-[1.15] tracking-tight",
                 (hasIllustration || hasMetrics) ? "lg:text-[3.25rem]" : "lg:text-6xl"

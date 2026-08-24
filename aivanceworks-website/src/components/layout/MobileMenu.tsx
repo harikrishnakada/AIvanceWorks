@@ -509,15 +509,17 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
 
               {/* CTA Buttons */}
               <div className="pt-4 space-y-3">
-                <Button
-                  variant="outline"
-                  className="w-full border-gray-300 text-gray-700 hover:border-brand-300 hover:bg-white"
-                  asChild
-                >
-                  <Link href="/contact" onClick={onClose}>
-                    Contact Us
-                  </Link>
-                </Button>
+                {false && (
+                  <Button
+                    variant="outline"
+                    className="w-full border-gray-300 text-gray-700 hover:border-brand-300 hover:bg-white"
+                    asChild
+                  >
+                    <Link href="/contact" onClick={onClose}>
+                      Contact Us
+                    </Link>
+                  </Button>
+                )}
                 <Button
                   className="w-full bg-brand-600 text-white hover:bg-brand-700 shadow-sm font-semibold"
                   asChild

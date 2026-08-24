@@ -132,9 +132,10 @@ export function BlueprintShowcase() {
             className="scroll-step max-w-3xl mb-6 md:mb-8"
           >
             <h2 className="text-h2 font-bold tracking-tight text-balance mb-3">
-              Before We Build, We{' '}
-              <span className="text-brand-400">Draw It</span>
+             <span className="text-brand-400">HIPAA{' '}</span>
+             Compliance by design
             </h2>
+            
             <p className="text-copy-sm md:text-copy text-text-light/70 leading-relaxed text-pretty">
               Two of the working diagrams our engineers take into a first
               engagement — the decision routing behind an AI build, and the layer

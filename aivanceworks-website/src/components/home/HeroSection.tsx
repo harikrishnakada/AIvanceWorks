@@ -14,10 +14,6 @@ const heroSlides = [
     alt: 'Engineering team collaborating on enterprise software architecture',
   },
   {
-    src: '/images/home_hero/office_working.jpg',
-    alt: 'Developers building cloud applications in a modern office',
-  },
-  {
     src: '/images/industries/msc/hero.jpg',
     alt: 'Automated manufacturing and supply chain operations',
   },

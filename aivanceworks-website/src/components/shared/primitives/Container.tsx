@@ -1,7 +1,7 @@
 import { cn } from '@/lib/utils';
 import { HTMLAttributes, ReactNode } from 'react';
 
-export type ContainerWidth = 'narrow' | 'default' | 'wide';
+export type ContainerWidth = 'narrow' | 'default' | 'wide' | 'full';
 
 export interface ContainerProps extends HTMLAttributes<HTMLDivElement> {
   width?: ContainerWidth;
@@ -30,6 +30,12 @@ const WIDTH_CLASSES: Record<ContainerWidth, string> = {
     'max-w-[80rem] xl:max-w-[84rem] 2xl:max-w-[90rem] 3xl:max-w-[105rem] 4xl:max-w-[128rem]',
   wide:
     'max-w-[88rem] 2xl:max-w-[96rem] 3xl:max-w-[112rem] 4xl:max-w-[136rem]',
+  /* No cap — spans the viewport, keeping only the gutter ladder below. For rows
+     that are deliberately edge-anchored rather than aligned to the content
+     column; the header uses it so the logo sits on the viewport's left edge.
+     Body sections must NOT use this: an uncapped section is exactly the
+     eight-different-left-edges problem this file exists to prevent. */
+  full: 'max-w-none',
 };
 
 /* One gutter ladder, replacing the nine different ones the sections had. */

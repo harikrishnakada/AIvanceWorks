@@ -137,7 +137,7 @@ function ServicesHero({ fullBleed = false }: { fullBleed?: boolean }) {
       <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-500/[0.12] border border-brand-400/[0.15] text-brand-300 text-label font-semibold tracking-wide mb-3 md:mb-4">
         Our Services
       </div>
-      <h1 className="text-2xl sm:text-h2 font-bold text-text-light mb-3 md:mb-4 leading-[1.15] tracking-tight text-balance">
+   <h1 className="text-2xl sm:text-h2 font-bold text-text-light mb-3 md:mb-4 leading-[1.15] tracking-tight text-balance">
         Custom Software Development Services That{' '}
         <span className="bg-gradient-to-r from-brand-400 to-indigo-400 bg-clip-text text-transparent">
           Drive Growth

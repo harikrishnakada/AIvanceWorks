@@ -37,7 +37,8 @@ export const NAVIGATION = {
     { label: 'Industries', href: '/industry' },
     // { label: 'Case Studies', href: '/case-studies' },
     { label: 'About', href: '/about' },
-    { label: 'Blog', href: '/blog' }
+    { label: 'Blog', href: '/blog' },
+    { label: 'Contact Us', href: '/contact' }
   ],
   // Service pillars (used by footer, services page, etc.)
   // AI & ML is NOT listed here — it has its own top-level menu (aiMlMenu)
