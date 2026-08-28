@@ -120,8 +120,8 @@ export interface DiscoveryBeforeAfterProps {
 }
 
 export const DiscoveryBeforeAfter = ({
-  headline = 'Week 4 — Five deliverables, ready to act on',
-  subhead = 'Every market research engagement ends with concrete deliverables your product and leadership team can act on immediately.',
+  headline = 'Five deliverables, ready to act on',
+  subhead = 'Every market research engagement ends with concrete deliverables your leadership team can act on immediately.',
 }: DiscoveryBeforeAfterProps) => {
   const [expandedIdx, setExpandedIdx] = useState<number | null>(null);
 

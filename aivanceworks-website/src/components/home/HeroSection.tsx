@@ -192,7 +192,7 @@ export function HeroSection() {
                     the headline group no height and the headline cannot drift.
                     Tune the offset via --hero-sub-drop per height tier in
                     styles/first-fold.css. Do NOT convert it back to margin. */}
-                <p
+               <p
                   data-hero-sub
                   className="text-lead
                     text-white/80 max-w-[70ch] mx-auto text-pretty

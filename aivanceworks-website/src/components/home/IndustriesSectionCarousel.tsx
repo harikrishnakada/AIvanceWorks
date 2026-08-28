@@ -73,7 +73,18 @@ export function IndustriesSectionCarousel({ industries }: { industries: HomeIndu
   const totalDots = maxIndex + 1;
 
   return (
-    <Section data-section="home-industries-carousel" tone="dark" size="md" withGrid>
+    <Section
+      data-section="home-industries-carousel"
+      tone="dark"
+      size="md"
+      withGrid
+      /* Top padding halved off the `md` scale. This section follows
+         WhyChooseUsSection, whose own bottom padding already contributes half
+         the band — stacked, they put 116px above "Software Built Around Your
+         Industry" at 1920px, which read as a gap rather than as a section
+         start. Bottom keeps the standard `md` rhythm. */
+      className="pt-4 md:pt-5 lg:pt-6 xl:pt-7 3xl:pt-8"
+    >
       <div
         aria-hidden="true"
         className="pointer-events-none absolute top-0 left-1/3 w-[620px] h-72 bg-brand-500/[0.09] rounded-full blur-[130px]"

@@ -25,7 +25,7 @@ const travelHospitality: IndustryPageData = {
     'restaurant ordering system',
     'travel AI development',
   ],
-  canonicalPath: '/industry/travel-hospitality',
+  canonicalPath: '/book-consultation?industry=travel-hospitality',
 
   breadcrumb: [
     { label: 'Home', href: '/' },

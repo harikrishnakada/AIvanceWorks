@@ -141,7 +141,7 @@ export function PocFeasibilityVerdict() {
         {/* Header */}
         <div className="text-center mb-10 lg:mb-14">
           <p className="text-sm font-semibold tracking-wider uppercase text-brand-300 mb-3">
-            How we reach a verdict
+            Reaching a verdict
           </p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-light mb-4 tracking-tight">
             One question in. A clear verdict out.

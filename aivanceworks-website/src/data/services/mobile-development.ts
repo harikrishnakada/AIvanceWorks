@@ -66,7 +66,7 @@ const mobileDevelopment: ServicePageData = {
 
   hero: {
     badge: 'Mobile Engineering',
-    headline: 'Your mobile app — built for both platforms from day one.',
+    headline: 'Your mobile app built for both platforms.',
     subhead:
       'Cross-platform mobile development that ships to iOS and Android from a shared codebase. Native performance, one engineering team, no platform duplication.',
     primaryCta: { label: 'Book a Mobile Strategy Call', href: '/contact' },

@@ -25,7 +25,7 @@ const logistics: IndustryPageData = {
     '3PL software development',
     'proof of delivery app',
   ],
-  canonicalPath: '/industry/logistics',
+  canonicalPath: '/book-consultation?industry=logistics',
 
   breadcrumb: [
     { label: 'Home', href: '/' },

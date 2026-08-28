@@ -134,26 +134,26 @@ export function Header() {
             : 'bg-white border-b border-gray-100'
           }`}
       >
-        {/* Full-bleed row: `width="full"` keeps the gutter ladder but drops the
-            max-width, so the logo sits on the VIEWPORT's left edge — 48px at both
-            1920 and 2560 — rather than on the content column's edge.
+        {/* Back to `default`, and the long-running argument over this row is now
+            moot rather than decided. The history: full-bleed was rejected once
+            because at 2560 the logo sat at 32px while section content started at
+            304px and the header read as a different page than the body; then it
+            was reinstated because a logo visibly inset from the screen edge was
+            the more noticeable of the two problems. Both objections shared one
+            cause — `default` did not reach the gutter.
 
-            This is the second reversal of this decision, so both sides are on the
-            record. Full-bleed was rejected once before because at 2560 the logo sat
-            at 32px while every section's content started at 304px, and the header
-            read as belonging to a different page than the body. That objection is
-            real and still applies; it was overridden deliberately — the logo being
-            visibly inset from the screen edge was the more noticeable of the two
-            problems in practice.
+            It does now (2026-08-24, see Container's header comment), so the logo
+            sits on the gutter at 48px AND lands on the same edge as every section
+            below it. `default` also beats `full` past 2560: `full` is uncapped, so
+            at 3840 the logo stayed at 48 while capped body content started at 688.
 
-            The `full` width lives in Container rather than as a local override
-            because Container owns max-width everywhere (see its header comment).
-            An earlier attempt passed `className="max-w-none"`, which silently did
+            Whatever this is, set it in Container, not as a local override — an
+            earlier attempt passed `className="max-w-none"`, which silently did
             nothing: tailwind-merge dropped the unprefixed `max-w-[80rem]` but left
             `xl:`/`2xl:`/`3xl:`/`4xl:max-w-*` standing, so every width above 1280
-            stayed capped. Body sections must not use `full`. */}
+            stayed capped. */}
         <nav aria-label="Main navigation">
-          <Container width="full">
+          <Container width="default">
           {/* Logo on the viewport's left edge; the nav block centred.
 
               Centring is done TWO different ways on purpose, because one way alone

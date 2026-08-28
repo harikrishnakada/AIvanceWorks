@@ -118,9 +118,9 @@ const c10AiStrategy: ServicePageData = {
 
   hero: {
     badge: 'AI Strategy · Advisory',
-    headline: 'An AI strategy your board and your risk committee can stand behind.',
+    headline: 'An AI strategy your whole company will stand behind.',
     subhead:
-      'Vendor-neutral AI strategy for governed enterprises — readiness assessment, risk-tiered use case prioritization, and a phased roadmap with a responsible-AI governance framework, before you fund a single model.',
+      'Vendor-neutral AI strategy for governed enterprises — readiness assessments, risk-tiered case prioritization, and a roadmap with a responsible-AI governance framework, before you fund a single model.',
     primaryCta: { label: 'Book Strategy Call', href: '/contact' },
     secondaryCta: { label: 'See the prioritization matrix', href: '#signature' },
   },

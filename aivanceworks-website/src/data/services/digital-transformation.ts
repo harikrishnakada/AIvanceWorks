@@ -111,9 +111,9 @@ const digitalTransformation: ServicePageData = {
 
   hero: {
     badge: 'Strategic Service',
-    headline: 'Modernize the whole business, one wave at a time.',
+    headline: 'Modernizing your whole business, one wave at a time.',
     subhead:
-      'A sequenced digital transformation across your processes, technology, and data — starting with an assessment and roadmap, delivered in prioritized waves that keep the business running the entire way.',
+      'A sequenced transformation across your entire business, executed wave by wave to keep operations running.',
     primaryCta: { label: 'Book Transformation Call', href: '/contact' },
     secondaryCta: { label: 'See the roadmap', href: '#signature' },
   },
@@ -175,7 +175,7 @@ const digitalTransformation: ServicePageData = {
       icon: 'Users',
       name: 'Ownership & Adoption',
       description:
-        'Change management, capability building, and DevOps practices transfer the new operating model to your teams — so the transformation is adopted and maintained, not abandoned after go-live.',
+        'Change management, capability building, and DevOps practices transfer the new operating model to your teams — so the transformation is adopted and maintained.',
     },
   ],
 

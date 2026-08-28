@@ -141,9 +141,9 @@ const agenticAiDevelopment: ServicePageData = {
 
   hero: {
     badge: 'Agentic AI',
-    headline: 'Agents that take action. Under your control.',
+    headline: 'Agents under your control that take action.',
     subhead:
-      'Autonomous and semi-autonomous AI agents that reason, plan, use your tools, and complete multi-step work — with oversight and guardrails built in from day one.',
+      'Autonomous and semi-autonomous AI agents that reason, plan, use your tools, and complete multi-step work — with oversight and guardrails built in.',
     primaryCta: { label: 'Book an Agentic AI Call', href: '/contact' },
     secondaryCta: { label: 'See the autonomy spectrum', href: '#signature' },
   },

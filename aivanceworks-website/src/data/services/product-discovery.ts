@@ -44,9 +44,9 @@ const productDiscovery: ServicePageData = {
 
   hero: {
     badge: 'Strategic Service',
-    headline: 'Turn a fuzzy idea into a plan you can ship.',
+    headline: 'Transforming a fuzzy idea into a plan of action.',
     subhead:
-      'Two weeks. Five concrete deliverables. A validated, de-risked MVP backlog your engineering team can start building against on Monday morning.',
+      'Within two weeks you will have multiple deliverables and a validated, easily-scalable Minimum Viable Product.',
     primaryCta: { label: 'Book a Discovery Sprint', href: '/contact' },
     secondaryCta: { label: 'See what you get', href: '#signature' },
   },

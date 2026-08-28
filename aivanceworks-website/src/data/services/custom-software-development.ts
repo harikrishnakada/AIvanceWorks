@@ -74,9 +74,9 @@ const customSoftwareDevelopment: ServicePageData = {
 
   hero: {
     badge: 'Custom Software Engineering',
-    headline: 'Custom software that works in production, not just in demo.',
+    headline: 'Custom software built to last.',
     subhead:
-      'Full-stack development from architecture through deployment — built on modern frameworks, tested under real load, owned by you, maintainable by your team.',
+      'Full-stack development from architecture through deployment — built on modern frameworks, tested under real load, that’s owned by you and maintainable by your team.',
     primaryCta: { label: 'Book a Strategy Call', href: '/contact' },
     secondaryCta: { label: 'See our delivery process', href: '#signature' },
   },

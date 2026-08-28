@@ -25,7 +25,7 @@ const healthcare: IndustryPageData = {
     'HL7 FHIR development',
     'digital health software',
   ],
-  canonicalPath: '/industry/healthcare',
+  canonicalPath: '/book-consultation?industry=healthcare',
 
   breadcrumb: [
     { label: 'Home', href: '/' },

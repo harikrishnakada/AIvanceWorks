@@ -387,11 +387,12 @@ export function AiApproachSelector({ embedded = false }: AiApproachSelectorProps
             How We Choose
           </p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-light mb-4">
-            One problem in. The right approach out.
+            Give us a problem and receive back a solution.
           </h2>
           <p className="text-text-light/80 max-w-2xl mx-auto text-lg">
-            You don&apos;t need to know which kind of AI you need. Bring the problem — we weigh the
-            approaches against it and build the one that fits, even when that means no AI at all.
+            You do not need to know what AI model you need — just bring us your problem. Weighing
+            all our options, we will tell you what we think, even if that means an AI model may not
+            be the appropriate service.
           </p>
         </div>
 

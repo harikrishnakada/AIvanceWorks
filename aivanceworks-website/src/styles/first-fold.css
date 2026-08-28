@@ -197,13 +197,22 @@
 /* Tier 3 — genuinely short viewports (≤700px tall): iPhone SE, landscape
    phones, browsers with several toolbars open.
 
-   KNOWN AND ACCEPTED: at 320x568 (iPhone SE 1st gen) the fold no longer closes —
-   hero + statement run ~97px past one viewport. With a 28px headline and 16px
-   description there is simply not enough room, and trimming the remaining
-   padding recovers only ~32px of it. Nothing is CLIPPED (verified: no element
-   has scrollHeight > clientHeight), the pair just needs a short scroll. That is
-   the deliberate trade — legible type over the one-viewport rule on the smallest
-   screen in use. Do not "fix" this by shrinking the type back. */
+   PORTRAIT NOW CLOSES EVERYWHERE, 320x568 included. This tier used to carry a
+   standing exception: at 320x568 the hero + statement pair ran ~97px past one
+   viewport, and the note here said to accept the short scroll rather than shrink
+   the type back. That overflow was almost entirely the hero description, which
+   was a 4-line-at-desktop / 10-line-at-320px paragraph. It is now two sentences
+   worth of copy (4 lines at 320px), and the pair measures exactly 0px past the
+   fold at every portrait width from 320 to 430 and every desktop size to 2560.
+
+   So the type floors below are no longer buying headroom that a copy edit has
+   to give back — but they are still what keeps 320px legible, so they stay.
+   If the hero copy grows again, THIS is the budget it spends: re-run
+   `node scripts/responsive-audit.mjs` and check the fold before shipping it.
+
+   LANDSCAPE phones (740x360, 915x412) still run ~90-110px past the fold. Nothing
+   is clipped there — verified, no element has scrollHeight > clientHeight — the
+   pair just needs a short scroll, which is the right trade in landscape. */
 @media (max-height: 700px) {
   [data-hero-body] {
     padding-top: 2.25rem;
@@ -261,6 +270,23 @@
 
   [data-statement-divider] {
     margin-top: 0.5rem;
+  }
+}
+
+/* ─── Sub drop floor on very short viewports (≤600px tall) ────────────────
+   The Tier 3 drop is `clamp(8px, 4vh, 26px)`, which at 568px of viewport height
+   resolves to ~23px. Before the hero description was shortened there was no
+   slack for it to travel into, so it never bit. Now there is, and the measured
+   description-to-button gap at 320x568 closed to 6px — legible, but visibly
+   cramped, and the buttons stop reading as a separate block.
+
+   Cutting the drop here reopens that gap to ~20px. It is safe to change without
+   re-checking the fold: --hero-sub-drop is applied as a TRANSFORM, so it moves
+   the copy after layout and costs the section no height either way. Measured at
+   320x568 and 360x640; both still end exactly at the fold. */
+@media (max-height: 600px) {
+  [data-hero-sub] {
+    --hero-sub-drop: clamp(4px, 1.4vh, 12px);
   }
 }
 

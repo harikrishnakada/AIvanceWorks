@@ -151,9 +151,9 @@ export function ArchitectureDecisionTree() {
             Every Decision Documented With Evidence
           </h2>
           <p className="text-text-light/80 max-w-2xl mx-auto text-lg">
-            Architecture Decision Records trace every recommendation from your
-            constraints through evaluated options to a documented decision with
-            tradeoffs.
+            An Architecture Decision Record traces every recommendation down
+            every road it could have taken — and hands you a documented decision
+            with the tradeoffs laid out.
           </p>
         </div>
 

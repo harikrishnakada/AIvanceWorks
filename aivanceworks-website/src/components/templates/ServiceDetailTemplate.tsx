@@ -96,7 +96,7 @@ export const ServiceDetailTemplate = ({
           auditNote={data.complianceDeepDive.auditNote}
           partnerAgreements={data.complianceDeepDive.partnerAgreements}
           eyebrow="Compliance engineered in"
-          title="A control set your auditor can actually sign off on."
+          title="A plan built for your auditor’s approval."
           subtitle="Every safeguard is wired into the architecture, documented for the assessor, and mapped to the frameworks you need to pass — not reconstructed the week before the audit."
         />
       ) : null,

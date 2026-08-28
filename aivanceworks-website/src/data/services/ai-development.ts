@@ -136,7 +136,7 @@ const aiDevelopment: ServicePageData = {
     badge: 'Custom AI Development',
     headline: 'Bring the problem. We pick the AI that fits.',
     subhead:
-      'For teams who know AI can help but not which kind. We start with your problem, choose the right approach — or tell you when you don’t need AI — then build and ship it to production.',
+      'Teams that know when AI is appropriate and when it is not. Based on your problem, we will tell you what you need — and from there, you make the decision.',
     primaryCta: { label: 'Book an AI Scoping Call', href: '/contact' },
     secondaryCta: { label: 'See how we choose', href: '#signature' },
     heroImage: {

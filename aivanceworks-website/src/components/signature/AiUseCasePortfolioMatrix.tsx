@@ -189,7 +189,7 @@ export const AiUseCasePortfolioMatrix = () => {
             The prioritization matrix
           </div>
           <h2 className="mb-4 text-3xl font-bold tracking-tight text-text-light md:text-4xl lg:text-5xl">
-            A list of AI ideas is not a strategy. A risk-tiered portfolio is.
+            Not the ordinary list of ideas — we generate a portfolio.
           </h2>
           <p className="text-base leading-relaxed text-text-subtle md:text-lg">
             Every candidate use case is plotted on the value it creates against how ready you are to

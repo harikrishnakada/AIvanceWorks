@@ -135,9 +135,9 @@ const nativeAiDevelopment: ServicePageData = {
 
   hero: {
     badge: 'AI-Native Development',
-    headline: 'AI built into the foundation. Not bolted on.',
+    headline: 'Foundation built with AI from inception.',
     subhead:
-      'We build software where a foundation model is a core architectural layer from day one — with prompt management, AI-native UX, and the cost and evaluation controls that turn a demo into a product.',
+      'We build software where a foundation model is a core architectural layer from day one — with prompt management, AI-native UX, with cost and evaluation controls that turn a demo into a product.',
     primaryCta: { label: 'Book an AI-Native Scoping Call', href: '/contact' },
     secondaryCta: { label: 'See the difference', href: '#signature' },
   },

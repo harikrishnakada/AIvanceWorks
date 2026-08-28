@@ -25,7 +25,7 @@ const manufacturingSupplyChain: IndustryPageData = {
     'manufacturing analytics software',
     'OPC-UA integration',
   ],
-  canonicalPath: '/industry/manufacturing-supply-chain',
+  canonicalPath: '/book-consultation?industry=manufacturing-supply-chain',
 
   breadcrumb: [
     { label: 'Home', href: '/' },

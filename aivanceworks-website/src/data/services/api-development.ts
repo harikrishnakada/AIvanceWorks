@@ -86,7 +86,7 @@ const apiDevelopment: ServicePageData = {
     badge: 'Technical Service',
     headline: 'APIs built to be exposed, versioned, and depended on.',
     subhead:
-      'We design and build REST and GraphQL APIs contract-first — secured, documented, and versioned, so your own apps and partners can integrate without breaking.',
+      'We specialize in designing and perfecting contract-first REST and GraphQL APIs that are secure, easy to use, and versioned — so they don’t break down when you need them most.',
     primaryCta: { label: 'Scope your API', href: '/contact' },
     secondaryCta: { label: 'See how a request flows', href: '#signature' },
   },

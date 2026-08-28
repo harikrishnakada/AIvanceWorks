@@ -42,6 +42,13 @@ const DIM: Record<NonNullable<HeroImage['dim']>, string> = {
   strong: 'bg-surface-dark-from/55',
 };
 
+/* Shared by both hero branches. `sm:flex-wrap` because Button carries
+   `whitespace-nowrap` — without it two long service labels overflow the copy
+   column. The `mt` collapses with the lede's `mb` (block parent), so the visible
+   band is the mt value, not the sum. */
+const HERO_ACTIONS_ROW =
+  'flex flex-col sm:flex-row sm:flex-wrap gap-3 md:gap-4 mt-10 lg:mt-12';
+
 export const Hero = ({
   badge,
   badgeHref,
@@ -193,7 +200,7 @@ export const Hero = ({
               <p data-hero-lede className="text-lead text-text-light/75 leading-relaxed max-w-[56ch] mb-6 text-pretty">
                 {subhead}
               </p>
-              <div data-hero-actions className="flex flex-col sm:flex-row gap-3">
+              <div data-hero-actions className={HERO_ACTIONS_ROW}>
                 <Button asChild size="lg" className="bg-brand-600 hover:bg-brand-500 text-text-light shadow-glow-sm font-semibold rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent">
                   <Link href={primaryCta.href}>{primaryCta.label}</Link>
                 </Button>
@@ -251,7 +258,7 @@ export const Hero = ({
               <div
                 data-hero-actions
                 className={cn(
-                "flex flex-col sm:flex-row gap-3",
+                HERO_ACTIONS_ROW,
                 !(hasIllustration || hasMetrics) && "justify-center"
               )}>
                 <Button asChild size="lg" className="bg-brand-600 hover:bg-brand-500 text-text-light shadow-glow-sm font-semibold rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent">

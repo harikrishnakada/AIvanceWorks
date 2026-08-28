@@ -7,16 +7,21 @@ export interface ImageFeatureProps {
   features: ImageFeatureData[];
   tone?: 'light' | 'warm';
   className?: string;
+  /* Overrides the vertical gap BETWEEN the stacked feature rows. Defaults to the
+     gap-16 md:gap-20 rhythm every solution page uses; the home page tightens it
+     because this section sits between two already-dense sections there. */
+  stackClassName?: string;
 }
 
 export const ImageFeature = ({
   features,
   tone = 'light',
   className,
+  stackClassName,
 }: ImageFeatureProps) => (
   <Section data-section="image-feature" tone={tone} size="md" className={className}>
     <Container>
-      <div className="flex flex-col gap-16 md:gap-20">
+      <div className={cn('flex flex-col gap-16 md:gap-20', stackClassName)}>
         {features.map((feature, idx) => {
           const reverse = idx % 2 !== 0;
           return (

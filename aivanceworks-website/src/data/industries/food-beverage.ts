@@ -26,7 +26,7 @@ const foodBeverage: IndustryPageData = {
     'F&B analytics and business intelligence',
     'food supply chain software',
   ],
-  canonicalPath: '/industry/food-beverage',
+  canonicalPath: '/book-consultation?industry=food-beverage',
 
   breadcrumb: [
     { label: 'Home', href: '/' },

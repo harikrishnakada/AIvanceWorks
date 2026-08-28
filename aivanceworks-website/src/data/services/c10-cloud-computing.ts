@@ -61,7 +61,7 @@ const cloudStrategy: ServicePageData = {
 
   hero: {
     badge: 'Strategic Service',
-    headline: 'A cloud plan your board can fund and your team can execute.',
+    headline: 'A cloud plan designed for quick access at an affordable price.',
     subhead:
       'A structured assessment that maps every workload, builds the business case, and sequences the migration — so you walk into the board meeting with answers, not assumptions.',
     primaryCta: { label: 'Book Assessment Call', href: '/contact' },
@@ -113,7 +113,7 @@ const cloudStrategy: ServicePageData = {
       icon: 'GitBranch',
       name: 'Migration Strategy Mapping',
       description:
-        'Each workload gets a recommended migration approach — rehost, replatform, rearchitect, retain, or retire — based on assessment evidence, not assumptions.',
+        'Each workload gets a recommended migration approach — rehost, replatform, rearchitect, retain, or retire.',
     },
     {
       icon: 'Building2',

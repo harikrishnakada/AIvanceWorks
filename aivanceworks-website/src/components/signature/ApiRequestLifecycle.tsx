@@ -88,7 +88,7 @@ const LAYERS: ApiLayer[] = [
     label: 'Business logic',
     role: 'Your actual capability',
     guarantee:
-      'Only clean, authenticated, in-budget requests reach the code that does the real work — the part that produces the answer your consumers came for.',
+      'Only clean, authenticated, in-budget requests reach the code that actually does the real work.',
     accent: 'core',
   },
   {

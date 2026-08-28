@@ -25,7 +25,7 @@ const retail: IndustryPageData = {
     'retail systems integration',
     'DTC ecommerce development',
   ],
-  canonicalPath: '/industry/retail',
+  canonicalPath: '/book-consultation?industry=retail',
 
   breadcrumb: [
     { label: 'Home', href: '/' },

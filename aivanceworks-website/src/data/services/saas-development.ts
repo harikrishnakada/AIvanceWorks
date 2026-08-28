@@ -64,7 +64,7 @@ const saasDevelopment: ServicePageData = {
     badge: 'SaaS Engineering',
     headline: 'Your SaaS platform, built for real tenants from day one.',
     subhead:
-      'Multi-tenant architecture, subscription billing, and scalable infrastructure — engineered as a platform, not patched onto a web app after launch.',
+      'Multi-tenant architecture, subscription billing, and scalable infrastructure — engineered as a platform, not patched after launch.',
     primaryCta: { label: 'Book a SaaS Strategy Call', href: '/contact' },
     secondaryCta: { label: 'See the architecture', href: '#signature' },
     heroImage: {
@@ -123,7 +123,7 @@ const saasDevelopment: ServicePageData = {
       icon: 'Users',
       title: 'User Management & RBAC',
       description:
-        'Multi-level access control: platform admins, tenant admins, and end users with configurable roles and permissions. SSO via SAML/OIDC for enterprise tenants. Invite flows and team management built in.',
+        'Multi-level access control: platform admins, tenant admins, and end users with configurable roles and permissions. SSO via SAML/OIDC for enterprise tenants, with invite flows and team management built in.',
     },
     {
       icon: 'Plug',
@@ -141,7 +141,7 @@ const saasDevelopment: ServicePageData = {
       icon: 'Server',
       title: 'Scalable Cloud Infrastructure',
       description:
-        'Infrastructure as Code on Azure or AWS with autoscaling, zero-downtime deployments, and environment parity. Designed so your infrastructure costs scale linearly with your tenant count, not exponentially.',
+        'Infrastructure as Code on Azure or AWS with autoscaling, zero-downtime deployments, and environment parity. Designed so your infrastructure costs scale linearly, not exponentially, with your tenant count.',
     },
   ],
 

@@ -121,9 +121,9 @@ const mlDevelopment: ServicePageData = {
 
   hero: {
     badge: 'AI & Machine Learning',
-    headline: 'Models that reach production. Not notebooks that rot.',
+    headline: 'Models built for production and innovation.',
     subhead:
-      'Custom model training, fine-tuning, and feature pipelines — engineered with honest evaluation, deployment, and drift monitoring so your model still works six months after launch.',
+      'Custom model production, fine-tuning, and engineered pipelines built for effective deployment.',
     primaryCta: { label: 'Book an ML Scoping Call', href: '/contact' },
     secondaryCta: { label: 'See the model lifecycle', href: '#signature' },
   },

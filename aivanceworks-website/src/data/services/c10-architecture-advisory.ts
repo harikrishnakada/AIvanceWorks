@@ -63,7 +63,7 @@ const architectureAdvisory: ServicePageData = {
 
   hero: {
     badge: 'Strategic Service',
-    headline: 'Architecture advice that ends in decisions, not decks.',
+    headline: 'Advice that gets you to a decision.',
     subhead:
       'Structured architecture reviews that produce ADRs, technology roadmaps, and evidence-based recommendations your engineering team can execute against.',
     primaryCta: { label: 'Book Architecture Review', href: '/contact' },

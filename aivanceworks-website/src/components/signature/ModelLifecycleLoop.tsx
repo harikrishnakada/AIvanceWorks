@@ -198,11 +198,11 @@ export function ModelLifecycleLoop() {
             The Model Lifecycle
           </p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-light mb-4">
-            A model isn&apos;t a deliverable. It&apos;s a loop.
+            The never-ending loop.
           </h2>
           <p className="text-text-light/80 max-w-2xl mx-auto text-lg">
-            Training a model is the easy 20%. The other 80% is the loop that keeps it accurate
-            after your data shifts — and that loop is what we build.
+            Training a model is the easy 20%. The other 80% is the loop for conscious
+            deployment — and that&apos;s what we build.
           </p>
         </div>
 

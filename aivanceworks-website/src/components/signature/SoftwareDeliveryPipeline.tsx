@@ -154,7 +154,7 @@ export const SoftwareDeliveryPipeline = () => {
             Delivery Process
           </p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-light mb-4">
-            No black boxes. Here is how your software gets built.
+            Delivery Process: No Hidden Phases and Black Boxes.
           </h2>
           <p className="text-text-light/70 max-w-2xl mx-auto text-base lg:text-lg">
             Six phases from requirements to handoff — each with defined

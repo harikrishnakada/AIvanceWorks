@@ -26,7 +26,7 @@ const banking: IndustryPageData = {
     'credit union software development',
     'neobank platform development',
   ],
-  canonicalPath: '/industry/banking',
+  canonicalPath: '/book-consultation?industry=banking',
 
   breadcrumb: [
     { label: 'Home', href: '/' },

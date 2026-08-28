@@ -25,7 +25,7 @@ const realEstate: IndustryPageData = {
     'commercial real estate software',
     'real estate AI development',
   ],
-  canonicalPath: '/industry/real-estate',
+  canonicalPath: '/book-consultation?industry=real-estate',
 
   breadcrumb: [
     { label: 'Home', href: '/' },

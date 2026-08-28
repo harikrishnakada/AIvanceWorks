@@ -69,7 +69,7 @@ const nlpDocumentAi: ServicePageData = {
 
   hero: {
     badge: 'Document Intelligence',
-    headline: 'Turn documents into data your systems can use.',
+    headline: 'Creating an organized system from cluttered folders.',
     subhead:
       'Extraction, classification, and semantic search for the messy documents OCR tools choke on — scanned forms, handwritten notes, and inconsistent layouts.',
     primaryCta: { label: 'Book Document AI Call', href: '/contact' },

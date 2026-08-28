@@ -67,7 +67,7 @@ const webAppDevelopment: ServicePageData = {
 
   hero: {
     badge: 'Web Engineering',
-    headline: 'Web applications built to run in production, not just in demos.',
+    headline: 'Web applications built to run in production.',
     subhead:
       'Responsive frontends, robust APIs, automated testing, and production infrastructure — engineered as a system from day one, not stitched together after launch.',
     primaryCta: { label: 'Book a Web App Strategy Call', href: '/contact' },

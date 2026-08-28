@@ -55,7 +55,7 @@ export default async function HomePage() {
       },
     },
     {
-      heading: 'Prototype Validationn',
+      heading: 'Prototype Validation',
       description: 'Low-fidelity prototypes put in front of real users within days to separate signal from opinion.',
       image: {
         src: '/images/solutions/e-commerce-websites/feature-2.jpg',
@@ -133,23 +133,30 @@ export default async function HomePage() {
    {/* Services Overview - 6 service cards */}
       <ServicesSection />
 
-        {/* Why Companies Choose Us - 6 differentiator cards */}
-      <WhyChooseUsSection />
 
-     
 
-      {/* Bottom padding trimmed on the home page only: this section is followed
-          immediately by EcommerceAiShowcase, and the two `md`/`lg` bands stacked to
-          ~104px of blank white above "AI, BUILT IN". The shared component keeps its
-          standard `size="md"` rhythm for every other page that uses it. */}
+         <WhyChooseUsServicesSection />
+
+      {/* Vertical rhythm trimmed on the home page only. Three separate trims:
+          - `pb-*`: this section is followed immediately by EcommerceAiShowcase, and
+            the two `md`/`lg` bands stacked to ~104px of blank white above "AI, BUILT IN".
+          - `pt-*`: same collision on the other side, against WhyChooseUsServicesSection
+            above. Matches the `pb-*` scale so the section reads symmetrical.
+          - `stackClassName`: the default gap-16/20 (64/80px) between the two feature
+            rows was the largest gap on the page — halved so "Prototype Validation"
+            sits with "Design Sprints" instead of reading as its own section.
+          The shared component keeps its standard `size="md"` rhythm and gap-16 md:gap-20
+          stack for every other page that uses it. */}
       <ImageFeature
         features={data.imageFeatures}
-        className="pb-3 md:pb-4 lg:pb-5 xl:pb-6 3xl:pb-8"
+        className="pt-3 md:pt-4 lg:pt-5 xl:pt-6 3xl:pt-8 pb-3 md:pb-4 lg:pb-5 xl:pb-6 3xl:pb-8"
+        stackClassName="gap-8 md:gap-10"
       />
       
       <EcommerceAiShowcase />
        
-      <WhyChooseUsServicesSection />
+       {/* Our Delivery - What we deliver in week one, as a numbered rail */}
+      <OurDelivery />
 
       {/* Before We Build, We Draw It - rotating stage of two engineering
           blueprints (AI approach routing, SaaS layer stack) */}
@@ -163,13 +170,25 @@ export default async function HomePage() {
                 pillars={data.complianceSpotlight.pillars}
                 badges={data.complianceSpotlight.badges}
                 fullBleed
+                /* `fullBleed` forces size="flush" (py-0), and ExperienceSection
+                   below only contributes pt-4/5/6 — so the two sections were
+                   separated by a ~16-24px band that read as a collision between
+                   the dark compliance panel and the experience cards. Add the
+                   standard `md` bottom rhythm here so the band lands at the same
+                   scale as every other section boundary on the page. */
+                className="pb-4 md:pb-5 lg:pb-6 xl:pb-7 3xl:pb-8"
+                /* Panel default is py-10 md:py-14 lg:py-16. Full-bleed on the
+                   home page it read as a wide black band above "HIPAA-Compliant"
+                   and below the badge row, so halve it here only — the boxed
+                   instances on the service/solution templates keep the default. */
+                panelClassName="py-5 md:py-7 lg:py-8"
               />
 
       {/* Our Experience - Certifications and stats */}
       <ExperienceSection />
 
-     {/* Our Delivery - What we deliver in week one, as a numbered rail */}
-      <OurDelivery />
+  {/* Why Companies Choose Us - 6 differentiator cards */}
+      <WhyChooseUsSection />
 
       {/* Industries - Category card slideshow into vertical landing pages */}
       <IndustriesSectionCarousel industries={industries} />

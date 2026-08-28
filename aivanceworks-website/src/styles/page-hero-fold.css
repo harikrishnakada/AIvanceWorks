@@ -105,6 +105,12 @@
     padding-bottom: 2.5rem;
   }
 
+  /* Hero.tsx seats the CTA row lower on `mt-10 lg:mt-12`. That is real height,
+     and this file's job is the height budget — so short screens get it back. */
+  [data-section='hero'] [data-hero-actions] {
+    margin-top: 1.5rem;
+  }
+
   [data-section='hero'] [data-hero-metrics] {
     margin-top: 1.5rem;
     padding-top: 1.25rem;

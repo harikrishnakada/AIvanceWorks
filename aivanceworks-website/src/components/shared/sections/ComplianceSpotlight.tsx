@@ -27,6 +27,13 @@ export interface ComplianceSpotlightProps {
    */
   fullBleed?: boolean;
   className?: string;
+  /**
+   * Overrides on the dark panel itself (the element that owns the vertical
+   * padding between the panel edge and the eyebrow/title). Use this — not
+   * `className`, which lands on the outer Section — to tighten or loosen the
+   * black band above the title and below the badges on a single page.
+   */
+  panelClassName?: string;
 }
 
 const getPillarGridClass = (count: number): string => {
@@ -46,6 +53,7 @@ export const ComplianceSpotlight = ({
   tone = 'warm',
   fullBleed = false,
   className,
+  panelClassName,
 }: ComplianceSpotlightProps) => {
   const titleContent = (() => {
     if (!highlightText || !title.includes(highlightText)) return title;
@@ -82,7 +90,8 @@ export const ComplianceSpotlight = ({
         fullBleed
           ? 'w-full'
           : `rounded-2xl border border-[color:var(--glass-border)] shadow-brand-panel
-             px-6 sm:px-10 lg:px-16`
+             px-6 sm:px-10 lg:px-16`,
+        panelClassName
       )}
     >
       {/* Grid overlay */}

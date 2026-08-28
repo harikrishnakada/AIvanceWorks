@@ -109,9 +109,9 @@ const itConsulting: ServicePageData = {
 
   hero: {
     badge: 'Regulated Industries',
-    headline: 'Technology decisions your auditor, board, and CFO can all live with.',
+    headline: 'An IT strategy for your whole company.',
     subhead:
-      'Vendor-neutral IT strategy, vendor selection, and technology due diligence — every recommendation run through a five-gate regulatory, vendor-risk, and board-defensibility review before it enters your roadmap.',
+      'Vendor-neutral IT strategy, vendor selection, and technology due diligence. Every recommendation runs through a five-gate regulatory, vendor-risk, and board-defensibility review before it enters your roadmap.',
     primaryCta: { label: 'Book Strategy Call', href: '/contact' },
     secondaryCta: { label: 'See the decision gauntlet', href: '#signature' },
   },

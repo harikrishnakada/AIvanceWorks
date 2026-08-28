@@ -65,9 +65,9 @@ const generativeAi: ServicePageData = {
 
   hero: {
     badge: 'AI Engineering',
-    headline: 'Production AI systems. Not prototypes that never ship.',
+    headline: 'AI built to scale and be flexible.',
     subhead:
-      'RAG pipelines, AI agents, and LLM integrations built for production — with retrieval quality, guardrails, and monitoring from the first sprint.',
+      'RAG pipelines, AI agents, and LLM integrations built for production — with retrieval quality, guardrails, and monitoring from takeoff.',
     primaryCta: { label: 'Book AI Strategy Call', href: '/contact' },
     secondaryCta: { label: 'See the pipeline', href: '#signature' },
   },

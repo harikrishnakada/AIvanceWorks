@@ -58,7 +58,7 @@ const services: Service[] = [
   {
     title: 'SaaS Development',
     description:
-      'Multi-tenant architecture, subscription billing, and scalable infrastructure — engineered as a platform, not patched onto a web app after launch.',
+      'Multi-tenant architecture, subscription billing, and scalable infrastructure — engineered as a platform, not patched after launch.',
     icon: Code2,
     href: '/services/saas-development',
     image: '/images/services/SaaS-development/cateogry-card_SAAS.jpg',

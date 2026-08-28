@@ -53,7 +53,7 @@ export function StatementSection() {
                 <span aria-hidden="true" className="font-serif text-brand-300 align-[-0.15em] text-[1.6em] leading-[0] mr-1">
                   &ldquo;
                 </span>
-                At <span className="text-brand-300">{BRAND_PREFIX}</span>, we create Application and Systems that <span className="text-brand-300">won&rsquo;t breakdown.</span>
+                At <span className="text-brand-300">{BRAND_PREFIX}</span>, we create applications and systems that <span className="text-brand-300">won&rsquo;t break down.</span>
                 <span aria-hidden="true" className="font-serif text-brand-300 align-[-0.35em] text-[1.6em] leading-[0] ml-1">
                   &rdquo;
                 </span>

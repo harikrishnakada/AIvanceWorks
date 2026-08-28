@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { Zap, Clock, TrendingUp, Check } from 'lucide-react';
 import { useCarouselAutoplay } from '@/hooks/useCarouselAutoplay';
 import { AutoplayToggle, Container } from '@/components/shared/primitives';
@@ -95,7 +95,7 @@ function CertificationsPanel() {
   return (
     <div className="flex flex-col items-center h-full">
       {/* Header */}
-      <div className="text-center mb-5 sm:mb-6">
+      <div className="text-center mb-4 sm:mb-6">
         <Eyebrow>Microsoft Certified Professional</Eyebrow>
         <h2 className="text-h2 font-black tracking-tight text-white mb-1.5">
           Our{' '}
@@ -109,17 +109,18 @@ function CertificationsPanel() {
       </div>
 
       {/* Badges */}
-      {/* Stacked at base, 3-across from sm. Three columns at 375px gives each
-          badge ~90px, and a single word like "Fundamentals" is ~110px at the
-          16px label floor — so no wrapping strategy fits, the text simply
-          clipped. Raising the floor for legibility and keeping 3-across are
-          mutually exclusive on a phone; legibility wins. */}
-      <div className="flex flex-col items-center gap-6 sm:flex-row sm:items-start sm:justify-center sm:gap-8 md:gap-10 lg:gap-6 xl:gap-10">
+      {/* 3-across from sm. Three columns at 375px gives each badge ~90px, and a
+          single word like "Fundamentals" is ~110px at the 16px label floor — so
+          no wrapping strategy fits, the text simply clipped. Below sm the badges
+          therefore run as horizontal rows (badge left, label right) rather than
+          a vertical stack: same legibility, roughly half the height, which keeps
+          this panel close in height to the impact panel inside the carousel. */}
+      <div className="flex w-full flex-col items-center gap-3 sm:w-auto sm:flex-row sm:items-start sm:justify-center sm:gap-8 md:gap-10 lg:gap-6 xl:gap-10">
         {certifications.map((cert) => (
-          <div key={cert.code} className="group flex flex-col items-center gap-2 w-full max-w-[16rem] sm:w-auto sm:flex-1 sm:min-w-0 sm:max-w-[140px] md:max-w-[150px] lg:max-w-[130px] xl:max-w-[150px] sm:gap-3">
+          <div key={cert.code} className="group flex w-full max-w-[19rem] flex-row items-center gap-3 text-left sm:w-auto sm:max-w-[140px] sm:flex-1 sm:min-w-0 sm:flex-col sm:items-center sm:gap-3 sm:text-center md:max-w-[150px] lg:max-w-[130px] xl:max-w-[150px]">
             {/* Badge image */}
-            <div className="relative
-              w-[55px] h-[55px]
+            <div className="relative shrink-0
+              w-[52px] h-[52px]
               sm:w-[70px] sm:h-[70px]
               md:w-[80px] md:h-[80px]
               lg:w-[75px] lg:h-[75px]
@@ -142,18 +143,19 @@ function CertificationsPanel() {
                 these labels are wider than that at their natural size. Without an
                 explicit full width they size to content inside the centring flex
                 context and spill into the neighbouring column. */}
-            <div className="text-center flex flex-col items-center w-full min-w-0">
-              <p className="w-full min-w-0 text-label text-brand-400/70 font-semibold uppercase tracking-normal sm:tracking-widest
-                mb-0.5 leading-tight sm:min-h-[2.2em] flex items-start justify-center text-center">
+            <div className="flex min-w-0 flex-1 flex-col items-start text-left sm:w-full sm:flex-none sm:items-center sm:text-center">
+              <p className="w-full min-w-0 text-label-sm sm:text-label text-brand-400/70 font-semibold uppercase tracking-normal sm:tracking-widest
+                mb-0.5 leading-tight sm:min-h-[2.2em] flex items-start justify-start text-left sm:justify-center sm:text-center">
                 Microsoft Certified
               </p>
               <h3 className="w-full min-w-0 text-balance break-words text-label sm:text-copy-sm font-bold text-white leading-tight
-                sm:min-h-[2.6em] flex items-center justify-center text-center">
+                sm:min-h-[2.6em] flex items-center justify-start text-left sm:justify-center sm:text-center">
                 {cert.title}
               </h3>
-              <span className="block w-full min-w-0 break-words text-center mt-1
-                text-label font-semibold
-                px-1.5 py-0.5 rounded-full
+              <span className="inline-block w-auto max-w-full self-start break-words text-left mt-1
+                sm:block sm:w-full sm:self-auto sm:text-center
+                text-label-sm sm:text-label font-semibold
+                px-2 py-0.5 sm:px-1.5 rounded-full
                 bg-brand-500/[0.15] border border-brand-400/[0.2] text-brand-300 tracking-wide">
                 {cert.level} · <span className="whitespace-nowrap">{cert.code}</span>
               </span>
@@ -170,7 +172,7 @@ function StatsPanel() {
   return (
     <div className="flex flex-col items-center h-full">
       {/* Header */}
-      <div className="text-center mb-5 sm:mb-6">
+      <div className="text-center mb-4 sm:mb-6">
         <Eyebrow>Proven Results</Eyebrow>
         <h2 className="text-h2 font-black tracking-tight text-white mb-1.5">
           Measurable{' '}
@@ -184,19 +186,25 @@ function StatsPanel() {
       </div>
 
       {/* Stats */}
-      <div className="grid grid-cols-3 gap-2 sm:gap-3 w-full max-w-lg mx-auto">
+      <div className="grid grid-cols-3 gap-1.5 sm:gap-3 w-full max-w-lg mx-auto">
         {stats.map((stat) => (
           <div
             key={stat.label}
             className="bg-white/[0.05] backdrop-blur-sm border border-white/[0.07]
-              rounded-lg px-1.5 py-2 sm:px-2 sm:py-2.5 md:px-2.5 md:py-3
+              rounded-lg px-0.5 py-2 sm:px-2 sm:py-2.5 md:px-2.5 md:py-3
               text-center hover:bg-white/[0.08] hover:border-brand-400/20 transition-all duration-300"
           >
             <stat.icon className="h-2.5 w-2.5 sm:h-3 sm:w-3 lg:h-3.5 lg:w-3.5 text-brand-400 mb-0.5 mx-auto" />
             <div className="text-label sm:text-copy-sm lg:text-copy font-black text-white leading-none mb-0.5">
               {stat.value}
             </div>
-            <div className="text-label text-white/40 font-medium leading-tight">
+            {/* Three tiles across a phone leave ~80px of content box, and
+                "Development" was ~95px at the full label size — it spilled over
+                the tile border. One step down the scale plus tighter tile padding
+                fits it from 375px up; below that hyphens/break-words keep it
+                inside the tile as a last resort. sm+ is untouched. */}
+            <div className="text-label-sm sm:text-label text-white/40 font-medium leading-tight
+              text-balance hyphens-auto break-words sm:hyphens-none">
               {stat.label}
             </div>
           </div>
@@ -248,6 +256,33 @@ export function ExperienceSection() {
 
   const slides = ['Certifications', 'Impact'];
 
+  // Both slides sit side by side in one flex track, so the track was always as
+  // tall as the taller panel and each card stretched to fill it — which is what
+  // left the impact panel with a block of dead space under its last bullet.
+  // Pin the viewport to the active slide's own height and animate between them.
+  const slideRefs = useRef<Array<HTMLDivElement | null>>([]);
+  const [slideHeight, setSlideHeight] = useState<number>();
+
+  useEffect(() => {
+    // Desktop renders the panels as a separate two-up grid; no height to pin.
+    if (!isNarrow) {
+      setSlideHeight(undefined);
+      return;
+    }
+    const measure = () => {
+      const el = slideRefs.current[active];
+      if (el) setSlideHeight(el.offsetHeight);
+    };
+    measure();
+    // Observe both slides, not just the active one: font swaps, image loads and
+    // rotation change the off-screen panel too, and it is on screen in 4.5 s.
+    const observer = new ResizeObserver(measure);
+    slideRefs.current.forEach((el) => {
+      if (el) observer.observe(el);
+    });
+    return () => observer.disconnect();
+  }, [active, isNarrow]);
+
   return (
     // Breathing room above (the section above ends tight), narrow gutters:
     // the two cards are the widest element on the page and want the width.
@@ -270,17 +305,32 @@ export function ExperienceSection() {
 
         {/* ── Mobile / tablet: auto-sliding carousel of the two cards ────── */}
         <div ref={containerRef} className="lg:hidden">
-          <div className="overflow-hidden">
+          <div
+            className="overflow-hidden transition-[height] duration-700 ease-in-out motion-reduce:transition-none"
+            style={slideHeight ? { height: slideHeight } : undefined}
+          >
+            {/* items-start, not the default stretch — a slide must keep its own
+                content height rather than growing to the tallest sibling. */}
             <div
-              className="flex transition-transform duration-700 ease-in-out"
+              className="flex items-start transition-transform duration-700 ease-in-out motion-reduce:transition-none"
               style={{ transform: `translateX(-${active * 100}%)` }}
             >
-              <div className="w-full shrink-0 px-1">
+              <div
+                ref={(el) => {
+                  slideRefs.current[0] = el;
+                }}
+                className="w-full shrink-0 px-1"
+              >
                 <Card>
                   <CertificationsPanel />
                 </Card>
               </div>
-              <div className="w-full shrink-0 px-1">
+              <div
+                ref={(el) => {
+                  slideRefs.current[1] = el;
+                }}
+                className="w-full shrink-0 px-1"
+              >
                 <Card>
                   <StatsPanel />
                 </Card>
@@ -323,6 +373,7 @@ export function ExperienceSection() {
         </div>
 
         {/* Footer note */}
+        {false && (
         <div className="mt-4 sm:mt-5 lg:mt-6 text-center">
           {/* This note is outside the dark <Card>, so text-white/50 rendered
               white-on-white — invisible. gray-500 is 4.84:1 on white. */}
@@ -330,6 +381,7 @@ export function ExperienceSection() {
             Verified credentials issued by Microsoft · Building enterprise solutions on Azure
           </p>
         </div>
+        )}
       </Container>
     </section>
   );
