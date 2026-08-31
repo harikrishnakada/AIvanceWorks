@@ -27,13 +27,11 @@ export function OurDelivery() {
   const railRef = useScrollReveal<HTMLOListElement>({ threshold: 0.1 });
 
   return (
-    // Light grey ground, same token the ChallengesSection uses, so this reads
-    // as part of the page's established alternating rhythm rather than a new
-    // hardcoded grey. It sits between two white-ground sections.
- 
+    // White ground, so this section reads as a clean break against the warm
+    // sections that bracket it in the page's alternating rhythm.
     <section
       data-section="home-delivery"
-      className={`${SECTION_Y} relative overflow-hidden bg-surface-warm`}
+      className={`${SECTION_Y} relative overflow-hidden bg-surface-white`}
     >
       <Container width="default" className="relative">
         {/* Two even columns spanning the full Container, matching the two-column
@@ -100,7 +98,7 @@ export function OurDelivery() {
                   key={item}
                   className="delivery-step group relative flex items-center gap-3 sm:gap-4
                     rounded-lg py-2 pl-0 pr-2 sm:py-2.5 sm:pr-4
-                    transition-colors duration-300 hover:bg-surface-white"
+                    transition-colors duration-300 hover:bg-surface-warm"
                   style={{ animationDelay: `${Math.min(i, 8) * 60}ms` }}
                 >
                   {/* Node */}

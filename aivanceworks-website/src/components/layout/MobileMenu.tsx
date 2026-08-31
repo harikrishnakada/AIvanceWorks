@@ -239,7 +239,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                   className="flex items-center justify-between w-full px-4 py-3 text-base font-medium text-gray-900 hover:bg-gray-50 rounded-lg transition-colors"
                   aria-expanded={isServicesOpen}
                 >
-                  What We Do
+                  Services
                   <ChevronDown
                     className={`h-5 w-5 text-gray-500 transition-transform duration-200 ${
                       isServicesOpen ? 'rotate-180' : ''

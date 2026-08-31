@@ -36,6 +36,8 @@ export const SECTION_PADDING = {
      BAND, not the padding. */
 } as const;
 
+export const SECTION_Y_LOOSE: string = SECTION_PADDING.lg;
+
 // Standard section — used by most page sections (services, challenges,
 // why-choose-us, CTA, FAQ, industries, partners, etc.). Kept as a named export
 // so the ~19 existing consumers pick up the new scale without being rewritten.

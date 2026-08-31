@@ -3,12 +3,29 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight, Calendar, Mail } from 'lucide-react';
 import { SITE_CONFIG } from '@/lib/constants';
 import { NAVIGATION } from '@/lib/navigation';
-import { SECTION_Y } from '@/lib/section-spacing';
 import { Container } from '@/components/shared/primitives';
 
 export function CTASection() {
   return (
-    <section data-section="home-cta" className={`${SECTION_Y} relative overflow-hidden`}>
+    /* No top padding at all: the band above this section is owned entirely by
+       FeaturedArticles' bottom padding (pb-8..16), which on its own is already
+       a standard single-section band. This section adding its own on top is
+       what made the gap read as dead space rather than as rhythm — both
+       sections are white (FeaturedArticles is tone="light"), so there is no
+       colour change to break the two bands apart, and the dark panel below
+       carries its own py-7..20 besides.
+
+       The bottom is SECTION_PADDING.md, written out rather than composed from
+       the token: Tailwind scans source text for class names, so building the
+       string at runtime would emit no CSS. Keep it in sync by hand if the scale
+       in lib/section-spacing.ts changes. It stays on the standard scale so
+       FAQSection below does not move. */
+    <section
+      data-section="home-cta"
+      className="pt-0
+        pb-8 md:pb-10 lg:pb-12 xl:pb-14 3xl:pb-16
+        relative overflow-hidden"
+    >
       {/* Subtle background */}
       <div className="absolute inset-0 bg-gradient-to-b from-white via-brand-50/20 to-white" />
 

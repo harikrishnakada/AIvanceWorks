@@ -28,12 +28,22 @@ export const ImageFeature = ({
             <div
               key={idx}
               className={cn(
-                'grid gap-8 md:gap-12 items-center',
+                /* items-start, not items-center: the copy column is shorter than
+                   the 3:2 image, and centring it left the heading floating below
+                   the image's top edge. Top-aligned, the heading and the image
+                   start on the same line. */
+                'grid gap-8 md:gap-12 items-start',
                 'md:grid-cols-2',
                 reverse && 'md:[&>*:first-child]:order-2'
               )}
             >
-              <div>
+              {/* md:pt-* is an optical offset, not alignment: the row is
+                  items-start, so flush-top put the cap-height of the heading
+                  slightly above the image's rounded top edge. Nudging the copy
+                  down settles it against the image without giving up the
+                  top-aligned read. Scoped to md+ — below that the columns stack
+                  and the padding would only add a gap under the image. */}
+              <div className="md:pt-4 lg:pt-6">
                 <h3 className="text-2xl md:text-3xl font-bold text-text-heading mb-4 tracking-tight">
                   {feature.heading}
                 </h3>

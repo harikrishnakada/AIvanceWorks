@@ -284,11 +284,15 @@ export function ExperienceSection() {
   }, [active, isNarrow]);
 
   return (
-    // Breathing room above (the section above ends tight), narrow gutters:
-    // the two cards are the widest element on the page and want the width.
+    // Warm ground, not the page's default white. ComplianceSpotlight above is
+    // tone="warm", so a transparent section here put a white strip between that
+    // grey and these cards — the pt band read as a seam rather than as rhythm.
+    // Matching the token continues the grey straight through to the cards.
+    // Narrow gutters: the two cards are the widest element on the page and want
+    // the width.
     <section
       data-section="home-experience"
-      className="relative overflow-hidden pt-4 sm:pt-5 md:pt-6 pb-1 sm:pb-1.5 md:pb-2"
+      className="relative overflow-hidden bg-surface-warm pt-4 sm:pt-5 md:pt-6 pb-1 sm:pb-1.5 md:pb-2"
     >
 
       <Container width="default" className="relative">

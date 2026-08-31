@@ -36,14 +36,13 @@ const startingPoints = [
 
 export function WhyChooseUsServicesSection() {
   return (
-    // Gradient ground rather than flat white — the card on the right is
+    // Warm ground rather than flat white — the card on the right is
     // surface-white, and on a white section it would have nothing to sit
-    // against. Same treatment WhyChooseUsSection and CTASection use.
+    // against. Same token EcommerceAiShowcase uses (Section tone="warm").
     <section
       data-section="home-why-choose-us-services"
-      className={`${SECTION_Y} relative overflow-hidden`}
+      className={`${SECTION_Y} relative overflow-hidden bg-surface-warm`}
     >
-      <div className="absolute inset-0 bg-gradient-to-b from-white via-brand-50/20 to-white" />
 
       <Container width="default" className="relative">
         {/* The h2 sits outside the two-column grid rather than at the top of

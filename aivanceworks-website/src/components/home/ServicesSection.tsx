@@ -245,7 +245,7 @@ export function ServicesSection() {
     <section
       ref={containerRef}
       data-section="home-services"
-      className={`${SECTION_Y_TIGHT} relative overflow-hidden bg-gradient-to-br from-surface-dark-from via-surface-dark-via to-surface-dark-to text-text-light`}
+      className={`${SECTION_Y} relative overflow-hidden bg-gradient-to-br from-surface-dark-from via-surface-dark-via to-surface-dark-to text-text-light`}
     >
       <Container width="default">
         {/* Section Header */}

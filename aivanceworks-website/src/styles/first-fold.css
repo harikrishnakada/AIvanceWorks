@@ -367,3 +367,24 @@
     line-height: 1.06;
   }
 }
+
+/* ─── Hero description drop on phones ─────────────────────────────────────
+   The base drop, clamp(24px, 9vh, 88px), was tuned against desktop slack. On a
+   modern phone (390x844, 393x852, 430x932) 9vh resolves to 76-84px, which
+   pushed the description most of the way down to the buttons and opened a
+   visible hole under the headline. Cutting it to 6vh lifts the copy ~25px and
+   leaves it reading as part of the headline group.
+
+   Scoped to min-height: 801px on purpose. Below that the height tiers above
+   (700px, 600px) set their own deliberately small drops against near-zero
+   slack — this block is placed last, so without the floor it would win the
+   cascade and push the copy back DOWN into the buttons on short phones.
+
+   Safe to retune without re-checking the fold: --hero-sub-drop is applied as a
+   TRANSFORM, so it moves the copy after layout and costs the section no
+   height. A smaller value only widens the gap to the CTA. */
+@media (max-width: 639px) and (min-height: 801px) {
+  [data-hero-sub] {
+    --hero-sub-drop: clamp(16px, 6vh, 56px);
+  }
+}

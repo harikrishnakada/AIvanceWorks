@@ -12,7 +12,7 @@ import { BRAND_PREFIX } from './constants';
 // menu, which is where these now surface in the header — the standalone "AI"
 // top-level dropdown is hidden. Defined once so the two stay in sync.
 const AI_SERVICES_GROUP = {
-  title: 'Artificial Intelligence',
+  title: 'AI & Data',
   icon: 'Brain',
   description: 'AI capability building blocks',
   links: [
@@ -25,6 +25,8 @@ const AI_SERVICES_GROUP = {
     { label: `${BRAND_PREFIX} NLP & Document AI`, href: '/services/nlp-document-ai', icon: 'FileText' },
     { label: `${BRAND_PREFIX} Conversational AI`, href: '/services/conversational-ai', icon: 'MessageCircle' },
     { label: `${BRAND_PREFIX} Computer Vision`, href: '/services/computer-vision', icon: 'Eye' },
+    { label: `${BRAND_PREFIX} Data Engineering`, href: '/services/data-engineering', icon: 'Database' },
+    { label: `${BRAND_PREFIX} Data Analytics`, href: '/services/data-analytics', icon: 'BarChart3' }
   ],
 } as const;
 
@@ -32,13 +34,13 @@ export const NAVIGATION = {
   main: [
     //{ label: 'AI', href: '/services/ai-machine-learning' },
     // { label: 'Services', href: '/services' },
-    { label: 'How We Work', href: '/services' },
+    { label: 'Our Company', href: '/services' },
     // { label: 'Solutions', href: '/solutions' }, // hidden from UI (content preserved)
     { label: 'Industries', href: '/industry' },
     // { label: 'Case Studies', href: '/case-studies' },
     { label: 'About', href: '/about' },
     { label: 'Blog', href: '/blog' },
-    { label: 'Contact Us', href: '/contact' }
+    { label: 'Contact', href: '/contact' }
   ],
   // Service pillars (used by footer, services page, etc.)
   // AI & ML is NOT listed here — it has its own top-level menu (aiMlMenu)
@@ -49,7 +51,7 @@ export const NAVIGATION = {
   // is what the labels actually describe. (Both anchors render; the
   // #infrastructure-management section was previously advertised but missing.)
   services: [
-    { label: 'Artificial Intelligence', href: '/services#automation-intelligence' },
+    { label: 'AI & Data', href: '/services#automation-intelligence' },
     { label: 'Consulting', href: '/services#advisoryg' },
     { label: 'Software Engineering', href: '/services#software-engineering' },
     { label: 'Cloud & Infrastructure', href: '/services#infrastructure-management' }
@@ -179,8 +181,6 @@ export const NAVIGATION = {
       icon: 'Server',
       description: 'Cloud & DevOps excellence',
       links: [
-        { label: `${BRAND_PREFIX} Data Engineering`, href: '/services/data-engineering', icon: 'Database' },
-        { label: `${BRAND_PREFIX} Data Analytics`, href: '/services/data-analytics', icon: 'BarChart3' },
         { label: `${BRAND_PREFIX} Platform Engineering`, href: '/services/platform-engineering', icon: 'Cpu' },
         { label: `${BRAND_PREFIX} DevOps & Cloud Engineering`, href: '/services/devops', icon: 'GitBranch' },
         { label: `${BRAND_PREFIX} IaaS (Infrastructure as a Service)`, href: '/services/managed-infrastructure', icon: 'ServerCog' },

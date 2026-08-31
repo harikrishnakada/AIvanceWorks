@@ -50,7 +50,24 @@ export default async function IndustryIndexPage() {
         ]}
       />
 
-      <Section tone="dark" size="lg" withGrid>
+      {/* pb zeroed, with the whole gap to the section below moved onto that
+          section's pt. Both sections are tone="dark" and adjacent, so they
+          render as one continuous block — but each was contributing size="lg"
+          padding, stacking an 80px band at base to 160px at 3xl between the
+          lede and the paragraph under it, with no colour change to justify it.
+          Keeping the space in one declaration makes the real gap legible.
+
+          Every breakpoint is listed on purpose. size="lg" is
+          `py-10 md:py-12 lg:py-16 xl:py-16 3xl:py-20`, and tailwind-merge does
+          NOT drop those when a pb-* follows — a bottom override is a subset of
+          the shorthand, so both survive. A bare `pb-0` therefore only bites
+          below 768px and every md+ variant puts the padding straight back. */}
+      <Section
+        tone="dark"
+        size="lg"
+        withGrid
+        className="pb-0 md:pb-0 lg:pb-0 xl:pb-0 3xl:pb-0"
+      >
         <div
           aria-hidden="true"
           className="pointer-events-none absolute top-0 left-1/3 w-[560px] h-64 bg-brand-500/[0.08] rounded-full blur-[120px]"
@@ -71,7 +88,16 @@ export default async function IndustryIndexPage() {
         </Container>
       </Section>
 
-      <Section tone="dark" size="lg" withGrid>
+      {/* Top on the `md` scale rather than this section's own `lg`: it is now
+          the only padding in the seam (see pb-0 above), so it IS the gap. The
+          bottom keeps `lg` — that edge ends the page and has a real boundary
+          under it. tailwind-merge in `cn` resolves pt-* over the size's py-*. */}
+      <Section
+        tone="dark"
+        size="lg"
+        withGrid
+        className="pt-8 md:pt-10 lg:pt-12 xl:pt-14 3xl:pt-16"
+      >
         <div
           aria-hidden="true"
           className="pointer-events-none absolute bottom-0 right-1/4 w-[520px] h-64 bg-accent-500/[0.07] rounded-full blur-[130px]"
