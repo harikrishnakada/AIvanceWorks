@@ -107,7 +107,7 @@ export function NavMegaPanel({
                               <Link
                                 href={link.href}
                                 onClick={onClose}
-                                className="group/link flex items-center gap-2 py-1.5 md:py-[7px] px-2 md:px-2.5 -mx-1 rounded-lg text-label md:text-copy-sm text-gray-600 hover:text-brand-700 hover:bg-brand-50/70 transition-all duration-150"
+                                className="group/link flex items-center gap-2 py-1.5 md:py-[7px] px-2 md:px-2.5 -mx-1 rounded-lg text-label-sm md:text-label text-gray-600 hover:text-brand-700 hover:bg-brand-50/70 transition-all duration-150"
                               >
                                 <LinkIcon className="h-3 w-3 md:h-3.5 md:w-3.5 text-gray-400 group-hover/link:text-brand-500 transition-colors flex-shrink-0" />
                                 <span className="flex-1 leading-snug">{link.label}</span>
@@ -123,7 +123,7 @@ export function NavMegaPanel({
                           <Link
                             href={viewAll.href}
                             onClick={onClose}
-                            className="group/all flex items-center gap-2 py-1.5 md:py-[7px] px-2 md:px-2.5 -mx-1 rounded-lg text-label md:text-copy-sm font-semibold text-brand-600 hover:text-brand-700 hover:bg-brand-50/70 transition-all duration-150"
+                            className="group/all flex items-center gap-2 py-1.5 md:py-[7px] px-2 md:px-2.5 -mx-1 rounded-lg text-label-sm md:text-label font-semibold text-brand-600 hover:text-brand-700 hover:bg-brand-50/70 transition-all duration-150"
                           >
                             <LayoutGrid className="h-3 w-3 md:h-3.5 md:w-3.5 text-brand-500 flex-shrink-0" />
                             <span className="flex-1 leading-snug">{viewAll.label}</span>

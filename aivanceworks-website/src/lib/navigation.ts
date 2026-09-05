@@ -70,15 +70,16 @@ const MAIN_NAV: readonly NavItem[] = [
 
   { label: 'Industries', href: '/industry', type: 'link', isEnabled: true },
   { label: 'Services', href: '/services', type: 'dropdown', menu: 'services', isEnabled: true },
-  { label: 'Our Company', href: '/services', type: 'link', isEnabled: true },
+  // { label: 'Our Company', href: '/services', type: 'link', isEnabled: true },
+  { label: 'Solutions', href: '/solutions', type: 'dropdown', menu: 'solutions', isEnabled: true },
   { label: 'Insights', href: '/blog', type: 'link', isEnabled: true },
-  { label: 'About', href: '/about', type: 'link', isEnabled: true },
+  // { label: 'About', href: '/about', type: 'link', isEnabled: true },
+  { label: 'About', href: '/services', type: 'link', isEnabled: true },
   { label: 'Contact', href: '/contact', type: 'link', isEnabled: true },
 
   { label: 'AI', href: '/services', type: 'dropdown', menu: 'ai', isEnabled: false },
   { label: 'Advisory', href: '/services', type: 'dropdown', menu: 'advisory', isEnabled: false },
   { label: 'Enterprise', href: '/services', type: 'dropdown', menu: 'enterprise', isEnabled: false },
-  { label: 'Solutions', href: '/solutions', type: 'dropdown', menu: 'solutions', isEnabled: false },
   { label: 'Case Studies', href: '/case-studies', type: 'link', isEnabled: false }
 ];
 
@@ -234,15 +235,15 @@ export const NAVIGATION = {
   ],
   // Mega menu columns for "Solutions" dropdown
   solutionsMenu: [
-    {
-      heading: 'Clinical',
-      description: 'Clinical trial operations & technology',
-      icon: 'Stethoscope',
-      links: [
-        { label: 'CTMS', href: '/solutions/ctms', icon: 'Workflow' },
-        { label: 'Regulatory Information Management (RIM)', href: '/solutions/regulatory-information-management', icon: 'FileText' },
-      ],
-    },
+    // {
+    //   heading: 'Clinical',
+    //   description: 'Clinical trial operations & technology',
+    //   icon: 'Stethoscope',
+    //   links: [
+    //     { label: 'CTMS', href: '/solutions/ctms', icon: 'Workflow' },
+    //     { label: 'Regulatory Information Management (RIM)', href: '/solutions/regulatory-information-management', icon: 'FileText' },
+    //   ],
+    // },
 
     // {
     //   heading: 'E-Commerce & Retail',
@@ -262,6 +263,8 @@ export const NAVIGATION = {
         { label: `${BRAND_PREFIX} EMR Development`, href: '/solutions/emr-development', icon: 'ClipboardList' },
         { label: `${BRAND_PREFIX} Hospital Management Systems`, href: '/solutions/hospital-management-systems', icon: 'Building2' },
         { label: `${BRAND_PREFIX} Hospital Information Systems`, href: '/solutions/hospital-information-systems', icon: 'Network' },
+       { label: `${BRAND_PREFIX} CTMS`, href: '/solutions/ctms', icon: 'Workflow' },
+        { label: `${BRAND_PREFIX} Regulatory Information Management (RIM)`, href: '/solutions/regulatory-information-management', icon: 'FileText' },
       ],
     },
     {

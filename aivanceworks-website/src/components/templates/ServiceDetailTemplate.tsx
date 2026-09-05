@@ -53,6 +53,7 @@ export const ServiceDetailTemplate = ({
         metrics={heroIllustration ? undefined : data.hero.metrics}
         heroImage={data.hero.heroImage}
         heroIllustration={heroIllustration}
+        raiseCopy
         fullBleed={data.hero.fullBleed}
       />
     ),

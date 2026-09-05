@@ -75,6 +75,51 @@
   min-height: max(var(--hero-fold-floor), var(--hero-fold));
 }
 
+/* ─── Service-page copy lift ──────────────────────────────────────────────
+   Service heroes pin the badge to the top of the card and centre the
+   title/lede/CTA stack in what is left, which strands a large band of empty
+   card between the badge and the title (measured 174px at 1387x796).
+
+   The lift is expressed as a RATIO of whatever free space the card actually
+   has, not as a fixed offset. Two pseudo-element flex spacers sit either side
+   of the copy and split the free space 1:4, so the stack settles a fifth of
+   the way down instead of halfway.
+
+   Why a ratio and not padding: free space varies from 106px (1024x700) to
+   452px (1440x900) across service pages. Any fixed offset large enough to
+   matter on a roomy viewport overflows a tight one and pushes the card past
+   the fold — min-height only ever grows the card. Flex spacers cannot do
+   that: when there is no free space they collapse to zero and the layout is
+   identical to plain centring. That self-limiting property is what lets this
+   run without a viewport-height gate.
+
+   (It previously WAS padding behind a `min-height: 801px` gate. That gate
+   excluded every common laptop viewport — a 796px-tall window got no lift at
+   all — and its premise, that short viewports have no slack to give, does not
+   hold: the compaction tiers below already trim the copy, and the card clears
+   the fold with room to spare at all six viewports measured.)
+
+   Still gated on min-width 1024px: below that the card is single-column and
+   the copy fills it, so there is nothing to redistribute.
+
+   Solution pages deliberately do not set data-hero-raise — they keep the
+   true-centre placement. */
+@media (min-width: 1024px) {
+  [data-section='hero'] [data-hero-raise]::before,
+  [data-section='hero'] [data-hero-raise]::after {
+    content: '';
+    display: block;
+  }
+
+  [data-section='hero'] [data-hero-raise]::before {
+    flex: 1 1 0%;
+  }
+
+  [data-section='hero'] [data-hero-raise]::after {
+    flex: 4 1 0%;
+  }
+}
+
 /* ─── Short-viewport compaction ───────────────────────────────────────────
    min-height alone closes the fold only where the copy already fits inside it.
    On a short viewport the copy is the problem, not the card: measured before

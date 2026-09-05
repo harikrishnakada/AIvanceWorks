@@ -220,9 +220,7 @@ export function HeroSection() {
                       mt-4 sm:mt-6 md:mt-7 mb-0
                       [transform:translateY(var(--hero-sub-drop,0px))]"
                   >
-                    {SITE_CONFIG.name} is a custom software development company launched in 2026,
-                    offering services and packages in Product Development, AI Development, SaaS
-                    Development and several other development services.
+                     {SITE_CONFIG.name} is a custom software development company launched in 2026, offering services and solutions in bespoke software and several other cloud & platform engineering services. We offer IaaS development, Saas development, and PaaS development are our core services model
                   </p>
                 </div>
               </div>

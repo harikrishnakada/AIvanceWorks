@@ -23,6 +23,14 @@ export interface HeroProps {
   heroImage?: HeroImage;
   heroIllustration?: React.ReactNode;
   /**
+   * Lifts the centred copy stack slightly above true centre, so the title sits
+   * closer to the badge instead of stranding ~150px of dead space between them.
+   * Opt-in because the shared Hero also serves solution pages, which keep the
+   * true-centre placement. The offset itself lives in page-hero-fold.css, which
+   * owns the height budget and gates it to viewports that have the slack.
+   */
+  raiseCopy?: boolean;
+  /**
    * Runs the hero card edge to edge instead of sitting it inside the page
    * Container as a rounded panel. The copy still resolves to Container bounds,
    * so a full-bleed hero keeps the same left edge as every section below it.
@@ -60,6 +68,7 @@ export const Hero = ({
   heroImage,
   heroIllustration,
   className,
+  raiseCopy = false,
   fullBleed = false,
 }: HeroProps) => {
   const hasMetrics = !!(metrics && metrics.length > 0);
@@ -104,7 +113,12 @@ export const Hero = ({
         {badgeNode && (
           <div className={cn('mb-6 md:mb-8', centeredCopy && 'text-center')}>{badgeNode}</div>
         )}
-        <div className="flex flex-1 flex-col justify-center">{children}</div>
+        <div
+          data-hero-raise={raiseCopy ? 'true' : undefined}
+          className="flex flex-1 flex-col justify-center"
+        >
+          {children}
+        </div>
       </>
     );
 
