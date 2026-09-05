@@ -55,7 +55,7 @@ const TILES: ReadonlyArray<Tile> = [
     icon: TrendingUp,
     title: 'Dynamic pricing',
     description:
-      'Real-time price optimisation based on demand signals, competitor pricing, and inventory levels — with guardrails for margin floors and brand-safety rules.',
+      'Real-time price optimization based on demand signals, competitor pricing, and inventory levels — with guardrails for margin floors and brand-safety rules.',
     variant: 'C',
     spanClass: 'md:col-span-2',
   },

@@ -239,7 +239,7 @@ const manufacturingOperationsManagement: SolutionPageData = {
       icon: 'CalendarClock',
       title: 'Opcenter Advanced Planning & Scheduling (APS)',
       description:
-        'Finite-capacity scheduling on Opcenter APS — order release, sequencing, changeover optimisation, constraint-aware scheduling, and what-if scenarios — configured to your work centers, shift patterns, and bottleneck resources so planners stop reconciling MES execution against a spreadsheet schedule.',
+        'Finite-capacity scheduling on Opcenter APS — order release, sequencing, changeover optimization, constraint-aware scheduling, and what-if scenarios — configured to your work centers, shift patterns, and bottleneck resources so planners stop reconciling MES execution against a spreadsheet schedule.',
     },
     {
       icon: 'ShieldCheck',
@@ -345,7 +345,7 @@ const manufacturingOperationsManagement: SolutionPageData = {
 
   capabilities: [
     'Opcenter Execution (MES) — electronic work instructions, operator-guided execution, as-built genealogy configuration',
-    'Opcenter Advanced Planning & Scheduling (APS) — finite-capacity scheduling, sequencing, changeover optimisation',
+    'Opcenter Advanced Planning & Scheduling (APS) — finite-capacity scheduling, sequencing, changeover optimization',
     'Opcenter Quality — SPC, non-conformance / CAPA, supplier quality, inspection plans, gauge management',
     'Opcenter Manufacturing Intelligence — OEE, throughput, scrap, downtime, schedule attainment, yield',
     'Opcenter R&D / formula and specification management — master BoM, formula, and NPI hand-off to the shop floor',

@@ -196,7 +196,7 @@ const TILES: ReadonlyArray<Tile> = [
     icon: TrendingUp,
     title: 'Dynamic pricing',
     description:
-      'Real-time price optimisation based on demand signals, competitor pricing, and inventory levels — with guardrails for margin floors and brand-safety rules.',
+      'Real-time price optimization based on demand signals, competitor pricing, and inventory levels — with guardrails for margin floors and brand-safety rules.',
     variant: 'C',
     spanClass: '',
   },
@@ -403,7 +403,7 @@ const eCommerceWebsites: SolutionPageData = {
     'AI e-commerce personalisation',
     'e-commerce platform migration',
     'Shopify alternative custom build',
-    'e-commerce conversion optimisation',
+    'e-commerce conversion optimization',
     'B2B e-commerce development',
     'scalable e-commerce architecture',
     'custom storefront development',
@@ -475,7 +475,7 @@ const eCommerceWebsites: SolutionPageData = {
       value: '<1.5s',
       label: 'Target LCP',
       description:
-        'Next.js App Router with SSR, image optimisation, and edge caching — architected to this standard.',
+        'Next.js App Router with SSR, image optimization, and edge caching — architected to this standard.',
     },
     {
       value: '20–30%',
@@ -513,7 +513,7 @@ const eCommerceWebsites: SolutionPageData = {
     // Integration-woven feature (Decision C mitigation 1) — checkout + payments.
     {
       icon: 'CreditCard',
-      title: 'Checkout & Payment Optimisation',
+      title: 'Checkout & Payment optimization',
       description:
         'Tokenized checkout with Stripe, Braintree, or Adyen keeps raw card data out of your environment (PCI DSS SAQ A), while supporting Apple Pay, Google Pay, Buy-Now-Pay-Later, multi-currency, and localised tax calculation via Avalara or TaxJar.',
     },
@@ -544,7 +544,7 @@ const eCommerceWebsites: SolutionPageData = {
       icon: 'Zap',
       title: 'Performance Leadership',
       description:
-        'Next.js App Router with server-side rendering, automatic image optimisation, and global CDN delivery are architected to produce Core Web Vitals scores that directly support organic search rankings and reduce bounce rates.',
+        'Next.js App Router with server-side rendering, automatic image optimization, and global CDN delivery are architected to produce Core Web Vitals scores that directly support organic search rankings and reduce bounce rates.',
     },
     {
       icon: 'Sparkles',
@@ -600,9 +600,9 @@ const eCommerceWebsites: SolutionPageData = {
         'Integration test documentation, data migration reconciliation report, end-to-end transaction test results',
     },
     {
-      title: 'Launch, SEO Validation & Growth Optimisation',
+      title: 'Launch, SEO Validation & Growth optimization',
       description:
-        'Production launch with DNS migration support, 301 redirect mapping for SEO preservation, Google Search Console setup, and a structured A/B testing programme to continuously improve conversion rate post-launch. We provide a defined hypercare period of monitoring and optimisation support.',
+        'Production launch with DNS migration support, 301 redirect mapping for SEO preservation, Google Search Console setup, and a structured A/B testing programme to continuously improve conversion rate post-launch. We provide a defined hypercare period of monitoring and optimization support.',
       duration: '1–2 weeks',
       deliverable:
         'Live production site, SEO redirect map, Search Console configuration, A/B test plan, hypercare support SLA',
@@ -618,7 +618,7 @@ const eCommerceWebsites: SolutionPageData = {
     'Multi-warehouse and 3PL fulfilment integration',
     'Progressive Web App (PWA) support',
     'SEO-optimised product and category pages',
-    'A/B testing and conversion rate optimisation',
+    'A/B testing and conversion rate optimization',
     'WCAG 2.1 AA accessibility compliance',
     // Decision C mitigation 3 — ERP/CRM capability bullet.
     'ERP/CRM-ready — architected for NetSuite, SAP, and Salesforce integrations without double-entry',
@@ -875,7 +875,7 @@ The same card copy is reused whenever a given page is a destination:
 | MVP Development | `'Rocket'` | `'MVP Development'` | `'Ship a working product on a dual-track roadmap balancing speed and engineering quality.'` |
 | Patient Portals | `'Stethoscope'` | `'Patient Portals'` | `'HIPAA-ready patient portals with secure messaging, scheduling, and records access.'` |
 | Insurance Portals | `'Shield'` | `'Insurance Portals'` | `'Policyholder, agent, and broker portals that streamline claims and policy workflows.'` |
-| E-commerce Websites | `'ShoppingCart'` | `'E-commerce Websites'` | `'Headless commerce builds and migrations with conversion optimisation from day one.'` |
+| E-commerce Websites | `'ShoppingCart'` | `'E-commerce Websites'` | `'Headless commerce builds and migrations with conversion optimization from day one.'` |
 
 **Note on icons:** These are Lucide icon names resolved through `getLucideIcon`. If a chosen icon is not in `lucide-react`, `getLucideIcon` falls back to `HelpCircle` — which will visually expose the miss. All five names above are standard Lucide icons.
 
@@ -900,7 +900,7 @@ The same card copy is reused whenever a given page is a destination:
       {
         title: 'E-commerce Websites',
         description:
-          'Headless commerce builds and migrations with conversion optimisation from day one.',
+          'Headless commerce builds and migrations with conversion optimization from day one.',
         href: '/solutions/e-commerce-websites',
         icon: 'ShoppingCart',
       },
@@ -941,7 +941,7 @@ The same card copy is reused whenever a given page is a destination:
       {
         title: 'E-commerce Websites',
         description:
-          'Headless commerce builds and migrations with conversion optimisation from day one.',
+          'Headless commerce builds and migrations with conversion optimization from day one.',
         href: '/solutions/e-commerce-websites',
         icon: 'ShoppingCart',
       },
