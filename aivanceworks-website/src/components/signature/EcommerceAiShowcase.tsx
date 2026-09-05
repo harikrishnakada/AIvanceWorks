@@ -130,7 +130,12 @@ const VARIANT_CLASSES: Record<TileVariant, {
 };
 
 export const EcommerceAiShowcase = () => (
-  <Section tone="warm" size="lg" className="pt-5 md:pt-6 lg:pt-6 xl:pt-7 3xl:pt-8">
+  // No `pt-*` override here on purpose. `size="lg"` is SECTION_PADDING.lg, the
+  // same generous rhythm WhyChooseUsServicesSection and OurDelivery now carry
+  // (SECTION_Y_LOOSE) — the three sections sit in a row on the home page, so
+  // clamping this one's top padding back to the `sm` scale made "AI, BUILT IN"
+  // ride up against the feature rows above it while its neighbours breathed.
+  <Section tone="warm" size="lg">
     <Container>
       <div className="text-center mb-10 md:mb-12 max-w-3xl mx-auto">
         <div className="inline-block text-xs md:text-sm font-semibold uppercase tracking-wider text-brand-600 mb-3">

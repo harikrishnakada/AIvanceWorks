@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { SITE_CONFIG, CONTACT_CONFIG } from '@/lib/constants';
 import { Button } from '@/components/ui/button';
 import { CheckList, Container, StepBadge } from '@/components/shared/primitives';
-import { SECTION_Y } from '@/lib/section-spacing';
+import { SECTION_Y, SECTION_Y_LOOSE } from '@/lib/section-spacing';
 
 // Ordered on purpose — the numbering is the reason a reader trusts the third
 // point, so the sequence carries meaning rather than decorating the column.
@@ -41,7 +41,7 @@ export function WhyChooseUsServicesSection() {
     // against. Same token EcommerceAiShowcase uses (Section tone="warm").
     <section
       data-section="home-why-choose-us-services"
-      className={`${SECTION_Y} relative overflow-hidden bg-surface-warm`}
+      className={`${SECTION_Y_LOOSE} relative overflow-hidden bg-surface-warm`}
     >
 
       <Container width="default" className="relative">

@@ -2,29 +2,15 @@
 
 import Link from 'next/link';
 import { useState, useEffect, useRef } from 'react';
-import { NAVIGATION } from '@/lib/navigation';
+import { ENABLED_NAV_ITEMS, type NavItem, type NavMenuKey } from '@/lib/navigation';
 import { Button } from '@/components/ui/button';
 import { Logo } from '@/components/brand/Logo';
 import { Container } from '@/components/shared/primitives';
-import {
-  Menu, X, ChevronDown, ArrowRight,
-  Code2, Server, Brain,
-  Bot, Rocket, Layers, Lightbulb, Building2, Globe, Smartphone,
-  Settings, Palette, MessageSquare, MessageCircle, Headphones,
-  GitBranch, Cloud, RefreshCw, Shield,
-  Cpu, Activity, Zap, TrendingUp, Heart,
-  Search, ShoppingCart, Store,
-  Target, Package, Sparkles, FileText, Workflow,
-  CreditCard, Stethoscope, Eye, Pill, FlaskConical, LayoutGrid,
-  // Icons the Services mega-menu columns ask for but iconMap didn't carry, so those
-  // rows rendered the Code2 `</>` fallback instead: AI Development, API Development,
-  // Data Engineering, Data Analytics, IaaS, Quality Engineering.
-  Compass, Webhook, Database, BarChart3, ServerCog, CheckCircle,
-} from 'lucide-react';
+import { NavMegaPanel } from './NavMegaPanel';
+import { ChevronDown, Menu, X } from './nav-icons';
 import dynamic from 'next/dynamic';
-import type { LucideIcon } from 'lucide-react';
 
-// The mobile menu is ~27 KB plus 38 icon modules, and it was mounted
+// The mobile menu is ~27 KB plus its icon modules, and it was mounted
 // unconditionally on every route — including desktop, where it can never open.
 // Loading it on demand keeps it out of the first-paint bundle and the initial
 // hydration pass.
@@ -33,26 +19,85 @@ const MobileMenu = dynamic(
   { ssr: false }
 );
 
-const iconMap: Record<string, LucideIcon> = {
-  Code2, Server, Brain,
-  Bot, Rocket, Layers, Lightbulb, Building2, Globe, Smartphone,
-  Settings, Palette, MessageSquare, MessageCircle, Headphones,
-  GitBranch, Cloud, RefreshCw, Shield,
-  Cpu, Activity, Zap, TrendingUp, Heart,
-  Search, ShoppingCart, Store,
-  Target, Package, Sparkles, FileText, Workflow,
-  CreditCard, Stethoscope, Eye, Pill, FlaskConical,
-  Compass, Webhook, Database, BarChart3, ServerCog, CheckCircle,
-};
+// The dropdown subset, in nav order. Derived once at module scope so the trigger
+// row and the panel list below cannot disagree about which panels exist.
+const NAV_DROPDOWNS = ENABLED_NAV_ITEMS.filter(
+  (item): item is Extract<NavItem, { type: 'dropdown' }> => item.type === 'dropdown'
+);
 
-type DropdownType = 'services' | 'ai-ml' | 'advisory' | 'enterprise' | 'solutions' | 'industries' | null;
+// Shared trigger styling. Links and dropdown buttons must be visually identical
+// apart from the chevron, so both read from these rather than keeping their own
+// copies — which is how the two used to drift.
+//
+// The scale is md-first because md is by far the tighter constraint: at 768 the
+// logo takes 221px of the 720px content box, leaving 499px for six items. The
+// old tablet row used px-3 + text-copy-sm and needed ~547px of that, so "Our
+// Company" wrapped onto two lines inside a 72px-tall row and "Contact" was
+// clipped mid-word at the container edge. (It was worse before this row was
+// unified — the tablet block carried seven items.)
+//
+// `text-label` (15.25px at 768, vs text-copy-sm's 17.2px) plus px-1.5 fits, but
+// only just: MEASURED SLACK AT 768 IS 7px. text-label is a real step on the
+// scale and sits above the documented 14px prose floor, so this is a type
+// choice rather than shrink-to-fit — but the margin is not comfortable.
+//
+// An intermediate px-2 was tried first and left ~0px: nothing overflowed the
+// container, but flex shrank "Our Company" to min-content and it wrapped onto
+// two lines inside the 72px row. px-1.5 is what actually clears it.
+//
+// CONSEQUENCE: a seventh enabled item, or a longer label than "Our Company",
+// will not fit at md. The durable fix if that happens is to start the horizontal
+// nav at lg and let the drawer serve md as well (drop `md:` from the nav block
+// and `md:hidden` from the toggle) — the drawer already renders this exact list
+// in this exact order, so nothing about the nav's contract changes.
+//
+// NOTE the absence of `whitespace-nowrap` below lg. It fits now, so nothing
+// wraps; leaving wrap available at md keeps the old escape hatch if a label is
+// ever added. `lg:whitespace-nowrap` turns it off from lg up, where there is
+// room and a future overflow should present as overflow rather than as silent
+// wrapping.
+//
+// NOTE `lg:px-2.5` runs unbroken through xl (there is no `xl:px-*`). That is what
+// pays for true centring at 1280: the nav is truly centred from xl up (see the
+// nav block below), and a truly centred row only clears the 252px logo if it is
+// narrow enough. MEASURED at 1280: px-5 made the nav 758px wide, which centred
+// would START 32px INSIDE the logo; px-2.5 makes it 638px and leaves 28px of
+// clearance. The type step (`xl:text-lg`) is kept — the row is tightened by
+// padding, not by shrinking the labels. Clearance grows fast with width: 71px at
+// 1366, 108px at 1440, and by 2xl `px-6` takes over with room to spare.
+const NAV_ITEM_CLASS =
+  'px-1.5 py-2 text-label font-medium text-gray-900 hover:text-black transition-colors rounded-md hover:bg-gray-100 ' +
+  'lg:whitespace-nowrap lg:rounded-lg lg:px-2.5 lg:text-copy xl:text-lg 2xl:px-6 3xl:px-8 3xl:text-xl 4xl:px-10';
+
+// The chevron hangs PARTLY inside the trigger's right padding (negative right
+// margin) instead of adding its full width to the item.
+//
+// Why: every item sits on the same box gap, but the eye measures the rhythm
+// label-to-label, and a chevron that adds its full footprint breaks it. Measured
+// at 1512 before this: five of six gaps were 48px text-to-text and the one after
+// "Services" was 74px — the chevron's 6px margin plus a 20px glyph, exactly 26px
+// of extra space, which read as a hole beside the dropdown.
+//
+// The correction absorbs roughly half of that rather than all of it. Absorbing
+// the whole 26px does make the label rhythm exactly even, but it parks the
+// chevron hard against the next label so it reads as belonging to THAT item —
+// tried and rejected. Half lands the gap at 60px against 48px, with the glyph
+// still visibly tied to its own label.
+//
+// The negative margin scales with the padding it hangs in and must never exceed
+// it: at md the padding is only 6px, so -mr-1 leaves 2px; the chevron would
+// otherwise cross into the next item. It also caps at 16px (the old
+// `xl:h-5 w-5` made a 20px glyph against 20px text, which is what made the
+// footprint so large in the first place).
+const NAV_CHEVRON_CLASS =
+  'ml-1 -mr-1 h-3.5 w-3.5 transition-transform duration-200 lg:-mr-1.5 lg:h-4 lg:w-4 xl:-mr-2';
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   // Latches on the first open so the lazily-loaded MobileMenu stays mounted.
   const [hasOpenedMobileMenu, setHasOpenedMobileMenu] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState<DropdownType>(null);
+  const [activeDropdown, setActiveDropdown] = useState<NavMenuKey | null>(null);
   const dropdownTimeout = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
@@ -102,7 +147,7 @@ export function Header() {
     };
   }, [activeDropdown]);
 
-  const toggleDropdown = (menu: Exclude<DropdownType, null>) => {
+  const toggleDropdown = (menu: NavMenuKey) => {
     if (dropdownTimeout.current) clearTimeout(dropdownTimeout.current);
     setActiveDropdown((prev) => (prev === menu ? null : menu));
   };
@@ -115,7 +160,7 @@ export function Header() {
     }
   }, [isMobileMenuOpen]);
 
-  const handleDropdownEnter = (menu: DropdownType) => {
+  const handleDropdownEnter = (menu: NavMenuKey) => {
     if (dropdownTimeout.current) clearTimeout(dropdownTimeout.current);
     setActiveDropdown(menu);
   };
@@ -159,284 +204,151 @@ export function Header() {
               Centring is done TWO different ways on purpose, because one way alone
               cannot cover the range:
 
-              • 2xl and up — `absolute left-1/2 -translate-x-1/2` against this
+              • xl and up (1280+) — `absolute left-1/2 -translate-x-1/2` against this
                 `relative` row. The row spans the full viewport minus gutters and is
                 `mx-auto`, so its centre IS the viewport centre: measured 0px off at
-                1536/1600/1920/2560. This is TRUE centring, unaffected by the logo.
-              • lg to just under 2xl — `mx-auto`, which centres the nav in the space
-                LEFT OVER after the logo, so it sits ~127px (half the logo) right of
-                true centre. Deliberate: true centring below 1536 walks the nav into
-                the logo. At 1280 a truly centred 805px nav would start at 237px
-                while the logo ends at 292px — a 55px overlap. `mx-auto` cannot
-                overlap, because auto margins only ever consume free space.
+                1280/1366/1440/1536/1920/2560. This is TRUE centring, unaffected by
+                the logo.
+              • lg to just under xl (1024-1279) — `mx-auto`, which centres the nav in
+                the space LEFT OVER after the logo, so it sits ~126px (half the logo)
+                right of true centre. Not a preference: at 1024 the six items need
+                642px, while a truly centred row that clears the 252px logo has only
+                ~424px to work with. There is no sizing that fits, so `mx-auto` is
+                the honest fallback — auto margins consume free space and therefore
+                cannot overlap the logo.
+              • md — neither applies; the nav sits in the `justify-between` row
+                between the logo and the mobile-toggle track, as it always has.
 
-              Worst-case clearance is 31px at exactly 1536, where absolute centring
-              first takes over. That width is common (a 1920 display at 125%), so if
-              it ever reads as too tight, move the absolute branch to `3xl` — the gap
-              there is 138px — and accept the ~127px offset up to 1920.
+              Absolute centring used to start at 2xl, which left 1280-1535 visibly
+              off-centre. It starts at xl now because NAV_ITEM_CLASS drops `xl:px-5`
+              to `lg:px-2.5` — see the measurements there. Worst-case clearance
+              between logo and first item is 28px at exactly 1280, growing to 71px at
+              1366 and 108px at 1440. If 1280 ever reads as too tight, the lever is
+              that padding, not this breakpoint.
 
               The right-hand slack (~390px at 2560, ~283px at 1536) is deliberately
               LEFT EMPTY (confirmed 2026-08-24), as is the matching gap beside the
               logo. Re-enabling the CTA below is what would fill it; that would also
-              need "Contact Us" dropped from NAVIGATION.main to avoid showing twice,
-              and the nav would then want `ml-auto` rather than centring.
+              need "Contact" set to `isEnabled: false` in NAVIGATION.main to avoid
+              showing twice, and the nav would then want `ml-auto` rather than
+              centring.
 
               Earlier layouts, so they aren't retried: `lg:ml-auto` anchored the nav
               to the right edge and pushed ALL slack into one 527px gap beside the
               logo; `lg:ml-4` tucked it against the logo and pushed all of it to the
               right instead. Both were rejected in review.
 
-              The tracks keep `flex-none` and the default `shrink: 1`. At md the
-              tablet nav carries four dropdowns and the row is already ~76px wider
-              than the container, so it survives only by shrinking below max-content
-              (the dropdown labels wrap); basis-0 tracks or `shrink-0` both break
+              The tracks keep `flex-none` and the default `shrink: 1`. At md the row
+              can be wider than the container, so it survives only by shrinking below
+              max-content (the labels wrap); basis-0 tracks or `shrink-0` both break
               that — which is also why `justify-start` is lg-only. */}
           <div className="relative flex items-center justify-between h-20 md:h-18 lg:h-20">
-            {/* Left track — logo + wordmark, pinned to the container's left edge */}
-            <div className="flex flex-none items-center justify-start">
+            {/* Left track — logo + wordmark, pulled MOST of the way out of the
+                container gutter from lg up, landing on a constant 16px inset.
+
+                The negative-margin ladder is Container's GUTTER ladder
+                (`lg:px-8 xl:px-10 2xl:px-12`) MINUS 16px at every tier: 32-16,
+                40-16, 48-16. That subtraction is the whole design — one fixed 16px
+                edge margin instead of a gutter that grows 32→48 with the viewport.
+                If the gutter ladder gains a tier, this gains the matching tier at
+                (gutter - 16); otherwise the inset silently stops being 16.
+                MEASURED: logo left = 16 at 1024/1280/1440/1920/2560.
+
+                Requested 2026-08-31, in two passes. First the gutter inset (48px at
+                1920) read as "the logo isn't left-aligned"; cancelling the gutter
+                outright put the mark at x=0, which then read as sticking to the
+                browser edge. 16px is the settled answer: unmistakably edge-anchored,
+                but with the tile clear of the border.
+
+                KNOWN TRADE-OFF, accepted with the request — this breaks the shared
+                left edge that Container exists to enforce, so the brand mark starts
+                32px left of where every body section starts at 1920. That alignment
+                was the reason the header rode the gutter at all (see Container's
+                header comment and constitution changelog v2.3).
+
+                Only lg and up. Below lg the row keeps its gutter untouched: at 375
+                it is already px-5 = 20px, which is within 4px of the target inset
+                anyway, and the toggle on the right sits on that same 20px — pulling
+                only the logo out would unbalance the two ends of the row for nothing.
+
+                It is a negative margin on the track, NOT `px-0` on the Container: the
+                right track holds the mobile toggle and a place for a re-enabled CTA,
+                and neither should be dragged to the edge with the logo. A margin also
+                only moves this box; the container's own edges stay where the rest of
+                the header expects them.
+
+                Side effect at lg (1024-1279) ONLY: the freed 16px becomes free space
+                that the nav's `mx-auto` splits, so the nav sits ~8px further right
+                there. It is already ~126px off true centre at lg for reasons no
+                margin can fix (see above), so this is noise inside a known gap. From
+                xl up the nav is absolutely centred and completely unaffected. */}
+            <div className="flex flex-none items-center justify-start lg:-ml-4 xl:-ml-6 2xl:-ml-8">
               <Logo idPrefix="logo-header" />
             </div>
 
-            {/* Desktop Navigation — visible from lg (1024px).
+            {/* Navigation — ONE block from md up.
 
-                Item padding and gaps now scale all the way to 4xl instead of freezing
-                at xl. Two reasons, pulling in opposite directions:
+                It used to be two: a `lg:` block and a separate `md:...lg:hidden`
+                block, each with its own hardcoded dropdown triggers and its own
+                `.filter()` over the nav list by label string. They drifted, which is
+                the whole reason this is now a single `.map()` over
+                ENABLED_NAV_ITEMS — same items, same order, every width. Sizing that
+                the two blocks used to encode separately is now responsive classes on
+                NAV_ITEM_CLASS.
 
-                WIDE — with the nav anchored right (see above) and the logo on the
-                container's left edge, everything left over lands in ONE gap between
-                them. At 1920 that gap was 527px and read as a hole. Widening the nav
-                itself is the only way to close it without re-opening a matching hole
-                on the right: the steps below take the nav from 825px to 1045px at
-                1920, cutting the gap to 319px. A 20px nav on a 1920 display was
+                Item padding and gaps scale all the way to 4xl rather than freezing
+                early, for two reasons pulling in opposite directions (the one
+                exception is xl, which deliberately holds `lg:px-2.5` so the truly
+                centred row clears the logo at 1280 — see NAV_ITEM_CLASS):
+
+                WIDE — with the logo on the container's left edge, slack lands in ONE
+                gap between logo and nav. At 1920 that gap was 527px and read as a
+                hole. Widening the nav is the only way to close it without opening a
+                matching hole on the right, and a 20px nav on a 1920 display was
                 undersized anyway, so `3xl:text-xl` earns its place twice.
 
-                NARROW — base padding DROPPED from px-4 to px-2.5 because at exactly
-                1024 the six items plus the logo needed ~780px of a 708px track, and
-                flex resolved that by wrapping every label onto two lines. That is
-                what the header actually looked like at 1024, not merely "tight".
-                px-2.5 gets max-content down to 684px with 34px to spare, and
-                `whitespace-nowrap` makes a future overflow show up as overflow rather
-                than silently wrapping again.
+                NARROW — `lg:px-2.5` (down from px-4) because at exactly 1024 the six
+                items plus the logo needed ~780px of a 708px track, and flex resolved
+                that by wrapping every label onto two lines.
 
                 An earlier attempt gated the desktop nav at `min-[1180px]` and handed
-                1024–1180 to the tablet nav. Reverted twice over: Tailwind generated
-                `min-[1180px]:flex` but NOT `min-[1180px]:ml-auto` or
-                `min-[1180px]:hidden`, so the nav lost its right anchor and the tablet
-                nav rendered simultaneously at 1920 — and separately, the tablet nav
-                filters `Industries` out of its links, so that handover would have
-                silently dropped a nav item between 1024 and 1180. Use the named
+                1024-1180 to the tablet block. Reverted twice over: Tailwind generated
+                `min-[1180px]:flex` but NOT the matching `ml-auto`/`hidden`, so the nav
+                lost its anchor and both blocks rendered at once. Use the named
                 breakpoints here. */}
-            <div className="hidden lg:mx-auto 2xl:absolute 2xl:left-1/2 2xl:mx-0 2xl:-translate-x-1/2 lg:flex lg:items-center lg:gap-x-1 xl:gap-x-2 2xl:gap-x-3 3xl:gap-x-4 4xl:gap-x-6">
-              {/* AI Dropdown — hidden from UI (AI Services now leads the Services mega menu) */}
-              {/* <div
-                data-dropdown="ai-ml"
-                className="relative"
-                onMouseEnter={() => handleDropdownEnter('ai-ml')}
-                onMouseLeave={handleDropdownLeave}
-              >
-                <button
-                  onClick={() => toggleDropdown('ai-ml')}
-                  className="flex items-center whitespace-nowrap px-2.5 xl:px-5 2xl:px-6 3xl:px-8 4xl:px-10 py-2 text-copy xl:text-lg 3xl:text-xl font-medium text-gray-900 hover:text-black transition-colors rounded-lg hover:bg-gray-100"
-                  aria-expanded={activeDropdown === 'ai-ml'}
-                  aria-haspopup="true"
-                >
-                  AI
-                  <ChevronDown
-                    className={`ml-1.5 h-4 w-4 xl:h-5 xl:w-5 transition-transform duration-200 ${activeDropdown === 'ai-ml' ? 'rotate-180' : ''
-                      }`}
-                  />
-                </button>
-              </div> */}
-
-              {/* Services Dropdown */}
-              <div
-                data-dropdown="services"
-                className="relative"
-                onMouseEnter={() => handleDropdownEnter('services')}
-                onMouseLeave={handleDropdownLeave}
-              >
-                <button
-                  onClick={() => toggleDropdown('services')}
-                  className="flex items-center whitespace-nowrap px-2.5 xl:px-5 2xl:px-6 3xl:px-8 4xl:px-10 py-2 text-copy xl:text-lg 3xl:text-xl font-medium text-gray-900 hover:text-black transition-colors rounded-lg hover:bg-gray-100"
-                  aria-expanded={activeDropdown === 'services'}
-                  aria-haspopup="true"
-                >
-                  Services
-                  <ChevronDown
-                    className={`ml-1.5 h-4 w-4 xl:h-5 xl:w-5 transition-transform duration-200 ${activeDropdown === 'services' ? 'rotate-180' : ''
-                      }`}
-                  />
-                </button>
-              </div>
-
-               {/* <Link
-                  key="industries"
-                  href="industries"
-                  className="whitespace-nowrap px-2.5 xl:px-5 2xl:px-6 3xl:px-8 4xl:px-10 py-2 text-copy xl:text-lg 3xl:text-xl font-medium text-gray-900 hover:text-black transition-colors rounded-lg hover:bg-gray-100"
-                >
-                  Industries
-                </Link> */}
-
-              {/* Solutions Dropdown — hidden from UI (content preserved) */}
-              {/* <div
-                data-dropdown="solutions"
-                className="relative"
-                onMouseEnter={() => handleDropdownEnter('solutions')}
-                onMouseLeave={handleDropdownLeave}
-              >
-                <button
-                  onClick={() => toggleDropdown('solutions')}
-                  className="flex items-center whitespace-nowrap px-2.5 xl:px-5 2xl:px-6 3xl:px-8 4xl:px-10 py-2 text-copy xl:text-lg 3xl:text-xl font-medium text-gray-900 hover:text-black transition-colors rounded-lg hover:bg-gray-100"
-                  aria-expanded={activeDropdown === 'solutions'}
-                  aria-haspopup="true"
-                >
-                  Solutions
-                  <ChevronDown
-                    className={`ml-1.5 h-4 w-4 xl:h-5 xl:w-5 transition-transform duration-200 ${
-                      activeDropdown === 'solutions' ? 'rotate-180' : ''
-                    }`}
-                  />
-                </button>
-              </div> */}
-
-              {/* Other Nav Links (Industry, Case Studies, Blog, About) */}
-              {NAVIGATION.main.filter((item) => !['Services', 'Solutions', 'AI & ML'].includes(item.label)).map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="whitespace-nowrap px-2.5 xl:px-5 2xl:px-6 3xl:px-8 4xl:px-10 py-2 text-copy xl:text-lg 3xl:text-xl font-medium text-gray-900 hover:text-black transition-colors rounded-lg hover:bg-gray-100"
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </div>
-
-            {/* Tablet Navigation — visible only at md (768-1023px) */}
-            <div className="hidden md:flex md:items-center md:space-x-0.5 lg:hidden">
-              {/* AI Dropdown — hidden from UI (AI Services now leads the Services mega menu) */}
-              {/* <div
-                data-dropdown="ai-ml"
-                className="relative"
-                onMouseEnter={() => handleDropdownEnter('ai-ml')}
-                onMouseLeave={handleDropdownLeave}
-              >
-                <button
-                  onClick={() => toggleDropdown('ai-ml')}
-                  className="flex items-center px-3 py-2 text-copy-sm font-medium text-gray-900 hover:text-black transition-colors rounded-md hover:bg-gray-100"
-                  aria-expanded={activeDropdown === 'ai-ml'}
-                  aria-haspopup="true"
-                >
-                  AI
-                  <ChevronDown
-                    className={`ml-1 h-3.5 w-3.5 transition-transform duration-200 ${activeDropdown === 'ai-ml' ? 'rotate-180' : ''
-                      }`}
-                  />
-                </button>
-              </div> */}
-
-
-              {/* Advisory Dropdown */}
-              <div
-                data-dropdown="advisory"
-                className="relative"
-                onMouseEnter={() => handleDropdownEnter('advisory')}
-                onMouseLeave={handleDropdownLeave}
-              >
-                <button
-                  onClick={() => toggleDropdown('advisory')}
-                  className="flex items-center px-3 py-2 text-copy-sm font-medium text-gray-900 hover:text-black transition-colors rounded-md hover:bg-gray-100"
-                  aria-expanded={activeDropdown === 'advisory'}
-                  aria-haspopup="true"
-                >
-                  Advisory
-                  <ChevronDown
-                    className={`ml-1 h-3.5 w-3.5 transition-transform duration-200 ${activeDropdown === 'advisory' ? 'rotate-180' : ''
-                      }`}
-                  />
-                </button>
-              </div>
-
-
-              {/* Services Dropdown */}
-              <div
-                data-dropdown="services"
-                className="relative"
-                onMouseEnter={() => handleDropdownEnter('services')}
-                onMouseLeave={handleDropdownLeave}
-              >
-                <button
-                  onClick={() => toggleDropdown('services')}
-                  className="flex items-center px-3 py-2 text-copy-sm font-medium text-gray-900 hover:text-black transition-colors rounded-md hover:bg-gray-100"
-                  aria-expanded={activeDropdown === 'services'}
-                  aria-haspopup="true"
-                >
-                    Services
-                  <ChevronDown
-                    className={`ml-1 h-3.5 w-3.5 transition-transform duration-200 ${activeDropdown === 'services' ? 'rotate-180' : ''
-                      }`}
-                  />
-                </button>
-              </div>
-
-
-              {/* Industries Dropdown */}
-              <div
-                data-dropdown="industries"
-                className="relative"
-                onMouseEnter={() => handleDropdownEnter('industries')}
-                onMouseLeave={handleDropdownLeave}
-              >
-                <button
-                  onClick={() => toggleDropdown('industries')}
-                  className="flex items-center px-3 py-2 text-copy-sm font-medium text-gray-900 hover:text-black transition-colors rounded-md hover:bg-gray-100"
-                  aria-expanded={activeDropdown === 'industries'}
-                  aria-haspopup="true"
-                >
-                  Industries
-                  <ChevronDown
-                    className={`ml-1 h-3.5 w-3.5 transition-transform duration-200 ${activeDropdown === 'industries' ? 'rotate-180' : ''
-                      }`}
-                  />
-                </button>
-              </div>
-
-              {/* Solutions Dropdown — hidden from UI (content preserved) */}
-              {/* <div
-                data-dropdown="solutions"
-                className="relative"
-                onMouseEnter={() => handleDropdownEnter('solutions')}
-                onMouseLeave={handleDropdownLeave}
-              >
-                <button
-                  onClick={() => toggleDropdown('solutions')}
-                  className="flex items-center px-3 py-2 text-copy-sm font-medium text-gray-900 hover:text-black transition-colors rounded-md hover:bg-gray-100"
-                  aria-expanded={activeDropdown === 'solutions'}
-                  aria-haspopup="true"
-                >
-                  Solutions
-                  <ChevronDown
-                    className={`ml-1 h-3.5 w-3.5 transition-transform duration-200 ${
-                      activeDropdown === 'solutions' ? 'rotate-180' : ''
-                    }`}
-                  />
-                </button>
-              </div> */}
-
-              {/* Other Nav Links */}
-              {NAVIGATION.main.filter((item) => !['Services', 'Solutions', 'AI & ML', 'Industries'].includes(item.label)).map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="px-3 py-2 text-copy-sm font-medium text-gray-900 hover:text-black transition-colors rounded-md hover:bg-gray-100"
-                >
-                  {item.label}
-                </Link>
-              ))}
+            <div className="hidden md:flex md:items-center md:gap-x-0.5 lg:mx-auto lg:gap-x-1 xl:absolute xl:left-1/2 xl:mx-0 xl:-translate-x-1/2 xl:gap-x-2 2xl:gap-x-3 3xl:gap-x-4 4xl:gap-x-6">
+              {ENABLED_NAV_ITEMS.map((item) =>
+                item.type === 'dropdown' ? (
+                  <div
+                    key={item.menu}
+                    data-dropdown={item.menu}
+                    className="relative"
+                    onMouseEnter={() => handleDropdownEnter(item.menu)}
+                    onMouseLeave={handleDropdownLeave}
+                  >
+                    <button
+                      onClick={() => toggleDropdown(item.menu)}
+                      className={`flex items-center ${NAV_ITEM_CLASS}`}
+                      aria-expanded={activeDropdown === item.menu}
+                      aria-haspopup="true"
+                    >
+                      {item.label}
+                      <ChevronDown
+                        className={`${NAV_CHEVRON_CLASS} ${activeDropdown === item.menu ? 'rotate-180' : ''}`}
+                      />
+                    </button>
+                  </div>
+                ) : (
+                  <Link key={item.href} href={item.href} className={NAV_ITEM_CLASS}>
+                    {item.label}
+                  </Link>
+                )
+              )}
             </div>
 
             {/* Right track — zero-width at lg and up (the CTA below is disabled), so
                 it exists to hold the mobile toggle and to give a re-enabled CTA a
-                place to land. The nav's `ml-auto` pushes past it either way. */}
+                place to land. The nav's centring pushes past it either way. */}
             <div className="flex flex-none items-center justify-end">
               {/* CTA Buttons — visible from md */}
                 {false && (
@@ -474,393 +386,19 @@ export function Header() {
         </nav>
       </header>
 
-      {/* Mega-menu panels are always in the DOM and shown/hidden with CSS, not
-          mounted conditionally.
-
-          They used to render only while `activeDropdown` matched, which meant the
-          server HTML contained ZERO links to the ~36 service, solution and industry
-          pages — the nav was invisible to crawlers, and those pages were reachable
-          only via the sitemap with no internal anchor text. `display:none` content
-          is still parsed and indexed, and this is the ordinary way an accessible
-          dropdown behaves, so the links are genuinely present rather than cloaked.
-
-          `display:none` also keeps them out of the tab order while closed, so no
-          `inert` handling is needed. */}
-      {/* AI Mega Menu Dropdown — disabled (set to false). Its trigger is hidden and
-          every link it held now renders in the Services mega menu, so keeping this
-          panel mounted would only duplicate those links in the crawlable HTML. */}
-      {false && (
-        <div
-          data-dropdown="ai-ml"
-          className={`fixed top-16 md:top-18 lg:top-20 left-0 right-0 z-40 ${
-            activeDropdown === 'ai-ml' ? 'hidden md:block' : 'hidden'
-          }`}
-          onMouseEnter={() => handleDropdownEnter('ai-ml')}
+      {/* Mega-menu panels — one per enabled dropdown, same list that produced the
+          triggers above. Each is always in the DOM and shown/hidden with CSS; see
+          NavMegaPanel for why that matters for crawlability. */}
+      {NAV_DROPDOWNS.map((item) => (
+        <NavMegaPanel
+          key={item.menu}
+          menu={item.menu}
+          isOpen={activeDropdown === item.menu}
+          onMouseEnter={() => handleDropdownEnter(item.menu)}
           onMouseLeave={handleDropdownLeave}
-        >
-          {/* Backdrop */}
-          <div
-            className="fixed inset-0 top-16 md:top-18 lg:top-20 bg-black/30 backdrop-blur-[2px]"
-            onClick={closeDropdown}
-          />
-
-          <div className="relative animate-in fade-in slide-in-from-top-2 duration-200">
-            <div className="max-w-md mx-auto px-4 md:px-6 pt-2 md:pt-3">
-              <div className="bg-white rounded-xl md:rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.15)] border border-gray-200/80 overflow-hidden">
-                {/* Columns — Automation & Intelligence */}
-                <div className="grid grid-cols-1 divide-x divide-gray-100">
-                  {NAVIGATION.aiMlMenu.groups.map((group) => {
-                    const CategoryIcon = iconMap[group.icon] || Code2;
-                    return (
-                      <div key={group.title} className="p-4 md:p-5 lg:p-6">
-                        {/* Column Header */}
-                        <div className="flex items-center gap-2 md:gap-3 mb-1">
-                          <div className="w-8 h-8 md:w-9 md:h-9 rounded-lg bg-brand-50 flex items-center justify-center">
-                            <CategoryIcon className="h-4 w-4 text-brand-600" />
-                          </div>
-                          <div>
-                            <h3 className="text-copy-sm md:text-copy font-bold text-gray-900">
-                              {group.title}
-                            </h3>
-                            <p className="text-[10px] md:text-label text-gray-400">
-                              {group.description}
-                            </p>
-                          </div>
-                        </div>
-
-                        {/* Divider */}
-                        <div className="h-px bg-gradient-to-r from-gray-200 via-gray-100 to-transparent my-2 md:my-3" />
-
-                        {/* Links */}
-                        <ul className="space-y-0.5">
-                          {group.links.map((link) => {
-                            const LinkIcon = iconMap[link.icon] || Code2;
-                            return (
-                              <li key={link.href + link.label}>
-                                <Link
-                                  href={link.href}
-                                  onClick={closeDropdown}
-                                  className="group/link flex items-center gap-2 py-1.5 md:py-[7px] px-2 md:px-2.5 -mx-1 rounded-lg text-label md:text-copy-sm text-gray-600 hover:text-brand-700 hover:bg-brand-50/70 transition-all duration-150"
-                                >
-                                  <LinkIcon className="h-3 w-3 md:h-3.5 md:w-3.5 text-gray-400 group-hover/link:text-brand-500 transition-colors flex-shrink-0" />
-                                  <span className="flex-1 leading-snug">{link.label}</span>
-                                  <ArrowRight className="h-3 w-3 ml-auto text-gray-300 opacity-0 -translate-x-1 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all duration-150 flex-shrink-0" />
-                                </Link>
-                              </li>
-                            );
-                          })}
-                        </ul>
-                      </div>
-                    );
-                  })}
-                </div>
-
-                {/* Bottom CTA bar */}
-                <div className="bg-gray-50/80 border-t border-gray-100 px-4 md:px-6 py-3 flex items-center justify-between">
-                  <p className="text-[11px] md:text-label text-gray-500">
-                    Explore AI capabilities
-                  </p>
-                  <Link
-                    href="/book-consultation"
-                    onClick={closeDropdown}
-                    className="inline-flex items-center gap-1.5 text-[11px] md:text-label font-semibold text-brand-600 hover:text-brand-700 transition-colors"
-                  >
-                    Book a free consultation
-                    <ArrowRight className="h-3 w-3" />
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
-
-      {/* Services Mega Menu Dropdown — visible from md */}
-      {(
-        <div
-          data-dropdown="services"
-          className={`fixed top-16 md:top-18 lg:top-20 left-0 right-0 z-40 ${
-            activeDropdown === 'services' ? 'hidden md:block' : 'hidden'
-          }`}
-          onMouseEnter={() => handleDropdownEnter('services')}
-          onMouseLeave={handleDropdownLeave}
-        >
-          {/* Backdrop */}
-          <div
-            className="fixed inset-0 top-16 md:top-18 lg:top-20 bg-black/30 backdrop-blur-[2px]"
-            onClick={closeDropdown}
-          />
-
-          <div className="relative animate-in fade-in slide-in-from-top-2 duration-200">
-            <div className="max-w-[1600px] mx-auto px-4 md:px-6 pt-2 md:pt-3">
-              {/* Four columns of 5-12 links each can outgrow a laptop viewport once the
-                  grid drops to 2-up, so the card is height-capped and scrolls its own
-                  overflow instead of running off the bottom of the screen. */}
-              <div className="bg-white rounded-xl md:rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.15)] border border-gray-200/80 overflow-hidden flex flex-col max-h-[calc(100vh-6rem)]">
-                {/* Columns — 4 across from lg (AI Services, Advisory, Software Engineering,
-                    Infrastructure), 2×2 below that. Separators are per-child rather than
-                    `divide-*`: on a wrapped grid, `divide-y` puts a rule above every child
-                    but the first, which lands a stray rule mid-row. These target the real
-                    edges — right edge of each non-final column, bottom edge of each
-                    non-final row. */}
-                <div className="overflow-y-auto overscroll-contain grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 [&>*]:border-gray-100 [&>*:not(:last-child)]:border-b sm:[&>*]:border-b-0 sm:[&>*:nth-child(-n+2)]:border-b sm:[&>*:nth-child(odd)]:border-r lg:[&>*]:border-b-0 lg:[&>*:not(:last-child)]:border-r">
-                  {NAVIGATION.servicesMenu.map((column) => {
-                    const CategoryIcon = iconMap[column.icon] || Code2;
-                    return (
-                      <div key={column.title} className="p-4 md:p-5 lg:p-5">
-                        {/* Column Header */}
-                        <div className="flex items-center gap-2 md:gap-3 mb-1">
-                          <div className="w-8 h-8 md:w-9 md:h-9 rounded-lg bg-brand-50 flex items-center justify-center">
-                            <CategoryIcon className="h-4 w-4 text-brand-600" />
-                          </div>
-                          <div>
-                            <h3 className="text-copy-sm md:text-copy font-bold text-gray-900">
-                              {column.title}
-                            </h3>
-                            <p className="text-[10px] md:text-label text-gray-400">
-                              {column.description}
-                            </p>
-                          </div>
-                        </div>
-
-                        {/* Divider */}
-                        <div className="h-px bg-gradient-to-r from-gray-200 via-gray-100 to-transparent my-2 md:my-3" />
-
-                        {/* Links */}
-                        <ul className="space-y-0.5">
-                          {column.links.map((link) => {
-                            const LinkIcon = iconMap[link.icon] || Code2;
-                            return (
-                              <li key={link.href + link.label}>
-                                <Link
-                                  href={link.href}
-                                  onClick={closeDropdown}
-                                  className="group/link flex items-center gap-2 py-1.5 md:py-[7px] px-2 md:px-2.5 -mx-1 rounded-lg text-label md:text-copy-sm text-gray-600 hover:text-brand-700 hover:bg-brand-50/70 transition-all duration-150"
-                                >
-                                  <LinkIcon className="h-3 w-3 md:h-3.5 md:w-3.5 text-gray-400 group-hover/link:text-brand-500 transition-colors flex-shrink-0" />
-                                  <span className="flex-1 leading-snug">{link.label}</span>
-                                  <ArrowRight className="h-3 w-3 ml-auto text-gray-300 opacity-0 -translate-x-1 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all duration-150 flex-shrink-0" />
-                                </Link>
-                              </li>
-                            );
-                          })}
-                        </ul>
-
-                      </div>
-                    );
-                  })}
-                </div>
-
-                {/* Bottom CTA bar — stays pinned below the scroll area, not scrolled away with it */}
-                <div className="shrink-0 bg-gray-50/80 border-t border-gray-100 px-4 md:px-6 py-3 flex items-center justify-between">
-                  <p className="text-[11px] md:text-label text-gray-500">
-                    Not sure where to start?
-                  </p>
-                  <Link
-                    href="/book-consultation"
-                    onClick={closeDropdown}
-                    className="inline-flex items-center gap-1.5 text-[11px] md:text-label font-semibold text-brand-600 hover:text-brand-700 transition-colors"
-                  >
-                    Book a free consultation
-                    <ArrowRight className="h-3 w-3" />
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
-
-      {/* Industries Mega Menu Dropdown — visible from md */}
-      {(
-        <div
-          data-dropdown="industries"
-          className={`fixed top-16 md:top-18 lg:top-20 left-0 right-0 z-40 ${
-            activeDropdown === 'industries' ? 'hidden md:block' : 'hidden'
-          }`}
-          onMouseEnter={() => handleDropdownEnter('industries')}
-          onMouseLeave={handleDropdownLeave}
-        >
-          {/* Backdrop */}
-          <div
-            className="fixed inset-0 top-16 md:top-18 lg:top-20 bg-black/30 backdrop-blur-[2px]"
-            onClick={closeDropdown}
-          />
-
-          <div className="relative animate-in fade-in slide-in-from-top-2 duration-200">
-            <div className="max-w-md mx-auto px-4 md:px-6 pt-2 md:pt-3">
-              <div className="bg-white rounded-xl md:rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.15)] border border-gray-200/80 overflow-hidden">
-                {/* Columns — Industries */}
-                <div className="grid grid-cols-1 divide-x divide-gray-100">
-                  {NAVIGATION.industriesMenu.groups.map((group) => {
-                    const CategoryIcon = iconMap[group.icon] || Code2;
-                    return (
-                      <div key={group.title} className="p-4 md:p-5 lg:p-6">
-                        {/* Column Header */}
-                        <div className="flex items-center gap-2 md:gap-3 mb-1">
-                          <div className="w-8 h-8 md:w-9 md:h-9 rounded-lg bg-brand-50 flex items-center justify-center">
-                            <CategoryIcon className="h-4 w-4 text-brand-600" />
-                          </div>
-                          <div>
-                            <h3 className="text-copy-sm md:text-copy font-bold text-gray-900">
-                              {group.title}
-                            </h3>
-                            <p className="text-[10px] md:text-label text-gray-400">
-                              {group.description}
-                            </p>
-                          </div>
-                        </div>
-
-                        {/* Divider */}
-                        <div className="h-px bg-gradient-to-r from-gray-200 via-gray-100 to-transparent my-2 md:my-3" />
-
-                        {/* Links */}
-                        <ul className="space-y-0.5">
-                          {group.links
-                            .filter((link) => link.showInNavigationMenu)
-                            .map((link) => {
-                            const LinkIcon = iconMap[link.icon] || Code2;
-                            return (
-                              <li key={link.href + link.label}>
-                                <Link
-                                  href={link.href}
-                                  onClick={closeDropdown}
-                                  className="group/link flex items-center gap-2 py-1.5 md:py-[7px] px-2 md:px-2.5 -mx-1 rounded-lg text-label md:text-copy-sm text-gray-600 hover:text-brand-700 hover:bg-brand-50/70 transition-all duration-150"
-                                >
-                                  <LinkIcon className="h-3 w-3 md:h-3.5 md:w-3.5 text-gray-400 group-hover/link:text-brand-500 transition-colors flex-shrink-0" />
-                                  <span className="flex-1 leading-snug">{link.label}</span>
-                                  <ArrowRight className="h-3 w-3 ml-auto text-gray-300 opacity-0 -translate-x-1 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all duration-150 flex-shrink-0" />
-                                </Link>
-                              </li>
-                            );
-                          })}
-
-                          {/* See all Industries — emphasized view-all row, aligned with the list */}
-                          <li className="mt-1">
-                            <Link
-                              href="/industry"
-                              onClick={closeDropdown}
-                              className="group/all flex items-center gap-2 py-1.5 md:py-[7px] px-2 md:px-2.5 -mx-1 rounded-lg text-label md:text-copy-sm font-semibold text-brand-600 hover:text-brand-700 hover:bg-brand-50/70 transition-all duration-150"
-                            >
-                              <LayoutGrid className="h-3 w-3 md:h-3.5 md:w-3.5 text-brand-500 flex-shrink-0" />
-                              <span className="flex-1 leading-snug">See all Industries</span>
-                              <ArrowRight className="h-3.5 w-3.5 ml-auto text-brand-400 transition-transform duration-150 group-hover/all:translate-x-0.5 flex-shrink-0" />
-                            </Link>
-                          </li>
-                        </ul>
-                      </div>
-                    );
-                  })}
-                </div>
-
-                {/* Bottom CTA bar */}
-                <div className="bg-gray-50/80 border-t border-gray-100 px-4 md:px-6 py-3 flex items-center justify-between">
-                  <p className="text-[11px] md:text-label text-gray-500">
-                    Don&apos;t see your industry?
-                  </p>
-                  <Link
-                    href="/book-consultation"
-                    onClick={closeDropdown}
-                    className="inline-flex items-center gap-1.5 text-[11px] md:text-label font-semibold text-brand-600 hover:text-brand-700 transition-colors"
-                  >
-                    Book a free consultation
-                    <ArrowRight className="h-3 w-3" />
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Solutions Mega Menu Dropdown — visible from md */}
-      {(
-        <div
-          data-dropdown="solutions"
-          className={`fixed top-16 md:top-18 lg:top-20 left-0 right-0 z-40 ${
-            activeDropdown === 'solutions' ? 'hidden md:block' : 'hidden'
-          }`}
-          onMouseEnter={() => handleDropdownEnter('solutions')}
-          onMouseLeave={handleDropdownLeave}
-        >
-          {/* Backdrop */}
-          <div
-            className="fixed inset-0 top-16 md:top-18 lg:top-20 bg-black/30 backdrop-blur-[2px]"
-            onClick={closeDropdown}
-          />
-
-          <div className="relative animate-in fade-in slide-in-from-top-2 duration-200">
-            <div className="max-w-[1400px] mx-auto px-4 md:px-6 pt-2 md:pt-3">
-              <div className="bg-white rounded-xl md:rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.15)] border border-gray-200/80 overflow-hidden">
-                {/* Columns — one per solution group */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-gray-100">
-                  {NAVIGATION.solutionsMenu.map((group) => {
-                    const GroupIcon = iconMap[group.icon] || Code2;
-                    return (
-                      <div key={group.heading} className="p-4 md:p-5 lg:p-6">
-                        {/* Group Header */}
-                        <div className="flex items-center gap-2 md:gap-3 mb-1">
-                          <div className="w-8 h-8 md:w-9 md:h-9 rounded-lg bg-brand-50 flex items-center justify-center">
-                            <GroupIcon className="h-4 w-4 text-brand-600" />
-                          </div>
-                          <div>
-                            <h3 className="text-copy-sm md:text-copy font-bold text-gray-900">
-                              {group.heading}
-                            </h3>
-                            <p className="text-[10px] md:text-label text-gray-400">
-                              {group.description}
-                            </p>
-                          </div>
-                        </div>
-
-                        {/* Divider */}
-                        <div className="h-px bg-gradient-to-r from-gray-200 via-gray-100 to-transparent my-2 md:my-3" />
-
-                        {/* Links */}
-                        <ul className="space-y-0.5">
-                          {group.links.map((link) => {
-                            const LinkIcon = iconMap[link.icon] || Code2;
-                            return (
-                              <li key={link.href + link.label}>
-                                <Link
-                                  href={link.href}
-                                  onClick={closeDropdown}
-                                  className="group/link flex items-center gap-2 py-1.5 md:py-[7px] px-2 md:px-2.5 -mx-1 rounded-lg text-label md:text-copy-sm text-gray-600 hover:text-brand-700 hover:bg-brand-50/70 transition-all duration-150"
-                                >
-                                  <LinkIcon className="h-3 w-3 md:h-3.5 md:w-3.5 text-gray-400 group-hover/link:text-brand-500 transition-colors flex-shrink-0" />
-                                  <span className="flex-1 leading-snug">{link.label}</span>
-                                  <ArrowRight className="h-3 w-3 ml-auto text-gray-300 opacity-0 -translate-x-1 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all duration-150 flex-shrink-0" />
-                                </Link>
-                              </li>
-                            );
-                          })}
-                        </ul>
-                      </div>
-                    );
-                  })}
-                </div>
-
-                {/* Bottom CTA bar */}
-                <div className="bg-gray-50/80 border-t border-gray-100 px-4 md:px-6 py-3 flex items-center justify-between">
-                  <p className="text-[11px] md:text-label text-gray-500">
-                    Need a custom solution?
-                  </p>
-                  <Link
-                    href="/book-consultation"
-                    onClick={closeDropdown}
-                    className="inline-flex items-center gap-1.5 text-[11px] md:text-label font-semibold text-brand-600 hover:text-brand-700 transition-colors"
-                  >
-                    Book a free consultation
-                    <ArrowRight className="h-3 w-3" />
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+          onClose={closeDropdown}
+        />
+      ))}
 
       {/* Mobile Menu — hidden from md. Not mounted until first opened, so its
           chunk never downloads for visitors who don't use it. Once mounted it

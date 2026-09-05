@@ -176,7 +176,13 @@ export type SectionKey =
 export interface ImageFeatureData {
   heading: string;
   description: string;
-  image: { src: string; alt: string };
+  /* `width`/`height` are the asset's NATURAL pixel dimensions, and they are
+     what stops the frame from cropping the photo: ImageFeature sizes its frame
+     to this ratio, so `object-cover` has nothing to trim. Without them the
+     frame falls back to 3:2, which crops any asset that is not 3:2 — e.g. a
+     1280x912 photo loses ~7% of its height. Supply them for every new asset
+     (`identify`, or the file's own metadata) rather than assuming 3:2. */
+  image: { src: string; alt: string; width?: number; height?: number };
 }
 
 export interface RoleBoundaryData {

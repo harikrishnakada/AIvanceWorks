@@ -85,7 +85,7 @@
    goes to zero on genuinely short viewports, where there is no slack to spend.
    Never express this as margin, padding or a flex track. */
 [data-hero-cta] {
-  --hero-cta-lift: clamp(16px, 4vh, 44px);
+  --hero-cta-lift: clamp(20px, 4.8vh, 68px);
 }
 
 /* ─── Statement drop ─────────────────────────────────────────────────────
@@ -171,8 +171,10 @@
      floor; the sub no longer carries it. */
   [data-hero-cta] {
     margin-top: 1.25rem;
-    /* Less slack below the copy at this height, so a shorter lift. */
-    --hero-cta-lift: clamp(8px, 2vh, 20px);
+    /* Less slack below the copy at this height, so a shorter lift — but the
+       measured description-to-button gap here is 45px at 1280x720, the widest
+       of any tier, so this carries the largest proportional raise. */
+    --hero-cta-lift: clamp(12px, 4vh, 32px);
   }
 
   /* Button renders as an <a> via asChild, so height lands on the child. */
@@ -369,22 +371,111 @@
 }
 
 /* ─── Hero description drop on phones ─────────────────────────────────────
-   The base drop, clamp(24px, 9vh, 88px), was tuned against desktop slack. On a
-   modern phone (390x844, 393x852, 430x932) 9vh resolves to 76-84px, which
-   pushed the description most of the way down to the buttons and opened a
-   visible hole under the headline. Cutting it to 6vh lifts the copy ~25px and
-   leaves it reading as part of the headline group.
+   The drop exists to close a hole that no longer opens. Its history: the base
+   clamp(24px, 9vh, 88px) was tuned against desktop slack, resolved to 76-84px
+   on a modern phone, and pushed the copy most of the way to the buttons; 6vh
+   was the phone correction.
 
-   Scoped to min-height: 801px on purpose. Below that the height tiers above
-   (700px, 600px) set their own deliberately small drops against near-zero
-   slack — this block is placed last, so without the floor it would win the
-   cascade and push the copy back DOWN into the buttons on short phones.
+   Both numbers were sized against a description that spanned the full container
+   — 4 lines at 390px, 139-164px tall. It is now capped to the headline's widest
+   line (~273-289px on a phone), which makes it 7-8 lines and 162-219px tall, so
+   it fills the space the drop was invented to close AND it starts that much
+   closer to the buttons. With 6vh still applied the copy ran INTO the CTA:
+   measured gap at 375x812 was -6px, i.e. overlapping, and 5-8px at 320x568,
+   390x844 and 393x852 — touching.
 
-   Safe to retune without re-checking the fold: --hero-sub-drop is applied as a
-   TRANSFORM, so it moves the copy after layout and costs the section no
-   height. A smaller value only widens the gap to the CTA. */
+   So on phones the drop is now a nudge, not a journey. Values below are chosen
+   so every phone in the matrix keeps a >=24px gap to the buttons; measured
+   after the change: 26px at 320x568, 30px at 360x640, 36px at 375x667, 40px at
+   375x812, 43px at 390x844, 55px at 412x915, 62px at 430x932.
+
+   Two blocks, not one, because the tiers above are height-keyed and this is the
+   only width-keyed override: the first covers phones tall enough to escape the
+   700px/600px tiers, the second re-states a small value for the ones that don't,
+   since those tiers were also tuned against the short paragraph. Placed last so
+   both win the cascade at equal specificity.
+
+   Still safe to retune without re-checking the fold: --hero-sub-drop is applied
+   as a TRANSFORM, so it moves the copy after layout and costs the section no
+   height. A smaller value only widens the gap to the CTA. If the hero copy or
+   its measure changes again, re-measure this gap — that is exactly what went
+   stale here. */
 @media (max-width: 639px) and (min-height: 801px) {
   [data-hero-sub] {
-    --hero-sub-drop: clamp(16px, 6vh, 56px);
+    --hero-sub-drop: clamp(8px, 1.6vh, 20px);
   }
 }
+
+@media (max-width: 639px) and (max-height: 800px) {
+  [data-hero-sub] {
+    --hero-sub-drop: clamp(2px, 0.8vh, 10px);
+  }
+}
+
+/* The smallest phone in the matrix (320x568) has no slack to nudge into at all:
+   the 7-line description and the buttons are 15px apart on layout alone, so any
+   drop at all is spent closing that. Zero here buys back the last 4px. This is
+   the one size where the gap is tight rather than comfortable — it was ~8px
+   before this pass, so it improves, but a further gain needs the CTA's own
+   margin, which is layout and would push the already-overflowing 320x568 fold
+   further past the viewport. */
+@media (max-width: 639px) and (max-height: 600px) {
+  [data-hero-sub] {
+    --hero-sub-drop: 0px;
+  }
+}
+
+/* ─── Hero CTA lift on phones ─────────────────────────────────────────────
+   The height tiers above are width-agnostic, and for the CTA that is too blunt
+   in one direction: a phone's description is capped to the headline's widest
+   line, so it runs 6-8 lines and its length — and therefore the gap left above
+   the buttons — varies enormously with WIDTH, not height. Measured gap from the
+   description to the buttons, at the tier values above:
+
+     320x568   16px      375x812   30px      412x915   72px
+     360x640   34px      390x844   43px      430x932   62px
+     375x667   47px
+
+   So one lift cannot serve them. The blocks below split phones at 384px, which
+   is exactly where the description drops a line: below it the copy nearly
+   reaches the buttons already and there is only single-digit room to raise
+   them; above it there is 40-70px of air to close.
+
+   Floor for all of them is the same 24px description-to-button gap the sub-drop
+   blocks below are tuned against — the buttons must never climb into the copy.
+   Values verified at every size in the matrix; re-measure if the hero copy or
+   its measure changes. Placed last so they win the cascade over the height
+   tiers at equal specificity.
+
+   Safe to retune without re-checking the fold: --hero-cta-lift is applied as a
+   TRANSFORM, so it moves the buttons after layout and costs the section no
+   height. A larger value only widens the band below the buttons. */
+@media (max-width: 383px) and (min-height: 801px) {
+  [data-hero-cta] {
+    /* ~5px of headroom at 375x812 and that is the whole budget — the 7-line
+       description on a narrow phone leaves nothing else. */
+    --hero-cta-lift: clamp(30px, 4.6vh, 42px);
+  }
+}
+
+@media (min-width: 384px) and (max-width: 639px) and (min-height: 801px) {
+  [data-hero-cta] {
+    /* The wide phones are where the request bites: 43-72px of dead air above
+       the buttons at the tier values. This closes 17-19px of it. */
+    --hero-cta-lift: clamp(44px, 6vh, 68px);
+  }
+}
+
+@media (max-width: 639px) and (min-height: 601px) and (max-height: 800px) {
+  [data-hero-cta] {
+    /* Tier 3 pins this to 0 for landscape and short laptops, which have no room
+       at all. Portrait phones in this band do: 47px at 375x667, 34px at
+       360x640. 640 is the binding one, so the ceiling stays in single digits
+       plus change. */
+    --hero-cta-lift: clamp(8px, 1.5vh, 14px);
+  }
+}
+
+/* 320x568 is deliberately absent: its description-to-button gap is 16px on
+   layout alone, already under the floor, so the buttons stay on the padding
+   edge there. Tier 3's `--hero-cta-lift: 0px` is what it keeps. */

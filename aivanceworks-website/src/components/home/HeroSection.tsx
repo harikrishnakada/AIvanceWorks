@@ -142,7 +142,28 @@ export function HeroSection() {
                 1024px island. The photograph behind it still bleeds full width. */}
             <Container width="default" className="flex flex-1 flex-col items-center text-center">
               <div className="flex flex-1 flex-col items-center justify-center w-full">
-                {/* Headline — the line breaks are OURS at every width, never
+                {/* Headline + description share ONE measuring box, so the copy
+                    starts and ends exactly where the headline's widest line
+                    does at every width — no hardcoded max-width, no per-
+                    breakpoint em math to re-measure when the copy changes.
+
+                    `w-min` is load-bearing and is NOT interchangeable with
+                    `w-fit`: min-content of this box is the widest of its
+                    children's min-content widths. The h1 is `whitespace-nowrap`
+                    with forced breaks, so it has no soft-wrap opportunities and
+                    its min-content IS its widest rendered line ("serves
+                    Founders" below 640px, "Founders and Businesses" above).
+                    The paragraph's min-content is just its longest word, which
+                    is always narrower, so it contributes nothing. `w-fit`
+                    (fit-content) would instead take the paragraph's MAX-content
+                    — the whole sentence on one line — and blow the box out to
+                    the full container width.
+
+                    `max-w-full` only guards the case where a copy change makes
+                    the headline wider than the gutter allows; the fit caps in
+                    styles/first-fold.css normally keep that from happening. */}
+                <div className="w-min max-w-full">
+                  {/* Headline — the line breaks are OURS at every width, never
                     the browser's: `whitespace-nowrap` on the h1 kills soft
                     wrapping, and the two zero-height `block` spans below split
                     the inline flow exactly where we want it. A block child
@@ -164,26 +185,26 @@ export function HeroSection() {
                     Line widths are measured in Inter Black at -0.025em tracking,
                     not estimated; the matching fit caps are in first-fold.css.
                     Change the copy and you must re-measure both. */}
-                <h1
-                  data-hero-headline
-                  className="text-display whitespace-nowrap
+                  <h1
+                    data-hero-headline
+                    className="text-display whitespace-nowrap
                     font-black tracking-tight text-white"
-                >
-                  Our software
-                  {/* break after "Our software" — phones only */}
-                  <span className="block sm:hidden" aria-hidden="true" />
-                  {' serves '}
-                  {/* break after "serves" — sm and up */}
-                  <span className="hidden sm:block" aria-hidden="true" />
-                  <span className="text-brand-300">
-                    Founders
-                    {/* break after "Founders" — phones only */}
+                  >
+                    Our software
+                    {/* break after "Our software" — phones only */}
                     <span className="block sm:hidden" aria-hidden="true" />
-                    {' and Businesses'}
-                  </span>
-                </h1>
+                    {' serves '}
+                    {/* break after "serves" — sm and up */}
+                    <span className="hidden sm:block" aria-hidden="true" />
+                    <span className="text-brand-300">
+                      Founders
+                      {/* break after "Founders" — phones only */}
+                      <span className="block sm:hidden" aria-hidden="true" />
+                      {' and Businesses'}
+                    </span>
+                  </h1>
 
-                {/* Subheadline — stays INSIDE the centred headline group and
+                  {/* Subheadline — stays INSIDE the centred headline group and
                     keeps the original design's margins, so the group's height,
                     and therefore the headline's vertical position, is exactly
                     what the original layout computed. It is nudged down the gap
@@ -192,19 +213,19 @@ export function HeroSection() {
                     the headline group no height and the headline cannot drift.
                     Tune the offset via --hero-sub-drop per height tier in
                     styles/first-fold.css. Do NOT convert it back to margin. */}
-               <p
-                  data-hero-sub
-                  className="text-lead
-                    text-white/80 max-w-[70ch] mx-auto text-pretty
-                    mt-4 sm:mt-6 md:mt-7 mb-0
-                    [transform:translateY(var(--hero-sub-drop,0px))]"
-                >
-                  {SITE_CONFIG.name} is a custom software development company launched in 2026,
-                  offering services and packages in Product Development, AI Development, SaaS
-                  Development and several other development services.
-                </p>
+                  <p
+                    data-hero-sub
+                    className="text-lead
+                      text-white/80 w-full text-pretty
+                      mt-4 sm:mt-6 md:mt-7 mb-0
+                      [transform:translateY(var(--hero-sub-drop,0px))]"
+                  >
+                    {SITE_CONFIG.name} is a custom software development company launched in 2026,
+                    offering services and packages in Product Development, AI Development, SaaS
+                    Development and several other development services.
+                  </p>
+                </div>
               </div>
-
 
               {/* CTA Buttons — anchored to the bottom of the hero body. The top
                   margin is a floor, not the spacing: the headline group above

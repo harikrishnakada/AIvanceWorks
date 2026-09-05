@@ -26,7 +26,7 @@ import { ImageFeature } from '@/components/shared/sections/ImageFeature';
 import { EcommerceAiShowcase } from '@/components/signature/EcommerceAiShowcase';
 import { BenefitsGrid } from '@/components/shared/sections/BenefitsGrid';
 import { ComplianceSpotlight } from '@/components/shared/sections/ComplianceSpotlight';
-import { SECTION_Y_TIGHT } from '@/lib/section-spacing';
+import { SECTION_Y_LOOSE, SECTION_Y_TIGHT } from '@/lib/section-spacing';
 
 // One title for both the <title> tag and the WebPage schema. The homepage had no
 // `metadata` of its own, so it inherited the layout's bare brand-name title with
@@ -48,18 +48,26 @@ export default async function HomePage() {
      imageFeatures: [
     {
       heading: 'Design Sprints',
-      description: 'A compressed five-day cycle to prototype, validate, and decide on direction before committing to build.',
+      description: 'Our five-day design-sprint compresses the traditional discovery-to-roadmapped pipeline, problem framing, rapid prototyping, and structured validation, into a single cycle, forcing hypothesis-driven trade-offs before any engineering resources are committed. Rather than building on speculation, the sprint front-loads risk reduction: day one to two converge on a testable problem statement and solution architecture and produces a functional highly capable prototype.',
+      /* Natural pixel dimensions, read off the asset — ImageFeature builds the
+         frame from this ratio so the photo is never cropped. This one is 1.5006,
+         so the 3:2 fallback would have been harmless; feature-2 below is 1.4035
+         and was losing ~7% of its height before these were supplied. */
       image: {
         src: '/images/solutions/e-commerce-websites/feature-1.jpg',
         alt: 'Shopper browsing products on a mobile e-commerce application',
+        width: 1280,
+        height: 853,
       },
     },
     {
       heading: 'Prototype Validation',
-      description: 'Low-fidelity prototypes put in front of real users within days to separate signal from opinion.',
+      description: 'Early-Stage prototypes are put in front of real users who test the product like a consumer.  Through initial to launch phase prototyping and validation we know where to place more emphasis and development on, to have the launch process stress free. The rigorous process helps separate signals from scratch, a trend from an outlier,and combined with our expertise, pushes the services we provide to develop the exact product requested.',
       image: {
         src: '/images/solutions/e-commerce-websites/feature-2.jpg',
         alt: 'E-commerce performance dashboard showing conversion analytics and revenue data',
+        width: 1280,
+        height: 912,
       },
     },
   ],
@@ -137,11 +145,15 @@ export default async function HomePage() {
 
          <WhyChooseUsServicesSection />
 
-      {/* Vertical rhythm trimmed on the home page only. Three separate trims:
-          - `pb-*`: this section is followed immediately by EcommerceAiShowcase, and
-            the two `md`/`lg` bands stacked to ~104px of blank white above "AI, BUILT IN".
-          - `pt-*`: same collision on the other side, against WhyChooseUsServicesSection
-            above. Matches the `pb-*` scale so the section reads symmetrical.
+      {/* Home-page-only overrides. Two of them:
+          - `className={SECTION_Y_LOOSE}`: the shared component hardcodes
+            `size="md"`, and on this page it is bracketed by
+            WhyChooseUsServicesSection above and EcommerceAiShowcase below, both
+            now on the `lg` scale. Sitting a tighter section between two looser
+            ones read as a squeeze, so this call site is lifted to the same
+            SECTION_PADDING.lg the neighbours use. Merged through `cn`, and `py`
+            is a tailwind-merge conflict group, so this replaces the component's
+            `md` padding rather than stacking with it.
           - `stackClassName`: the default gap-16/20 (64/80px) between the two feature
             rows was the largest gap on the page — halved so "Prototype Validation"
             sits with "Design Sprints" instead of reading as its own section.
@@ -149,8 +161,24 @@ export default async function HomePage() {
           stack for every other page that uses it. */}
       <ImageFeature
         features={data.imageFeatures}
-        className="pt-3 md:pt-4 lg:pt-5 xl:pt-6 3xl:pt-8 pb-3 md:pb-4 lg:pb-5 xl:pb-6 3xl:pb-8"
+        className={SECTION_Y_LOOSE}
         stackClassName="gap-8 md:gap-10"
+        /* Same body scale as the reason list in WhyChooseUsServicesSection
+           directly above (text-copy-sm md:text-copy, 17→18px below md and
+           18→20px from md up), so the two sections read as one voice. The
+           component's default `text-lead` runs to 24px, which made these the
+           largest paragraphs on the home page. Both tokens are fluid clamps, so
+           this stays responsive at every width — no breakpoint list to keep in
+           sync. Solution pages keep the default.
+
+           `leading-relaxed` is restated on purpose, not redundantly: the
+           component's default class list already carries it, but tailwind-merge
+           treats `font-size` and `leading` as CONFLICTING groups (Tailwind v4's
+           `text-lg/7` shorthand sets both), so passing a size here strips the
+           default leading and the line-height falls back to the token's own
+           1.55/1.65. Without this the two sections matched on size and still
+           read differently. */
+        descriptionClassName="text-copy-sm md:text-copy leading-relaxed"
       />
       
       <EcommerceAiShowcase />

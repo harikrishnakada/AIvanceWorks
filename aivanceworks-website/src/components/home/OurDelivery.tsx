@@ -2,7 +2,7 @@
 
 import { Rocket } from 'lucide-react';
 import { SITE_CONFIG } from '@/lib/constants';
-import { SECTION_Y } from '@/lib/section-spacing';
+import { SECTION_Y, SECTION_Y_LOOSE } from '@/lib/section-spacing';
 import { Container } from '@/components/shared/primitives';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 
@@ -31,7 +31,7 @@ export function OurDelivery() {
     // sections that bracket it in the page's alternating rhythm.
     <section
       data-section="home-delivery"
-      className={`${SECTION_Y} relative overflow-hidden bg-surface-white`}
+      className={`${SECTION_Y_LOOSE} relative overflow-hidden bg-surface-white`}
     >
       <Container width="default" className="relative">
         {/* Two even columns spanning the full Container, matching the two-column

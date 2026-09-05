@@ -30,18 +30,60 @@ const AI_SERVICES_GROUP = {
   ],
 } as const;
 
+/** Keys into `NAV_MENUS` — the dropdown panels a `type: 'dropdown'` item can open. */
+export type NavMenuKey =
+  | 'ai'
+  | 'services'
+  | 'advisory'
+  | 'enterprise'
+  | 'industries'
+  | 'solutions';
+
+/**
+ * One top-level entry in the header.
+ *
+ * `type` and `isEnabled` are properties of the ITEM, not of a breakpoint — the
+ * same list, in the same order, renders at every width. Header and MobileMenu
+ * both read `main` and neither is allowed to add, drop or reorder anything.
+ *
+ * This replaced three hand-maintained menus (a desktop block, a tablet block and
+ * a mobile accordion set) that each filtered `main` by hardcoded label strings.
+ * They had drifted: Advisory appeared only at 768-1023px, and Industries was a
+ * dropdown on tablet but a plain link on desktop and mobile.
+ *
+ * To retire an item, set `isEnabled: false` rather than deleting or commenting
+ * it out — the entry keeps its slot in the order, so flipping the flag back puts
+ * it where it belongs instead of at the end.
+ */
+export type NavItem =
+  | { readonly label: string; readonly href: string; readonly type: 'link'; readonly isEnabled: boolean }
+  | {
+    readonly label: string;
+    readonly href: string;
+    readonly type: 'dropdown';
+    /** Which `NAV_MENUS` panel this trigger opens. */
+    readonly menu: NavMenuKey;
+    readonly isEnabled: boolean;
+  };
+
+const MAIN_NAV: readonly NavItem[] = [
+
+  { label: 'Industries', href: '/industry', type: 'link', isEnabled: true },
+  { label: 'Services', href: '/services', type: 'dropdown', menu: 'services', isEnabled: true },
+  { label: 'Our Company', href: '/services', type: 'link', isEnabled: true },
+  { label: 'Insights', href: '/blog', type: 'link', isEnabled: true },
+  { label: 'About', href: '/about', type: 'link', isEnabled: true },
+  { label: 'Contact', href: '/contact', type: 'link', isEnabled: true },
+
+  { label: 'AI', href: '/services', type: 'dropdown', menu: 'ai', isEnabled: false },
+  { label: 'Advisory', href: '/services', type: 'dropdown', menu: 'advisory', isEnabled: false },
+  { label: 'Enterprise', href: '/services', type: 'dropdown', menu: 'enterprise', isEnabled: false },
+  { label: 'Solutions', href: '/solutions', type: 'dropdown', menu: 'solutions', isEnabled: false },
+  { label: 'Case Studies', href: '/case-studies', type: 'link', isEnabled: false }
+];
+
 export const NAVIGATION = {
-  main: [
-    //{ label: 'AI', href: '/services/ai-machine-learning' },
-    // { label: 'Services', href: '/services' },
-    { label: 'Our Company', href: '/services' },
-    // { label: 'Solutions', href: '/solutions' }, // hidden from UI (content preserved)
-    { label: 'Industries', href: '/industry' },
-    // { label: 'Case Studies', href: '/case-studies' },
-    { label: 'About', href: '/about' },
-    { label: 'Blog', href: '/blog' },
-    { label: 'Contact', href: '/contact' }
-  ],
+  main: MAIN_NAV,
   // Service pillars (used by footer, services page, etc.)
   // AI & ML is NOT listed here — it has its own top-level menu (aiMlMenu)
   // These are pillar-level entries, not individual services. The first two used
@@ -56,10 +98,10 @@ export const NAVIGATION = {
     { label: 'Software Engineering', href: '/services#software-engineering' },
     { label: 'Cloud & Infrastructure', href: '/services#infrastructure-management' }
   ],
-  // AI menu — HIDDEN from the header (desktop, tablet and mobile triggers are
-  // commented out). Kept because the /services and /solutions pages still read
-  // `groups[0]` for their "Automation & Intelligence" pillar section. The links
-  // now reach the header via the first column of `servicesMenu`.
+  // AI menu — hidden from the header (`isEnabled: false` in `main`). Kept because
+  // the /services and /solutions pages still read `groups[0]` for their
+  // "Automation & Intelligence" pillar section. The links reach the header via
+  // the first column of `servicesMenu`.
   aiMlMenu: {
     title: 'AI',
     icon: 'Brain',
@@ -132,7 +174,7 @@ export const NAVIGATION = {
           { label: `${BRAND_PREFIX} Logistics`, href: '/industry/logistics', icon: 'Truck', showInNavigationMenu: true },
           { label: `${BRAND_PREFIX} Hospitality`, href: '/industry/travel-hospitality', icon: 'Plane', showInNavigationMenu: true },
           { label: `${BRAND_PREFIX} Real Estate`, href: '/industry/real-estate', icon: 'Building2', showInNavigationMenu: true },
-         // { label: `${BRAND_PREFIX} Healthcare`, href: '/industry/healthcare', icon: 'Stethoscope', showInNavigationMenu: true },
+          // { label: `${BRAND_PREFIX} Healthcare`, href: '/industry/healthcare', icon: 'Stethoscope', showInNavigationMenu: true },
           { label: `${BRAND_PREFIX} Retail`, href: '/industry/retail', icon: 'ShoppingBag', showInNavigationMenu: false },
           { label: `${BRAND_PREFIX} Food & Beverage`, href: '/industry/food-beverage', icon: 'Utensils', showInNavigationMenu: false },
           { label: `${BRAND_PREFIX} Manufacturing & Supply Chain`, href: '/industry/manufacturing-supply-chain', icon: 'Factory', showInNavigationMenu: true },
@@ -210,7 +252,7 @@ export const NAVIGATION = {
     //     { label: 'Retail Websites', href: '/solutions/retail-websites', icon: 'Store' },
     //   ],
     // },
-   {
+    {
       heading: 'HealthCare Technologies',
       description: 'Patient & hospital systems',
       icon: 'Heart',
@@ -222,7 +264,7 @@ export const NAVIGATION = {
         { label: `${BRAND_PREFIX} Hospital Information Systems`, href: '/solutions/hospital-information-systems', icon: 'Network' },
       ],
     },
-     {
+    {
       heading: 'Life Sciences',
       description: 'Solutions for pharma, biotech, and clinical research',
       icon: 'FlaskConical',
@@ -233,7 +275,7 @@ export const NAVIGATION = {
         { label: `${BRAND_PREFIX} Laboratory Information Management Systems (LIMS)`, href: '/solutions/lims', icon: 'Microscope' }
       ],
     },
-      {
+    {
       heading: 'Manufacturing & Supply Chain',
       description: 'Manufacturing and supply chain management systems',
       icon: 'Truck',
@@ -245,7 +287,7 @@ export const NAVIGATION = {
         { label: `${BRAND_PREFIX} Warehouse Management Systems (WMS)`, href: '/solutions/warehouse-management-systems', icon: 'Warehouse' }
       ],
     },
-         {
+    {
       heading: 'Insurance',
       description: 'Carrier & agency software systems',
       icon: 'Shield',
@@ -261,3 +303,93 @@ export const NAVIGATION = {
 
   ],
 } as const;
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Dropdown panel registry
+// ─────────────────────────────────────────────────────────────────────────────
+
+export type NavMenuLink = {
+  readonly label: string;
+  readonly href: string;
+  readonly icon: string;
+  /**
+   * Industries only: some verticals have pages but are deliberately kept out of
+   * the header. Absent means "show it" — only an explicit `false` hides a link.
+   */
+  readonly showInNavigationMenu?: boolean;
+};
+
+export type NavMenuColumn = {
+  readonly title: string;
+  readonly description?: string;
+  readonly icon: string;
+  readonly links: readonly NavMenuLink[];
+};
+
+export type NavMenu = {
+  /** Rendered one per grid cell. Column COUNT picks the panel width: see NavMegaPanel. */
+  readonly columns: readonly NavMenuColumn[];
+  /** Footer bar of the panel. */
+  readonly cta: { readonly prompt: string; readonly href: string; readonly label: string };
+  /** Optional emphasised "see all" row appended to the last column's links. */
+  readonly viewAll?: { readonly label: string; readonly href: string; readonly icon: string };
+};
+
+const BOOK_CONSULTATION = {
+  href: '/book-consultation',
+  label: 'Book a free consultation',
+} as const;
+
+/**
+ * Normalises the four differently-shaped menu objects above into one shape so a
+ * single component can render any of them.
+ *
+ * The shapes differ for historical reasons: `servicesMenu`/`solutionsMenu` are
+ * flat column arrays while `aiMlMenu`/`advisoryMenu`/`enterpriseMenu`/
+ * `industriesMenu` wrap theirs in `.groups`, and `solutionsMenu` calls the
+ * column title `heading`. Those originals are left alone — /services and
+ * /solutions still read them directly, and /solutions reads `.heading` — so the
+ * translation happens here rather than in a rename that would reach into
+ * unrelated pages.
+ */
+export const NAV_MENUS: Record<NavMenuKey, NavMenu> = {
+  ai: {
+    columns: NAVIGATION.aiMlMenu.groups,
+    cta: { prompt: 'Explore AI capabilities', ...BOOK_CONSULTATION },
+  },
+  services: {
+    columns: NAVIGATION.servicesMenu,
+    cta: { prompt: 'Not sure where to start?', ...BOOK_CONSULTATION },
+  },
+  advisory: {
+    columns: NAVIGATION.advisoryMenu.groups,
+    cta: { prompt: 'Need strategic guidance?', ...BOOK_CONSULTATION },
+  },
+  enterprise: {
+    columns: NAVIGATION.enterpriseMenu.groups,
+    cta: { prompt: 'Scaling a business platform?', ...BOOK_CONSULTATION },
+  },
+  industries: {
+    columns: NAVIGATION.industriesMenu.groups,
+    cta: { prompt: "Don't see your industry?", ...BOOK_CONSULTATION },
+    viewAll: { label: 'See all Industries', href: '/industry', icon: 'LayoutGrid' },
+  },
+  solutions: {
+    columns: NAVIGATION.solutionsMenu.map((group) => ({
+      title: group.heading,
+      description: group.description,
+      icon: group.icon,
+      links: group.links,
+    })),
+    cta: { prompt: 'Need a custom solution?', ...BOOK_CONSULTATION },
+  },
+};
+
+/**
+ * The nav as it actually renders — the ONLY list Header and MobileMenu may
+ * iterate. Order is `main`'s order; membership is `isEnabled`. Neither component
+ * filters further.
+ */
+export const ENABLED_NAV_ITEMS: readonly NavItem[] = NAVIGATION.main.filter(
+  (item) => item.isEnabled
+);
