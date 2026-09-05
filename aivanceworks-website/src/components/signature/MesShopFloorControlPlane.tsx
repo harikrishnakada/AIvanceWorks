@@ -6,7 +6,7 @@
  *   EBR Execution → In-Process Review-by-Exception → Release & Genealogy
  *   Closure → Yield, Deviations & CI) sitting on a shared engineering
  *   foundation (audit trail, e-signatures, material lineage, ISA-95 / ERP /
- *   automation coexistence). Regulatory framework chips render as a top row,
+ *   automation coexistence). Engineering-practice chips render as a top row,
  *   not as a wrapping perimeter — keeps focus on the batch journey and avoids
  *   overlapping labels at narrow widths.
  *
@@ -14,10 +14,10 @@
  *   release to genealogy closure — that's the MES."
  *
  * Liability note: every label is engineering practice or design awareness, not
- *   compliance certification. Computer-system validation, IQ/OQ/PQ authoring,
- *   GMP qualification, and any inspection outcome remain with the customer.
+ *   a certification claim. Named regulatory frameworks are deliberately absent
+ *   from this page; validation and qualification remain with the customer.
  *
- * Desktop: regulatory chip row → 6-stage horizontal flow (3-col md, 6-col lg)
+ * Desktop: practice chip row → 6-stage horizontal flow (3-col md, 6-col lg)
  *   → foundation bar beneath.
  *
  * Mobile (< md): stages stack vertically; foundation bar stacks below.
@@ -84,15 +84,15 @@ const STAGES: Stage[] = [
   },
 ];
 
-const REGULATORY_FRAMEWORKS = [
-  '21 CFR Part 11',
-  '21 CFR Part 211',
-  'EU GMP Annex 11',
-  'ICH Q7 / Q9 / Q10',
-  'GAMP 5',
-  'ISA-95',
-  'ISO 13485',
-  'MHRA Data Integrity',
+const ENGINEERING_PRACTICES = [
+  'Electronic batch records',
+  'Electronic signatures',
+  'Audit-trail logging',
+  'Material & batch genealogy',
+  'Review by exception',
+  'Role-scoped access',
+  'ISA-95 integration',
+  'Change-control engineering',
 ];
 
 interface FoundationPillar {
@@ -101,10 +101,10 @@ interface FoundationPillar {
 }
 
 const FOUNDATION_PILLARS: FoundationPillar[] = [
-  { icon: Settings, label: 'PAS-X execution layer — configured to your master recipes, SOPs, review gates' },
-  { icon: Cloud, label: 'Microsoft Cloud for Manufacturing landing zone — Azure identity, networking, IaC' },
+  { icon: Settings, label: 'MES execution layer — configured to your master recipes, SOPs, review gates' },
+  { icon: Cloud, label: 'Microsoft Azure landing zone — identity, networking, monitoring, IaC' },
   { icon: Network, label: 'ISA-95-aligned integration — ERP, automation, historian, LIMS, QMS' },
-  { icon: Activity, label: 'Power BI on the PAS-X data layer — batch status, OEE, deviations, review backlog' },
+  { icon: Activity, label: 'Power BI on the MES data layer — batch status, OEE, deviations, review backlog' },
 ];
 
 const StageCard = ({ stage }: { stage: Stage }) => {
@@ -147,9 +147,9 @@ export const MesShopFloorControlPlane = () => (
         </p>
       </div>
 
-      {/* Regulatory framework chips */}
+      {/* Engineering practice chips */}
       <div className="flex flex-wrap justify-center gap-2 mb-8">
-        {REGULATORY_FRAMEWORKS.map((fw) => (
+        {ENGINEERING_PRACTICES.map((fw) => (
           <span
             key={fw}
             className="text-[11px] md:text-xs px-3 py-1 rounded-full border border-brand-400/30 text-brand-300 bg-brand-500/5"
@@ -181,7 +181,7 @@ export const MesShopFloorControlPlane = () => (
               The foundation
             </div>
             <h3 className="text-base md:text-lg font-bold text-text-light leading-tight">
-              PAS-X on Microsoft Cloud for Manufacturing — integrated, configured & lifecycle-managed
+              An MES layer on Microsoft Azure — designed, integrated & lifecycle-managed
             </h3>
           </div>
         </div>

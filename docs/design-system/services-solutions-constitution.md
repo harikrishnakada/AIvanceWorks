@@ -2,8 +2,8 @@
 
 > **Executive summary.** This document is the single source of truth for how every services and solutions page on the ${SITE_CONFIG.name} website is designed and built. It codifies a **shared skeleton + two template variants** approach: a unified component library and design language, expressed through two page templates (ServiceTemplate and SolutionTemplate) whose internal composition is tuned **per page** to match the buyer journey. Brand consistency is enforced through theme tokens, section rhythm, and content integrity rules. Differentiation between industries, services, and offerings happens through **content, imagery, iconography, and one signature section per page** — never through color, palette, or layout chaos. This is a living document: any deviation must be recorded back into it. Supplementary material (rationale, examples, prompt templates, pilot references) lives in `constitution-reference.md` and `constitution/`. This file contains all enforceable rules.
 
-**Version:** 2.14
-**Last updated:** 2026-07-24
+**Version:** 2.15
+**Last updated:** 2026-09-05
 **Status:** Canonical. Applies to every services and solutions page built after this date.
 **Pilot scope:** `/services/product-discovery`, `/services/mvp-development`, `/solutions/patient-portals`, `/solutions/insurance-portals`, `/solutions/e-commerce-websites`.
 

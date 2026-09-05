@@ -124,11 +124,11 @@ const regulatoryInformationManagement: SolutionPageData = {
     'ctaBlock',
   ],
 
-  industry: 'life-sciences',
+  industry: 'healthcare',
   signatureComponent: 'RegulatoryInformationSpine',
 
   hero: {
-    badge: 'Life Sciences Solutions',
+    badge: 'Regulatory Information Systems (RIMS)',
     headline:
       'One regulatory record. Every product. Every market.',
     subhead:

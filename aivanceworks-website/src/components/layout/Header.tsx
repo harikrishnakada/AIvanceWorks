@@ -99,6 +99,12 @@ export function Header() {
   const [hasOpenedMobileMenu, setHasOpenedMobileMenu] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<NavMenuKey | null>(null);
   const dropdownTimeout = useRef<NodeJS.Timeout | null>(null);
+  // One entry per dropdown trigger, keyed by menu. NavMegaPanel reads its own
+  // trigger's box to place a narrow panel under the item that opened it instead
+  // of in the middle of the screen; wide panels ignore it. Kept here rather than
+  // in the panel because the trigger and the panel are siblings in the tree —
+  // the panel is rendered outside <header> so it can span the viewport.
+  const triggerRefs = useRef<Partial<Record<NavMenuKey, HTMLButtonElement | null>>>({});
 
   useEffect(() => {
     // Passive + rAF-coalesced: reading window.scrollY on every scroll event forces
@@ -201,34 +207,50 @@ export function Header() {
           <Container width="default">
           {/* Logo on the viewport's left edge; the nav block centred.
 
-              Centring is done TWO different ways on purpose, because one way alone
-              cannot cover the range:
+              Centring is `lg:mx-auto` at EVERY width from lg up — the nav is centred
+              in the space LEFT OVER after the logo, so the gap beside the logo and
+              the gap before the right edge are equal. At md neither applies; the nav
+              sits in the `justify-between` row between the logo and the
+              mobile-toggle track, as it always has.
 
-              • xl and up (1280+) — `absolute left-1/2 -translate-x-1/2` against this
-                `relative` row. The row spans the full viewport minus gutters and is
-                `mx-auto`, so its centre IS the viewport centre: measured 0px off at
-                1280/1366/1440/1536/1920/2560. This is TRUE centring, unaffected by
-                the logo.
-              • lg to just under xl (1024-1279) — `mx-auto`, which centres the nav in
-                the space LEFT OVER after the logo, so it sits ~126px (half the logo)
-                right of true centre. Not a preference: at 1024 the six items need
-                642px, while a truly centred row that clears the 252px logo has only
-                ~424px to work with. There is no sizing that fits, so `mx-auto` is
-                the honest fallback — auto margins consume free space and therefore
-                cannot overlap the logo.
-              • md — neither applies; the nav sits in the `justify-between` row
-                between the logo and the mobile-toggle track, as it always has.
+              It used to switch to TRUE centring (`xl:absolute left-1/2
+              -translate-x-1/2` against this `relative` row) from 1280 up, which put
+              the row's centre exactly on the viewport centre — measured 0px off at
+              1280 through 2560. Removed 2026-09-05 on request: true centring is only
+              *optically* centred if both sides of the row are empty, and the left
+              side is not — the 252px logo sits there. With the Enterprise dropdown
+              enabled the row grew to seven items, and at 1920 that left ~33px between
+              the logo and "Enterprise" against ~380px of slack on the right. Correct
+              to the pixel, and it read as shoved to the left.
 
-              Absolute centring used to start at 2xl, which left 1280-1535 visibly
-              off-centre. It starts at xl now because NAV_ITEM_CLASS drops `xl:px-5`
-              to `lg:px-2.5` — see the measurements there. Worst-case clearance
-              between logo and first item is 28px at exactly 1280, growing to 71px at
-              1366 and 108px at 1440. If 1280 ever reads as too tight, the lever is
-              that padding, not this breakpoint.
+              `mx-auto` trades geometric centring for optical balance, then a small
+              `-translate-x` nudges the row back toward the logo (32px from xl, 48px
+              from 2xl) — requested 2026-09-05, "a little bit left". `mx-auto` alone
+              left the row measurably right-heavy anyway: the gutter ladder plus the
+              logo track's negative margin put ~40px more space on the right than the
+              left (225 vs 273 at 1920), so roughly half the nudge is correcting that
+              and the rest is the requested lean.
 
-              The right-hand slack (~390px at 2560, ~283px at 1536) is deliberately
-              LEFT EMPTY (confirmed 2026-08-24), as is the matching gap beside the
-              logo. Re-enabling the CTA below is what would fill it; that would also
+              It is `translate`, not margin, so the shift is paint-only and cannot
+              re-enter the flex layout and squeeze the logo track. It starts at xl
+              because at lg the row already runs edge to edge — MEASURED at 1024, the
+              gap between logo and first item is 0 — and any leftward shift there
+              would slide the nav under the wordmark.
+
+              `mx-auto` also cannot overlap the logo at any width —
+              auto margins only ever consume free space — which is the property that
+              made it the fallback at lg in the first place, back when a truly centred
+              seven-item row simply would not fit beside the logo at 1024.
+
+              NAV_ITEM_CLASS still holds `lg:px-2.5` unbroken through xl. That
+              tightness was originally what bought clearance for the truly centred row
+              at 1280; it is no longer load-bearing for centring, but with seven items
+              the row is tighter than it was, so it stays. Widening it is the lever if
+              the nav ever reads as cramped — check 1280 and md first.
+
+              The slack on both sides of the nav is deliberately LEFT EMPTY
+              (confirmed 2026-08-24); `mx-auto` now splits it evenly rather than
+              parking it all on the right. Re-enabling the CTA below is what would fill it; that would also
               need "Contact" set to `isEnabled: false` in NAVIGATION.main to avoid
               showing twice, and the nav would then want `ml-auto` rather than
               centring.
@@ -316,7 +338,7 @@ export function Header() {
                 `min-[1180px]:flex` but NOT the matching `ml-auto`/`hidden`, so the nav
                 lost its anchor and both blocks rendered at once. Use the named
                 breakpoints here. */}
-            <div className="hidden md:flex md:items-center md:gap-x-0.5 lg:mx-auto lg:gap-x-1 xl:absolute xl:left-1/2 xl:mx-0 xl:-translate-x-1/2 xl:gap-x-2 2xl:gap-x-3 3xl:gap-x-4 4xl:gap-x-6">
+            <div className="hidden md:flex md:items-center md:gap-x-0.5 lg:mx-auto lg:gap-x-1 xl:-translate-x-8 xl:gap-x-2 2xl:-translate-x-12 2xl:gap-x-3 3xl:gap-x-4 4xl:gap-x-6">
               {ENABLED_NAV_ITEMS.map((item) =>
                 item.type === 'dropdown' ? (
                   <div
@@ -327,6 +349,9 @@ export function Header() {
                     onMouseLeave={handleDropdownLeave}
                   >
                     <button
+                      ref={(node) => {
+                        triggerRefs.current[item.menu] = node;
+                      }}
                       onClick={() => toggleDropdown(item.menu)}
                       className={`flex items-center ${NAV_ITEM_CLASS}`}
                       aria-expanded={activeDropdown === item.menu}
@@ -394,6 +419,7 @@ export function Header() {
           key={item.menu}
           menu={item.menu}
           isOpen={activeDropdown === item.menu}
+          getTrigger={() => triggerRefs.current[item.menu] ?? null}
           onMouseEnter={() => handleDropdownEnter(item.menu)}
           onMouseLeave={handleDropdownLeave}
           onClose={closeDropdown}

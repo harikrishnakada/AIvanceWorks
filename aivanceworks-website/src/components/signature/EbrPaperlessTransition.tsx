@@ -11,8 +11,8 @@
  *   the batch runs — review by exception, not by archaeology."
  *
  * Liability note: every label is engineering practice or design awareness, not
- *   compliance certification. Validation execution, IQ/OQ/PQ authoring, GMP
- *   qualification, and any inspection outcome remain with the customer.
+ *   a certification claim. Named regulatory frameworks are deliberately absent
+ *   from this page; validation and qualification remain with the customer.
  *
  * Desktop: two columns side-by-side (paper left, EBR right), each with six
  *   stacked stage rows; a foundation strip beneath spans both.
@@ -65,9 +65,9 @@ const EBR_STAGES: StageRow[] = [
 ];
 
 const FOUNDATION_PILLARS = [
-  { icon: FileSignature, label: '21 CFR Part 11 / EU GMP Annex 11 design awareness — attributable, contemporaneous, original, accurate, reviewable' },
-  { icon: Lock, label: 'Microsoft Entra ID, role-scoped access, and audit-trail logging on the PAS-X or Opcenter execution layer' },
-  { icon: Layers, label: 'ISA-95-aligned integration to ERP, automation, historian, LIMS, and QMS — coexists with the stack you already validated' },
+  { icon: FileSignature, label: 'Electronic records and signatures engineered to be attributable, contemporaneous, original, accurate, and reviewable' },
+  { icon: Lock, label: 'Microsoft Entra ID, role-scoped access, and audit-trail logging on the EBR execution layer' },
+  { icon: Layers, label: 'ISA-95-aligned integration to ERP, automation, historian, LIMS, and QMS — coexists with the stack you already run' },
   { icon: Cloud, label: 'Deployed on a Microsoft Cloud landing zone your IT and security teams already operate' },
 ];
 

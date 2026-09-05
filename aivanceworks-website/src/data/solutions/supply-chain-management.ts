@@ -40,7 +40,22 @@ import type { SolutionPageData } from '@/types/pages';
 //     Yonder, Kinaxis, o9, Manhattan Associates, Coupa, e2open, Project44,
 //     FourKites, Tive, Sensitech, Roambee, BluJay, GEP, etc.).
 //   - No ERP / WMS / TMS / OMS vendor names (no SAP, Oracle, Infor, JDA,
-//     Microsoft Dynamics, NetSuite, Manhattan, Körber, etc.).
+//     NetSuite, Manhattan, Körber, etc.) — with ONE explicit exception,
+//     added under direct user instruction (see "Microsoft platform
+//     exception" below).
+//
+// Microsoft platform exception (user-directed deviation from the
+//   vendor-neutral stance above): the Microsoft supply-chain stack IS named
+//   on this page, because it is the platform we build on and integrate with:
+//     - Dynamics 365 Supply Chain Management — real-time inventory tracking,
+//       production planning, and warehouse operations (ERP / SCM layer).
+//     - Microsoft Fabric — data integration across systems without complex
+//       copy pipelines, so operational data is analyzable quickly.
+//     - Microsoft Azure + industrial IoT — links the factory floor to the
+//       cloud via IoT sensors and data analytics.
+//   These are framed as platform / engineering capability, never as a
+//   Microsoft partnership, certification, or endorsement, and never as a
+//   compliance or regulatory claim. All other vendor bans above still hold.
 //   - No carrier, broker, or 3PL brand names.
 //   - Framework names (DSCSA, FDA FSMA 204, GDP, USP <1079>, IATA CEIV
 //     Pharma, ISO 28000, ISA-95, C-TPAT, 21 CFR Part 11 where electronic
@@ -154,7 +169,7 @@ const supplyChainManagement: SolutionPageData = {
         value: 'Coexistence-first',
         label: 'Works with the ERP, WMS, TMS & carriers you already run',
         description:
-          'Designed to coexist with your existing ERP, warehouse, transportation, order, and carrier systems via documented APIs and standard data formats — so master data and validated integrations stay put.',
+          'Designed to coexist with your existing ERP, warehouse, transportation, order, and carrier systems via documented APIs and standard data formats — including Dynamics 365 Supply Chain Management estates — so master data and validated integrations stay put.',
       },
     ],
   },
@@ -188,7 +203,7 @@ const supplyChainManagement: SolutionPageData = {
       value: 'Coexistence-first',
       label: 'No rip-and-replace of your ERP, WMS, TMS or carrier links',
       description:
-        'Designed to coexist with the ERP, WMS, TMS, OMS, EDI, and carrier connections you already run — your IT team controls the actual connectors, so existing master data and validated interfaces are preserved.',
+        'Designed to coexist with the ERP, WMS, TMS, OMS, EDI, and carrier connections you already run — Dynamics 365 Supply Chain Management included. Your IT team controls the actual connectors, so existing master data and validated interfaces are preserved.',
     },
   ],
 
@@ -201,7 +216,7 @@ const supplyChainManagement: SolutionPageData = {
       icon: 'LineChart',
       title: 'Demand, Supply & S&OP Signals',
       description:
-        'Demand forecasts, supply commitments, capacity, and inventory positions reconciled into a single planning view — so planners, supply leaders, and commercial teams negotiate against the same numbers in a working S&OP cadence.',
+        'Demand forecasts, supply commitments, capacity, and inventory positions reconciled into a single planning view — with Microsoft Fabric connecting data across your source systems without complex copy pipelines, so planners, supply leaders, and commercial teams negotiate against the same numbers in a working S&OP cadence.',
     },
     {
       icon: 'Handshake',
@@ -219,13 +234,13 @@ const supplyChainManagement: SolutionPageData = {
       icon: 'Thermometer',
       title: 'Cold-Chain & In-Transit Visibility',
       description:
-        'Carrier events, temperature, humidity, GPS, shock, and excursion alerts captured against each lot and shipment — engineered with awareness of GDP, USP <1079>, and IATA CEIV Pharma expectations. Carrier qualification and disposition stay with your Quality / GDP team.',
+        'Carrier events, temperature, humidity, GPS, shock, and excursion alerts captured against each lot and shipment — ingested through Microsoft Azure and industrial IoT sensor feeds that link the plant floor and the lane to the cloud. Engineered with awareness of GDP, USP <1079>, and IATA CEIV Pharma expectations. Carrier qualification and disposition stay with your Quality / GDP team.',
     },
     {
       icon: 'Warehouse',
       title: 'Warehouse & Inventory Choreography',
       description:
-        'Lot-level inventory positions, FEFO pick logic, transfer orders, cycle counts, and expiry watchlists — so warehouses and 3PLs run against the same lot truth as planning, quality, and finance.',
+        'Lot-level inventory positions, FEFO pick logic, transfer orders, cycle counts, and expiry watchlists — built to run alongside Dynamics 365 Supply Chain Management for real-time inventory, production planning, and warehouse operations, so warehouses and 3PLs run against the same lot truth as planning, quality, and finance.',
     },
     {
       icon: 'RotateCcw',
@@ -264,7 +279,7 @@ const supplyChainManagement: SolutionPageData = {
       icon: 'Network',
       title: 'No Rip-and-Replace of Your Stack',
       description:
-        'The platform is designed to coexist with the ERP, WMS, TMS, OMS, EDI, and carrier integrations you already run — your IT and integration teams control the connectors, so existing master data, contracts, and validated interfaces stay in place.',
+        'The platform is designed to coexist with the ERP, WMS, TMS, OMS, EDI, and carrier integrations you already run — Dynamics 365 Supply Chain Management estates included — and to use Microsoft Fabric for cross-system data integration rather than another round of copy pipelines. Your IT and integration teams control the connectors, so existing master data, contracts, and validated interfaces stay in place.',
     },
   ],
 
@@ -280,7 +295,7 @@ const supplyChainManagement: SolutionPageData = {
     {
       title: 'Architecture & Engineering Plan',
       description:
-        'Design the SCM platform architecture, lot/serial and shipment data model, event ingestion and exception engine, partner-onboarding model, audit-trail and access posture, and ERP/WMS/TMS/OMS integration surface alongside your IT, integration, security, and Quality stakeholders. Framework expectations (DSCSA, FSMA 204, GDP, USP <1079>, IATA CEIV Pharma, ISO 28000, ISA-95, C-TPAT) are built into the engineering plan as design awareness — not certification claims.',
+        'Design the SCM platform architecture, lot/serial and shipment data model, event ingestion and exception engine, partner-onboarding model, audit-trail and access posture, and ERP/WMS/TMS/OMS integration surface — including how the platform sits alongside Dynamics 365 Supply Chain Management, where Microsoft Fabric carries cross-system data integration, and how Azure and industrial IoT feeds land plant-floor and in-transit telemetry — alongside your IT, integration, security, and Quality stakeholders. Framework expectations (DSCSA, FSMA 204, GDP, USP <1079>, IATA CEIV Pharma, ISO 28000, ISA-95, C-TPAT) are built into the engineering plan as design awareness — not certification claims.',
       duration: 'Phased per engagement',
       deliverable:
         'Architecture document, lot/serial & shipment data model, event-driven exception design, security architecture, integration surface outline',
@@ -296,7 +311,7 @@ const supplyChainManagement: SolutionPageData = {
     {
       title: 'Integration & Handoff to Your QA / Trade-Compliance Function',
       description:
-        'Connect to your existing ERP, WMS, TMS, OMS, EDI, supplier portals, and carrier / sensor feeds via documented APIs and standard data formats your IT team controls. Run UAT with planning, warehouse, quality, and trade-compliance stakeholders, and assemble the engineering documentation set your Quality and Compliance teams use as inputs into their own qualification, GDP, DSCSA, and FSMA traceability work. We do not author validation protocols, qualify carriers, or perform DSCSA / FSMA filings on your behalf.',
+        'Connect to your existing ERP, WMS, TMS, OMS, EDI, supplier portals, and carrier / sensor feeds — Dynamics 365 Supply Chain Management, Microsoft Fabric data integration, and Azure IoT sensor streams included — via documented APIs and standard data formats your IT team controls. Run UAT with planning, warehouse, quality, and trade-compliance stakeholders, and assemble the engineering documentation set your Quality and Compliance teams use as inputs into their own qualification, GDP, DSCSA, and FSMA traceability work. We do not author validation protocols, qualify carriers, or perform DSCSA / FSMA filings on your behalf.',
       duration: 'Phased per engagement',
       deliverable:
         'Integration runbooks, UAT sign-off, security test report, engineering documentation set for your compliance work',
@@ -324,10 +339,16 @@ const supplyChainManagement: SolutionPageData = {
     'Returns, complaints, and recall workflows linked to the chain of custody',
     'Role-scoped access for planning, sourcing, warehouse, quality, trade compliance, and admin',
     'Documented APIs and standard data formats for ERP, WMS, TMS, OMS, EDI, supplier & carrier integration',
+    'Coexistence with Dynamics 365 Supply Chain Management for real-time inventory, production planning, and warehouse operations',
+    'Microsoft Fabric for cross-system data integration — analyze operations without complex copy pipelines',
+    'Microsoft Azure and industrial IoT sensor ingestion linking the factory floor and the lane to the cloud',
     'WCAG 2.1 AA accessibility for planner, warehouse, and operations interfaces',
   ],
 
   technologies: [
+    'Dynamics 365 Supply Chain Management',
+    'Microsoft Fabric',
+    'Azure IoT Hub / IoT Edge',
     'React / Next.js',
     '.NET 10 / ASP.NET Core',
     'Azure App Service',
@@ -441,7 +462,7 @@ const supplyChainManagement: SolutionPageData = {
     {
       heading: 'Cold-Chain Visibility, From the Lane to the Planner',
       description:
-        'Carrier temperature, humidity, GPS, and excursion events tied to each lot and shipment — so the planner, quality reviewer, and customer-service rep see the same in-transit truth in real time.',
+        'Carrier temperature, humidity, GPS, and excursion events tied to each lot and shipment, ingested through Microsoft Azure and industrial IoT sensor feeds — so the planner, quality reviewer, and customer-service rep see the same in-transit truth in real time.',
       image: {
         src: '/images/solutions/supply-chain-management/feature-1.jpg',
         alt: 'Logistics operator monitoring a live cold-chain shipment map and temperature trace on a control-tower workstation',
@@ -502,7 +523,7 @@ const supplyChainManagement: SolutionPageData = {
       question:
         'How does the SCM platform fit alongside our existing ERP, WMS, TMS, OMS, and carrier connections?',
       answer:
-        'The platform is designed to coexist with the ERP, WMS, TMS, OMS, EDI hubs, supplier portals, and carrier / sensor feeds you already run — using documented APIs and standard data exchange formats. Your IT and integration teams own the actual connectors into your validated stack, so existing master data, contract terms, and validated interfaces are preserved. We do not claim partnerships, certifications, or pre-built integrations with any third-party ERP, WMS, TMS, OMS, carrier, or visibility vendor; we build the engineering surface your team uses to integrate.',
+        'The platform is designed to coexist with the ERP, WMS, TMS, OMS, EDI hubs, supplier portals, and carrier / sensor feeds you already run — using documented APIs and standard data exchange formats. We build heavily on the Microsoft stack: Dynamics 365 Supply Chain Management for real-time inventory, production planning, and warehouse operations; Microsoft Fabric to connect data across systems without complex copy pipelines so operations can be analyzed quickly; and Microsoft Azure with industrial IoT to link the factory floor to the cloud through sensors and analytics. Your IT and integration teams own the actual connectors into your validated stack, so existing master data, contract terms, and validated interfaces are preserved. We do not claim partnerships, certifications, or pre-built integrations with any third-party ERP, WMS, TMS, OMS, carrier, or visibility vendor; we build the engineering surface your team uses to integrate.',
     },
     {
       question:
@@ -536,7 +557,8 @@ const supplyChainManagement: SolutionPageData = {
     'Entire page is written as capability framing with explicit customer-ownership of DSCSA / FSMA 204 filings, GDP qualification, carrier qualification, customs filings, and inspection outcomes. Legal review recommended before publish to confirm liability framing.',
     'complianceSpotlight.badges and complianceDetail.frameworks — framework names retained for SEO and audience signaling; pre-publish, confirm legal accepts framing as "design awareness" rather than certification.',
     'processSteps — durations replaced with "scoped during discovery" / "phased per engagement." Confirm no internal estimates leak into copy.',
-    'No vendor names retained anywhere on the page (no commercial SCM, control-tower, visibility, planning, ERP, WMS, TMS, OMS, carrier, sensor, or 3PL vendor names). Verify by grep before publish.',
+    'DEVIATION (user-directed): the Microsoft supply-chain stack is now named on this page — Dynamics 365 Supply Chain Management, Microsoft Fabric, and Microsoft Azure + industrial IoT — in hero/metrics coexistence copy, features, benefits, capabilities, technologies, process steps, imageFeatures, and the integration FAQ. Framed as platform and engineering capability only, never as a Microsoft partnership, certification, endorsement, or compliance claim. Legal/marketing should confirm this framing before publish.',
+    'All other vendor names remain excluded (no commercial SCM, control-tower, visibility, planning, non-Microsoft ERP/WMS/TMS/OMS, carrier, sensor, or 3PL vendor names). Verify by grep before publish.',
     'No fixed pricing or duration quoted on the page; all FAQs route timing and cost questions back to discovery.',
     'hero.heroImage, imageFeatures[0].image, imageFeatures[1].image — placeholder photos sourced from neighboring solution folder (MES). Replace with SCM-specific Unsplash imagery (logistics operations center / cold-chain dashboard, in-transit cold-chain sensor or container, warehouse lot-scan with chain-of-custody view) before publish per §11.3 / §11.5.',
   ],

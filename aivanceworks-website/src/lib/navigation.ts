@@ -68,6 +68,7 @@ export type NavItem =
 
 const MAIN_NAV: readonly NavItem[] = [
 
+  { label: 'Enterprise', href: '/', type: 'dropdown', menu: 'enterprise', isEnabled: true },
   { label: 'Industries', href: '/industry', type: 'link', isEnabled: true },
   { label: 'Services', href: '/services', type: 'dropdown', menu: 'services', isEnabled: true },
   // { label: 'Our Company', href: '/services', type: 'link', isEnabled: true },
@@ -79,7 +80,6 @@ const MAIN_NAV: readonly NavItem[] = [
 
   { label: 'AI', href: '/services', type: 'dropdown', menu: 'ai', isEnabled: false },
   { label: 'Advisory', href: '/services', type: 'dropdown', menu: 'advisory', isEnabled: false },
-  { label: 'Enterprise', href: '/services', type: 'dropdown', menu: 'enterprise', isEnabled: false },
   { label: 'Case Studies', href: '/case-studies', type: 'link', isEnabled: false }
 ];
 
@@ -175,9 +175,9 @@ export const NAVIGATION = {
           { label: `${BRAND_PREFIX} Logistics`, href: '/industry/logistics', icon: 'Truck', showInNavigationMenu: true },
           { label: `${BRAND_PREFIX} Hospitality`, href: '/industry/travel-hospitality', icon: 'Plane', showInNavigationMenu: true },
           { label: `${BRAND_PREFIX} Real Estate`, href: '/industry/real-estate', icon: 'Building2', showInNavigationMenu: true },
-          // { label: `${BRAND_PREFIX} Healthcare`, href: '/industry/healthcare', icon: 'Stethoscope', showInNavigationMenu: true },
+           { label: `${BRAND_PREFIX} Healthcare`, href: '/industry/healthcare', icon: 'Stethoscope', showInNavigationMenu: false },
           { label: `${BRAND_PREFIX} Retail`, href: '/industry/retail', icon: 'ShoppingBag', showInNavigationMenu: false },
-          { label: `${BRAND_PREFIX} Food & Beverage`, href: '/industry/food-beverage', icon: 'Utensils', showInNavigationMenu: false },
+          { label: `${BRAND_PREFIX} Food & Beverage`, href: '/industry/food-beverage', icon: 'Utensils', showInNavigationMenu: true },
           { label: `${BRAND_PREFIX} Manufacturing & Supply Chain`, href: '/industry/manufacturing-supply-chain', icon: 'Factory', showInNavigationMenu: true },
         ],
       },
@@ -267,17 +267,17 @@ export const NAVIGATION = {
         { label: `${BRAND_PREFIX} Regulatory Information Management (RIM)`, href: '/solutions/regulatory-information-management', icon: 'FileText' },
       ],
     },
-    {
-      heading: 'Life Sciences',
-      description: 'Solutions for pharma, biotech, and clinical research',
-      icon: 'FlaskConical',
-      links: [
-        { label: `${BRAND_PREFIX} ETMF`, href: '/solutions/etmf', icon: 'FileText' },
-        { label: `${BRAND_PREFIX} Randomization and Trial Supply Management`, href: '/solutions/rtsm', icon: 'Package' },
-        { label: `${BRAND_PREFIX} Drug Discovery`, href: '/solutions/drug-discovery', icon: 'FlaskConical' },
-        { label: `${BRAND_PREFIX} Laboratory Information Management Systems (LIMS)`, href: '/solutions/lims', icon: 'Microscope' }
-      ],
-    },
+    // {
+    //   heading: 'Life Sciences',
+    //   description: 'Solutions for pharma, biotech, and clinical research',
+    //   icon: 'FlaskConical',
+    //   links: [
+    //     { label: `${BRAND_PREFIX} ETMF`, href: '/solutions/etmf', icon: 'FileText' },
+    //     { label: `${BRAND_PREFIX} Randomization and Trial Supply Management`, href: '/solutions/rtsm', icon: 'Package' },
+    //     { label: `${BRAND_PREFIX} Drug Discovery`, href: '/solutions/drug-discovery', icon: 'FlaskConical' },
+    //     { label: `${BRAND_PREFIX} Laboratory Information Management Systems (LIMS)`, href: '/solutions/lims', icon: 'Microscope' }
+    //   ],
+    // },
     {
       heading: 'Manufacturing & Supply Chain',
       description: 'Manufacturing and supply chain management systems',
@@ -285,7 +285,7 @@ export const NAVIGATION = {
       links: [
         { label: `${BRAND_PREFIX} Electronic Batch Records (EBR)`, href: '/solutions/electronic-batch-records', icon: 'FileSignature' },
         { label: `${BRAND_PREFIX} Manufacturing Execution Systems (MES)`, href: '/solutions/mes', icon: 'Factory' },
-        { label: `${BRAND_PREFIX} Manufacturing Operations Management (MOM)`, href: '/solutions/manufacturing-operations-management', icon: 'Layers' },
+        // { label: `${BRAND_PREFIX} Manufacturing Operations Management (MOM)`, href: '/solutions/manufacturing-operations-management', icon: 'Layers' },
         { label: `${BRAND_PREFIX} Supply Chain Management (SCM)`, href: '/solutions/supply-chain-management', icon: 'Truck' },
         { label: `${BRAND_PREFIX} Warehouse Management Systems (WMS)`, href: '/solutions/warehouse-management-systems', icon: 'Warehouse' }
       ],
